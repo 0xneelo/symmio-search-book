@@ -47,7 +47,7 @@ Run:
 node src/search-book/scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-06-30 OpenAI-backed live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, with 16 measured calls, 93,868 input tokens, 8,615 output tokens, and an estimated cost of $0.01924920. `llmProductionReady` intentionally remains false until service-environment credentials, public frontend/deploy wiring, remaining operator source decisions, and Discord/Lafa import are complete.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-07-01 OpenAI-backed live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, with 16 measured calls, 95,037 input tokens, 8,264 output tokens, and an estimated cost of $0.01921395. `llmProductionReady` intentionally remains false until the production VPS service env is installed, public frontend/deploy wiring is selected, and Discord/Lafa import completes from a readable export file.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should rerun those checks against actual model responses before production launch and after source-corpus changes.
 
@@ -56,7 +56,7 @@ The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and 
 Run a grounded local answer without a model call:
 
 ```sh
-node src/search-book/scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --json
+node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --json
 ```
 
 Run model-backed synthesis only when these environment variables are set in the runtime environment:

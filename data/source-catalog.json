@@ -1,20 +1,21 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "SOURCES.md",
-  "totalSources": 124,
+  "totalSources": 127,
   "byGroup": {
     "Authored Publication Candidates": 2,
     "Competitive Context": 6,
     "Local Product And Code": 17,
-    "Public Vibe Sources": 32,
+    "Public Vibe Sources": 33,
     "Local Specs": 12,
-    "Public Symmio Sources": 42,
+    "Public Symmio Sources": 44,
     "Linear Research": 13
   },
   "byKind": {
-    "repo-local": 31,
+    "note": 4,
     "repo-pattern": 1,
-    "public-url": 77,
+    "repo-local": 27,
+    "public-url": 80,
     "absolute-local": 2,
     "linear": 13
   },
@@ -22,15 +23,15 @@
   "sources": [
     {
       "key": "authored-index",
-      "source": "src/search-book/data/authored-pages.json",
+      "source": "data/authored-pages.json",
       "use": "Prototype search/index payload for authored pages.",
       "group": "Authored Publication Candidates",
-      "kind": "repo-local",
-      "href": "../../src/search-book/data/authored-pages.json"
+      "kind": "note",
+      "href": ""
     },
     {
       "key": "authored-pages",
-      "source": "src/search-book/content/authored/**",
+      "source": "content/authored/**",
       "use": "Hand-shaped publication-candidate pages built from the registered primary sources above.",
       "group": "Authored Publication Candidates",
       "kind": "repo-pattern",
@@ -38,19 +39,19 @@
     },
     {
       "key": "competitive-sweep-batch-01",
-      "source": "src/search-book/data/competitive-sweep.json",
+      "source": "data/competitive-sweep.json",
       "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion.",
       "group": "Competitive Context",
-      "kind": "repo-local",
-      "href": "../../src/search-book/data/competitive-sweep.json"
+      "kind": "note",
+      "href": ""
     },
     {
       "key": "competitive-sweep-synthesis",
-      "source": "src/search-book/content/authored/manifesto/competitive-docs-benchmark.md",
+      "source": "content/authored/manifesto/competitive-docs-benchmark.md",
       "use": "Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid.",
       "group": "Competitive Context",
-      "kind": "repo-local",
-      "href": "../../src/search-book/content/authored/manifesto/competitive-docs-benchmark.md"
+      "kind": "note",
+      "href": ""
     },
     {
       "key": "dashboard-app",
@@ -134,11 +135,11 @@
     },
     {
       "key": "discord-ingestion-contract",
-      "source": "src/search-book/data/discord-corpus.json",
+      "source": "data/discord-corpus.json",
       "use": "Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus.",
       "group": "Local Product And Code",
-      "kind": "repo-local",
-      "href": "../../src/search-book/data/discord-corpus.json"
+      "kind": "note",
+      "href": ""
     },
     {
       "key": "goldsky-graphql-endpoints",
@@ -445,12 +446,28 @@
       "href": "https://github.com/SYMM-IO/docs"
     },
     {
+      "key": "symmio-foundation-clearing-layers",
+      "source": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers",
+      "use": "Symmio Foundation clearing-layer companion source for settlement and verification boundaries around Meta-Solvers.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers"
+    },
+    {
       "key": "symmio-foundation-docs",
       "source": "https://docs.symmio.foundation/",
       "use": "SYMMIO Foundation docs, token/economy context, and ecosystem-level governance/foundation material.",
       "group": "Public Symmio Sources",
       "kind": "public-url",
       "href": "https://docs.symmio.foundation/"
+    },
+    {
+      "key": "symmio-foundation-metasolver",
+      "source": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers",
+      "use": "Symmio Foundation Meta-Solvers source defining localized order-matching nodes, global arbitrage, and the long-term clearing-layer direction.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers"
     },
     {
       "key": "symmio-frontend-builder",
@@ -989,6 +1006,14 @@
       "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md"
     },
     {
+      "key": "vibe-trading-notion",
+      "source": "https://vibe-trading.notion.site/Turning-your-perpetual-listing-into-a-Perpetual-Bid-24ebff5b367a80519db4fa0317dcf3d5",
+      "use": "Operator-provided Vibe Trading Notion workspace page and child pitch pages, fetched through the Notion MCP with a paraphrase-only public-use boundary.",
+      "group": "Public Vibe Sources",
+      "kind": "public-url",
+      "href": "https://vibe-trading.notion.site/Turning-your-perpetual-listing-into-a-Perpetual-Bid-24ebff5b367a80519db4fa0317dcf3d5"
+    },
+    {
       "key": "vibe-trading-program",
       "source": "https://docs.vibe.trading/trading/trading-program.md",
       "use": "Pre-TGE trading leaderboard points, daily points pool, reset time, and rank bands.",
@@ -1016,15 +1041,15 @@
   "sourceByKey": {
     "authored-index": {
       "key": "authored-index",
-      "source": "src/search-book/data/authored-pages.json",
+      "source": "data/authored-pages.json",
       "use": "Prototype search/index payload for authored pages.",
       "group": "Authored Publication Candidates",
-      "kind": "repo-local",
-      "href": "../../src/search-book/data/authored-pages.json"
+      "kind": "note",
+      "href": ""
     },
     "authored-pages": {
       "key": "authored-pages",
-      "source": "src/search-book/content/authored/**",
+      "source": "content/authored/**",
       "use": "Hand-shaped publication-candidate pages built from the registered primary sources above.",
       "group": "Authored Publication Candidates",
       "kind": "repo-pattern",
@@ -1032,19 +1057,19 @@
     },
     "competitive-sweep-batch-01": {
       "key": "competitive-sweep-batch-01",
-      "source": "src/search-book/data/competitive-sweep.json",
+      "source": "data/competitive-sweep.json",
       "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion.",
       "group": "Competitive Context",
-      "kind": "repo-local",
-      "href": "../../src/search-book/data/competitive-sweep.json"
+      "kind": "note",
+      "href": ""
     },
     "competitive-sweep-synthesis": {
       "key": "competitive-sweep-synthesis",
-      "source": "src/search-book/content/authored/manifesto/competitive-docs-benchmark.md",
+      "source": "content/authored/manifesto/competitive-docs-benchmark.md",
       "use": "Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid.",
       "group": "Competitive Context",
-      "kind": "repo-local",
-      "href": "../../src/search-book/content/authored/manifesto/competitive-docs-benchmark.md"
+      "kind": "note",
+      "href": ""
     },
     "dashboard-app": {
       "key": "dashboard-app",
@@ -1128,11 +1153,11 @@
     },
     "discord-ingestion-contract": {
       "key": "discord-ingestion-contract",
-      "source": "src/search-book/data/discord-corpus.json",
+      "source": "data/discord-corpus.json",
       "use": "Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus.",
       "group": "Local Product And Code",
-      "kind": "repo-local",
-      "href": "../../src/search-book/data/discord-corpus.json"
+      "kind": "note",
+      "href": ""
     },
     "goldsky-graphql-endpoints": {
       "key": "goldsky-graphql-endpoints",
@@ -1438,6 +1463,14 @@
       "kind": "public-url",
       "href": "https://github.com/SYMM-IO/docs"
     },
+    "symmio-foundation-clearing-layers": {
+      "key": "symmio-foundation-clearing-layers",
+      "source": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers",
+      "use": "Symmio Foundation clearing-layer companion source for settlement and verification boundaries around Meta-Solvers.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers"
+    },
     "symmio-foundation-docs": {
       "key": "symmio-foundation-docs",
       "source": "https://docs.symmio.foundation/",
@@ -1445,6 +1478,14 @@
       "group": "Public Symmio Sources",
       "kind": "public-url",
       "href": "https://docs.symmio.foundation/"
+    },
+    "symmio-foundation-metasolver": {
+      "key": "symmio-foundation-metasolver",
+      "source": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers",
+      "use": "Symmio Foundation Meta-Solvers source defining localized order-matching nodes, global arbitrage, and the long-term clearing-layer direction.",
+      "group": "Public Symmio Sources",
+      "kind": "public-url",
+      "href": "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers"
     },
     "symmio-frontend-builder": {
       "key": "symmio-frontend-builder",
@@ -1981,6 +2022,14 @@
       "group": "Public Vibe Sources",
       "kind": "public-url",
       "href": "https://docs.vibe.trading/trading/take-profit-stop-loss-tp-sl.md"
+    },
+    "vibe-trading-notion": {
+      "key": "vibe-trading-notion",
+      "source": "https://vibe-trading.notion.site/Turning-your-perpetual-listing-into-a-Perpetual-Bid-24ebff5b367a80519db4fa0317dcf3d5",
+      "use": "Operator-provided Vibe Trading Notion workspace page and child pitch pages, fetched through the Notion MCP with a paraphrase-only public-use boundary.",
+      "group": "Public Vibe Sources",
+      "kind": "public-url",
+      "href": "https://vibe-trading.notion.site/Turning-your-perpetual-listing-into-a-Perpetual-Bid-24ebff5b367a80519db4fa0317dcf3d5"
     },
     "vibe-trading-program": {
       "key": "vibe-trading-program",

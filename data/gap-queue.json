@@ -10,7 +10,7 @@
   "status": "prototype-gap-queue",
   "totalItems": 12,
   "totalQuestionSignals": 2,
-  "totalOperatorSignals": 7,
+  "totalOperatorSignals": 3,
   "totalParkedPageSignals": 2,
   "missingQuestionGapIds": [],
   "missingOperatorGapIds": [],
@@ -23,30 +23,30 @@
   },
   "byCategory": {
     "Production Answer Engine": 1,
-    "Discord Import": 1,
     "Rewards And Referrals": 1,
+    "Discord Import": 1,
     "Revenue": 1,
-    "Origin And Whitepapers": 1,
     "Options And Settlement": 1,
     "Editorial Production": 1,
     "Data And Volume": 1,
+    "Origin And Whitepapers": 1,
     "Terminology": 1,
-    "General": 1,
     "Research Sweep": 1,
-    "Publication Freshness": 1
+    "Publication Freshness": 1,
+    "General": 1
   },
   "byStatus": {
-    "operator-parked": 4,
-    "resolved": 6,
+    "operator-parked": 1,
+    "resolved": 9,
     "open": 2
   },
   "topItems": [
     "queue-g-010",
-    "queue-g-001",
     "queue-g-003",
+    "queue-g-001",
     "queue-g-004",
-    "queue-g-007",
-    "queue-g-008"
+    "queue-g-008",
+    "queue-g-002a"
   ],
   "items": [
     {
@@ -98,96 +98,15 @@
       "linkedOperatorItems": [
         {
           "id": 11,
-          "title": "Production LLM provider, model, and API credentials for answer synthesis",
-          "need": "Provide the production `SEARCH_BOOK_LLM_MODEL` and `SEARCH_BOOK_LLM_API_KEY` in the service environment.",
-          "blocks": "Live model-backed answer synthesis, production prompt-injection execution against real model responses, and marking `llmProductionReady` true."
+          "title": "Production VPS LLM/service env install",
+          "need": "Install the complete Search Book production service environment at `/etc/symmio-search-book/search-book.env`, including the OpenAI-compatible LLM settings already present locally plus production DB/default-mode/origin settings.",
+          "blocks": "`llmProductionReady`, production model-backed answer synthesis, production prompt-injection execution against live model responses, and production launch preflight."
         },
         {
           "id": 4,
           "title": "Final docs platform and repository owner decision",
-          "need": "Decide the public frontend platform/repo and deploy route for production docs.",
-          "blocks": "Final production frontend scaffold, deploy automation, and public preview URL."
-        }
-      ],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-001",
-      "gapId": "G-001",
-      "title": "Discord Source Mining Is Blocked",
-      "type": "documented-gap",
-      "status": "operator-parked",
-      "priority": "P0",
-      "priorityScore": 117,
-      "category": "Discord Import",
-      "summary": "The prompt asks to mine Discord, especially Lafa answers and repeated support questions. This environment does not have Discord export access. The prototype seeds a question list from local FAQ and source docs only.",
-      "needed": "Discord export or channel/API access, channel list, date range, Lafa author identity, and permission to cite, paraphrase, use internally, or exclude the corpus.",
-      "resolved": false,
-      "sourceKeys": [
-        "spec-04",
-        "spec-06",
-        "spec-07"
-      ],
-      "sources": [
-        {
-          "key": "spec-04",
-          "group": "Local Specs",
-          "use": "Required source families.",
-          "href": "../../_specs/app-docs/04-sources.md",
-          "missing": false
-        },
-        {
-          "key": "spec-06",
-          "group": "Local Specs",
-          "use": "Ask/rate/ask-again loop.",
-          "href": "../../_specs/app-docs/06-answer-engine.md",
-          "missing": false
-        },
-        {
-          "key": "spec-07",
-          "group": "Local Specs",
-          "use": "Session 1 research gate.",
-          "href": "../../_specs/app-docs/07-research-session.md",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "authored-dashboard-faq",
-        "authored-search-insights-loop"
-      ],
-      "relatedPages": [
-        {
-          "id": "authored-dashboard-faq",
-          "title": "Dashboard FAQ",
-          "section": "dashboard-reference",
-          "track": "Dashboard Views",
-          "status": "published",
-          "routeSource": "authored"
-        },
-        {
-          "id": "authored-search-insights-loop",
-          "title": "The Living Docs Loop",
-          "section": "answer-engine",
-          "track": "Search Insights",
-          "status": "published",
-          "routeSource": "authored"
-        }
-      ],
-      "linkedQuestions": [
-        {
-          "id": "gap-which-discord-answers-are-authoritative",
-          "question": "Which Discord answers are authoritative?",
-          "notes": "Discord export missing."
-        }
-      ],
-      "linkedOperatorItems": [
-        {
-          "id": 2,
-          "title": "Discord export and Lafa answer corpus",
-          "need": "Provide relevant Vibe/Symmio Discord export/API access, channel list/date range, Lafa author identity, and public-use boundary for citation, paraphrase, internal-only use, or exclusion.",
-          "blocks": "Discord-derived FAQ pages, support-question clustering, and final gap report."
+          "need": "Decide the public frontend platform/repo owner and deploy route for production docs.",
+          "blocks": "Final production frontend scaffold, deploy automation, public preview URL, and production CORS origin configuration."
         }
       ],
       "linkedParkedPages": [],
@@ -350,6 +269,80 @@
       "missingSourceKeys": []
     },
     {
+      "id": "queue-g-001",
+      "gapId": "G-001",
+      "title": "Discord Source Mining Is Provided, Import Pending Readable Export",
+      "type": "documented-gap",
+      "status": "resolved",
+      "priority": "P0",
+      "priorityScore": 105,
+      "category": "Discord Import",
+      "summary": "The prompt asks to mine Discord, especially Lafa answers and repeated support questions. Operator reconciliation on 2026-07-01 marks Discord access/export as provided and resolves OPERATOR-INBOX #2. Do not re-open #2.",
+      "needed": "Close/finish DiscordChatExporter or provide a readable copy of the existing export, then run the importer and review the generated clusters/Lafa candidates.",
+      "resolved": true,
+      "sourceKeys": [
+        "spec-04",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "spec-04",
+          "group": "Local Specs",
+          "use": "Required source families.",
+          "href": "../../_specs/app-docs/04-sources.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "authored-dashboard-faq",
+        "authored-search-insights-loop"
+      ],
+      "relatedPages": [
+        {
+          "id": "authored-dashboard-faq",
+          "title": "Dashboard FAQ",
+          "section": "dashboard-reference",
+          "track": "Dashboard Views",
+          "status": "published",
+          "routeSource": "authored"
+        },
+        {
+          "id": "authored-search-insights-loop",
+          "title": "The Living Docs Loop",
+          "section": "answer-engine",
+          "track": "Search Insights",
+          "status": "published",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [
+        {
+          "id": "gap-which-discord-answers-are-authoritative",
+          "question": "Which Discord answers are authoritative?",
+          "notes": "Discord export missing."
+        }
+      ],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
       "id": "queue-g-004",
       "gapId": "G-004",
       "title": "Revenue Phase A Versus Phase B Public Wording Is Resolved For v1",
@@ -447,73 +440,6 @@
       ],
       "linkedQuestions": [],
       "linkedOperatorItems": [],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
-      "id": "queue-g-007",
-      "gapId": "G-007",
-      "title": "Symmio Whitepaper History Is Not Fully Mined",
-      "type": "documented-gap",
-      "status": "operator-parked",
-      "priority": "P1",
-      "priorityScore": 82,
-      "category": "Origin And Whitepapers",
-      "summary": "The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is registered as a history/source-control starting point. Official Git evidence now confirms that SYMM-IO/protocol-core starts on 2023-06-13, SYMM-IO/docs starts on 2023-08-22, and the first located whitepaper file in the official docs repo is Whitepaper/SYMMIO_paper_0_8.pdf, added on 2023-11-16 by commit e1715f85768b7f06933e91e41568422591729e16.",
-      "needed": "Exact original whitepaper artifact, version-history comparison before v0.8 if it exists, and any archived docs outside the current official repositories.",
-      "resolved": false,
-      "sourceKeys": [
-        "spec-02",
-        "symmio-whitepaper"
-      ],
-      "sources": [
-        {
-          "key": "spec-02",
-          "group": "Local Specs",
-          "use": "Narrative thesis and required topics.",
-          "href": "../../_specs/app-docs/02-narrative-thesis.md",
-          "missing": false
-        },
-        {
-          "key": "symmio-whitepaper",
-          "group": "Public Symmio Sources",
-          "use": "Current Symmio whitepaper page, v0.8 PDF pointer, and work-in-progress boundary for whitepaper/protocol claims.",
-          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
-          "missing": false
-        }
-      ],
-      "relatedPageIds": [
-        "symmio-whitepaper",
-        "authored-symmio-party-a-party-b"
-      ],
-      "relatedPages": [
-        {
-          "id": "symmio-whitepaper",
-          "title": "Symmio Whitepaper",
-          "section": "security",
-          "track": "security",
-          "status": "source-mapped",
-          "routeSource": "generated"
-        },
-        {
-          "id": "authored-symmio-party-a-party-b",
-          "title": "PartyA And PartyB",
-          "section": "protocol-reference",
-          "track": "Symmio Core",
-          "status": "published",
-          "routeSource": "authored"
-        }
-      ],
-      "linkedQuestions": [],
-      "linkedOperatorItems": [
-        {
-          "id": 6,
-          "title": "Original/oldest Symmio whitepaper artifact",
-          "need": "Scrape or otherwise recover the exact original/oldest Symmio whitepaper and any archived earliest-docs source that should support the origin-story section.",
-          "blocks": "Final source-completeness claim for the Symmio origin story and any oldest-to-current whitepaper comparison."
-        }
-      ],
       "linkedParkedPages": [],
       "missingRelatedPageIds": [],
       "missingSourceKeys": []
@@ -676,7 +602,7 @@
       "priority": "P1",
       "priorityScore": 70,
       "category": "Editorial Production",
-      "summary": "The manifest maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is now book-scale and launch-classified: data/page-state-registry.* reports 799 authored pages, 798 published public-navigation pages, 0 candidate pages, 792 source companions, and 3 internal drafts. The public compendium spans the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, Neelo DDQ solver-risk material, the SYMM LP case-study layer, referral architecture, rewards and tokenized-points boundaries, and local product-reference mechanics. Source companions remain retrieval and traceability material, not public navigation pages.",
+      "summary": "The manifest maps 794 pages, mostly from Neelo's vision corpus plus protocol/product companions. The authored layer is now book-scale and launch-classified: data/authored-pages.* reports 801 authored pages, while data/page-state-registry.* reports 800 published public-navigation pages, 0 candidate pages, 792 source companions, and 3 internal drafts. The public compendium spans the strongest Neelo thesis material, official Symmio protocol mechanics, official Vibe trading guides, Neelo DDQ solver-risk material, the SYMM LP case-study layer, referral architecture, rewards and tokenized-points boundaries, and local product-reference mechanics. Source companions remain retrieval and traceability material, not public navigation pages.",
       "needed": "Keep source companions out of public navigation, keep internal drafts out of answer synthesis, and keep the generated retrieval layer synchronized as sources or operator decisions change.",
       "resolved": false,
       "sourceKeys": [
@@ -813,6 +739,66 @@
       "missingSourceKeys": []
     },
     {
+      "id": "queue-g-007",
+      "gapId": "G-007",
+      "title": "Symmio Whitepaper History Is De-Scoped For v1",
+      "type": "documented-gap",
+      "status": "resolved",
+      "priority": "P1",
+      "priorityScore": 70,
+      "category": "Origin And Whitepapers",
+      "summary": "The public GitBook page points to the whitepaper and protocol docs, and the SYMM-IO GitHub docs repository is registered as a history/source-control starting point. Official Git evidence now confirms that SYMM-IO/protocol-core starts on 2023-06-13, SYMM-IO/docs starts on 2023-08-22, and the first located whitepaper file in the official docs repo is Whitepaper/SYMMIO_paper_0_8.pdf, added on 2023-11-16 by commit e1715f85768b7f06933e91e41568422591729e16.",
+      "needed": "",
+      "resolved": true,
+      "sourceKeys": [
+        "spec-02",
+        "symmio-whitepaper"
+      ],
+      "sources": [
+        {
+          "key": "spec-02",
+          "group": "Local Specs",
+          "use": "Narrative thesis and required topics.",
+          "href": "../../_specs/app-docs/02-narrative-thesis.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-whitepaper",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio whitepaper page, v0.8 PDF pointer, and work-in-progress boundary for whitepaper/protocol claims.",
+          "href": "https://docs.symm.io/security-and-architecture/symmio-whitepaper.md",
+          "missing": false
+        }
+      ],
+      "relatedPageIds": [
+        "symmio-whitepaper",
+        "authored-symmio-party-a-party-b"
+      ],
+      "relatedPages": [
+        {
+          "id": "symmio-whitepaper",
+          "title": "Symmio Whitepaper",
+          "section": "security",
+          "track": "security",
+          "status": "source-mapped",
+          "routeSource": "generated"
+        },
+        {
+          "id": "authored-symmio-party-a-party-b",
+          "title": "PartyA And PartyB",
+          "section": "protocol-reference",
+          "track": "Symmio Core",
+          "status": "published",
+          "routeSource": "authored"
+        }
+      ],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
       "id": "queue-g-009",
       "gapId": "G-009",
       "title": "Public Versus Internal Terminology Needs Owner Review",
@@ -907,35 +893,6 @@
       "missingSourceKeys": []
     },
     {
-      "id": "queue-g-011",
-      "gapId": "G-011",
-      "title": "Vibe Trading Notion Is Not Ingested",
-      "type": "documented-gap",
-      "status": "operator-parked",
-      "priority": "P2",
-      "priorityScore": 52,
-      "category": "General",
-      "summary": "The source spec names the Vibe Trading Notion workspace as a required working source. This repository has public Vibe docs, Neelo's GitHub corpus, local code, and Linear-derived facts, but no Notion export or readable local copy.",
-      "needed": "Notion export or shared read access, plus publication rules for quoting, paraphrasing, or internal-only synthesis.",
-      "resolved": false,
-      "sourceKeys": [],
-      "sources": [],
-      "relatedPageIds": [],
-      "relatedPages": [],
-      "linkedQuestions": [],
-      "linkedOperatorItems": [
-        {
-          "id": 5,
-          "title": "Vibe Trading Notion export or read access",
-          "need": "Ingest the provided Vibe Trading Notion workspace link at `https://vibe-trading.notion.site/?pvs=73`, plus record whether its content may be quoted publicly, paraphrased, or used only for internal synthesis.",
-          "blocks": "Final Vibe product narrative, roadmap-sensitive reference pages, and any final source-completeness claim."
-        }
-      ],
-      "linkedParkedPages": [],
-      "missingRelatedPageIds": [],
-      "missingSourceKeys": []
-    },
-    {
       "id": "queue-g-002",
       "gapId": "G-002",
       "title": "Competitive Sweep Opyn Target Is Excluded",
@@ -964,14 +921,14 @@
           "key": "competitive-sweep-batch-01",
           "group": "Competitive Context",
           "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion.",
-          "href": "../../src/search-book/data/competitive-sweep.json",
+          "href": "",
           "missing": false
         },
         {
           "key": "competitive-sweep-synthesis",
           "group": "Competitive Context",
           "use": "Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid.",
-          "href": "../../src/search-book/content/authored/manifesto/competitive-docs-benchmark.md",
+          "href": "",
           "missing": false
         }
       ],
@@ -1040,6 +997,28 @@
           "routeSource": "generated"
         }
       ],
+      "linkedQuestions": [],
+      "linkedOperatorItems": [],
+      "linkedParkedPages": [],
+      "missingRelatedPageIds": [],
+      "missingSourceKeys": []
+    },
+    {
+      "id": "queue-g-011",
+      "gapId": "G-011",
+      "title": "Vibe Trading Notion Is Ingested Paraphrase-Only",
+      "type": "documented-gap",
+      "status": "resolved",
+      "priority": "P2",
+      "priorityScore": 40,
+      "category": "General",
+      "summary": "The source spec names the Vibe Trading Notion workspace as a required working source. Operator reconciliation on 2026-07-01 confirms access is installed through the Notion MCP. The Vibe Trading workspace root and the \"Turning your perpetual listing into a Perpetual Bid\" child pages were fetched through Claude's Notion MCP and registered as vibe-trading-notion.",
+      "needed": "",
+      "resolved": true,
+      "sourceKeys": [],
+      "sources": [],
+      "relatedPageIds": [],
+      "relatedPages": [],
       "linkedQuestions": [],
       "linkedOperatorItems": [],
       "linkedParkedPages": [],

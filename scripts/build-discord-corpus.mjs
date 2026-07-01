@@ -10,6 +10,7 @@ const searchBookRoot = path.resolve(__dirname, "..");
 
 const defaults = {
   questions: path.join(searchBookRoot, "QUESTIONS.md"),
+  operatorInbox: path.join(searchBookRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   outJson: path.join(searchBookRoot, "data", "discord-corpus.json"),
   outJs: path.join(searchBookRoot, "data", "discord-corpus.js"),
 };
@@ -39,6 +40,7 @@ function parseArgs(argv) {
     else if (arg === "--publication-mode") args.publicationMode = argv[++index];
     else if (arg === "--store-content") args.storeContent = true;
     else if (arg === "--questions") args.questions = argv[++index];
+    else if (arg === "--operator-inbox") args.operatorInbox = argv[++index];
     else if (arg === "--out-json") args.outJson = argv[++index];
     else if (arg === "--out-js") args.outJs = argv[++index];
     else if (arg === "--help") {
@@ -112,6 +114,14 @@ function parseSeededTopics(markdown) {
     if (match) topics.push(match[1].trim());
   }
   return unique(topics);
+}
+
+function parseOpenInboxItems(markdown) {
+  const openSection = markdown.split("## Open")[1]?.split("## Resolved")[0] || "";
+  return [...openSection.matchAll(/^### \[OPEN\] #(\d+) — (.+)$/gm)].map((match) => ({
+    id: Number(match[1]),
+    title: match[2].trim(),
+  }));
 }
 
 function parseJsonOrJsonl(filePath) {
@@ -372,22 +382,36 @@ function importContract() {
   };
 }
 
-function buildReport({ args, seededTopics, messages, canStoreContent }) {
+function buildReport({ args, seededTopics, messages, canStoreContent, openInboxItems }) {
   const questionClusters = buildQuestionClusters(messages, seededTopics, canStoreContent);
   const lafaAnswerCandidates = buildLafaAnswerCandidates(messages, canStoreContent);
-  const missingInputs = [
-    ...(messages.length ? [] : ["discord-export-or-api-access"]),
-    ...(args.publicationMode === "unknown" ? ["discord-public-use-boundary"] : []),
-    ...(args.lafaAuthorIds.length ? [] : ["lafa-author-id-map"]),
-  ];
+  const openInboxIds = new Set(openInboxItems.map((item) => item.id));
+  const blockedBy = messages.length
+    ? []
+    : [
+        ...(openInboxIds.has(17) ? ["OPERATOR-INBOX #17"] : []),
+        ...(openInboxIds.has(2) ? ["OPERATOR-INBOX #2"] : []),
+      ];
+  const missingInputs = messages.length
+    ? [
+        ...(args.publicationMode === "unknown" ? ["discord-public-use-boundary"] : []),
+        ...(args.lafaAuthorIds.length ? [] : ["lafa-author-id-map"]),
+      ]
+    : openInboxIds.has(17)
+      ? ["readable-discord-export-file"]
+      : ["discord-export-or-api-access"];
   return {
     generatedAt: "deterministic-build",
-    status: messages.length ? "imported-needs-review" : "parked-missing-discord-export",
+    status: messages.length
+      ? "imported-needs-review"
+      : openInboxIds.has(17)
+        ? "parked-discord-export-file-unreadable"
+        : "parked-missing-discord-export",
     importContractReady: true,
     apiScraperReady: true,
     corpusReady: messages.length > 0 && !missingInputs.length,
     sourceCompletionReady: false,
-    blockedBy: ["OPERATOR-INBOX #2"],
+    blockedBy,
     sourceKey: "discord-ingestion-contract",
     publicationMode: args.publicationMode,
     storesMessageText: canStoreContent,
@@ -438,6 +462,7 @@ function writeOutputs(report, args) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const seededTopics = parseSeededTopics(readText(args.questions));
+  const openInboxItems = parseOpenInboxItems(readText(args.operatorInbox));
   const payloads = args.inputs.flatMap((input) => messagesFromPayload(parseJsonOrJsonl(input), input));
   const apiPayloads = args.fromApi ? messagesFromPayload(await fetchDiscordMessages(args), "discord-api") : [];
   const messages = [...payloads, ...apiPayloads]
@@ -446,7 +471,7 @@ async function main() {
     .sort((a, b) => String(a.timestamp).localeCompare(String(b.timestamp)) || a.id.localeCompare(b.id))
     .slice(0, args.maxMessages);
   const canStoreContent = args.storeContent || args.publicationMode === "cite" || args.publicationMode === "paraphrase";
-  writeOutputs(buildReport({ args, seededTopics, messages, canStoreContent }), args);
+  writeOutputs(buildReport({ args, seededTopics, messages, canStoreContent, openInboxItems }), args);
 }
 
 main().catch((error) => {

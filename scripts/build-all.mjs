@@ -235,7 +235,13 @@ function runInvariants() {
 
   const discord = readJson("data/discord-corpus.json");
   assert(discord.importContractReady && discord.apiScraperReady, "Discord import contract is not ready");
-  assert(!discord.corpusReady && discord.totals.importedMessages === 0 && discord.totals.seededTopics >= 1, "Discord parked state changed unexpectedly");
+  const discordParked = !discord.corpusReady && discord.totals.importedMessages === 0 && discord.totals.seededTopics >= 1;
+  const discordImported =
+    discord.corpusReady &&
+    discord.totals.importedMessages > 0 &&
+    discord.totals.questionClusters >= 1 &&
+    discord.publicationMode !== "unknown";
+  assert(discordParked || discordImported, "Discord corpus state is invalid");
 
   const gaps = readJson("data/gap-queue.json");
   assert(!gaps.missingQuestionGapIds.length && !gaps.missingRelatedPageIds.length && !gaps.missingSourceKeys.length, "gap queue has unresolved references");
@@ -295,7 +301,10 @@ function runInvariants() {
 
   const ingestion = readJson("data/source-ingestion.json");
   assert(!ingestion.duplicateRequirementIds.length && !ingestion.invalidParkedRequirements.length && ingestion.totalSourceRequirements >= 12, "source-ingestion map is invalid");
-  assert(!ingestion.sourceCompletionReady, "source-ingestion readiness should remain parked until open source families resolve");
+  assert(
+    ingestion.sourceCompletionReady || (ingestion.byStatus.parked || 0) > 0 || (ingestion.byStatus.partial || 0) > 0 || (ingestion.byStatus.missing || 0) > 0,
+    "source-ingestion readiness/state is invalid",
+  );
 
   const crosslinks = readJson("data/crosslinks.json");
   assert(!crosslinks.missingExplicitRelatedPageIds.length && crosslinks.totalPages >= 800, "crosslinks are incomplete");

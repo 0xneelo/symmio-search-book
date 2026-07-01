@@ -254,6 +254,9 @@ const crosslinks = fs.existsSync(args.crosslinks)
   : { totalPages: 0, pagesWithPrevious: 0, pagesWithNext: 0, pagesWithRelated: 0, missingExplicitRelatedPageIds: [], duplicatePageIds: [], pageById: {} };
 const navigation = readJson(args.navigationTree);
 const contentStats = readJson(args.contentStats);
+const discordCorpus = fs.existsSync(path.join(searchBookRoot, "data", "discord-corpus.json"))
+  ? readJson(path.join(searchBookRoot, "data", "discord-corpus.json"))
+  : { corpusReady: false, totals: { importedMessages: 0, questionClusters: 0, lafaAnswerCandidates: 0 } };
 const registryMarkdown = readText(args.sourceRegistry);
 const gapMarkdown = readText(args.gaps);
 const questionMarkdown = readText(args.questions);
@@ -699,8 +702,11 @@ const gates = [
   {
     id: "discord",
     label: "Discord/Lafa corpus imported",
-    passed: !openInboxItems.some((item) => /Discord|Lafa/i.test(item.title)),
-    detail: openInboxItems.some((item) => /Discord|Lafa/i.test(item.title)) ? "Discord/Lafa corpus remains parked in OPERATOR-INBOX" : "No open Discord/Lafa inbox item",
+    passed: discordCorpus.corpusReady === true,
+    detail:
+      discordCorpus.corpusReady === true
+        ? `${discordCorpus.totals?.importedMessages || 0} messages, ${discordCorpus.totals?.questionClusters || 0} question clusters, ${discordCorpus.totals?.lafaAnswerCandidates || 0} Lafa candidates`
+        : `${discordCorpus.totals?.importedMessages || 0} messages imported; readable export/corpus review still pending`,
   },
 ];
 

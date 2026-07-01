@@ -18,7 +18,7 @@ That changes the competitive frame. A new market does not need to pretend it alr
 
 This is why the compendium should avoid the lazy "Vibe versus order books" story. Order books remain the efficient destination for markets that have earned enough liquidity. Vibe's role is earlier: generate the proof that the market should exist, then help the best markets graduate.
 
-The source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order-book graduation. That claim needs final owner/source review because the broader SSHE source family remains unresolved. The documented principle is still useful: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity.
+The source also frames SSHE as an intermediate or fallback layer for markets that are too early, too expensive, or too structurally awkward for direct external order-book graduation. The v1 SSHE source boundary is now resolved as the registered SuperFlow/SHE OpenAPI source plus Symmio Foundation Meta-Solvers and Clearing Layers context. That supports the optionality principle without turning it into a confirmed product integration: a serious market lifecycle should have optionality between pure bootstrap mode and full CLOB maturity.
 
 ## Publication Boundary
 

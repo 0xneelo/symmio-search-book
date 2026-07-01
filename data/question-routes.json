@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 798,
+  "totalRoutes": 799,
   "totalReconciliationQuestions": 2,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 499,
+    "Medium": 500,
     "High": 46,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 798
+    "authored": 799
   },
   "answerable": [
     {
@@ -85,7 +85,7 @@
       "pageStatus": "published",
       "routeSource": "authored",
       "confidence": "Medium",
-      "notes": "Official GitHub evidence currently starts with protocol-core on 2023-06-13, docs on 2023-08-22, and the SYMMIO paper v0.8 PDF on 2023-11-16; the exact original/oldest artifact remains parked.",
+      "notes": "Official GitHub evidence currently starts with protocol-core on 2023-06-13, docs on 2023-08-22, and the SYMMIO paper v0.8 PDF on 2023-11-16; exact original/oldest artifact recovery is out of scope for v1.",
       "sourceKeys": [
         "symm-io-protocol-core-initial-commit",
         "symm-io-protocol-core-readme",
@@ -294,6 +294,26 @@
         "vibe-papers",
         "symmio-core",
         "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-explain-the-canonical-sshe-docs-named-in-the-source-plan",
+      "question": "Explain the canonical SSHE docs named in the source plan.",
+      "normalizedQuestion": "explain the canonical sshe docs named in the source plan",
+      "pageId": "authored-symmio-meta-solvers-clearing-layers",
+      "pageTitle": "Symmio Meta-Solvers And Clearing Layers",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Source Ingestion",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The reconciled v1 SSHE boundary is the SuperFlow/SHE OpenAPI source plus Symmio Foundation Meta-Solvers and Clearing Layers context; this is sufficient for v1 source completeness but not a live Vibe integration contract.",
+      "sourceKeys": [
+        "superflow-she-openapi",
+        "symmio-foundation-metasolver",
+        "symmio-foundation-clearing-layers",
+        "spec-04"
       ],
       "missing": false
     },
@@ -13884,9 +13904,11 @@
       "pageStatus": "published",
       "routeSource": "authored",
       "confidence": "Low",
-      "notes": "The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; it does not identify SSHE or prove Vibe production integration.",
+      "notes": "The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; paired with Meta-Solvers and Clearing Layers, it forms the v1 SSHE source boundary without proving Vibe production integration.",
       "sourceKeys": [
         "superflow-she-openapi",
+        "symmio-foundation-metasolver",
+        "symmio-foundation-clearing-layers",
         "spec-04"
       ],
       "missing": false

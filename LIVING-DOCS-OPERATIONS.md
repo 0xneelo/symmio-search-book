@@ -1,6 +1,6 @@
 # Search Book Living-Docs Operations
 
-This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
+This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, production VPS service environment, and Discord readable-export import.
 
 ## Operating Boundary
 
@@ -9,7 +9,7 @@ The living-docs loop exists to turn real questions into better docs without weak
 - Every public answer must stay grounded in Search Book pages and citations.
 - Raw user questions, rating notes, moderation exports, and summary outputs are internal reviewer material until privacy review approves publication.
 - The moderation and metrics tokens are server-only. Never place them in `index.html`, static data files, Linear comments, screenshots, docs, or browser-visible config.
-- Operator-blocked topics stay blocked. Do not turn Discord/Lafa, Notion, oldest-whitepaper, SSHE, production credential, or deploy-route gaps into public claims until the matching `OPERATOR-INBOX.md` item is resolved.
+- Operator-blocked topics stay blocked. Do not turn Discord/Lafa messages, production VPS credential setup, or deploy-route gaps into public claims until the matching `OPERATOR-INBOX.md` item is resolved. Notion, oldest-whitepaper v1 scope, and SSHE v1 boundary are resolved; keep their documented public-use boundaries instead of re-opening blockers.
 - Guardrail refusals are product behavior, not content bugs: secret requests, prompt injection, source-family-missing questions, internal-draft requests, financial advice, and Phase B economics should continue refusing unless the approved source boundary changes.
 
 ## Prerequisites

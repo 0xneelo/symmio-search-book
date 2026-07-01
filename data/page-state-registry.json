@@ -35,24 +35,24 @@
     "launchRule": "Production launch must promote final public pages to published, keep candidate pages under review, keep source companions out of public navigation, and keep internal drafts out of answer synthesis.",
     "currentLaunchReady": false
   },
-  "totalPages": 1593,
+  "totalPages": 1595,
   "byState": {
-    "published": 798,
+    "published": 800,
     "internal-draft": 3,
     "source-companion": 792
   },
   "byRouteSource": {
-    "authored": 799,
+    "authored": 801,
     "generated": 794
   },
   "byGranularity": {
-    "authored-page": 799,
+    "authored-page": 801,
     "companion-page": 65,
     "source-page": 188,
     "section-page": 541
   },
   "byStatus": {
-    "published": 798,
+    "published": 800,
     "needs-reconciliation": 3,
     "source-mapped": 63,
     "draft-imported-from-primary-source": 187,
@@ -61,10 +61,10 @@
   },
   "bySection": {
     "manifesto": 479,
-    "product-reference": 51,
+    "product-reference": 52,
     "rewards-referrals": 109,
     "dashboard-reference": 18,
-    "protocol-reference": 146,
+    "protocol-reference": 147,
     "competitive-context": 2,
     "answer-engine": 2,
     "reference": 1,
@@ -101,7 +101,7 @@
       "source-companion": 155
     },
     "volume-07-product-trading-and-risk": {
-      "published": 47,
+      "published": 48,
       "source-companion": 30
     },
     "volume-06-referrals-and-market-formation": {
@@ -115,7 +115,7 @@
       "internal-draft": 1
     },
     "volume-05-solver-lp-and-protocol-operations": {
-      "published": 161,
+      "published": 162,
       "source-companion": 75
     },
     "volume-01-orientation-and-thesis": {
@@ -124,15 +124,15 @@
       "internal-draft": 1
     }
   },
-  "publishedPages": 798,
+  "publishedPages": 800,
   "candidatePages": 0,
-  "publicCandidatePages": 798,
+  "publicCandidatePages": 800,
   "sourceCompanionPages": 792,
   "internalDraftPages": 3,
-  "publicNavigationPages": 798,
-  "retrievalEligiblePages": 1590,
+  "publicNavigationPages": 800,
+  "retrievalEligiblePages": 1592,
   "reviewRequiredPages": 795,
-  "exactQuestionRoutedPages": 787,
+  "exactQuestionRoutedPages": 788,
   "duplicatePageIds": [],
   "unclassifiedPageIds": [],
   "missingVolumeIds": [],
@@ -2471,7 +2471,7 @@
         "spec-07"
       ],
       "sourceUrls": [
-        "src/search-book/data/discord-corpus.json",
+        "data/discord-corpus.json",
         "_specs/app-docs/04-sources.md",
         "_specs/app-docs/06-answer-engine.md",
         "_specs/app-docs/07-research-session.md"
@@ -14720,10 +14720,14 @@
       "questionRouteCount": 1,
       "sourceKeys": [
         "superflow-she-openapi",
+        "symmio-foundation-metasolver",
+        "symmio-foundation-clearing-layers",
         "spec-04"
       ],
       "sourceUrls": [
         "https://dev.superflow.exchange/openapi.json",
+        "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers",
+        "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers",
         "_specs/app-docs/04-sources.md"
       ],
       "classificationReason": "Authored page has passed final publication review."
@@ -15869,6 +15873,36 @@
       ],
       "sourceUrls": [
         "https://docs.symm.io/trader-documentation/how-trading-works-in-symmio/funding-rates.md"
+      ],
+      "classificationReason": "Authored page has passed final publication review."
+    },
+    {
+      "id": "authored-symmio-meta-solvers-clearing-layers",
+      "title": "Symmio Meta-Solvers And Clearing Layers",
+      "section": "protocol-reference",
+      "track": "Source Ingestion",
+      "granularity": "authored-page",
+      "status": "published",
+      "routeSource": "authored",
+      "file": "content/authored/reference/symmio-meta-solvers-clearing-layers.md",
+      "volumeId": "volume-05-solver-lp-and-protocol-operations",
+      "pageState": "published",
+      "launchRole": "final-public-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 1,
+      "sourceKeys": [
+        "superflow-she-openapi",
+        "symmio-foundation-metasolver",
+        "symmio-foundation-clearing-layers",
+        "spec-04"
+      ],
+      "sourceUrls": [
+        "https://dev.superflow.exchange/openapi.json",
+        "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers",
+        "https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers",
+        "_specs/app-docs/04-sources.md"
       ],
       "classificationReason": "Authored page has passed final publication review."
     },
@@ -19713,6 +19747,34 @@
         "https://docs.vibe.trading/trading/fees.md",
         "https://docs.vibe.trading/getting-started/placing-a-simple-trade.md",
         "https://docs.vibe.trading/trading/funding.md"
+      ],
+      "classificationReason": "Authored page has passed final publication review."
+    },
+    {
+      "id": "authored-vibe-trading-notion-perpetual-bid",
+      "title": "Vibe Trading Notion Perpetual Bid Boundary",
+      "section": "product-reference",
+      "track": "Market Creation",
+      "granularity": "authored-page",
+      "status": "published",
+      "routeSource": "authored",
+      "file": "content/authored/reference/vibe-trading-notion-perpetual-bid.md",
+      "volumeId": "volume-07-product-trading-and-risk",
+      "pageState": "published",
+      "launchRole": "final-public-page",
+      "publicNavigationEligible": true,
+      "retrievalEligible": true,
+      "reviewRequired": false,
+      "questionRouteCount": 0,
+      "sourceKeys": [
+        "vibe-trading-notion",
+        "vibe-system-visualization",
+        "vibe-project-listing-terms"
+      ],
+      "sourceUrls": [
+        "https://vibe-trading.notion.site/Turning-your-perpetual-listing-into-a-Perpetual-Bid-24ebff5b367a80519db4fa0317dcf3d5",
+        "https://docs.vibe.trading/system-visualisation.md",
+        "https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md"
       ],
       "classificationReason": "Authored page has passed final publication review."
     },

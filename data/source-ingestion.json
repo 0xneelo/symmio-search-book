@@ -4,9 +4,8 @@
   "sourceCompletionReady": false,
   "totalSourceRequirements": 17,
   "byStatus": {
-    "complete": 13,
-    "parked": 3,
-    "partial": 1
+    "complete": 16,
+    "parked": 1
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -20,32 +19,16 @@
   },
   "openOperatorItems": [
     {
-      "id": 12,
-      "title": "Checkpoint commit approval timed out for search-book fifteenth pass"
+      "id": 17,
+      "title": "Release readable Discord export file for ingestion"
     },
     {
       "id": 11,
-      "title": "Production LLM provider, model, and API credentials for answer synthesis"
-    },
-    {
-      "id": 7,
-      "title": "SuperFlow / SSHE source identification"
-    },
-    {
-      "id": 6,
-      "title": "Original/oldest Symmio whitepaper artifact"
-    },
-    {
-      "id": 5,
-      "title": "Vibe Trading Notion export or read access"
+      "title": "Production VPS LLM/service env install"
     },
     {
       "id": 4,
       "title": "Final docs platform and repository owner decision"
-    },
-    {
-      "id": 2,
-      "title": "Discord export and Lafa answer corpus"
     }
   ],
   "duplicateRequirementIds": [],
@@ -232,21 +215,19 @@
     {
       "id": "vibe-notion",
       "label": "Vibe Trading Notion workspace",
-      "status": "parked",
+      "status": "complete",
       "category": "product-reference",
       "sourceSpecs": [
         "04",
         "07"
       ],
-      "presentKeys": [],
-      "missingKeys": [
+      "presentKeys": [
         "vibe-trading-notion"
       ],
-      "evidence": "No Notion export or shared readable copy is registered in SOURCES.md.",
-      "blocks": [
-        "OPERATOR-INBOX #5"
-      ],
-      "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
+      "missingKeys": [],
+      "evidence": "Vibe Trading Notion workspace was fetched through the connected Notion MCP and registered with a paraphrase-only public-use boundary.",
+      "blocks": [],
+      "nextAction": "Keep Notion-derived claims paraphrase-only and avoid static publication of payment, treasury, token-address, chain-list, or signed-media details."
     },
     {
       "id": "public-symmio-docs",
@@ -283,7 +264,7 @@
     {
       "id": "symmio-whitepaper-history",
       "label": "Original/oldest Symmio whitepaper and earliest docs",
-      "status": "parked",
+      "status": "complete",
       "category": "protocol-reference",
       "sourceSpecs": [
         "02",
@@ -298,14 +279,10 @@
         "symmio-whitepaper-0-8-commit",
         "symmio-whitepaper-0-8-pdf"
       ],
-      "missingKeys": [
-        "symmio-original-whitepaper"
-      ],
-      "evidence": "6/7 whitepaper/history source keys registered. Official Git evidence now covers protocol-core starting 2023-06-13, docs starting 2023-08-22, and SYMMIO paper v0.8 added 2023-11-16; the exact original/oldest artifact remains open.",
-      "blocks": [
-        "OPERATOR-INBOX #6"
-      ],
-      "nextAction": "Locate and register the exact original/oldest whitepaper or archived docs before publishing a 2021/origin-story comparison."
+      "missingKeys": [],
+      "evidence": "6/6 v1 whitepaper/history source keys registered. Official Git evidence covers protocol-core starting 2023-06-13, docs starting 2023-08-22, and SYMMIO paper v0.8 added 2023-11-16; original/pre-v0.8 recovery is out of scope for v1.",
+      "blocks": [],
+      "nextAction": "Keep v1 wording bounded to the registered official Git evidence; track any original/pre-v0.8 whitepaper recovery outside the launch source-completeness gate."
     },
     {
       "id": "symm-io-github",
@@ -333,23 +310,20 @@
     {
       "id": "superflow-sshe",
       "label": "SuperFlow / SSHE docs",
-      "status": "partial",
+      "status": "complete",
       "category": "protocol-reference",
       "sourceSpecs": [
         "04",
         "07"
       ],
       "presentKeys": [
-        "superflow-she-openapi"
+        "superflow-she-openapi",
+        "symmio-foundation-metasolver"
       ],
-      "missingKeys": [
-        "sshe-source-family"
-      ],
-      "evidence": "SuperFlow/SHE OpenAPI source is registered; fetched title is SYMMIO Hybrid Exchange(SHE), while SSHE remains unidentified.",
-      "blocks": [
-        "OPERATOR-INBOX #7"
-      ],
-      "nextAction": "Identify or exclude the remaining SSHE source family before final source-completeness claims."
+      "missingKeys": [],
+      "evidence": "Operator reconciliation defines the v1 SSHE boundary as the SuperFlow/SHE OpenAPI source plus the Symmio Foundation Meta-Solvers source.",
+      "blocks": [],
+      "nextAction": "Keep SSHE claims limited to the registered SHE API and Meta-Solvers/clearing-layer source boundary unless a deeper implementation source is added."
     },
     {
       "id": "hyperliquid-goldsky",
@@ -393,9 +367,9 @@
       ],
       "evidence": "Discord import tooling ready=true; imported messages=0; question clusters=0; Lafa answer candidates=0. Local FAQ is still seeded from repo/public docs only.",
       "blocks": [
-        "OPERATOR-INBOX #2"
+        "OPERATOR-INBOX #17"
       ],
-      "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
+      "nextAction": "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
     },
     {
       "id": "competitive-sweep",
@@ -428,7 +402,7 @@
         "authored-pages"
       ],
       "missingKeys": [],
-      "evidence": "799 authored pages generated from registered sources across 10 sections.",
+      "evidence": "801 authored pages generated from registered sources across 10 sections.",
       "blocks": [],
       "nextAction": "Keep converting generated pages into authored pages until publication coverage is strong enough for the final site."
     },
@@ -496,7 +470,9 @@
         "symmio-core",
         "symmio-docs-initial-commit",
         "symmio-earliest-docs",
+        "symmio-foundation-clearing-layers",
         "symmio-foundation-docs",
+        "symmio-foundation-metasolver",
         "symmio-frontend-builder",
         "symmio-funding-rates",
         "symmio-hedging-strategies",
@@ -564,50 +540,18 @@
         "vibe-simple-trade",
         "vibe-system-visualization",
         "vibe-tpsl",
+        "vibe-trading-notion",
         "vibe-trading-program",
         "vibe-tradingview-control",
         "vibe-what-is"
       ],
       "missingKeys": [],
-      "evidence": "124 registered source keys; 0 duplicate keys.",
+      "evidence": "127 registered source keys; 0 duplicate keys.",
       "blocks": [],
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
   ],
   "missingSourceFamilies": [
-    {
-      "id": "vibe-notion",
-      "status": "parked",
-      "missingKeys": [
-        "vibe-trading-notion"
-      ],
-      "blocks": [
-        "OPERATOR-INBOX #5"
-      ],
-      "nextAction": "Resume Notion ingestion when the operator fills inbox item #5."
-    },
-    {
-      "id": "symmio-whitepaper-history",
-      "status": "parked",
-      "missingKeys": [
-        "symmio-original-whitepaper"
-      ],
-      "blocks": [
-        "OPERATOR-INBOX #6"
-      ],
-      "nextAction": "Locate and register the exact original/oldest whitepaper or archived docs before publishing a 2021/origin-story comparison."
-    },
-    {
-      "id": "superflow-sshe",
-      "status": "partial",
-      "missingKeys": [
-        "sshe-source-family"
-      ],
-      "blocks": [
-        "OPERATOR-INBOX #7"
-      ],
-      "nextAction": "Identify or exclude the remaining SSHE source family before final source-completeness claims."
-    },
     {
       "id": "discord-lafa-corpus",
       "status": "parked",
@@ -615,9 +559,9 @@
         "symmio-discord-lafa-export"
       ],
       "blocks": [
-        "OPERATOR-INBOX #2"
+        "OPERATOR-INBOX #17"
       ],
-      "nextAction": "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary."
+      "nextAction": "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
     }
   ]
 }

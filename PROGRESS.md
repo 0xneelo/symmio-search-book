@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-01 — Source-Blocker Reconciliation And Readiness Rebuild
+
+- Re-read the reconciled operator ground truth and updated the durable docs so only production VPS env install (#11) and public frontend platform/deploy route (#4) remain as production operator gates. Discord export/access (#2), Vibe Notion (#5), oldest-whitepaper v1 scope (#6), SSHE boundary (#7), and the fifteenth-pass checkpoint (#12) are resolved and must not be re-opened.
+- Tried the real Discord export at `/mnt/c/Users/tabor/Music/symmio-discord-exports/...symm-chat [1106198412124237855].json`; WSL read and PowerShell copy failed because `DiscordChatExporter` still holds the file. Logged new scoped OPERATOR-INBOX #17 and Linear task SYN-289 for releasing a readable copy, without reopening #2.
+- Fetched the Vibe Trading Notion workspace through Claude's Notion MCP, registered the paraphrase-only `vibe-trading-notion` source, folded in the resolved SSHE boundary via SuperFlow/SHE plus Symmio Foundation Meta-Solvers/Clearing Layers, and de-scoped original/oldest whitepaper recovery for v1.
+- Regenerated Search Book evidence: source ingestion is now `16/17` complete, `0` partial, `1` parked, `0` missing; LLM RAG contract is `apiContractReady:true` and `evalHarnessReady:true` with `15/15` adversarial cases; answer validation is `reportReady:true` with `27/27` fixtures; quality audit remains `27/30` with failures limited to source-ingestion, operator-inbox, and Discord.
+- Revalidated the live OpenAI-backed runtime on 2026-07-01 after the source-boundary and runtime guardrail changes: `42/42` total fixtures passed, `15/15` adversarial and `27/27` answer-validation, with `16` calls, `95,037` input tokens, `8,264` output tokens, and `$0.01921395` estimated cost.
+- `npm run search-book:verify` passed after the rebuild: 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, and static integrity passed.
+
 ## 2026-07-01 — Launch Backup-Manifest Evidence
 
 - Added latest restore-checked backup manifest validation to `scripts/check-launch-readiness.mjs`.

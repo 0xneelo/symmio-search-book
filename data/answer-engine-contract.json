@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 798
+      "totalGoldenRoutes": 799
     },
     {
       "stage": "glossary-route",
@@ -171,11 +171,11 @@
     "productionRequirement": "Persist these event shapes to the production datastore behind Search Insights."
   },
   "pageStateContract": {
-    "publicNavigationPages": 798,
-    "retrievalEligiblePages": 1590,
+    "publicNavigationPages": 800,
+    "retrievalEligiblePages": 1592,
     "internalDraftPages": 3,
     "byState": {
-      "published": 798,
+      "published": 800,
       "internal-draft": 3,
       "source-companion": 792
     },
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 798,
-    "exactRouteTestsPassing": 798,
+    "totalExactRouteTests": 799,
+    "exactRouteTestsPassing": 799,
     "totalRefusalTests": 2,
     "refusalTestsPassing": 2,
     "totalGlossaryRouteTests": 32,
@@ -196,10 +196,10 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "published": 798
+      "published": 799
     },
     "exactRoutesByConfidence": {
-      "Medium": 499,
+      "Medium": 500,
       "High": 46,
       "Low": 253
     },
@@ -601,6 +601,33 @@
         "unknownSourceKeys": [],
         "chunkCount": 5,
         "faqEntryId": "faq-how-should-i-read-volume-05-on-solver-lp-and-protocol-operations",
+        "passes": true
+      },
+      {
+        "id": "qr-explain-the-canonical-sshe-docs-named-in-the-source-plan",
+        "query": "Explain the canonical SSHE docs named in the source plan.",
+        "normalizedQuery": "explain the canonical sshe docs named in the source plan",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-symmio-meta-solvers-clearing-layers",
+        "expectedPageTitle": "Symmio Meta-Solvers And Clearing Layers",
+        "expectedPageState": "published",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "superflow-she-openapi",
+          "symmio-foundation-metasolver",
+          "symmio-foundation-clearing-layers",
+          "spec-04"
+        ],
+        "linkedSourceKeys": [
+          "superflow-she-openapi",
+          "symmio-foundation-metasolver",
+          "symmio-foundation-clearing-layers",
+          "spec-04"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-explain-the-canonical-sshe-docs-named-in-the-source-plan",
         "passes": true
       },
       {
@@ -8887,7 +8914,6 @@
           "spec-07"
         ],
         "linkedSourceKeys": [
-          "competitive-sweep-batch-01",
           "spec-05",
           "spec-06",
           "spec-07"
@@ -17617,10 +17643,14 @@
         "routeSource": "authored",
         "sourceKeys": [
           "superflow-she-openapi",
+          "symmio-foundation-metasolver",
+          "symmio-foundation-clearing-layers",
           "spec-04"
         ],
         "linkedSourceKeys": [
           "superflow-she-openapi",
+          "symmio-foundation-metasolver",
+          "symmio-foundation-clearing-layers",
           "spec-04"
         ],
         "unknownSourceKeys": [],
@@ -17695,7 +17725,6 @@
           "spec-07"
         ],
         "linkedSourceKeys": [
-          "discord-ingestion-contract",
           "spec-04",
           "spec-06",
           "spec-07"
@@ -18918,7 +18947,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 798,
+      "exactRoutes": 799,
       "glossaryRoutes": 32,
       "refusals": 2,
       "lowRatedFeedback": 1,
@@ -18929,7 +18958,7 @@
   "gapSignals": {
     "totalGapQueueItems": 12,
     "questionSignals": 2,
-    "operatorSignals": 7,
+    "operatorSignals": 3,
     "parkedPageSignals": 2
   },
   "warnings": [

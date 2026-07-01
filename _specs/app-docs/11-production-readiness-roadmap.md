@@ -2,7 +2,7 @@
 
 Date: 2026-06-28
 
-Updated: 2026-07-01 after the OpenAI-backed RAG runtime, current live `gpt-4.1-mini` eval refresh, Discord/Lafa ingestion-tooling checkpoint, operator publication decisions, the completed publication-lane checkpoints, and requirement-map publication-state alignment.
+Updated: 2026-07-01 after the OpenAI-backed RAG runtime, current live `gpt-4.1-mini` eval refresh, Discord/Lafa ingestion-tooling checkpoint, operator publication decisions, the completed publication-lane checkpoints, requirement-map publication-state alignment, and source-blocker reconciliation.
 
 This roadmap turns the current search-book research package into the production Symmio x Vibe documentation compendium: a 500-800 page cited manifesto and reference, fronted by an answer engine, backed by a living-docs loop, and safe to deploy publicly.
 
@@ -12,11 +12,12 @@ The search-book is already a strong research and prototype substrate:
 
 - A static prototype exists at the standalone repo root.
 - The page manifest target is already in range at 794 manifest pages.
-- The authored layer is now book-scale: 799 authored pages across manifesto, product-reference, rewards/referrals, dashboard-reference, protocol-reference, answer-engine, and compendium sections. All 798 public authored routes are marked `published`; 0 candidate pages remain in the review lanes.
-- The requirement map now treats the public manifesto/reference corpus as complete: 12/18 definition-of-done requirements are complete, 2 are partial, 4 are parked, and 0 are missing. Production readiness remains false because deployment, source-traceability inputs, and Discord/Lafa ingestion are still outside the completed corpus work.
+- The authored layer is now book-scale: 801 authored pages across manifesto, product-reference, rewards/referrals, dashboard-reference, protocol-reference, answer-engine, reference, solver-reference, and compendium sections. The page-state registry reports 800 published public-navigation pages, 792 source companions, 3 internal drafts, and 0 candidate pages in the review lanes.
+- The source-ingestion map now reports 16/17 source families complete, 0 partial, 1 parked, and 0 missing. Notion, SSHE, and the oldest-whitepaper v1 boundary are resolved; the remaining parked source follow-up is readable Discord export release (#17).
+- The requirement map now treats the public manifesto/reference corpus as complete: 12/18 definition-of-done requirements are complete, 2 are partial, 4 are parked, and 0 are missing. Production readiness remains false because production deployment, source-traceability, and Discord/Lafa ingestion are still outside the completed corpus work.
 - The answer substrate exists as generated source catalog, authored page index, question routes, FAQ map, Discord import contract, gap queue, crosslinks, answer chunks, volume map, requirement map, and quality audit data.
 - The deterministic answer engine has exact-route, glossary, chunk-retrieval, refusal, and citation-validation coverage.
-- The OpenAI-compatible LLM RAG runtime exists. The latest 2026-06-30 live `gpt-4.1-mini` eval passed 42/42 fixtures: 15/15 adversarial refusals and 27/27 answer-validation cases, with 16 measured calls, 93,868 input tokens, 8,615 output tokens, and an estimated cost of $0.01924920.
+- The OpenAI-compatible LLM RAG runtime exists. The latest 2026-07-01 live `gpt-4.1-mini` eval passed 42/42 fixtures: 15/15 adversarial refusals and 27/27 answer-validation cases, with 16 measured calls, 95,037 input tokens, 8,264 output tokens, and an estimated cost of $0.01921395.
 - The deterministic verification path now checks that the final report, progress log, production roadmap, and LLM RAG contract still match the recorded live RAG evidence in `data/llm-rag-contract.json`, and it verifies static app integrity for local script dependencies, expected `window.SearchBook*` globals, static page links, and public reader-data coverage.
 - The standalone answer-engine service has SQLite persistence, basic rate limiting, configurable event retention, configurable browser CORS allowlisting, disabled-by-default token-gated moderation and metrics exports, a static frontend bridge, an internal reviewer operations runbook, an executable SQLite backup/restore-check utility, a production env/deploy preflight that now verifies reviewer owner/cadence and backup-storage evidence, and a local smoke test that exercises health, answer persistence, ratings, insights, moderation export, metrics export, and allowed/blocked origins without live LLM calls.
 - The current local preview runs from the standalone repo root, can be served on localhost with `npm run search-book:serve-static`, has static integrity coverage at `npm run search-book:check-static`, has a static preview smoke test at `npm run search-book:smoke-static`, has a combined preview/service smoke test at `npm run search-book:smoke-preview-service` that verifies the static frontend can use the standalone service, and has `npm run search-book:check-production-env` for production configuration fail-closed checks.
@@ -24,7 +25,7 @@ The search-book is already a strong research and prototype substrate:
 - The launch surface now has `npm run search-book:check-launch`, an executable production/staging gate that composes the production env preflight, optional fresh deterministic verify, URL-driven deployment smoke, reviewer owner/cadence evidence, backup-storage evidence, latest restore-checked backup manifest evidence, and unresolved completion-boundary checks without printing secret values.
 - The standalone repo now has a no-secret GitHub Actions verification gate at `.github/workflows/search-book-verify.yml`; it clones the public `0xneelo/vibe_docs` export into `/tmp/vibe_docs`, then runs the deterministic verify plus static, service, and preview-service smoke tests without LLM or production credentials.
 - The quality audit is intentionally not green yet; known failures are source ingestion, operator inbox, and Discord.
-- Operator publication decisions for Phase A revenue, referral depth, Opyn exclusion, answer-engine build path, source-family dispositions, canonical point taxonomy, and Add Token Info are recorded. The remaining open items are implementation/source/deploy inputs: public frontend platform/repo/deploy route, production service env credentials, Discord/Lafa corpus, Notion ingestion, oldest Symmio whitepaper artifact, SuperFlow/SSHE identification, and one old checkpoint-commit approval item.
+- Operator publication decisions for Phase A revenue, referral depth, Opyn exclusion, answer-engine build path, source-family dispositions, canonical point taxonomy, Add Token Info, Notion public-use boundary, SSHE v1 source boundary, oldest-whitepaper v1 de-scope, Discord access/export, and the false fifteenth-pass checkpoint blocker are recorded. Only two production operator gates remain: production VPS env install at `/etc/symmio-search-book/search-book.env` (#11) and public frontend platform/repo/deploy route (#4). The separate source-ingestion follow-up is the readable Discord export file release (#17), not a reopened #2 decision.
 
 This is not production-ready yet. It is a credible research dossier and prototype with enough structure to move into implementation.
 
@@ -71,7 +72,7 @@ Deliverables:
 - Re-run generation and deterministic checks after contract, source, or route changes.
 - Keep readiness evidence synchronized with `data/llm-rag-contract.json`; `build-all --verify` now fails when report/roadmap/contract totals drift.
 - Keep static app integrity in the verification path so local script dependencies, expected globals, static page links, and reader-data coverage fail before deploy.
-- Keep the production preflight in the verification path so unsafe local defaults, wildcard origins, repo-local DB paths, missing LLM env, missing reviewer/cadence assignment, missing backup storage, and secret-printing regressions fail before launch.
+- Keep the production preflight in the verification path so unsafe local defaults, wildcard origins, repo-local DB paths, missing production VPS LLM env, missing reviewer/cadence assignment, missing backup storage, and secret-printing regressions fail before launch.
 - Confirm localhost preview still serves the search-book when frontend/design work changes.
 - Update `_local/agent-worklog.md`.
 - Re-read `OPERATOR-INBOX.md` and resume any newly resolved items.
@@ -80,7 +81,7 @@ Required operator decisions:
 
 - Production platform and repository owner.
 - Public frontend platform, repository owner, and deploy route.
-- Whether the remaining source-ingestion families are required before launch or can remain launch-labeled gaps.
+- Whether the Discord readable-export follow-up is required before launch or can remain a launch-labeled source gap.
 
 Exit gate:
 
@@ -94,13 +95,13 @@ Goal: know exactly what can be published as fact.
 
 Work:
 
-- Resolve or explicitly launch-park every operator inbox item.
-- Ingest Discord/Lafa corpus if provided.
-- Ingest Vibe Notion source if provided and mark public/paraphrase/internal-only permissions.
-- Identify original/oldest Symmio whitepaper artifact or mark origin history as source-limited.
+- Resolve or explicitly launch-park every open operator inbox item.
+- Ingest the Discord/Lafa corpus after the provided export is closed or copied into a readable WSL path.
+- Keep the Vibe Notion source registered as paraphrase-only public boundary material; do not quote Notion text or signed media URLs.
+- Keep original/oldest Symmio whitepaper recovery out of scope for v1 and use the official Git/current-docs boundary page.
 - Keep referral-depth public copy on the resolved 15-level/additive-backfill stance.
 - Keep revenue disclosure on the resolved v1 Phase A boundary: `networkVolume × platformFeeRate × referrerPlatformShare`, defaults `0.05%` / `5 bps` and `30%`; keep Phase B economics out of v1 public answers.
-- Identify or explicitly exclude the remaining SSHE source family while using the registered SuperFlow/SHE OpenAPI source only for its proven boundary.
+- Use the resolved v1 SSHE boundary: SuperFlow/SHE OpenAPI plus Symmio Foundation Meta-Solvers and Clearing Layers.
 - Keep the competitive sweep at documented 49/50 with Opyn excluded because it shut down.
 - Keep Add Token Info sourced from the fetched official Markdown and route payment specifics to the live app form.
 
@@ -192,7 +193,7 @@ Exit gate:
 
 Goal: integrate the LLM for actual scanning and cited answers.
 
-Current status: the CLI/runtime harness is implemented and live-tested with OpenAI `gpt-4.1-mini`. It uses strict structured JSON output where supported, validation retry feedback, exact-route/glossary preflight, source-gated chunks, citation validation, adversarial refusals, token/cost accounting, and extractive fallback after capped validation failure. The same runtime now has a standalone HTTP service boundary with SQLite persistence for questions, ratings, gaps, and helpful answer-cache rows; basic request rate limiting; configurable retention; rated-answer reuse after guardrail preflight; optional dynamic example chips from helpful cached questions; disabled-by-default token-gated moderation and metrics exports; direct SQLite gap-summary job; executable SQLite backup/restore-check utility; production configuration preflight; and `LIVING-DOCS-OPERATIONS.md` for reviewer triage. The static Search Book can call that service when configured. Production still needs service environment variables, selected public frontend route/deploy wiring, production moderation/metrics and backup storage access, assigned reviewer owner/cadence, deployment checks, external monitoring wiring, and source-import completion.
+Current status: the CLI/runtime harness is implemented and live-tested with OpenAI `gpt-4.1-mini`. It uses strict structured JSON output where supported, validation retry feedback, exact-route/glossary preflight, source-gated chunks, citation validation, adversarial refusals, token/cost accounting, and extractive fallback after capped validation failure. The same runtime now has a standalone HTTP service boundary with SQLite persistence for questions, ratings, gaps, and helpful answer-cache rows; basic request rate limiting; configurable retention; rated-answer reuse after guardrail preflight; optional dynamic example chips from helpful cached questions; disabled-by-default token-gated moderation and metrics exports; direct SQLite gap-summary job; executable SQLite backup/restore-check utility; production configuration preflight; and `LIVING-DOCS-OPERATIONS.md` for reviewer triage. The static Search Book can call that service when configured. Local `.secrets/search-book.env` is complete for local LLM work. Production still needs the VPS service env at `/etc/symmio-search-book/search-book.env`, selected public frontend route/deploy wiring, production moderation/metrics and backup storage access, assigned reviewer owner/cadence, deployment checks, external monitoring wiring, and Discord source-import completion.
 
 Timing:
 
@@ -242,7 +243,7 @@ Evaluation set:
 - Discord/Lafa questions when available.
 - Adversarial questions about secrets, private endpoints, unsupported revenue numbers, unaudited claims, future points, referral depth, and external investment advice.
 - Regression questions for AMFQ/aMFQ terminology, PartyA/PartyB, SubAccounts/Virtual Accounts, withdrawal paths, revenue estimates, and points.
-- Live evaluation checkpoint: 2026-06-30, `gpt-4.1-mini`, 42/42 total fixtures passed, 15/15 adversarial and 27/27 answer-validation, 16 measured calls, 93,868 input tokens, 8,615 output tokens, estimated cost $0.01924920.
+- Live evaluation checkpoint: 2026-07-01, `gpt-4.1-mini`, 42/42 total fixtures passed, 15/15 adversarial and 27/27 answer-validation, 16 measured calls, 95,037 input tokens, 8,264 output tokens, estimated cost $0.01921395.
 
 Exit gate:
 
@@ -486,7 +487,7 @@ The true critical path is:
 ## Immediate Next Actions
 
 1. Keep `data/llm-rag-contract.*`, `data/answer-validation-report.*`, and the runtime docs aligned with live eval evidence.
-2. Install production service env, configure retention/moderation/backup storage access, provide latest restore-checked backup manifest evidence, assign reviewer owner/cadence, and deploy the selected public frontend route against the standalone answer-engine endpoints.
+2. Install the production VPS service env at `/etc/symmio-search-book/search-book.env`, configure retention/moderation/backup storage access, provide latest restore-checked backup manifest evidence, assign reviewer owner/cadence, and deploy the selected public frontend route against the standalone answer-engine endpoints.
 3. Re-run live adversarial and answer-validation evals after service deployment wiring and before public launch.
 4. Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.
 5. Decide platform/repo ownership, or keep building the platform-neutral prototype while that remains open.

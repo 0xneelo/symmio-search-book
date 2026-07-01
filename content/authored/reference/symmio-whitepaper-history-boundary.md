@@ -12,7 +12,7 @@ relatedGeneratedPages: ["symmio-whitepaper", "authored-symmio-clearing-house-lay
 
 # Symmio Whitepaper History Boundary
 
-The current source map has useful official Symmio history evidence, but it still does not contain the exact original or oldest whitepaper artifact requested for the origin-story section.
+The current source map has useful official Symmio history evidence. For v1, the exact original or oldest whitepaper artifact is explicitly out of scope; the launch-safe history boundary is the registered official GitHub and current-docs evidence below.
 
 The strongest confirmed lower bound is the official `SYMM-IO/protocol-core` repository. Its initial public commit is dated 2023-06-13 and added a small README for version 0.8 of the protocol implementation. The current protocol-core README frames SYMMIO as a trustless hybrid clearing house and intent-centric meta-derivatives engine, which supports the present-day protocol description.
 
@@ -32,7 +32,7 @@ This proves that official GitHub history currently available in the source map i
 
 ## What It Does Not Prove
 
-This does not prove the exact original whitepaper, a 2021 artifact, a complete oldest-to-current version comparison, or any archived docs outside the current official repositories. Those claims remain parked under `G-007` and `OPERATOR-INBOX #6`.
+This does not prove the exact original whitepaper, a 2021 artifact, a complete oldest-to-current version comparison, or any archived docs outside the current official repositories. Those claims are excluded from v1 source completeness rather than parked as launch blockers.
 
 The docs should therefore avoid saying "the original whitepaper says..." unless the original artifact is later recovered. The safer wording is: "the earliest official GitHub evidence currently registered starts in 2023, and the first located whitepaper PDF in the official docs repo is SYMMIO paper v0.8."
 
@@ -40,7 +40,7 @@ The current whitepaper page also contains forward-looking publication language a
 
 ## Reader Implication
 
-When a reader asks for Symmio whitepaper history, route them here first. The answer should separate confirmed official repository evidence from the unresolved origin-story artifact. Current Symmio mechanics can still be cited from present docs and the current protocol-core README; historical claims should remain bounded until the missing artifact is supplied or excluded.
+When a reader asks for Symmio whitepaper history, route them here first. The answer should separate confirmed official repository evidence from the out-of-scope origin-story artifact. Current Symmio mechanics can still be cited from present docs and the current protocol-core README; historical claims should remain bounded to the registered evidence unless a future post-v1 recovery task adds an earlier artifact.
 
 If a reader asks whether `SYMMIO_paper_0_8.pdf` is the original whitepaper, answer more narrowly: it is the first located whitepaper PDF currently registered in the official docs repository history, not proof of the exact original artifact.
 

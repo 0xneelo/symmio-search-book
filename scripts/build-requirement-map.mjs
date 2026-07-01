@@ -300,6 +300,7 @@ const livingDocsEventContractReady =
   (livingDocsCoverage.failingFixtures || 0) === 0;
 const sourceIngestionOpenBlocks = [
   ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
+  ...(inboxHas(openInboxItems, 17) ? ["OPERATOR-INBOX #17"] : []),
   ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
   ...(inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : []),
   ...(inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : []),
@@ -448,12 +449,19 @@ const requirements = [
   req({
     id: "discord-seeded-faq",
     label: "Discord/Lafa Q&A mined into FAQ",
-    status: inboxHas(openInboxItems, 2) ? "parked" : "partial",
+    status: discordCorpus.corpusReady ? "complete" : inboxHas(openInboxItems, 2) || inboxHas(openInboxItems, 17) ? "parked" : "partial",
     category: "demand-signal",
     sourceSpecs: ["01", "04", "06", "07", "08"],
     evidence: `${faq.totalEntries || 0} local FAQ entries exist. Discord import contract ready=${discordCorpus.importContractReady === true}; API scraper ready=${discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}.`,
-    blocks: inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : [],
-    nextAction: "Run Discord-derived FAQ import when the operator provides channel access/export, Lafa author identity, and public-use boundary.",
+    blocks: [
+      ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
+      ...(inboxHas(openInboxItems, 17) ? ["OPERATOR-INBOX #17"] : []),
+    ],
+    nextAction: discordCorpus.corpusReady
+      ? "Review the imported clusters and promote approved high-signal Discord/Lafa answers into FAQ routes."
+      : inboxHas(openInboxItems, 17)
+        ? "Re-run Discord ingestion after the provided export file is closed or copied into a readable WSL path."
+        : "Run Discord-derived FAQ import when a readable export, Lafa author identity, and public-use boundary are available.",
   }),
   req({
     id: "guided-journeys",

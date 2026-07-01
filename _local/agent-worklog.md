@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex source-blocker reconciliation and readiness rebuild
+- Task: Reconcile Search Book blockers after operator context refresh and rebuild readiness evidence from the standalone repo.
+- Scope: `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`, `FINAL-REPORT.md`, `GAPS.md`, `PROGRESS.md`, `_specs/app-docs/11-production-readiness-roadmap.md`, `LIVING-DOCS-OPERATIONS.md`, `README.md`, source-boundary authored pages, source/requirement/quality/LLM contract builders, and regenerated `data/*` artifacts.
+- Status: Complete pending final diff check. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Verification target: `npm run search-book:verify` passes, readiness booleans reflect only #11/#4 production gates plus #17 Discord file-release follow-up, and old #2/#5/#6/#7/#12 blockers are not re-opened.
+- Result: Ran the Discord importer against the real Windows export and confirmed `EACCES`/locked-file behavior, then logged scoped OPERATOR-INBOX #17 and Linear task SYN-289. Ingested Notion via Claude Notion MCP as paraphrase-only source material, folded SSHE into SuperFlow/SHE plus Symmio Foundation Meta-Solvers/Clearing Layers, de-scoped oldest-whitepaper recovery for v1, updated stale contract fixtures/runtime guardrails, and regenerated evidence. Full verify passed with 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, LLM contract `15/15`, answer validation `27/27`, and quality audit `27/30`. Live `gpt-4.1-mini` eval passed `42/42` with `16` calls, `95,037` input tokens, `8,264` output tokens, and `$0.01921395` estimated cost.
+
 ## 2026-07-01 — Codex standalone answer-engine CORS allowlist
 - Task: Add production-safe CORS allowlisting to the standalone Search Book answer-engine service.
 - Scope: `_local/agent-worklog.md`, `scripts/serve-answer-engine.mjs`, `scripts/smoke-answer-engine-service.mjs`, docs/env examples, and generated readiness evidence if required.

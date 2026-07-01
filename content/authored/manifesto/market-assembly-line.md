@@ -18,7 +18,7 @@ Neelo's source path runs from launchpad to spot market to Vibe perp to deeper ex
 
 That gives Vibe a specific role: create the first credible derivatives market after spot liquidity appears, then let the market earn its next layer. This makes market formation legible. Launchpads create the asset, DEXs create spot access, Vibe creates early perp demand and short-side expression, and deeper execution venues absorb markets that have proven enough volume, diversity, and liquidity.
 
-The source also names SSHE as a possible intermediate layer when a market is not ready for full external order-book graduation. Because the canonical SSHE source family is still open in `OPERATOR-INBOX #7`, the final public page should keep that detail under owner review. The source-backed principle is still strong without pretending the implementation path is already fully documented: mature markets need staged progression, not a single listing cliff.
+The source also names SSHE as a possible intermediate layer when a market is not ready for full external order-book graduation. The reconciled v1 SSHE source boundary is now the registered SuperFlow/SHE OpenAPI source plus Symmio Foundation Meta-Solvers and Clearing Layers context. That supports the staged-progression idea without pretending the implementation path is already a live integration contract: mature markets need staged progression, not a single listing cliff.
 
 ## Publication Boundary
 

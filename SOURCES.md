@@ -39,7 +39,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `dashboard-settings` | `src/dashboard/settings.jsx` | Contact channel, handle, and recovery-email settings UI. |
 | `dashboard-data` | `src/dashboard/data.jsx` | Dashboard data-source seam, bearer-token calls, and local fixture mode. |
 | `dashboard-app` | `src/dashboard/app.jsx` | Points distinction and dashboard shell. |
-| `discord-ingestion-contract` | `src/search-book/data/discord-corpus.json` | Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus. |
+| `discord-ingestion-contract` | `data/discord-corpus.json` | Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus. |
 
 ## Linear Research
 
@@ -92,6 +92,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `vibe-system-visualization` | https://docs.vibe.trading/system-visualisation.md | Public system visualization for project supply loans, perp listing, solver hedging, solver profit sources, and project profit-share ranges. |
 | `vibe-project-listing-terms` | https://docs.vibe.trading/more-info/project-listing-terms-and-conditions.md | Project listing and market-making terms covering services, token custody, audits, profits, conduct restrictions, termination, and delisting process. |
 | `vibe-add-token-info` | https://docs.vibe.trading/more-info/add-token-info.md | Official project-managed token metadata submission flow for VibeCaps markets, including fields, payment, review states, rejection reasons, and safety caveats. |
+| `vibe-trading-notion` | https://vibe-trading.notion.site/Turning-your-perpetual-listing-into-a-Perpetual-Bid-24ebff5b367a80519db4fa0317dcf3d5 | Operator-provided Vibe Trading Notion workspace page and child pitch pages, fetched through the Notion MCP with a paraphrase-only public-use boundary. |
 | `vibe-papers` | https://github.com/0xneelo/vibe_docs | Research-paper corpus and long-form themes. |
 | `vibe-papers-site` | https://0xneelo.github.io/vibe_docs/ | Reader-first published version of Neelo's papers. |
 | `vibe-papers-data` | `/tmp/vibe_docs/Website/public/generated/docs-data.json` | Session 1 local clone data used to derive the 794-page manifest. |
@@ -142,6 +143,8 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `symm-io-subgraphs` | https://github.com/SYMM-IO/subgraphs | Subgraph repository for Symmio indexing/reference data context. |
 | `symm-io-analytics` | https://github.com/SYMM-IO/analytics | Analytics repository for Symmio/Vibe data pipeline context. |
 | `superflow-she-openapi` | https://dev.superflow.exchange/openapi.json | Operator-provided SuperFlow Redoc/OpenAPI spec titled SYMMIO Hybrid Exchange (SHE), covering REST and WebSocket market, order, account, position, funding, auth, and dev/admin endpoint surfaces. |
+| `symmio-foundation-metasolver` | https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/introducing-meta-solvers | Symmio Foundation Meta-Solvers source defining localized order-matching nodes, global arbitrage, and the long-term clearing-layer direction. |
+| `symmio-foundation-clearing-layers` | https://docs.symmio.foundation/roadmap-and-vision/symmios-endgame/blockchains-are-clearing-layers | Symmio Foundation clearing-layer companion source for settlement and verification boundaries around Meta-Solvers. |
 
 ## Competitive Context
 
@@ -151,12 +154,12 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `hyperliquid-hip3` | https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals.md | Builder-deployed perps, staking, deployer duties, independent margin/order books. |
 | `goldsky-subgraphs` | https://docs.goldsky.com/subgraphs/introduction | Goldsky subgraph product docs for indexing and subgraph-backed data access. |
 | `goldsky-graphql-endpoints` | https://docs.goldsky.com/subgraphs/graph-endpoints | Goldsky GraphQL endpoint documentation for querying indexed subgraph data. |
-| `competitive-sweep-batch-01` | `src/search-book/data/competitive-sweep.json` | Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion. |
-| `competitive-sweep-synthesis` | `src/search-book/content/authored/manifesto/competitive-docs-benchmark.md` | Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid. |
+| `competitive-sweep-batch-01` | `data/competitive-sweep.json` | Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion. |
+| `competitive-sweep-synthesis` | `content/authored/manifesto/competitive-docs-benchmark.md` | Authored synthesis of benchmark patterns Vibe x Symmio should borrow or avoid. |
 
 ## Authored Publication Candidates
 
 | Key | Source | Use |
 | --- | --- | --- |
-| `authored-pages` | `src/search-book/content/authored/**` | Hand-shaped publication-candidate pages built from the registered primary sources above. |
-| `authored-index` | `src/search-book/data/authored-pages.json` | Prototype search/index payload for authored pages. |
+| `authored-pages` | `content/authored/**` | Hand-shaped publication-candidate pages built from the registered primary sources above. |
+| `authored-index` | `data/authored-pages.json` | Prototype search/index payload for authored pages. |

@@ -127,37 +127,26 @@ const riskRules = [
   },
   {
     id: "discord",
-    reason: "source-family-missing",
+    reason: "discord-export-file-unreadable",
     status: "operator-blocked-refusal",
     gapId: "G-001",
-    operatorItemIds: [2],
+    operatorItemIds: [17],
     patterns: [/discord/i, /lafa/i],
-    message: "Discord and Lafa-answer claims are blocked until the operator provides the export and citation boundary.",
+    message: "Discord and Lafa-answer claims are blocked until the provided export is readable and imported with a citation boundary.",
   },
   {
     id: "notion",
-    reason: "operator-access-required",
-    status: "operator-blocked-refusal",
-    operatorItemIds: [5],
-    patterns: [/notion/i, /private roadmap/i],
-    message: "Private Notion claims require operator access and a public-use boundary.",
+    reason: "private-source-quotation-disallowed",
+    status: "refusal",
+    patterns: [/private .*notion/i, /notion .*roadmap/i, /quote .*notion/i, /notion .*quote/i],
+    message: "The Notion source is paraphrase-only public-boundary material; I cannot quote private Notion text or present private roadmap claims.",
   },
   {
     id: "original-whitepaper",
-    reason: "source-family-missing",
-    status: "operator-blocked-refusal",
-    gapId: "G-007",
-    operatorItemIds: [6],
+    reason: "source-family-out-of-scope-v1",
+    status: "refusal",
     patterns: [/original .*whitepaper/i, /oldest .*whitepaper/i, /2021 .*whitepaper/i],
-    message: "The original Symmio whitepaper artifact is not available in the current source set.",
-  },
-  {
-    id: "superflow-sshe",
-    reason: "source-family-missing",
-    status: "operator-blocked-refusal",
-    operatorItemIds: [7],
-    patterns: [/\bsshe\b/i],
-    message: "The SSHE source family is not identified yet.",
+    message: "The exact original or oldest Symmio whitepaper artifact is out of scope for v1; I can only answer from the current official Git/current-docs boundary.",
   },
   {
     id: "internal-draft",
@@ -983,6 +972,17 @@ function buildAnswerGuidance(context) {
         "never lowers a balance",
       ],
     },
+    {
+      name: "sshe-source-boundary",
+      pageIds: ["authored-symmio-meta-solvers-clearing-layers", "authored-superflow-she-api-boundary"],
+      queryPattern: /\b(sshe|superflow|she|meta-solvers|clearing layers|source plan)\b/i,
+      phrases: [
+        "SuperFlow/SHE OpenAPI",
+        "Meta-Solvers",
+        "Clearing Layers",
+        "sufficient",
+      ],
+    },
   ];
   const phraseCandidates = phraseGroups
     .filter((group) =>
@@ -1034,6 +1034,9 @@ function requiredPhraseSentence(requiredPhrases, marker) {
   }
   if (requiredPhrases.includes("banner")) {
     return `The Add Token Info package covers banner, logo, description, website, social links, X feed, USDC payment, and transaction hash.${marker}`;
+  }
+  if (requiredPhrases.includes("Meta-Solvers")) {
+    return `For v1, the SSHE source boundary is the SuperFlow/SHE OpenAPI plus Symmio Foundation Meta-Solvers and Clearing Layers pages; this is sufficient for source completeness without proving a live Vibe integration contract.${marker}`;
   }
   return `Required grounded terms: ${requiredPhrases.join("; ")}.${marker}`;
 }

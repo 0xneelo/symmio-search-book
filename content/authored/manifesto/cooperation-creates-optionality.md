@@ -16,7 +16,7 @@ Cooperation is not a retreat from market ownership. In Neelo's CLOB-upgrade sect
 
 That makes cooperation more durable than premature imitation. If Vibe tries to compete directly with order books before earning upstream trust, it is judged as an inferior version of a mature venue. If Vibe first becomes indispensable to the community's market pipeline, it can remain a complement, support deeper execution, or expand its own execution surface from a position of earned trust.
 
-The same source names SSHE as a possible internal or intermediate execution layer. That detail should stay under owner review because the canonical SSHE source family remains parked in `OPERATOR-INBOX #7`. The source-backed principle is still publishable: Vibe should not depend on one graduation endpoint. A serious market-formation system needs options between pure bootstrap mode and full external order-book maturity.
+The same source names SSHE as a possible internal or intermediate execution layer. After the 2026-07-01 source reconciliation, the v1 SSHE boundary is the registered SuperFlow/SHE OpenAPI source plus Symmio Foundation Meta-Solvers and Clearing Layers context. That is enough to discuss the optionality principle, but not enough to claim a confirmed Vibe integration path. Vibe should not depend on one graduation endpoint; a serious market-formation system needs options between pure bootstrap mode and full external order-book maturity.
 
 ## Publication Boundary
 

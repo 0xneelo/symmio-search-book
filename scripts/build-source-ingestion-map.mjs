@@ -186,7 +186,6 @@ const symmioWhitepaperHistoryKeys = [
   "symmio-whitepaper-0-8-pdf",
   "symmio-whitepaper-0-8-commit",
   "symm-io-protocol-core-initial-commit",
-  "symmio-original-whitepaper",
 ];
 const symmioGithubKeys = [
   "symm-io-github",
@@ -197,7 +196,8 @@ const symmioGithubKeys = [
   "symm-io-subgraphs",
   "symm-io-analytics",
 ];
-const superflowKeys = ["superflow-she-openapi"];
+const notionKeys = ["vibe-trading-notion"];
+const superflowKeys = ["superflow-she-openapi", "symmio-foundation-metasolver"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
 const competitiveSweepKeys = ["competitive-sweep-batch-01", "competitive-sweep-synthesis"];
 const discordToolingKeys = ["discord-ingestion-contract"];
@@ -208,6 +208,7 @@ const linearStatus = requiredKeysStatus(keys, linearExpectedKeys);
 const revenueStatus = requiredKeysStatus(keys, revenueKeys);
 const neeloStatus = requiredKeysStatus(keys, neeloKeys);
 const vibeStatus = requiredKeysStatus(keys, vibePublicKeys);
+const notionStatus = requiredKeysStatus(keys, notionKeys);
 const symmioStatus = requiredKeysStatus(keys, symmioPublicKeys);
 const symmioWhitepaperHistoryStatus = requiredKeysStatus(keys, symmioWhitepaperHistoryKeys);
 const symmioGithubStatus = requiredKeysStatus(keys, symmioGithubKeys);
@@ -215,6 +216,7 @@ const superflowStatus = requiredKeysStatus(keys, superflowKeys);
 const hyperliquidGoldskyStatus = requiredKeysStatus(keys, hyperliquidGoldskyKeys);
 const competitiveSweepSourceStatus = requiredKeysStatus(keys, competitiveSweepKeys);
 const discordToolingStatus = requiredKeysStatus(keys, discordToolingKeys);
+const discordBlockedByFileAccess = inboxHas(openInboxItems, 17);
 const competitiveSweepHasBatch =
   (competitiveSweep.targetDocs || 0) >= 50 &&
   (competitiveSweep.plannedAgentLanes || 0) >= 25 &&
@@ -315,14 +317,18 @@ const requirements = [
   sourceReq({
     id: "vibe-notion",
     label: "Vibe Trading Notion workspace",
-    status: inboxHas(openInboxItems, 5) ? "parked" : "missing",
+    status: notionStatus.complete ? "complete" : inboxHas(openInboxItems, 5) ? "parked" : "missing",
     category: "product-reference",
     sourceSpecs: ["04", "07"],
-    presentKeys: [],
-    missingKeys: ["vibe-trading-notion"],
-    evidence: "No Notion export or shared readable copy is registered in SOURCES.md.",
+    presentKeys: notionStatus.present,
+    missingKeys: notionStatus.missing,
+    evidence: notionStatus.complete
+      ? "Vibe Trading Notion workspace was fetched through the connected Notion MCP and registered with a paraphrase-only public-use boundary."
+      : "No Notion export or shared readable copy is registered in SOURCES.md.",
     blocks: inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : [],
-    nextAction: "Resume Notion ingestion when the operator fills inbox item #5.",
+    nextAction: notionStatus.complete
+      ? "Keep Notion-derived claims paraphrase-only and avoid static publication of payment, treasury, token-address, chain-list, or signed-media details."
+      : "Resume Notion ingestion when the operator fills inbox item #5.",
   }),
   sourceReq({
     id: "public-symmio-docs",
@@ -343,9 +349,9 @@ const requirements = [
     sourceSpecs: ["02", "04", "07"],
     presentKeys: symmioWhitepaperHistoryStatus.present,
     missingKeys: symmioWhitepaperHistoryStatus.missing,
-    evidence: `${symmioWhitepaperHistoryStatus.present.length}/${symmioWhitepaperHistoryKeys.length} whitepaper/history source keys registered. Official Git evidence now covers protocol-core starting 2023-06-13, docs starting 2023-08-22, and SYMMIO paper v0.8 added 2023-11-16; the exact original/oldest artifact remains open.`,
+    evidence: `${symmioWhitepaperHistoryStatus.present.length}/${symmioWhitepaperHistoryKeys.length} v1 whitepaper/history source keys registered. Official Git evidence covers protocol-core starting 2023-06-13, docs starting 2023-08-22, and SYMMIO paper v0.8 added 2023-11-16; original/pre-v0.8 recovery is out of scope for v1.`,
     blocks: !symmioWhitepaperHistoryStatus.complete && inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : [],
-    nextAction: "Locate and register the exact original/oldest whitepaper or archived docs before publishing a 2021/origin-story comparison.",
+    nextAction: "Keep v1 wording bounded to the registered official Git evidence; track any original/pre-v0.8 whitepaper recovery outside the launch source-completeness gate.",
   }),
   sourceReq({
     id: "symm-io-github",
@@ -361,20 +367,17 @@ const requirements = [
   sourceReq({
     id: "superflow-sshe",
     label: "SuperFlow / SSHE docs",
-    status: superflowStatus.complete ? "partial" : inboxHas(openInboxItems, 7) ? "parked" : "missing",
+    status: superflowStatus.complete ? "complete" : inboxHas(openInboxItems, 7) ? "parked" : "missing",
     category: "protocol-reference",
     sourceSpecs: ["04", "07"],
     presentKeys: superflowStatus.present,
-    missingKeys: [
-      ...superflowStatus.missing,
-      ...(inboxHas(openInboxItems, 7) ? ["sshe-source-family"] : []),
-    ],
+    missingKeys: superflowStatus.missing,
     evidence: superflowStatus.complete
-      ? "SuperFlow/SHE OpenAPI source is registered; fetched title is SYMMIO Hybrid Exchange(SHE), while SSHE remains unidentified."
+      ? "Operator reconciliation defines the v1 SSHE boundary as the SuperFlow/SHE OpenAPI source plus the Symmio Foundation Meta-Solvers source."
       : "No SuperFlow or SSHE source key is registered.",
     blocks: inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : [],
     nextAction: superflowStatus.complete
-      ? "Identify or exclude the remaining SSHE source family before final source-completeness claims."
+      ? "Keep SSHE claims limited to the registered SHE API and Meta-Solvers/clearing-layer source boundary unless a deeper implementation source is added."
       : "Add SuperFlow/SSHE source material or record why it is out of scope before final source-completeness claims.",
   }),
   sourceReq({
@@ -391,14 +394,21 @@ const requirements = [
   sourceReq({
     id: "discord-lafa-corpus",
     label: "Symmio Discord and Lafa Q&A corpus",
-    status: inboxHas(openInboxItems, 2) ? "parked" : "missing",
+    status: discordCorpus.corpusReady ? "complete" : inboxHas(openInboxItems, 2) || discordBlockedByFileAccess ? "parked" : "missing",
     category: "demand-signal",
     sourceSpecs: ["01", "04", "06", "07", "08"],
     presentKeys: discordToolingStatus.present,
-    missingKeys: ["symmio-discord-lafa-export"],
+    missingKeys: discordCorpus.corpusReady ? [] : ["symmio-discord-lafa-export"],
     evidence: `Discord import tooling ready=${discordCorpus.importContractReady === true && discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}. Local FAQ is still seeded from repo/public docs only.`,
-    blocks: inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : [],
-    nextAction: "Run the Discord export/API ingestion path when the operator provides channel access/export, Lafa author identity, and public-use boundary.",
+    blocks: [
+      ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
+      ...(discordBlockedByFileAccess ? ["OPERATOR-INBOX #17"] : []),
+    ],
+    nextAction: discordCorpus.corpusReady
+      ? "Review Discord clusters and promote only approved cite/paraphrase/internal-only answers into FAQ routes."
+      : discordBlockedByFileAccess
+        ? "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
+        : "Run the Discord export/API ingestion path when a readable export, Lafa author identity, and public-use boundary are available.",
   }),
   sourceReq({
     id: "competitive-sweep",
