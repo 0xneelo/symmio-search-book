@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex static artifact checked-workflow evidence
+- Task: Trigger the manual static artifact workflow from the latest validator commit, download the artifact, and validate it with `npm run search-book:check-static-artifact-packet`.
+- Scope: GitHub Actions manual run, downloaded `/tmp` artifact, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Manual `Search Book Static Artifact` workflow passes from commit `10fcf6c` or newer; downloaded artifact validates with the checked static artifact packet validator; status evidence, full verify, and `git diff --check` pass; only #11/#4 remain open.
+- Result: Manual static artifact run `28537427145` passed from commit `10fcf6c`, including the new checked artifact packet validation step. Downloaded artifact at `/tmp/search-book-gh-static-artifact-28537427145/search-book-static-site` passed `npm run search-book:check-static-artifact-packet`, `npm run search-book:smoke-static -- --root ...`, and `npm run search-book:smoke-preview-service -- --static-root ...`; packet evidence reports 1,652 copied files, 52,849,227 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open. Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and `githubWorkflows:passed`.
+
 ## 2026-07-01 — Codex static artifact packet validator
 - Task: Replace the static artifact workflow's inline manifest assertion with a reusable checked validator and make the workflow contract enforce it.
 - Scope: `scripts/check-static-artifact-packet.mjs`, `package.json`, `.github/workflows/search-book-static-artifact.yml`, `scripts/check-github-workflows.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.

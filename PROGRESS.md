@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Static Artifact Checked Workflow Evidence
+
+- Triggered manual `Search Book Static Artifact` workflow run `28537427145` from commit `10fcf6c`; the workflow passed verify, static smoke, answer-engine bridge smoke, and the new checked artifact packet validation step.
+- Downloaded artifact to `/tmp/search-book-gh-static-artifact-28537427145/search-book-static-site`; local `npm run search-book:check-static-artifact-packet -- --root /tmp/search-book-gh-static-artifact-28537427145/search-book-static-site` passed with 1,652 copied files, 52,849,227 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open.
+- Local copied-bundle smokes also passed: `npm run search-book:smoke-static -- --root /tmp/search-book-gh-static-artifact-28537427145/search-book-static-site` and `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-gh-static-artifact-28537427145/search-book-static-site`.
+- Full `npm run search-book:verify` passed afterward with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, `githubWorkflows:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Static Artifact Packet Validator
 
 - Added `npm run search-book:check-static-artifact-packet`, a reusable no-secret validator for downloaded or freshly built static artifact bundles.

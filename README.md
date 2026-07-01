@@ -206,6 +206,11 @@ To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow
 `Search Book Static Artifact` uploads the same `index.html`/data/content bundle for
 review or platform handoff without choosing the final deploy route.
+Validate a downloaded or freshly built bundle with
+`npm run search-book:check-static-artifact-packet -- --root /tmp/search-book-static-site`;
+the validator checks copied-file hashes, required data files, static integrity,
+no-secret/no-SQLite artifact boundaries, source ingestion, Discord route coverage,
+living-docs controls, and the reconciled #11/#4 operator boundary.
 To smoke-test a copied bundle directly, run
 `npm run search-book:smoke-static -- --root /tmp/search-book-static-site`.
 To verify the copied bundle can also bridge to the standalone answer-engine service, run
