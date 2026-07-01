@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Static Artifact Packet Validator
+
+- Added `npm run search-book:check-static-artifact-packet`, a reusable no-secret validator for downloaded or freshly built static artifact bundles.
+- Replaced the static artifact workflow's inline `node -e` manifest assertion with the checked validator, and updated `npm run search-book:check-github-workflows` to require that workflow contract.
+- Focused validation passed against both the latest downloaded GitHub artifact at `/tmp/search-book-gh-static-artifact-28536310917/search-book-static-site` and a fresh local artifact at `/tmp/search-book-static-artifact-validator-local`; both report 1,652 copied files, 52,849,227 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and open operator items limited to #4/#11.
+- Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, `githubWorkflows:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Static Artifact Workflow Refresh
 
 - Triggered manual `Search Book Static Artifact` workflow run `28536310917` from commit `85b241e`; the workflow passed verify, static smoke, answer-engine bridge smoke, and manifest checks.

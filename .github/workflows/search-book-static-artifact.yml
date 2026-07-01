@@ -70,9 +70,7 @@ jobs:
 
       - name: Check artifact manifest
         run: |
-          test -f "$SEARCH_BOOK_STATIC_ARTIFACT_DIR/index.html"
-          test -f "$SEARCH_BOOK_STATIC_ARTIFACT_DIR/static-artifact-manifest.json"
-          node -e 'const fs = require("node:fs"); const manifest = JSON.parse(fs.readFileSync(process.env.SEARCH_BOOK_STATIC_ARTIFACT_DIR + "/static-artifact-manifest.json", "utf8")); if (manifest.status !== "passed") throw new Error(`artifact status ${manifest.status}`); if (manifest.secrets?.valuesPrinted !== false) throw new Error("artifact reported printed secret values"); if ((manifest.secrets?.sensitiveMatches || []).length) throw new Error("artifact contains sensitive-pattern matches"); console.log(JSON.stringify({ status: manifest.status, files: manifest.files, bytes: manifest.bytes, integrity: manifest.integrity?.status || null }, null, 2));'
+          npm run search-book:check-static-artifact-packet -- --root "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"
 
       - name: Upload static artifact
         if: always()

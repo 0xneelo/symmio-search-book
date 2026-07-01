@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex static artifact packet validator
+- Task: Replace the static artifact workflow's inline manifest assertion with a reusable checked validator and make the workflow contract enforce it.
+- Scope: `scripts/check-static-artifact-packet.mjs`, `package.json`, `.github/workflows/search-book-static-artifact.yml`, `scripts/check-github-workflows.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: static artifact packet validator passes against the latest downloaded artifact and a fresh local artifact, workflow contract check passes, full `npm run search-book:verify` passes, `git diff --check` passes, and only #11/#4 remain open.
+- Result: Added `npm run search-book:check-static-artifact-packet`, replaced the static artifact workflow's inline manifest check with the reusable validator, and updated the workflow contract guard. Focused validation passed against `/tmp/search-book-gh-static-artifact-28536310917/search-book-static-site` and `/tmp/search-book-static-artifact-validator-local`; both report 1,652 copied files, 52,849,227 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open. Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and `githubWorkflows:passed`.
+
 ## 2026-07-01 — Codex static artifact workflow refresh
 - Task: Refresh the manual platform-neutral static artifact workflow from current `main`, download the artifact, and validate the copied bundle locally without choosing the production deploy route.
 - Scope: GitHub Actions manual run, downloaded `/tmp` artifact, `PROGRESS.md`, `_local/agent-worklog.md`.
