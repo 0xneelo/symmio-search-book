@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Discord Route Coverage Evidence
+
+- Extended the sanitized Discord routing summary so each page-fit group now records public route alias coverage from `data/question-routes.json`.
+- Search Insights now shows the aggregate route-coverage count plus per-page public-route counts and status chips without storing or rendering raw Discord/Lafa text.
+- Regenerated `data/discord-review-routing.*`: 19/19 page-fit groups have public route aliases, 0 single-route groups remain, and those groups have 40 public exact routes between them.
+- Targeted privacy/coverage assertion passed with `storesMessageText:false` and zero populated forbidden raw-text fields; full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Discord-Seeded Route Aliases Batch 4
 
 - Added five final generic, source-backed exact-route aliases for the remaining one-route sanitized Discord page-fit targets: trader/LP market-stage visibility, market-level referral attachment, referral attribution buckets, linear payout shape, and Discord/Lafa publication boundaries.

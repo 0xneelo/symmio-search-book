@@ -3505,6 +3505,7 @@
       function renderDiscordRouting() {
         const summary = discordRouting.summary || {};
         const plan = discordRouting.reviewPlan || {};
+        const routeCoverage = plan.routeCoverage || {};
         const topRows = (plan.pageFitReview || [])
           .slice(0, 10)
           .map((item) => {
@@ -3512,12 +3513,14 @@
             const reviewTypes = Object.entries(item.byReviewType || {})
               .map(([type, count]) => `${escapeHtml(type)}: ${escapeHtml(count)}`)
               .join(" / ");
+            const routeLabel = item.publicRouteCount === 1 ? "1 public route" : `${escapeHtml(item.publicRouteCount || 0)} public routes`;
             return `
               <div class="gap-row ${item.routedItems > 1 ? "is-priority" : ""}">
-                <div class="meta">page-fit review / ${escapeHtml(item.routedItems)} items${reviewTypes ? ` / ${reviewTypes}` : ""}</div>
+                <div class="meta">page-fit review / ${escapeHtml(item.routedItems)} items / ${routeLabel}${reviewTypes ? ` / ${reviewTypes}` : ""}</div>
                 <p>${escapeHtml(page?.title || item.pageId)}</p>
                 <div class="source-row">
                   <a class="source-chip" href="${escapeHtml(pageHref(page || { id: item.pageId }))}" data-open-page="${escapeHtml(item.pageId)}">${escapeHtml(item.pageId)}</a>
+                  <span class="source-chip">${escapeHtml(item.coverageStatus || "route-coverage-unknown")}</span>
                   ${(item.sourceKeys || []).slice(0, 4).map((source) => sourceChipForKey(source)).join("")}
                 </div>
               </div>
@@ -3546,6 +3549,7 @@
           <li><span class="meta">Routed items</span><br>${escapeHtml(summary.routedItems || 0)} review items; raw text included: ${discordRouting.rawDiscordTextIncluded ? "yes" : "no"}.</li>
           <li><span class="meta">Answered by existing pages</span><br>${escapeHtml(summary.byStatus?.answered || 0)} answered; ${escapeHtml(summary.byStatus?.refusal || 0)} refusals kept review-bound.</li>
           <li><span class="meta">Editorial queue</span><br>${escapeHtml(plan.pageFitReviewReady || 0)} page checks; ${escapeHtml(plan.refusalReviewReady || 0)} refusal checks.</li>
+          <li><span class="meta">Route coverage</span><br>${escapeHtml(routeCoverage.pageFitCoveredByPublicRoutes || 0)}/${escapeHtml(routeCoverage.totalPageFitGroups || 0)} page-fit groups have route aliases; ${escapeHtml(routeCoverage.pageFitSingleRouteRemaining || 0)} single-route groups remain.</li>
           <li><span class="meta">Review actions</span><br>${Object.entries(summary.byAction || {}).map(([action, count]) => `${escapeHtml(action)}: ${escapeHtml(count)}`).join("<br>") || "none"}</li>
         `;
       }

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord route coverage evidence
+- Task: Surface public route-alias coverage for sanitized Discord page-fit groups in the committed routing summary and Search Insights UI.
+- Scope: `scripts/build-discord-routing-summary.mjs`, `data/discord-review-routing.*`, `index.html`, progress/report docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Route coverage is derived only from committed public route metadata; no raw Discord/Lafa text is stored or rendered; full deterministic verify stays green.
+- Result: Added no-raw route-coverage metadata to the Discord review plan, rendered aggregate/per-page route coverage in Search Insights, and regenerated `data/discord-review-routing.*` with 19/19 page-fit groups covered by public route aliases, 0 single-route groups remaining, and 40 public exact routes across those groups. Targeted privacy/coverage assertion passed with `storesMessageText:false` and zero populated forbidden raw-text fields. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord-seeded route aliases batch 4
 - Task: Promote the final one-route sanitized Discord page-fit targets into generic, primary-source-backed exact question routes while keeping refusal-only claims guarded.
 - Scope: `QUESTIONS.md`, regenerated route/FAQ/contract data, current count docs if changed, and `_local/agent-worklog.md`.

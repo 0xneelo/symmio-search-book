@@ -11,6 +11,7 @@ const defaults = {
   routingJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_REPORT || "",
   outJson: path.join(searchBookRoot, "data", "discord-review-routing.json"),
   outJs: path.join(searchBookRoot, "data", "discord-review-routing.js"),
+  routesJson: path.join(searchBookRoot, "data", "question-routes.json"),
 };
 
 function parseArgs(argv) {
@@ -20,8 +21,9 @@ function parseArgs(argv) {
     if (arg === "--routing-json") args.routingJson = argv[++index] || "";
     else if (arg === "--out-json") args.outJson = argv[++index] || "";
     else if (arg === "--out-js") args.outJs = argv[++index] || "";
+    else if (arg === "--routes-json") args.routesJson = argv[++index] || "";
     else if (arg === "--help") {
-      console.log("Usage: node scripts/build-discord-routing-summary.mjs [--routing-json /tmp/.../discord-review-routing.json]");
+      console.log("Usage: node scripts/build-discord-routing-summary.mjs [--routing-json /tmp/.../discord-review-routing.json] [--routes-json data/question-routes.json]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -55,6 +57,8 @@ function writeOutputs(report, args) {
         refusals: report.summary.byStatus.refusal || 0,
         pageFitReviewReady: report.reviewPlan.pageFitReviewReady,
         refusalReviewReady: report.reviewPlan.refusalReviewReady,
+        pageFitCoveredByPublicRoutes: report.reviewPlan.routeCoverage?.pageFitCoveredByPublicRoutes || 0,
+        pageFitSingleRouteRemaining: report.reviewPlan.routeCoverage?.pageFitSingleRouteRemaining || 0,
       },
       null,
       2,
@@ -126,7 +130,47 @@ function incrementCount(map, key) {
   map[key] = (map[key] || 0) + 1;
 }
 
-function buildReviewPlan(items) {
+function readPublicRouteCounts(args) {
+  const routes = readJson(args.routesJson, {});
+  const counts = new Map();
+  for (const route of routes.answerable || []) {
+    if (!route.pageId || route.missing === true) continue;
+    if (route.pageStatus && route.pageStatus !== "published") continue;
+    counts.set(route.pageId, (counts.get(route.pageId) || 0) + 1);
+  }
+  return counts;
+}
+
+function addPublicRouteCoverage(pageFitReview, args) {
+  const publicRouteCounts = readPublicRouteCounts(args);
+  const annotated = pageFitReview.map((entry) => {
+    const publicRouteCount = publicRouteCounts.get(entry.pageId) || 0;
+    const coverageStatus =
+      publicRouteCount > 1 ? "route-aliases-present" : publicRouteCount === 1 ? "single-route" : "no-public-route";
+    return {
+      ...entry,
+      publicRouteCount,
+      coverageStatus,
+      coveredByPublicRoutes: coverageStatus === "route-aliases-present",
+    };
+  });
+
+  return {
+    pageFitReview: annotated,
+    routeCoverage: {
+      totalPageFitGroups: annotated.length,
+      pageFitCoveredByPublicRoutes: annotated.filter((entry) => entry.coveredByPublicRoutes).length,
+      pageFitSingleRouteRemaining: annotated.filter((entry) => entry.coverageStatus === "single-route").length,
+      pageFitWithoutPublicRoute: annotated.filter((entry) => entry.coverageStatus === "no-public-route").length,
+      totalPublicRoutesToPageFitPages: annotated.reduce((total, entry) => total + entry.publicRouteCount, 0),
+      coverageReady:
+        annotated.length > 0 &&
+        annotated.every((entry) => entry.coverageStatus === "route-aliases-present"),
+    },
+  };
+}
+
+function buildReviewPlan(items, args) {
   const pageFitById = new Map();
   const refusalReview = [];
   for (const item of items) {
@@ -167,14 +211,16 @@ function buildReviewPlan(items) {
       itemIds: unique(entry.itemIds),
     }))
     .sort((a, b) => b.routedItems - a.routedItems || a.pageId.localeCompare(b.pageId));
+  const routeCoverage = addPublicRouteCoverage(pageFitReview, args);
 
   return {
-    pageFitReviewReady: pageFitReview.length,
-    pageFitItemCount: pageFitReview.reduce((total, entry) => total + entry.routedItems, 0),
+    pageFitReviewReady: routeCoverage.pageFitReview.length,
+    pageFitItemCount: routeCoverage.pageFitReview.reduce((total, entry) => total + entry.routedItems, 0),
     refusalReviewReady: refusalReview.length,
     refusalItemCount: refusalReview.length,
     publicUseBoundary: "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
-    pageFitReview,
+    routeCoverage: routeCoverage.routeCoverage,
+    pageFitReview: routeCoverage.pageFitReview,
     refusalReview: refusalReview.sort((a, b) => a.itemId.localeCompare(b.itemId)),
   };
 }
@@ -195,7 +241,7 @@ function buildFromRoutingReport(input, args) {
   assertSafeRoutingReport(input);
   const items = (input.items || []).map(sanitizeItem);
   const summary = summarizeItems(items);
-  const reviewPlan = buildReviewPlan(items);
+  const reviewPlan = buildReviewPlan(items, args);
   return {
     generatedAt: "deterministic-build",
     status: "routed",
@@ -214,7 +260,7 @@ function buildFromExisting(input, args) {
   assertSafeRoutingReport(input);
   const items = (input.items || []).map(sanitizeItem);
   const summary = summarizeItems(items);
-  const reviewPlan = buildReviewPlan(items);
+  const reviewPlan = buildReviewPlan(items, args);
   return {
     generatedAt: "deterministic-build",
     status: "routed",
@@ -259,6 +305,14 @@ function parkedReport() {
       refusalReviewReady: 0,
       refusalItemCount: 0,
       publicUseBoundary: "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
+      routeCoverage: {
+        totalPageFitGroups: 0,
+        pageFitCoveredByPublicRoutes: 0,
+        pageFitSingleRouteRemaining: 0,
+        pageFitWithoutPublicRoute: 0,
+        totalPublicRoutesToPageFitPages: 0,
+        coverageReady: false,
+      },
       pageFitReview: [],
       refusalReview: [],
     },
