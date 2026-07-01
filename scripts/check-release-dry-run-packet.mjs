@@ -31,9 +31,9 @@ Options:
 
 Validates a no-secret release dry-run packet plus its nested launch-evidence
 packet. This checks child steps, static artifact integrity, launch readiness,
-monitoring, Vibe source freshness, status-document evidence, no sensitive
-matches, publication boundaries, clean repository state, and reconciled open
-operator gates.`;
+monitoring, Vibe source freshness, status-document evidence, original-spec
+reconciliation, no sensitive matches, publication boundaries, clean repository
+state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -91,6 +91,10 @@ function normalizedSourceFreshnessEvidence(packet) {
 
 function normalizedStatusEvidence(packet) {
   return packet.statusEvidence?.parsed || {};
+}
+
+function normalizedSpecReconciliation(packet) {
+  return packet.specReconciliation?.parsed || {};
 }
 
 function normalizedDiscordReviewArtifacts(packet) {
@@ -236,6 +240,32 @@ function evidenceSummaryRendererReady(evidence = {}) {
   );
 }
 
+function specReconciliationReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  const openOperatorIds = Array.isArray(totals.openOperatorIds)
+    ? totals.openOperatorIds.map((id) => Number(id)).sort((a, b) => a - b)
+    : [];
+  const specChecks = checks.filter((check) => String(check.id || "").startsWith("spec-"));
+  return (
+    evidence.status === "passed"
+    && totals.sourceIngestion === "17/17"
+    && Number(totals.sourcePartial || 0) === 0
+    && Number(totals.sourceParked || 0) === 0
+    && Number(totals.sourceMissing || 0) === 0
+    && totals.sourceCompletionReady === true
+    && totals.competitiveSweep === "49/50"
+    && totals.llmProvider === "OpenAI"
+    && totals.llmModel === "gpt-4.1-mini"
+    && openOperatorIds.length === 2
+    && openOperatorIds[0] === 4
+    && openOperatorIds[1] === 11
+    && specChecks.length >= 6
+    && checks.length >= 10
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function publicationBoundariesReady(evidence = {}) {
   const totals = evidence.evidence || {};
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
@@ -264,6 +294,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedLaunch = normalizedLaunchEvidence(nestedLaunchPacket);
   const nestedSourceFreshness = normalizedSourceFreshnessEvidence(nestedLaunchPacket);
   const nestedStatusEvidence = normalizedStatusEvidence(nestedLaunchPacket);
+  const nestedSpecReconciliation = normalizedSpecReconciliation(nestedLaunchPacket);
   const nestedDiscordReviewArtifacts = normalizedDiscordReviewArtifacts(nestedLaunchPacket);
   const nestedDiscordRefusalRuntime = normalizedDiscordRefusalRuntime(nestedLaunchPacket);
   const nestedPublicationBoundaries = normalizedPublicationBoundaries(nestedLaunchPacket);
@@ -272,6 +303,8 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedSourceTotals = nestedSourceFreshness.totals || {};
   const nestedStatusDocuments = nestedStatusEvidence.documents || [];
   const nestedPassedStatusDocuments = nestedStatusDocuments.filter((doc) => doc.passed).length;
+  const nestedSpecChecks = Array.isArray(nestedSpecReconciliation.checks) ? nestedSpecReconciliation.checks : [];
+  const nestedSpecPassedChecks = nestedSpecChecks.filter((check) => check.passed).length;
   const sourceBodyMarkers = sourceFreshnessBodyMarkers(nestedSourceFreshness);
   const readiness = packet.readiness || {};
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
@@ -326,6 +359,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-status-evidence-status",
     launchSummary.statusEvidenceStatus === "passed",
     `statusEvidenceStatus=${launchSummary.statusEvidenceStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-spec-reconciliation-status",
+    launchSummary.specReconciliationStatus === "passed",
+    `specReconciliationStatus=${launchSummary.specReconciliationStatus || "missing"}`,
   );
   addCheck(
     checks,
@@ -402,6 +441,27 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "nested-status-evidence-open-operator-items-reconciled",
     unexpectedStatusOpen.length === 0,
     unexpectedStatusOpen.length ? `unexpected=${unexpectedStatusOpen.join(",")}` : "only #11/#4 or fewer remain open",
+  );
+  addCheck(
+    checks,
+    "nested-spec-reconciliation-passed",
+    nestedLaunchPacket.specReconciliation?.passed === true,
+    `passed=${nestedLaunchPacket.specReconciliation?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-spec-reconciliation-status",
+    nestedSpecReconciliation.status === "passed",
+    `status=${nestedSpecReconciliation.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-spec-reconciliation-ready",
+    specReconciliationReady(nestedSpecReconciliation),
+    JSON.stringify({
+      evidence: nestedSpecReconciliation.evidence || null,
+      checks: `${nestedSpecPassedChecks}/${nestedSpecChecks.length}`,
+    }),
   );
   addCheck(
     checks,
@@ -553,6 +613,11 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       sourceBodiesPrinted: nestedSourceSecrets.sourceBodiesPrinted,
       statusEvidenceStatus: launchSummary.statusEvidenceStatus || null,
       statusEvidenceDocuments: nestedStatusDocuments.length ? `${nestedPassedStatusDocuments}/${nestedStatusDocuments.length}` : null,
+      specReconciliationStatus: launchSummary.specReconciliationStatus || null,
+      specReconciliation: {
+        evidence: nestedSpecReconciliation.evidence || null,
+        checks: nestedSpecChecks.length ? `${nestedSpecPassedChecks}/${nestedSpecChecks.length}` : null,
+      },
       discordReviewArtifactsStatus: launchSummary.discordReviewArtifactsStatus || null,
       discordReviewArtifacts: {
         routedItems: nestedDiscordReviewArtifacts.summary?.routedItems ?? null,

@@ -82,6 +82,7 @@ function launchSummary(packet) {
   const monitoring = packet.monitoringEvidence?.parsed || {};
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || {};
   const statusEvidence = packet.statusEvidence?.parsed || {};
+  const specReconciliation = packet.specReconciliation?.parsed || {};
   const discord = packet.discordReviewArtifacts?.parsed || {};
   const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || {};
   const publication = packet.publicationBoundaries?.parsed || {};
@@ -95,6 +96,9 @@ function launchSummary(packet) {
   const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
   const statusDocuments = statusEvidence.documents || [];
   const passedStatusDocuments = statusDocuments.filter((doc) => doc.passed).length;
+  const specReconciliationChecks = specReconciliation.checks || [];
+  const specReconciliationPassedChecks = specReconciliationChecks.filter((check) => check.passed).length;
+  const specReconciliationEvidence = specReconciliation.evidence || {};
   const openOperatorItems = operatorItems(statusEvidence.evidence?.openOperatorItems || packet.readiness?.openOperatorItems || []);
 
   return markdownTable("Search Book Launch Evidence", [
@@ -107,6 +111,10 @@ function launchSummary(packet) {
       `\`${sourceFreshness.status || "missing"}\` (${sourceFreshness.totals?.passed ?? 0}/${sourceFreshness.totals?.checks ?? 0} checks; source bodies printed: \`${sourceFreshness.secrets?.sourceBodiesPrinted ?? false}\`)`,
     ],
     ["Status evidence", `\`${statusEvidence.status || "missing"}\` (${passedStatusDocuments}/${statusDocuments.length} documents)`],
+    [
+      "Spec reconciliation",
+      `\`${specReconciliation.status || "missing"}\` (${specReconciliationPassedChecks}/${specReconciliationChecks.length} checks; source ${specReconciliationEvidence.sourceIngestion || "unknown"}; open ${operatorItems(specReconciliationEvidence.openOperatorIds || [])})`,
+    ],
     ["Discord review artifacts", `\`${discord.status || "missing"}\``],
     ["Discord routed items", `\`${discordSummary.routedItems ?? "unknown"}\``],
     ["Discord route coverage", `\`${routeCoverage.coveredPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
@@ -150,6 +158,7 @@ function releaseSummary(packet) {
   const launch = packet.launchEvidence || {};
   const sourceFreshness = launch.sourceFreshness || {};
   const statusEvidence = launch.statusEvidence || {};
+  const specReconciliation = launch.specReconciliation || {};
   const discord = launch.discordReviewArtifacts || {};
   const discordRefusalRuntime = launch.discordRefusalRuntime || {};
   const publication = launch.publicationBoundaries || {};
@@ -180,6 +189,10 @@ function releaseSummary(packet) {
       `\`${launch.sourceFreshnessStatus || "missing"}\` (${sourceFreshness.totals?.passed ?? 0}/${sourceFreshness.totals?.checks ?? 0} checks; source bodies printed: \`${sourceFreshness.secrets?.sourceBodiesPrinted ?? false}\`)`,
     ],
     ["Status evidence", `\`${launch.statusEvidenceStatus || "missing"}\` (${statusEvidence.documents?.passed ?? 0}/${statusEvidence.documents?.total ?? 0} documents)`],
+    [
+      "Spec reconciliation",
+      `\`${launch.specReconciliationStatus || "missing"}\` (${specReconciliation.checks?.passed ?? 0}/${specReconciliation.checks?.total ?? 0} checks; source ${specReconciliation.evidence?.sourceIngestion || "unknown"}; open ${operatorItems(specReconciliation.evidence?.openOperatorIds || [])})`,
+    ],
     ["Discord review artifacts", `\`${launch.discordReviewArtifactsStatus || "missing"}\``],
     ["Discord routed items", `\`${discordSummary.routedItems ?? "unknown"}\``],
     ["Discord route coverage", `\`${routeCoverage.coveredPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],

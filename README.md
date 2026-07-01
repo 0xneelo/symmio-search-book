@@ -153,7 +153,9 @@ Discord refusal-runtime evidence proving the public-safe Discord/Lafa probes rem
 without loaded LLM credentials,
 source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
 evidence as public/source/internal counts only, and status-document evidence proving
-current report counts match generated data.
+current report counts match generated data. It also includes original-spec reconciliation
+evidence proving source ingestion is `17/17`, local LLM provider/model assumptions are current,
+and open operator items remain limited to #4/#11.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`;
 the validator requires the packet to come from a clean repository state.
 Render the same count-only Markdown summary used by GitHub Actions with
@@ -166,7 +168,7 @@ builds the static artifact, smoke-tests the copied artifact both statically and 
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
 include source-freshness, status-document, Discord review-artifact, Discord refusal-runtime,
-and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
+original-spec reconciliation, and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
 companions stay out of public navigation/routes and internal drafts stay out of runtime
 context, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same

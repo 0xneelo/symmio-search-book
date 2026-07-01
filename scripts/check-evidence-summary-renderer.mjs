@@ -68,6 +68,33 @@ function makeLaunchPacket() {
         },
       },
     },
+    specReconciliation: {
+      parsed: {
+        status: "passed",
+        evidence: {
+          sourceIngestion: "17/17",
+          sourcePartial: 0,
+          sourceParked: 0,
+          sourceMissing: 0,
+          sourceCompletionReady: true,
+          llmProvider: "OpenAI",
+          llmModel: "gpt-4.1-mini",
+          openOperatorIds: [4, 11],
+        },
+        checks: [
+          { id: "operator-open-items", passed: true },
+          { id: "source-ingestion-current", passed: true },
+          { id: "discord-import-current", passed: true },
+          { id: "llm-provider-current", passed: true },
+          { id: "spec-narrative-thesis", passed: true },
+          { id: "spec-grounding", passed: true },
+          { id: "spec-sources", passed: true },
+          { id: "spec-answer-engine", passed: true },
+          { id: "spec-research-session", passed: true },
+          { id: "spec-implementation-session", passed: true },
+        ],
+      },
+    },
     discordReviewArtifacts: {
       parsed: {
         status: "passed",
@@ -184,6 +211,7 @@ function makeReleasePacket() {
       monitoringStatus: "passed",
       sourceFreshnessStatus: "passed",
       statusEvidenceStatus: "passed",
+      specReconciliationStatus: "passed",
       discordReviewArtifactsStatus: "passed",
       discordRefusalRuntimeStatus: "passed",
       publicationBoundariesStatus: "passed",
@@ -197,6 +225,20 @@ function makeReleasePacket() {
       },
       statusEvidence: {
         documents: { passed: 4, total: 4 },
+      },
+      specReconciliation: {
+        status: "passed",
+        checks: { passed: 10, total: 10 },
+        evidence: {
+          sourceIngestion: "17/17",
+          sourcePartial: 0,
+          sourceParked: 0,
+          sourceMissing: 0,
+          sourceCompletionReady: true,
+          llmProvider: "OpenAI",
+          llmModel: "gpt-4.1-mini",
+          openOperatorIds: [4, 11],
+        },
       },
       discordReviewArtifacts: {
         summary: {
@@ -319,6 +361,7 @@ function main() {
       && /Discord public copy ready \| `19\/19 page-fit groups`/.test(combined)
       && /Discord refusal policy \| `2\/2 refusals`/.test(combined)
       && /Discord refusal runtime \| `passed` \(2\/2 probes; LLM credentials loaded: `false`\)/.test(combined)
+      && /Spec reconciliation \| `passed` \(10\/10 checks; source 17\/17; open #4, #11\)/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
       && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined),
     "",

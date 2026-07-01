@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Spec Reconciliation Release Evidence
+
+- Promoted `npm run search-book:check-spec-reconciliation` into launch evidence packets, release dry-run summaries, packet validators, and reusable evidence summaries.
+- Launch/release validators now fail if reconciliation evidence is missing or stale: source ingestion must be `17/17`, partial/parked/missing source states must be zero, OpenAI `gpt-4.1-mini` must remain the local runtime contract, open operator ids must be #4/#11, and all original-spec reconciliation checks must pass.
+- Evidence summaries render the reconciliation proof as count-only Markdown: status, `10/10` checks, source ingestion, and open operator ids.
+
 ## 2026-07-01 — Original Spec Reconciliation Verify Guard
 
 - Added `npm run search-book:check-spec-reconciliation`, an executable guard for the reconciliation notes in the original numbered app-doc specs.

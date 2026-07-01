@@ -412,6 +412,13 @@ function runStatusEvidenceCommand() {
   };
 }
 
+function runSpecReconciliationCommand() {
+  return {
+    source: "spec-reconciliation",
+    result: commandResult(["scripts/check-spec-reconciliation.mjs"]),
+  };
+}
+
 function runDiscordReviewArtifactsCommand() {
   return {
     source: "discord-review-artifacts",
@@ -477,6 +484,7 @@ function renderMarkdown(packet) {
   const monitoring = normalizedMonitoringEvidence(packet);
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
+  const specReconciliation = normalizedSpecReconciliation(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
@@ -486,6 +494,9 @@ function renderMarkdown(packet) {
   const sourceFreshnessTotals = sourceFreshness.totals || {};
   const statusEvidenceDocuments = statusEvidence.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
+  const specReconciliationEvidence = specReconciliation.evidence || {};
+  const specReconciliationChecks = specReconciliation.checks || [];
+  const specReconciliationPassedChecks = specReconciliationChecks.filter((check) => check.passed).length;
   const discordSummary = discordReviewArtifacts.summary || {};
   const discordRouteCoverage = discordSummary.routeCoverage || {};
   const discordQueue = discordReviewArtifacts.editorialQueue || {};
@@ -566,6 +577,14 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Documents checked: \`${statusEvidencePassedDocuments}/${statusEvidenceDocuments.length}\`
 - Open operator items: \`${(statusEvidence.evidence?.openOperatorItems || []).map((id) => `#${id}`).join(", ") || "none"}\`
 
+## Spec Reconciliation Evidence
+
+- Spec reconciliation status: \`${specReconciliation.status || "missing"}\`
+- Source ingestion: \`${specReconciliationEvidence.sourceIngestion || "unknown"}; partial=${specReconciliationEvidence.sourcePartial ?? "unknown"}; parked=${specReconciliationEvidence.sourceParked ?? "unknown"}; missing=${specReconciliationEvidence.sourceMissing ?? "unknown"}\`
+- Open operator ids: \`${(specReconciliationEvidence.openOperatorIds || []).map((id) => `#${id}`).join(", ") || "none"}\`
+- LLM runtime: \`${specReconciliationEvidence.llmProvider || "unknown"} / ${specReconciliationEvidence.llmModel || "unknown"}\`
+- Checks: \`${specReconciliationPassedChecks}/${specReconciliationChecks.length}\`
+
 ## Discord Review Artifacts Evidence
 
 - Discord review artifacts status: \`${discordReviewArtifacts.status || "missing"}\`
@@ -641,6 +660,10 @@ function normalizedStatusEvidence(packet) {
   return packet.statusEvidence?.parsed || {};
 }
 
+function normalizedSpecReconciliation(packet) {
+  return packet.specReconciliation?.parsed || {};
+}
+
 function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
@@ -663,6 +686,7 @@ function buildPacket(
   monitoringEvidence,
   sourceFreshnessEvidence,
   statusEvidence,
+  specReconciliation,
   discordReviewArtifacts,
   discordRefusalRuntime,
   publicationBoundaries,
@@ -672,6 +696,7 @@ function buildPacket(
   const monitoringParsed = monitoringEvidence.result.parsed || null;
   const sourceFreshnessParsed = sourceFreshnessEvidence.result.parsed || null;
   const statusEvidenceParsed = statusEvidence.result.parsed || null;
+  const specReconciliationParsed = specReconciliation.result.parsed || null;
   const discordReviewArtifactsParsed = discordReviewArtifacts.result.parsed || null;
   const discordRefusalRuntimeParsed = discordRefusalRuntime.result.parsed || null;
   const publicationBoundariesParsed = publicationBoundaries.result.parsed || null;
@@ -682,6 +707,8 @@ function buildPacket(
     sourceFreshnessEvidence.result.passed && (!sourceFreshnessParsed || ["passed", "skipped"].includes(sourceFreshnessParsed.status));
   const statusEvidencePassed =
     statusEvidence.result.passed && (!statusEvidenceParsed || statusEvidenceParsed.status === "passed");
+  const specReconciliationPassed =
+    specReconciliation.result.passed && (!specReconciliationParsed || specReconciliationParsed.status === "passed");
   const discordReviewArtifactsPassed =
     discordReviewArtifacts.result.passed && (!discordReviewArtifactsParsed || discordReviewArtifactsParsed.status === "passed");
   const discordRefusalRuntimePassed =
@@ -695,6 +722,7 @@ function buildPacket(
       && monitoringPassed
       && sourceFreshnessPassed
       && statusEvidencePassed
+      && specReconciliationPassed
       && discordReviewArtifactsPassed
       && discordRefusalRuntimePassed
       && publicationBoundariesPassed
@@ -715,6 +743,8 @@ function buildPacket(
     sourceFreshnessCommand: sourceFreshnessEvidence.result.command,
     statusEvidenceSource: statusEvidence.source,
     statusEvidenceCommand: statusEvidence.result.command,
+    specReconciliationSource: specReconciliation.source,
+    specReconciliationCommand: specReconciliation.result.command,
     discordReviewArtifactsSource: discordReviewArtifacts.source,
     discordReviewArtifactsCommand: discordReviewArtifacts.result.command,
     discordRefusalRuntimeSource: discordRefusalRuntime.source,
@@ -772,6 +802,15 @@ function buildPacket(
       error: statusEvidence.result.error,
       stdoutTail: statusEvidence.result.stdoutTail,
       stderrTail: statusEvidence.result.stderrTail,
+    },
+    specReconciliation: {
+      exitCode: specReconciliation.result.exitCode,
+      signal: specReconciliation.result.signal,
+      passed: specReconciliation.result.passed,
+      parsed: specReconciliationParsed,
+      error: specReconciliation.result.error,
+      stdoutTail: specReconciliation.result.stdoutTail,
+      stderrTail: specReconciliation.result.stderrTail,
     },
     discordReviewArtifacts: {
       exitCode: discordReviewArtifacts.result.exitCode,
@@ -836,6 +875,7 @@ function main() {
   const monitoringEvidence = runMonitoringCommand(args);
   const sourceFreshnessEvidence = runSourceFreshnessCommand(args);
   const statusEvidence = runStatusEvidenceCommand();
+  const specReconciliation = runSpecReconciliationCommand();
   const discordReviewArtifacts = runDiscordReviewArtifactsCommand();
   const discordRefusalRuntime = runDiscordRefusalRuntimeCommand();
   const publicationBoundaries = runPublicationBoundariesCommand();
@@ -848,6 +888,7 @@ function main() {
       monitoringEvidence,
       sourceFreshnessEvidence,
       statusEvidence,
+      specReconciliation,
       discordReviewArtifacts,
       discordRefusalRuntime,
       publicationBoundaries,
@@ -868,6 +909,7 @@ function main() {
     monitoringStatus: normalizedMonitoringEvidence(packet).status || (packet.monitoringEvidence?.passed ? "passed" : "failed"),
     sourceFreshnessStatus: normalizedSourceFreshnessEvidence(packet).status || (packet.sourceFreshnessEvidence?.passed ? "passed" : "failed"),
     statusEvidenceStatus: normalizedStatusEvidence(packet).status || (packet.statusEvidence?.passed ? "passed" : "failed"),
+    specReconciliationStatus: normalizedSpecReconciliation(packet).status || (packet.specReconciliation?.passed ? "passed" : "failed"),
     discordReviewArtifactsStatus: normalizedDiscordReviewArtifacts(packet).status || (packet.discordReviewArtifacts?.passed ? "passed" : "failed"),
     discordRefusalRuntimeStatus: normalizedDiscordRefusalRuntime(packet).status || (packet.discordRefusalRuntime?.passed ? "passed" : "failed"),
     publicationBoundariesStatus: normalizedPublicationBoundaries(packet).status || (packet.publicationBoundaries?.passed ? "passed" : "failed"),

@@ -31,8 +31,9 @@ Options:
 
 Validates a no-secret launch-evidence packet, including launch readiness,
 monitoring, Vibe source freshness, status-document evidence, source-ingestion
-readiness, Discord route coverage, publication boundaries, living-docs controls,
-clean repository state, and reconciled open operator gates.`;
+readiness, original-spec reconciliation, Discord route coverage, publication
+boundaries, living-docs controls, clean repository state, and reconciled open
+operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -87,6 +88,10 @@ function normalizedSourceFreshnessEvidence(packet) {
 
 function normalizedStatusEvidence(packet) {
   return packet.statusEvidence?.parsed || {};
+}
+
+function normalizedSpecReconciliation(packet) {
+  return packet.specReconciliation?.parsed || {};
 }
 
 function normalizedDiscordReviewArtifacts(packet) {
@@ -232,6 +237,32 @@ function evidenceSummaryRendererReady(evidence = {}) {
   );
 }
 
+function specReconciliationReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  const openOperatorIds = Array.isArray(totals.openOperatorIds)
+    ? totals.openOperatorIds.map((id) => Number(id)).sort((a, b) => a - b)
+    : [];
+  const specChecks = checks.filter((check) => String(check.id || "").startsWith("spec-"));
+  return (
+    evidence.status === "passed"
+    && totals.sourceIngestion === "17/17"
+    && Number(totals.sourcePartial || 0) === 0
+    && Number(totals.sourceParked || 0) === 0
+    && Number(totals.sourceMissing || 0) === 0
+    && totals.sourceCompletionReady === true
+    && totals.competitiveSweep === "49/50"
+    && totals.llmProvider === "OpenAI"
+    && totals.llmModel === "gpt-4.1-mini"
+    && openOperatorIds.length === 2
+    && openOperatorIds[0] === 4
+    && openOperatorIds[1] === 11
+    && specChecks.length >= 6
+    && checks.length >= 10
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function publicationBoundariesReady(evidence = {}) {
   const totals = evidence.evidence || {};
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
@@ -255,6 +286,7 @@ function validateLaunchPacket(packet, packetPath) {
   const monitoring = normalizedMonitoringEvidence(packet);
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
+  const specReconciliation = normalizedSpecReconciliation(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
@@ -265,6 +297,8 @@ function validateLaunchPacket(packet, packetPath) {
   const sourceSecrets = sourceFreshness.secrets || {};
   const statusDocuments = statusEvidence.documents || [];
   const passedStatusDocuments = statusDocuments.filter((doc) => doc.passed).length;
+  const specChecks = Array.isArray(specReconciliation.checks) ? specReconciliation.checks : [];
+  const specPassedChecks = specChecks.filter((check) => check.passed).length;
   const sourceBodyMarkers = sourceFreshnessBodyMarkers(sourceFreshness);
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(statusEvidence);
@@ -321,6 +355,27 @@ function validateLaunchPacket(packet, packetPath) {
     "status-evidence-open-operator-items-reconciled",
     unexpectedStatusOpen.length === 0,
     unexpectedStatusOpen.length ? `unexpected=${unexpectedStatusOpen.join(",")}` : "only #11/#4 or fewer remain open",
+  );
+  addCheck(
+    checks,
+    "spec-reconciliation-passed",
+    packet.specReconciliation?.passed === true,
+    `passed=${packet.specReconciliation?.passed}`,
+  );
+  addCheck(
+    checks,
+    "spec-reconciliation-status",
+    specReconciliation.status === "passed",
+    `status=${specReconciliation.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "spec-reconciliation-ready",
+    specReconciliationReady(specReconciliation),
+    JSON.stringify({
+      evidence: specReconciliation.evidence || null,
+      checks: `${specPassedChecks}/${specChecks.length}`,
+    }),
   );
   addCheck(
     checks,
@@ -461,6 +516,11 @@ function validateLaunchPacket(packet, packetPath) {
       sourceBodiesPrinted: sourceSecrets.sourceBodiesPrinted,
       statusEvidenceStatus: statusEvidence.status || null,
       statusEvidenceDocuments: statusDocuments.length ? `${passedStatusDocuments}/${statusDocuments.length}` : null,
+      specReconciliationStatus: specReconciliation.status || null,
+      specReconciliation: {
+        evidence: specReconciliation.evidence || null,
+        checks: specChecks.length ? `${specPassedChecks}/${specChecks.length}` : null,
+      },
       discordReviewArtifactsStatus: discordReviewArtifacts.status || null,
       discordReviewArtifacts: {
         routedItems: discordReviewArtifacts.summary?.routedItems ?? null,

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex spec reconciliation release evidence
+- Task: Promote the original-spec reconciliation guard into launch/release evidence packets and validators so release artifacts prove the reconciled #11/#4-only operator boundary and current source-ingestion state.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, packet validators, evidence summary renderer/checker, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Launch/release packets include first-class `check-spec-reconciliation` evidence, packet validators fail if it is missing or stale, evidence summaries stay count-only/no-secret, full verify remains green, and only #11/#4 remain open.
+- Result: Added first-class spec-reconciliation evidence to launch packets, release summaries, packet validators, and GitHub-style evidence summaries. Full `npm run search-book:verify` passed with 26 build steps, 87 syntax checks, `specReconciliation:passed`, `evidenceSummaryRenderer:passed`, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open. Clean release evidence at `/tmp/search-book-release-dry-run-spec-reconciliation-evidence-20260701-1` passed with `specReconciliationStatus:passed`, repository dirty state `false`, same release/nested-launch commit, `10/10` reconciliation checks, source ingestion `17/17`, OpenAI `gpt-4.1-mini`, open ids #4/#11, `valuesPrinted:false`, and 0 sensitive-pattern matches.
+
 ## 2026-07-01 — Codex original-spec reconciliation verify guard
 - Task: Add an executable guard that keeps the original numbered app-doc specs aligned with the 2026-07-01 reconciliation notes and prevents resolved blockers/provider assumptions from drifting back into active work.
 - Scope: `scripts/check-spec-reconciliation.mjs`, `scripts/build-all.mjs`, `package.json`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

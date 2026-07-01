@@ -122,7 +122,7 @@ function expectedChecks(evidence) {
       { id: "source-zero-counts", anyOf: [`0 partial, 0 parked, and 0 missing`, `0 partial / 0 parked / 0 missing`] },
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`] },
       { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} local review items`, `${evidence.discordPageFitCoverage} page-fit`, `source-backed triage at ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready for ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready at ${evidence.discordRefusalPolicyReady} refusal items`] },
-      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "evidence summary renderer status `passed`", "publication boundaries status `passed`"] },
+      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer status `passed`", "publication boundaries status `passed`"] },
       { id: "requirement-map", anyOf: [`${evidence.requirementComplete}/18 requirements complete`, `${evidence.requirementComplete} requirements complete`] },
       { id: "requirement-status", allOf: [`${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, and ${evidence.requirementMissing} missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates} gates`] },
@@ -142,7 +142,7 @@ function expectedChecks(evidence) {
       { id: "authored", allOf: [`${evidence.authoredPages} authored pages`] },
       { id: "page-state", allOf: [`${evidence.publicNavigationPages} published public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`] },
       { id: "live-eval", allOf: [evidence.liveEvalTotal] },
-      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`"] },
+      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`"] },
       { id: "completion-boundary", allOf: openOperatorFragments },
     ],
     "PRODUCTION-READINESS-PACKET.md": [
@@ -159,6 +159,7 @@ function expectedChecks(evidence) {
       { id: "check-status-script", allOf: ["search-book:check-status-evidence"] },
       { id: "verify-command", allOf: ["npm run search-book:verify"] },
       { id: "discord-artifacts-script", allOf: ["search-book:check-discord-review-artifacts"] },
+      { id: "spec-reconciliation-evidence", allOf: ["original-spec reconciliation"] },
     ],
   };
 }

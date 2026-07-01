@@ -257,12 +257,15 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   if (!packet) return null;
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
   const statusEvidence = packet.statusEvidence?.parsed || null;
+  const specReconciliation = packet.specReconciliation?.parsed || null;
   const discordReviewArtifacts = packet.discordReviewArtifacts?.parsed || null;
   const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || null;
   const publicationBoundaries = packet.publicationBoundaries?.parsed || null;
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
+  const specReconciliationChecks = specReconciliation?.checks || [];
+  const specReconciliationPassedChecks = specReconciliationChecks.filter((check) => check.passed).length;
   const discordSummary = discordReviewArtifacts?.summary || null;
   const discordQueue = discordReviewArtifacts?.editorialQueue || null;
   const discordRefusalProbes = Array.isArray(discordRefusalRuntime?.evidence?.probes)
@@ -280,6 +283,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     monitoringStatus: packet.monitoringEvidence?.parsed?.status || null,
     sourceFreshnessStatus: sourceFreshness?.status || null,
     statusEvidenceStatus: statusEvidence?.status || null,
+    specReconciliationStatus: specReconciliation?.status || null,
     discordReviewArtifactsStatus: discordReviewArtifacts?.status || null,
     discordRefusalRuntimeStatus: discordRefusalRuntime?.status || null,
     publicationBoundariesStatus: publicationBoundaries?.status || null,
@@ -305,6 +309,25 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
           openOperatorItems: statusEvidence.evidence?.openOperatorItems || [],
         }
       : null,
+    specReconciliation: specReconciliation
+      ? {
+          status: specReconciliation.status || null,
+          checks: {
+            passed: specReconciliationPassedChecks,
+            total: specReconciliationChecks.length,
+          },
+          evidence: {
+            sourceIngestion: specReconciliation.evidence?.sourceIngestion || null,
+            sourcePartial: specReconciliation.evidence?.sourcePartial ?? null,
+            sourceParked: specReconciliation.evidence?.sourceParked ?? null,
+            sourceMissing: specReconciliation.evidence?.sourceMissing ?? null,
+            sourceCompletionReady: specReconciliation.evidence?.sourceCompletionReady === true,
+            llmProvider: specReconciliation.evidence?.llmProvider || null,
+            llmModel: specReconciliation.evidence?.llmModel || null,
+            openOperatorIds: specReconciliation.evidence?.openOperatorIds || [],
+          },
+        }
+      : null,
     discordReviewArtifacts: discordReviewArtifacts
       ? {
           status: discordReviewArtifacts.status || null,
@@ -320,6 +343,11 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
             ? {
                 pageFitReviewReady: discordQueue.pageFitReviewReady ?? null,
                 refusalReviewReady: discordQueue.refusalReviewReady ?? null,
+                sourceBackedExistingPageFits: discordQueue.sourceBackedExistingPageFits ?? null,
+                publicCopyReadyPageFits: discordQueue.publicCopyReadyPageFits ?? null,
+                publicCopyReviewRequired: discordQueue.publicCopyReviewRequired ?? null,
+                refusalPolicyReadyItems: discordQueue.refusalPolicyReadyItems ?? null,
+                refusalPolicyReviewRequired: discordQueue.refusalPolicyReviewRequired ?? null,
                 rawTableHits: discordQueue.rawTableHits ?? null,
                 sampleLeaks: discordQueue.sampleLeaks ?? null,
               }
@@ -487,6 +515,9 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Source freshness source bodies printed: \`${launch.sourceFreshness?.secrets?.sourceBodiesPrinted ?? false}\`
 - Status evidence status: \`${launch.statusEvidenceStatus || "missing"}\`
 - Status evidence documents: \`${launch.statusEvidence?.documents?.passed ?? 0}/${launch.statusEvidence?.documents?.total ?? 0}\`
+- Spec reconciliation status: \`${launch.specReconciliationStatus || "missing"}\`
+- Spec reconciliation source/open items: \`${launch.specReconciliation?.evidence?.sourceIngestion || "unknown"}; open ${(launch.specReconciliation?.evidence?.openOperatorIds || []).map((id) => `#${id}`).join(", ") || "none"}\`
+- Spec reconciliation checks: \`${launch.specReconciliation?.checks?.passed ?? 0}/${launch.specReconciliation?.checks?.total ?? 0}\`
 - Discord review artifacts status: \`${launch.discordReviewArtifactsStatus || "missing"}\`
 - Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
 - Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
@@ -646,6 +677,7 @@ try {
       monitoringStatus: packet.launchEvidence?.monitoringStatus || null,
       sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
       statusEvidenceStatus: packet.launchEvidence?.statusEvidenceStatus || null,
+      specReconciliationStatus: packet.launchEvidence?.specReconciliationStatus || null,
       discordReviewArtifactsStatus: packet.launchEvidence?.discordReviewArtifactsStatus || null,
       discordRefusalRuntimeStatus: packet.launchEvidence?.discordRefusalRuntimeStatus || null,
       publicationBoundariesStatus: packet.launchEvidence?.publicationBoundariesStatus || null,
