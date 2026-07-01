@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex route-coverage release dry run
+- Task: Refresh no-secret release rehearsal evidence after the Search Insights Discord route-coverage update.
+- Scope: `/tmp/search-book-release-dry-run-route-coverage-20260701-1` evidence packet, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Release dry-run passes without secrets, copied artifact includes the updated route-coverage data, and repo docs record the evidence while preserving #11/#4 as the only production gates.
+- Result: `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-route-coverage-20260701-1` passed all four steps: static artifact build, copied static smoke, copied artifact plus answer-engine bridge smoke, and launch-evidence packet. Static artifact had `1,650` files, `52,929,756` bytes, integrity `passed`; launch and monitoring statuses were `passed`; `valuesPrinted:false`; sensitive matches `0`. Targeted copied-artifact assertion passed with 19/19 Discord page-fit groups covered by public route aliases, 0 single-route groups, 0 groups without public routes, and 40 public exact routes.
+
 ## 2026-07-01 — Codex Discord route coverage evidence
 - Task: Surface public route-alias coverage for sanitized Discord page-fit groups in the committed routing summary and Search Insights UI.
 - Scope: `scripts/build-discord-routing-summary.mjs`, `data/discord-review-routing.*`, `index.html`, progress/report docs, and `_local/agent-worklog.md`.

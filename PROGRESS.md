@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Route-Coverage Release Dry Run
+
+- Ran `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-route-coverage-20260701-1` after the Search Insights route-coverage update.
+- Release rehearsal passed all four steps: static artifact build, copied static smoke, copied artifact plus answer-engine bridge smoke, and no-secret launch-evidence packet.
+- Packet evidence: release status `passed`, static artifact `1,650` files / `52,929,756` bytes / integrity `passed`, launch status `passed`, monitoring status `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Targeted copied-artifact assertion passed: `data/discord-review-routing.json` inside the release artifact reports 19/19 page-fit groups covered by public route aliases, 0 single-route groups remaining, 0 groups without public routes, and 40 public exact routes across those groups.
+
 ## 2026-07-01 — Discord Route Coverage Evidence
 
 - Extended the sanitized Discord routing summary so each page-fit group now records public route alias coverage from `data/question-routes.json`.
