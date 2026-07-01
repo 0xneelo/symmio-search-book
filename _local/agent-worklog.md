@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord-seeded route aliases
+- Task: Promote the top sanitized Discord page-fit checks into generic, primary-source-backed exact question routes.
+- Scope: `QUESTIONS.md`, regenerated route/FAQ data, status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: New questions are generic aliases backed by existing cited pages, contain no raw Discord/Lafa text, increase exact routes/FAQ entries deterministically, keep refusal guardrails intact, and `npm run search-book:verify` remains green.
+- Result: Added four generic exact-route aliases for the two highest-demand sanitized Discord page-fit targets: `authored-symm-lp-low-volume-driver` and `authored-symmio-frontend-builder-audit-posture`. Regenerated deterministic data: routes `803`, FAQ entries `805`, chunks `2,884`, exact route tests `803/803`, glossary `32/32`, refusals `2/2`, and quality gates `29/30`. Updated the page-state invariant so route aliases can exceed public-page count while still failing if any exact route points at a non-public page. Full `npm run search-book:verify`, targeted no-raw route assertion, and `git diff --check` passed.
+
 ## 2026-07-01 — Codex Discord editorial plan summary
 - Task: Turn the sanitized Discord routing summary into a no-raw editorial follow-up plan for Search Insights reviewers.
 - Scope: `scripts/build-discord-routing-summary.mjs`, `data/discord-review-routing.*`, `index.html`, build/static invariants if needed, docs/status notes, and `_local/agent-worklog.md`.

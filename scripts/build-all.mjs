@@ -292,9 +292,13 @@ function runInvariants() {
   const pageState = readJson("data/page-state-registry.json");
   assert(!pageState.duplicatePageIds.length && !pageState.unclassifiedPageIds.length && !pageState.missingVolumeIds.length, "page-state registry has unresolved pages");
   const finalOrCandidatePages = (pageState.byState.published || 0) + (pageState.byState.candidate || 0);
+  const routedNonPublicPageIds = (pageState.pages || [])
+    .filter((page) => (page.questionRouteCount || 0) > 0 && !page.publicNavigationEligible)
+    .map((page) => page.id);
+  assert(!routedNonPublicPageIds.length, `question routes point at non-public pages: ${routedNonPublicPageIds.join(", ")}`);
   assert(
     pageState.totalPages >= 900 &&
-      finalOrCandidatePages >= routes.totalRoutes &&
+      finalOrCandidatePages >= pageState.exactQuestionRoutedPages &&
       pageState.byState["source-companion"],
     "page-state registry coverage is too low",
   );

@@ -8,18 +8,18 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 801,
-  "totalAnswerable": 799,
+  "totalEntries": 805,
+  "totalAnswerable": 803,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
     "Getting Started": 121,
-    "Trading Flow": 45,
+    "Trading Flow": 47,
     "Solvers And Settlement": 180,
-    "Data And Volume": 9,
-    "Revenue": 98,
+    "Data And Volume": 10,
+    "Revenue": 99,
     "Rewards And Referrals": 101,
     "Dashboard": 13,
     "Risk And Markets": 72,
@@ -27,15 +27,15 @@
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 500,
+    "Medium": 504,
     "High": 46,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 799
+    "authored": 803
   },
   "byType": {
-    "answerable": 799,
+    "answerable": 803,
     "reconciliation": 2
   },
   "answerable": [
@@ -12561,6 +12561,64 @@
       ]
     },
     {
+      "id": "faq-was-the-symm-lp-result-just-a-high-volume-fee-story",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Was the SYMM LP result just a high-volume fee story?",
+      "normalizedQuestion": "was the symm lp result just a high volume fee story",
+      "shortAnswer": "No. The source-backed explanation is low absolute volume combined with long-biased trader positioning, a falling token price, and user-side losses; do not generalize it into a universal thin-market return claim.",
+      "answerSummary": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long bia...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-low-volume-vibe-markets-still-create-lp-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Can low-volume Vibe markets still create LP economics?",
+      "normalizedQuestion": "can low volume vibe markets still create lp economics",
+      "shortAnswer": "The SYMM case shows one low-volume, LP-favorable window where imbalance and accounting signs mattered more than turnover, while repeatability still needs regime, drawdown, and attribution review.",
+      "answerSummary": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long bia...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-are-symm-lp-returns-regime-dependent",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -15593,6 +15651,96 @@
       "question": "What is Symmio's frontend-builder and audit posture?",
       "normalizedQuestion": "what is symmio s frontend builder and audit posture",
       "shortAnswer": "Official builder and audit docs separate Symmio infrastructure from third-party frontends and publish a versioned audit-report index.",
+      "answerSummary": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "sources": [
+        {
+          "key": "symmio-frontend-builder",
+          "group": "Public Symmio Sources",
+          "use": "Frontend-builder/B2B framing, third-party frontend responsibility, integration model, and list disclaimer.",
+          "href": "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-audit-reports",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+          "href": "https://docs.symm.io/security-and-architecture/audit-reports.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-symmio-itself-operate-the-trading-frontend",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Does Symmio itself operate the trading frontend?",
+      "normalizedQuestion": "does symmio itself operate the trading frontend",
+      "shortAnswer": "Official frontend-builder docs frame Symmio as B2B infrastructure: third-party frontend operators choose their own UI, UX, products, tools, and liquidity relationships.",
+      "answerSummary": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "sources": [
+        {
+          "key": "symmio-frontend-builder",
+          "group": "Public Symmio Sources",
+          "use": "Frontend-builder/B2B framing, third-party frontend responsibility, integration model, and list disclaimer.",
+          "href": "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-audit-reports",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+          "href": "https://docs.symm.io/security-and-architecture/audit-reports.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-one-symmio-audit-cover-every-frontend-and-future-module",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Does one Symmio audit cover every frontend and future module?",
+      "normalizedQuestion": "does one symmio audit cover every frontend and future module",
+      "shortAnswer": "No. The safe source-backed answer is versioned and scope-specific: cite the relevant contract family, product surface, and audit evidence rather than implying universal coverage.",
       "answerSummary": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder...",
       "confidence": "Medium",
       "pageId": "authored-symmio-frontend-builder-audit-posture",
@@ -38832,6 +38980,64 @@
       ]
     },
     {
+      "id": "faq-was-the-symm-lp-result-just-a-high-volume-fee-story",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "Was the SYMM LP result just a high-volume fee story?",
+      "normalizedQuestion": "was the symm lp result just a high volume fee story",
+      "shortAnswer": "No. The source-backed explanation is low absolute volume combined with long-biased trader positioning, a falling token price, and user-side losses; do not generalize it into a universal thin-market return claim.",
+      "answerSummary": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long bia...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-can-low-volume-vibe-markets-still-create-lp-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Can low-volume Vibe markets still create LP economics?",
+      "normalizedQuestion": "can low volume vibe markets still create lp economics",
+      "shortAnswer": "The SYMM case shows one low-volume, LP-favorable window where imbalance and accounting signs mattered more than turnover, while repeatability still needs regime, drawdown, and attribution review.",
+      "answerSummary": "Low Volume Did Not Mean Weak LP Economics The SYMM LP case reports only about $100,000 of total trading volume over the measured period, with roughly $1,000 of average daily volume. The headline LP outcome therefore cannot be explained as a simple high turnover fee story. The source's explanation is regime and positioning. The market was strongly long bia...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-are-symm-lp-returns-regime-dependent",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -41864,6 +42070,96 @@
       "question": "What is Symmio's frontend-builder and audit posture?",
       "normalizedQuestion": "what is symmio s frontend builder and audit posture",
       "shortAnswer": "Official builder and audit docs separate Symmio infrastructure from third-party frontends and publish a versioned audit-report index.",
+      "answerSummary": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "sources": [
+        {
+          "key": "symmio-frontend-builder",
+          "group": "Public Symmio Sources",
+          "use": "Frontend-builder/B2B framing, third-party frontend responsibility, integration model, and list disclaimer.",
+          "href": "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-audit-reports",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+          "href": "https://docs.symm.io/security-and-architecture/audit-reports.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-symmio-itself-operate-the-trading-frontend",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Does Symmio itself operate the trading frontend?",
+      "normalizedQuestion": "does symmio itself operate the trading frontend",
+      "shortAnswer": "Official frontend-builder docs frame Symmio as B2B infrastructure: third-party frontend operators choose their own UI, UX, products, tools, and liquidity relationships.",
+      "answerSummary": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "sources": [
+        {
+          "key": "symmio-frontend-builder",
+          "group": "Public Symmio Sources",
+          "use": "Frontend-builder/B2B framing, third-party frontend responsibility, integration model, and list disclaimer.",
+          "href": "https://docs.symm.io/exchange-builder-documentation/frontend-builder-introduction.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-audit-reports",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio audit-report index covering SYMM versions, vaults, staking, and vesting audit links.",
+          "href": "https://docs.symm.io/security-and-architecture/audit-reports.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-one-symmio-audit-cover-every-frontend-and-future-module",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Does one Symmio audit cover every frontend and future module?",
+      "normalizedQuestion": "does one symmio audit cover every frontend and future module",
+      "shortAnswer": "No. The safe source-backed answer is versioned and scope-specific: cite the relevant contract family, product surface, and audit evidence rather than implying universal coverage.",
       "answerSummary": "Symmio Frontend Builder And Audit Posture Symmio's frontend builder page frames the protocol as business to business infrastructure. Its current source text uses aMFQ, the legacy \"Automated Market for Quotes\" naming for intent based peer to peer symmetrical trades, while third party frontends decide what products and services they offer to users. Builder...",
       "confidence": "Medium",
       "pageId": "authored-symmio-frontend-builder-audit-posture",

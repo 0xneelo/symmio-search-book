@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Discord-Seeded Route Aliases
+
+- Added four generic, source-backed exact-route aliases from the sanitized Discord editorial queue: two for the SYMM LP low-volume economics page and two for the Symmio frontend-builder/audit-posture page.
+- The new questions are not Discord quotes; they are public phrasing backed by existing cited pages and source keys.
+- Updated the page-state coverage invariant so aliases are allowed while still failing if any exact route points at a non-public page.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 803 exact routes, 805 FAQ entries, 2,884 chunks, 801 authored pages, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Discord Editorial Plan Summary
 
 - Extended `scripts/build-discord-routing-summary.mjs` so the committed Discord routing summary now includes a no-raw `reviewPlan`.

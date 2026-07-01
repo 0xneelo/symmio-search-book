@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 799,
+  "totalRoutes": 803,
   "totalReconciliationQuestions": 2,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 500,
+    "Medium": 504,
     "High": 46,
     "Low": 253
   },
   "byRouteSource": {
-    "authored": 799
+    "authored": 803
   },
   "answerable": [
     {
@@ -6461,6 +6461,40 @@
       "missing": false
     },
     {
+      "id": "qr-was-the-symm-lp-result-just-a-high-volume-fee-story",
+      "question": "Was the SYMM LP result just a high-volume fee story?",
+      "normalizedQuestion": "was the symm lp result just a high volume fee story",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "No. The source-backed explanation is low absolute volume combined with long-biased trader positioning, a falling token price, and user-side losses; do not generalize it into a universal thin-market return claim.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-can-low-volume-vibe-markets-still-create-lp-economics",
+      "question": "Can low-volume Vibe markets still create LP economics?",
+      "normalizedQuestion": "can low volume vibe markets still create lp economics",
+      "pageId": "authored-symm-lp-low-volume-driver",
+      "pageTitle": "Low Volume Did Not Mean Weak LP Economics",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The SYMM case shows one low-volume, LP-favorable window where imbalance and accounting signs mattered more than turnover, while repeatability still needs regime, drawdown, and attribution review.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
       "id": "qr-are-symm-lp-returns-regime-dependent",
       "question": "Are SYMM LP returns regime-dependent?",
       "normalizedQuestion": "are symm lp returns regime dependent",
@@ -8094,6 +8128,44 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Official builder and audit docs separate Symmio infrastructure from third-party frontends and publish a versioned audit-report index.",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-does-symmio-itself-operate-the-trading-frontend",
+      "question": "Does Symmio itself operate the trading frontend?",
+      "normalizedQuestion": "does symmio itself operate the trading frontend",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "Official frontend-builder docs frame Symmio as B2B infrastructure: third-party frontend operators choose their own UI, UX, products, tools, and liquidity relationships.",
+      "sourceKeys": [
+        "symmio-frontend-builder",
+        "symmio-audit-reports",
+        "symmio-contract-architecture"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-does-one-symmio-audit-cover-every-frontend-and-future-module",
+      "question": "Does one Symmio audit cover every frontend and future module?",
+      "normalizedQuestion": "does one symmio audit cover every frontend and future module",
+      "pageId": "authored-symmio-frontend-builder-audit-posture",
+      "pageTitle": "Symmio Frontend Builder And Audit Posture",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Builder And Security",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "No. The safe source-backed answer is versioned and scope-specific: cite the relevant contract family, product surface, and audit evidence rather than implying universal coverage.",
       "sourceKeys": [
         "symmio-frontend-builder",
         "symmio-audit-reports",
