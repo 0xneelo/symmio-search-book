@@ -12,6 +12,7 @@ const defaults = {
   outJson: path.join(searchBookRoot, "data", "discord-review-routing.json"),
   outJs: path.join(searchBookRoot, "data", "discord-review-routing.js"),
   routesJson: path.join(searchBookRoot, "data", "question-routes.json"),
+  authoredJson: path.join(searchBookRoot, "data", "authored-pages.json"),
 };
 
 function parseArgs(argv) {
@@ -22,6 +23,7 @@ function parseArgs(argv) {
     else if (arg === "--out-json") args.outJson = argv[++index] || "";
     else if (arg === "--out-js") args.outJs = argv[++index] || "";
     else if (arg === "--routes-json") args.routesJson = argv[++index] || "";
+    else if (arg === "--authored-json") args.authoredJson = argv[++index] || "";
     else if (arg === "--help") {
       console.log("Usage: node scripts/build-discord-routing-summary.mjs [--routing-json /tmp/.../discord-review-routing.json] [--routes-json data/question-routes.json]");
       process.exit(0);
@@ -59,6 +61,8 @@ function writeOutputs(report, args) {
         refusalReviewReady: report.reviewPlan.refusalReviewReady,
         pageFitCoveredByPublicRoutes: report.reviewPlan.routeCoverage?.pageFitCoveredByPublicRoutes || 0,
         pageFitSingleRouteRemaining: report.reviewPlan.routeCoverage?.pageFitSingleRouteRemaining || 0,
+        publicCopyReadyPageFitGroups: report.reviewPlan.routeCoverage?.publicCopyReadyPageFitGroups || 0,
+        publicCopyReviewRequired: report.reviewPlan.routeCoverage?.publicCopyReviewRequired || 0,
       },
       null,
       2,
@@ -141,10 +145,26 @@ function readPublicRouteCounts(args) {
   return counts;
 }
 
+function readAuthoredPages(args) {
+  const authored = readJson(args.authoredJson, {});
+  return new Map((authored.pages || []).map((page) => [page.id, page]));
+}
+
+function hasSourcesSection(page) {
+  return /(^|\n)## Sources\b/.test(page?.bodyMarkdown || "");
+}
+
+function routeSourceKeysCoveredByPage(entry, page) {
+  const pageSourceKeys = new Set(page?.sourceKeys || []);
+  return (entry.sourceKeys || []).every((sourceKey) => pageSourceKeys.has(sourceKey));
+}
+
 function addPublicRouteCoverage(pageFitReview, args) {
   const publicRouteCounts = readPublicRouteCounts(args);
+  const authoredPages = readAuthoredPages(args);
   const annotated = pageFitReview.map((entry) => {
     const publicRouteCount = publicRouteCounts.get(entry.pageId) || 0;
+    const page = authoredPages.get(entry.pageId) || null;
     const coverageStatus =
       publicRouteCount > 1 ? "route-aliases-present" : publicRouteCount === 1 ? "single-route" : "no-public-route";
     const sourceBacked = (entry.sourceKeys || []).length > 0;
@@ -156,13 +176,32 @@ function addPublicRouteCoverage(pageFitReview, args) {
           : coverageStatus === "single-route"
             ? "needs-route-alias-review"
             : "needs-public-route-review";
+    const sourcesSectionPresent = hasSourcesSection(page);
+    const sourceKeysCovered = routeSourceKeysCoveredByPage(entry, page);
+    const existingPublicCopySufficient =
+      automatedTriageStatus === "source-backed-existing-page-fit" &&
+      page?.status === "published" &&
+      sourcesSectionPresent &&
+      sourceKeysCovered;
+    const publicCopyStatus = existingPublicCopySufficient
+      ? "source-backed-public-copy-sufficient"
+      : "editorial-review-required";
     return {
       ...entry,
       publicRouteCount,
       coverageStatus,
       sourceBacked,
       automatedTriageStatus,
-      publicCopyStatus: "editorial-review-required",
+      publicCopyStatus,
+      pageStatus: page?.status || "",
+      pageSourceKeys: unique(page?.sourceKeys || []),
+      sourcesSectionPresent,
+      sourceKeysCovered,
+      existingPublicCopySufficient,
+      reviewAction: existingPublicCopySufficient ? "keep-existing-public-copy" : entry.reviewAction,
+      nextStep: existingPublicCopySufficient
+        ? "Existing source-backed public copy and route aliases are sufficient; do not add Discord-derived wording unless a reviewer finds a primary-source gap."
+        : entry.nextStep,
       coveredByPublicRoutes: coverageStatus === "route-aliases-present",
     };
   });
@@ -170,6 +209,8 @@ function addPublicRouteCoverage(pageFitReview, args) {
   const triageReadyPageFitGroups = annotated.filter(
     (entry) => entry.automatedTriageStatus === "source-backed-existing-page-fit",
   ).length;
+  const publicCopyReadyPageFitGroups = annotated.filter((entry) => entry.existingPublicCopySufficient).length;
+  const publicCopyReviewRequired = annotated.filter((entry) => entry.publicCopyStatus === "editorial-review-required").length;
 
   return {
     pageFitReview: annotated,
@@ -181,13 +222,18 @@ function addPublicRouteCoverage(pageFitReview, args) {
       totalPublicRoutesToPageFitPages: annotated.reduce((total, entry) => total + entry.publicRouteCount, 0),
       sourceBackedPageFitGroups,
       triageReadyPageFitGroups,
-      publicCopyReviewRequired: annotated.filter((entry) => entry.publicCopyStatus === "editorial-review-required").length,
+      publicCopyReadyPageFitGroups,
+      publicCopyReviewRequired,
       coverageReady:
         annotated.length > 0 &&
         annotated.every((entry) => entry.coverageStatus === "route-aliases-present"),
       triageReady:
         annotated.length > 0 &&
         triageReadyPageFitGroups === annotated.length,
+      publicCopyReady:
+        annotated.length > 0 &&
+        publicCopyReadyPageFitGroups === annotated.length &&
+        publicCopyReviewRequired === 0,
     },
   };
 }

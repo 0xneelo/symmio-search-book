@@ -1,9 +1,16 @@
 # Progress
 
+## 2026-07-01 — Discord Public-Copy Readiness
+
+- Promoted sanitized Discord page-fit evidence from triage-only to public-copy readiness for existing source-backed pages.
+- `data/discord-review-routing.*` now reports 19/19 page-fit groups with published cited pages, source-covered route aliases, source-backed triage, public-copy ready status, and 0/19 public-copy review-required groups.
+- `DISCORD-EDITORIAL-QUEUE.md` now shows `source-backed-public-copy-sufficient` for all 19 page-fit groups while continuing to prohibit raw Discord/Lafa quotation.
+- Hardened `npm run search-book:check-discord-review-artifacts`, launch/release packet validators, status evidence, and evidence-summary rendering so public-copy readiness cannot silently drift.
+
 ## 2026-07-01 — Discord Source-Backed Triage Status
 
 - Added source-backed page-fit triage fields to the sanitized Discord routing summary: `sourceBacked`, `automatedTriageStatus`, and `publicCopyStatus`.
-- Regenerated `data/discord-review-routing.*` and `DISCORD-EDITORIAL-QUEUE.md` so the no-raw queue now reports 19/19 source-backed existing-page fits and 19/19 public-copy review-required page-fit groups.
+- Regenerated `data/discord-review-routing.*` and `DISCORD-EDITORIAL-QUEUE.md` so the no-raw queue now reports 19/19 source-backed existing-page fits and explicit public-copy status for each page-fit group.
 - Hardened `npm run search-book:check-discord-review-artifacts`, launch/release packet validators, status evidence, and evidence-summary rendering so route coverage and source-backed triage cannot silently drift.
 - Focused checks passed: `npm run search-book:check-status-evidence`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-evidence-summary`, and `git diff --check`.
 - Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, publication boundaries `passed`, and quality gates `29/30`.

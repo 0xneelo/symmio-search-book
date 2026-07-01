@@ -215,6 +215,7 @@ function validateSummary(summary, filePath, checks, samples) {
   const coveredPageFitGroups = Number(routeCoverage.pageFitCoveredByPublicRoutes || 0);
   const sourceBackedPageFitGroups = Number(routeCoverage.sourceBackedPageFitGroups || 0);
   const triageReadyPageFitGroups = Number(routeCoverage.triageReadyPageFitGroups || 0);
+  const publicCopyReadyPageFitGroups = Number(routeCoverage.publicCopyReadyPageFitGroups || 0);
   const publicCopyReviewRequired = Number(routeCoverage.publicCopyReviewRequired || 0);
 
   addCheck(checks, "summary-ready", summary.routingReady === true && summary.status === "routed", `status=${summary.status}; routingReady=${summary.routingReady}`);
@@ -251,13 +252,17 @@ function validateSummary(summary, filePath, checks, samples) {
       totalPageFitGroups > 0 &&
       sourceBackedPageFitGroups === totalPageFitGroups &&
       triageReadyPageFitGroups === totalPageFitGroups &&
-      publicCopyReviewRequired === totalPageFitGroups,
+      publicCopyReadyPageFitGroups === totalPageFitGroups &&
+      publicCopyReviewRequired === 0 &&
+      routeCoverage.publicCopyReady === true,
     JSON.stringify({
       totalPageFitGroups,
       sourceBackedPageFitGroups,
       triageReadyPageFitGroups,
+      publicCopyReadyPageFitGroups,
       publicCopyReviewRequired,
       triageReady: routeCoverage.triageReady === true,
+      publicCopyReady: routeCoverage.publicCopyReady === true,
     }),
   );
   return {
@@ -277,9 +282,11 @@ function validateSummary(summary, filePath, checks, samples) {
       pageFitWithoutPublicRoute: routeCoverage.pageFitWithoutPublicRoute ?? null,
       sourceBackedPageFitGroups: routeCoverage.sourceBackedPageFitGroups ?? null,
       triageReadyPageFitGroups: routeCoverage.triageReadyPageFitGroups ?? null,
+      publicCopyReadyPageFitGroups: routeCoverage.publicCopyReadyPageFitGroups ?? null,
       publicCopyReviewRequired: routeCoverage.publicCopyReviewRequired ?? null,
       coverageReady: routeCoverage.coverageReady === true,
       triageReady: routeCoverage.triageReady === true,
+      publicCopyReady: routeCoverage.publicCopyReady === true,
     },
   };
 }
@@ -298,6 +305,8 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     `- Refusal-review items: ${reviewPlan.refusalReviewReady || 0}`,
     `- Route coverage: ${routeCoverage.pageFitCoveredByPublicRoutes || 0}/${routeCoverage.totalPageFitGroups || 0} page-fit groups covered by public route aliases`,
     `- Source-backed existing page fits: ${routeCoverage.triageReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
+    `- Public copy sufficient: ${routeCoverage.publicCopyReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
+    `- Public copy review required: ${routeCoverage.publicCopyReviewRequired || 0}/${routeCoverage.totalPageFitGroups || 0}`,
     `- Single-route page-fit groups remaining: ${routeCoverage.pageFitSingleRouteRemaining || 0}`,
     `- Groups without a public route: ${routeCoverage.pageFitWithoutPublicRoute || 0}`,
     "- Raw Discord text included: `false`",
@@ -377,6 +386,8 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     pageFitReviewReady: pageFitReview.length,
     refusalReviewReady: refusalReview.length,
     sourceBackedExistingPageFits: routeCoverage.triageReadyPageFitGroups ?? null,
+    publicCopyReadyPageFits: routeCoverage.publicCopyReadyPageFitGroups ?? null,
+    publicCopyReviewRequired: routeCoverage.publicCopyReviewRequired ?? null,
     rawTableHits: rawTableHits.length,
     sampleLeaks: leaks,
   };

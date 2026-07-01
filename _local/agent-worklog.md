@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord public-copy readiness
+- Task: Promote source-backed Discord page-fit groups from triage-only to existing public-copy readiness without adding raw Discord or Lafa text.
+- Scope: `scripts/build-discord-routing-summary.mjs`, `scripts/build-discord-editorial-queue.mjs`, `scripts/check-discord-review-artifacts.mjs`, packet/evidence/status validators, regenerated `data/discord-review-routing.*`, `DISCORD-EDITORIAL-QUEUE.md`, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: The sanitized routing summary proves 19/19 page-fit groups have published cited pages, source-covered routes, route aliases, and existing public copy sufficient; exact Discord/Lafa quotation remains prohibited; full verify remains green; only #11/#4 remain operator gates.
+- Result: Added public-copy readiness derivation from authored page status, source sections, source-key coverage, and public route aliases. `data/discord-review-routing.json` and `DISCORD-EDITORIAL-QUEUE.md` now report 19/19 source-backed public-copy-ready page-fit groups and 0/19 public-copy review-required groups, while exact Discord/Lafa quotation remains prohibited. Focused checks passed: `npm run search-book:check-status-evidence`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-evidence-summary`, and `git diff --check`. Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, publication boundaries `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord editorial triage status
 - Task: Make Discord/Lafa page-fit review state explicit without committing raw Discord or Lafa text.
 - Scope: `scripts/build-discord-routing-summary.mjs`, `scripts/build-discord-editorial-queue.mjs`, `scripts/check-discord-review-artifacts.mjs`, regenerated `data/discord-review-routing.*`, `DISCORD-EDITORIAL-QUEUE.md`, status docs if needed, and `_local/agent-worklog.md`.

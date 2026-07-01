@@ -160,6 +160,7 @@ function discordReviewArtifactsReady(evidence = {}) {
   const covered = Number(routeCoverage.coveredPageFitGroups || 0);
   const triageReady = Number(routeCoverage.triageReadyPageFitGroups || 0);
   const sourceBacked = Number(routeCoverage.sourceBackedPageFitGroups || 0);
+  const publicCopyReady = Number(routeCoverage.publicCopyReadyPageFitGroups || 0);
   const publicCopyReviewRequired = Number(routeCoverage.publicCopyReviewRequired || 0);
   return (
     evidence.status === "passed"
@@ -176,7 +177,9 @@ function discordReviewArtifactsReady(evidence = {}) {
     && covered === total
     && triageReady === total
     && sourceBacked === total
-    && publicCopyReviewRequired === total
+    && publicCopyReady === total
+    && publicCopyReviewRequired === 0
+    && routeCoverage.publicCopyReady === true
     && Number(routeCoverage.pageFitSingleRouteRemaining || 0) === 0
     && Number(routeCoverage.pageFitWithoutPublicRoute || 0) === 0
     && Number(editorialQueue.pageFitReviewReady || 0) > 0

@@ -187,7 +187,7 @@ Production pass criteria:
 - production env preflight passes
 - deterministic verify runs in the launch gate
 - source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families
-- sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered, 0 single-route groups remaining, source-backed triage 19/19 page-fit groups, and public-copy review required 19/19 page-fit groups
+- sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered, 0 single-route groups remaining, source-backed triage 19/19 page-fit groups, public-copy ready 19/19 page-fit groups, and public-copy review required 0/19 page-fit groups
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`
 - reviewer owner/cadence evidence is configured
@@ -208,7 +208,7 @@ sed -n '1,220p' DISCORD-EDITORIAL-QUEUE.md
 
 The queue is derived from `data/discord-review-routing.json` and contains only item ids,
 page ids, page titles, source keys, route counts, public-route coverage, automated triage
-status, public-copy review status, and refusal reasons. For source corpus counts, review:
+status, public-copy readiness status, and refusal reasons. For source corpus counts, review:
 
 ```sh
 node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("data/discord-corpus.json","utf8")); console.log(JSON.stringify(d.totals, null, 2));'
