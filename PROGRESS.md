@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — App Docs Reconciliation Guard Hardening
+
+- Added explicit `npm run search-book:check-spec-reconciliation` assertions for current app-doc source/provider/gate wording and forbidden stale fragments.
+- The guard now verifies Discord/Lafa imported internal-only, Notion registered paraphrase-only, referral depth resolved at 15 levels with additive backfill, Phase A revenue defaults at `0.05%` / `5 bps` and `30%`, OpenAI-compatible `gpt-4.1-mini`, local `.secrets/search-book.env` complete, production env gated only on `/etc/symmio-search-book/search-book.env`, and #11/#4 as the only open operator gates.
+- Verification passed: `node --check scripts/check-spec-reconciliation.mjs`, `npm run search-book:check-spec-reconciliation`, `npm run search-book:check-status-evidence`, `npm run search-book:check-production-packet`, and full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`. Full verify reported 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality `29/30`, and spec reconciliation `passed`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`. Completion remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — App Docs Source Status Reconciliation
 
 - Reconciled stale `_specs/app-docs` operational wording so the mission, grounding seed, source list, answer-engine spec, and production roadmap no longer imply Discord/Notion access is missing, referral depth is unresolved, or Claude is the current production provider.

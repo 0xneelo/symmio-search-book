@@ -156,6 +156,103 @@ const specs = [
   },
 ];
 
+const appDocFragmentGuards = [
+  {
+    id: "mission-source-status",
+    path: "_specs/app-docs/01-mission.md",
+    required: [
+      "Target: **500-800 substantive, cited pages**",
+      "The **Symmio Discord mined/imported**",
+      "internal-only evidence",
+      "exact public Discord/Lafa statements require editorial review before publication",
+    ],
+    forbidden: [
+      "100+ pages",
+      "Requires a Discord export",
+      "Discord import pending",
+      "operator provides an export",
+    ],
+  },
+  {
+    id: "grounding-revenue-referrals",
+    path: "_specs/app-docs/03-grounding.md",
+    required: [
+      "public depth is 15 levels",
+      "historical backfill is additive and never lowers a balance",
+      "networkVolume x platformFeeRate x referrerPlatformShare",
+      "0.05%",
+      "5 bps",
+      "30%",
+      "Public referral depth is resolved as **15 levels**",
+    ],
+    forbidden: [
+      "Reconcile the exact depth",
+      "Public answer TBD",
+      "dashboard copy says 5 levels",
+      "code/volume rollup uses **5 levels**",
+    ],
+  },
+  {
+    id: "sources-resolved-ingestion",
+    path: "_specs/app-docs/04-sources.md",
+    required: [
+      "`17/17` complete",
+      "Discord export/access is provided and imported internal-only",
+      "Vibe Trading Notion is registered through MCP",
+      "paraphrase-only public-use boundary",
+      "original/oldest Symmio whitepaper recovery is out of scope for v1",
+      "The only operator gates that remain are #11 production VPS env install and #4 public frontend platform/repo/deploy route.",
+    ],
+    forbidden: [
+      "May need an export or share access",
+      "Requires a Discord export",
+      "if access is provided",
+      "operator provides an export",
+      "Notion pending",
+      "SSHE unidentified",
+    ],
+  },
+  {
+    id: "answer-engine-provider-gate",
+    path: "_specs/app-docs/06-answer-engine.md",
+    required: [
+      "OpenAI-compatible LLM RAG path",
+      "gpt-4.1-mini",
+      "Local `.secrets/search-book.env` is complete",
+      "OPERATOR-INBOX #11 is only the production VPS env install",
+      "/etc/symmio-search-book/search-book.env",
+    ],
+    forbidden: [
+      "Local `.secrets/search-book.env` is pending",
+      "pending operator MODEL+API_KEY",
+      "answer with **Claude**",
+      "vector index + Claude",
+    ],
+  },
+  {
+    id: "roadmap-open-gates",
+    path: "_specs/app-docs/11-production-readiness-roadmap.md",
+    required: [
+      "Only two production operator gates remain",
+      "production VPS env install at `/etc/symmio-search-book/search-book.env` (#11)",
+      "public frontend platform/repo/deploy route (#4)",
+      "source-ingestion map now reports 17/17 source families complete",
+      "Notion, SSHE, oldest-whitepaper v1 boundary, and Discord/Lafa import are resolved for v1 source readiness",
+      "OpenAI-compatible LLM RAG runtime exists",
+    ],
+    forbidden: [
+      "Discord import pending",
+      "Notion access pending",
+      "oldest whitepaper recovery is parked",
+      "source-ingestion map still reports",
+      "known parked blockers",
+      "production readiness depends on missing local LLM env",
+      "missing production VPS LLM env",
+      "launch-parked",
+    ],
+  },
+];
+
 const checks = [];
 
 addCheck(
@@ -205,6 +302,22 @@ for (const spec of specs) {
     missing.length === 0,
     missing.length ? `missing fragments: ${missing.join(" | ")}` : "reconciliation note is present and current",
     { path: spec.path },
+  );
+}
+
+for (const guard of appDocFragmentGuards) {
+  const text = readText(guard.path);
+  const missing = guard.required.filter((fragment) => !text.includes(fragment));
+  const stale = guard.forbidden.filter((fragment) => text.includes(fragment));
+  addCheck(
+    checks,
+    `app-doc-${guard.id}`,
+    missing.length === 0 && stale.length === 0,
+    [
+      missing.length ? `missing required fragments: ${missing.join(" | ")}` : "required fragments present",
+      stale.length ? `stale forbidden fragments present: ${stale.join(" | ")}` : "no stale forbidden fragments",
+    ].join("; "),
+    { path: guard.path },
   );
 }
 
