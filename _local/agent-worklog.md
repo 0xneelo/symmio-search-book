@@ -39,3 +39,10 @@
 - Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
 - Verification target: workflow syntax is valid YAML, local commands mirrored by CI pass, and `npm run search-book:verify` remains green.
 - Result: Added `.github/workflows/search-book-verify.yml` for `main` pushes and pull requests. The workflow uses Node 22, clones public `0xneelo/vibe_docs` into `/tmp/vibe_docs`, and runs `npm run search-book:verify`, `npm run search-book:smoke-static`, `npm run search-book:smoke-service`, and `npm run search-book:smoke-preview-service` without loading secrets. `python3`/PyYAML parsed the workflow, `git diff --check` passed, `node scripts/check-readiness-evidence.mjs` passed, full verify passed with 24 build steps and 61 syntax checks, static smoke passed, service smoke passed, and preview-service smoke passed.
+
+## 2026-07-01 — Codex operator-blocker Linear sync
+- Task: Audit whether Search Book open operator blockers have Linear tasks per the local Claude execution protocol.
+- Scope: `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`, and Linear SYN-209 child issues only.
+- Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Verification target: every open Search Book OPERATOR-INBOX item has a `needs:operator` Linear task under SYN-209 and the inbox names the matching issue id.
+- Result: No exact `operator-handoff` skill exists in WSL or Windows Claude skill directories. The relevant local Claude `introduce-goal` protocol says blocked work must be filed as a Linear issue and tagged `needs:operator`. Created labels `project:onboarding-app` and `subproject:search-book`, then filed operator tasks `SYN-281` through `SYN-287` for open inbox items #11, #5, #7, #6, #4, #2, and #12. Updated `OPERATOR-INBOX.md` so each open item points to its Linear operator task.
