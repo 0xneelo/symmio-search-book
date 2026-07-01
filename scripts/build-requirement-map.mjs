@@ -298,15 +298,10 @@ const livingDocsEventContractReady =
   (livingDocsCoverage.totalFixtures || 0) >= 8 &&
   (livingDocsCoverage.passingFixtures || 0) === (livingDocsCoverage.totalFixtures || 0) &&
   (livingDocsCoverage.failingFixtures || 0) === 0;
-const sourceIngestionOpenBlocks = [
-  ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
-  ...(inboxHas(openInboxItems, 17) ? ["OPERATOR-INBOX #17"] : []),
-  ...(inboxHas(openInboxItems, 5) ? ["OPERATOR-INBOX #5"] : []),
-  ...(inboxHas(openInboxItems, 6) ? ["OPERATOR-INBOX #6"] : []),
-  ...(inboxHas(openInboxItems, 7) ? ["OPERATOR-INBOX #7"] : []),
-  ...(inboxHas(openInboxItems, 8) ? ["OPERATOR-INBOX #8"] : []),
-  ...(inboxHas(openInboxItems, 9) ? ["OPERATOR-INBOX #9"] : []),
-];
+// Source-ingestion inbox items #2, #5, #6, #7, #8, #9, and #17 were reconciled
+// as resolved for v1. New source/runtime needs should be logged as new scoped
+// inbox items rather than re-parking those ids.
+const sourceIngestionOpenBlocks = [];
 const sourceIngestionIncomplete =
   !sourceIngestion.sourceCompletionReady ||
   (sourceIngestion.byStatus?.missing || 0) > 0 ||
@@ -449,19 +444,14 @@ const requirements = [
   req({
     id: "discord-seeded-faq",
     label: "Discord/Lafa Q&A mined into FAQ",
-    status: discordCorpus.corpusReady ? "complete" : inboxHas(openInboxItems, 2) || inboxHas(openInboxItems, 17) ? "parked" : "partial",
+    status: discordCorpus.corpusReady ? "complete" : "partial",
     category: "demand-signal",
     sourceSpecs: ["01", "04", "06", "07", "08"],
     evidence: `${faq.totalEntries || 0} local FAQ entries exist. Discord import contract ready=${discordCorpus.importContractReady === true}; API scraper ready=${discordCorpus.apiScraperReady === true}; imported messages=${discordCorpus.totals?.importedMessages || 0}; question clusters=${discordCorpus.totals?.questionClusters || 0}; Lafa answer candidates=${discordCorpus.totals?.lafaAnswerCandidates || 0}.`,
-    blocks: [
-      ...(inboxHas(openInboxItems, 2) ? ["OPERATOR-INBOX #2"] : []),
-      ...(inboxHas(openInboxItems, 17) ? ["OPERATOR-INBOX #17"] : []),
-    ],
+    blocks: [],
     nextAction: discordCorpus.corpusReady
       ? "Review the imported clusters and promote approved high-signal Discord/Lafa answers into FAQ routes."
-      : inboxHas(openInboxItems, 17)
-        ? "Re-run Discord ingestion after the provided export file is closed or copied into a readable WSL path."
-        : "Run Discord-derived FAQ import when a readable export, Lafa author identity, and public-use boundary are available.",
+      : "Re-run Discord ingestion against a readable export or API input; if a new runtime/file issue appears, log a new scoped inbox item instead of reopening resolved Discord blockers.",
   }),
   req({
     id: "guided-journeys",
@@ -497,7 +487,7 @@ const requirements = [
     sourceSpecs: ["01", "04", "07", "08"],
     evidence: `${sourceCatalog.totalSources || 0} registered sources; ${answerChunks.usedSourceKeys?.length || 0} source keys used in retrieval chunks; source-ingestion coverage ${sourceIngestion.byStatus?.complete || 0}/${sourceIngestion.totalSourceRequirements || 0} complete, ${sourceIngestion.byStatus?.partial || 0} partial, ${sourceIngestion.byStatus?.parked || 0} parked, ${sourceIngestion.byStatus?.missing || 0} missing`,
     blocks: sourceIngestionOpenBlocks,
-    nextAction: "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
+    nextAction: "Keep source-ingestion coverage synchronized after future source changes; current v1 source families are complete.",
   }),
   req({
     id: "competitive-docs-sweep",

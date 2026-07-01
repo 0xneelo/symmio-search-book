@@ -279,7 +279,7 @@ const payload = {
   contractVersion: "2026-06-28.v1",
   deterministicReady,
   llmProductionReady: false,
-  reasonLlmProductionReadyIsFalse: "LLM answering still needs API implementation, citation validation runtime, prompt-injection tests, operator source decisions, and Discord/Lafa import.",
+  reasonLlmProductionReadyIsFalse: "The deterministic answer engine, citation validator, live LLM eval record, SQLite service boundary, and Discord/Lafa import are ready locally; production readiness remains false until the VPS service env is installed and the public frontend/deploy route is selected.",
   pipeline: [
     {
       stage: "normalize",

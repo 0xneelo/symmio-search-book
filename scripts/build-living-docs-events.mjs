@@ -451,10 +451,10 @@ const payload = {
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
       ? retentionPolicyImplemented && moderationExportImplemented && metricsExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
-        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, and a production configuration preflight. Production deployment/public route, production LLM service env, production moderation/metrics/backup storage access, assigned production owner/cadence, and Discord import are still not complete."
-        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, production preflight, retention policy, CORS allowlist configuration, moderation/metrics workflow, reviewer operating workflow, production LLM service env, and Discord import are not complete."
-      : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, CORS allowlist configuration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
-    : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, reviewer workflow, and Discord import are not complete.",
+        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, a production configuration preflight, and an imported redacted Discord/Lafa demand corpus. Production deployment/public route, production VPS LLM/service env, production moderation/metrics/backup storage access, and assigned production owner/cadence are still not complete."
+        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, production preflight, retention policy, CORS allowlist configuration, moderation/metrics workflow, reviewer operating workflow, and production VPS service env are not complete."
+      : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, CORS allowlist configuration, retention policy, moderation workflow, and production VPS service env are not complete."
+    : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, and reviewer workflow are not complete.",
   storage: {
     ...storage,
     productionService: {
@@ -649,10 +649,10 @@ const payload = {
       : "Production configuration preflight is not implemented yet.",
     requiredNextStep: frontendServiceIntegrationImplemented
       ? retentionPolicyImplemented && moderationExportImplemented && metricsExportImplemented && corsPolicyImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
-        ? "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/metrics/backup storage access, assign reviewer owner/cadence, install production LLM service env, run the production preflight, and import Discord/Lafa when source access is provided."
-        : "Deploy the standalone service and selected public frontend route, define allowed origins plus retention/moderation/metrics policy, install production LLM service env, and import Discord/Lafa when source access is provided."
-      : "Deploy the standalone service, connect the public frontend to it, define retention/moderation/metrics policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
-    blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
+        ? "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/metrics/backup storage access, assign reviewer owner/cadence, install production VPS service env, and run the production preflight."
+        : "Deploy the standalone service and selected public frontend route, define allowed origins plus retention/moderation/metrics policy, and install production VPS service env."
+      : "Deploy the standalone service, connect the public frontend to it, define retention/moderation/metrics policy, and install production VPS service env.",
+    blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11"],
   },
 };
 

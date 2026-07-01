@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex generated status reconciliation cleanup
+- Task: Remove stale generated readiness text that still treats Discord import, local LLM runtime, or resolved source decisions as pending after the 2026-07-01 reconciliation.
+- Scope: `scripts/build-answer-engine-contract.mjs`, `scripts/build-llm-rag-contract.mjs`, `scripts/build-living-docs-events.mjs`, `scripts/build-requirement-map.mjs`, `scripts/build-quality-audit.mjs`, regenerated `data/*` readiness artifacts, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Regenerated data no longer re-parks Discord import or resolved source decisions; only #11/#4 remain as production gates; full `npm run search-book:verify` and `git diff --check` pass.
+- Result: Updated generator-owned readiness text so local LLM/runtime and redacted Discord/Lafa import are recorded as complete local evidence, while production readiness remains gated only by VPS service env #11 and public frontend/deploy route #4. Regenerated readiness artifacts; targeted stale-term scan found no `OPERATOR-INBOX #2`, `OPERATOR-INBOX #17`, `once access is provided`, or readable-export/import-pending language in the affected generated data/scripts. `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, source ingestion `17/17`, and quality gates `29/30`; `git diff --check` passed.
+
 ## 2026-07-01 — Codex launch gate source and demand checks
 - Task: Add first-class launch-readiness checks for source-ingestion completeness and sanitized Discord route coverage.
 - Scope: `scripts/check-launch-readiness.mjs`, regenerated `data/gap-queue.*`, `PRODUCTION-READINESS-PACKET.md`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

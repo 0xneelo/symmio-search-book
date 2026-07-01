@@ -1180,7 +1180,7 @@ const payload = {
   },
   nextAuditFocus: [
     "Close requirement-map partial, parked, and missing items before marking the compendium complete.",
-    "Close source-ingestion partial, parked, and missing families before final source-completeness claims.",
+    "Keep source-ingestion coverage synchronized after future source changes; current v1 source families are complete.",
     "Use the volume map to drive the production IA when the docs platform is selected.",
     "Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.",
     "Use the publication plan to keep source companions retrieval-only and drive final candidate source/operator/editorial review.",
@@ -1189,9 +1189,9 @@ const payload = {
     "Run answer validation fixtures against live runtime answers before production launch.",
     "Embed answer chunks in the chosen production retrieval stack.",
     "Convert generated drafts into publication-quality authored pages.",
-    "Replace the local FAQ seed with Discord/Lafa-mined FAQ coverage once access is provided.",
+    "Continue reviewing the imported Discord/Lafa demand corpus before promoting any exact community claim into public copy.",
     "Resolve operator inbox items before final publication claims.",
-    "Import Discord/Lafa Q&A once access is provided.",
+    "Keep the imported Discord/Lafa corpus redacted in checked-in data and use only sanitized routing evidence in public artifacts.",
     "Run final link, source, and live-market-count checks at publication time.",
   ],
 };

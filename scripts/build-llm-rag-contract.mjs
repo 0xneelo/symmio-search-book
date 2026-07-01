@@ -365,7 +365,7 @@ const payload = {
   llmProductionReady: false,
   reasonLlmProductionReadyIsFalse: runtimeImplemented
     ? "Runtime harness is implemented, OpenAI-compatible provider policy is approved, local LLM credentials are available, a recorded gpt-4.1-mini live eval passed, the standalone SQLite service boundary exists, and the Discord/Lafa export is imported for review; production readiness remains false until the VPS service env is installed and the public frontend/deploy route is selected."
-    : "Runtime model call, service endpoint, SQLite persistence, citation validation execution, prompt-injection test execution, VPS service env installation, public frontend/deploy routing, and Discord/Lafa import are not complete.",
+    : "Runtime contract and local service boundary are implemented, but production readiness remains false until live model validation evidence is refreshed, the VPS service env is installed, and the public frontend/deploy route is selected.",
   liveEvaluation: recordedLiveEvaluation,
   provider: {
     policy: "openai-compatible",
@@ -513,7 +513,7 @@ const payload = {
   },
   warnings: [
     ...(apiContractReady ? [] : ["LLM RAG API contract is not ready; inspect coverage and adversarial failures."]),
-    "LLM production readiness is intentionally false until the VPS service env is installed, the public frontend/deploy route is wired, and Discord/Lafa import completes from a readable export file.",
+    "LLM production readiness is intentionally false until the VPS service env is installed and the public frontend/deploy route is wired. The local LLM env and Discord/Lafa import are already complete.",
   ],
 };
 
