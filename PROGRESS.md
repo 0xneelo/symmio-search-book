@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Discord-Seeded Route Aliases Batch 3
+
+- Added six more generic, source-backed exact-route aliases from the sanitized Discord editorial queue: listing data, Binance late-stage gatekeeping, bell-curve winner/loser tails, competitive-docs benchmarks, DDQ mature-market stage, and systemic leverage boundaries.
+- The new questions are public phrasing backed by existing cited pages; refusal-only items and exact Discord/Lafa claims remain guarded.
+- Targeted route/no-raw check passed: all six aliases route to published public-navigation pages, and the committed Discord corpus still has `storesMessageText:false` with zero non-empty committed raw/normalized message, question, or answer text fields.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 815 exact routes, 817 FAQ entries, 2,884 chunks, 801 authored pages, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Discord-Seeded Route Aliases Batch 2
 
 - Added six more generic, source-backed exact-route aliases from the sanitized Discord editorial queue: AMFQ legacy naming, NO-button market filtering, long-tail perp model selection, project token inventory, RFQ risk tuning, and async-netted no-payer failure.

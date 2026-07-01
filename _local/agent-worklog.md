@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord-seeded route aliases batch 3
+- Task: Promote another sanitized Discord page-fit batch into generic, primary-source-backed exact question routes without touching refusal-only items.
+- Scope: `QUESTIONS.md`, regenerated route/FAQ/contract data, current count docs if changed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: New aliases are public, source-backed phrasing; no raw Discord/Lafa text enters committed files; every alias routes to a published public page; refusal guardrails and `npm run search-book:verify` stay green.
+- Result: Added six generic aliases for listing-data usefulness, Binance late-stage listing gatekeeping, bell-curve winner/loser tail semantics, serious derivatives-docs benchmarks, mature-market balance-sheet support, and systemic leverage boundaries. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `815/815`, FAQ entries `817`, chunks `2,884`, authored pages `801`, static integrity `20/20`, and quality gates `29/30`. Targeted route/no-raw assertion passed: all six aliases route to published public-navigation pages, and the committed Discord corpus still has `storesMessageText:false` with zero non-empty committed raw/normalized message, question, or answer fields.
+
 ## 2026-07-01 — Codex Discord-seeded route aliases batch 2
 - Task: Promote the next sanitized Discord page-fit checks into generic, primary-source-backed exact question routes.
 - Scope: `QUESTIONS.md`, regenerated route/FAQ/contract data, current count docs if changed, and `_local/agent-worklog.md`.

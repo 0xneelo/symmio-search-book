@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 811,
-  "totalAnswerable": 809,
+  "totalEntries": 817,
+  "totalAnswerable": 815,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 122,
+    "Getting Started": 123,
     "Trading Flow": 49,
-    "Solvers And Settlement": 182,
-    "Data And Volume": 10,
+    "Solvers And Settlement": 185,
+    "Data And Volume": 11,
     "Revenue": 99,
     "Rewards And Referrals": 101,
     "Dashboard": 13,
     "Risk And Markets": 72,
-    "Manifesto": 161,
+    "Manifesto": 162,
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 507,
+    "Medium": 509,
     "High": 47,
-    "Low": 255
+    "Low": 259
   },
   "byRouteSource": {
-    "authored": 809
+    "authored": 815
   },
   "byType": {
-    "answerable": 809,
+    "answerable": 815,
     "reconciliation": 2
   },
   "answerable": [
@@ -5680,6 +5680,35 @@
       ]
     },
     {
+      "id": "faq-why-is-early-derivatives-data-useful-for-listing-decisions",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Why is early derivatives data useful for listing decisions?",
+      "normalizedQuestion": "why is early derivatives data useful for listing decisions",
+      "shortAnswer": "The source-backed listing-data page explains why derivative volume, trader breadth, position duration, liquidation behavior, funding history, and spread quality are stronger signals than social pressure alone.",
+      "answerSummary": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and inter...",
+      "confidence": "Low",
+      "pageId": "authored-listing-data-product",
+      "pageTitle": "Listing Data Is A Product",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-why-is-vibe-s-initial-market-not-all-perpetuals",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -8065,6 +8094,35 @@
       "question": "Why does Neelo call Binance the late-stage leviathan?",
       "normalizedQuestion": "why does neelo call binance the late stage leviathan",
       "shortAnswer": "Neelo uses Binance to show how listing control can drive user capture and then become selective late-stage gatekeeping.",
+      "answerSummary": "Binance As The Late Stage Leviathan Neelo uses Binance to show how listing control can become user acquisition, then mature into late stage gatekeeping. The source starts with Binance's 2017 Community Coin of the Month strategy. Communities wanted their tokens listed. To vote, users had to register, deposit, and rally other holders. Binance converted list...",
+      "confidence": "Medium",
+      "pageId": "authored-binance-late-stage-leviathan",
+      "pageTitle": "Binance As The Late-Stage Leviathan",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-binance-treated-as-a-late-stage-listing-gatekeeper",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is Binance treated as a late-stage listing gatekeeper?",
+      "normalizedQuestion": "why is binance treated as a late stage listing gatekeeper",
+      "shortAnswer": "Neelo's listing-controller source frames Binance as strongest after assets have already proven demand, not as the first systematic derivatives layer for every long-tail token.",
       "answerSummary": "Binance As The Late Stage Leviathan Neelo uses Binance to show how listing control can become user acquisition, then mature into late stage gatekeeping. The source starts with Binance's 2017 Community Coin of the Month strategy. Communities wanted their tokens listed. To vote, users had to register, deposit, and rally other holders. Binance converted list...",
       "confidence": "Medium",
       "pageId": "authored-binance-late-stage-leviathan",
@@ -11198,6 +11256,35 @@
       ]
     },
     {
+      "id": "faq-do-winner-markets-pay-every-loss-from-weaker-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Do winner markets pay every loss from weaker markets?",
+      "normalizedQuestion": "do winner markets pay every loss from weaker markets",
+      "shortAnswer": "The source model measures only right-tail excess and left-tail shortfall beyond cutoffs, so it is not one undifferentiated socialized PnL bucket.",
+      "answerSummary": "Funding Winner Surplus And Loser Shortfall After the upper and lower cutoffs are set, the model measures only the amount beyond each cutoff. A winner market contributes surplus only above the upper cutoff. A loser or stressed market has shortfall only below the lower cutoff. In the source notation, right tail excess is the positive distance from the marke...",
+      "confidence": "Low",
+      "pageId": "authored-funding-winner-surplus-loser-shortfall",
+      "pageTitle": "Funding Winner Surplus And Loser Shortfall",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-why-is-the-bell-curve-transfer-pool-capped-by-the-smaller-tail",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -13497,6 +13584,59 @@
       "question": "What should Vibe x Symmio borrow from the best docs?",
       "normalizedQuestion": "what should vibe x symmio borrow from the best docs",
       "shortAnswer": "Competitive synthesis from the verified official-docs batch; Opyn is documented as the excluded 50th target.",
+      "answerSummary": "What Vibe x Symmio Should Borrow From The Best Docs The competitive benchmark is useful only if it changes the shape of the compendium. The first official docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn is the single excluded target because the operator marked it...",
+      "confidence": "Medium",
+      "pageId": "authored-competitive-docs-benchmark",
+      "pageTitle": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "pageSection": "competitive-context",
+      "pageTrack": "Competitive Benchmark",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "competitive-sweep-batch-01",
+          "group": "Competitive Context",
+          "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "spec-05",
+          "group": "Local Specs",
+          "use": "Ask-first IA, 500-800 page shape, and guided journey structure.",
+          "href": "../../_specs/app-docs/05-architecture.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-should-a-serious-derivatives-docs-site-expose",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What should a serious derivatives docs site expose?",
+      "normalizedQuestion": "what should a serious derivatives docs site expose",
+      "shortAnswer": "The benchmark page calls for job-first routing, AI-readable source packages, exact citations, risk taxonomy, data lineage, and visible feedback loops.",
       "answerSummary": "What Vibe x Symmio Should Borrow From The Best Docs The competitive benchmark is useful only if it changes the shape of the compendium. The first official docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn is the single excluded target because the operator marked it...",
       "confidence": "Medium",
       "pageId": "authored-competitive-docs-benchmark",
@@ -17631,6 +17771,35 @@
       ]
     },
     {
+      "id": "faq-when-is-a-vibe-market-mature-enough-to-need-less-balance-sheet-support",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When is a Vibe market mature enough to need less balance-sheet support?",
+      "normalizedQuestion": "when is a vibe market mature enough to need less balance sheet support",
+      "shortAnswer": "The DDQ mature-stage page says ordinary flow should become predominantly trader-to-trader, with the solver focused more on pricing, matching, and risk controls.",
+      "answerSummary": "DDQ Mature Market Stage The DDQ Attractiveness for LPs source defines the mature stage as a predominantly trader to trader market that approaches a low protocol side collateral model. In that state, the solver primarily provides pricing, matching, and risk controls rather than acting as the balance sheet for every fill. This is the desired direction of tr...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-mature-market-stage",
+      "pageTitle": "DDQ Mature Market Stage",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-how-does-vibe-increase-systemic-leverage-safely",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -17638,6 +17807,35 @@
       "question": "How does Vibe increase systemic leverage safely?",
       "normalizedQuestion": "how does vibe increase systemic leverage safely",
       "shortAnswer": "Neelo's DDQ ties increased systemic leverage to participation, liquidity, risk data, and controlled reductions in protocol-side collateralization.",
+      "answerSummary": "DDQ Systemic Leverage Ramp The DDQ Attractiveness for LPs source says the solver can reduce reliance on LP capital and increase systemic leverage in a controlled manner as participation and liquidity improve. Systemic leverage here means the system can support more trading activity relative to protocol side collateral and LP inventory because more of the...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-systemic-leverage-ramp",
+      "pageTitle": "DDQ Systemic Leverage Ramp",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-systemic-leverage-mean-higher-user-leverage-in-every-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Does systemic leverage mean higher user leverage in every market?",
+      "normalizedQuestion": "does systemic leverage mean higher user leverage in every market",
+      "shortAnswer": "The DDQ systemic-leverage page distinguishes capital efficiency at the system level from a blanket promise of higher user leverage.",
       "answerSummary": "DDQ Systemic Leverage Ramp The DDQ Attractiveness for LPs source says the solver can reduce reliance on LP capital and increase systemic leverage in a controlled manner as participation and liquidity improve. Systemic leverage here means the system can support more trading activity relative to protocol side collateral and LP inventory because more of the...",
       "confidence": "Low",
       "pageId": "authored-ddq-systemic-leverage-ramp",
@@ -32313,6 +32511,35 @@
       ]
     },
     {
+      "id": "faq-why-is-early-derivatives-data-useful-for-listing-decisions",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Data And Volume",
+      "question": "Why is early derivatives data useful for listing decisions?",
+      "normalizedQuestion": "why is early derivatives data useful for listing decisions",
+      "shortAnswer": "The source-backed listing-data page explains why derivative volume, trader breadth, position duration, liquidation behavior, funding history, and spread quality are stronger signals than social pressure alone.",
+      "answerSummary": "Listing Data Is A Product The strongest version of the listing thesis is not that Vibe publishes another leaderboard. It is that early derivative markets produce data that downstream venues currently lack. Neelo's source names the listing problem directly: venues often rely on spot volume, social metrics, community pressure, competitor listings, and inter...",
+      "confidence": "Low",
+      "pageId": "authored-listing-data-product",
+      "pageTitle": "Listing Data Is A Product",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-why-is-vibe-s-initial-market-not-all-perpetuals",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -34698,6 +34925,35 @@
       "question": "Why does Neelo call Binance the late-stage leviathan?",
       "normalizedQuestion": "why does neelo call binance the late stage leviathan",
       "shortAnswer": "Neelo uses Binance to show how listing control can drive user capture and then become selective late-stage gatekeeping.",
+      "answerSummary": "Binance As The Late Stage Leviathan Neelo uses Binance to show how listing control can become user acquisition, then mature into late stage gatekeeping. The source starts with Binance's 2017 Community Coin of the Month strategy. Communities wanted their tokens listed. To vote, users had to register, deposit, and rally other holders. Binance converted list...",
+      "confidence": "Medium",
+      "pageId": "authored-binance-late-stage-leviathan",
+      "pageTitle": "Binance As The Late-Stage Leviathan",
+      "pageSection": "manifesto",
+      "pageTrack": "03 - Listing Monopoly",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-binance-treated-as-a-late-stage-listing-gatekeeper",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why is Binance treated as a late-stage listing gatekeeper?",
+      "normalizedQuestion": "why is binance treated as a late stage listing gatekeeper",
+      "shortAnswer": "Neelo's listing-controller source frames Binance as strongest after assets have already proven demand, not as the first systematic derivatives layer for every long-tail token.",
       "answerSummary": "Binance As The Late Stage Leviathan Neelo uses Binance to show how listing control can become user acquisition, then mature into late stage gatekeeping. The source starts with Binance's 2017 Community Coin of the Month strategy. Communities wanted their tokens listed. To vote, users had to register, deposit, and rally other holders. Binance converted list...",
       "confidence": "Medium",
       "pageId": "authored-binance-late-stage-leviathan",
@@ -37831,6 +38087,35 @@
       ]
     },
     {
+      "id": "faq-do-winner-markets-pay-every-loss-from-weaker-markets",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Do winner markets pay every loss from weaker markets?",
+      "normalizedQuestion": "do winner markets pay every loss from weaker markets",
+      "shortAnswer": "The source model measures only right-tail excess and left-tail shortfall beyond cutoffs, so it is not one undifferentiated socialized PnL bucket.",
+      "answerSummary": "Funding Winner Surplus And Loser Shortfall After the upper and lower cutoffs are set, the model measures only the amount beyond each cutoff. A winner market contributes surplus only above the upper cutoff. A loser or stressed market has shortfall only below the lower cutoff. In the source notation, right tail excess is the positive distance from the marke...",
+      "confidence": "Low",
+      "pageId": "authored-funding-winner-surplus-loser-shortfall",
+      "pageTitle": "Funding Winner Surplus And Loser Shortfall",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-why-is-the-bell-curve-transfer-pool-capped-by-the-smaller-tail",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -40130,6 +40415,59 @@
       "question": "What should Vibe x Symmio borrow from the best docs?",
       "normalizedQuestion": "what should vibe x symmio borrow from the best docs",
       "shortAnswer": "Competitive synthesis from the verified official-docs batch; Opyn is documented as the excluded 50th target.",
+      "answerSummary": "What Vibe x Symmio Should Borrow From The Best Docs The competitive benchmark is useful only if it changes the shape of the compendium. The first official docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn is the single excluded target because the operator marked it...",
+      "confidence": "Medium",
+      "pageId": "authored-competitive-docs-benchmark",
+      "pageTitle": "What Vibe x Symmio Should Borrow From The Best Docs",
+      "pageSection": "competitive-context",
+      "pageTrack": "Competitive Benchmark",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "competitive-sweep-batch-01",
+        "spec-05",
+        "spec-06",
+        "spec-07"
+      ],
+      "sources": [
+        {
+          "key": "competitive-sweep-batch-01",
+          "group": "Competitive Context",
+          "use": "Official-docs benchmark batch over 50 target docs, 25 lanes, five returned explorer batches, 49 verified official docs, and one documented Opyn exclusion.",
+          "href": "",
+          "missing": false
+        },
+        {
+          "key": "spec-05",
+          "group": "Local Specs",
+          "use": "Ask-first IA, 500-800 page shape, and guided journey structure.",
+          "href": "../../_specs/app-docs/05-architecture.md",
+          "missing": false
+        },
+        {
+          "key": "spec-06",
+          "group": "Local Specs",
+          "use": "Ask/rate/ask-again loop.",
+          "href": "../../_specs/app-docs/06-answer-engine.md",
+          "missing": false
+        },
+        {
+          "key": "spec-07",
+          "group": "Local Specs",
+          "use": "Session 1 research gate.",
+          "href": "../../_specs/app-docs/07-research-session.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-should-a-serious-derivatives-docs-site-expose",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What should a serious derivatives docs site expose?",
+      "normalizedQuestion": "what should a serious derivatives docs site expose",
+      "shortAnswer": "The benchmark page calls for job-first routing, AI-readable source packages, exact citations, risk taxonomy, data lineage, and visible feedback loops.",
       "answerSummary": "What Vibe x Symmio Should Borrow From The Best Docs The competitive benchmark is useful only if it changes the shape of the compendium. The first official docs batch reviewed 49 of 50 targeted docs across derivatives, DeFi, infrastructure, data tooling, wallet/account, and product surfaces. Opyn is the single excluded target because the operator marked it...",
       "confidence": "Medium",
       "pageId": "authored-competitive-docs-benchmark",
@@ -44264,6 +44602,35 @@
       ]
     },
     {
+      "id": "faq-when-is-a-vibe-market-mature-enough-to-need-less-balance-sheet-support",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "When is a Vibe market mature enough to need less balance-sheet support?",
+      "normalizedQuestion": "when is a vibe market mature enough to need less balance sheet support",
+      "shortAnswer": "The DDQ mature-stage page says ordinary flow should become predominantly trader-to-trader, with the solver focused more on pricing, matching, and risk controls.",
+      "answerSummary": "DDQ Mature Market Stage The DDQ Attractiveness for LPs source defines the mature stage as a predominantly trader to trader market that approaches a low protocol side collateral model. In that state, the solver primarily provides pricing, matching, and risk controls rather than acting as the balance sheet for every fill. This is the desired direction of tr...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-mature-market-stage",
+      "pageTitle": "DDQ Mature Market Stage",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-how-does-vibe-increase-systemic-leverage-safely",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -44271,6 +44638,35 @@
       "question": "How does Vibe increase systemic leverage safely?",
       "normalizedQuestion": "how does vibe increase systemic leverage safely",
       "shortAnswer": "Neelo's DDQ ties increased systemic leverage to participation, liquidity, risk data, and controlled reductions in protocol-side collateralization.",
+      "answerSummary": "DDQ Systemic Leverage Ramp The DDQ Attractiveness for LPs source says the solver can reduce reliance on LP capital and increase systemic leverage in a controlled manner as participation and liquidity improve. Systemic leverage here means the system can support more trading activity relative to protocol side collateral and LP inventory because more of the...",
+      "confidence": "Low",
+      "pageId": "authored-ddq-systemic-leverage-ramp",
+      "pageTitle": "DDQ Systemic Leverage Ramp",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-does-systemic-leverage-mean-higher-user-leverage-in-every-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Does systemic leverage mean higher user leverage in every market?",
+      "normalizedQuestion": "does systemic leverage mean higher user leverage in every market",
+      "shortAnswer": "The DDQ systemic-leverage page distinguishes capital efficiency at the system level from a blanket promise of higher user leverage.",
       "answerSummary": "DDQ Systemic Leverage Ramp The DDQ Attractiveness for LPs source says the solver can reduce reliance on LP capital and increase systemic leverage in a controlled manner as participation and liquidity improve. Systemic leverage here means the system can support more trading activity relative to protocol side collateral and LP inventory because more of the...",
       "confidence": "Low",
       "pageId": "authored-ddq-systemic-leverage-ramp",
