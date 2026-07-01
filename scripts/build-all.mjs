@@ -37,9 +37,9 @@ function parseArgs(argv) {
     else if (arg === "--manifest-out") args.manifestOut = argv[++index] || "";
     else if (arg === "--help") {
       console.log(`Usage:
-  node src/search-book/scripts/build-all.mjs [--verify] [--dry-run] [--list]
-  node src/search-book/scripts/build-all.mjs --from build-answer-chunks
-  node src/search-book/scripts/build-all.mjs --only build-quality-audit
+  node scripts/build-all.mjs [--verify] [--dry-run] [--list]
+  node scripts/build-all.mjs --from build-answer-chunks
+  node scripts/build-all.mjs --only build-quality-audit
 
 Options:
   --verify          Run build steps, syntax checks, invariant checks, and sensitive-pattern scan.

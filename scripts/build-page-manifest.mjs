@@ -51,7 +51,7 @@ function parseArgs(argv) {
     if (arg === "--input") args.input = argv[++index];
     else if (arg === "--out") args.output = argv[++index];
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/build-page-manifest.mjs [--input docs-data.json] [--out page-manifest.json]");
+      console.log("Usage: node scripts/build-page-manifest.mjs [--input docs-data.json] [--out page-manifest.json]");
       process.exit(0);
     }
     else throw new Error(`Unknown argument: ${arg}`);

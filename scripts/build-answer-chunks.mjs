@@ -28,7 +28,7 @@ function parseArgs(argv) {
     else if (arg === "--max-words") args.maxWords = Number(argv[++index]);
     else if (arg === "--overlap-words") args.overlapWords = Number(argv[++index]);
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/build-answer-chunks.mjs [--out-json path] [--out-js path] [--max-words 220] [--overlap-words 35]");
+      console.log("Usage: node scripts/build-answer-chunks.mjs [--out-json path] [--out-js path] [--max-words 220] [--overlap-words 35]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);

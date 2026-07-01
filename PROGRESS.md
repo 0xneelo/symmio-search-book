@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Standalone Command Path Cleanup
+
+- Removed stale copy-pasteable `node src/search-book/scripts/...` usage text from live script help, replacing it with standalone-root `node scripts/...` commands.
+- Updated active answer-engine, LLM RAG, answer-validation, source registry, and authored source-frontmatter references so they no longer treat resolved Discord/source-ingestion work as open or point at `src/search-book` source paths.
+- Regenerated affected data artifacts; full verify stayed green with 26 build steps, 86 syntax checks, 820 exact routes, 2,884 chunks, quality gates `29/30`, and `monitoringEvidence:passed`.
+
 ## 2026-07-01 — Current-Commit Release Rehearsal
 
 - Refreshed the no-secret release rehearsal after adding monitoring evidence to the canonical verify gate.

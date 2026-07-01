@@ -48,7 +48,7 @@ function parseArgs(argv) {
     if (arg === "--out-json") args.outJson = argv[++index];
     else if (arg === "--out-js") args.outJs = argv[++index];
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/build-requirement-map.mjs [--out-json path] [--out-js path]");
+      console.log("Usage: node scripts/build-requirement-map.mjs [--out-json path] [--out-js path]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);

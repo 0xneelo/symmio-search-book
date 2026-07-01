@@ -5,7 +5,7 @@ section: "reference"
 track: "Glossary"
 status: "published"
 sourceKeys: ["symmio-core", "vibe-architecture", "vibe-points", "spec-03", "styleguide"]
-sourceUrls: ["https://docs.symm.io/getting-started/core-concepts.md", "https://docs.vibe.trading/architectural-overview.md", "https://docs.vibe.trading/trading/vibe-points.md", "_specs/app-docs/03-grounding.md", "src/search-book/STYLEGUIDE.md"]
+sourceUrls: ["https://docs.symm.io/getting-started/core-concepts.md", "https://docs.vibe.trading/architectural-overview.md", "https://docs.vibe.trading/trading/vibe-points.md", "_specs/app-docs/03-grounding.md", "STYLEGUIDE.md"]
 relatedGeneratedPages: ["symmio-glossary", "symmio-core-concepts", "vibe-architecture-amfq"]
 ---
 

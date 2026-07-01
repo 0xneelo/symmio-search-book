@@ -5,7 +5,7 @@ section: "product-reference"
 track: "Trading Flow"
 status: "published"
 sourceKeys: ["vibe-architecture", "symmio-core", "symmio-intent-lifecycle", "styleguide"]
-sourceUrls: ["https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md", "src/search-book/STYLEGUIDE.md"]
+sourceUrls: ["https://docs.vibe.trading/architectural-overview.md", "https://docs.symm.io/getting-started/core-concepts.md", "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md", "STYLEGUIDE.md"]
 relatedGeneratedPages: ["vibe-architecture-amfq", "authored-vibe-intent-architecture", "authored-intents-and-solvers", "symmio-intent-lifecycle"]
 ---
 

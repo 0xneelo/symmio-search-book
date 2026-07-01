@@ -30,7 +30,7 @@ function parseArgs(argv) {
     else if (arg === "--index-js") args.indexJs = argv[++index];
     else if (arg === "--stats") args.stats = argv[++index];
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/build-content-corpus.mjs [--docs-root /tmp/vibe_docs/Docs/public] [--docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json]");
+      console.log("Usage: node scripts/build-content-corpus.mjs [--docs-root /tmp/vibe_docs/Docs/public] [--docs-data /tmp/vibe_docs/Website/public/generated/docs-data.json]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);

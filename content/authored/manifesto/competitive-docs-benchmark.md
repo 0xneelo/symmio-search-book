@@ -5,7 +5,7 @@ section: "competitive-context"
 track: "Competitive Benchmark"
 status: "published"
 sourceKeys: ["competitive-sweep-batch-01", "spec-05", "spec-06", "spec-07"]
-sourceUrls: ["src/search-book/data/competitive-sweep.json", "_specs/app-docs/05-architecture.md", "_specs/app-docs/06-answer-engine.md", "_specs/app-docs/07-research-session.md"]
+sourceUrls: ["data/competitive-sweep.json", "_specs/app-docs/05-architecture.md", "_specs/app-docs/06-answer-engine.md", "_specs/app-docs/07-research-session.md"]
 relatedGeneratedPages: ["authored-volume-01-orientation-and-thesis", "authored-search-insights-loop", "authored-vibe-as-discovery-layer", "hyperliquid-hip3"]
 ---
 

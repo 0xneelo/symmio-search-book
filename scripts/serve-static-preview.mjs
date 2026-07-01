@@ -38,7 +38,7 @@ function parseArgs(argv) {
     else if (arg === "--root") args.root = path.resolve(argv[++index] || "");
     else if (arg === "--help") {
       console.log(`Usage:
-  node src/search-book/scripts/serve-static-preview.mjs [--host 127.0.0.1] [--port 8788]
+  node scripts/serve-static-preview.mjs [--host 127.0.0.1] [--port 8788]
 
 Environment:
   SEARCH_BOOK_STATIC_HOST=127.0.0.1

@@ -30,7 +30,7 @@ function parseArgs(argv) {
     else if (arg === "--out") args.out = path.resolve(argv[++index] || "");
     else if (arg === "--help") {
       console.log(`Usage:
-  node src/search-book/scripts/summarize-living-docs-gaps.mjs [--db path] [--format json|markdown] [--limit 20] [--since-days 7] [--out path]
+  node scripts/summarize-living-docs-gaps.mjs [--db path] [--format json|markdown] [--limit 20] [--since-days 7] [--out path]
 
 Environment:
   SEARCH_BOOK_ANSWER_ENGINE_DB=/path/to/search-book-answer-engine.sqlite

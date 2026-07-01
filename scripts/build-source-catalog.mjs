@@ -20,7 +20,7 @@ function parseArgs(argv) {
     if (arg === "--out-json") args.outJson = argv[++index];
     else if (arg === "--out-js") args.outJs = argv[++index];
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/build-source-catalog.mjs [--out-json path] [--out-js path]");
+      console.log("Usage: node scripts/build-source-catalog.mjs [--out-json path] [--out-js path]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -61,7 +61,7 @@ function sourceKind(source) {
   if (/^Linear issue\b/i.test(source)) return "linear";
   if (/^\//.test(source)) return "absolute-local";
   if (/[*]/.test(source)) return "repo-pattern";
-  if (/^(_specs|src|server|docs|_local|README|DESIGN|CLAUDE_MAX)\b/.test(source)) return "repo-local";
+  if (/^(_specs|src|server|docs|_local|README|DESIGN|STYLEGUIDE|CLAUDE_MAX)\b/.test(source)) return "repo-local";
   return "note";
 }
 

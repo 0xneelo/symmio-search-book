@@ -17,7 +17,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `spec-07` | `_specs/app-docs/07-research-session.md` | Session 1 research gate. |
 | `spec-08` | `_specs/app-docs/08-implementation-session.md` | Session 2 implementation gate. |
 | `spec-09` | `_specs/app-docs/09-design-reference.md` | Mockup and visual direction. |
-| `styleguide` | `src/search-book/STYLEGUIDE.md` | Local terminology and page-structure lock for authored pages. |
+| `styleguide` | `STYLEGUIDE.md` | Local terminology and page-structure lock for authored pages. |
 
 ## Local Product And Code
 

@@ -36,7 +36,7 @@ The LLM must refuse or create a gap event when:
 - no grounded context exists;
 - the question asks for secrets, private credentials, personal trading advice, or unsupported economics;
 - a topic is parked in `OPERATOR-INBOX.md`;
-- a source family such as Discord, Notion, SuperFlow/SSHE, or the original whitepaper is missing, or a source family such as Opyn has been explicitly excluded;
+- a required source family is unavailable, outside the approved public-use boundary, or explicitly excluded;
 - the answer would depend on internal-draft pages.
 
 ## Generated Proof
@@ -44,7 +44,7 @@ The LLM must refuse or create a gap event when:
 Run:
 
 ```sh
-node src/search-book/scripts/build-llm-rag-contract.mjs
+node scripts/build-llm-rag-contract.mjs
 ```
 
 The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 15 adversarial eval cases are specified. It also records the 2026-07-01 OpenAI-backed live `gpt-4.1-mini` validation run: 42/42 total fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases, with 16 measured calls, 95,037 input tokens, 8,264 output tokens, and an estimated cost of $0.01921395. `llmProductionReady` intentionally remains false until the production VPS service env is installed and public frontend/deploy wiring is selected.
@@ -74,7 +74,7 @@ Without that approved runtime configuration, `--mode llm` fails closed instead o
 The standalone service entrypoint is:
 
 ```sh
-SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node src/search-book/scripts/serve-answer-engine.mjs
+SEARCH_BOOK_ANSWER_ENGINE_DB=/tmp/search-book-answer-engine.sqlite node scripts/serve-answer-engine.mjs
 ```
 
 It calls the same runtime path as the CLI and persists question, rating, and gap events to SQLite. LLM API keys remain process environment values and are not printed or persisted.

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex standalone command path cleanup
+- Task: Remove stale copy-pasteable `node src/search-book/scripts/...` command paths from live script help and active contract docs after standalone migration.
+- Scope: `scripts/*.mjs`, active contract docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: script `--help` output uses `node scripts/...`, active contract docs use standalone-root commands, historical migration/spec references remain intentionally untouched, focused syntax/status checks pass, and only #11/#4 remain open.
+- Result: Updated live script help text from `node src/search-book/scripts/...` to `node scripts/...`, normalized active contract/source docs and authored frontmatter to standalone-root source paths, and regenerated affected data artifacts. Also removed stale active-doc wording that treated Discord/source ingestion as open and updated answer-validation refusal count to 11. Verification passed: `node scripts/build-all.mjs --help`, `node scripts/build-answer-chunks.mjs --help`, targeted `rg` found no actionable legacy command/source references in live scripts/docs/generated artifacts, `npm run search-book:verify` passed with 26 build steps, 86 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, and `monitoringEvidence:passed`, `npm run search-book:check-status-evidence` passed, and `git diff --check` passed.
+
 ## 2026-07-01 — Codex current-commit release rehearsal
 - Task: Refresh no-secret release rehearsal evidence after wiring monitoring into the canonical verify gate.
 - Scope: `/tmp/search-book-release-dry-run-monitoring-verify-gate-20260701-1`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
