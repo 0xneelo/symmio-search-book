@@ -20,12 +20,16 @@ Options:
   --allow-local                    Permit localhost/http URLs in staging
   --write-smoke                    Let deployment smoke create one answer event and rating
   --run-verify                     Run node scripts/build-all.mjs --verify in this invocation
+  --backup-manifest path           Latest backup manifest from scripts/backup-answer-engine-db.mjs
+  --backup-max-age-hours n         Default: SEARCH_BOOK_BACKUP_MAX_AGE_HOURS or 24
   --skip-production-env            Skip production env preflight in staging only
   --skip-deployment-smoke          Skip URL smoke in staging only
 
 Environment fallbacks:
   SEARCH_BOOK_DEPLOYMENT_SITE_URL
   SEARCH_BOOK_ANSWER_ENGINE_URL
+  SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST or SEARCH_BOOK_BACKUP_MANIFEST
+  SEARCH_BOOK_BACKUP_MAX_AGE_HOURS
   SEARCH_BOOK_REVIEWER_OWNER
   SEARCH_BOOK_REVIEW_CADENCE
   SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR or SEARCH_BOOK_BACKUP_STORAGE
@@ -42,6 +46,8 @@ function parseArgs(argv) {
     allowLocal: false,
     writeSmoke: false,
     runVerify: false,
+    backupManifest: process.env.SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST || process.env.SEARCH_BOOK_BACKUP_MANIFEST || "",
+    backupMaxAgeHours: process.env.SEARCH_BOOK_BACKUP_MAX_AGE_HOURS || "24",
     skipProductionEnv: false,
     skipDeploymentSmoke: false,
   };
@@ -79,6 +85,8 @@ function parseArgs(argv) {
     else if (arg === "--site-url") args.siteUrl = next;
     else if (arg === "--service-url") args.serviceUrl = next;
     else if (arg === "--mode") args.mode = next;
+    else if (arg === "--backup-manifest") args.backupManifest = next;
+    else if (arg === "--backup-max-age-hours") args.backupMaxAgeHours = next;
     else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
     index += 1;
   }
@@ -87,6 +95,8 @@ function parseArgs(argv) {
   if (!args.mode) args.mode = args.profile === "production" ? "llm" : "extractive";
   if (!validModes.has(args.mode)) throw new Error("--mode must be extractive or llm.");
   if (args.profile === "production" && args.allowLocal) throw new Error("--allow-local is only valid for staging.");
+  args.backupMaxAgeHours = Number(args.backupMaxAgeHours);
+  if (!Number.isFinite(args.backupMaxAgeHours) || args.backupMaxAgeHours <= 0) throw new Error("--backup-max-age-hours must be a positive number.");
   return args;
 }
 
@@ -278,6 +288,86 @@ function checkOperationalAssignments(checks, profile) {
   });
 }
 
+function checkBackupManifest(checks, args) {
+  const hasManifest = Boolean(args.backupManifest);
+  const severity = args.profile === "production" || hasManifest ? "error" : "warning";
+  if (!hasManifest) {
+    addCheck(checks, {
+      id: "backup-restore-manifest",
+      label: "Latest backup manifest reports restore-check passed",
+      passed: false,
+      severity,
+      detail: "SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST or SEARCH_BOOK_BACKUP_MANIFEST is missing",
+    });
+    return;
+  }
+
+  const manifestPath = path.resolve(args.backupManifest);
+  if (!fs.existsSync(manifestPath)) {
+    addCheck(checks, {
+      id: "backup-restore-manifest",
+      label: "Latest backup manifest reports restore-check passed",
+      passed: false,
+      severity,
+      detail: "backup manifest file does not exist",
+    });
+    return;
+  }
+
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  } catch {
+    addCheck(checks, {
+      id: "backup-restore-manifest",
+      label: "Latest backup manifest reports restore-check passed",
+      passed: false,
+      severity,
+      detail: "backup manifest is not valid JSON",
+    });
+    return;
+  }
+
+  const generatedAtMs = Date.parse(manifest.generatedAt || "");
+  const ageHours = Number.isFinite(generatedAtMs) ? (Date.now() - generatedAtMs) / 3_600_000 : Number.POSITIVE_INFINITY;
+  const tableComparisons = Object.values(manifest.restoreCheck?.tables || {});
+  const countsMatched = tableComparisons.length > 0 && tableComparisons.every((item) => item?.matched === true);
+  const checksumPresent = typeof manifest.backupSha256 === "string" && /^[a-f0-9]{64}$/i.test(manifest.backupSha256);
+  const passed =
+    manifest.service === "search-book-answer-engine-backup" &&
+    manifest.status === "passed" &&
+    Number.isFinite(ageHours) &&
+    ageHours >= 0 &&
+    ageHours <= args.backupMaxAgeHours &&
+    Number(manifest.backupSizeBytes) > 0 &&
+    checksumPresent &&
+    manifest.restoreCheck?.enabled === true &&
+    manifest.restoreCheck?.status === "passed" &&
+    manifest.restoreCheck?.integrity === "ok" &&
+    countsMatched;
+
+  addCheck(checks, {
+    id: "backup-restore-manifest",
+    label: "Latest backup manifest reports restore-check passed",
+    passed,
+    severity,
+    detail: `status=${manifest.status || "missing"}, restore=${manifest.restoreCheck?.status || "missing"}, ageHours=${Number.isFinite(ageHours) ? ageHours.toFixed(2) : "invalid"}, maxAgeHours=${args.backupMaxAgeHours}`,
+    evidence: {
+      service: manifest.service || "missing",
+      status: manifest.status || "missing",
+      generatedAt: manifest.generatedAt || "missing",
+      ageHours: Number.isFinite(ageHours) ? Number(ageHours.toFixed(3)) : null,
+      maxAgeHours: args.backupMaxAgeHours,
+      restoreCheckStatus: manifest.restoreCheck?.status || "missing",
+      integrity: manifest.restoreCheck?.integrity || "missing",
+      tablesChecked: tableComparisons.length,
+      countsMatched,
+      checksumPresent,
+      backupSizePositive: Number(manifest.backupSizeBytes) > 0,
+    },
+  });
+}
+
 function checkFreshVerify(checks, args) {
   if (!args.runVerify) {
     addCheck(checks, {
@@ -377,6 +467,7 @@ function main() {
 
   checkBuiltEvidence(checks, args.profile);
   checkOperationalAssignments(checks, args.profile);
+  checkBackupManifest(checks, args);
   checkUrl(checks, {
     id: "site-url",
     label: "Public docs site URL is configured for the launch profile",

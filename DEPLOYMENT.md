@@ -90,17 +90,20 @@ configured but never prints secret values.
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
 boundary. Load the same service env file so it can see the production LLM/service settings,
-reviewer owner, cadence, and backup storage evidence:
+reviewer owner, cadence, backup storage evidence, and the latest restore-checked backup
+manifest:
 
 ```bash
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \
   --site-url https://<public-docs-route> \
   --service-url https://<answer-engine-host> \
+  --backup-manifest /var/backups/symmio-search-book/latest.manifest.json \
   --run-verify
 ```
 
 For staging-only localhost validation, use the staging profile. This permits local URLs but
-keeps unresolved production blockers visible as warnings:
+keeps unresolved production blockers visible as warnings. Pass a staging backup manifest
+when validating restore evidence:
 
 ```bash
 npm run search-book:check-launch -- \
@@ -109,6 +112,7 @@ npm run search-book:check-launch -- \
   --site-url http://127.0.0.1:<preview-port> \
   --service-url http://127.0.0.1:<service-port> \
   --mode extractive \
+  --backup-manifest /tmp/search-book-answer-engine.sqlite.manifest.json \
   --skip-production-env \
   --run-verify
 ```

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Launch Backup-Manifest Evidence
+
+- Added latest restore-checked backup manifest validation to `scripts/check-launch-readiness.mjs`.
+- Production launch readiness now fails closed unless `--backup-manifest` or `SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST` points to a recent `scripts/backup-answer-engine-db.mjs` manifest with `status:"passed"`, restore check enabled and passed, SQLite integrity `ok`, matching table counts, a positive backup size, and a checksum.
+- Staging without a manifest remains a warning; if a manifest is supplied, invalid backup evidence fails so staging drills cannot silently accept a broken restore artifact.
+
 ## 2026-07-01 — Production Preflight Operations Evidence
 
 - Tightened `scripts/check-production-env.mjs` so production env preflight now fails closed unless living-docs reviewer owner, review cadence, and production-safe backup storage are configured.

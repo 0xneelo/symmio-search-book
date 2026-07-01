@@ -21,7 +21,7 @@ The search-book is already a strong research and prototype substrate:
 - The standalone answer-engine service has SQLite persistence, basic rate limiting, configurable event retention, configurable browser CORS allowlisting, disabled-by-default token-gated moderation and metrics exports, a static frontend bridge, an internal reviewer operations runbook, an executable SQLite backup/restore-check utility, a production env/deploy preflight that now verifies reviewer owner/cadence and backup-storage evidence, and a local smoke test that exercises health, answer persistence, ratings, insights, moderation export, metrics export, and allowed/blocked origins without live LLM calls.
 - The current local preview runs from the standalone repo root, can be served on localhost with `npm run search-book:serve-static`, has static integrity coverage at `npm run search-book:check-static`, has a static preview smoke test at `npm run search-book:smoke-static`, has a combined preview/service smoke test at `npm run search-book:smoke-preview-service` that verifies the static frontend can use the standalone service, and has `npm run search-book:check-production-env` for production configuration fail-closed checks.
 - The deployment surface now has `npm run search-book:smoke-deployment`, a URL-driven smoke probe for preview/staging/production routes. It checks static assets and exact-page routing in read-only mode, can check service health/CORS/Search Insights when a service URL is provided, and requires explicit `--write` before creating one answer event plus rating.
-- The launch surface now has `npm run search-book:check-launch`, an executable production/staging gate that composes the production env preflight, optional fresh deterministic verify, URL-driven deployment smoke, reviewer owner/cadence evidence, backup-storage evidence, and unresolved completion-boundary checks without printing secret values.
+- The launch surface now has `npm run search-book:check-launch`, an executable production/staging gate that composes the production env preflight, optional fresh deterministic verify, URL-driven deployment smoke, reviewer owner/cadence evidence, backup-storage evidence, latest restore-checked backup manifest evidence, and unresolved completion-boundary checks without printing secret values.
 - The standalone repo now has a no-secret GitHub Actions verification gate at `.github/workflows/search-book-verify.yml`; it clones the public `0xneelo/vibe_docs` export into `/tmp/vibe_docs`, then runs the deterministic verify plus static, service, and preview-service smoke tests without LLM or production credentials.
 - The quality audit is intentionally not green yet; known failures are source ingestion, operator inbox, and Discord.
 - Operator publication decisions for Phase A revenue, referral depth, Opyn exclusion, answer-engine build path, source-family dispositions, canonical point taxonomy, and Add Token Info are recorded. The remaining open items are implementation/source/deploy inputs: public frontend platform/repo/deploy route, production service env credentials, Discord/Lafa corpus, Notion ingestion, oldest Symmio whitepaper artifact, SuperFlow/SSHE identification, and one old checkpoint-commit approval item.
@@ -478,7 +478,7 @@ The true critical path is:
 3. Classify pages into public/candidate/source-companion/internal.
 4. Stabilize deterministic answer routing and question tracking.
 5. Connect the standalone SQLite answer-engine service to the selected public frontend route and production environment.
-6. Deploy production Search Insights around the SQLite event datastore, configure retention/moderation/backup storage access, and assign the documented reviewer workflow owner/cadence.
+6. Deploy production Search Insights around the SQLite event datastore, configure retention/moderation/backup storage access, keep the latest restore-checked backup manifest wired into launch evidence, and assign the documented reviewer workflow owner/cadence.
 7. Finalize production UI and guided journeys.
 8. Run source, answer, security, and deployment QA.
 9. Launch with final report.
@@ -486,7 +486,7 @@ The true critical path is:
 ## Immediate Next Actions
 
 1. Keep `data/llm-rag-contract.*`, `data/answer-validation-report.*`, and the runtime docs aligned with live eval evidence.
-2. Install production service env, configure retention/moderation/backup storage access, assign reviewer owner/cadence, and deploy the selected public frontend route against the standalone answer-engine endpoints.
+2. Install production service env, configure retention/moderation/backup storage access, provide latest restore-checked backup manifest evidence, assign reviewer owner/cadence, and deploy the selected public frontend route against the standalone answer-engine endpoints.
 3. Re-run live adversarial and answer-validation evals after service deployment wiring and before public launch.
 4. Use the page-state registry to keep source companions out of public navigation and internal drafts out of answer synthesis.
 5. Decide platform/repo ownership, or keep building the platform-neutral prototype while that remains open.

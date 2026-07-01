@@ -28,6 +28,8 @@ SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=
 SEARCH_BOOK_REVIEWER_OWNER=<owner or rotation>
 SEARCH_BOOK_REVIEW_CADENCE=daily
 SEARCH_BOOK_ANSWER_ENGINE_BACKUP_DIR=/path/to/approved/backups
+SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST=/path/to/approved/backups/latest.manifest.json
+SEARCH_BOOK_BACKUP_MAX_AGE_HOURS=24
 ```
 
 LLM synthesis setup remains separate:
@@ -62,6 +64,7 @@ backup-storage evidence, and unresolved completion-boundary checks:
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \
   --site-url https://<public-docs-route> \
   --service-url https://<answer-engine-route> \
+  --backup-manifest /path/to/approved/backups/latest.manifest.json \
   --run-verify
 ```
 
@@ -168,6 +171,7 @@ Operational rules:
 - Store production backups and manifests only in approved internal storage.
 - Do not commit SQLite DB files, backup manifests from production, raw question exports, API keys, or moderation tokens.
 - Treat backup manifests as internal if they reveal production paths, table counts, or operating cadence.
+- Point `SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST` at the latest restore-checked manifest before running launch readiness; the launch gate validates manifest status, recency, restore-check status, integrity, table-count match, and checksum presence without printing DB paths or raw counts.
 - Run `--dry-run` first when validating a new production DB path.
 - Use `--no-restore-check` only when restore-check storage is temporarily unavailable; record the exception in Linear and rerun with restore check as soon as possible.
 
@@ -236,7 +240,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS` is set to the public docs route, not the local wildcard default.
 - `npm run search-book:check-production-env` passes with the production service env loaded.
 - `npm run search-book:smoke-deployment -- --site-url <public-route> --service-url <answer-engine-route>` passes in read-only mode; staging or launch validation may add `--write` to create one answer event and rating.
-- `npm run search-book:check-launch -- --site-url <public-route> --service-url <answer-engine-route> --run-verify` passes with the production service env loaded.
+- `npm run search-book:check-launch -- --site-url <public-route> --service-url <answer-engine-route> --backup-manifest <latest-manifest> --run-verify` passes with the production service env loaded.
 - Moderation export is disabled by default and token-gated when enabled.
 - Metrics export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.

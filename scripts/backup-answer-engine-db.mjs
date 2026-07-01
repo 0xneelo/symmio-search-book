@@ -27,7 +27,7 @@ const defaults = {
 
 function usage() {
   return `Usage:
-  node src/search-book/scripts/backup-answer-engine-db.mjs [--db path] [--out path] [--manifest path] [--no-restore-check] [--dry-run]
+  node scripts/backup-answer-engine-db.mjs [--db path] [--out path] [--manifest path] [--no-restore-check] [--dry-run]
 
 Environment:
   SEARCH_BOOK_ANSWER_ENGINE_DB=/path/to/search-book-answer-engine.sqlite

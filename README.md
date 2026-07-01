@@ -67,7 +67,7 @@ npm run search-book:smoke-deployment -- --site-url https://docs.example.com --se
 
 # Production env/deploy preflight (validates env shape; no provider call)
 npm run search-book:check-production-env
-npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --run-verify
+npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
 # Ask a grounded, cited question with NO model call (extractive):
 node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extractive
@@ -105,10 +105,10 @@ production launch, run `npm run search-book:check-production-env` with the servi
 loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local
 SQLite paths, missing LLM credentials, missing reviewer/cadence assignment, and missing
 backup storage without printing secret values.
-For launch evidence, run `npm run search-book:check-launch -- --site-url <public-docs-route> --service-url <answer-engine-route> --run-verify`;
+For launch evidence, run `npm run search-book:check-launch -- --site-url <public-docs-route> --service-url <answer-engine-route> --backup-manifest <latest-manifest> --run-verify`;
 it composes the production env preflight, deterministic verify, URL-driven deployment
-smoke, reviewer assignment, backup-storage evidence, and unresolved completion-boundary
-checks without printing secret values.
+smoke, reviewer assignment, backup-storage evidence, latest restore-checked backup
+manifest evidence, and unresolved completion-boundary checks without printing secret values.
 
 ## Environment
 
