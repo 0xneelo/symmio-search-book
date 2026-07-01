@@ -17,7 +17,7 @@ The standalone Search Book repo is the canonical working copy:
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue Markdown/JSON generated,
-  Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields; disposition evidence is reviewer-handoff ready with 19/19 page-fit groups keeping existing source-backed public copy, 2/2 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted,
+  Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields; disposition evidence is reviewer-handoff ready with 19/19 page-fit groups keeping existing source-backed public copy, 2/2 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted; reviewer workflow evidence is ready with 4 phases, 19 page-fit groups, 2 refusal items, 0 public-copy changes allowed, and 0 exact Discord/Lafa promotions allowed,
   Discord refusal runtime probes `2/2` passing with no LLM credentials loaded,
   publication boundaries passed, living-docs review evidence passed, backup-restore evidence passed,
   quality gates `29/30`

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Manual Evidence Refresh For Production Packet Guard
+
+- Triggered fresh manual workflows from commit `d021ecf`: launch evidence run `28542337456` and release dry-run run `28542339354`; both passed.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28542337456` and `/tmp/search-book-gh-manual-release-28542339354`; strict summary validation passed with `npm run search-book:check-launch-evidence-packet -- --require-summary` and `npm run search-book:check-release-dry-run-packet -- --require-summary`.
+- Both summaries carry repository commit `d021ecf`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 19/19; keep-refusal 2/2; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 19; refusals 2; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`; release evidence also reports sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, 93 syntax checks, and only #11/#4 open.
+
 ## 2026-07-01 — Launch/Release Discord Reviewer Workflow Evidence
 
 - Promoted the no-raw Discord reviewer workflow into launch/release evidence surfaces: `launch-evidence.md`, `release-dry-run.md`, and rendered summary tables now carry 4 workflow phases, 19 page-fit groups, 2 refusal items, 0 public-copy changes allowed from Discord/Lafa alone, and 0 exact Discord/Lafa promotions allowed.
