@@ -1,5 +1,16 @@
 # Progress
 
+## 2026-07-01 — Real Discord Corpus Import
+
+- Re-probed the provided Windows Discord export and confirmed it is now readable from WSL.
+- Ran a temporary paraphrase-mode import first; it imported 5,000 messages, 723 question clusters, and 837 Lafa-name candidates, but would have stored message text, so it was not committed.
+- Resolved the Lafa author map locally from the export: there is one unambiguous `lafachief` author. Ran the committed import in `internal-only` mode with that author id, producing `data/discord-corpus.*` with `corpusReady:true`, 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, and `storesMessageText:false`.
+- Updated `scripts/build-discord-corpus.mjs` so deterministic no-input rebuilds preserve a checked-in ready corpus instead of reverting it to parked mode; explicit `--input`, `--from-api`, or `SEARCH_BOOK_DISCORD_EXPORT_PATH(S)` still rebuild from source.
+- Flipped OPERATOR-INBOX #17 to resolved without reopening #2, and updated current readiness docs to show #11 and #4 as the only remaining operator gates.
+- Updated the Discord/Lafa adversarial fixture to keep refusing exact Lafa-in-Discord claims until corpus review approves public paraphrases, instead of attaching resolved operator item #17.
+- Full `npm run search-book:verify` passed afterward with 24 build steps, 68 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and the only failing gate `operator-inbox`.
+- `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-discord-20260701-1` also passed: 4/4 child steps, copied static artifact integrity `passed`, launch evidence `passed`, monitoring `passed`, `sourceCompletionReady:true`, open operator items `[11,4]`, and 0 sensitive-pattern matches.
+
 ## 2026-07-01 — Release Dry-Run Packet
 
 - Added `scripts/run-release-dry-run.mjs` and `npm run search-book:release-dry-run` as a no-secret release rehearsal that builds the static artifact, smoke-tests the copied artifact statically, smoke-tests the copied artifact against a temporary answer-engine service, builds launch evidence, and writes `release-dry-run.json` plus `release-dry-run.md`.

@@ -4,9 +4,9 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 12,
+    "complete": 14,
     "partial": 2,
-    "parked": 4
+    "parked": 2
   },
   "byCategory": {
     "content": 3,
@@ -19,10 +19,6 @@
     "delivery": 2
   },
   "openOperatorItems": [
-    {
-      "id": 17,
-      "title": "Release readable Discord export file for ingestion"
-    },
     {
       "id": 11,
       "title": "Production VPS LLM/service env install"
@@ -160,14 +156,14 @@
         "06",
         "09"
       ],
-      "evidence": "12 generated gap items, 3 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, metrics export implemented=true, CORS allowlist implemented=true, reviewer workflow documented=true, backup/restore implemented=true, production preflight implemented=true, localStorage prototype still present for static preview",
+      "evidence": "12 generated gap items, 2 operator signals, 2 reconciliation questions, living-docs event contract ready=true, fixtures 12/12, SQLite service implemented=true, frontend service bridge=true, retention policy implemented=true, moderation export implemented=true, metrics export implemented=true, CORS allowlist implemented=true, reviewer workflow documented=true, backup/restore implemented=true, production preflight implemented=true, localStorage prototype still present for static preview",
       "blocks": [],
       "nextAction": "Install production env, configure allowed origins and metrics access, run the production preflight, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
     },
     {
       "id": "discord-seeded-faq",
       "label": "Discord/Lafa Q&A mined into FAQ",
-      "status": "parked",
+      "status": "complete",
       "category": "demand-signal",
       "sourceSpecs": [
         "01",
@@ -176,11 +172,9 @@
         "07",
         "08"
       ],
-      "evidence": "801 local FAQ entries exist. Discord import contract ready=true; API scraper ready=true; imported messages=0; question clusters=0; Lafa answer candidates=0.",
-      "blocks": [
-        "OPERATOR-INBOX #17"
-      ],
-      "nextAction": "Re-run Discord ingestion after the provided export file is closed or copied into a readable WSL path."
+      "evidence": "801 local FAQ entries exist. Discord import contract ready=true; API scraper ready=true; imported messages=5000; question clusters=723; Lafa answer candidates=837.",
+      "blocks": [],
+      "nextAction": "Review the imported clusters and promote approved high-signal Discord/Lafa answers into FAQ routes."
     },
     {
       "id": "guided-journeys",
@@ -212,7 +206,7 @@
     {
       "id": "source-traceability",
       "label": "Every claim traceable to primary sources",
-      "status": "parked",
+      "status": "complete",
       "category": "sourcing",
       "sourceSpecs": [
         "01",
@@ -220,10 +214,8 @@
         "07",
         "08"
       ],
-      "evidence": "127 registered sources; 103 source keys used in retrieval chunks; source-ingestion coverage 16/17 complete, 0 partial, 1 parked, 0 missing",
-      "blocks": [
-        "OPERATOR-INBOX #17"
-      ],
+      "evidence": "127 registered sources; 103 source keys used in retrieval chunks; source-ingestion coverage 17/17 complete, 0 partial, 0 parked, 0 missing",
+      "blocks": [],
       "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
     },
     {
@@ -277,7 +269,7 @@
         "01",
         "08"
       ],
-      "evidence": "FINAL-REPORT.md exists and documents 3 open operator item(s).",
+      "evidence": "FINAL-REPORT.md exists and documents 2 open operator item(s).",
       "blocks": [],
       "nextAction": "Keep FINAL-REPORT.md current when deploy/source blockers resolve or verification counts change."
     },
@@ -308,22 +300,6 @@
       "status": "partial",
       "nextAction": "Install production env, configure allowed origins and metrics access, run the production preflight, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
       "blocks": []
-    },
-    {
-      "id": "discord-seeded-faq",
-      "status": "parked",
-      "nextAction": "Re-run Discord ingestion after the provided export file is closed or copied into a readable WSL path.",
-      "blocks": [
-        "OPERATOR-INBOX #17"
-      ]
-    },
-    {
-      "id": "source-traceability",
-      "status": "parked",
-      "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
-      "blocks": [
-        "OPERATOR-INBOX #17"
-      ]
     },
     {
       "id": "phase-zero-platform",

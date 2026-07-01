@@ -1,12 +1,12 @@
 # Gaps And Contradictions
 
-## G-001: Discord Source Mining Is Provided, Import Pending Readable Export
+## G-001: Discord Source Mining Is Imported, Editorial Review Required
 
 The prompt asks to mine Discord, especially Lafa answers and repeated support questions. Operator reconciliation on 2026-07-01 marks Discord access/export as provided and resolves OPERATOR-INBOX #2. Do not re-open #2.
 
-The repository has `scripts/build-discord-corpus.mjs` and generated `data/discord-corpus.*`, which define the import contract and Discord REST export path. The available Windows export is currently locked by `DiscordChatExporter`, so WSL cannot read or copy it yet. That is tracked as OPERATOR-INBOX #17, a new scoped file-release item, not a reopened source-access blocker.
+The repository has `scripts/build-discord-corpus.mjs` and generated `data/discord-corpus.*`, which now carry the real imported corpus from the provided Windows export. OPERATOR-INBOX #17 is resolved: the file became readable from WSL and the importer ran in `internal-only` mode with the single unambiguous `lafachief` author id resolved from the export. The committed corpus reports 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `corpusReady:true`, and `storesMessageText:false`.
 
-**Needed:** Close/finish DiscordChatExporter or provide a readable copy of the existing export, then run the importer and review the generated clusters/Lafa candidates.
+**Needed:** Review the generated question clusters and Lafa candidates before turning any specific Discord statement into public copy or an exact answer. Do not quote raw Discord text from the internal-only corpus.
 
 ## G-002: Competitive Sweep Opyn Target Is Excluded
 
@@ -42,7 +42,7 @@ The latest Volume 06 referral security and settlement batch publishes the next r
 
 The final Volume 06 rewards and tokenized-points batch publishes the remaining 24 rewards/referrals pages: the referral-metrics and KPI set, reward-pack architecture and guardrails, rewards packs/artifacts, TGE qualifying-exposure boundaries, tokenized-points wrapper/listing/perps hypotheticals, and Vibe Trading Program Points. These pages keep reward-pack availability, pack/artifact issuance, supply, rarity, probability, EV, point costs, transferability, tokenized-points markets, TGE conversion, snapshot, vesting, qualifying-exposure accounting, automatic policy triggers, and legal/accounting/investment-sensitive claims inside publication boundaries.
 
-The candidate review queue is complete: `0` final-review-ready pages, `0` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages. All 798 public authored routes are published. After the 2026-07-01 reconciliation, the remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4). Discord import is now a file-release follow-up (#17), while Notion, SSHE, and whitepaper v1 de-scope are resolved.
+The candidate review queue is complete: `0` final-review-ready pages, `0` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages. All 798 public authored routes are published. After the 2026-07-01 reconciliation and Discord import, the remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4). Discord, Notion, SSHE, and whitepaper v1 de-scope are resolved for source-ingestion readiness.
 
 **Needed:** Keep source companions out of public navigation, keep internal drafts out of answer synthesis, and keep the generated retrieval layer synchronized as sources or operator decisions change.
 
@@ -122,7 +122,7 @@ The source spec names the Vibe Trading Notion workspace as a required working so
 
 Operator decisions recorded this session (Linear epic SYN-209; operator mirror in `_specs/app-docs/OPERATOR-INBOX.md`).
 
-- **G-001 Discord** — ✅ RESOLVED as an operator-access item on 2026-07-01: export/access is provided and #2 must not be re-opened. Current follow-up is local file release: the Windows export is locked by DiscordChatExporter, tracked as OPERATOR-INBOX #17.
+- **G-001 Discord** — ✅ RESOLVED as a source-ingestion item on 2026-07-01: export/access is provided, #2 must not be re-opened, #17 is resolved, and `data/discord-corpus.json` imports 5,000 messages, 723 question clusters, and 837 configured Lafa candidates in internal-only mode. Remaining work is editorial review before public use of specific Discord claims.
 - **G-002 Opyn sweep** — ✅ RESOLVED: Opyn excluded (shut down, low priority) — SYN-213. Sweep finalized 49/50 with documented exclusion.
 - **G-002A Manifest authoring** — Disposition: SYN-221 (promote source-companion drafts → publication pages + normalize terminology). Ongoing; the deterministic engine is already prod-ready.
 - **G-003 Referral depth** — ✅ RESOLVED: public = **15 levels** (SYN-212); historical backfill additive (never lowers a balance). Fix stale 5-level copy in `src/dashboard/volume.jsx`.
@@ -136,4 +136,4 @@ Operator decisions recorded this session (Linear epic SYN-209; operator mirror i
 - **G-011 Notion** — ✅ RESOLVED for v1 on 2026-07-01: Notion MCP access is installed, relevant pages were fetched, `vibe-trading-notion` is registered, and public use is paraphrase-only.
 - **G-012 Add-Token-Info** — ✅ RESOLVED: official Markdown fetched from `https://docs.vibe.trading/more-info/add-token-info.md`; authored reference page added. Payment details remain routed to the live in-app form.
 
-**All publication-stance questions are now resolved** (operator, 2026-06-29; source reconciliation 2026-07-01). The only remaining production operator gates are OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/repo/deploy route. The current Discord follow-up is a readable-export file release (#17), not a reopened source-access decision.
+**All publication-stance and source-ingestion questions are now resolved for v1** (operator, 2026-06-29; source reconciliation and Discord import 2026-07-01). The only remaining production operator gates are OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/repo/deploy route.

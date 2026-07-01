@@ -26,7 +26,7 @@
     "localFaqCategories": 10,
     "gapQueueItems": 12,
     "gapQueueQuestionSignals": 2,
-    "gapQueueOperatorSignals": 3,
+    "gapQueueOperatorSignals": 2,
     "gapQueueParkedPageSignals": 2,
     "gapQueueCategories": 12,
     "answerEngineExactRouteTests": 799,
@@ -65,11 +65,11 @@
     "sourceCatalogEntries": 127,
     "linkedSourceCatalogEntries": 109,
     "sourceIngestionRequirements": 17,
-    "sourceIngestionComplete": 16,
+    "sourceIngestionComplete": 17,
     "sourceIngestionPartial": 0,
-    "sourceIngestionParked": 1,
+    "sourceIngestionParked": 0,
     "sourceIngestionMissing": 0,
-    "sourceIngestionReady": false,
+    "sourceIngestionReady": true,
     "competitiveSweepTargetDocs": 50,
     "competitiveSweepReviewedDocs": 49,
     "competitiveSweepUnverifiedDocs": 1,
@@ -105,15 +105,15 @@
     "publicationPlanCandidateFinalReviewReadyPages": 0,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
-    "completionRequirementsComplete": 12,
+    "completionRequirementsComplete": 14,
     "completionRequirementsPartial": 2,
-    "completionRequirementsParked": 4,
+    "completionRequirementsParked": 2,
     "completionRequirementsMissing": 0,
     "completionReady": false,
     "sourceRegistryKeys": 127,
     "usedSourceKeys": 103,
-    "openOperatorItems": 3,
-    "resolvedOperatorItems": 14,
+    "openOperatorItems": 2,
+    "resolvedOperatorItems": 15,
     "trackedGaps": 12,
     "answerablePrototypeQuestions": 799,
     "reconciliationQuestions": 2
@@ -158,8 +158,8 @@
     {
       "id": "source-ingestion",
       "label": "Required source families are ingested",
-      "passed": false,
-      "detail": "16/17 complete, 0 partial, 1 parked, 0 missing"
+      "passed": true,
+      "detail": "17/17 complete, 0 partial, 0 parked, 0 missing"
     },
     {
       "id": "competitive-sweep",
@@ -213,7 +213,7 @@
       "id": "gap-queue",
       "label": "Living-docs gap queue resolves",
       "passed": true,
-      "detail": "12 queue items, 2 question signals, 3 operator signals, 2 parked pages"
+      "detail": "12 queue items, 2 question signals, 2 operator signals, 2 parked pages"
     },
     {
       "id": "deterministic-answer-engine",
@@ -285,19 +285,19 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "12/18 complete, 2 partial, 4 parked, 0 missing"
+      "detail": "14/18 complete, 2 partial, 2 parked, 0 missing"
     },
     {
       "id": "operator-inbox",
       "label": "Operator-blocked threads are surfaced",
       "passed": false,
-      "detail": "3 open operator items, 14 resolved"
+      "detail": "2 open operator items, 15 resolved"
     },
     {
       "id": "discord",
       "label": "Discord/Lafa corpus imported",
-      "passed": false,
-      "detail": "0 messages imported; readable export/corpus review still pending"
+      "passed": true,
+      "detail": "5000 messages, 723 question clusters, 837 Lafa candidates"
     }
   ],
   "byStatus": {
@@ -545,11 +545,10 @@
   },
   "sourceIngestionCoverage": {
     "status": "source-ingestion-coverage-map",
-    "sourceCompletionReady": false,
+    "sourceCompletionReady": true,
     "totalSourceRequirements": 17,
     "byStatus": {
-      "complete": 16,
-      "parked": 1
+      "complete": 17
     },
     "byCategory": {
       "competitive-reference": 2,
@@ -563,10 +562,6 @@
     },
     "openOperatorItems": [
       {
-        "id": 17,
-        "title": "Release readable Discord export file for ingestion"
-      },
-      {
         "id": 11,
         "title": "Production VPS LLM/service env install"
       },
@@ -575,19 +570,7 @@
         "title": "Final docs platform and repository owner decision"
       }
     ],
-    "missingSourceFamilies": [
-      {
-        "id": "discord-lafa-corpus",
-        "status": "parked",
-        "missingKeys": [
-          "symmio-discord-lafa-export"
-        ],
-        "blocks": [
-          "OPERATOR-INBOX #17"
-        ],
-        "nextAction": "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
-      }
-    ],
+    "missingSourceFamilies": [],
     "duplicateRequirementIds": [],
     "invalidParkedRequirements": []
   },
@@ -756,7 +739,7 @@
     "status": "prototype-gap-queue",
     "totalItems": 12,
     "totalQuestionSignals": 2,
-    "totalOperatorSignals": 3,
+    "totalOperatorSignals": 2,
     "totalParkedPageSignals": 2,
     "byPriority": {
       "P0": 4,
@@ -1002,7 +985,7 @@
     "evalHarnessReady": true,
     "runtimeImplemented": true,
     "llmProductionReady": false,
-    "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented, OpenAI-compatible provider policy is approved, local LLM credentials are available, a recorded gpt-4.1-mini live eval passed, and the standalone SQLite service boundary exists; production readiness remains false until the VPS service env is installed, the public frontend/deploy route is selected, and Discord/Lafa import completes from a readable export file.",
+    "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented, OpenAI-compatible provider policy is approved, local LLM credentials are available, a recorded gpt-4.1-mini live eval passed, the standalone SQLite service boundary exists, and the Discord/Lafa export is imported for review; production readiness remains false until the VPS service env is installed and the public frontend/deploy route is selected.",
     "provider": {
       "policy": "openai-compatible",
       "runtimeSelection": "Use OpenAI through the OpenAI-compatible chat-completions runtime. Model id and API key must come from service environment variables.",
@@ -1122,7 +1105,7 @@
         "behavior": "Detect prompt injection, credential requests, personal financial advice, unsupported economics, and operator-blocked topics before context assembly.",
         "refusalReasons": [
           "citation-validation-failed",
-          "discord-export-file-unreadable",
+          "discord-corpus-review-required",
           "financial-advice",
           "internal-draft-excluded",
           "phase-b-economics-out-of-scope",
@@ -1275,7 +1258,7 @@
       "internalDraftPages": 3,
       "sourceCatalogEntries": 127,
       "linkedSourceCatalogEntries": 109,
-      "openOperatorItems": 3,
+      "openOperatorItems": 2,
       "gapQueueItems": 12,
       "unknownContextSourceKeys": []
     },
@@ -1299,7 +1282,8 @@
         "approved-economics": 1,
         "unsupported-economics": 1,
         "unaudited-security-overclaim": 1,
-        "missing-source-family": 3,
+        "discord-corpus-review": 1,
+        "missing-source-family": 2,
         "approved-product-reference": 1,
         "operator-access": 1,
         "approved-source-boundary": 1,
@@ -1345,7 +1329,7 @@
       "answerChunks": 2883,
       "sourceCatalogEntries": 127,
       "pageStatePages": 1595,
-      "openOperatorItems": 3,
+      "openOperatorItems": 2,
       "gapQueueItems": 12
     },
     "failureSummary": {
@@ -1608,8 +1592,8 @@
       "gapQueueItems": 12,
       "questionRouteCount": 799,
       "reconciliationQuestionCount": 2,
-      "operatorSignals": 3,
-      "openOperatorItems": 3,
+      "operatorSignals": 2,
+      "openOperatorItems": 2,
       "byEventType": {
         "question": 5,
         "rating": 3,
@@ -2259,9 +2243,9 @@
     "completionReady": false,
     "totalRequirements": 18,
     "byStatus": {
-      "complete": 12,
+      "complete": 14,
       "partial": 2,
-      "parked": 4
+      "parked": 2
     },
     "byCategory": {
       "content": 3,
@@ -2274,10 +2258,6 @@
       "delivery": 2
     },
     "openOperatorItems": [
-      {
-        "id": 17,
-        "title": "Release readable Discord export file for ingestion"
-      },
       {
         "id": 11,
         "title": "Production VPS LLM/service env install"
@@ -2299,22 +2279,6 @@
         "status": "partial",
         "nextAction": "Install production env, configure allowed origins and metrics access, run the production preflight, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow.",
         "blocks": []
-      },
-      {
-        "id": "discord-seeded-faq",
-        "status": "parked",
-        "nextAction": "Re-run Discord ingestion after the provided export file is closed or copied into a readable WSL path.",
-        "blocks": [
-          "OPERATOR-INBOX #17"
-        ]
-      },
-      {
-        "id": "source-traceability",
-        "status": "parked",
-        "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims.",
-        "blocks": [
-          "OPERATOR-INBOX #17"
-        ]
       },
       {
         "id": "phase-zero-platform",
@@ -2339,10 +2303,6 @@
   "unresolved": {
     "operatorInbox": [
       {
-        "id": 17,
-        "title": "Release readable Discord export file for ingestion"
-      },
-      {
         "id": 11,
         "title": "Production VPS LLM/service env install"
       },
@@ -2354,7 +2314,7 @@
     "gaps": [
       {
         "id": "G-001",
-        "title": "Discord Source Mining Is Provided, Import Pending Readable Export"
+        "title": "Discord Source Mining Is Imported, Editorial Review Required"
       },
       {
         "id": "G-002",
@@ -2425,19 +2385,7 @@
     "catalogKeysMissingRegistry": [],
     "sourceIngestionDuplicateIds": [],
     "sourceIngestionInvalidParkedIds": [],
-    "sourceIngestionMissingFamilies": [
-      {
-        "id": "discord-lafa-corpus",
-        "status": "parked",
-        "missingKeys": [
-          "symmio-discord-lafa-export"
-        ],
-        "blocks": [
-          "OPERATOR-INBOX #17"
-        ],
-        "nextAction": "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
-      }
-    ],
+    "sourceIngestionMissingFamilies": [],
     "crosslinkMissingExplicitRelatedPageIds": [],
     "readerIdsMissingCrosslinks": [],
     "crosslinkIdsMissingReader": [],
@@ -2474,22 +2422,6 @@
         "nextAction": "Install production env, configure allowed origins and metrics access, run the production preflight, deploy the service plus selected public frontend route, and assign a reviewer owner/cadence for the documented workflow."
       },
       {
-        "id": "discord-seeded-faq",
-        "status": "parked",
-        "blocks": [
-          "OPERATOR-INBOX #17"
-        ],
-        "nextAction": "Re-run Discord ingestion after the provided export file is closed or copied into a readable WSL path."
-      },
-      {
-        "id": "source-traceability",
-        "status": "parked",
-        "blocks": [
-          "OPERATOR-INBOX #17"
-        ],
-        "nextAction": "Close source-ingestion missing, partial, and parked families before final source-completeness claims."
-      },
-      {
         "id": "phase-zero-platform",
         "status": "parked",
         "blocks": [
@@ -2515,7 +2447,7 @@
       {
         "question": "Which Discord answers are authoritative?",
         "gap": "`G-001`",
-        "notes": "Discord export/access is provided, but the local file remains unreadable from WSL; import is pending OPERATOR-INBOX #17 file release."
+        "notes": "Discord export/access is provided and imported. Specific Discord/Lafa statements still require editorial review before they become authoritative public answers."
       }
     ]
   },

@@ -804,7 +804,7 @@ Questions are grouped by whether the current source set can answer them.
 | What does the SuperFlow SHE OpenAPI source prove? | `authored-superflow-she-api-boundary` | Low | The operator-provided Redoc source is titled SYMMIO Hybrid Exchange(SHE) and covers exchange API surfaces; paired with Meta-Solvers and Clearing Layers, it forms the v1 SSHE source boundary without proving Vibe production integration. |
 | What project-managed token metadata can be added to Vibe? | `authored-vibe-add-token-info` | Medium | Official Add Token Info docs support banner, logo, description, website, social links, and optional X feed submission for approved VibeCaps token pages. |
 | Give the official Add Token Info instructions from Vibe docs. | `authored-vibe-add-token-info` | Medium | The official flow is open market, choose Add Token Info, fill project/contact details, pay the in-app USDC review fee to the in-app treasury address, paste the transaction, and submit for review. |
-| How will Discord and Lafa answers enter Search Book? | `authored-discord-lafa-ingestion-boundary` | Medium | The import contract and scraper path are implemented, and Discord export/access is provided. Actual Discord/Lafa answers remain parked until the provided export is released as a readable file and imported under the approved public-use boundary. |
+| How will Discord and Lafa answers enter Search Book? | `authored-discord-lafa-ingestion-boundary` | Medium | The import contract and scraper path are implemented, the real export is imported in internal-only mode, and generated clusters/Lafa candidates can now seed review work without publishing raw Discord message text. |
 
 ## Prototype Event Log
 
@@ -815,7 +815,7 @@ The static prototype records asked questions, routed pages, answer ratings, and 
 | Question | Gap | Notes |
 | --- | --- | --- |
 | Can a vault LP see exact covered-call exposure? | `G-008` | Not sourced in this pass. |
-| Which Discord answers are authoritative? | `G-001` | Discord export/access is provided, but the local file remains unreadable from WSL; import is pending OPERATOR-INBOX #17 file release. |
+| Which Discord answers are authoritative? | `G-001` | Discord export/access is provided and imported. Specific Discord/Lafa statements still require editorial review before they become authoritative public answers. |
 
 ## Seeded FAQ Topics For Discord Mining
 

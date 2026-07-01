@@ -1,11 +1,10 @@
 {
   "generatedAt": "deterministic-build",
   "status": "source-ingestion-coverage-map",
-  "sourceCompletionReady": false,
+  "sourceCompletionReady": true,
   "totalSourceRequirements": 17,
   "byStatus": {
-    "complete": 16,
-    "parked": 1
+    "complete": 17
   },
   "byCategory": {
     "competitive-reference": 2,
@@ -18,10 +17,6 @@
     "reference": 1
   },
   "openOperatorItems": [
-    {
-      "id": 17,
-      "title": "Release readable Discord export file for ingestion"
-    },
     {
       "id": 11,
       "title": "Production VPS LLM/service env install"
@@ -350,7 +345,7 @@
     {
       "id": "discord-lafa-corpus",
       "label": "Symmio Discord and Lafa Q&A corpus",
-      "status": "parked",
+      "status": "complete",
       "category": "demand-signal",
       "sourceSpecs": [
         "01",
@@ -362,14 +357,10 @@
       "presentKeys": [
         "discord-ingestion-contract"
       ],
-      "missingKeys": [
-        "symmio-discord-lafa-export"
-      ],
-      "evidence": "Discord import tooling ready=true; imported messages=0; question clusters=0; Lafa answer candidates=0. Local FAQ is still seeded from repo/public docs only.",
-      "blocks": [
-        "OPERATOR-INBOX #17"
-      ],
-      "nextAction": "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
+      "missingKeys": [],
+      "evidence": "Discord import tooling ready=true; imported messages=5000; question clusters=723; Lafa answer candidates=837. Local FAQ is still seeded from repo/public docs only.",
+      "blocks": [],
+      "nextAction": "Review Discord clusters and promote only approved cite/paraphrase/internal-only answers into FAQ routes."
     },
     {
       "id": "competitive-sweep",
@@ -551,17 +542,5 @@
       "nextAction": "Keep source catalog and SOURCES.md synchronized as new source families are ingested."
     }
   ],
-  "missingSourceFamilies": [
-    {
-      "id": "discord-lafa-corpus",
-      "status": "parked",
-      "missingKeys": [
-        "symmio-discord-lafa-export"
-      ],
-      "blocks": [
-        "OPERATOR-INBOX #17"
-      ],
-      "nextAction": "Re-run the Discord export ingestion path after the Windows exporter releases a readable copy of the provided export."
-    }
-  ]
+  "missingSourceFamilies": []
 }

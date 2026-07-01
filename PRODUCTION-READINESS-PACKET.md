@@ -15,15 +15,13 @@ The standalone Search Book repo is the canonical working copy:
 - Local LLM env: complete in `.secrets/search-book.env`; do not print it
 - Local preview evidence: passed against `127.0.0.1:8798` plus service `127.0.0.1:8797`
 - Current deterministic evidence: 799 exact routes, 2,883 chunks, 801 authored pages,
-  quality gates `27/30`
+  source ingestion `17/17`, Discord corpus imported internal-only, quality gates `29/30`
 
 Only these production gates remain:
 
 - OPERATOR-INBOX #11: install production VPS env at
   `/etc/symmio-search-book/search-book.env`
 - OPERATOR-INBOX #4: choose public frontend platform, repo owner, and deploy route
-- OPERATOR-INBOX #17: release readable Discord export for ingestion; this is a source-import
-  follow-up, not a reopened #2 operator decision
 
 ## #11 Production Env Install
 
@@ -193,23 +191,21 @@ Production pass criteria:
 - `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values
 - monitoring evidence reports health `ok`, unauthenticated metrics rejected, authenticated metrics `ok`, and no raw questions/secrets in metrics
 
-## #17 Discord Import Follow-Up
+## Discord/Lafa Review Follow-Up
 
-Do not reopen OPERATOR-INBOX #2. When #17 is resolved, run:
+Do not reopen OPERATOR-INBOX #2 or #17. The real Discord export is imported in
+internal-only mode and the source-ingestion map is `17/17`. Before publishing exact
+Discord-derived statements, review:
 
 ```sh
-node scripts/build-discord-corpus.mjs \
-  --input <readable-discord-export.json> \
-  --publication-mode paraphrase
-
-npm run search-book:verify
+node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("data/discord-corpus.json","utf8")); console.log(JSON.stringify(d.totals, null, 2));'
 ```
 
-Expected completion evidence:
+Expected review boundary:
 
-- `data/discord-corpus.json` imports real messages
-- question clusters and Lafa candidates are reviewed
-- `data/source-ingestion.json` moves from `16/17` to `17/17`
+- `data/discord-corpus.json` stays `corpusReady:true`
+- message text remains omitted from the committed corpus
+- question clusters and Lafa candidates are used as demand signals unless a reviewer approves a public paraphrase
 - generated routes/gaps/pages incorporate approved Discord/Lafa demand safely
 
 ## Release Checklist

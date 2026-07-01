@@ -39,7 +39,7 @@ This registry is the current source map for the Session 1 dossier. It is not exh
 | `dashboard-settings` | `src/dashboard/settings.jsx` | Contact channel, handle, and recovery-email settings UI. |
 | `dashboard-data` | `src/dashboard/data.jsx` | Dashboard data-source seam, bearer-token calls, and local fixture mode. |
 | `dashboard-app` | `src/dashboard/app.jsx` | Points distinction and dashboard shell. |
-| `discord-ingestion-contract` | `data/discord-corpus.json` | Generated Discord/Lafa scraper and export-import contract; proves the ingestion path exists but is not a substitute for the actual Discord corpus. |
+| `discord-ingestion-contract` | `data/discord-corpus.json` | Generated Discord/Lafa scraper and imported internal-only corpus: 5,000 messages, 723 question clusters, 837 configured Lafa answer candidates, no raw message text stored. |
 
 ## Linear Research
 

@@ -32,7 +32,7 @@
     "answerChunks": 2883,
     "sourceCatalogEntries": 127,
     "pageStatePages": 1595,
-    "openOperatorItems": 3,
+    "openOperatorItems": 2,
     "gapQueueItems": 12
   },
   "failureSummary": {
@@ -863,33 +863,29 @@
       "id": "fixture-adv-discord-lafa-answer",
       "type": "refusal",
       "query": "What did Lafa say in Discord about repeated solver questions?",
-      "expectedStatus": "operator-blocked-refusal",
-      "expectedRefusalReason": "discord-export-file-unreadable",
+      "expectedStatus": "refusal",
+      "expectedRefusalReason": "discord-corpus-review-required",
       "response": {
         "requestId": "req-adv-discord-lafa-answer",
-        "status": "operator-blocked-refusal",
+        "status": "refusal",
         "answer": "",
         "primaryPageId": "",
         "citations": [],
-        "refusalReason": "discord-export-file-unreadable",
+        "refusalReason": "discord-corpus-review-required",
         "events": [
           {
             "type": "gap-created",
             "gapId": "G-001",
-            "operatorItemIds": [
-              17
-            ]
+            "operatorItemIds": []
           }
         ],
         "gapEvent": {
           "id": "gap-adv-discord-lafa-answer",
           "query": "What did Lafa say in Discord about repeated solver questions?",
-          "reason": "discord-export-file-unreadable",
+          "reason": "discord-corpus-review-required",
           "page": "",
           "gapId": "G-001",
-          "operatorItemIds": [
-            17
-          ],
+          "operatorItemIds": [],
           "time": "deterministic-build"
         }
       },

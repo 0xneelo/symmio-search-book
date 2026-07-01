@@ -21,7 +21,10 @@ const questionStart = /^(who|what|when|where|why|how|can|could|should|would|do|d
 function parseArgs(argv) {
   const args = {
     ...defaults,
-    inputs: [],
+    inputs: unique([
+      ...envList("SEARCH_BOOK_DISCORD_EXPORT_PATHS"),
+      ...envList("SEARCH_BOOK_DISCORD_EXPORT_PATH"),
+    ]),
     channelIds: [],
     lafaAuthorIds: envList("SEARCH_BOOK_DISCORD_LAFA_AUTHOR_IDS"),
     fromApi: false,
@@ -71,6 +74,14 @@ function envList(name) {
 
 function readText(filePath) {
   return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+}
+
+function readJson(filePath, fallback = null) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return fallback;
+  }
 }
 
 function ensureDir(dirPath) {
@@ -461,6 +472,16 @@ function writeOutputs(report, args) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (!args.inputs.length && !args.fromApi) {
+    const existing = readJson(args.outJson);
+    if (existing?.corpusReady === true && (existing?.totals?.importedMessages || 0) > 0) {
+      writeOutputs({
+        ...existing,
+        reusedCheckedInCorpus: true,
+      }, args);
+      return;
+    }
+  }
   const seededTopics = parseSeededTopics(readText(args.questions));
   const openInboxItems = parseOpenInboxItems(readText(args.operatorInbox));
   const payloads = args.inputs.flatMap((input) => messagesFromPayload(parseJsonOrJsonl(input), input));
