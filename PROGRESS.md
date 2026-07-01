@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Vibe Publication-Day Source Freshness Refresh
+
+- Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-01T21:28:26.710Z`.
+- The check fetched both registered official Vibe Markdown sources, `vibe-what-is` and `vibe-platform`, with HTTP 200, passed 4/4 checks for Binance perp market coverage, 390+ market wording, and platform leverage wording, and reported `valuesPrinted:false` plus `sourceBodiesPrinted:false`.
+- This remains a public-docs wording freshness check, not a live exchange market-index audit; exact live market counts should still be verified again on the intended public launch day if launch happens later.
+
 ## 2026-07-02 — No-Secret Evidence Refresh From Parser Checkpoint
 
 - Triggered fresh manual workflows from commit `bf8ac0b`: launch evidence run `28548527873`, release dry-run run `28548529458`, and static artifact run `28548537264`; all passed. The only workflow annotations were GitHub's Node 20 deprecation notices for upstream actions.

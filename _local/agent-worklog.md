@@ -1,3 +1,10 @@
+## 2026-07-02 — Codex refresh Vibe publication-day source freshness
+- Task: Re-run the no-secret Vibe public-docs source-freshness check for the current publication-day evidence window and update status documents if the official-source wording still passes.
+- Scope: `GAPS.md`, `FINAL-REPORT.md`, `PROGRESS.md`, `_local/agent-worklog.md`, and status guards only if refreshed source-freshness evidence format requires it. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:check-source-freshness`, focused status/completion/production guards if docs change, full verify if generated evidence changes, and `git diff --check` pass; only #11/#4 remain open.
+- Result: `npm run search-book:check-source-freshness` passed with generatedAt `2026-07-01T21:28:26.710Z`. It fetched `vibe-what-is` and `vibe-platform` with HTTP 200, passed 4/4 public-docs wording checks for Binance perp market coverage, 390+ market wording, and platform leverage wording, and reported `valuesPrinted:false` plus `sourceBodiesPrinted:false`. Updated status docs with timestamped evidence. Focused status/completion/production-packet guards and `git diff --check` passed; only #11/#4 remain open.
+
 ## 2026-07-02 — Codex refresh no-secret evidence packets from parser checkpoint
 - Task: Trigger fresh no-secret launch, release, and static artifact workflows from commit `bf8ac0b`, download the artifacts, validate the packets locally, and record aggregate evidence only.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, and evidence/status guards only if refreshed evidence format requires it. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
