@@ -145,6 +145,8 @@ Search Insights, Discord review-artifact evidence for the no-raw editorial queue
 source-freshness evidence as statuses, hashes, and booleans only, and status-document
 evidence proving current report counts match generated data.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`.
+Render the same count-only Markdown summary used by GitHub Actions with
+`npm run search-book:evidence-summary -- --kind launch --packet <launch-evidence.json>`.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
 To run the full local release rehearsal, run `npm run search-book:release-dry-run`; it
@@ -156,6 +158,8 @@ release, static-artifact, and launch-evidence readiness snapshots all include th
 Discord route-coverage counts and living-docs control flags, including service-backed page
 feedback.
 Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json>`.
+Render the same count-only Markdown summary used by GitHub Actions with
+`npm run search-book:evidence-summary -- --kind release --packet <release-dry-run.json>`.
 To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow
 `Search Book Static Artifact` uploads the same `index.html`/data/content bundle for

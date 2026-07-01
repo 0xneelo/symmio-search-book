@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Reusable Evidence Summary Renderer
+
+- Added `scripts/render-evidence-summary.mjs` and `npm run search-book:evidence-summary` to render launch/release evidence packet summaries from checked packet JSON.
+- Replaced duplicated inline Node heredocs in the launch-evidence and release-dry-run GitHub workflows with the reusable script; the script also appends to `$GITHUB_STEP_SUMMARY` when Actions provides it.
+- Verified `node --check scripts/render-evidence-summary.mjs`, both launch and release summary modes against `/tmp/search-book-release-dry-run-discord-artifacts-20260701-1`, and both workflow YAML files with PyYAML. The rendered summaries remain count-only and show no secrets or raw Discord/Lafa text.
+- Full `npm run search-book:verify` passed with 26 build steps, 80 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Workflow Discord Evidence Summaries
 
 - Updated the `Search Book Launch Evidence` and `Search Book Release Dry Run` GitHub workflows to write `$GITHUB_STEP_SUMMARY` tables after packet validation.

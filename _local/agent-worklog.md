@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex reusable evidence summary renderer
+- Task: Replace duplicated GitHub workflow summary heredocs with a reusable no-raw packet summary script.
+- Scope: `scripts/render-evidence-summary.mjs`, package scripts, launch/release workflow summary steps, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Renderer outputs count-only Markdown for launch and release packets, appends to `$GITHUB_STEP_SUMMARY` when present, workflow YAML parses, full deterministic verify remains green, and only #11/#4 remain operator gates.
+- Result: Added `scripts/render-evidence-summary.mjs` and `npm run search-book:evidence-summary`, then rewired the launch/release workflows to call it after packet validation. Verified `node --check scripts/render-evidence-summary.mjs`, both summary modes against `/tmp/search-book-release-dry-run-discord-artifacts-20260701-1`, `$GITHUB_STEP_SUMMARY` append behavior to `/tmp/search-book-evidence-summary-test-20260701.md`, workflow YAML parsing with PyYAML, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, `npm run search-book:check-discord-review-artifacts`, `git diff --check`, and full `npm run search-book:verify` with 26 build steps, 80 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex workflow Discord evidence summaries
 - Task: Surface Discord review-artifact evidence in GitHub launch/release workflow step summaries after packet validation.
 - Scope: `.github/workflows/search-book-launch-evidence.yml`, `.github/workflows/search-book-release-dry-run.yml`, status docs if evidence wording changes, and `_local/agent-worklog.md`.
