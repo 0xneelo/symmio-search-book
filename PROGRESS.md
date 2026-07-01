@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — 500-800 Page Target Wording Alignment
+
+- Removed stale active 100-page-floor wording from the completion audit guard; the guard now requires the manifest to stay inside the 500-800 page target and the public/authored corpus to stay above the target floor.
+- Added a README corpus target line: current target is 500-800 cited pages, with 794 manifest pages, 801 authored pages, and 800 public-navigation pages.
+- Focused checks passed: `npm run search-book:check-completion-audit`, `npm run search-book:check-status-evidence`, active-target stale wording scan, and `git diff --check`. The only remaining `100 pages` wording is historical context in `DECISIONS.md` explaining the operator's scope increase.
+- Full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Manual Evidence Refresh From Live-Eval Checkpoint
 
 - Triggered fresh manual workflows from commit `acf8977`: launch evidence run `28546462956` and release dry-run run `28546466120`; both passed.

@@ -142,12 +142,11 @@ addCheck(
 addCheck(
   checks,
   "page-target-and-public-corpus",
-  manifest.pages.length >= 100 &&
-    manifest.pages.length >= manifest.compendiumTarget.minimumPages &&
+  manifest.pages.length >= manifest.compendiumTarget.minimumPages &&
     manifest.pages.length <= manifest.compendiumTarget.maximumPages &&
-    pageState.publicNavigationPages >= 100 &&
-    authored.totalPages >= 100,
-  "compendium must remain >=100 pages and within the 500-800 manifest target",
+    pageState.publicNavigationPages >= manifest.compendiumTarget.minimumPages &&
+    authored.totalPages >= manifest.compendiumTarget.minimumPages,
+  "manifest must stay inside the 500-800 page target and the public/authored corpus must stay above the target floor",
   {
     manifestPages: manifest.pages.length,
     target: manifest.compendiumTarget,

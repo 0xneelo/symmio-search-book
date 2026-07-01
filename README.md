@@ -9,6 +9,9 @@ The corpus build is deterministic and the answer engine has an **extractive** mo
 needs no network or API key. Live LLM answers (`--mode llm`) are optional and gated behind
 `SEARCH_BOOK_LLM_*` env loaded only via `node --env-file`.
 
+Current corpus target: a 500-800 page cited compendium. The checked manifest currently has
+794 pages, with 801 authored pages and 800 public-navigation pages.
+
 ## Requirements
 
 - Node **>= 22.5.0** (uses the experimental `node:sqlite` built-in; no npm dependencies).

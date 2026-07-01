@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex align page-target wording
+- Task: Remove stale active 100-page target wording and make the 500-800 compendium target visible in the README and completion audit guard.
+- Scope: `README.md`, `scripts/check-completion-audit.mjs`, `_local/agent-worklog.md`, and `PROGRESS.md` if a durable note is needed. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:check-completion-audit`, `npm run search-book:check-status-evidence`, active-target stale wording scan, full `npm run search-book:verify`, and `git diff --check` pass; only #11/#4 remain open.
+- Result: README now names the active 500-800 cited-page target with current 794/801/800 counts, and the completion audit guard no longer treats the old 100-page floor as an active acceptance detail. Focused checks, active-target stale wording scan, full verify, and `git diff --check` passed. The only remaining `100 pages` wording is historical context in `DECISIONS.md` explaining the operator's scope increase.
+
 ## 2026-07-01 — Codex refresh no-secret evidence packets from live-eval checkpoint
 - Task: Trigger fresh no-secret launch, release, and static artifact workflows from commit `acf8977`, download the artifacts, validate the packets locally, and record aggregate evidence only.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`, and status docs only if refreshed evidence needs durable references. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
