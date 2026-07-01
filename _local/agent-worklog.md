@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord wording reconciliation cleanup
+- Task: Remove stale "Discord export missing" / "#2 blocks Discord" wording from source inputs after the operator reconciliation.
+- Scope: `QUESTIONS.md`, `content/authored/reference/dashboard-faq.md`, `content/authored/compendium/volume-08-dashboard-faq-and-living-docs.md`, regenerated `data/*` artifacts if affected, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Regenerated question routes, gap queue, authored pages, answer-engine contract, and quality audit consistently say the Discord export is provided but unreadable/file-release pending under OPERATOR-INBOX #17; #2 is not reopened.
+- Result: Updated the current question ledger, dashboard/Volume 08 authored pages, Symmio whitepaper boundary page, and decision records so resolved items #1/#2/#6/#7/#9/#11 are not described as open blockers. Regenerated Search Book data with `npm run search-book:verify`; it passed with 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, readiness evidence passed, static integrity passed, and quality gates `27/30`. Targeted stale-string scan over current sources and generated evidence found no remaining `Discord export missing`, `#2 blocks Discord`, stale SSHE/whitepaper, or Notion-ingestion parked wording.
+
 ## 2026-07-01 — Codex completion audit
 - Task: Add a strict requirement-by-requirement completion audit for the active Search Book objective.
 - Scope: `COMPLETION-AUDIT.md`, `FINAL-REPORT.md`, `_local/agent-worklog.md`.

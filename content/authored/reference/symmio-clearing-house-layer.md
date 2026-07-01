@@ -33,7 +33,7 @@ This boundary also keeps capital-efficiency claims honest. The docs can say Symm
 
 ## Protocol Status
 
-The current whitepaper page is useful as a present-day protocol pointer, but it also says the system is still a work in progress and points to the full whitepaper artifact. The exact original whitepaper/version-history comparison remains parked under `G-007` and `OPERATOR-INBOX #6`.
+The current whitepaper page is useful as a present-day protocol pointer, but it also says the system is still a work in progress and points to the full whitepaper artifact. The exact original whitepaper/version-history comparison is out of scope for v1; Search Book should answer from the registered current Git/current-docs boundary unless a future post-v1 research pass recovers the exact artifact.
 
 ## Reader Implication
 

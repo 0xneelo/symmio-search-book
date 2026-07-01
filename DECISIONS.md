@@ -174,7 +174,7 @@
 
 **Reason:** The spec requires a Discord-seeded FAQ, but the Discord/Lafa corpus is parked in the operator inbox. A local FAQ seed makes current known questions visible and auditable without pretending community mining is complete.
 
-**Status:** Accepted for prototype iteration; superseded by Discord-derived FAQ once operator inbox item `#2` is resolved.
+**Status:** Accepted for prototype iteration; superseded by Discord-derived FAQ once OPERATOR-INBOX #17 releases a readable export for import and review. OPERATOR-INBOX #2 is resolved as an access/export decision and must not be reopened.
 
 ## D-023: Generate The Living-Docs Gap Queue
 
@@ -506,7 +506,7 @@
 
 ## D-064: Document Utility Surfaces Without Diluting Market-Creation Terms
 
-**Decision:** Add authored reference pages from current official Vibe docs for hotkeys, mobile PWA, TradingView controls, system visualization, and project listing terms. Park Add Token Info behind operator inbox item #9 after two source-fetch approval timeouts instead of authoring from a one-line companion brief.
+**Decision:** Add authored reference pages from current official Vibe docs for hotkeys, mobile PWA, TradingView controls, system visualization, and project listing terms. The initial pass parked Add Token Info behind operator inbox item #9 after two source-fetch approval timeouts instead of authoring from a one-line companion brief; the 2026-06-29 follow-up resolved #9 by fetching the official Markdown source.
 
 **Reason:** The compendium should answer practical product-usage questions and project-side market-creation questions, but those answer types need different publication posture. Hotkeys, mobile, and chart controls can be straightforward user guides. System visualization and project listing terms touch token supply loans, solver profit channels, project distributions, custody, audit rights, conduct restrictions, termination, and legal terms, so they must remain source-limited and review-marked.
 
@@ -614,7 +614,7 @@
 
 **Reason:** The answer engine needs actual corpus scanning and citation validation now, but live LLM synthesis requires operator approval for provider/model/API key and external-context handling. Splitting retrieval/runtime from provider selection lets the product advance without sending private documentation context to an unapproved model endpoint.
 
-**Status:** Accepted for production-readiness work; live LLM provider remains parked under OPERATOR-INBOX #11.
+**Status:** Accepted for production-readiness work. 2026-07-01 reconciliation update: the local OpenAI-compatible provider env is complete and live evals pass; OPERATOR-INBOX #11 now tracks only installing the production VPS env at `/etc/symmio-search-book/search-book.env`.
 
 ## D-078: Make Living Docs Events Executable Before Production Persistence
 
@@ -622,7 +622,7 @@
 
 **Reason:** The docs vision depends on every question being tracked, every answer being rated, and gaps driving improvement. The prototype already stores events locally, but production readiness needs machine-checkable event semantics that can move into a backend without guessing at field names or refusal behavior.
 
-**Status:** Accepted for living-docs implementation readiness; production persistence remains parked under OPERATOR-INBOX #4 and Discord import remains parked under OPERATOR-INBOX #2.
+**Status:** Accepted for living-docs implementation readiness. The standalone SQLite service boundary is implemented; production route/platform remains under OPERATOR-INBOX #4, production env install remains under #11, and Discord import remains parked under OPERATOR-INBOX #17 until the provided export is readable.
 
 ## D-079: Treat Proof Of Value Economics As A Review-Bound Framework
 
@@ -630,7 +630,7 @@
 
 **Reason:** This source is central to the vision, but it contains strong economics claims such as revenue share, capital-efficiency estimates, partner traction, solver-funding assumptions, and protocol capture mechanisms. The compendium should preserve the framework because it explains why the architecture matters, but it must not turn model claims or strategy analysis into final public guarantees before accounting/operator review.
 
-**Status:** Accepted for the authored manifesto layer; exact economics remain parked under OPERATOR-INBOX #1 and platform/deploy choices remain parked under OPERATOR-INBOX #4.
+**Status:** Accepted for the authored manifesto layer. 2026-06-29 operator update resolved OPERATOR-INBOX #1 for v1: publish Phase A only and keep Phase B economics out of scope. Platform/deploy choices remain parked under OPERATOR-INBOX #4.
 
 ## D-080: Treat AMFQ As Legacy Naming For Intents
 
@@ -1650,27 +1650,27 @@
 
 ## D-207: Treat SuperFlow As SHE Source Ingested, Keep SSHE Parked
 
-**Decision:** Register the operator-provided SuperFlow Redoc/OpenAPI source as `superflow-she-openapi`, add a narrow authored page for the `SYMMIO Hybrid Exchange(SHE)` API boundary, and keep the broader `SSHE` source-family question parked under operator inbox item #7.
+**Decision:** Register the operator-provided SuperFlow Redoc/OpenAPI source as `superflow-she-openapi`, add a narrow authored page for the `SYMMIO Hybrid Exchange(SHE)` API boundary, and define the v1 SSHE source boundary as SuperFlow/SHE plus Symmio Foundation Meta-Solvers/Clearing Layers.
 
 **Reason:** Fetching `https://dev.superflow.exchange/redoc` showed a Redoc shell pointing to `/openapi.json`. The OpenAPI document is titled `SYMMIO Hybrid Exchange(SHE)`, version `1.0`, and exposes 46 paths across market data, order flow, account, position, funding, auth, developer/admin, and health surfaces. That is enough to cite SuperFlow/SHE source context, but not enough to assert that `SSHE` is identified or that Vibe uses this API in production.
 
-**Status:** Accepted for source-ingestion coverage and answer routing. Publish only the source-boundary claim until SSHE is identified or explicitly excluded, and until implementation evidence proves any Vibe production integration.
+**Status:** Accepted for source-ingestion coverage and answer routing. 2026-07-01 reconciliation update: OPERATOR-INBOX #7 is resolved for v1; publish only the source-boundary claim that SuperFlow/SHE plus Symmio Foundation Meta-Solvers/Clearing Layers are sufficient v1 SSHE boundary evidence, and still require implementation evidence before asserting any Vibe production integration.
 
 ## D-208: Treat Symmio 2023 Git History As Boundary Evidence, Not The Original Whitepaper
 
-**Decision:** Register the located official Symmio Git history as source-boundary evidence: `SYMM-IO/protocol-core` initial commit on 2023-06-13, `SYMM-IO/docs` initial commit on 2023-08-22, and `SYMMIO_paper_0_8.pdf` added to the official docs repo on 2023-11-16. Add `authored-symmio-whitepaper-history-boundary` for questions about what history is currently available, while keeping `symmio-original-whitepaper` and OPERATOR-INBOX #6 open.
+**Decision:** Register the located official Symmio Git history as source-boundary evidence: `SYMM-IO/protocol-core` initial commit on 2023-06-13, `SYMM-IO/docs` initial commit on 2023-08-22, and `SYMMIO_paper_0_8.pdf` added to the official docs repo on 2023-11-16. Add `authored-symmio-whitepaper-history-boundary` for questions about what history is currently available, while treating exact original/oldest whitepaper recovery as out of scope for v1.
 
 **Reason:** These official commits are stronger evidence than a generic repository link, and they let the answer engine give a useful cited answer about the current source boundary. They still do not prove a 2021/original whitepaper artifact or a complete oldest-to-current comparison, so closing the source family would overstate the evidence.
 
-**Status:** Accepted for source-ingestion coverage and answer routing. Publish the 2023 official GitHub evidence as the current boundary; do not use "original whitepaper" or 2021 origin-story wording until the exact artifact or archived source is recovered or explicitly excluded.
+**Status:** Accepted for source-ingestion coverage and answer routing. 2026-07-01 reconciliation update: OPERATOR-INBOX #6 is resolved for v1 because original/oldest whitepaper recovery is out of scope. Publish the 2023 official GitHub evidence as the current boundary; do not use "original whitepaper" or 2021 origin-story wording unless a future post-v1 research pass recovers the exact artifact.
 
 ## D-209: Separate Discord Ingestion Tooling From Discord Source Completion
 
-**Decision:** Add a deterministic Discord/Lafa import contract and scraper path, generate parked `data/discord-corpus.*` artifacts, and register `discord-ingestion-contract` as local tooling evidence. Keep the Discord/Lafa source family parked until real channel/export access, Lafa author identity, and public-use mode are supplied.
+**Decision:** Add a deterministic Discord/Lafa import contract and scraper path, generate parked `data/discord-corpus.*` artifacts, and register `discord-ingestion-contract` as local tooling evidence. Keep the Discord/Lafa source family parked until the provided export is readable, imported, and reviewed under the approved public-use boundary.
 
 **Reason:** The docs need Discord-seeded FAQ and Lafa answers, but guessing community answers would violate the primary-source rule. Tooling can be built now without pretending the corpus exists. The importer supports export JSON/JSONL and Discord REST fetches, but generated public artifacts omit message text unless a citation/paraphrase mode is explicitly approved.
 
-**Status:** Accepted for ingestion tooling, source-ingestion evidence, and answer routing. Runtime answers may explain the ingestion boundary; questions asking what Lafa said in Discord must still refuse until the corpus is imported and reviewed.
+**Status:** Accepted for ingestion tooling, source-ingestion evidence, and answer routing. 2026-07-01 reconciliation update: OPERATOR-INBOX #2 is resolved as an access/export decision; OPERATOR-INBOX #17 is the scoped file-release follow-up because the provided Windows export still returns `EACCES` from WSL. Runtime answers may explain the ingestion boundary; questions asking what Lafa said in Discord must still refuse until the corpus is imported and reviewed.
 
 ## D-210: Treat Live LLM Eval As Runtime Evidence, Not Production Readiness
 
@@ -1828,9 +1828,9 @@
 
 **Decision:** Route current Symmio whitepaper-history questions to `authored-symmio-whitepaper-history-boundary`, and describe `SYMMIO_paper_0_8.pdf` as the first located whitepaper PDF in the registered official docs history, not as the exact original whitepaper.
 
-**Reason:** A 2026-06-30 fetch of the current official Symmio whitepaper page confirms it still points to the GitHub-hosted v0.8 PDF and frames the whitepaper/protocol as evolving work. Existing official Git evidence shows that v0.8 PDF entering the public docs repo on 2023-11-16. None of that proves the original/oldest artifact or a 2021 origin document, so the answer engine must keep original/oldest/2021-whitepaper questions parked under G-007 and OPERATOR-INBOX #6.
+**Reason:** A 2026-06-30 fetch of the current official Symmio whitepaper page confirms it still points to the GitHub-hosted v0.8 PDF and frames the whitepaper/protocol as evolving work. Existing official Git evidence shows that v0.8 PDF entering the public docs repo on 2023-11-16. None of that proves the original/oldest artifact or a 2021 origin document, and the 2026-07-01 operator reconciliation made original/oldest recovery out of scope for v1, so the answer engine should refuse exact original/oldest/2021-whitepaper requests while answering from the current registered boundary.
 
-**Status:** Accepted for source-boundary wording. This improves answerability for current evidence without closing the source-ingestion blocker.
+**Status:** Accepted for source-boundary wording. 2026-07-01 reconciliation update: this closes the v1 source-ingestion blocker; any exact original/oldest artifact recovery is post-v1 research.
 
 ## D-230: Use Volume Overviews As Book-Level Reading Orders
 
@@ -1886,7 +1886,7 @@
 
 **Reason:** The dashboard and answer-engine pages are the user's operational front door, but broad questions should not route directly to one view or one event-loop page. A volume overview lets readers start from route coverage, then move into view-specific answers, economics/points semantics, FAQ/source boundaries, and production living-docs requirements.
 
-**Status:** Accepted for compendium authoring. V1 Phase A revenue, 15-level public referral depth, and current backend volume snapshots are publishable with their stated boundaries. Discord/Lafa ingestion, production LLM service env, Notion ingestion, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
+**Status:** Accepted for compendium authoring. V1 Phase A revenue, 15-level public referral depth, current backend volume snapshots, Notion paraphrase-only boundary, and SSHE v1 boundary are publishable with their stated boundaries. Discord/Lafa ingestion, production LLM service env, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
 
 ## D-237: Use Volume 01 As The Thesis Orientation Reading Order
 

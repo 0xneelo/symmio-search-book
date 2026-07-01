@@ -13,7 +13,7 @@ relatedGeneratedPages: ["local-dashboard-faq", "local-network-revenue"]
 
 The FAQ view is the dashboard's short-answer layer. It is routed as `#faq` and groups questions into rewards and referral payouts, then invites and tracking. It also links revenue questions to the hidden `#revenue` reference route.
 
-The FAQ covers why revenue is estimated, how network revenue is calculated, when referral points credit, how rewards work, invite statuses, how to get more invites, what "Dashboard opened" means, what the Follow up tag means, and why invite values are hidden. It is the closest local substitute for the missing Discord/Lafa demand signal until that corpus is provided.
+The FAQ covers why revenue is estimated, how network revenue is calculated, when referral points credit, how rewards work, invite statuses, how to get more invites, what "Dashboard opened" means, what the Follow up tag means, and why invite values are hidden. It is the closest local substitute for the not-yet-imported Discord/Lafa demand signal until the provided export is readable and the corpus is reviewed.
 
 ## Reader Implication
 
@@ -21,7 +21,7 @@ This page should be treated as a seed FAQ, not the final Discord-seeded FAQ. It 
 
 ## Remaining Gap
 
-Operator inbox item `#2` blocks Discord/Lafa import, so this page stays explicit that the current FAQ is a local seed. Revenue and referral-depth wording no longer need to be parked: Phase A revenue and 15-level additive referral depth are resolved for v1 public copy.
+Operator inbox item `#17` tracks the file-release follow-up for the provided Discord export, so this page stays explicit that the current FAQ is a local seed. Revenue and referral-depth wording no longer need to be parked: Phase A revenue and 15-level additive referral depth are resolved for v1 public copy.
 
 ## Sources
 
