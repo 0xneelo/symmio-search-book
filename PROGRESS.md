@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Packet Linear Task Guard
+
+- Promoted the open-operator Linear task mapping into `PRODUCTION-READINESS-PACKET.md`: `#4=SYN-285`, `#11=SYN-281`.
+- Hardened `npm run search-book:check-production-packet` so it parses `_specs/app-docs/OPERATOR-INBOX.md`, requires the current #4/#11 Linear task map, and fails if the production handoff packet no longer requires launch/release packet validators to report the same task evidence.
+- Verification passed: `npm run search-book:check-production-packet`, `npm run search-book:check-status-evidence`, `npm run search-book:check-operator-inbox`, `git diff --check`, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, production-readiness packet `passed`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Open Operator Linear Task Evidence Surface
 
 - Added open-operator Linear task IDs to launch/release readiness snapshots and packet Markdown, keeping the public evidence count-only and no-secret: `#4=SYN-285`, `#11=SYN-281`.

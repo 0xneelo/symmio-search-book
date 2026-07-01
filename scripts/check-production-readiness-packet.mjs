@@ -8,6 +8,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const expectedOpenIds = [4, 11];
+const expectedOpenOperatorLinearTasks = new Map([
+  [4, "SYN-285"],
+  [11, "SYN-281"],
+]);
 const reconciledResolvedIds = [2, 5, 6, 7, 12, 17];
 const productionEnvPath = "/etc/symmio-search-book/search-book.env";
 
@@ -61,6 +65,32 @@ function sortedIds(entries) {
 
 function sameIds(actual, expected) {
   return actual.length === expected.length && actual.every((id, index) => id === expected[index]);
+}
+
+function parseLinearOperatorTask(body) {
+  return body.match(/Linear operator task:\s*(SYN-\d+)/)?.[1] || null;
+}
+
+function operatorLinearTasks(entries) {
+  return entries
+    .map((entry) => ({
+      id: entry.id,
+      linearTask: parseLinearOperatorTask(entry.body),
+    }))
+    .sort((a, b) => a.id - b.id);
+}
+
+function expectedTaskFragments() {
+  return [...expectedOpenOperatorLinearTasks]
+    .sort(([left], [right]) => left - right)
+    .map(([id, task]) => `#${id}=${task}`);
+}
+
+function operatorLinearTasksReady(tasks) {
+  return (
+    tasks.length === expectedOpenOperatorLinearTasks.size
+    && tasks.every((item) => expectedOpenOperatorLinearTasks.get(item.id) === item.linearTask)
+  );
 }
 
 function countMatches(text, pattern) {
@@ -117,6 +147,8 @@ const openEntries = parseInboxEntries(sectionBetween(inbox, "## Open", "## Resol
 const resolvedEntries = parseInboxEntries(sectionBetween(inbox, "## Resolved", "---")).filter((entry) => entry.status === "RESOLVED");
 const openIds = sortedIds(openEntries);
 const resolvedIds = sortedIds(resolvedEntries);
+const openLinearTasks = operatorLinearTasks(openEntries);
+const expectedLinearTaskSummary = expectedTaskFragments().join(", ");
 const currentBoundary = sectionBetween(packet, "## Current Boundary", "## #11 Production Env Install");
 const releaseChecklist = sectionBetween(packet, "## Release Checklist", "");
 const queueSummary = discordEditorialQueue.summary || {};
@@ -154,7 +186,10 @@ addCheck(
     "Only these production gates remain:",
     "OPERATOR-INBOX #11",
     productionEnvPath,
+    "Linear operator task `SYN-281`",
     "OPERATOR-INBOX #4",
+    "Linear operator task `SYN-285`",
+    "Open operator Linear task map: `#4=SYN-285`, `#11=SYN-281`.",
     "Local LLM env: complete in `.secrets/search-book.env`; do not print it",
     "source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families",
     "Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields",
@@ -162,6 +197,19 @@ addCheck(
   ]) &&
     countMatches(currentBoundary, /OPERATOR-INBOX #\d+/g) === 2,
   "current boundary must name only #11/#4, the local-env-complete rule, source completeness, and quality boundary",
+);
+
+addCheck(
+  checks,
+  "operator-linear-task-map",
+  operatorLinearTasksReady(openLinearTasks) &&
+    includesAll(packet, [
+      "`#4=SYN-285`, `#11=SYN-281`",
+      "launch/release packet validators require open-operator Linear task evidence before operator handoff",
+      "launch/release packet validators report open-operator Linear tasks `#4=SYN-285, #11=SYN-281`",
+    ]),
+  `inbox=${openLinearTasks.map((item) => `#${item.id}=${item.linearTask || "missing"}`).join(",") || "none"}; expected=${expectedLinearTaskSummary}`,
+  { openOperatorLinearTasks: openLinearTasks },
 );
 
 addCheck(
@@ -280,6 +328,7 @@ addCheck(
     "no-secret Discord editorial queue data proof passes before using the committed reviewer queue for operator handoff",
     "launch/release packet validators require the living-docs reviewer evidence before operator handoff",
     "launch/release packet validators require Discord editorial queue data evidence before operator handoff",
+    "launch/release packet validators require open-operator Linear task evidence before operator handoff",
   ]),
   "#11 pass criteria must preserve no-secret, LLM-first, backup, workflow, and reviewer boundaries",
 );
@@ -335,6 +384,7 @@ addCheck(
     "living-docs reviewer evidence reports raw internal summaries are privacy-flagged",
     "launch/release packet validators report Discord editorial queue data evidence `passed`",
     "launch/release packet validators report living-docs review evidence `passed`",
+    "launch/release packet validators report open-operator Linear tasks `#4=SYN-285, #11=SYN-281`",
     "reviewer owner/cadence evidence is configured",
     "no launch-blocking operator items remain for the chosen release scope",
     "`launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values",
@@ -394,6 +444,7 @@ const result = {
   evidence: {
     productionEnvPath,
     openOperatorItems: openIds,
+    openOperatorLinearTasks: openLinearTasks,
     resolvedItems: resolvedIds.filter((id) => reconciledResolvedIds.includes(id)),
     sourceIngestion: {
       complete: sourceIngestion.byStatus?.complete || 0,

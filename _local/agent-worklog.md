@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex production packet Linear task guard
+- Task: Require `PRODUCTION-READINESS-PACKET.md` and `npm run search-book:check-production-packet` to carry the same open-operator Linear task mapping as launch/release evidence.
+- Scope: `PRODUCTION-READINESS-PACKET.md`, `scripts/check-production-readiness-packet.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-production-packet`, `npm run search-book:check-status-evidence`, full `npm run search-book:verify`, and `git diff --check` pass with only #11/#4 open and `#4=SYN-285`, `#11=SYN-281`.
+- Result: Added the `#4=SYN-285`, `#11=SYN-281` task map to `PRODUCTION-READINESS-PACKET.md`, plus a new `operator-linear-task-map` guard in `scripts/check-production-readiness-packet.mjs` that parses the canonical inbox and requires the packet to preserve the launch/release Linear-task evidence requirement. Verification passed: `npm run search-book:check-production-packet`, `npm run search-book:check-status-evidence`, `npm run search-book:check-operator-inbox`, `git diff --check`, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, source ingestion `17/17`, `productionReadinessPacket:passed`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex refreshed launch/release evidence after Linear-task guard
 - Task: Refresh manual launch/release workflow evidence from the latest `main` so downloaded artifacts carry the open-operator Linear task guard added in commit `70cf51d`.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.

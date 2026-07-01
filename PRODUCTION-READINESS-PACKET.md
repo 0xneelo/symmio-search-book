@@ -25,8 +25,11 @@ The standalone Search Book repo is the canonical working copy:
 Only these production gates remain:
 
 - OPERATOR-INBOX #11: install production VPS env at
-  `/etc/symmio-search-book/search-book.env`
+  `/etc/symmio-search-book/search-book.env` (Linear operator task `SYN-281`)
 - OPERATOR-INBOX #4: choose public frontend platform, repo owner, and deploy route
+  (Linear operator task `SYN-285`)
+
+Open operator Linear task map: `#4=SYN-285`, `#11=SYN-281`.
 
 ## #11 Production Env Install
 
@@ -133,6 +136,7 @@ Pass criteria:
 - no-secret Discord editorial queue data proof passes before using the committed reviewer queue for operator handoff
 - launch/release packet validators require the living-docs reviewer evidence before operator handoff
 - launch/release packet validators require Discord editorial queue data evidence before operator handoff
+- launch/release packet validators require open-operator Linear task evidence before operator handoff
 - backup timer is enabled and the latest manifest exists after the first run
 
 ## #4 Public Frontend And Deploy Route Decision
@@ -213,6 +217,7 @@ Production pass criteria:
 - living-docs reviewer evidence reports raw internal summaries are privacy-flagged, sanitized evidence prints only counts/booleans, no raw content is printed, and no LLM credentials are loaded
 - launch/release packet validators report Discord editorial queue data evidence `passed`
 - launch/release packet validators report living-docs review evidence `passed`
+- launch/release packet validators report open-operator Linear tasks `#4=SYN-285, #11=SYN-281`
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
 - `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values
