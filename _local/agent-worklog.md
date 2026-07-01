@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex clean release evidence validator
+- Task: Require final launch/release evidence packets to prove they were generated from a clean repository state.
+- Scope: `scripts/check-launch-evidence-packet.mjs`, `scripts/check-release-dry-run-packet.mjs`, release/launch evidence docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Clean release dry-run from `main` passes both packet validators; validators expose repository cleanliness in evidence and fail on dirty packets; full deterministic verify remains green; only #11/#4 remain operator gates.
+- Result: Added repository cleanliness checks to launch/release packet validators, release-vs-nested-launch commit consistency in the release validator, and commit/dirty-state rows to the count-only evidence summaries. Focused negative verification rejected an existing dirty release packet with the new repository-clean checks. `npm run search-book:check-evidence-summary`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, `git diff --check`, and full `npm run search-book:verify` passed. Clean release dry-run verification passed after checkpointing with release and nested launch repository dirty state `false`, same commit, static artifact `1,650` files / `52,935,258` bytes, status evidence documents `4/4`, source freshness `4/4`, Discord route coverage `19/19`, evidence summary renderer `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+
 ## 2026-07-01 — Codex release dry-run evidence summary validation
 - Task: Run a fresh release dry-run from pushed `main` and ensure release evidence covers the reusable evidence-summary renderer no-raw/no-secret boundary.
 - Scope: Release dry-run/evidence packet scripts and validators if coverage is missing; otherwise `/tmp` evidence only plus `_local/agent-worklog.md`.

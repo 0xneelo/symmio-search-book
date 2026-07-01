@@ -81,6 +81,7 @@ function launchSummary(packet) {
 
   return markdownTable("Search Book Launch Evidence", [
     ["Packet status", `\`${packet.status || "missing"}\``],
+    ["Repository", `commit \`${packet.repository?.commit || "unknown"}\`, dirty \`${packet.repository?.dirty ?? "unknown"}\``],
     ["Launch status", `\`${launch.status || "missing"}\``],
     ["Monitoring status", `\`${monitoring.status || "missing"}\``],
     [
@@ -123,6 +124,7 @@ function releaseSummary(packet) {
 
   return markdownTable("Search Book Release Dry Run", [
     ["Release status", `\`${packet.status || "missing"}\``],
+    ["Repository", `commit \`${packet.repository?.commit || "unknown"}\`, dirty \`${packet.repository?.dirty ?? "unknown"}\``],
     [
       "Static artifact",
       `\`${artifact.status || "missing"}\`, integrity \`${artifact.integrity || "missing"}\`, files \`${artifact.files ?? "unknown"}\`, bytes \`${artifact.bytes ?? "unknown"}\``,

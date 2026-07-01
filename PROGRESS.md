@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Clean Release Evidence Validation
+
+- Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` so final launch/release packets must be generated from a clean repository state; release packets also require the nested launch packet to come from the same commit.
+- Updated `npm run search-book:evidence-summary` launch/release summaries to display commit and dirty-state evidence as count-only metadata.
+- Focused negative verification rejected an existing dirty release packet with the new repository-clean checks; full `npm run search-book:verify` passed with 26 build steps, 81 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, and quality gates `29/30`.
+- Clean release-dry-run verification passed after checkpointing: release status `passed`, release and nested launch repository dirty state `false`, both packets from the same commit, static artifact `1,650` files / `52,935,258` bytes, status evidence documents `4/4`, source freshness `4/4`, Discord route coverage `19/19`, evidence summary renderer `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+
 ## 2026-07-01 — Release Evidence Summary Renderer Proof
 
 - Added first-class evidence-summary renderer proof to launch-evidence packets and release dry-run summaries, then hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` to fail if the proof is missing, failed, or reports printed values.

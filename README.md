@@ -144,7 +144,8 @@ are supplied. The packet includes the current sanitized Discord route-coverage s
 Search Insights, Discord review-artifact evidence for the no-raw editorial queue,
 source-freshness evidence as statuses, hashes, and booleans only, and status-document
 evidence proving current report counts match generated data.
-Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`.
+Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`;
+the validator requires the packet to come from a clean repository state.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind launch --packet <launch-evidence.json>`.
 Validate the renderer's no-raw/no-secret boundary with `npm run search-book:check-evidence-summary`.
@@ -159,7 +160,8 @@ renderer no-raw/no-secret evidence, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same
 Discord route-coverage counts and living-docs control flags, including service-backed page
 feedback.
-Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json>`.
+Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json>`;
+the validator requires clean release and nested launch repository state from the same commit.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind release --packet <release-dry-run.json>`.
 To build a platform-neutral static preview bundle, run

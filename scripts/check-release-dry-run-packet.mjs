@@ -32,7 +32,7 @@ Options:
 Validates a no-secret release dry-run packet plus its nested launch-evidence
 packet. This checks child steps, static artifact integrity, launch readiness,
 monitoring, Vibe source freshness, status-document evidence, no sensitive
-matches, and reconciled open operator gates.`;
+matches, clean repository state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -65,6 +65,10 @@ function addCheck(checks, id, passed, detail = "", evidence = null) {
     detail,
     ...(evidence ? { evidence } : {}),
   });
+}
+
+function repositoryClean(repository = {}) {
+  return repository.dirty === false && (!Array.isArray(repository.dirtyStatus) || repository.dirtyStatus.length === 0);
 }
 
 function nestedLaunchPacketPath(releasePacket, releasePacketPath) {
@@ -191,6 +195,8 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
   const sensitiveMatches = packet.secrets?.sensitiveMatches || [];
+  const repository = packet.repository || {};
+  const nestedRepository = nestedLaunchPacket.repository || {};
   const staticArtifact = packet.staticArtifact || {};
   const launchSummary = packet.launchEvidence || {};
   const nestedLaunch = normalizedLaunchEvidence(nestedLaunchPacket);
@@ -208,6 +214,24 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(nestedStatusEvidence);
 
   addCheck(checks, "release-status", packet.status === "passed", `status=${packet.status || "missing"}`);
+  addCheck(
+    checks,
+    "release-repository-clean",
+    repositoryClean(repository),
+    repository.dirty ? `dirty=${(repository.dirtyStatus || []).join(",") || "true"}` : "clean",
+  );
+  addCheck(
+    checks,
+    "nested-launch-repository-clean",
+    repositoryClean(nestedRepository),
+    nestedRepository.dirty ? `dirty=${(nestedRepository.dirtyStatus || []).join(",") || "true"}` : "clean",
+  );
+  addCheck(
+    checks,
+    "release-and-launch-same-commit",
+    Boolean(repository.commit) && repository.commit === nestedRepository.commit,
+    `release=${repository.commit || "missing"}; launch=${nestedRepository.commit || "missing"}`,
+  );
   addCheck(checks, "release-secret-values", packet.secrets?.valuesPrinted === false, `valuesPrinted=${packet.secrets?.valuesPrinted}`);
   addCheck(checks, "release-sensitive-matches", Array.isArray(sensitiveMatches) && sensitiveMatches.length === 0, `matches=${sensitiveMatches.length}`);
   addCheck(checks, "release-steps", failedSteps.length === 0 && (packet.steps || []).length > 0, failedSteps.map((step) => step.id).join(",") || "all passed");
@@ -387,6 +411,18 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     generatedAt: packet.generatedAt || null,
     evidence: {
       releaseStatus: packet.status || null,
+      repository: {
+        branch: repository.branch || null,
+        commit: repository.commit || null,
+        dirty: repository.dirty === true,
+        dirtyStatusCount: Array.isArray(repository.dirtyStatus) ? repository.dirtyStatus.length : null,
+      },
+      nestedLaunchRepository: {
+        branch: nestedRepository.branch || null,
+        commit: nestedRepository.commit || null,
+        dirty: nestedRepository.dirty === true,
+        dirtyStatusCount: Array.isArray(nestedRepository.dirtyStatus) ? nestedRepository.dirtyStatus.length : null,
+      },
       staticArtifactStatus: staticArtifact.status || null,
       staticArtifactIntegrity: staticArtifact.integrity || null,
       launchStatus: launchSummary.launchStatus || null,

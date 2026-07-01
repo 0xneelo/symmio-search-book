@@ -31,8 +31,8 @@ Options:
 
 Validates a no-secret launch-evidence packet, including launch readiness,
 monitoring, Vibe source freshness, status-document evidence, source-ingestion
-readiness, Discord route coverage, living-docs controls, and reconciled open
-operator gates.`;
+readiness, Discord route coverage, living-docs controls, clean repository state,
+and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -65,6 +65,10 @@ function addCheck(checks, id, passed, detail = "", evidence = null) {
     detail,
     ...(evidence ? { evidence } : {}),
   });
+}
+
+function repositoryClean(repository = {}) {
+  return repository.dirty === false && (!Array.isArray(repository.dirtyStatus) || repository.dirtyStatus.length === 0);
 }
 
 function normalizedLaunchEvidence(packet) {
@@ -192,6 +196,7 @@ function validateLaunchPacket(packet, packetPath) {
   const statusEvidence = normalizedStatusEvidence(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
+  const repository = packet.repository || {};
   const readiness = packet.readiness || {};
   const sourceTotals = sourceFreshness.totals || {};
   const sourceSecrets = sourceFreshness.secrets || {};
@@ -202,6 +207,12 @@ function validateLaunchPacket(packet, packetPath) {
   const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(statusEvidence);
 
   addCheck(checks, "packet-status", packet.status === "passed", `status=${packet.status || "missing"}`);
+  addCheck(
+    checks,
+    "repository-clean",
+    repositoryClean(repository),
+    repository.dirty ? `dirty=${(repository.dirtyStatus || []).join(",") || "true"}` : "clean",
+  );
   addCheck(checks, "packet-secret-values", packet.secrets?.valuesPrinted === false, `valuesPrinted=${packet.secrets?.valuesPrinted}`);
   addCheck(checks, "launch-evidence-passed", packet.launchEvidence?.passed === true, `passed=${packet.launchEvidence?.passed}`);
   addCheck(checks, "launch-status", launch.status === "passed", `status=${launch.status || "missing"}`);
@@ -329,6 +340,12 @@ function validateLaunchPacket(packet, packetPath) {
     generatedAt: packet.generatedAt || null,
     evidence: {
       packetStatus: packet.status || null,
+      repository: {
+        branch: repository.branch || null,
+        commit: repository.commit || null,
+        dirty: repository.dirty === true,
+        dirtyStatusCount: Array.isArray(repository.dirtyStatus) ? repository.dirtyStatus.length : null,
+      },
       launchStatus: launch.status || null,
       monitoringStatus: monitoring.status || null,
       sourceFreshnessStatus: sourceFreshness.status || null,
