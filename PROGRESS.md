@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Production Status Wording Cleanup
+
+- Removed stale production-status language that still implied unresolved source-ingestion work after source ingestion reached 17/17 complete.
+- Updated `PRODUCTION-READINESS-PACKET.md` to current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages, source ingestion 17/17 with 0 partial / 0 parked / 0 missing source families, and quality gates `29/30`.
+- Updated `GAPS.md` G-010 so remaining production service work is limited to deployment/wiring/env/moderation/reviewer/backup/monitoring configuration instead of source import work.
+- Updated `COMPLETION-AUDIT.md` to include 0 missing source families in the source-ingestion evidence snapshot.
+
 ## 2026-07-01 — Source-Count Evidence Normalization
 
 - Normalized source-ingestion status counts in static-artifact, launch-evidence, and release-dry-run packets so zero-count statuses are explicit instead of omitted or `null`.
@@ -224,7 +231,7 @@
 
 - Added `scripts/backup-answer-engine-db.mjs` and `npm run search-book:backup-db` so operators can create a SQLite-consistent Search Book answer-engine backup with `VACUUM INTO`, a JSON manifest, SHA-256, table counts, and default restore verification via `PRAGMA integrity_check`.
 - Updated `build-living-docs-events.mjs`, `build-requirement-map.mjs`, and `build-quality-audit.mjs` so generated evidence reports `backupRestoreImplemented: true`; regenerated `data/living-docs-events.*`, `data/requirement-map.*`, and `data/quality-audit.*`.
-- Updated README, answer-engine contract, GAPS, final report, production roadmap, and `LIVING-DOCS-OPERATIONS.md` so backup/restore-check operations are documented while production readiness remains false until public deploy route, production service env, production moderation/backup access, assigned reviewer owner/cadence, monitoring, and source imports are complete.
+- Updated README, answer-engine contract, GAPS, final report, production roadmap, and `LIVING-DOCS-OPERATIONS.md` so backup/restore-check operations are documented while production readiness remains false until public deploy route, production service env, production moderation/backup access, assigned reviewer owner/cadence, and monitoring are complete; source-ingestion readiness is now resolved at 17/17.
 
 ## 2026-07-01 — Living-Docs Reviewer Operations Runbook
 
@@ -891,21 +898,21 @@
 - Added configurable retention to the standalone answer-engine service for persisted question, rating, and gap events, with a 180-day default and `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS=0` reserved for local archival use.
 - Added a disabled-by-default reviewer export at `GET /api/search-book/moderation` that summarizes gap backlog, low-rated answers, unanswered questions, and repeated questions only when `SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=true` and a moderation token are configured.
 - Exposed retention/moderation policy metadata through health and insights responses without printing API keys or moderation tokens.
-- Kept production readiness false until the production service env, public deploy route, production reviewer access/owner cadence, and remaining source imports are complete.
+- Kept production readiness false until the production service env, public deploy route, and production reviewer access/owner cadence are complete; source-ingestion readiness is now resolved at 17/17.
 
 ## 2026-06-29 — Static Frontend Service Bridge
 
 - Wired `index.html` to use the standalone answer-engine service when configured with `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL`.
 - Routed Ask submissions to `POST /api/search-book/answer`, answer ratings to `POST /api/search-book/rating`, and Search Insights to `GET /api/search-book/insights`.
 - Preserved the existing deterministic browser router and `localStorage` question/rating/gap loop as fallback for static preview, direct page opens, and service outages.
-- Kept production readiness false until the selected public frontend route, production service env, retention/moderation policy, deployment checks, and remaining source imports are complete.
+- Kept production readiness false until the selected public frontend route, production service env, retention/moderation policy, and deployment checks are complete; source-ingestion readiness is now resolved at 17/17.
 
 ## 2026-06-29 — Standalone Answer-Engine Service Boundary
 
 - Exported the validated Search Book answer runtime so the CLI, live eval, and service can share the same retrieval, refusal, LLM, and citation-validation path.
 - Added `scripts/serve-answer-engine.mjs`, a dependency-free Node HTTP service backed by SQLite tables for questions, ratings, and gaps.
 - Added service endpoints for health, answers, ratings, and Search Insights: `GET /health`, `POST /api/search-book/answer`, `POST /api/search-book/rating`, and `GET /api/search-book/insights`.
-- Kept production readiness false until the service is deployed, the public frontend is wired to it, production LLM env is installed, retention/moderation policy is defined, and Discord/Lafa plus remaining source imports are resolved.
+- Kept production readiness false until the service is deployed, the public frontend is wired to it, production LLM env is installed, and retention/moderation policy is defined; Discord/Lafa and source-ingestion readiness are now resolved for v1.
 
 ## 2026-06-29 — Production Readiness State Alignment
 

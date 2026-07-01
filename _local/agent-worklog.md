@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex production status wording cleanup
+- Task: Remove stale source-import wording from production readiness docs after source ingestion reached 17/17 complete.
+- Scope: `PRODUCTION-READINESS-PACKET.md`, `GAPS.md`, `COMPLETION-AUDIT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Production handoff docs no longer imply source imports remain; current route/chunk/source counts match generated data; #11/#4 remain the only production gates.
+- Result: Updated the production packet to 820 exact routes, 2,884 chunks, 801 authored pages, source ingestion 17/17 with 0 partial / 0 parked / 0 missing source families, and quality gates `29/30`. Removed stale source-ingestion blocker language from G-010 and clarified remaining work as deployment/wiring/env/moderation/reviewer/backup/monitoring configuration. Completion audit now records 0 missing source families.
+
 ## 2026-07-01 — Codex source-count evidence normalization
 - Task: Make evidence packets explicitly report zero-count source-ingestion statuses.
 - Scope: `scripts/build-static-artifact.mjs`, `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.

@@ -19,7 +19,7 @@ Do not mark the goal complete until these are resolved or explicitly accepted as
 
 Generated evidence from the latest checked repo state:
 
-- `data/source-ingestion.json`: 17/17 source families complete, 0 partial, 0 parked, `sourceCompletionReady:true`.
+- `data/source-ingestion.json`: 17/17 source families complete, 0 partial, 0 parked, 0 missing, `sourceCompletionReady:true`.
 - `data/requirement-map.json`: 14 requirements complete, 2 partial, 2 parked, `completionReady:false`.
 - `data/quality-audit.json`: 29/30 gates passing; the only failing gate is `operator-inbox`.
 - `data/discord-corpus.json`: real Discord corpus imported in internal-only mode with 5,000 messages, 723 question clusters, 837 configured Lafa candidates, and no raw message text stored.
