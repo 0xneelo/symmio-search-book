@@ -125,7 +125,9 @@ never printed or persisted.
 ## Deployment
 
 See [`DEPLOYMENT.md`](./DEPLOYMENT.md) and the systemd unit at
-[`deploy/symmio-search-book.service`](./deploy/symmio-search-book.service).
+[`deploy/symmio-search-book.service`](./deploy/symmio-search-book.service). The no-secret
+operator packet for the remaining VPS env and public deploy-route gates is
+[`PRODUCTION-READINESS-PACKET.md`](./PRODUCTION-READINESS-PACKET.md).
 
 ## Non-goals
 

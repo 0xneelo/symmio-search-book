@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex production readiness packet
+- Task: Make #11 production VPS env install and #4 public deploy-route decision executable from one no-secret handoff packet.
+- Scope: `PRODUCTION-READINESS-PACKET.md`, `DEPLOYMENT.md`, `README.md`, `COMPLETION-AUDIT.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Packet lists exact production env keys, no secret values, deploy-route decision inputs, validation commands, and preserves the current blocker boundary (#17/#11/#4) without reopening resolved items.
+- Result: Added `PRODUCTION-READINESS-PACKET.md` with a no-secret operator checklist for #11 VPS env install, #4 public frontend/deploy-route decision, and #17 Discord import follow-up. Updated README, deployment docs, and completion audit to point to it, and tightened deployment guidance so production does not blindly copy local `.secrets/search-book.env`. Verification passed: `git diff --check`, `node scripts/check-readiness-evidence.mjs`, full `npm run search-book:verify`, and a dummy production-shaped `scripts/check-production-env.mjs --json` run with `/tmp` DB/backup paths passed `29/29` checks with `valuesPrinted:false`.
+
 ## 2026-07-01 — Codex Discord wording reconciliation cleanup
 - Task: Remove stale "Discord export missing" / "#2 blocks Discord" wording from source inputs after the operator reconciliation.
 - Scope: `QUESTIONS.md`, `content/authored/reference/dashboard-faq.md`, `content/authored/compendium/volume-08-dashboard-faq-and-living-docs.md`, regenerated `data/*` artifacts if affected, and `_local/agent-worklog.md`.

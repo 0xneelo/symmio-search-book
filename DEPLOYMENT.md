@@ -35,6 +35,12 @@ chmod 600 .secrets/search-book.env
 The key is loaded only via `node --env-file=...`. Never commit a filled-in env file
 (`.secrets/` and `.env*` are git-ignored) and never echo the key.
 
+For production, do not blindly copy a local `.secrets/search-book.env` if it still contains
+localhost URLs, wildcard CORS, repo-local SQLite paths, or extractive default mode. Use
+[`PRODUCTION-READINESS-PACKET.md`](./PRODUCTION-READINESS-PACKET.md) to build the VPS env at
+`/etc/symmio-search-book/search-book.env` from the approved LLM values plus production-safe
+DB, origin, reviewer, metrics, and backup settings.
+
 ## 3. Static site
 
 `index.html` + `data/` are fully static. Serve them with any static host/CDN, or locally:
@@ -54,7 +60,8 @@ curated examples when the service is absent.
 # Place the repo and env file
 sudo mkdir -p /opt/symmio-search-book /etc/symmio-search-book /var/lib/symmio-search-book
 sudo rsync -a --exclude .git --exclude node_modules ./ /opt/symmio-search-book/
-sudo cp .secrets/search-book.env /etc/symmio-search-book/search-book.env
+# Create /etc/symmio-search-book/search-book.env from PRODUCTION-READINESS-PACKET.md.
+# Do not paste or print secret values in logs.
 sudo chmod 600 /etc/symmio-search-book/search-book.env
 # In that env file, set SEARCH_BOOK_ANSWER_ENGINE_DB=/var/lib/symmio-search-book/search-book-answer-engine.sqlite
 

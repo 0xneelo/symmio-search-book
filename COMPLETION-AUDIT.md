@@ -87,7 +87,7 @@ The backend is decided as standalone service plus SQLite, but the public route i
 ## Next Completion-Oriented Actions
 
 1. Re-probe #17 only when the operator releases the Discord export file; do not reopen #2.
-2. Prepare production env and deploy-route handoff details for #11/#4 without printing secrets.
+2. Use `PRODUCTION-READINESS-PACKET.md` to execute or review the #11 production env install and #4 public deploy-route decision without printing secrets.
 3. After any source/runtime/deploy change, run:
 
 ```sh
