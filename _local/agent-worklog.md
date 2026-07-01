@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex open operator Linear task guard
+- Task: Make operator-blocker tracking executable by requiring every currently open operator inbox item to carry a Linear operator task and pinning #11/#4 to their reconciled task IDs.
+- Scope: `scripts/check-operator-inbox-consistency.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-operator-inbox`, `npm run search-book:check-status-evidence`, full `npm run search-book:verify`, and `git diff --check` pass with only #11/#4 open.
+- Result: Added `open-items-linear-tasks-present` and `open-items-linear-tasks-current` checks to the operator-inbox consistency guard. The focused check now reports open operator Linear tasks `#11=SYN-281` and `#4=SYN-285`; `npm run search-book:check-status-evidence`, `npm run search-book:check-production-packet`, `git diff --check`, and full `npm run search-book:verify` passed with 26 build steps, 92 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex summary-artifact negative validation guard
 - Task: Add an executable negative regression proving `--require-summary` rejects missing and tampered summary artifacts, while valid launch/release summaries still pass.
 - Scope: `scripts/check-evidence-summary-renderer.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.

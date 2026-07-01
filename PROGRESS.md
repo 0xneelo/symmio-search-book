@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Open Operator Linear Task Guard
+
+- Hardened `npm run search-book:check-operator-inbox` so every `[OPEN]` operator item must carry a `Linear operator task: SYN-...` marker.
+- The guard now pins the two canonical open gates to `#11 -> SYN-281` for production VPS env install and `#4 -> SYN-285` for the public frontend platform/repo/deploy-route decision.
+- Verification passed: `npm run search-book:check-operator-inbox`, `npm run search-book:check-status-evidence`, `npm run search-book:check-production-packet`, `git diff --check`, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Summary Artifact Negative Validation Guard
 
 - Extended `npm run search-book:check-evidence-summary` so the canonical verify path now exercises the real packet validators with `--require-summary`.

@@ -8,8 +8,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const expectedOpenItems = new Map([
-  [4, "Final docs platform and repository owner decision"],
-  [11, "Production VPS LLM/service env install"],
+  [4, {
+    title: "Final docs platform and repository owner decision",
+    linearTask: "SYN-285",
+  }],
+  [11, {
+    title: "Production VPS LLM/service env install",
+    linearTask: "SYN-281",
+  }],
 ]);
 const reconciliationResolvedIds = new Set([2, 5, 6, 7, 12]);
 const resolvedRuntimeIds = new Set([17]);
@@ -53,6 +59,10 @@ function sameIds(actual, expected) {
   return actual.length === expected.length && actual.every((id, index) => id === expected[index]);
 }
 
+function parseLinearOperatorTask(body) {
+  return body.match(/Linear operator task:\s*(SYN-\d+)/)?.[1] || null;
+}
+
 function addCheck(checks, id, passed, detail, evidence = null) {
   checks.push({
     id,
@@ -85,6 +95,20 @@ const unexpectedRequirementBlockIds = requirementBlockIds.filter((id) => !allowe
 const entryById = new Map(entries.map((entry) => [entry.id, entry]));
 const item11 = entryById.get(11);
 const item4 = entryById.get(4);
+const openLinearTasks = openEntries.map((entry) => ({
+  id: entry.id,
+  linearTask: parseLinearOperatorTask(entry.body),
+}));
+const missingOpenLinearTasks = openLinearTasks
+  .filter((entry) => !entry.linearTask)
+  .map((entry) => entry.id);
+const mismatchedOpenLinearTasks = [...expectedOpenItems]
+  .map(([id, expected]) => ({
+    id,
+    actual: parseLinearOperatorTask(entryById.get(id)?.body || ""),
+    expected: expected.linearTask,
+  }))
+  .filter((entry) => entry.actual !== entry.expected);
 
 const checks = [];
 addCheck(
@@ -105,8 +129,32 @@ addCheck(
 addCheck(
   checks,
   "open-item-titles",
-  [...expectedOpenItems].every(([id, title]) => entryById.get(id)?.title === title),
-  [...expectedOpenItems].map(([id, title]) => `#${id}=${entryById.get(id)?.title || "missing"} expected=${title}`).join("; "),
+  [...expectedOpenItems].every(([id, expected]) => entryById.get(id)?.title === expected.title),
+  [...expectedOpenItems]
+    .map(([id, expected]) => `#${id}=${entryById.get(id)?.title || "missing"} expected=${expected.title}`)
+    .join("; "),
+);
+addCheck(
+  checks,
+  "open-items-linear-tasks-present",
+  missingOpenLinearTasks.length === 0,
+  missingOpenLinearTasks.length
+    ? `missing Linear operator task markers on open items=${missingOpenLinearTasks.join(",")}`
+    : "every open operator item carries a Linear operator task marker",
+  { openLinearTasks },
+);
+addCheck(
+  checks,
+  "open-items-linear-tasks-current",
+  mismatchedOpenLinearTasks.length === 0,
+  mismatchedOpenLinearTasks.length
+    ? mismatchedOpenLinearTasks.map((entry) => `#${entry.id}=${entry.actual || "missing"} expected=${entry.expected}`).join("; ")
+    : "open operator tasks match SYN-281/#11 and SYN-285/#4",
+  {
+    expectedOpenLinearTasks: [...expectedOpenItems]
+      .map(([id, expected]) => ({ id, linearTask: expected.linearTask }))
+      .sort((a, b) => a.id - b.id),
+  },
 );
 addCheck(
   checks,
@@ -169,6 +217,7 @@ const result = {
   evidence: {
     openOperatorItems: openIds,
     requirementMapOpenOperatorItems: requirementOpenIds,
+    openOperatorLinearTasks: openLinearTasks,
     resolvedReconciliationItems: [...reconciliationResolvedIds].sort((a, b) => a - b),
     resolvedRuntimeItems: [...resolvedRuntimeIds].sort((a, b) => a - b),
     requirementBlockIds,
