@@ -2,6 +2,8 @@
 
 Generated for the standalone `symmio-search-book` repository on 2026-06-30 and refreshed on 2026-07-01 after the migration to `main` and the operator-blocker reconciliation. This report is intentionally explicit about remaining production work: the Search Book dossier, prototype, and answer runtime are verified, but the overall mission is not production-complete until the production VPS env, public deploy route, and Discord readable-export follow-up are resolved or carried into an approved release plan.
 
+For the strict requirement-by-requirement status, see `COMPLETION-AUDIT.md`. It treats the current build as preview-ready, not production-complete.
+
 ## Current Status
 
 The Search Book now has a 500-800 page compendium shape with 794 manifest pages, 801 authored pages, 8 volumes, 104 chapters, and 1,595 reader-routable pages assigned to volumes. The page-state registry reports 800 published public-navigation pages, 792 source companions, and 3 internal drafts. All 799 exact public authored routes are marked `published`; there are 0 candidate pages remaining. The generated corpus stays inside the requested 500-800 page target while the reader layer includes authored pages plus source companions for traceability.

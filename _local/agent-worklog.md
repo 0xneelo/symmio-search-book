@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex completion audit
+- Task: Add a strict requirement-by-requirement completion audit for the active Search Book objective.
+- Scope: `COMPLETION-AUDIT.md`, `FINAL-REPORT.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Audit maps the pasted objective and `_specs/app-docs` definition of done to current generated evidence, explicitly keeps the goal incomplete until #17/#11/#4 resolve, and does not change runtime/generated data.
+- Result: Added `COMPLETION-AUDIT.md` with a requirement-by-requirement audit of the pasted objective and `_specs/app-docs` definition of done. The audit records current evidence from generated data, live eval, local preview, and staging launch drill, and keeps completion open until #17 Discord readable export, #11 production VPS env, and #4 public deploy route are resolved. Linked the audit from `FINAL-REPORT.md`; `git diff --check` and `node scripts/check-readiness-evidence.mjs` passed.
+
 ## 2026-07-01 — Codex staging launch-readiness drill
 - Task: Run the executable launch gate against the current localhost Search Book preview/service with backup evidence.
 - Scope: `_local/agent-worklog.md` only; launch drill artifacts stayed in `/tmp`.
