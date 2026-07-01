@@ -256,6 +256,9 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const packet = readJson(path.join(launchEvidenceDir, "launch-evidence.json"), null);
   if (!packet) return null;
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
+  const statusEvidence = packet.statusEvidence?.parsed || null;
+  const statusEvidenceDocuments = statusEvidence?.documents || [];
+  const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
   return {
     status: packet.status || null,
     generatedAt: packet.generatedAt || null,
@@ -265,6 +268,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
       || null,
     monitoringStatus: packet.monitoringEvidence?.parsed?.status || null,
     sourceFreshnessStatus: sourceFreshness?.status || null,
+    statusEvidenceStatus: statusEvidence?.status || null,
     sourceFreshness: sourceFreshness
       ? {
           status: sourceFreshness.status || null,
@@ -274,6 +278,16 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
             valuesPrinted: sourceFreshness.secrets?.valuesPrinted === true,
             sourceBodiesPrinted: sourceFreshness.secrets?.sourceBodiesPrinted === true,
           },
+        }
+      : null,
+    statusEvidence: statusEvidence
+      ? {
+          status: statusEvidence.status || null,
+          documents: {
+            passed: statusEvidencePassedDocuments,
+            total: statusEvidenceDocuments.length,
+          },
+          openOperatorItems: statusEvidence.evidence?.openOperatorItems || [],
         }
       : null,
     secrets: {
@@ -397,6 +411,8 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Source freshness status: \`${launch.sourceFreshnessStatus || "missing"}\`
 - Source freshness checks: \`${launch.sourceFreshness?.totals?.passed ?? 0}/${launch.sourceFreshness?.totals?.checks ?? 0}\`
 - Source freshness source bodies printed: \`${launch.sourceFreshness?.secrets?.sourceBodiesPrinted ?? false}\`
+- Status evidence status: \`${launch.statusEvidenceStatus || "missing"}\`
+- Status evidence documents: \`${launch.statusEvidence?.documents?.passed ?? 0}/${launch.statusEvidence?.documents?.total ?? 0}\`
 - Values printed: \`${launch.secrets?.valuesPrinted ?? false}\`
 
 ## Readiness Snapshot
@@ -540,6 +556,7 @@ try {
       launchStatus: packet.launchEvidence?.launchStatus || null,
       monitoringStatus: packet.launchEvidence?.monitoringStatus || null,
       sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
+      statusEvidenceStatus: packet.launchEvidence?.statusEvidenceStatus || null,
     },
     steps: packet.steps.map((step) => ({
       id: step.id,

@@ -139,7 +139,8 @@ To create attachable operator evidence, run `npm run search-book:launch-evidence
 `launch-evidence.json` and `launch-evidence.md` under `/tmp` by default, using the local
 drill, monitoring probe, and Vibe public-docs source-freshness check when no deployment URLs
 are supplied. The packet includes the current sanitized Discord route-coverage snapshot for
-Search Insights and source-freshness evidence as statuses, hashes, and booleans only.
+Search Insights, source-freshness evidence as statuses, hashes, and booleans only, and
+status-document evidence proving current report counts match generated data.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
@@ -147,9 +148,9 @@ To run the full local release rehearsal, run `npm run search-book:release-dry-ru
 builds the static artifact, smoke-tests the copied artifact both statically and with the
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
-include source-freshness status, while release, static-artifact, and launch-evidence
-readiness snapshots all include the same Discord route-coverage counts and living-docs
-control flags, including service-backed page feedback.
+include source-freshness and status-document evidence, while release, static-artifact, and
+launch-evidence readiness snapshots all include the same Discord route-coverage counts and
+living-docs control flags, including service-backed page feedback.
 Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json>`.
 To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow

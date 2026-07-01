@@ -30,8 +30,9 @@ Options:
   --json         Accepted for command symmetry; output is always JSON
 
 Validates a no-secret launch-evidence packet, including launch readiness,
-monitoring, Vibe source freshness, source-ingestion readiness, Discord route
-coverage, living-docs controls, and reconciled open operator gates.`;
+monitoring, Vibe source freshness, status-document evidence, source-ingestion
+readiness, Discord route coverage, living-docs controls, and reconciled open
+operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -80,6 +81,10 @@ function normalizedSourceFreshnessEvidence(packet) {
   return packet.sourceFreshnessEvidence?.parsed || {};
 }
 
+function normalizedStatusEvidence(packet) {
+  return packet.statusEvidence?.parsed || {};
+}
+
 function sourceFreshnessBodyMarkers(sourceFreshness) {
   const forbiddenKeys = new Set(["normalizedText", "rawText", "sourceBody", "markdownBody", "rawMarkdown"]);
   const markers = new Set();
@@ -101,6 +106,12 @@ function sourceFreshnessBodyMarkers(sourceFreshness) {
 function unexpectedOpenOperatorItems(readiness) {
   return (readiness?.openOperatorItems || [])
     .map((item) => Number(item.id))
+    .filter((id) => !allowedOpenOperatorItems.has(id));
+}
+
+function unexpectedStatusEvidenceOpenOperatorItems(statusEvidence) {
+  return (statusEvidence.evidence?.openOperatorItems || [])
+    .map((id) => Number(id))
     .filter((id) => !allowedOpenOperatorItems.has(id));
 }
 
@@ -130,11 +141,15 @@ function validateLaunchPacket(packet, packetPath) {
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
+  const statusEvidence = normalizedStatusEvidence(packet);
   const readiness = packet.readiness || {};
   const sourceTotals = sourceFreshness.totals || {};
   const sourceSecrets = sourceFreshness.secrets || {};
+  const statusDocuments = statusEvidence.documents || [];
+  const passedStatusDocuments = statusDocuments.filter((doc) => doc.passed).length;
   const sourceBodyMarkers = sourceFreshnessBodyMarkers(sourceFreshness);
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
+  const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(statusEvidence);
 
   addCheck(checks, "packet-status", packet.status === "passed", `status=${packet.status || "missing"}`);
   addCheck(checks, "packet-secret-values", packet.secrets?.valuesPrinted === false, `valuesPrinted=${packet.secrets?.valuesPrinted}`);
@@ -163,6 +178,25 @@ function validateLaunchPacket(packet, packetPath) {
       && Number(sourceTotals.passed || 0) === Number(sourceTotals.checks || 0)
       && Number(sourceTotals.sourcesFetched || 0) === Number(sourceTotals.sources || 0),
     `checks=${sourceTotals.passed ?? 0}/${sourceTotals.checks ?? 0}; sources=${sourceTotals.sourcesFetched ?? 0}/${sourceTotals.sources ?? 0}`,
+  );
+  addCheck(
+    checks,
+    "status-evidence-passed",
+    packet.statusEvidence?.passed === true,
+    `passed=${packet.statusEvidence?.passed}`,
+  );
+  addCheck(checks, "status-evidence-status", statusEvidence.status === "passed", `status=${statusEvidence.status || "missing"}`);
+  addCheck(
+    checks,
+    "status-evidence-documents",
+    statusDocuments.length >= 4 && passedStatusDocuments === statusDocuments.length,
+    `documents=${passedStatusDocuments}/${statusDocuments.length}`,
+  );
+  addCheck(
+    checks,
+    "status-evidence-open-operator-items-reconciled",
+    unexpectedStatusOpen.length === 0,
+    unexpectedStatusOpen.length ? `unexpected=${unexpectedStatusOpen.join(",")}` : "only #11/#4 or fewer remain open",
   );
   addCheck(
     checks,
@@ -203,6 +237,8 @@ function validateLaunchPacket(packet, packetPath) {
       sourceFreshnessChecks: sourceTotals.checks ? `${sourceTotals.passed}/${sourceTotals.checks}` : null,
       sourceFreshnessSources: sourceTotals.sources ? `${sourceTotals.sourcesFetched}/${sourceTotals.sources}` : null,
       sourceBodiesPrinted: sourceSecrets.sourceBodiesPrinted,
+      statusEvidenceStatus: statusEvidence.status || null,
+      statusEvidenceDocuments: statusDocuments.length ? `${passedStatusDocuments}/${statusDocuments.length}` : null,
       sourceCompletionReady: readiness.sourceCompletionReady === true,
       sourceRequirements: readiness.sourceRequirements || null,
       discordRouteCoverage: readiness.discordRouteCoverage || null,

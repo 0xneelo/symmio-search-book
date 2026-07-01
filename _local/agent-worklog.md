@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex release status-evidence packet hardening
+- Task: Make no-secret launch/release evidence packets expose the status-document evidence gate after adding `check-status-evidence`.
+- Scope: release/launch evidence scripts and validators, status docs if evidence paths change, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: release dry-run packet includes and validates status-evidence proof; full deterministic verify remains green; only #11/#4 remain operator gates.
+- Result: Added first-class status-document evidence to launch evidence packets, summarized it in release dry-run packets, and hardened the launch/release packet validators to require status evidence `passed`, checked documents `4/4`, and open operator items limited to #4/#11. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-status-evidence-20260701-1` passed with static artifact `1,650` files / `52,935,066` bytes, launch/monitoring/source freshness/status evidence all `passed`, status evidence documents `4/4`, `valuesPrinted:false`, and 0 sensitive-pattern matches. `npm run search-book:check-launch-evidence-packet -- --packet /tmp/search-book-release-dry-run-status-evidence-20260701-1/launch-evidence/launch-evidence.json` and `npm run search-book:check-release-dry-run-packet -- --packet /tmp/search-book-release-dry-run-status-evidence-20260701-1/release-dry-run.json` passed. Full `npm run search-book:verify`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, and `git diff --check` passed.
+
 ## 2026-07-01 — Codex status evidence consistency gate
 - Task: Add an executable status-doc consistency gate so current readiness counts cannot drift from generated data.
 - Scope: `scripts/check-status-evidence.mjs`, `package.json`, `scripts/build-all.mjs`, current status docs if needed, and `_local/agent-worklog.md`.

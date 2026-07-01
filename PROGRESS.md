@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Release Status-Evidence Packet Hardening
+
+- Added status-document evidence to `npm run search-book:launch-evidence`; each launch packet now records the `scripts/check-status-evidence.mjs` command, parsed status, checked documents, and reconciled open operator items alongside launch readiness, monitoring, and source freshness.
+- Extended `npm run search-book:release-dry-run` so the outer release packet summarizes nested launch status evidence, and hardened `npm run search-book:check-launch-evidence-packet` plus `npm run search-book:check-release-dry-run-packet` to fail if status evidence is missing, not passed, missing checked documents, or carries unexpected open operator items beyond #4/#11.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-status-evidence-20260701-1`: release status `passed`, static artifact `1,650` files / `52,935,066` bytes, launch/monitoring/source freshness/status evidence all `passed`, status evidence documents `4/4`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Both packet validators passed against `/tmp/search-book-release-dry-run-status-evidence-20260701-1/launch-evidence/launch-evidence.json` and `/tmp/search-book-release-dry-run-status-evidence-20260701-1/release-dry-run.json`; full `npm run search-book:verify` passed with 25 build steps, 77 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Status Evidence Consistency Gate
 
 - Added `scripts/check-status-evidence.mjs` and `npm run search-book:check-status-evidence` to compare current generated evidence against `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, and `README.md`.

@@ -31,8 +31,8 @@ Options:
 
 Validates a no-secret release dry-run packet plus its nested launch-evidence
 packet. This checks child steps, static artifact integrity, launch readiness,
-monitoring, Vibe source freshness, no sensitive matches, and reconciled open
-operator gates.`;
+monitoring, Vibe source freshness, status-document evidence, no sensitive
+matches, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -84,6 +84,10 @@ function normalizedSourceFreshnessEvidence(packet) {
   return packet.sourceFreshnessEvidence?.parsed || {};
 }
 
+function normalizedStatusEvidence(packet) {
+  return packet.statusEvidence?.parsed || {};
+}
+
 function sourceFreshnessBodyMarkers(value) {
   const forbiddenKeys = new Set(["normalizedText", "rawText", "sourceBody", "markdownBody", "rawMarkdown"]);
   const markers = new Set();
@@ -105,6 +109,12 @@ function sourceFreshnessBodyMarkers(value) {
 function unexpectedOpenOperatorItems(readiness) {
   return (readiness?.openOperatorItems || [])
     .map((item) => Number(item.id))
+    .filter((id) => !allowedOpenOperatorItems.has(id));
+}
+
+function unexpectedStatusEvidenceOpenOperatorItems(statusEvidence) {
+  return (statusEvidence.evidence?.openOperatorItems || [])
+    .map((id) => Number(id))
     .filter((id) => !allowedOpenOperatorItems.has(id));
 }
 
@@ -137,11 +147,15 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const launchSummary = packet.launchEvidence || {};
   const nestedLaunch = normalizedLaunchEvidence(nestedLaunchPacket);
   const nestedSourceFreshness = normalizedSourceFreshnessEvidence(nestedLaunchPacket);
+  const nestedStatusEvidence = normalizedStatusEvidence(nestedLaunchPacket);
   const nestedSourceSecrets = nestedSourceFreshness.secrets || {};
   const nestedSourceTotals = nestedSourceFreshness.totals || {};
+  const nestedStatusDocuments = nestedStatusEvidence.documents || [];
+  const nestedPassedStatusDocuments = nestedStatusDocuments.filter((doc) => doc.passed).length;
   const sourceBodyMarkers = sourceFreshnessBodyMarkers(nestedSourceFreshness);
   const readiness = packet.readiness || {};
   const unexpectedOpen = unexpectedOpenOperatorItems(readiness);
+  const unexpectedStatusOpen = unexpectedStatusEvidenceOpenOperatorItems(nestedStatusEvidence);
 
   addCheck(checks, "release-status", packet.status === "passed", `status=${packet.status || "missing"}`);
   addCheck(checks, "release-secret-values", packet.secrets?.valuesPrinted === false, `valuesPrinted=${packet.secrets?.valuesPrinted}`);
@@ -168,6 +182,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-source-freshness-status",
     launchSummary.sourceFreshnessStatus === "passed",
     `sourceFreshnessStatus=${launchSummary.sourceFreshnessStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-status-evidence-status",
+    launchSummary.statusEvidenceStatus === "passed",
+    `statusEvidenceStatus=${launchSummary.statusEvidenceStatus || "missing"}`,
   );
   addCheck(checks, "nested-launch-status", nestedLaunchPacket.status === "passed", `status=${nestedLaunchPacket.status || "missing"}`);
   addCheck(checks, "nested-launch-readiness-status", nestedLaunch.status === "passed", `status=${nestedLaunch.status || "missing"}`);
@@ -196,6 +216,30 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       && Number(nestedSourceTotals.passed || 0) === Number(nestedSourceTotals.checks || 0)
       && Number(nestedSourceTotals.sourcesFetched || 0) === Number(nestedSourceTotals.sources || 0),
     `checks=${nestedSourceTotals.passed ?? 0}/${nestedSourceTotals.checks ?? 0}; sources=${nestedSourceTotals.sourcesFetched ?? 0}/${nestedSourceTotals.sources ?? 0}`,
+  );
+  addCheck(
+    checks,
+    "nested-status-evidence-passed",
+    nestedLaunchPacket.statusEvidence?.passed === true,
+    `passed=${nestedLaunchPacket.statusEvidence?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-status-evidence-status",
+    nestedStatusEvidence.status === "passed",
+    `status=${nestedStatusEvidence.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-status-evidence-documents",
+    nestedStatusDocuments.length >= 4 && nestedPassedStatusDocuments === nestedStatusDocuments.length,
+    `documents=${nestedPassedStatusDocuments}/${nestedStatusDocuments.length}`,
+  );
+  addCheck(
+    checks,
+    "nested-status-evidence-open-operator-items-reconciled",
+    unexpectedStatusOpen.length === 0,
+    unexpectedStatusOpen.length ? `unexpected=${unexpectedStatusOpen.join(",")}` : "only #11/#4 or fewer remain open",
   );
   addCheck(
     checks,
@@ -241,6 +285,8 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       sourceFreshnessChecks: nestedSourceTotals.checks ? `${nestedSourceTotals.passed}/${nestedSourceTotals.checks}` : null,
       sourceFreshnessSources: nestedSourceTotals.sources ? `${nestedSourceTotals.sourcesFetched}/${nestedSourceTotals.sources}` : null,
       sourceBodiesPrinted: nestedSourceSecrets.sourceBodiesPrinted,
+      statusEvidenceStatus: launchSummary.statusEvidenceStatus || null,
+      statusEvidenceDocuments: nestedStatusDocuments.length ? `${nestedPassedStatusDocuments}/${nestedStatusDocuments.length}` : null,
       steps: (packet.steps || []).map((step) => ({ id: step.id, status: step.status })),
       sourceCompletionReady: readiness.sourceCompletionReady === true,
       sourceRequirements: readiness.sourceRequirements || null,
