@@ -60,6 +60,10 @@ jobs:
         run: |
           npm run search-book:build-static-artifact -- --out-dir "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"
 
+      - name: Smoke static artifact
+        run: |
+          npm run search-book:smoke-static -- --root "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"
+
       - name: Check artifact manifest
         run: |
           test -f "$SEARCH_BOOK_STATIC_ARTIFACT_DIR/index.html"

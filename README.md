@@ -128,6 +128,8 @@ To build a platform-neutral static preview bundle, run
 `npm run search-book:build-static-artifact`; the manual GitHub workflow
 `Search Book Static Artifact` uploads the same `index.html`/data/content bundle for
 review or platform handoff without choosing the final deploy route.
+To smoke-test a copied bundle directly, run
+`npm run search-book:smoke-static -- --root /tmp/search-book-static-site`.
 
 ## Environment
 

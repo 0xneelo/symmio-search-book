@@ -151,7 +151,9 @@ npm run search-book:build-static-artifact
 The command writes a clean `/tmp/search-book-static-site` bundle containing `index.html`,
 generated data assets, and content markdown, then validates the copied bundle with static
 integrity checks and writes `static-artifact-manifest.json`. The manual GitHub workflow
-`Search Book Static Artifact` builds and uploads the same bundle as a short-lived artifact.
+`Search Book Static Artifact` builds the same bundle, smoke-tests it with
+`npm run search-book:smoke-static -- --root /tmp/search-book-static-site`, and uploads it
+as a short-lived artifact.
 
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion

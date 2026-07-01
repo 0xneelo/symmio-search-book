@@ -7,7 +7,38 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const serverScript = path.join(__dirname, "serve-static-preview.mjs");
+const searchBookRoot = path.resolve(__dirname, "..");
 const host = "127.0.0.1";
+
+const defaults = {
+  root: searchBookRoot,
+};
+
+function usage() {
+  return `Usage:
+  node scripts/smoke-static-preview.mjs [--root path]
+
+Options:
+  --root path   Static site root to serve. Default: repository root.
+`;
+}
+
+function parseArgs(argv) {
+  const args = { ...defaults };
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--help" || arg === "-h") {
+      console.log(usage());
+      process.exit(0);
+    }
+    const next = argv[index + 1];
+    if (!next || next.startsWith("--")) throw new Error(`${arg} requires a value.\n${usage()}`);
+    if (arg === "--root") args.root = path.resolve(next);
+    else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
+    index += 1;
+  }
+  return args;
+}
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -76,11 +107,12 @@ async function stopChild(child) {
 }
 
 async function main() {
+  const args = parseArgs(process.argv.slice(2));
   const port = await getFreePort();
   assert(port, "could not allocate a local port for static preview smoke test.");
   const baseUrl = `http://${host}:${port}`;
   const logs = { stdout: "", stderr: "" };
-  const child = spawn(process.execPath, [serverScript, "--host", host, "--port", String(port)], {
+  const child = spawn(process.execPath, [serverScript, "--host", host, "--port", String(port), "--root", args.root], {
     stdio: ["ignore", "pipe", "pipe"],
     env: { ...process.env },
   });
@@ -123,6 +155,7 @@ async function main() {
       status: "passed",
       service: "search-book-static-preview",
       baseUrl,
+      root: args.root,
       checks: {
         home: "ok",
         exactPageUrl: "ok",

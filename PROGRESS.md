@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Static Artifact Smoke Root
+
+- Updated `scripts/smoke-static-preview.mjs` so `npm run search-book:smoke-static -- --root <artifact-dir>` can serve and test a copied static artifact instead of only the repository root.
+- Updated the `Search Book Static Artifact` workflow to smoke-test `/tmp/search-book-static-site` after building it and before uploading the artifact.
+- Documented the artifact-root smoke command in README and deployment guidance.
+- Verified both smoke modes: default repo-root smoke passed at `127.0.0.1:46660`, and artifact-root smoke passed against `/tmp/search-book-static-site-smoke-root-20260701-1` at `127.0.0.1:46268`; both checked home, exact-page URL, generated assets, and missing-route `404`.
+
 ## 2026-07-01 — Static Preview Artifact Workflow
 
 - Added `scripts/build-static-artifact.mjs` and `npm run search-book:build-static-artifact` to copy the static Search Book front door, generated data assets, and content markdown into a clean `/tmp/search-book-static-site` bundle.

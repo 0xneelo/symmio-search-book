@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex static artifact smoke root
+- Task: Smoke-test copied static artifacts as served sites before platform handoff.
+- Scope: `scripts/smoke-static-preview.mjs`, `.github/workflows/search-book-static-artifact.yml`, README/deployment/progress docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Default static smoke still passes, `npm run search-book:smoke-static -- --root <artifact-dir>` passes against a freshly built artifact, workflow YAML parses, full `npm run search-book:verify` remains green, and readiness boundaries stay at #17/#11/#4.
+- Result: Added `--root` support to `scripts/smoke-static-preview.mjs` and wired the `Search Book Static Artifact` workflow to smoke-test `/tmp/search-book-static-site` before upload. Built `/tmp/search-book-static-site-smoke-root-20260701-1` successfully with 1,648 files and 0 sensitive-pattern matches. Default repo-root smoke passed at `127.0.0.1:46660`; artifact-root smoke passed at `127.0.0.1:46268`; both checked home, exact-page URL, generated assets, and missing-route `404`.
+
 ## 2026-07-01 — Codex static preview artifact workflow
 - Task: Add a platform-neutral static preview artifact path that does not decide the final deploy route.
 - Scope: `scripts/build-static-artifact.mjs`, `scripts/check-static-integrity.mjs`, `.github/workflows/search-book-static-artifact.yml`, `package.json`, README/deployment/final-report/progress docs, and `_local/agent-worklog.md`.
