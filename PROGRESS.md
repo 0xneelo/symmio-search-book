@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Discord Refusal Runtime Regression
+
+- Added `npm run search-book:check-discord-refusals`, a deterministic extractive-mode runtime guard for public-safe Discord/Lafa refusal probes.
+- The checker requires the two refusal-policy-ready lanes to stay refusal-only at runtime: `discord-corpus-review-required`, `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials.
+- Wired the checker into `npm run search-book:verify` after the Discord review-artifact validation so runtime behavior cannot drift from the no-raw editorial queue.
+
 ## 2026-07-01 — Discord Refusal Policy Readiness
 
 - Made the remaining no-raw Discord/Lafa refusal lane explicit: 2/2 refusal-review items are `policy-refusal-ready`, with 0/2 refusal-policy review-required items.

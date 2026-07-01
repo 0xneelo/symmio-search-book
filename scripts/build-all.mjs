@@ -238,6 +238,20 @@ function runDiscordReviewArtifactsCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runDiscordRefusalRuntimeCheck(env, dryRun) {
+  const step = {
+    id: "check-discord-refusal-runtime",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-discord-refusal-runtime.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runStatusEvidenceCheck(env, dryRun) {
   const step = {
     id: "check-status-evidence",
@@ -460,6 +474,7 @@ if (args.dryRun) {
     runReadinessEvidenceCheck(env, true);
     runStaticIntegrityCheck(env, true);
     runDiscordReviewArtifactsCheck(env, true);
+    runDiscordRefusalRuntimeCheck(env, true);
     runStatusEvidenceCheck(env, true);
     runOperatorInboxConsistencyCheck(env, true);
     runEvidenceSummaryRendererCheck(env, true);
@@ -480,6 +495,7 @@ let sensitivePatternScan = null;
 let readinessEvidence = null;
 let staticIntegrity = null;
 let discordReviewArtifacts = null;
+let discordRefusalRuntime = null;
 let statusEvidence = null;
 let operatorInboxConsistency = null;
 let evidenceSummaryRenderer = null;
@@ -491,6 +507,7 @@ if (args.verify) {
   readinessEvidence = runReadinessEvidenceCheck(env, false);
   staticIntegrity = runStaticIntegrityCheck(env, false);
   discordReviewArtifacts = runDiscordReviewArtifactsCheck(env, false);
+  discordRefusalRuntime = runDiscordRefusalRuntimeCheck(env, false);
   statusEvidence = runStatusEvidenceCheck(env, false);
   operatorInboxConsistency = runOperatorInboxConsistencyCheck(env, false);
   evidenceSummaryRenderer = runEvidenceSummaryRendererCheck(env, false);
@@ -507,6 +524,7 @@ console.log(JSON.stringify({
   readinessEvidence,
   staticIntegrity,
   discordReviewArtifacts,
+  discordRefusalRuntime,
   statusEvidence,
   operatorInboxConsistency,
   evidenceSummaryRenderer,

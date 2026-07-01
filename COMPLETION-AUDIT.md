@@ -25,6 +25,7 @@ Generated evidence from the latest checked repo state:
 - `data/discord-corpus.json`: real Discord corpus imported in internal-only mode with 5,000 messages, 723 question clusters, 837 configured Lafa candidates, and no raw message text stored.
 - `data/discord-review-routing.json`: sanitized Discord/Lafa routing summary ready with 24 routed items, 19/19 page-fit groups covered by public route aliases, source-backed triage 19/19 page-fit groups, public-copy ready 19/19 page-fit groups, public-copy review required 0/19 page-fit groups, refusal policy ready 2/2 refusal items, refusal policy review required 0/2 refusal items, 0 single-route groups remaining, and no raw Discord/Lafa/source answer text included.
 - `DISCORD-EDITORIAL-QUEUE.md`: no-raw Markdown reviewer queue generated from the sanitized routing summary, listing page-fit and refusal-review work with item ids, page ids, source keys, counts, automated triage status, public-copy readiness status, refusal policy status, and refusal reasons only; `npm run search-book:check-discord-review-artifacts` validates it against the JSON summary.
+- `npm run search-book:check-discord-refusals`: public-safe runtime guardrail check passes for the Discord/Lafa refusal probes with `status:"refusal"`, `refusalReason:"discord-corpus-review-required"`, `gapId:"G-001"`, zero citations, zero answer bytes, no primary page, and no LLM credentials loaded.
 - `data/question-routes.json`: 820 exact routes.
 - `data/faq.json`: 822 FAQ entries.
 - `data/answer-chunks.json`: 2,884 chunks.

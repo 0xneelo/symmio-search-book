@@ -198,6 +198,9 @@ Validate either the committed no-raw summary alone or the full local review/rout
 paths, and checks for raw-field or sample-text leakage without echoing excerpts. The same
 check validates `DISCORD-EDITORIAL-QUEUE.md` against the sanitized routing summary so the
 Markdown reviewer handoff cannot silently drift.
+Validate the public-safe runtime refusal boundary with `npm run search-book:check-discord-refusals`;
+it runs extractive-mode answer probes for the Discord/Lafa refusal lanes and requires refusal,
+`G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials.
 
 ## Environment
 

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord refusal runtime regression
+- Task: Add a deterministic runtime regression proving public-safe Discord/Lafa refusal-lane probes still refuse before retrieval/LLM answer synthesis.
+- Scope: `scripts/check-discord-refusal-runtime.mjs`, `scripts/build-all.mjs`, `package.json`, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Runtime probes for the two refusal-policy-ready Discord/Lafa lanes return `status:"refusal"`, `refusalReason:"discord-corpus-review-required"`, `gapId:"G-001"`, no answer text, no citations, no primary page, no LLM credentials loaded, and full verify remains green.
+- Result: Added `npm run search-book:check-discord-refusals` and wired it into `npm run search-book:verify`. The checker runs extractive-mode answer probes for the public-safe Discord/Lafa refusal lanes with LLM env values blanked, and requires `status:"refusal"`, `refusalReason:"discord-corpus-review-required"`, `gapId:"G-001"`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials. Focused checks passed: `node --check scripts/check-discord-refusal-runtime.mjs`, `node --check scripts/build-all.mjs`, `npm run search-book:check-discord-refusals`, `npm run search-book:check-status-evidence`, and `git diff --check`. Full `npm run search-book:verify` passed with 26 build steps, 83 syntax checks, Discord review artifacts `passed`, Discord refusal runtime `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, publication boundaries `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord refusal policy readiness
 - Task: Make the remaining Discord/Lafa refusal lane explicit as no-raw policy-ready refusal evidence.
 - Scope: `scripts/build-discord-routing-summary.mjs`, `scripts/build-discord-editorial-queue.mjs`, `scripts/check-discord-review-artifacts.mjs`, packet/evidence/status validators, regenerated `data/discord-review-routing.*`, `DISCORD-EDITORIAL-QUEUE.md`, status docs, and `_local/agent-worklog.md`.
