@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Localhost Preview And Staging Launch Drill
+
+- Hosted the standalone Search Book static preview at `http://127.0.0.1:8798/?service=http%3A%2F%2F127.0.0.1%3A8797&serviceMode=extractive`, backed by the extractive answer-engine service at `http://127.0.0.1:8797` and SQLite DB `/tmp/search-book-answer-engine-localhost-8797.sqlite`.
+- Verified the live local preview manually: static page returned `200` with the Ask UI and service bridge, service `/health` returned `200` with 2,883 chunks and 799 routes, and "What is Vibe Trading?" returned `answered` with primary page `authored-vibe-product-overview`, 2 citations, and persisted telemetry.
+- Created restore-checked backup manifest `/tmp/search-book-localhost-8797-launch-drill.manifest.json`; backup status `passed`, restore-check `passed`, integrity `ok`, 4 tables checked, table counts matched, checksum present, and backup size positive.
+- Ran the staging launch gate against the live local preview/service with write-smoke: `13` checks, `10` passed, `0` failed, `3` expected staging warnings for reviewer owner, review cadence, and backup storage assignment. Fresh verify inside the launch gate passed with 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`; deployment smoke answered and recorded a rating with 2 citations.
+- Re-probed the provided Discord export path; direct Node open and `scripts/build-discord-corpus.mjs --input ... --publication-mode paraphrase` still return `EACCES`, so OPERATOR-INBOX #17 remains the single Discord file-release follow-up and #2 remains resolved.
+
 ## 2026-07-01 — Source-Blocker Reconciliation And Readiness Rebuild
 
 - Re-read the reconciled operator ground truth and updated the durable docs so only production VPS env install (#11) and public frontend platform/deploy route (#4) remain as production operator gates. Discord export/access (#2), Vibe Notion (#5), oldest-whitepaper v1 scope (#6), SSHE boundary (#7), and the fifteenth-pass checkpoint (#12) are resolved and must not be re-opened.
