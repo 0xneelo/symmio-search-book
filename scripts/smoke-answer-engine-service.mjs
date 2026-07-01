@@ -14,6 +14,7 @@ const host = "127.0.0.1";
 const allowedOrigin = "https://docs.example.test";
 const blockedOrigin = "https://blocked.example.test";
 const moderationToken = "search-book-smoke-token";
+const metricsToken = "search-book-metrics-smoke-token";
 const dbPath = path.join(os.tmpdir(), `search-book-answer-engine-smoke-${process.pid}-${Date.now()}.sqlite`);
 const emptyLlmEnv = {
   SEARCH_BOOK_LLM_API_STYLE: "",
@@ -151,6 +152,8 @@ async function main() {
       SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT: "true",
       SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN: moderationToken,
       SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT: "10",
+      SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT: "true",
+      SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN: metricsToken,
       SEARCH_BOOK_EMBED_ENDPOINT: "http://127.0.0.1:1/test-embeddings",
       SEARCH_BOOK_EMBED_MODEL: "smoke-embedding",
       SEARCH_BOOK_LLM_API_KEY: "smoke-key",
@@ -171,6 +174,7 @@ async function main() {
     assert(health.service === "search-book-answer-engine", "health did not identify the answer-engine service.");
     assert(health.defaultMode === "extractive", "health did not report extractive default mode.");
     assert(health.operations?.moderation?.configured === true, "moderation export was not configured in smoke service.");
+    assert(health.operations?.metrics?.configured === true, "metrics export was not configured in smoke service.");
     assert(
       (health.operations?.cors?.allowedOrigins || []).includes(allowedOrigin),
       "health did not report configured CORS allowed origin.",
@@ -307,6 +311,23 @@ async function main() {
     assert((moderation.payload.queue?.lowRatedAnswers || []).length >= 1, "moderation queue did not expose low-rated answer.");
     assert((moderation.payload.queue?.gapBacklog || []).length >= 1, "moderation queue did not expose gap backlog.");
 
+    const forbiddenMetrics = await requestJson(baseUrl, "/api/search-book/metrics");
+    assert(forbiddenMetrics.statusCode === 403, "metrics endpoint allowed unauthenticated access.");
+
+    const metricsExport = await requestJson(baseUrl, "/api/search-book/metrics", {
+      headers: { "x-search-book-metrics-token": metricsToken },
+    });
+    assert(metricsExport.statusCode === 200, `metrics endpoint returned ${metricsExport.statusCode}.`);
+    assert(metricsExport.payload.status === "ok", `metrics status was ${metricsExport.payload.status}.`);
+    assert(metricsExport.payload.policy?.privacy?.includesRawUserQuestions === false, "metrics export must not include raw user questions.");
+    assert(metricsExport.payload.policy?.privacy?.includesSecrets === false, "metrics export must not include secrets.");
+    assert((metricsExport.payload.counters?.answers?.total || 0) >= 3, "metrics export did not count answer requests.");
+    assert((metricsExport.payload.counters?.ratings?.total || 0) >= 2, "metrics export did not count ratings.");
+    assert((metricsExport.payload.datastore?.totals?.questions || 0) >= 3, "metrics export did not include datastore totals.");
+    const renderedMetrics = JSON.stringify(metricsExport.payload);
+    assert(!renderedMetrics.includes("What is Vibe Trading?"), "metrics export leaked raw question text.");
+    assert(!renderedMetrics.includes(reuseSeedQuery), "metrics export leaked raw cached-question text.");
+
     const summaryResult = spawnSync(process.execPath, [summaryScript, "--db", dbPath, "--format", "json", "--limit", "10"], {
       encoding: "utf8",
       env: process.env,
@@ -411,6 +432,24 @@ async function main() {
       for (const suffix of ["", "-shm", "-wal"]) fs.rmSync(`${rlDbPath}${suffix}`, { force: true });
     }
 
+    const metricsDisabledLogs = { stdout: "", stderr: "" };
+    const metricsDisabledDbPath = `${dbPath}.metrics-disabled`;
+    const metricsDisabled = await startService({
+      SEARCH_BOOK_ANSWER_ENGINE_DB: metricsDisabledDbPath,
+      SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE: "0",
+    }, metricsDisabledLogs);
+    let metricsDisabledStatusCode = 0;
+    try {
+      const disabledMetrics = await requestJson(metricsDisabled.baseUrl, "/api/search-book/metrics", {
+        headers: { "x-search-book-metrics-token": metricsToken },
+      });
+      assert(disabledMetrics.statusCode === 404, `disabled metrics endpoint returned ${disabledMetrics.statusCode}, expected 404.`);
+      metricsDisabledStatusCode = disabledMetrics.statusCode;
+    } finally {
+      await stopChild(metricsDisabled.child);
+      for (const suffix of ["", "-shm", "-wal"]) fs.rmSync(`${metricsDisabledDbPath}${suffix}`, { force: true });
+    }
+
     console.log(JSON.stringify({
       status: "passed",
       service: "search-book-answer-engine",
@@ -422,6 +461,8 @@ async function main() {
         insights: insights.payload.status,
         moderationUnauthenticated: forbiddenModeration.statusCode,
         moderationAuthenticated: moderation.payload.status,
+        metricsUnauthenticated: forbiddenMetrics.statusCode,
+        metricsAuthenticated: metricsExport.payload.status,
       },
       cors: {
         allowedOrigin,
@@ -452,6 +493,14 @@ async function main() {
         enabled: moderation.payload.policy?.moderation?.enabled === true,
         gapBacklog: moderation.payload.queue.gapBacklog.length,
         lowRatedAnswers: moderation.payload.queue.lowRatedAnswers.length,
+      },
+      metrics: {
+        enabled: metricsExport.payload.policy?.metrics?.enabled === true,
+        answers: metricsExport.payload.counters.answers.total,
+        ratings: metricsExport.payload.counters.ratings.total,
+        disabledStatusCode: metricsDisabledStatusCode,
+        rawUserContent: metricsExport.payload.policy.privacy.includesRawUserQuestions,
+        secrets: metricsExport.payload.policy.privacy.includesSecrets,
       },
       livingDocsSummary: {
         status: summary.status,

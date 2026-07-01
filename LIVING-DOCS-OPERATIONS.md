@@ -1,6 +1,6 @@
 # Search Book Living-Docs Operations
 
-This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, CORS allowlist, gated moderation export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
+This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, service environment, and parked source imports.
 
 ## Operating Boundary
 
@@ -8,7 +8,7 @@ The living-docs loop exists to turn real questions into better docs without weak
 
 - Every public answer must stay grounded in Search Book pages and citations.
 - Raw user questions, rating notes, moderation exports, and summary outputs are internal reviewer material until privacy review approves publication.
-- The moderation token is server-only. Never place it in `index.html`, static data files, Linear comments, screenshots, docs, or browser-visible config.
+- The moderation and metrics tokens are server-only. Never place them in `index.html`, static data files, Linear comments, screenshots, docs, or browser-visible config.
 - Operator-blocked topics stay blocked. Do not turn Discord/Lafa, Notion, oldest-whitepaper, SSHE, production credential, or deploy-route gaps into public claims until the matching `OPERATOR-INBOX.md` item is resolved.
 - Guardrail refusals are product behavior, not content bugs: secret requests, prompt injection, source-family-missing questions, internal-draft requests, financial advice, and Phase B economics should continue refusing unless the approved source boundary changes.
 
@@ -23,6 +23,8 @@ SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS=https://<public-docs-route>
 SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=false
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN=
 SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT=50
+SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=false
+SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=
 ```
 
 LLM synthesis setup remains separate:
@@ -114,6 +116,27 @@ Review queues:
 
 After review, keep exports only in approved internal storage. Do not commit moderation JSON or paste raw export bodies into Linear.
 
+## Metrics Export
+
+Enable metrics export only for trusted internal monitoring.
+
+```sh
+SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=true
+SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=<server-only-token>
+```
+
+Fetch metrics with a server-side or trusted internal client:
+
+```sh
+curl -sS \
+  -H "Authorization: Bearer $SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN" \
+  "$SEARCH_BOOK_ANSWER_ENGINE_URL/api/search-book/metrics"
+```
+
+Metrics include uptime, route/status counters, answer/rating counters, datastore totals,
+runtime counts, and memory usage. They deliberately exclude raw questions, answers, rating
+notes, moderation queues, API keys, and tokens.
+
 ## Backup And Restore Check
 
 Back up the SQLite datastore before deploys, source-corpus migrations, retention-policy changes, and any production incident response that may alter stored questions, ratings, gaps, or helpful-answer cache rows.
@@ -181,8 +204,9 @@ Weekly reviewer checklist:
 - Confirm helpful answer-cache reuse does not serve operator-blocked or source-family-missing topics.
 - Confirm dynamic example chips are helpful-rated questions, not private support text.
 - Confirm retention is pruning question, rating, gap, and answer-cache rows according to policy.
+- Confirm metrics export is either disabled or reachable only through an internal token-gated monitoring path.
 - Confirm the latest SQLite backup manifest reports restore-check `passed`.
-- Confirm no moderation tokens, API keys, DB files, or raw exports are committed.
+- Confirm no moderation tokens, metrics tokens, API keys, DB files, or raw exports are committed.
 - File or update Linear issues for source imports, deploy tasks, runtime bugs, or content batches.
 
 ## Launch Gate
@@ -197,6 +221,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS` is set to the public docs route, not the local wildcard default.
 - `npm run search-book:check-production-env` passes with the production service env loaded.
 - Moderation export is disabled by default and token-gated when enabled.
+- Metrics export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.
 - Discord/Lafa import is either completed or explicitly launch-parked.
 - `npm run search-book:smoke-service` passes against an isolated database.

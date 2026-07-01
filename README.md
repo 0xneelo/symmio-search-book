@@ -71,13 +71,14 @@ node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" --mode extra
 
 `scripts/serve-answer-engine.mjs` exposes `POST /api/search-book/answer`,
 `POST /api/search-book/rating`, `GET /api/search-book/insights`,
-`GET /api/search-book/examples`, `GET /api/search-book/moderation`, and `GET /health`,
+`GET /api/search-book/examples`, `GET /api/search-book/moderation`,
+`GET /api/search-book/metrics`, and `GET /health`,
 persisting to SQLite (`node:sqlite`). Point the static frontend at it with
 `index.html?service=http://127.0.0.1:8787`; ratings, Search Insights, and dynamic example
 chips use the service while keeping `localStorage` + curated-example fallback. Retention,
 the browser CORS allowlist (`SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`, default `*`),
-the disabled-by-default token-gated moderation export, the reviewer gap-summary job
-(`npm run search-book:living-docs-summary`), and the backup/restore-check utility
+the disabled-by-default token-gated moderation and metrics exports, the reviewer gap-summary
+job (`npm run search-book:living-docs-summary`), and the backup/restore-check utility
 (`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. Before
 production launch, run `npm run search-book:check-production-env` with the service env
 loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local

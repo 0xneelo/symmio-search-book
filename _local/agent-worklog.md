@@ -18,3 +18,10 @@
 - Status: Complete.
 - Verification target: Run production preflight against `.secrets/search-book.env` without printing secret values and update existing inbox items rather than creating duplicate blockers.
 - Result: `node --env-file=.secrets/search-book.env scripts/check-production-env.mjs --json` failed closed with `llmApiKeyConfigured:true`, `valuesPrinted:false`, and remaining deploy-env gaps: missing `SEARCH_BOOK_ANSWER_ENGINE_DB`, missing `SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE=llm`, and missing `SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`.
+
+## 2026-07-01 — Codex answer-engine metrics export
+- Task: Add token-gated operational metrics for answer-engine observability without exposing raw user content or secrets.
+- Scope: `_local/agent-worklog.md`, `scripts/serve-answer-engine.mjs`, `scripts/smoke-answer-engine-service.mjs`, env/docs, and generated readiness evidence.
+- Status: Complete. Work is in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Verification target: service smoke covers disabled/unauthenticated/authenticated metrics, metrics payload has operational counters only, and `npm run search-book:verify` remains green.
+- Result: Implemented disabled-by-default `GET /api/search-book/metrics` with a server-only metrics token or moderation-token fallback. Smoke passed with unauthenticated metrics `403`, authenticated metrics `ok`, disabled metrics `404`, answer count `3`, rating count `2`, and no raw question/secrets in the metrics payload. Production-shaped preflight passed `26/26`; `.env.example` and local `.secrets/search-book.env` still fail closed without printing secret values. Full verify passed with 24 build steps, 61 syntax checks, 798 routes, 2,878 chunks, readiness evidence passed, and static integrity passed.

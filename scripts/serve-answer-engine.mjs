@@ -37,11 +37,36 @@ const config = {
   moderationExportEnabled: process.env.SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT === "true",
   moderationExportLimit: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_LIMIT || 50),
   moderationToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN || "",
+  metricsExportEnabled: process.env.SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT === "true",
+  metricsToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN || process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN || "",
 };
 
 const allowedModes = new Set(["extractive", "llm"]);
 const allowedRatings = new Set(["yes", "no", "useful", "not-useful"]);
 const rateBuckets = new Map();
+const metrics = {
+  startedAt: nowIso(),
+  requestsTotal: 0,
+  responsesTotal: 0,
+  routeCounts: {},
+  statusCounts: {},
+  answers: {
+    total: 0,
+    byMode: {},
+    byStatus: {},
+    bySource: {},
+    degradedByReason: {},
+  },
+  ratings: {
+    total: 0,
+    byRating: {},
+  },
+  rateLimited: 0,
+  corsRejected: 0,
+  moderationExports: 0,
+  metricsExports: 0,
+  errors: 0,
+};
 
 function nowIso() {
   return new Date().toISOString();
@@ -79,7 +104,7 @@ function corsHeaders(req) {
   const headers = {
     "content-type": "application/json; charset=utf-8",
     "access-control-allow-methods": "GET,POST,OPTIONS",
-    "access-control-allow-headers": "content-type,authorization,x-search-book-moderation-token",
+    "access-control-allow-headers": "content-type,authorization,x-search-book-moderation-token,x-search-book-metrics-token",
   };
   const origin = corsOrigin(req);
   if (origin) headers["access-control-allow-origin"] = origin;
@@ -94,6 +119,7 @@ function originAllowed(req) {
 
 function requireAllowedOrigin(req, res) {
   if (originAllowed(req)) return true;
+  metrics.corsRejected += 1;
   jsonResponse(req, res, 403, {
     status: "forbidden-origin",
     message: "Origin is not allowed by SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS.",
@@ -103,8 +129,47 @@ function requireAllowedOrigin(req, res) {
 
 function jsonResponse(req, res, statusCode, payload) {
   const body = JSON.stringify(payload, null, 2);
+  recordResponse(req, statusCode);
   res.writeHead(statusCode, corsHeaders(req));
   res.end(`${body}\n`);
+}
+
+function increment(bucket, key) {
+  const value = String(key || "unknown");
+  bucket[value] = (bucket[value] || 0) + 1;
+}
+
+function routeKey(method, pathname) {
+  if (method === "OPTIONS") return "preflight";
+  if (pathname === "/health") return "health";
+  if (pathname === "/api/search-book/answer") return "answer";
+  if (pathname === "/api/search-book/rating") return "rating";
+  if (pathname === "/api/search-book/insights") return "insights";
+  if (pathname === "/api/search-book/examples") return "examples";
+  if (pathname === "/api/search-book/moderation") return "moderation";
+  if (pathname === "/api/search-book/metrics") return "metrics";
+  return "not-found";
+}
+
+function recordRequest(req, route) {
+  req.searchBookRoute = route;
+  metrics.requestsTotal += 1;
+  increment(metrics.routeCounts, route);
+}
+
+function recordResponse(req, statusCode) {
+  metrics.responsesTotal += 1;
+  increment(metrics.statusCounts, statusCode);
+  if (statusCode >= 500) metrics.errors += 1;
+}
+
+function recordAnswerMetrics(request, response, { rateLimited = false } = {}) {
+  metrics.answers.total += 1;
+  increment(metrics.answers.byMode, request.mode);
+  increment(metrics.answers.byStatus, response?.status || "unknown");
+  increment(metrics.answers.bySource, response?.source || "runtime");
+  if (response?.degraded?.reason) increment(metrics.answers.degradedByReason, response.degraded.reason);
+  if (rateLimited) metrics.rateLimited += 1;
 }
 
 function readJsonBody(req) {
@@ -669,6 +734,19 @@ function moderationPolicy() {
   };
 }
 
+function metricsPolicy() {
+  return {
+    enabled: config.metricsExportEnabled,
+    endpoint: "/api/search-book/metrics",
+    tokenRequired: true,
+    tokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN",
+    fallbackTokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN",
+    enableEnv: "SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT",
+    exposesUserQuestions: false,
+    exposesSecrets: false,
+  };
+}
+
 function headerValue(req, name) {
   const value = req.headers[name];
   if (Array.isArray(value)) return value[0] || "";
@@ -679,7 +757,7 @@ function bearerToken(req) {
   const authorization = headerValue(req, "authorization");
   const match = authorization.match(/^Bearer\s+(.+)$/i);
   if (match) return match[1].trim();
-  return headerValue(req, "x-search-book-moderation-token").trim();
+  return headerValue(req, "x-search-book-moderation-token").trim() || headerValue(req, "x-search-book-metrics-token").trim();
 }
 
 function tokenMatches(actual, expected) {
@@ -698,6 +776,18 @@ function requireModerationAccess(req) {
   }
   if (!tokenMatches(bearerToken(req), config.moderationToken)) {
     throw Object.assign(new Error("Moderation export token is missing or invalid."), { statusCode: 403 });
+  }
+}
+
+function requireMetricsAccess(req) {
+  if (!config.metricsExportEnabled) {
+    throw Object.assign(new Error("Metrics export is disabled."), { statusCode: 404 });
+  }
+  if (!config.metricsToken) {
+    throw Object.assign(new Error("Metrics export requires SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN or SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN."), { statusCode: 403 });
+  }
+  if (!tokenMatches(bearerToken(req), config.metricsToken)) {
+    throw Object.assign(new Error("Metrics export token is missing or invalid."), { statusCode: 403 });
   }
 }
 
@@ -882,6 +972,7 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
   const mode = body.mode || config.defaultMode;
   if (!allowedModes.has(mode)) throw Object.assign(new Error("mode must be extractive or llm."), { statusCode: 400 });
   if (overLimit && mode !== "llm") {
+    metrics.rateLimited += 1;
     jsonResponse(req, res, 429, { status: "rate-limited", message: "Too many requests." });
     return;
   }
@@ -911,6 +1002,7 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
   }
 
   const persisted = persistQuestion(db, request, result);
+  recordAnswerMetrics(request, result.response, { rateLimited: overLimit });
   jsonResponse(req, res, 200, {
     ...result.response,
     persisted,
@@ -920,6 +1012,8 @@ async function handleAnswer(db, runtime, req, res, { overLimit = false } = {}) {
 async function handleRating(db, req, res) {
   const body = await readJsonBody(req);
   const persisted = persistRating(db, body);
+  metrics.ratings.total += 1;
+  increment(metrics.ratings.byRating, persisted.rating);
   let cache;
   try {
     cache = await syncAnswerCacheForRating(db, persisted);
@@ -957,6 +1051,7 @@ function handleExamples(db, req, res) {
 
 function handleModeration(db, req, res) {
   requireModerationAccess(req);
+  metrics.moderationExports += 1;
   const retention = applyRetention(db);
   jsonResponse(req, res, 200, {
     status: "ok",
@@ -973,6 +1068,46 @@ function handleModeration(db, req, res) {
   });
 }
 
+function handleMetrics(db, runtime, req, res) {
+  requireMetricsAccess(req);
+  metrics.metricsExports += 1;
+  const memory = process.memoryUsage();
+  jsonResponse(req, res, 200, {
+    status: "ok",
+    service: "search-book-answer-engine",
+    generatedAt: nowIso(),
+    startedAt: metrics.startedAt,
+    uptimeSeconds: Math.round(process.uptime()),
+    policy: {
+      metrics: {
+        ...metricsPolicy(),
+        configured: config.metricsExportEnabled && Boolean(config.metricsToken),
+      },
+      privacy: {
+        includesRawUserQuestions: false,
+        includesAnswers: false,
+        includesRatingNotes: false,
+        includesSecrets: false,
+      },
+    },
+    runtime: {
+      defaultMode: config.defaultMode,
+      answerChunks: runtime.answerChunks.totalChunks || 0,
+      questionRoutes: runtime.questionRoutes.totalRoutes || 0,
+      openOperatorItems: runtime.openInboxItems.length,
+    },
+    process: {
+      node: process.version,
+      pid: process.pid,
+      memoryRssBytes: memory.rss,
+      memoryHeapUsedBytes: memory.heapUsed,
+      memoryHeapTotalBytes: memory.heapTotal,
+    },
+    counters: JSON.parse(JSON.stringify(metrics)),
+    datastore: counts(db),
+  });
+}
+
 function validateConfig() {
   if (!allowedModes.has(config.defaultMode)) {
     throw new Error("SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE must be extractive or llm.");
@@ -986,6 +1121,9 @@ function validateConfig() {
   if (config.moderationExportEnabled && !config.moderationToken) {
     throw new Error("SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT requires SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN.");
   }
+  if (config.metricsExportEnabled && !config.metricsToken) {
+    throw new Error("SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT requires SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN or SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN.");
+  }
 }
 
 function createServer() {
@@ -993,16 +1131,18 @@ function createServer() {
   const db = openDatabase(config.dbPath);
   const runtime = loadRuntime(runtimeDefaults);
   return http.createServer(async (req, res) => {
+    const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+    recordRequest(req, routeKey(req.method, url.pathname));
     try {
       if (!requireAllowedOrigin(req, res)) return;
       if (req.method === "OPTIONS") {
         jsonResponse(req, res, 204, {});
         return;
       }
-      const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
       const withinRateLimit = checkRateLimit(req);
       const isAnswerRoute = req.method === "POST" && url.pathname === "/api/search-book/answer";
       if (!withinRateLimit && !isAnswerRoute) {
+        metrics.rateLimited += 1;
         jsonResponse(req, res, 429, { status: "rate-limited", message: "Too many requests." });
         return;
       }
@@ -1022,6 +1162,10 @@ function createServer() {
             moderation: {
               ...moderationPolicy(),
               configured: config.moderationExportEnabled && Boolean(config.moderationToken),
+            },
+            metrics: {
+              ...metricsPolicy(),
+              configured: config.metricsExportEnabled && Boolean(config.metricsToken),
             },
             cors: {
               allowedOrigins: config.allowedOrigins,
@@ -1049,6 +1193,10 @@ function createServer() {
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/moderation") {
         handleModeration(db, req, res);
+        return;
+      }
+      if (req.method === "GET" && url.pathname === "/api/search-book/metrics") {
+        handleMetrics(db, runtime, req, res);
         return;
       }
       jsonResponse(req, res, 404, { status: "not-found" });
@@ -1081,5 +1229,6 @@ server.listen(config.port, config.host, () => {
     datastore: "sqlite",
     retentionDays: config.retentionDays,
     moderationExportEnabled: config.moderationExportEnabled,
+    metricsExportEnabled: config.metricsExportEnabled,
   }));
 });

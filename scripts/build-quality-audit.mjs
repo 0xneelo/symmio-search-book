@@ -362,6 +362,7 @@ const frontendServiceIntegrationImplemented =
     frontendPrototype.includes("searchBookPrototype.serviceUrl"));
 const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented === true;
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
+const metricsExportImplemented = livingDocsEvents.metricsExportImplemented === true;
 const corsPolicyImplemented = livingDocsEvents.corsPolicyImplemented === true;
 const backupRestoreImplemented = livingDocsEvents.backupRestoreImplemented === true;
 const productionPreflightImplemented = livingDocsEvents.productionPreflightImplemented === true;
@@ -372,6 +373,7 @@ const livingDocsEventsReady =
   (livingDocsEventCoverage.passingFixtures || 0) === (livingDocsEventCoverage.totalFixtures || 0) &&
   (livingDocsEventCoverage.failingFixtures || 0) === 0 &&
   livingDocsFailingEventIds.length === 0 &&
+  metricsExportImplemented &&
   corsPolicyImplemented &&
   productionPreflightImplemented;
 const glossaryMissingPageIds = glossary.missingPageIds || [];
@@ -605,7 +607,7 @@ const gates = [
     id: "living-docs-events",
     label: "Living-docs question, rating, and gap events validate",
     passed: livingDocsEventsReady,
-    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, CORS allowlist ${corsPolicyImplemented ? "yes" : "no"}, production preflight ${productionPreflightImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
+    detail: `${livingDocsEventCoverage.passingFixtures || 0}/${livingDocsEventCoverage.totalFixtures || 0} fixtures, contract ready ${livingDocsEvents.eventContractReady ? "yes" : "no"}, datastore implemented ${livingDocsEvents.datastoreImplemented ? "yes" : "no"}, frontend service bridge ${frontendServiceIntegrationImplemented ? "yes" : "no"}, retention policy ${retentionPolicyImplemented ? "yes" : "no"}, moderation export ${moderationExportImplemented ? "yes" : "no"}, metrics export ${metricsExportImplemented ? "yes" : "no"}, CORS allowlist ${corsPolicyImplemented ? "yes" : "no"}, production preflight ${productionPreflightImplemented ? "yes" : "no"}, backup/restore ${backupRestoreImplemented ? "yes" : "no"}, production ready ${livingDocsEvents.livingDocsProductionReady ? "yes" : "no"}`,
   },
   {
     id: "glossary-routes",
@@ -756,6 +758,7 @@ const payload = {
     livingDocsFrontendServiceIntegrationImplemented: frontendServiceIntegrationImplemented,
     livingDocsRetentionPolicyImplemented: retentionPolicyImplemented,
     livingDocsModerationExportImplemented: moderationExportImplemented,
+    livingDocsMetricsExportImplemented: metricsExportImplemented,
     livingDocsCorsPolicyImplemented: corsPolicyImplemented,
     livingDocsProductionPreflightImplemented: productionPreflightImplemented,
     livingDocsBackupRestoreImplemented: backupRestoreImplemented,
@@ -987,6 +990,7 @@ const payload = {
     frontendServiceIntegrationImplemented,
     retentionPolicyImplemented,
     moderationExportImplemented,
+    metricsExportImplemented,
     corsPolicyImplemented,
     productionPreflightImplemented,
     livingDocsProductionReady: livingDocsEvents.livingDocsProductionReady || false,

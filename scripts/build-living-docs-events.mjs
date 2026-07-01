@@ -379,9 +379,11 @@ const reviewerWorkflowDocumented =
   reviewerRunbookText.includes("# Search Book Living-Docs Operations") &&
   reviewerRunbookText.includes("Daily Review Loop") &&
   reviewerRunbookText.includes("Moderation Export") &&
+  reviewerRunbookText.includes("Metrics Export") &&
   reviewerRunbookText.includes("Triage Rules") &&
   reviewerRunbookText.includes("Launch Gate") &&
   reviewerRunbookText.includes("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN") &&
+  reviewerRunbookText.includes("SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN") &&
   reviewerRunbookText.includes("npm run search-book:living-docs-summary");
 const sqliteDatastoreImplemented = serviceRuntimeImplemented;
 const frontendServiceIntegrationImplemented =
@@ -401,6 +403,13 @@ const moderationExportImplemented =
   serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN") &&
   serviceScriptText.includes("/api/search-book/moderation") &&
   serviceScriptText.includes("requireModerationAccess");
+const metricsExportImplemented =
+  serviceRuntimeImplemented &&
+  serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT") &&
+  serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN") &&
+  serviceScriptText.includes("/api/search-book/metrics") &&
+  serviceScriptText.includes("requireMetricsAccess") &&
+  serviceScriptText.includes("includesRawUserQuestions: false");
 const corsPolicyImplemented =
   serviceRuntimeImplemented &&
   serviceScriptText.includes("SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS") &&
@@ -429,6 +438,7 @@ const payload = {
   frontendServiceIntegrationImplemented,
   retentionPolicyImplemented,
   moderationExportImplemented,
+  metricsExportImplemented,
   corsPolicyImplemented,
   answerCacheImplemented,
   dynamicExamplesImplemented,
@@ -440,9 +450,9 @@ const payload = {
   livingDocsProductionReady: false,
   reasonLivingDocsProductionReadyIsFalse: sqliteDatastoreImplemented
     ? frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
-        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, a disabled-by-default token-gated moderation export, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, and a production configuration preflight. Production deployment/public route, production LLM service env, production moderation/backup storage access, assigned production owner/cadence, and Discord import are still not complete."
-        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, production preflight, retention policy, CORS allowlist configuration, moderation workflow, reviewer operating workflow, production LLM service env, and Discord import are not complete."
+      ? retentionPolicyImplemented && moderationExportImplemented && metricsExportImplemented && corsPolicyImplemented && answerCacheImplemented && dynamicExamplesImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
+        ? "The standalone answer-engine service persists question, rating, gap, and helpful answer-cache events to SQLite, the static frontend can call it when configured, rated answers can be reused for semantically similar questions, dynamic example chips can read helpful cached questions, and the service has retention, a configurable CORS allowlist, disabled-by-default token-gated moderation and metrics exports, a reviewer gap-summary job, a documented reviewer operating runbook, an executable SQLite backup/restore-check path, and a production configuration preflight. Production deployment/public route, production LLM service env, production moderation/metrics/backup storage access, assigned production owner/cadence, and Discord import are still not complete."
+        : "The standalone answer-engine service persists question, rating, and gap events to SQLite and the static frontend can call it when configured, but production deployment/public route, production preflight, retention policy, CORS allowlist configuration, moderation/metrics workflow, reviewer operating workflow, production LLM service env, and Discord import are not complete."
       : "The standalone answer-engine service now persists question, rating, and gap events to SQLite, but production deployment, frontend integration, CORS allowlist configuration, retention policy, moderation workflow, production LLM service env, and Discord import are not complete."
     : "The event schema and fixture validation are ready, but production persistence, retention policy, moderation workflow, reviewer workflow, and Discord import are not complete.",
   storage: {
@@ -459,6 +469,7 @@ const payload = {
         "GET /api/search-book/insights",
         "GET /api/search-book/examples",
         "GET /api/search-book/moderation",
+        "GET /api/search-book/metrics",
       ],
       tables: ["search_book_questions", "search_book_ratings", "search_book_gaps", "search_book_answer_cache"],
       answerReuse: answerCacheImplemented
@@ -493,6 +504,15 @@ const payload = {
             behavior: "The moderation export is disabled by default and requires a bearer or x-search-book-moderation-token header when enabled.",
           }
         : "Moderation export is not implemented in the service.",
+      metrics: metricsExportImplemented
+        ? {
+            enabledEnv: "SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT",
+            tokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN",
+            fallbackTokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN",
+            behavior: "The metrics export is disabled by default and requires a bearer, x-search-book-metrics-token, or moderation-token fallback when enabled.",
+            privacy: "Exposes operational counters, datastore totals, runtime counts, uptime, and memory usage; does not expose raw questions, answers, notes, moderation queues, API keys, or tokens.",
+          }
+        : "Metrics export is not implemented in the service.",
       cors: corsPolicyImplemented
         ? {
             allowedOriginsEnv: "SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS",
@@ -556,6 +576,7 @@ const payload = {
     "Let the static frontend use configured service endpoints for answers, ratings, insights, and dynamic examples while preserving localStorage and curated-example fallbacks.",
     "Apply the configured retention window to question, rating, gap, and answer-cache event storage.",
     "Expose a disabled-by-default, token-gated moderation export for reviewer triage.",
+    "Expose a disabled-by-default, token-gated metrics export for internal monitoring without raw user content or secrets.",
     "Enforce the configured browser CORS allowlist for service endpoints while preserving same-origin and server-to-server operations.",
     "Produce an internal reviewer gap summary from the SQLite datastore for scheduled editorial review.",
     "Follow the internal living-docs operations runbook for daily triage, weekly summaries, moderation export handling, privacy boundaries, and incident response.",
@@ -602,6 +623,9 @@ const payload = {
     moderation: moderationExportImplemented
       ? "The service has a token-gated moderation export for gap, low-rating, unanswered, and repeated-question review; a full admin workflow is still production work."
       : "Moderation export is not implemented yet.",
+    metrics: metricsExportImplemented
+      ? "The service has a token-gated metrics export for internal monitoring; it excludes raw questions, answers, notes, moderation queues, API keys, and tokens."
+      : "Metrics export is not implemented yet.",
     cors: corsPolicyImplemented
       ? "The service can enforce SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS for browser access; final production origin configuration is still tied to the deploy-route decision."
       : "Configurable CORS allowlisting is not implemented yet.",
@@ -624,10 +648,10 @@ const payload = {
       ? "The production preflight validates artifacts, service env, LLM env, CORS origins, moderation token rules, and secret-printing boundaries before launch."
       : "Production configuration preflight is not implemented yet.",
     requiredNextStep: frontendServiceIntegrationImplemented
-      ? retentionPolicyImplemented && moderationExportImplemented && corsPolicyImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
-        ? "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/backup storage access, assign reviewer owner/cadence, install production LLM service env, run the production preflight, and import Discord/Lafa when source access is provided."
-        : "Deploy the standalone service and selected public frontend route, define allowed origins plus retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided."
-      : "Deploy the standalone service, connect the public frontend to it, define retention/moderation policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
+      ? retentionPolicyImplemented && moderationExportImplemented && metricsExportImplemented && corsPolicyImplemented && gapSummaryJobImplemented && reviewerWorkflowDocumented && backupRestoreImplemented && productionPreflightImplemented
+        ? "Deploy the standalone service and selected public frontend route, configure production allowed origins plus retention/moderation/metrics/backup storage access, assign reviewer owner/cadence, install production LLM service env, run the production preflight, and import Discord/Lafa when source access is provided."
+        : "Deploy the standalone service and selected public frontend route, define allowed origins plus retention/moderation/metrics policy, install production LLM service env, and import Discord/Lafa when source access is provided."
+      : "Deploy the standalone service, connect the public frontend to it, define retention/moderation/metrics policy, install production LLM service env, and import Discord/Lafa when source access is provided.",
     blockedBy: ["OPERATOR-INBOX #4", "OPERATOR-INBOX #11", "OPERATOR-INBOX #2"],
   },
 };
@@ -643,6 +667,7 @@ console.log(JSON.stringify({
   frontendServiceIntegrationImplemented: payload.frontendServiceIntegrationImplemented,
   retentionPolicyImplemented: payload.retentionPolicyImplemented,
   moderationExportImplemented: payload.moderationExportImplemented,
+  metricsExportImplemented: payload.metricsExportImplemented,
   corsPolicyImplemented: payload.corsPolicyImplemented,
   answerCacheImplemented: payload.answerCacheImplemented,
   dynamicExamplesImplemented: payload.dynamicExamplesImplemented,

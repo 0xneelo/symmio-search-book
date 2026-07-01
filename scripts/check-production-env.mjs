@@ -42,6 +42,8 @@ Environment:
   SEARCH_BOOK_LLM_MODEL=gpt-4.1-mini
   SEARCH_BOOK_LLM_API_KEY=<server-only>
   SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true
+  SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=true
+  SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=<server-only>
 
 Notes:
   This preflight validates production configuration without calling the LLM provider.
@@ -155,9 +157,10 @@ function checkArtifacts(checks) {
       livingDocs.datastoreImplemented === true &&
       livingDocs.retentionPolicyImplemented === true &&
       livingDocs.moderationExportImplemented === true &&
+      livingDocs.metricsExportImplemented === true &&
       livingDocs.corsPolicyImplemented === true &&
       livingDocs.backupRestoreImplemented === true,
-    detail: `datastore=${livingDocs.datastoreImplemented === true}, retention=${livingDocs.retentionPolicyImplemented === true}, moderation=${livingDocs.moderationExportImplemented === true}, cors=${livingDocs.corsPolicyImplemented === true}, backup=${livingDocs.backupRestoreImplemented === true}`,
+    detail: `datastore=${livingDocs.datastoreImplemented === true}, retention=${livingDocs.retentionPolicyImplemented === true}, moderation=${livingDocs.moderationExportImplemented === true}, metrics=${livingDocs.metricsExportImplemented === true}, cors=${livingDocs.corsPolicyImplemented === true}, backup=${livingDocs.backupRestoreImplemented === true}`,
   });
   const qualityGatesPassed = (quality.gates || []).filter((gate) => gate.passed).length;
   const qualityGatesTotal = (quality.gates || []).length;
@@ -330,6 +333,24 @@ function checkModerationEnv(checks) {
   });
 }
 
+function checkMetricsEnv(checks) {
+  const enabled = env("SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT") === "true";
+  const metricsToken = env("SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN");
+  const moderationToken = env("SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN");
+  addCheck(checks, {
+    id: "metrics-enabled",
+    label: "Metrics export is enabled for production observability",
+    passed: enabled,
+    detail: `enabled=${enabled}`,
+  });
+  addCheck(checks, {
+    id: "metrics-token-rule",
+    label: "Metrics export token rule is valid",
+    passed: enabled && Boolean(metricsToken || moderationToken),
+    detail: `metricsTokenConfigured=${Boolean(metricsToken)}, moderationTokenFallback=${Boolean(moderationToken)}`,
+  });
+}
+
 function main() {
   parseArgs(process.argv.slice(2));
   const checks = [];
@@ -338,6 +359,7 @@ function main() {
   checkCorsEnv(checks);
   checkLlmEnv(checks);
   checkModerationEnv(checks);
+  checkMetricsEnv(checks);
 
   const failed = checks.filter((check) => check.severity === "error" && !check.passed);
   const warnings = checks.filter((check) => check.severity === "warning" && !check.passed);

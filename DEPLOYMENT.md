@@ -82,6 +82,18 @@ The preflight validates built artifacts, production SQLite path, LLM-backed defa
 allowed origins, public service URL, moderation token rules, and live-eval evidence. It
 reports whether secrets are configured but never prints secret values.
 
+For operational monitoring, enable the internal metrics export only behind a trusted route:
+
+```bash
+SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT=true
+SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN=<server-only-token>
+curl -fsS -H "Authorization: Bearer $SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN" \
+  http://127.0.0.1:8787/api/search-book/metrics
+```
+
+Metrics include endpoint/status counters, answer/rating totals, datastore totals, uptime,
+and memory usage. They do not include raw questions, answers, rating notes, or secret values.
+
 ## 5. Smoke verification
 
 These run isolated localhost servers with temp databases and never call the LLM provider:
