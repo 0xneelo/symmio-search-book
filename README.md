@@ -76,6 +76,7 @@ npm run search-book:check-launch -- --site-url https://docs.example.com --servic
 
 # Local-only Discord/Lafa editorial packet; writes raw excerpts outside the repo
 npm run search-book:discord-review -- --input /path/to/discord-export.json --lafa-author-id <id> --out-dir /tmp/search-book-discord-review
+npm run search-book:discord-route-review -- --review-json /tmp/search-book-discord-review/discord-review-queue.json --out-dir /tmp/search-book-discord-routing
 
 # SQLite backup with restore-check manifest
 npm run search-book:backup-db
@@ -144,7 +145,9 @@ To verify the copied bundle can also bridge to the standalone answer-engine serv
 To review imported Discord/Lafa material, run `npm run search-book:discord-review` with a
 local export and a `/tmp` output directory. It writes raw review excerpts outside the repo,
 prints only summary paths/counts, and refuses repository output by default; the checked-in
-Discord corpus stays text-redacted.
+Discord corpus stays text-redacted. Then run `npm run search-book:discord-route-review`
+against that packet to produce a sanitized routing report with item ids, hashes, statuses,
+page ids, and source keys only.
 
 ## Environment
 

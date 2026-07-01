@@ -7,6 +7,13 @@
 - It fails closed if `--out-dir` points inside the repository, so raw Discord excerpts stay out of committed Search Book data.
 - Verified the repo-root refusal path and a real local packet at `/tmp/search-book-discord-review-20260701-1`: 12 repeated-question review items, 12 Lafa answer candidates, 12 paired Lafa items, source totals 5,000 messages, 723 clusters, and 837 Lafa candidates.
 
+## 2026-07-01 — Sanitized Discord Review Routing
+
+- Added `scripts/route-discord-review-queue.mjs` and `npm run search-book:discord-route-review`.
+- The router reads a local raw review packet, runs each review item through the extractive answer runtime, and writes a sanitized JSON/Markdown report with item ids, hashes, statuses, page ids, source keys, and reviewer actions only.
+- Updated the runtime Discord/Lafa guardrail from the stale `discord-export-file-unreadable` operator-blocked state to `discord-corpus-review-required`, while preserving the refusal behavior for unreviewed Lafa/Discord claims such as "who is lafachief".
+- Verified repo-output refusal and generated `/tmp/search-book-discord-routing-20260701-1`: 24 routed items, 22 answered by existing pages, 2 refusals, `rawDiscordTextIncluded:false`, and `valuesPrinted:false`.
+
 ## 2026-07-01 — Real Discord Corpus Import
 
 - Re-probed the provided Windows Discord export and confirmed it is now readable from WSL.

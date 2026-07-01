@@ -34,7 +34,7 @@ If a user asks "which dashboard views are documented?", route them here first, t
 
 ## Publication Boundary
 
-The inventory can publish the current route list and the Search Book coverage map. It must keep the v1 revenue disclosure limited to Phase A, keep public referral depth at 15 levels with additive backfill, label volume as the current backend snapshot source rather than a live subgraph feed, and keep the Discord-seeded FAQ claim parked until OPERATOR-INBOX #17 releases a readable export for import and review.
+The inventory can publish the current route list and the Search Book coverage map. It must keep the v1 revenue disclosure limited to Phase A, keep public referral depth at 15 levels with additive backfill, label volume as the current backend snapshot source rather than a live subgraph feed, and keep exact Discord/Lafa FAQ claims review-bound until an editor approves public paraphrases from the imported, text-redacted corpus.
 
 ## Sources
 

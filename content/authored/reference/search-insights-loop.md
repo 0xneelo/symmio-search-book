@@ -15,11 +15,13 @@ The answer engine is not only a search box. It is the intake system for document
 
 The loop is: a reader asks a question; the system routes to the best grounded page; the reader rates the answer; the system records the query, route, rating, and gap status; editors then improve or add the page that would have answered the question better. Search insights are the public operating surface for that loop.
 
-In this prototype, the loop is local and browser-based. It stores questions, ratings, and gaps in `localStorage` and exposes them in Search insights. In production, the same event shape needs a real datastore, retention policy, abuse controls, and integration with the chosen docs platform or custom answer engine.
+In this prototype, the browser still has a `localStorage` fallback, but the standalone service now proves the production event shape with SQLite persistence. It stores questions, ratings, gap signals, helpful answer-cache rows, retention controls, a gated moderation export, gated metrics, a reviewer summary job, and backup/restore evidence. Search Insights can read the service when configured.
+
+Discord adds a second demand source. The committed corpus records imported-message counts, question-cluster hashes, and Lafa-candidate metadata without raw text. Editors use local `/tmp` review packets plus sanitized routing reports to decide whether a repeated Discord question maps to an existing page, needs a new FAQ/page, or must remain a refusal.
 
 ## Reader Implication
 
-The docs improve when users ask real questions. A low rating is not a failure to hide; it is the signal that tells the team which page to deepen next.
+The docs improve when users ask real questions. A low rating, an unanswered route, or a repeated Discord cluster is not a failure to hide; it is the signal that tells the team which page to deepen next.
 
 ## Sources
 

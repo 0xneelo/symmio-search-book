@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex sanitized Discord review routing
+- Task: Add a no-raw-text router for local Discord review packets and update stale Discord boundary docs to the imported/text-redacted state.
+- Scope: `scripts/route-discord-review-queue.mjs`, `package.json`, Discord/Search Insights authored pages, generated routing data if affected, progress/final/gap docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Router reads `/tmp` review packets, runs extractive routing over raw questions locally, writes only item ids/hashes/statuses/page ids/source keys, never raw Discord question/answer text; stale "export locked/not imported" page copy is removed; full `npm run search-book:verify` remains green.
+- Result: Added `npm run search-book:discord-route-review`, which consumes a local raw review packet and writes sanitized routing JSON/Markdown under `/tmp`. Verified repo-output refusal and generated `/tmp/search-book-discord-routing-20260701-1`: 24 routed items, 22 answered by existing pages, 2 refusals, `rawDiscordTextIncluded:false`, `sourceAnswerTextIncluded:false`, and `valuesPrinted:false`. Updated the runtime Discord/Lafa guardrail to `discord-corpus-review-required` with no operator item ids while preserving refusal behavior for "who is lafachief"; `npm run search-book:smoke-service` passed with guardrail status `refusal`. Updated stale authored Discord/living-docs pages from "export locked/not imported" to imported/text-redacted/review-routed state. Full `npm run search-book:verify` passed with 24 build steps, 70 syntax checks, 17/17 source ingestion, 2,884 chunks, 801 authored pages, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex local Discord editorial review packet
 - Task: Add a local-only Discord/Lafa review packet command that reads the provided export, writes raw review excerpts outside the repo, and keeps committed corpus data text-redacted.
 - Scope: `scripts/build-discord-review-queue.mjs`, `package.json`, living-docs/status docs, and `_local/agent-worklog.md`.

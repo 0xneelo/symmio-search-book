@@ -373,11 +373,11 @@ async function main() {
       }),
     });
     assert(guardrail.statusCode === 200, `guardrail answer returned ${guardrail.statusCode}.`);
+    assert(guardrail.payload.status === "refusal", `guardrail status was ${guardrail.payload.status}, expected refusal.`);
     assert(
-      guardrail.payload.status === "operator-blocked-refusal",
-      `guardrail status was ${guardrail.payload.status}, expected operator-blocked-refusal.`,
+      guardrail.payload.refusalReason === "discord-corpus-review-required",
+      `guardrail refusalReason was ${guardrail.payload.refusalReason}.`,
     );
-    assert(guardrail.payload.refusalReason === "source-family-missing", `guardrail refusalReason was ${guardrail.payload.refusalReason}.`);
     assert(!guardrail.payload.degraded, "guardrail refusal must not be tagged degraded.");
     assert(guardrail.payload.source !== "reuse-cache", "guardrail refusal must not be served from reuse cache.");
 

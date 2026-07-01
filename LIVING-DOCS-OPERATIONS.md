@@ -25,6 +25,16 @@ npm run search-book:discord-review -- \
 
 The command writes `discord-review-queue.json` and `discord-review-queue.md` under the requested `/tmp` directory, prints only paths/counts, and refuses to write raw Discord review excerpts inside the repository. Treat those packet files as internal reviewer material: map repeated questions to existing or new page ids, decide whether Lafa candidates are source-backed enough to paraphrase, and then promote only reviewed paraphrases into authored pages.
 
+To route that review packet without carrying raw Discord text forward, run:
+
+```sh
+npm run search-book:discord-route-review -- \
+  --review-json /tmp/search-book-discord-review-<date>/discord-review-queue.json \
+  --out-dir /tmp/search-book-discord-routing-<date>
+```
+
+The routing report contains item ids, hashes, statuses, page ids, source keys, and reviewer actions only. It omits raw questions, raw Lafa excerpts, and generated answer text. Use it to decide whether an item should review an existing page fit, stay a Discord/Lafa refusal, or become a new FAQ/page candidate.
+
 ## Prerequisites
 
 Production service setup:

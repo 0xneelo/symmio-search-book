@@ -127,12 +127,11 @@ const riskRules = [
   },
   {
     id: "discord",
-    reason: "discord-export-file-unreadable",
-    status: "operator-blocked-refusal",
+    reason: "discord-corpus-review-required",
+    status: "refusal",
     gapId: "G-001",
-    operatorItemIds: [17],
     patterns: [/discord/i, /lafa/i],
-    message: "Discord and Lafa-answer claims are blocked until the provided export is readable and imported with a citation boundary.",
+    message: "Discord and Lafa-answer claims require editorial review before they become public answers.",
   },
   {
     id: "notion",
@@ -208,8 +207,8 @@ function parseArgs(argv) {
 
 function printHelp() {
   console.log(`Usage:
-  node src/search-book/scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" [--mode extractive|llm] [--json]
-  node src/search-book/scripts/run-llm-rag-answer.mjs --eval-live all --json
+  node scripts/run-llm-rag-answer.mjs --query "What is Vibe Trading?" [--mode extractive|llm] [--json]
+  node scripts/run-llm-rag-answer.mjs --eval-live all --json
 
 Modes:
   extractive  Scan the real answer chunks and return a grounded cited answer without a model call.

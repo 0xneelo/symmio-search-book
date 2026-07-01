@@ -14,7 +14,7 @@ relatedGeneratedPages: ["authored-dashboard-route-inventory", "authored-dashboar
 
 The compendium ends where the user actually operates: the dashboard, the FAQ, and the answer-engine feedback loop. This is the reference layer that turns the manifesto into a self-serve product surface.
 
-The dashboard pages need special discipline because they sit closest to current implementation. Revenue, volume, points, invite states, and tasks must cite code and local docs, and they must keep configurable or unresolved claims labeled. The FAQ layer remains local until the provided Discord and Lafa export is readable, imported, and reviewed.
+The dashboard pages need special discipline because they sit closest to current implementation. Revenue, volume, points, invite states, and tasks must cite code and local docs, and they must keep configurable or unresolved claims labeled. The FAQ layer is now Discord-informed at the demand-signal level, but exact Discord and Lafa statements remain review-bound before they become public answers.
 
 ## What This Volume Does
 
@@ -31,9 +31,9 @@ Then read the view path: `authored-dashboard-overview`, `authored-dashboard-invi
 
 Use the economics and points path for dashboard numbers: `authored-estimated-network-revenue`, `authored-dashboard-revenue-pulse`, `authored-dashboard-volume`, `authored-volume-snapshot-cadence`, `authored-barometer-subgraph-upgrade`, `authored-points-taxonomy`, `authored-points-and-vibe-points`, and `authored-tge-settlement-multiplier`. This path separates v1 Phase A revenue from Phase B economics, current backend volume snapshots from the tracked Barometer/subgraph upgrade, and onboarding points from Vibe trading points.
 
-Next read the FAQ and support boundary: `authored-dashboard-faq` and `authored-discord-lafa-ingestion-boundary`. The dashboard FAQ is a local seed, not the final community-support corpus. Discord and Lafa answers remain parked until the provided export is released as a readable file, imported, and reviewed under the approved public-use boundary.
+Next read the FAQ and support boundary: `authored-dashboard-faq` and `authored-discord-lafa-ingestion-boundary`. The dashboard FAQ is a local seed plus a routing surface for reviewed community demand. The Discord export is imported in text-redacted `internal-only` mode, and local review/routing packets let editors map repeated questions to existing pages or new FAQ candidates without committing raw Discord text.
 
-Finish with `authored-search-insights-loop`. This is the living-docs operating model: questions route to pages, answers collect ratings, low-rated or unanswered questions become gaps, and editors use demand to deepen the compendium. The standalone service now proves SQLite persistence, retention controls, and gated moderation export locally; production still needs selected frontend/deploy wiring, service environment installation, reviewer operations, and source-import completion.
+Finish with `authored-search-insights-loop`. This is the living-docs operating model: questions route to pages, answers collect ratings, low-rated or unanswered questions become gaps, and editors use demand to deepen the compendium. The standalone service now proves SQLite persistence, retention controls, gated moderation export, metrics, reviewer summaries, backup evidence, and Discord review routing locally; production still needs selected frontend/deploy wiring and service environment installation.
 
 ## Reader Implication
 
@@ -41,7 +41,7 @@ If you are using the dashboard, this volume should answer what each number means
 
 ## Publication Boundary
 
-Treat this volume as the compendium's dashboard and living-docs operating spine, not as proof that the public docs platform, Discord corpus, production service environment, or deployed answer-engine route is complete. V1 Phase A revenue, 15-level public referral depth, current backend volume snapshots, Notion paraphrase-only boundary, SSHE v1 boundary, and the local SQLite-backed living-docs service boundary are publishable with their stated limits. Discord/Lafa ingestion, production LLM service env, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, reviewer workflow, and final analytics/storage operations remain parked or implementation-review items before production launch.
+Treat this volume as the compendium's dashboard and living-docs operating spine, not as proof that the public docs platform, production service environment, or deployed answer-engine route is complete. V1 Phase A revenue, 15-level public referral depth, current backend volume snapshots, Notion paraphrase-only boundary, SSHE v1 boundary, text-redacted Discord import, and the local SQLite-backed living-docs service boundary are publishable with their stated limits. Exact Discord/Lafa statements, production LLM service env, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, reviewer workflow, and final analytics/storage operations remain review or deployment items before production launch.
 
 ## Sources
 
