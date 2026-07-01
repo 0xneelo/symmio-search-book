@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Release Packet Downloaded-Artifact Validation
+
+- Hardened `npm run search-book:check-release-dry-run-packet` so downloaded GitHub release artifacts validate in place even when the release packet's original Actions `/tmp/search-book-release-dry-run` path is absent.
+- The validator now prefers the embedded launch-evidence path when present, then falls back to the release packet sibling `launch-evidence/launch-evidence.json` used by `gh run download` artifacts.
+- Verified the manual release artifact directly at `/tmp/search-book-gh-manual-release-28531024183/search-book-release-dry-run/release-dry-run.json` after moving the mirror away; the validator resolved the nested packet under the downloaded artifact directory, passed all release checks, preserved queue data `passed`, and kept only #11/#4 open.
+
 ## 2026-07-01 — Manual Workflow Queue-Data Evidence
 
 - Triggered the manual `Search Book Launch Evidence` and `Search Book Release Dry Run` workflows from `main` at commit `5e41ef4`; launch run `28531021211` passed in 33s and release run `28531024183` passed in 44s.

@@ -34,7 +34,10 @@ packet. This checks child steps, static artifact integrity, launch readiness,
 monitoring, Vibe source freshness, status-document evidence, original-spec
 reconciliation, production-readiness packet evidence, no sensitive matches,
 publication boundaries, backup/restore evidence, living-docs reviewer evidence,
-clean repository state, and reconciled open operator gates.`;
+clean repository state, and reconciled open operator gates. Downloaded GitHub
+artifacts can be validated from their downloaded directory; the checker falls
+back to the sibling launch-evidence packet if the original Actions /tmp path is
+not present.`;
 }
 
 function parseArgs(argv) {
@@ -74,10 +77,14 @@ function repositoryClean(repository = {}) {
 }
 
 function nestedLaunchPacketPath(releasePacket, releasePacketPath) {
+  const localArtifactPath = path.join(path.dirname(releasePacketPath), "launch-evidence", "launch-evidence.json");
   if (releasePacket.launchEvidenceDir) {
-    return path.join(releasePacket.launchEvidenceDir, "launch-evidence.json");
+    const embeddedPath = path.join(releasePacket.launchEvidenceDir, "launch-evidence.json");
+    if (fs.existsSync(embeddedPath)) return embeddedPath;
+    if (fs.existsSync(localArtifactPath)) return localArtifactPath;
+    return embeddedPath;
   }
-  return path.join(path.dirname(releasePacketPath), "launch-evidence", "launch-evidence.json");
+  return localArtifactPath;
 }
 
 function normalizedLaunchEvidence(packet) {

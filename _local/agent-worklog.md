@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex release packet downloaded-artifact validation
+- Task: Make `npm run search-book:check-release-dry-run-packet` validate downloaded GitHub artifacts without requiring the original Actions `/tmp/search-book-release-dry-run` path to be recreated.
+- Scope: `scripts/check-release-dry-run-packet.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: release packet validator passes directly against `/tmp/search-book-gh-manual-release-28531024183/search-book-release-dry-run/release-dry-run.json` after the original embedded `/tmp/search-book-release-dry-run` mirror is absent; full verify remains green; only #11/#4 open.
+- Result: `scripts/check-release-dry-run-packet.mjs` now falls back from the embedded Actions `launchEvidenceDir` to the release packet sibling `launch-evidence/launch-evidence.json` when validating downloaded artifacts. After moving the `/tmp/search-book-release-dry-run` mirror aside, `npm run search-book:check-release-dry-run-packet -- --packet /tmp/search-book-gh-manual-release-28531024183/search-book-release-dry-run/release-dry-run.json` passed and resolved the nested launch packet from the downloaded artifact directory with queue data `passed` and only #11/#4 open.
+
 ## 2026-07-01 — Codex manual workflow queue-data evidence
 - Task: Trigger the manual launch-evidence and release-dry-run workflows from `main`, verify their summary artifacts include the Discord editorial queue data proof, and record the run evidence.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`.
