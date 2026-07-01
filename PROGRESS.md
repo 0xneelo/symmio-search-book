@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Publication Boundary Verify Gate
+
+- Added `scripts/check-publication-boundaries.mjs` and `npm run search-book:check-publication-boundaries` to prove the page-state boundary across public navigation, exact routes, FAQ routes, volume entry links, and runtime context.
+- Regenerated `data/navigation-tree.*` so Browse sections use 800 published public-navigation pages; source companions remain traceability metadata and internal drafts are omitted from navigation parked pages.
+- Updated the static app to load `data/page-state-registry.js`, filter fallback search/open/card surfaces to public pages, and require the page-state asset in static integrity.
+- Focused checks passed: `npm run search-book:check-static` reports `21/21` script references and 800 public pages; `npm run search-book:check-publication-boundaries` reports 792 source companions with 0 public route/nav hits and 0 internal-draft runtime context chunks.
+- Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, evidence-summary renderer `passed`, publication boundaries `passed`, and quality gates `29/30`. `npm run search-book:smoke-static` also passed over localhost after sandbox escalation.
+
 ## 2026-07-01 — Clean Release Evidence Status Docs
 
 - Refreshed `FINAL-REPORT.md` and `COMPLETION-AUDIT.md` to point at the latest clean release packet `/tmp/search-book-release-dry-run-clean-repo-20260701-2` instead of older dirty-worktree release evidence.

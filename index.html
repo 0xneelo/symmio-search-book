@@ -7,6 +7,7 @@
     <script src="./answer-corpus.js"></script>
     <script src="./data/authored-pages.js"></script>
     <script src="./data/search-index.js"></script>
+    <script src="./data/page-state-registry.js"></script>
     <script src="./data/navigation-tree.js"></script>
     <script src="./data/journeys.js"></script>
     <script src="./data/question-routes.js"></script>
@@ -2260,10 +2261,10 @@
 
           <section data-view="classic">
             <div class="grid stats">
-              <div class="stat-card"><span class="stat-label">Mapped pages</span><strong id="totalPages">794</strong></div>
-              <div class="stat-card"><span class="stat-label">Neelo source</span><strong id="neeloPages">188</strong></div>
-              <div class="stat-card"><span class="stat-label">Neelo sections</span><strong id="sectionPages">541</strong></div>
-              <div class="stat-card"><span class="stat-label">Companions</span><strong id="companionPages">65</strong></div>
+              <div class="stat-card"><span class="stat-label">Public pages</span><strong id="totalPages">800</strong></div>
+              <div class="stat-card"><span class="stat-label">Source corpus</span><strong id="neeloPages">794</strong></div>
+              <div class="stat-card"><span class="stat-label">Public sections</span><strong id="sectionPages">10</strong></div>
+              <div class="stat-card"><span class="stat-label">Traceability</span><strong id="companionPages">792</strong></div>
               <div class="stat-card"><span class="stat-label">Authored</span><strong id="authoredPages">12</strong></div>
               <div class="stat-card"><span class="stat-label">Volumes</span><strong id="volumeCount">8</strong></div>
               <div class="stat-card"><span class="stat-label">Glossary terms</span><strong id="glossaryTerms">32</strong></div>
@@ -2277,14 +2278,14 @@
 
           <section data-view="browse" class="is-hidden">
             <div class="toolbar">
-              <input id="browseFilter" autocomplete="off" placeholder="Filter the 794-page corpus..." />
-              <div class="meta" id="browseCount">794 pages</div>
+              <input id="browseFilter" autocomplete="off" placeholder="Filter public pages..." />
+              <div class="meta" id="browseCount">800 public pages</div>
             </div>
             <h3 class="section-title">Compendium Volumes</h3>
             <div class="grid collections" id="volumeGrid"></div>
             <h3 class="section-title">Neelo Collections</h3>
             <div class="grid collections" id="collectionGrid"></div>
-            <h3 class="section-title">Corpus Sections</h3>
+            <h3 class="section-title">Public Sections</h3>
             <div class="browse-sections" id="browseSections"></div>
           </section>
 
@@ -2403,6 +2404,7 @@
     <script>
       const corpus = window.SearchBookCorpus;
       const authored = window.SearchBookAuthored || { pages: [], totalPages: 0 };
+      const pageStateRegistry = window.SearchBookPageStateRegistry || { pages: [], publicNavigationPages: 0, sourceCompanionPages: 0 };
       const navigation = window.SearchBookNavigation || { sections: [], collections: [], parkedPages: [], counts: {} };
       const journeyMap = window.SearchBookJourneys || { journeys: [], totalJourneys: 0, totalSteps: 0 };
       const questionRouteMap = window.SearchBookQuestionRoutes || { answerable: [], reconciliation: [], totalRoutes: 0 };
@@ -2422,6 +2424,7 @@
       const answerValidationReport = window.SearchBookAnswerValidationReport || {};
       const sourceByKey = sourceCatalog.sourceByKey || {};
       const crosslinkByPageId = crosslinks.pageById || {};
+      const pageStateById = new Map((pageStateRegistry.pages || []).map((page) => [page.id, page]));
       const authoredPages = (authored.pages || []).map((page) => ({
         ...page,
         summary: page.excerpt,
@@ -2439,11 +2442,10 @@
         keywords: [page.title, page.section, page.track, page.excerpt, (page.sourceKeys || []).join(" ")].join(" ").split(/\s+/),
       }));
       const curatedIds = new Set([...authoredPages.map((page) => page.id), ...corpus.pages.map((page) => page.id)]);
-      const searchablePages = fullIndex.length ? [...authoredPages, ...corpus.pages.map((page) => ({ ...page, curated: true })), ...fullIndex.filter((page) => !curatedIds.has(page.id))] : [...authoredPages, ...corpus.pages];
-      const pageById = new Map(searchablePages.map((page) => [page.id, page]));
-      corpus.pages.forEach((page) => {
-        if (!pageById.has(page.id)) pageById.set(page.id, page);
-      });
+      const allSearchablePages = fullIndex.length ? [...authoredPages, ...corpus.pages.map((page) => ({ ...page, curated: true })), ...fullIndex.filter((page) => !curatedIds.has(page.id))] : [...authoredPages, ...corpus.pages];
+      const publicSearchablePages = allSearchablePages.filter((page) => isPublicNavigationPage(page));
+      const publicAuthoredPages = authoredPages.filter((page) => isPublicNavigationPage(page));
+      const pageById = new Map(publicSearchablePages.map((page) => [page.id, page]));
       const answerChunks = (answerChunkMap.chunks || [])
         .map((chunk) => ({ ...chunk, page: pageById.get(chunk.pageId) }))
         .filter((chunk) => chunk.page);
@@ -2712,6 +2714,12 @@
         ];
       }
 
+      function isPublicNavigationPage(page) {
+        const state = pageStateById.get(page.id);
+        if (state) return state.publicNavigationEligible && (state.pageState === "published" || state.pageState === "candidate");
+        return page.authored && (page.status === "published" || page.status === "candidate");
+      }
+
       function normalizeQuestionText(query) {
         return String(query || "")
           .toLowerCase()
@@ -2818,7 +2826,7 @@
         if (glossaryRoute) return glossaryRoute;
         const chunkRoute = findAnswerChunkRoute(query);
         if (chunkRoute) return chunkRoute;
-        const ranked = searchablePages
+        const ranked = publicSearchablePages
           .map((page) => ({ page, score: scorePage(page, query) }))
           .sort((a, b) => b.score - a.score);
         const best = ranked[0];
@@ -3013,7 +3021,7 @@
           .map((id) => pageById.get(id))
           .filter(Boolean);
         if (explicit.length) return explicit.slice(0, 8);
-        return searchablePages
+        return publicSearchablePages
           .filter((candidate) => candidate.id !== page.id && candidate.section === page.section && candidate.track === page.track)
           .slice(0, 8);
       }
@@ -3170,8 +3178,13 @@
 
       function renderCards() {
         const root = document.getElementById("pageCards");
-        root.innerHTML = corpus.pages
+        const seen = new Set();
+        const highSignalPages = seededQuestionRoutes
+          .map((route) => route.page)
+          .filter((page) => page && !seen.has(page.id) && seen.add(page.id))
           .slice(0, 12)
+          .filter(Boolean);
+        root.innerHTML = highSignalPages
           .map(
             (page) => `
               <article class="page-card">
@@ -3190,7 +3203,7 @@
 
       function renderAuthoredCards() {
         const root = document.getElementById("authoredCards");
-        root.innerHTML = authoredPages
+        root.innerHTML = publicAuthoredPages
           .slice(0, 12)
           .map(
             (page) => `
@@ -4005,12 +4018,12 @@
       function init() {
         const stats = corpus.manifestStats;
         document.getElementById("railTotal").textContent = navigation.totalPages || stats.totalPages;
-        document.getElementById("railNeelo").textContent = (navigation.counts.bySourcePriority?.neeloVision || stats.neeloVisionPages) + (navigation.counts.bySourcePriority?.neeloSection || stats.neeloSectionPages);
+        document.getElementById("railNeelo").textContent = navigation.sourceCorpusPages || stats.totalPages;
         document.getElementById("totalPages").textContent = navigation.totalPages || stats.totalPages;
-        document.getElementById("neeloPages").textContent = navigation.counts.bySourcePriority?.neeloVision || stats.neeloVisionPages;
-        document.getElementById("sectionPages").textContent = navigation.counts.bySourcePriority?.neeloSection || stats.neeloSectionPages;
-        document.getElementById("companionPages").textContent = stats.companionPages;
-        document.getElementById("authoredPages").textContent = authored.totalPages || authoredPages.length;
+        document.getElementById("neeloPages").textContent = navigation.sourceCorpusPages || stats.totalPages;
+        document.getElementById("sectionPages").textContent = navigation.counts.sections || stats.totalSections;
+        document.getElementById("companionPages").textContent = navigation.counts.sourceCompanionTraceabilityPages || pageStateRegistry.sourceCompanionPages || stats.companionPages;
+        document.getElementById("authoredPages").textContent = publicAuthoredPages.length || authored.totalPages || authoredPages.length;
         document.getElementById("volumeCount").textContent = volumeMap.totalVolumes || (volumeMap.volumes || []).length;
         document.getElementById("glossaryTerms").textContent = glossary.totalTerms || glossaryTerms.length;
         document.getElementById("faqEntries").textContent = faqMap.totalEntries || faqEntries.length;

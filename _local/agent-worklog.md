@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex publication boundary checker
+- Task: Add a deterministic guard that source companions stay out of public navigation and internal drafts stay out of public routes/answer synthesis.
+- Scope: Publication/page-state checker script, build verification wiring, package script, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Checker proves public-navigation pages are the only public routes/nav pages, source companions remain traceability/retrieval material, internal drafts are not routable or answer-synthesized, full verify remains green, and only #11/#4 remain operator gates.
+- Result: Added `npm run search-book:check-publication-boundaries`, rewired public Browse navigation to 800 published pages, loaded page-state in the static app, filtered fallback search/card/open surfaces to public pages, and required the page-state asset in static integrity. Focused checks passed: `npm run search-book:check-static`, `npm run search-book:check-status-evidence`, `npm run search-book:check-publication-boundaries`, and `git diff --check`. Full `npm run search-book:verify` passed with 26 build steps, 82 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, publication boundaries `passed`, and quality gates `29/30`; `npm run search-book:smoke-static` passed over localhost after sandbox escalation.
+
 ## 2026-07-01 — Codex clean release evidence status docs
 - Task: Refresh status reports and status-evidence checks so they point at the latest clean-repository release dry-run packet instead of older dirty-packet evidence.
 - Scope: `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, and `_local/agent-worklog.md`.

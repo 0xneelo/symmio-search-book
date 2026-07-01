@@ -11,6 +11,7 @@ const searchBookRoot = path.resolve(__dirname, "..");
 const defaults = {
   manifest: path.join(searchBookRoot, "page-manifest.json"),
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
+  authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   outJson: path.join(searchBookRoot, "data", "navigation-tree.json"),
   outJs: path.join(searchBookRoot, "data", "navigation-tree.js"),
 };
@@ -21,10 +22,11 @@ function parseArgs(argv) {
     const arg = argv[index];
     if (arg === "--manifest") args.manifest = argv[++index];
     else if (arg === "--search-index") args.searchIndex = argv[++index];
+    else if (arg === "--authored-index") args.authoredIndex = argv[++index];
     else if (arg === "--out-json") args.outJson = argv[++index];
     else if (arg === "--out-js") args.outJs = argv[++index];
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/build-navigation-tree.mjs [--manifest src/search-book/page-manifest.json] [--search-index src/search-book/data/search-index.json]");
+      console.log("Usage: node scripts/build-navigation-tree.mjs [--manifest page-manifest.json] [--search-index data/search-index.json] [--authored-index data/authored-pages.json]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -61,7 +63,8 @@ function pageSummary(page, manifestPage) {
     track: page.track,
     granularity: page.granularity,
     status: page.status,
-    sourcePriority: manifestPage?.sourcePriority || "unknown",
+    routeSource: page.routeSource || "authored",
+    sourcePriority: manifestPage?.sourcePriority || (page.routeSource === "generated" ? "generatedSource" : "authoredPublic"),
     file: page.file,
     sourceKeys: page.sourceKeys || [],
   };
@@ -99,21 +102,31 @@ function groupPages(pages, manifestById) {
     .sort(byLabel);
 }
 
-function buildTree(manifest, searchIndex) {
+function publicNavigationPages(authoredIndex) {
+  return (authoredIndex.pages || [])
+    .filter((page) => page.status === "published" || page.status === "candidate")
+    .map((page) => ({ ...page, routeSource: "authored" }))
+    .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
+}
+
+function buildTree(manifest, searchIndex, authoredIndex) {
   const manifestById = new Map(manifest.pages.map((page) => [page.id, page]));
   const sourcePriorities = countBy(manifest.pages, (page) => page.sourcePriority);
-  const statuses = countBy(searchIndex, (page) => page.status);
-  const granularities = countBy(searchIndex, (page) => page.granularity);
-  const sections = groupPages(searchIndex, manifestById);
+  const publicPages = publicNavigationPages(authoredIndex);
+  const statuses = countBy(publicPages, (page) => page.status);
+  const granularities = countBy(publicPages, (page) => page.granularity);
+  const sections = groupPages(publicPages, manifestById);
   const parkedPages = searchIndex
-    .filter((page) => page.status === "needs-reconciliation" || page.status === "source-mapped")
+    .filter((page) => page.status === "source-mapped")
     .map((page) => pageSummary(page, manifestById.get(page.id)))
     .sort(byLabel);
+  const internalDraftTraceabilityPages = searchIndex.filter((page) => page.status === "needs-reconciliation").length;
 
   return {
     generatedAt: "deterministic-build",
     manifestVersion: manifest.manifestVersion,
-    totalPages: searchIndex.length,
+    totalPages: publicPages.length,
+    sourceCorpusPages: searchIndex.length,
     targetRange: manifest.compendiumTarget?.requestedRange || COMPENDIUM_TARGET_LABEL,
     counts: {
       sections: sections.length,
@@ -121,6 +134,8 @@ function buildTree(manifest, searchIndex) {
       byGranularity: granularities,
       byStatus: statuses,
       bySourcePriority: sourcePriorities,
+      sourceCompanionTraceabilityPages: parkedPages.filter((page) => page.status === "source-mapped").length,
+      internalDraftTraceabilityPages,
     },
     collections: manifest.collections || [],
     sections,
@@ -131,13 +146,17 @@ function buildTree(manifest, searchIndex) {
 const args = parseArgs(process.argv.slice(2));
 const manifest = readJson(args.manifest);
 const searchIndex = readJson(args.searchIndex);
-const tree = buildTree(manifest, searchIndex);
+const authoredIndex = readJson(args.authoredIndex);
+const tree = buildTree(manifest, searchIndex, authoredIndex);
 
-if (tree.totalPages !== manifest.pages.length) {
-  throw new Error(`Navigation tree has ${tree.totalPages} pages for manifest count ${manifest.pages.length}`);
+if (tree.sourceCorpusPages !== manifest.pages.length) {
+  throw new Error(`Navigation source corpus has ${tree.sourceCorpusPages} pages for manifest count ${manifest.pages.length}`);
+}
+if (tree.totalPages < 500 || tree.totalPages > 800) {
+  throw new Error(`Public navigation has ${tree.totalPages} pages outside the requested 500-800 range`);
 }
 
 ensureDir(path.dirname(args.outJson));
 fs.writeFileSync(args.outJson, `${JSON.stringify(tree, null, 2)}\n`);
 fs.writeFileSync(args.outJs, `window.SearchBookNavigation = ${JSON.stringify(tree)};\n`);
-console.log(JSON.stringify({ totalPages: tree.totalPages, sections: tree.counts.sections, tracks: tree.counts.tracks }, null, 2));
+console.log(JSON.stringify({ totalPages: tree.totalPages, sourceCorpusPages: tree.sourceCorpusPages, sections: tree.counts.sections, tracks: tree.counts.tracks }, null, 2));

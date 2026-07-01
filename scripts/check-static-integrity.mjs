@@ -16,6 +16,7 @@ const requiredScriptGlobals = new Map([
   ["./answer-corpus.js", "SearchBookCorpus"],
   ["./data/authored-pages.js", "SearchBookAuthored"],
   ["./data/search-index.js", "SearchBookIndex"],
+  ["./data/page-state-registry.js", "SearchBookPageStateRegistry"],
   ["./data/navigation-tree.js", "SearchBookNavigation"],
   ["./data/journeys.js", "SearchBookJourneys"],
   ["./data/question-routes.js", "SearchBookQuestionRoutes"],

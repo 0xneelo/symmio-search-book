@@ -42,9 +42,9 @@ The latest Volume 06 referral security and settlement batch publishes the next r
 
 The final Volume 06 rewards and tokenized-points batch publishes the remaining 24 rewards/referrals pages: the referral-metrics and KPI set, reward-pack architecture and guardrails, rewards packs/artifacts, TGE qualifying-exposure boundaries, tokenized-points wrapper/listing/perps hypotheticals, and Vibe Trading Program Points. These pages keep reward-pack availability, pack/artifact issuance, supply, rarity, probability, EV, point costs, transferability, tokenized-points markets, TGE conversion, snapshot, vesting, qualifying-exposure accounting, automatic policy triggers, and legal/accounting/investment-sensitive claims inside publication boundaries.
 
-The candidate review queue is complete: `0` final-review-ready pages, `0` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages. All 798 public authored routes are published. After the 2026-07-01 reconciliation and Discord import, the remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4). Discord, Notion, SSHE, and whitepaper v1 de-scope are resolved for source-ingestion readiness.
+The candidate review queue is complete: `0` final-review-ready pages, `0` operator-review pages, `0` source-refresh pages, `0` publication-date-review pages, and `0` editorial-review pages. All 800 public-navigation pages are published. After the 2026-07-01 reconciliation and Discord import, the remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4). Discord, Notion, SSHE, and whitepaper v1 de-scope are resolved for source-ingestion readiness.
 
-**Needed:** Keep source companions out of public navigation, keep internal drafts out of answer synthesis, and keep the generated retrieval layer synchronized as sources or operator decisions change.
+**Needed:** Keep re-running `npm run search-book:check-publication-boundaries` as sources or operator decisions change. The current guard passes with 800 public-navigation pages, 792 source companions kept out of public routes/navigation, and 0 internal-draft runtime context chunks.
 
 ## G-003: Referral Depth Was Contradictory, Now Resolved
 

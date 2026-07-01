@@ -280,6 +280,20 @@ function runEvidenceSummaryRendererCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runPublicationBoundariesCheck(env, dryRun) {
+  const step = {
+    id: "check-publication-boundaries",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-publication-boundaries.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -449,6 +463,7 @@ if (args.dryRun) {
     runStatusEvidenceCheck(env, true);
     runOperatorInboxConsistencyCheck(env, true);
     runEvidenceSummaryRendererCheck(env, true);
+    runPublicationBoundariesCheck(env, true);
   }
   process.exit(0);
 }
@@ -468,6 +483,7 @@ let discordReviewArtifacts = null;
 let statusEvidence = null;
 let operatorInboxConsistency = null;
 let evidenceSummaryRenderer = null;
+let publicationBoundaries = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -478,6 +494,7 @@ if (args.verify) {
   statusEvidence = runStatusEvidenceCheck(env, false);
   operatorInboxConsistency = runOperatorInboxConsistencyCheck(env, false);
   evidenceSummaryRenderer = runEvidenceSummaryRendererCheck(env, false);
+  publicationBoundaries = runPublicationBoundariesCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -493,5 +510,6 @@ console.log(JSON.stringify({
   statusEvidence,
   operatorInboxConsistency,
   evidenceSummaryRenderer,
+  publicationBoundaries,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));
