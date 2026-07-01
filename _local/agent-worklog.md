@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex staging launch-readiness drill
+- Task: Run the executable launch gate against the current localhost Search Book preview/service with backup evidence.
+- Scope: `_local/agent-worklog.md` only; launch drill artifacts stayed in `/tmp`.
+- Status: Complete.
+- Verification target: Staging launch gate passes with fresh deterministic verify, URL deployment smoke, write smoke, and restore-checked backup manifest while keeping production-only owner/cadence/storage gaps visible as staging warnings.
+- Result: Created restore-checked backup manifest `/tmp/search-book-localhost-8797-launch-drill.manifest.json` from `/tmp/search-book-answer-engine-localhost-8797.sqlite`; backup status `passed`, restore-check `passed`, integrity `ok`, 4 tables checked, counts matched, checksum present, backup size positive. Ran `npm run search-book:check-launch -- --profile staging --allow-local --site-url http://127.0.0.1:8798 --service-url http://127.0.0.1:8797 --mode extractive --backup-manifest /tmp/search-book-localhost-8797-launch-drill.manifest.json --skip-production-env --run-verify --write-smoke`: status `passed`, 13 checks, 10 passed, 0 failed, 3 warnings. Fresh verify passed with 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`. Deployment smoke passed in extractive write mode with static home/exact-page/data checks ok, service health/CORS/insights ok, answer `answered`, rating `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`. Expected staging warnings remain reviewer owner, reviewer cadence, and backup storage assignment.
+
 ## 2026-07-01 — Codex Discord re-probe and localhost preview smoke
 - Task: Re-check whether the provided Discord export is readable and validate the current standalone Search Book preview/service path.
 - Scope: `_local/agent-worklog.md` only; no corpus/data changes because Discord import remains blocked by file access.
