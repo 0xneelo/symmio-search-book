@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Dashboard Journey Discord Wording Refresh
+
+- Replaced the dashboard-user journey step for `authored-dashboard-faq` so it now points readers to the source-backed FAQ alongside the imported Discord/Lafa review queue, instead of treating the import as parked.
+- Regenerated `data/journeys.json` and `data/journeys.js`; journey generation still reports 6 journeys, 38 steps, and 0 missing page ids.
+- Verification passed: `node --check scripts/build-journey-map.mjs`, stale active wording scan across `scripts`, `data`, and `content`, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check`. Only #11/#4 remain open.
+
 ## 2026-07-02 — No-Secret Evidence Refresh From Launch-Drill Checkpoint
 
 - Triggered fresh manual workflows from commit `6dbc356`: launch evidence run `28549613374`, release dry-run run `28549614388`, and static artifact run `28549614777`; all passed. The only workflow annotations were GitHub's Node 20 deprecation notices for upstream actions.

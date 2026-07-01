@@ -1,3 +1,10 @@
+## 2026-07-02 — Codex remove stale Discord parked journey wording
+- Task: Replace stale guided-journey wording that implied the Discord import was still parked now that the real Discord/Lafa corpus is imported, sanitized, and routed for review.
+- Scope: `scripts/build-journey-map.mjs`, regenerated `data/journeys.*` if output changes, `PROGRESS.md`, `_local/agent-worklog.md`, and focused verification. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: journey generation reflects current Discord imported/review-ready state, no stale active parked-Discord-import wording remains, focused checks/full verify pass, `git diff --check` passes, and only #11/#4 remain open.
+- Result: Updated `scripts/build-journey-map.mjs` and regenerated `data/journeys.json` / `data/journeys.js` so the dashboard-user FAQ step now says to use the source-backed FAQ alongside the imported Discord/Lafa review queue. Verified `node --check scripts/build-journey-map.mjs`, stale active wording scan across `scripts`, `data`, and `content`, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check`; only #11/#4 remain open.
+
 ## 2026-07-02 — Codex refresh no-secret evidence packets from launch-drill checkpoint
 - Task: Trigger fresh no-secret launch, release, and static artifact workflows from commit `6dbc356`, download the artifacts, validate the packets locally, and record aggregate evidence only.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, and status guards only if refreshed evidence format requires it. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

@@ -103,7 +103,7 @@ const journeyDefinitions = [
       ["authored-dashboard-network", "Inspect graph/tree network visibility."],
       ["authored-dashboard-volume", "Trace network-volume source and snapshot status."],
       ["authored-dashboard-tasks", "Understand onboarding campaign actions."],
-      ["authored-dashboard-faq", "Use the local seed FAQ while Discord import is parked."],
+      ["authored-dashboard-faq", "Use the source-backed FAQ alongside the imported Discord/Lafa review queue."],
       ["authored-dashboard-settings", "Close with contact and recovery metadata."],
     ],
   },
