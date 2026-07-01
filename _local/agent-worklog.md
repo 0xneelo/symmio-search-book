@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex refresh no-secret evidence packets from live-eval checkpoint
+- Task: Trigger fresh no-secret launch, release, and static artifact workflows from commit `acf8977`, download the artifacts, validate the packets locally, and record aggregate evidence only.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `_local/agent-worklog.md`, and status docs only if refreshed evidence needs durable references. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: manual `Search Book Launch Evidence`, `Search Book Release Dry Run`, and `Search Book Static Artifact` workflows pass from current commit; downloaded launch/release/static packets validate with checked scripts; full verify and `git diff --check` pass; only #11/#4 remain open.
+- Result: Manual launch run `28546462956`, release run `28546466120`, and static artifact run `28546465576` passed from commit `acf8977`. Downloaded artifacts under `/tmp/search-book-gh-manual-launch-28546462956`, `/tmp/search-book-gh-manual-release-28546466120`, and `/tmp/search-book-gh-static-artifact-28546465576` passed checked packet validation; static and preview-service smokes passed after allowing localhost binding. Evidence remained no-secret, source ingestion stayed `17/17`, static artifact integrity stayed `passed`, sensitive matches stayed `0`, and only #11/#4 remain open.
+
 ## 2026-07-01 — Codex live RAG eval refresh
 - Task: Refresh local OpenAI-backed Search Book RAG eval evidence with `gpt-4.1-mini` through `.secrets/search-book.env`, summarize pass rates and cost, and record only no-secret aggregate evidence.
 - Scope: Live eval output under `/tmp`, `PROGRESS.md`, `_local/agent-worklog.md`, and generated contract/status docs only if recorded evidence changes. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

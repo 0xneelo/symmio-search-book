@@ -1,5 +1,19 @@
 # Progress
 
+## 2026-07-01 — Manual Evidence Refresh From Live-Eval Checkpoint
+
+- Triggered fresh manual workflows from commit `acf8977`: launch evidence run `28546462956` and release dry-run run `28546466120`; both passed.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28546462956` and `/tmp/search-book-gh-manual-release-28546466120`; strict summary validation passed with `npm run search-book:check-launch-evidence-packet -- --packet /tmp/search-book-gh-manual-launch-28546462956/search-book-launch-evidence/launch-evidence.json --require-summary` and `npm run search-book:check-release-dry-run-packet -- --packet /tmp/search-book-gh-manual-release-28546466120/search-book-release-dry-run/release-dry-run.json --require-summary`. The nested release launch packet also passed `npm run search-book:check-launch-evidence-packet -- --packet /tmp/search-book-gh-manual-release-28546466120/search-book-release-dry-run/launch-evidence/launch-evidence.json`.
+- Both summaries carry repository commit `acf8977`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 19/19; keep-refusal 2/2; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 19; refusals 2; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`; release evidence also reports static artifact integrity `passed`, 1,652 files, 52,855,222 bytes, sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, 93 syntax checks, and only #11/#4 open.
+- Readiness booleans did not flip from the previous verified state: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
+## 2026-07-01 — Static Artifact Evidence Refresh From Live-Eval Checkpoint
+
+- Triggered manual `Search Book Static Artifact` workflow run `28546465576` from commit `acf8977`; the workflow passed verify, static artifact build, static smoke, answer-engine bridge smoke, checked artifact packet validation, and artifact upload.
+- Downloaded the `search-book-static-site` artifact to `/tmp/search-book-gh-static-artifact-28546465576`; local `npm run search-book:check-static-artifact-packet -- --root /tmp/search-book-gh-static-artifact-28546465576/search-book-static-site` passed with 1,652 copied files, 52,855,222 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open.
+- Local copied-bundle smokes also passed after allowing localhost binding: `npm run search-book:smoke-static -- --root /tmp/search-book-gh-static-artifact-28546465576/search-book-static-site` and `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-gh-static-artifact-28546465576/search-book-static-site`.
+- Readiness booleans did not flip from the previous verified state: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-01 — Live RAG Eval Evidence Refresh
 
 - Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` without printing the env file or API key: `/home/tabor/.nvm/versions/node/v23.9.0/bin/node --env-file=.secrets/search-book.env scripts/run-llm-rag-answer.mjs --eval-live all --json`.
