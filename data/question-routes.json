@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic-build",
   "sourceFile": "QUESTIONS.md",
-  "totalRoutes": 803,
+  "totalRoutes": 809,
   "totalReconciliationQuestions": 2,
   "missingRouteIds": [],
   "byConfidence": {
-    "Medium": 504,
-    "High": 46,
-    "Low": 253
+    "Medium": 507,
+    "High": 47,
+    "Low": 255
   },
   "byRouteSource": {
-    "authored": 803
+    "authored": 809
   },
   "answerable": [
     {
@@ -153,6 +153,26 @@
       "routeSource": "authored",
       "confidence": "High",
       "notes": "Operator terminology and official Vibe architecture sources treat AMFQ/aMFQ as the legacy Automated Market for Quotes name for the current intent model.",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-do-older-docs-say-amfq-instead-of-intents",
+      "question": "Why do older docs say AMFQ instead of intents?",
+      "normalizedQuestion": "why do older docs say amfq instead of intents",
+      "pageId": "authored-amfq-legacy-intent-naming",
+      "pageTitle": "AMFQ Is Legacy Naming For Intents",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "High",
+      "notes": "The legacy AMFQ/aMFQ label should be translated into current intent terminology rather than documented as a separate live system.",
       "sourceKeys": [
         "vibe-architecture",
         "symmio-core",
@@ -2881,6 +2901,23 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's fake-video scenario shows how short-side access lets a participant act inside the market instead of merely ignoring or posting about false information.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-what-does-the-no-button-do-besides-signal-dislike",
+      "question": "What does the NO button do besides signal dislike?",
+      "normalizedQuestion": "what does the no button do besides signal dislike",
+      "pageId": "authored-no-button-market-filter",
+      "pageTitle": "The NO Button As Market Filter",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The source-backed answer treats the NO button as capitalized rejection through short-side market access, bounded by the underlying market stack.",
       "sourceKeys": [
         "vibe-papers"
       ],
@@ -7332,6 +7369,23 @@
       "missing": false
     },
     {
+      "id": "qr-which-perp-design-fits-a-new-long-tail-market",
+      "question": "Which perp design fits a new long-tail market?",
+      "normalizedQuestion": "which perp design fits a new long tail market",
+      "pageId": "authored-long-tail-perp-model-map",
+      "pageTitle": "The Long-Tail Perp Model Map",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The model map compares CLOBs, pools, Percolator-family systems, and Vibe's hybrid approach by market phase and residual-risk owner.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
       "id": "qr-what-is-the-last-primitive",
       "question": "What is the last primitive?",
       "normalizedQuestion": "what is the last primitive",
@@ -9086,6 +9140,23 @@
       "missing": false
     },
     {
+      "id": "qr-can-a-project-bootstrap-liquidity-with-its-own-token-inventory",
+      "question": "Can a project bootstrap liquidity with its own token inventory?",
+      "normalizedQuestion": "can a project bootstrap liquidity with its own token inventory",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "pageTitle": "Project Token Inventory Without Stablecoins",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "Neelo's DDQ supports token-side inventory as a launch input while keeping stablecoin settlement and hedging operations solver/protocol funded.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
       "id": "qr-what-happens-in-the-ddq-bootstrapped-market-stage",
       "question": "What happens in the DDQ bootstrapped market stage?",
       "normalizedQuestion": "what happens in the ddq bootstrapped market stage",
@@ -9268,6 +9339,25 @@
       "routeSource": "authored",
       "confidence": "Low",
       "notes": "Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance.",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-rfq-useful-before-a-market-has-deep-two-sided-liquidity",
+      "question": "Why is RFQ useful before a market has deep two-sided liquidity?",
+      "normalizedQuestion": "why is rfq useful before a market has deep two sided liquidity",
+      "pageId": "authored-rfq-risk-tuning",
+      "pageTitle": "RFQ Risk Tuning Per Quote",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Low",
+      "notes": "RFQ lets the solver adjust spreads, limits, quote availability, or refusal per request before taking residual exposure in an immature market.",
       "sourceKeys": [
         "vibe-papers",
         "vibe-architecture",
@@ -12736,6 +12826,23 @@
       "routeSource": "authored",
       "confidence": "Medium",
       "notes": "Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists.",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "missing": false
+    },
+    {
+      "id": "qr-why-is-there-no-payer-in-an-async-netted-perp-at-bootstrap",
+      "question": "Why is there no payer in an async netted perp at bootstrap?",
+      "normalizedQuestion": "why is there no payer in an async netted perp at bootstrap",
+      "pageId": "authored-async-netted-no-payer-failure",
+      "pageTitle": "The Async-Netted No-Payer Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "confidence": "Medium",
+      "notes": "The trilemma source says asynchronous entry can create winning exposure before an offsetting counterparty exists, leaving no defined payout source.",
       "sourceKeys": [
         "vibe-papers"
       ],

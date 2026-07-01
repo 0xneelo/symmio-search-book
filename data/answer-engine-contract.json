@@ -72,7 +72,7 @@
         "candidate",
         "published"
       ],
-      "totalGoldenRoutes": 803
+      "totalGoldenRoutes": 809
     },
     {
       "stage": "glossary-route",
@@ -186,8 +186,8 @@
     ]
   },
   "evaluation": {
-    "totalExactRouteTests": 803,
-    "exactRouteTestsPassing": 803,
+    "totalExactRouteTests": 809,
+    "exactRouteTestsPassing": 809,
     "totalRefusalTests": 2,
     "refusalTestsPassing": 2,
     "totalGlossaryRouteTests": 32,
@@ -196,12 +196,12 @@
     "allRefusalTestsPass": true,
     "allGlossaryRoutesPass": true,
     "exactRoutesByPageState": {
-      "published": 803
+      "published": 809
     },
     "exactRoutesByConfidence": {
-      "Medium": 504,
-      "High": 46,
-      "Low": 253
+      "Medium": 507,
+      "High": 47,
+      "Low": 255
     },
     "glossaryRoutesByRuntimeAction": {
       "retrieve-context-without-public-primary": 5,
@@ -420,6 +420,33 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-what-was-amfq",
+        "passes": true
+      },
+      {
+        "id": "qr-why-do-older-docs-say-amfq-instead-of-intents",
+        "query": "Why do older docs say AMFQ instead of intents?",
+        "normalizedQuery": "why do older docs say amfq instead of intents",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-amfq-legacy-intent-naming",
+        "expectedPageTitle": "AMFQ Is Legacy Naming For Intents",
+        "expectedPageState": "published",
+        "routeConfidence": "High",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-architecture",
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "styleguide"
+        ],
+        "linkedSourceKeys": [
+          "vibe-architecture",
+          "symmio-core",
+          "symmio-intent-lifecycle",
+          "styleguide"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-do-older-docs-say-amfq-instead-of-intents",
         "passes": true
       },
       {
@@ -3936,6 +3963,27 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-does-the-no-button-filter-fake-narratives",
+        "passes": true
+      },
+      {
+        "id": "qr-what-does-the-no-button-do-besides-signal-dislike",
+        "query": "What does the NO button do besides signal dislike?",
+        "normalizedQuery": "what does the no button do besides signal dislike",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-no-button-market-filter",
+        "expectedPageTitle": "The NO Button As Market Filter",
+        "expectedPageState": "published",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-what-does-the-no-button-do-besides-signal-dislike",
         "passes": true
       },
       {
@@ -9448,6 +9496,27 @@
         "passes": true
       },
       {
+        "id": "qr-which-perp-design-fits-a-new-long-tail-market",
+        "query": "Which perp design fits a new long-tail market?",
+        "normalizedQuery": "which perp design fits a new long tail market",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-long-tail-perp-model-map",
+        "expectedPageTitle": "The Long-Tail Perp Model Map",
+        "expectedPageState": "published",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-which-perp-design-fits-a-new-long-tail-market",
+        "passes": true
+      },
+      {
         "id": "qr-what-is-the-last-primitive",
         "query": "What is the last primitive?",
         "normalizedQuery": "what is the last primitive",
@@ -11643,6 +11712,27 @@
         "passes": true
       },
       {
+        "id": "qr-can-a-project-bootstrap-liquidity-with-its-own-token-inventory",
+        "query": "Can a project bootstrap liquidity with its own token inventory?",
+        "normalizedQuery": "can a project bootstrap liquidity with its own token inventory",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-project-token-inventory-without-stablecoins",
+        "expectedPageTitle": "Project Token Inventory Without Stablecoins",
+        "expectedPageState": "published",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-can-a-project-bootstrap-liquidity-with-its-own-token-inventory",
+        "passes": true
+      },
+      {
         "id": "qr-what-happens-in-the-ddq-bootstrapped-market-stage",
         "query": "What happens in the DDQ bootstrapped market stage?",
         "normalizedQuery": "what happens in the ddq bootstrapped market stage",
@@ -11877,6 +11967,31 @@
         "unknownSourceKeys": [],
         "chunkCount": 2,
         "faqEntryId": "faq-how-does-rfq-let-the-solver-tune-risk-per-quote",
+        "passes": true
+      },
+      {
+        "id": "qr-why-is-rfq-useful-before-a-market-has-deep-two-sided-liquidity",
+        "query": "Why is RFQ useful before a market has deep two-sided liquidity?",
+        "normalizedQuery": "why is rfq useful before a market has deep two sided liquidity",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-rfq-risk-tuning",
+        "expectedPageTitle": "RFQ Risk Tuning Per Quote",
+        "expectedPageState": "published",
+        "routeConfidence": "Low",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers",
+          "vibe-architecture",
+          "symmio-intent-lifecycle"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers",
+          "vibe-architecture",
+          "symmio-intent-lifecycle"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-rfq-useful-before-a-market-has-deep-two-sided-liquidity",
         "passes": true
       },
       {
@@ -16212,6 +16327,27 @@
         "passes": true
       },
       {
+        "id": "qr-why-is-there-no-payer-in-an-async-netted-perp-at-bootstrap",
+        "query": "Why is there no payer in an async netted perp at bootstrap?",
+        "normalizedQuery": "why is there no payer in an async netted perp at bootstrap",
+        "expectedStage": "exact-question-route",
+        "expectedPageId": "authored-async-netted-no-payer-failure",
+        "expectedPageTitle": "The Async-Netted No-Payer Failure",
+        "expectedPageState": "published",
+        "routeConfidence": "Medium",
+        "routeSource": "authored",
+        "sourceKeys": [
+          "vibe-papers"
+        ],
+        "linkedSourceKeys": [
+          "vibe-papers"
+        ],
+        "unknownSourceKeys": [],
+        "chunkCount": 2,
+        "faqEntryId": "faq-why-is-there-no-payer-in-an-async-netted-perp-at-bootstrap",
+        "passes": true
+      },
+      {
         "id": "qr-how-does-the-solver-solve-the-network-effect-cold-start",
         "query": "How does the solver solve the network-effect cold start?",
         "normalizedQuery": "how does the solver solve the network effect cold start",
@@ -19039,7 +19175,7 @@
     "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
     "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
     "evaluationSet": {
-      "exactRoutes": 803,
+      "exactRoutes": 809,
       "glossaryRoutes": 32,
       "refusals": 2,
       "lowRatedFeedback": 1,

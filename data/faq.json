@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger",
   "status": "prototype-local-seed-discord-pending",
-  "totalEntries": 805,
-  "totalAnswerable": 803,
+  "totalEntries": 811,
+  "totalAnswerable": 809,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 121,
-    "Trading Flow": 47,
-    "Solvers And Settlement": 180,
+    "Getting Started": 122,
+    "Trading Flow": 49,
+    "Solvers And Settlement": 182,
     "Data And Volume": 10,
     "Revenue": 99,
     "Rewards And Referrals": 101,
     "Dashboard": 13,
     "Risk And Markets": 72,
-    "Manifesto": 160,
+    "Manifesto": 161,
     "Discord Import": 2
   },
   "byConfidence": {
-    "Medium": 504,
-    "High": 46,
-    "Low": 253
+    "Medium": 507,
+    "High": 47,
+    "Low": 255
   },
   "byRouteSource": {
-    "authored": 803
+    "authored": 809
   },
   "byType": {
-    "answerable": 803,
+    "answerable": 809,
     "reconciliation": 2
   },
   "answerable": [
@@ -429,6 +429,59 @@
       "question": "What was AMFQ?",
       "normalizedQuestion": "what was amfq",
       "shortAnswer": "Operator terminology and official Vibe architecture sources treat AMFQ/aMFQ as the legacy Automated Market for Quotes name for the current intent model.",
+      "answerSummary": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves throug...",
+      "confidence": "High",
+      "pageId": "authored-amfq-legacy-intent-naming",
+      "pageTitle": "AMFQ Is Legacy Naming For Intents",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        },
+        {
+          "key": "styleguide",
+          "group": "Local Specs",
+          "use": "Local terminology and page-structure lock for authored pages.",
+          "href": "../../src/search-book/STYLEGUIDE.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-older-docs-say-amfq-instead-of-intents",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why do older docs say AMFQ instead of intents?",
+      "normalizedQuestion": "why do older docs say amfq instead of intents",
+      "shortAnswer": "The legacy AMFQ/aMFQ label should be translated into current intent terminology rather than documented as a separate live system.",
       "answerSummary": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves throug...",
       "confidence": "High",
       "pageId": "authored-amfq-legacy-intent-naming",
@@ -6417,6 +6470,35 @@
       "question": "How does the NO button filter fake narratives?",
       "normalizedQuestion": "how does the no button filter fake narratives",
       "shortAnswer": "Neelo's fake-video scenario shows how short-side access lets a participant act inside the market instead of merely ignoring or posting about false information.",
+      "answerSummary": "The NO Button As Market Filter The source's fake video scenario is a stress test for market filtering. A synthetic claim appears. Coordinated buyers push a token or narrative upward. The market briefly treats attention as reality. The NO button changes the filter. A participant who recognizes the claim as false can do more than ignore it. They can short i...",
+      "confidence": "Medium",
+      "pageId": "authored-no-button-market-filter",
+      "pageTitle": "The NO Button As Market Filter",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-no-button-do-besides-signal-dislike",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What does the NO button do besides signal dislike?",
+      "normalizedQuestion": "what does the no button do besides signal dislike",
+      "shortAnswer": "The source-backed answer treats the NO button as capitalized rejection through short-side market access, bounded by the underlying market stack.",
       "answerSummary": "The NO Button As Market Filter The source's fake video scenario is a stress test for market filtering. A synthetic claim appears. Coordinated buyers push a token or narrative upward. The market briefly treats attention as reality. The NO button changes the filter. A participant who recognizes the claim as false can do more than ignore it. They can short i...",
       "confidence": "Medium",
       "pageId": "authored-no-button-market-filter",
@@ -14179,6 +14261,35 @@
       ]
     },
     {
+      "id": "faq-which-perp-design-fits-a-new-long-tail-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Which perp design fits a new long-tail market?",
+      "normalizedQuestion": "which perp design fits a new long tail market",
+      "shortAnswer": "The model map compares CLOBs, pools, Percolator-family systems, and Vibe's hybrid approach by market phase and residual-risk owner.",
+      "answerSummary": "The Long Tail Perp Model Map The raw Listing Additional transcript is the source's rough field analysis of dYdX style vault rails, strict Hyperliquid style listing, GMX style pooled collateral, Percolator family markets, and Vibe's hybrid solver/inventory approach. The structured notes reduce that landscape to a model map. CLOBs are best when a market is...",
+      "confidence": "Medium",
+      "pageId": "authored-long-tail-perp-model-map",
+      "pageTitle": "The Long-Tail Perp Model Map",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-is-the-last-primitive",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -17404,6 +17515,35 @@
       ]
     },
     {
+      "id": "faq-can-a-project-bootstrap-liquidity-with-its-own-token-inventory",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Can a project bootstrap liquidity with its own token inventory?",
+      "normalizedQuestion": "can a project bootstrap liquidity with its own token inventory",
+      "shortAnswer": "Neelo's DDQ supports token-side inventory as a launch input while keeping stablecoin settlement and hedging operations solver/protocol funded.",
+      "answerSummary": "Project Token Inventory Without Stablecoins The DDQ frames Vibe as an alternative market creation path for projects that have token inventory but limited stablecoin appetite. The source contrasts Vibe with several familiar routes. Centralized exchange listings can require costly commitments. Market maker arrangements can require stablecoin budgets or nego...",
+      "confidence": "Low",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "pageTitle": "Project Token Inventory Without Stablecoins",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-happens-in-the-ddq-bootstrapped-market-stage",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -17709,6 +17849,51 @@
       "question": "How does RFQ let the solver tune risk per quote?",
       "normalizedQuestion": "how does rfq let the solver tune risk per quote",
       "shortAnswer": "Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance.",
+      "answerSummary": "RFQ Risk Tuning Per Quote The DDQ's risk model depends on the RFQ/intent structure. Because a trader requests executable terms before a solver accepts, the solver can tune risk on the quote itself. That gives the system more control than a passive market that must accept every interaction at a fixed curve or a thin book. For each request, the solver can c...",
+      "confidence": "Low",
+      "pageId": "authored-rfq-risk-tuning",
+      "pageTitle": "RFQ Risk Tuning Per Quote",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-rfq-useful-before-a-market-has-deep-two-sided-liquidity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is RFQ useful before a market has deep two-sided liquidity?",
+      "normalizedQuestion": "why is rfq useful before a market has deep two sided liquidity",
+      "shortAnswer": "RFQ lets the solver adjust spreads, limits, quote availability, or refusal per request before taking residual exposure in an immature market.",
       "answerSummary": "RFQ Risk Tuning Per Quote The DDQ's risk model depends on the RFQ/intent structure. Because a trader requests executable terms before a solver accepts, the solver can tune risk on the quote itself. That gives the system more control than a passive market that must accept every interaction at a fixed curve or a thin book. For each request, the solver can c...",
       "confidence": "Low",
       "pageId": "authored-rfq-risk-tuning",
@@ -24075,6 +24260,35 @@
       ]
     },
     {
+      "id": "faq-why-is-there-no-payer-in-an-async-netted-perp-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is there no payer in an async netted perp at bootstrap?",
+      "normalizedQuestion": "why is there no payer in an async netted perp at bootstrap",
+      "shortAnswer": "The trilemma source says asynchronous entry can create winning exposure before an offsetting counterparty exists, leaving no defined payout source.",
+      "answerSummary": "The Async Netted No Payer Failure The most tempting impossible quadrant is asynchronous plus fully netted. It appears to promise everything a new market wants: trades can arrive without a simultaneous counterparty, listings can be permissionless, and the system does not tie up vault capital. Neelo's trilemma source says the failure is direct. Netted accou...",
+      "confidence": "Medium",
+      "pageId": "authored-async-netted-no-payer-failure",
+      "pageTitle": "The Async-Netted No-Payer Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-how-does-the-solver-solve-the-network-effect-cold-start",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -26848,6 +27062,59 @@
       "question": "What was AMFQ?",
       "normalizedQuestion": "what was amfq",
       "shortAnswer": "Operator terminology and official Vibe architecture sources treat AMFQ/aMFQ as the legacy Automated Market for Quotes name for the current intent model.",
+      "answerSummary": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves throug...",
+      "confidence": "High",
+      "pageId": "authored-amfq-legacy-intent-naming",
+      "pageTitle": "AMFQ Is Legacy Naming For Intents",
+      "pageSection": "product-reference",
+      "pageTrack": "Trading Flow",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-architecture",
+        "symmio-core",
+        "symmio-intent-lifecycle",
+        "styleguide"
+      ],
+      "sources": [
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        },
+        {
+          "key": "styleguide",
+          "group": "Local Specs",
+          "use": "Local terminology and page-structure lock for authored pages.",
+          "href": "../../src/search-book/STYLEGUIDE.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-older-docs-say-amfq-instead-of-intents",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "Why do older docs say AMFQ instead of intents?",
+      "normalizedQuestion": "why do older docs say amfq instead of intents",
+      "shortAnswer": "The legacy AMFQ/aMFQ label should be translated into current intent terminology rather than documented as a separate live system.",
       "answerSummary": "AMFQ Is Legacy Naming For Intents AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes. In the Vibe docs corpus, treat it as the old product name for the current Intents model. The current reader facing term should be intent. A trader expresses a desired trade outcome, solvers return executable offers, and the accepted request moves throug...",
       "confidence": "High",
       "pageId": "authored-amfq-legacy-intent-naming",
@@ -32836,6 +33103,35 @@
       "question": "How does the NO button filter fake narratives?",
       "normalizedQuestion": "how does the no button filter fake narratives",
       "shortAnswer": "Neelo's fake-video scenario shows how short-side access lets a participant act inside the market instead of merely ignoring or posting about false information.",
+      "answerSummary": "The NO Button As Market Filter The source's fake video scenario is a stress test for market filtering. A synthetic claim appears. Coordinated buyers push a token or narrative upward. The market briefly treats attention as reality. The NO button changes the filter. A participant who recognizes the claim as false can do more than ignore it. They can short i...",
+      "confidence": "Medium",
+      "pageId": "authored-no-button-market-filter",
+      "pageTitle": "The NO Button As Market Filter",
+      "pageSection": "manifesto",
+      "pageTrack": "14 - Information and Trade Convergence",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-no-button-do-besides-signal-dislike",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "What does the NO button do besides signal dislike?",
+      "normalizedQuestion": "what does the no button do besides signal dislike",
+      "shortAnswer": "The source-backed answer treats the NO button as capitalized rejection through short-side market access, bounded by the underlying market stack.",
       "answerSummary": "The NO Button As Market Filter The source's fake video scenario is a stress test for market filtering. A synthetic claim appears. Coordinated buyers push a token or narrative upward. The market briefly treats attention as reality. The NO button changes the filter. A participant who recognizes the claim as false can do more than ignore it. They can short i...",
       "confidence": "Medium",
       "pageId": "authored-no-button-market-filter",
@@ -40598,6 +40894,35 @@
       ]
     },
     {
+      "id": "faq-which-perp-design-fits-a-new-long-tail-market",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Which perp design fits a new long-tail market?",
+      "normalizedQuestion": "which perp design fits a new long tail market",
+      "shortAnswer": "The model map compares CLOBs, pools, Percolator-family systems, and Vibe's hybrid approach by market phase and residual-risk owner.",
+      "answerSummary": "The Long Tail Perp Model Map The raw Listing Additional transcript is the source's rough field analysis of dYdX style vault rails, strict Hyperliquid style listing, GMX style pooled collateral, Percolator family markets, and Vibe's hybrid solver/inventory approach. The structured notes reduce that landscape to a model map. CLOBs are best when a market is...",
+      "confidence": "Medium",
+      "pageId": "authored-long-tail-perp-model-map",
+      "pageTitle": "The Long-Tail Perp Model Map",
+      "pageSection": "manifesto",
+      "pageTrack": "16 - Listing Additional Notes",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-is-the-last-primitive",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -43823,6 +44148,35 @@
       ]
     },
     {
+      "id": "faq-can-a-project-bootstrap-liquidity-with-its-own-token-inventory",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Can a project bootstrap liquidity with its own token inventory?",
+      "normalizedQuestion": "can a project bootstrap liquidity with its own token inventory",
+      "shortAnswer": "Neelo's DDQ supports token-side inventory as a launch input while keeping stablecoin settlement and hedging operations solver/protocol funded.",
+      "answerSummary": "Project Token Inventory Without Stablecoins The DDQ frames Vibe as an alternative market creation path for projects that have token inventory but limited stablecoin appetite. The source contrasts Vibe with several familiar routes. Centralized exchange listings can require costly commitments. Market maker arrangements can require stablecoin budgets or nego...",
+      "confidence": "Low",
+      "pageId": "authored-project-token-inventory-without-stablecoins",
+      "pageTitle": "Project Token Inventory Without Stablecoins",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
       "id": "faq-what-happens-in-the-ddq-bootstrapped-market-stage",
       "type": "answerable",
       "seedSource": "local-question-ledger",
@@ -44128,6 +44482,51 @@
       "question": "How does RFQ let the solver tune risk per quote?",
       "normalizedQuestion": "how does rfq let the solver tune risk per quote",
       "shortAnswer": "Neelo's DDQ and Vibe/Symmio intent sources support per-quote spreads, limits, refusal, and risk checks before solver acceptance.",
+      "answerSummary": "RFQ Risk Tuning Per Quote The DDQ's risk model depends on the RFQ/intent structure. Because a trader requests executable terms before a solver accepts, the solver can tune risk on the quote itself. That gives the system more control than a passive market that must accept every interaction at a fixed curve or a thin book. For each request, the solver can c...",
+      "confidence": "Low",
+      "pageId": "authored-rfq-risk-tuning",
+      "pageTitle": "RFQ Risk Tuning Per Quote",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "vibe-architecture",
+        "symmio-intent-lifecycle"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "vibe-architecture",
+          "group": "Public Vibe Sources",
+          "use": "AMFQ/aMFQ legacy intent naming, intent flow, solver offers, on-chain execution.",
+          "href": "https://docs.vibe.trading/architectural-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-intent-lifecycle",
+          "group": "Public Symmio Sources",
+          "use": "Solver event monitoring and quote lifecycle.",
+          "href": "https://docs.symm.io/liquidity-provider-documentation/core-concepts/intent-lifecycle-and-event-monitoring.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-rfq-useful-before-a-market-has-deep-two-sided-liquidity",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "Why is RFQ useful before a market has deep two-sided liquidity?",
+      "normalizedQuestion": "why is rfq useful before a market has deep two sided liquidity",
+      "shortAnswer": "RFQ lets the solver adjust spreads, limits, quote availability, or refusal per request before taking residual exposure in an immature market.",
       "answerSummary": "RFQ Risk Tuning Per Quote The DDQ's risk model depends on the RFQ/intent structure. Because a trader requests executable terms before a solver accepts, the solver can tune risk on the quote itself. That gives the system more control than a passive market that must accept every interaction at a fixed curve or a thin book. For each request, the solver can c...",
       "confidence": "Low",
       "pageId": "authored-rfq-risk-tuning",
@@ -50472,6 +50871,35 @@
       "question": "Why does asynchronous netted architecture fail at bootstrap?",
       "normalizedQuestion": "why does asynchronous netted architecture fail at bootstrap",
       "shortAnswer": "Neelo's bootstrap trilemma shows that async entry plus fully netted accounting can create profitable exposure before any defined payer exists.",
+      "answerSummary": "The Async Netted No Payer Failure The most tempting impossible quadrant is asynchronous plus fully netted. It appears to promise everything a new market wants: trades can arrive without a simultaneous counterparty, listings can be permissionless, and the system does not tie up vault capital. Neelo's trilemma source says the failure is direct. Netted accou...",
+      "confidence": "Medium",
+      "pageId": "authored-async-netted-no-payer-failure",
+      "pageTitle": "The Async-Netted No-Payer Failure",
+      "pageSection": "manifesto",
+      "pageTrack": "01 — Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-is-there-no-payer-in-an-async-netted-perp-at-bootstrap",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "Why is there no payer in an async netted perp at bootstrap?",
+      "normalizedQuestion": "why is there no payer in an async netted perp at bootstrap",
+      "shortAnswer": "The trilemma source says asynchronous entry can create winning exposure before an offsetting counterparty exists, leaving no defined payout source.",
       "answerSummary": "The Async Netted No Payer Failure The most tempting impossible quadrant is asynchronous plus fully netted. It appears to promise everything a new market wants: trades can arrive without a simultaneous counterparty, listings can be permissionless, and the system does not tie up vault capital. Neelo's trilemma source says the failure is direct. Netted accou...",
       "confidence": "Medium",
       "pageId": "authored-async-netted-no-payer-failure",

@@ -26,7 +26,7 @@
     "totalFixtures": 27,
     "passingFixtures": 27,
     "failingFixtures": 0,
-    "exactRouteGoldenSet": 803,
+    "exactRouteGoldenSet": 809,
     "adversarialGoldenSet": 15,
     "answerChunkPages": 1613,
     "answerChunks": 2884,
@@ -321,6 +321,46 @@
       "failures": []
     },
     {
+      "id": "fixture-qr-why-do-older-docs-say-amfq-instead-of-intents",
+      "type": "cited-answer",
+      "query": "Why do older docs say AMFQ instead of intents?",
+      "expectedPageId": "authored-amfq-legacy-intent-naming",
+      "response": {
+        "requestId": "req-qr-why-do-older-docs-say-amfq-instead-of-intents",
+        "status": "answered",
+        "answer": "AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes and is legacy naming for the current Intents model, not a separate live system.",
+        "primaryPageId": "authored-amfq-legacy-intent-naming",
+        "citations": [
+          {
+            "id": "qr-why-do-older-docs-say-amfq-instead-of-intents-citation-1",
+            "pageId": "authored-amfq-legacy-intent-naming",
+            "pageTitle": "AMFQ Is Legacy Naming For Intents",
+            "sourceKey": "vibe-architecture",
+            "sourceHref": "https://docs.vibe.trading/architectural-overview.md",
+            "chunkIds": [
+              "authored-amfq-legacy-intent-naming::001"
+            ]
+          }
+        ],
+        "paragraphs": [
+          {
+            "text": "AMFQ, sometimes written aMFQ, stands for Automated Market for Quotes and is legacy naming for the current Intents model, not a separate live system.",
+            "citationIds": [
+              "qr-why-do-older-docs-say-amfq-instead-of-intents-citation-1"
+            ]
+          }
+        ],
+        "events": [
+          {
+            "type": "question-answered",
+            "pageId": "authored-amfq-legacy-intent-naming"
+          }
+        ]
+      },
+      "passes": true,
+      "failures": []
+    },
+    {
       "id": "fixture-qr-who-are-partya-and-partyb",
       "type": "cited-answer",
       "query": "Who are PartyA and PartyB?",
@@ -474,46 +514,6 @@
           {
             "type": "question-answered",
             "pageId": "authored-volume-02-bootstrap-and-proof-of-value"
-          }
-        ]
-      },
-      "passes": true,
-      "failures": []
-    },
-    {
-      "id": "fixture-qr-how-should-i-read-volume-03-on-listing-power-and-order-books",
-      "type": "cited-answer",
-      "query": "How should I read Volume 03 on listing power and order books?",
-      "expectedPageId": "authored-volume-03-listing-power-and-orderbooks",
-      "response": {
-        "requestId": "req-qr-how-should-i-read-volume-03-on-listing-power-and-order-books",
-        "status": "answered",
-        "answer": "Volume 03: Listing Power And Orderbook Alternatives is the cited answer route for this seeded question.",
-        "primaryPageId": "authored-volume-03-listing-power-and-orderbooks",
-        "citations": [
-          {
-            "id": "qr-how-should-i-read-volume-03-on-listing-power-and-order-books-citation-1",
-            "pageId": "authored-volume-03-listing-power-and-orderbooks",
-            "pageTitle": "Volume 03: Listing Power And Orderbook Alternatives",
-            "sourceKey": "vibe-papers",
-            "sourceHref": "https://github.com/0xneelo/vibe_docs",
-            "chunkIds": [
-              "authored-volume-03-listing-power-and-orderbooks::001"
-            ]
-          }
-        ],
-        "paragraphs": [
-          {
-            "text": "Volume 03: Listing Power And Orderbook Alternatives is the cited answer route for this seeded question.",
-            "citationIds": [
-              "qr-how-should-i-read-volume-03-on-listing-power-and-order-books-citation-1"
-            ]
-          }
-        ],
-        "events": [
-          {
-            "type": "question-answered",
-            "pageId": "authored-volume-03-listing-power-and-orderbooks"
           }
         ]
       },

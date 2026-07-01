@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord-seeded route aliases batch 2
+- Task: Promote the next sanitized Discord page-fit checks into generic, primary-source-backed exact question routes.
+- Scope: `QUESTIONS.md`, regenerated route/FAQ/contract data, current count docs if changed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: New aliases are generic public questions backed by existing cited pages, contain no raw Discord/Lafa text, route to published public pages, preserve refusal guardrails, and `npm run search-book:verify` remains green.
+- Result: Added six generic aliases for AMFQ legacy naming, NO-button market filtering, long-tail perp model selection, project token inventory, RFQ risk tuning, and async-netted no-payer failure. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `809/809`, FAQ entries `811`, chunks `2,884`, authored pages `801`, static integrity `20/20`, and quality gates `29/30`. Targeted route/no-raw assertion passed: all six aliases route to published public-navigation pages, and the committed Discord corpus still has `storesMessageText:false` with zero non-empty committed raw/normalized message, question, or answer fields.
+
 ## 2026-07-01 — Codex reconciliation readiness rebuild
 - Task: Re-read reconciled operator docs, re-run the real Discord corpus import and deterministic Search Book verify, then report readiness boolean deltas.
 - Scope: `data/discord-corpus.*`, regenerated deterministic data if changed, readiness summary only, and `_local/agent-worklog.md`.
