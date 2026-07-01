@@ -78,7 +78,9 @@ Vibe docs claim Binance perp market coverage and 390+ markets. Since market coun
 
 The current official product overview and platform overview were re-fetched during authored Vibe product-reference passes. A 2026-06-30 live public-docs check confirmed the official "What is Vibe Trading?" page still says all Binance perp markets and "390+ markets," while the platform page says "390+ Markets with up to 60x Leverage (x100 on some)." That is enough to cite the public-docs wording, but the count remains a publication-date verification item rather than a static compendium fact.
 
-**Needed:** Current Vibe product source or live market index snapshot.
+`npm run search-book:check-source-freshness` now performs the publication-day public-docs check against the registered official Vibe Markdown source keys `vibe-what-is` and `vibe-platform`. The latest 2026-07-01 run fetched both sources with HTTP 200 and passed 4/4 checks for Binance perp market coverage, 390+ market wording, and the platform leverage wording, while printing only statuses, hashes, and booleans. This verifies current public-docs wording, not a live exchange market-index count.
+
+**Needed:** Re-run `npm run search-book:check-source-freshness` on the intended publication day, or replace the public-docs wording with a live market index snapshot if the official docs change.
 
 ## G-007: Symmio Whitepaper History Is De-Scoped For v1
 

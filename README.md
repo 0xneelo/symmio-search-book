@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | ~36 build/serve/smoke scripts (Node built-ins only). |
+| `scripts/` | ~37 build/serve/smoke scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -73,6 +73,9 @@ npm run search-book:release-dry-run
 npm run search-book:check-monitoring
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
+
+# Publication-day source freshness check for exact Vibe market/leverage wording
+npm run search-book:check-source-freshness
 
 # Local-only Discord/Lafa editorial packet; writes raw excerpts outside the repo
 npm run search-book:discord-review -- --input /path/to/discord-export.json --lafa-author-id <id> --out-dir /tmp/search-book-discord-review
@@ -148,6 +151,10 @@ To smoke-test a copied bundle directly, run
 `npm run search-book:smoke-static -- --root /tmp/search-book-static-site`.
 To verify the copied bundle can also bridge to the standalone answer-engine service, run
 `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-static-site`.
+Before publishing exact freshness-sensitive Vibe market-count or leverage wording, run
+`npm run search-book:check-source-freshness`; it fetches the registered official Vibe
+Markdown sources and reports only statuses, hashes, and claim booleans. It verifies current
+public-docs wording, not a live exchange market-index count.
 To review imported Discord/Lafa material, run `npm run search-book:discord-review` with a
 local export and a `/tmp` output directory. It writes raw review excerpts outside the repo,
 prints only summary paths/counts, and refuses repository output by default; the checked-in

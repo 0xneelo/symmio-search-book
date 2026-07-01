@@ -1196,7 +1196,7 @@ const payload = {
     "Continue reviewing the imported Discord/Lafa demand corpus before promoting any exact community claim into public copy.",
     "Resolve operator inbox items before final publication claims.",
     "Keep the imported Discord/Lafa corpus redacted in checked-in data and use only sanitized routing evidence in public artifacts.",
-    "Run final link, source, and live-market-count checks at publication time.",
+    "Run final link checks and `npm run search-book:check-source-freshness` at publication time before quoting freshness-sensitive Vibe market/leverage claims.",
   ],
 };
 

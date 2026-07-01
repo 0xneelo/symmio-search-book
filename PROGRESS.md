@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Vibe Source Freshness Check
+
+- Added `scripts/check-vibe-source-freshness.mjs` and `npm run search-book:check-source-freshness` for publication-day verification of exact Vibe market-count and leverage wording.
+- The checker reads registered official Vibe source keys from `data/source-catalog.json`, fetches only `vibe-what-is` and `vibe-platform`, and emits source status, content hashes, and claim booleans without printing source bodies or secrets.
+- Live run on 2026-07-01 passed: 2/2 official Markdown sources fetched with HTTP 200, 4/4 claim checks passed, `valuesPrinted:false`, and `sourceBodiesPrinted:false`.
+- Updated G-006 so the remaining market-count freshness caveat is an executable publication-day step rather than a loose manual reminder; this verifies public-docs wording, not a live exchange market-index count.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 73 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Page-Feedback Launch Gate Hardening
 
 - Made service-backed reader page feedback a required living-docs control in the deterministic build invariant, quality audit, and launch-readiness gate.

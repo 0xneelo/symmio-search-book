@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Vibe source freshness check
+- Task: Add an executable publication-day freshness check for exact Vibe market-count and leverage wording.
+- Scope: `scripts/check-vibe-source-freshness.mjs`, `package.json`, quality-audit wording/data, README/GAPS/PROGRESS/FINAL-REPORT status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: The new command fetches registered official Vibe Markdown sources, verifies current 390+ market/Binance-perp/leverage wording without printing secrets or source bodies, deterministic verify still passes, and #11/#4 remain the only operator gates.
+- Result: Added `npm run search-book:check-source-freshness`, which fetches registered official Vibe Markdown sources `vibe-what-is` and `vibe-platform`, verifies the freshness-sensitive Binance-perp, 390+ market, and leverage wording, and reports only statuses, hashes, and booleans. Live run passed on 2026-07-01 with 2/2 sources fetched, 4/4 checks passed, `valuesPrinted:false`, and `sourceBodiesPrinted:false`; evidence copy written to `/tmp/search-book-vibe-source-freshness-20260701.json`. Full `npm run search-book:verify` passed with 25 build steps, 73 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex page-feedback launch gate hardening
 - Task: Make service-backed reader page feedback a first-class launch/evidence control after adding the endpoint.
 - Scope: `scripts/check-launch-readiness.mjs`, release/static/launch evidence scripts, quality/build invariants, regenerated readiness data, docs/status notes, and `_local/agent-worklog.md`.
