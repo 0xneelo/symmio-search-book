@@ -14,6 +14,7 @@ The standalone Search Book repo is the canonical working copy:
 - Runtime: static `index.html` plus standalone SQLite answer-engine service
 - Local LLM env: complete in `.secrets/search-book.env`; do not print it
 - Local preview evidence: passed against `127.0.0.1:8798` plus service `127.0.0.1:8797`
+- Latest strict manual launch/release evidence: launch run `28543454950` and release run `28543470871` passed from commit `f3043d1`; downloaded artifacts under `/tmp/search-book-gh-manual-launch-28543454950` and `/tmp/search-book-gh-manual-release-28543470871` passed strict summary validation without printing secrets
 - Latest platform-neutral static artifact evidence: manual `Search Book Static Artifact` workflow run `28542889764` passed from commit `9099ae4`; downloaded artifact `/tmp/search-book-gh-static-artifact-28542889764` passed checked packet validation plus static and preview-service smokes without loading secrets
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,

@@ -37,7 +37,7 @@ function countSyntaxCheckFiles() {
 function latestManualEvidenceFromProgress() {
   const progress = readText("PROGRESS.md");
   const entry =
-    progress.match(/## 2026-07-01 — Manual Evidence Refresh For Production Packet Guard\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+    progress.match(/## 2026-07-01 — [^\n]*Manual Evidence[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
   return {
     commit: entry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
     launchRun: entry.match(/launch evidence run `(\d+)`/)?.[1] || "",
