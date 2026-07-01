@@ -20,6 +20,8 @@ const forbiddenValues = [
   "Bearer token-should-not-print",
 ];
 
+const fixtureCommit = "summary-validator-fixture";
+
 function addCheck(checks, id, passed, detail = "") {
   checks.push({ id, passed: Boolean(passed), detail });
 }
@@ -27,33 +29,77 @@ function addCheck(checks, id, passed, detail = "") {
 function makeLaunchPacket() {
   return {
     status: "passed",
+    generatedAt: "deterministic-summary-fixture",
+    repository: {
+      branch: "main",
+      commit: fixtureCommit,
+      dirty: false,
+      dirtyStatus: [],
+    },
     secrets: {
       valuesPrinted: false,
       llmApiKeyConfigured: true,
       rawTokenValue: "sk-test-secret-should-not-print",
     },
     readiness: {
+      sourceCompletionReady: true,
+      sourceRequirements: {
+        complete: 17,
+        partial: 0,
+        parked: 0,
+        missing: 0,
+      },
+      discordRouteCoverage: {
+        coverageReady: true,
+        totalPageFitGroups: 19,
+        pageFitCoveredByPublicRoutes: 19,
+        pageFitSingleRouteRemaining: 0,
+        pageFitWithoutPublicRoute: 0,
+      },
+      livingDocsControls: {
+        pageFeedback: true,
+      },
       openOperatorItems: [
         { id: 11, title: "Production VPS LLM/service env install" },
         { id: 4, title: "Final docs platform and repository owner decision" },
       ],
     },
     launchEvidence: {
+      passed: true,
       parsed: {
         status: "passed",
         rawQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
+        checks: [
+          {
+            id: "fresh-verify",
+            passed: true,
+            evidence: {
+              status: "passed",
+              mode: "build-and-verify",
+              syntaxChecks: 92,
+              productionReadinessPacket: { passed: true },
+            },
+          },
+        ],
       },
     },
     monitoringEvidence: {
+      passed: true,
       parsed: {
         status: "passed",
         authorization: "Bearer token-should-not-print",
       },
     },
     sourceFreshnessEvidence: {
+      passed: true,
       parsed: {
         status: "passed",
-        totals: { passed: 4, checks: 4 },
+        totals: {
+          passed: 4,
+          checks: 4,
+          sourcesFetched: 2,
+          sources: 2,
+        },
         secrets: {
           valuesPrinted: false,
           sourceBodiesPrinted: false,
@@ -62,6 +108,7 @@ function makeLaunchPacket() {
       },
     },
     statusEvidence: {
+      passed: true,
       parsed: {
         status: "passed",
         documents: [{ passed: true }, { passed: true }, { passed: true }, { passed: true }],
@@ -71,6 +118,7 @@ function makeLaunchPacket() {
       },
     },
     specReconciliation: {
+      passed: true,
       parsed: {
         status: "passed",
         evidence: {
@@ -79,6 +127,7 @@ function makeLaunchPacket() {
           sourceParked: 0,
           sourceMissing: 0,
           sourceCompletionReady: true,
+          competitiveSweep: "49/50",
           llmProvider: "OpenAI",
           llmModel: "gpt-4.1-mini",
           openOperatorIds: [4, 11],
@@ -98,20 +147,28 @@ function makeLaunchPacket() {
       },
     },
     discordReviewArtifacts: {
+      passed: true,
       parsed: {
         status: "passed",
         summary: {
+          routingReady: true,
           routedItems: 24,
+          rawDiscordTextIncluded: false,
+          sourceAnswerTextIncluded: false,
+          valuesPrinted: false,
           rawKeyHits: 0,
           sampleLeaks: 0,
           rawText: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
           routeCoverage: {
             totalPageFitGroups: 19,
             coveredPageFitGroups: 19,
+            pageFitSingleRouteRemaining: 0,
+            pageFitWithoutPublicRoute: 0,
             sourceBackedPageFitGroups: 19,
             triageReadyPageFitGroups: 19,
             publicCopyReadyPageFitGroups: 19,
             publicCopyReviewRequired: 0,
+            coverageReady: true,
             triageReady: true,
             publicCopyReady: true,
           },
@@ -139,6 +196,7 @@ function makeLaunchPacket() {
       },
     },
     discordRefusalRuntime: {
+      passed: true,
       parsed: {
         status: "passed",
         secrets: {
@@ -168,9 +226,11 @@ function makeLaunchPacket() {
             },
           ],
         },
+        checks: [{ id: "runtime-refusal-probes", passed: true }],
       },
     },
     publicationBoundaries: {
+      passed: true,
       parsed: {
         status: "passed",
         valuesPrinted: false,
@@ -187,6 +247,7 @@ function makeLaunchPacket() {
       },
     },
     backupRestoreEvidence: {
+      passed: true,
       parsed: {
         status: "passed",
         valuesPrinted: false,
@@ -221,6 +282,7 @@ function makeLaunchPacket() {
       },
     },
     livingDocsReviewEvidence: {
+      passed: true,
       parsed: {
         status: "passed",
         valuesPrinted: false,
@@ -260,12 +322,32 @@ function makeLaunchPacket() {
         ],
       },
     },
+    evidenceSummaryRenderer: {
+      passed: true,
+      parsed: {
+        status: "passed",
+        evidence: {
+          launchSummaryLines: 36,
+          releaseSummaryLines: 40,
+          appendedBytes: 4742,
+          valuesPrinted: false,
+        },
+        checks: [{ id: "summary-output-no-secret", passed: true }],
+      },
+    },
   };
 }
 
 function makeReleasePacket() {
   return {
     status: "passed",
+    generatedAt: "deterministic-summary-fixture",
+    repository: {
+      branch: "main",
+      commit: fixtureCommit,
+      dirty: false,
+      dirtyStatus: [],
+    },
     secrets: {
       valuesPrinted: false,
       sensitiveMatches: [],
@@ -276,17 +358,33 @@ function makeReleasePacket() {
       integrity: "passed",
       files: 1650,
       bytes: 52935258,
+      secrets: {
+        sensitiveMatches: 0,
+      },
     },
     steps: [
-      { id: "build-static-artifact", status: "passed" },
-      { id: "smoke-static-artifact", status: "passed" },
-      { id: "smoke-artifact-answer-service", status: "passed" },
-      { id: "build-launch-evidence", status: "passed" },
+      { id: "build-static-artifact", status: "passed", passed: true },
+      { id: "smoke-static-artifact", status: "passed", passed: true },
+      { id: "smoke-artifact-answer-service", status: "passed", passed: true },
+      { id: "build-launch-evidence", status: "passed", passed: true },
     ],
     readiness: {
+      sourceCompletionReady: true,
+      sourceRequirements: {
+        complete: 17,
+        partial: 0,
+        parked: 0,
+        missing: 0,
+      },
       discordRouteCoverage: {
+        coverageReady: true,
         pageFitCoveredByPublicRoutes: 19,
         totalPageFitGroups: 19,
+        pageFitSingleRouteRemaining: 0,
+        pageFitWithoutPublicRoute: 0,
+      },
+      livingDocsControls: {
+        pageFeedback: true,
       },
       openOperatorItems: [
         { id: 11, title: "Production VPS LLM/service env install" },
@@ -294,6 +392,7 @@ function makeReleasePacket() {
       ],
     },
     launchEvidence: {
+      status: "passed",
       launchStatus: "passed",
       monitoringStatus: "passed",
       sourceFreshnessStatus: "passed",
@@ -324,6 +423,7 @@ function makeReleasePacket() {
           sourceParked: 0,
           sourceMissing: 0,
           sourceCompletionReady: true,
+          competitiveSweep: "49/50",
           llmProvider: "OpenAI",
           llmModel: "gpt-4.1-mini",
           openOperatorIds: [4, 11],
@@ -331,17 +431,24 @@ function makeReleasePacket() {
       },
       discordReviewArtifacts: {
         summary: {
+          routingReady: true,
           routedItems: 24,
+          rawDiscordTextIncluded: false,
+          sourceAnswerTextIncluded: false,
+          valuesPrinted: false,
           rawKeyHits: 0,
           sampleLeaks: 0,
           sourceAnswer: "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
           routeCoverage: {
             totalPageFitGroups: 19,
             coveredPageFitGroups: 19,
+            pageFitSingleRouteRemaining: 0,
+            pageFitWithoutPublicRoute: 0,
             sourceBackedPageFitGroups: 19,
             triageReadyPageFitGroups: 19,
             publicCopyReadyPageFitGroups: 19,
             publicCopyReviewRequired: 0,
+            coverageReady: true,
             triageReady: true,
             publicCopyReady: true,
           },
@@ -411,12 +518,19 @@ function makeReleasePacket() {
       backupRestoreEvidence: {
         status: "passed",
         valuesPrinted: false,
+        secrets: {
+          valuesPrinted: false,
+          llmCredentialsLoaded: false,
+        },
         evidence: {
           manifestStatus: "passed",
           restoreCheckStatus: "passed",
           integrity: "ok",
           tablesChecked: 4,
           tablesMatched: 4,
+          backupSizePositive: true,
+          checksumPresent: true,
+          latestManifestWritten: true,
           seededCounts: {
             questions: 2,
             ratings: 2,
@@ -458,8 +572,35 @@ function makeReleasePacket() {
         },
         checks: { passed: 3, total: 3 },
       },
+      evidenceSummaryRendererStatus: "passed",
+      evidenceSummaryRenderer: {
+        status: "passed",
+        evidence: {
+          launchSummaryLines: 36,
+          releaseSummaryLines: 40,
+          appendedBytes: 4742,
+          valuesPrinted: false,
+        },
+        checks: { passed: 1, total: 1 },
+      },
     },
   };
+}
+
+function cloneJson(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function makeValidatorLaunchPacket() {
+  const packet = cloneJson(makeLaunchPacket());
+  delete packet.sourceFreshnessEvidence.parsed.sourceBody;
+  return packet;
+}
+
+function makeValidatorReleasePacket() {
+  const packet = cloneJson(makeReleasePacket());
+  delete packet.launchEvidence.sourceFreshness.sourceBody;
+  return packet;
 }
 
 function runSummary(kind, packetPath, summaryPath = "") {
@@ -484,22 +625,70 @@ function runSummary(kind, packetPath, summaryPath = "") {
   };
 }
 
+function runPacketValidator(scriptName, args) {
+  const result = spawnSync(process.execPath, [
+    path.join(searchBookRoot, "scripts", scriptName),
+    ...args,
+  ], {
+    cwd: searchBookRoot,
+    encoding: "utf8",
+  });
+  return {
+    status: result.status,
+    stdout: result.stdout || "",
+    stderr: result.stderr || "",
+    error: result.error?.message || "",
+  };
+}
+
 function main() {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "search-book-evidence-summary-check-"));
   const launchPath = path.join(tmpDir, "launch-evidence.json");
   const releasePath = path.join(tmpDir, "release-dry-run.json");
+  const launchSummaryPath = path.join(tmpDir, "launch-evidence.summary.md");
+  const releaseSummaryPath = path.join(tmpDir, "release-dry-run.summary.md");
+  const validatorDir = path.join(tmpDir, "validator");
+  const validatorLaunchPath = path.join(validatorDir, "launch-evidence.json");
+  const validatorReleasePath = path.join(validatorDir, "release-dry-run.json");
+  const validatorNestedLaunchDir = path.join(validatorDir, "launch-evidence");
+  const validatorNestedLaunchPath = path.join(validatorNestedLaunchDir, "launch-evidence.json");
+  const validatorLaunchSummaryPath = path.join(validatorDir, "launch-evidence.summary.md");
+  const validatorReleaseSummaryPath = path.join(validatorDir, "release-dry-run.summary.md");
   const stepSummaryPath = path.join(tmpDir, "github-step-summary.md");
-  fs.writeFileSync(launchPath, `${JSON.stringify(makeLaunchPacket(), null, 2)}\n`);
+  const launchPacket = makeLaunchPacket();
+  const validatorLaunchPacket = makeValidatorLaunchPacket();
+  fs.mkdirSync(validatorNestedLaunchDir, { recursive: true });
+  fs.writeFileSync(launchPath, `${JSON.stringify(launchPacket, null, 2)}\n`);
+  fs.writeFileSync(validatorLaunchPath, `${JSON.stringify(validatorLaunchPacket, null, 2)}\n`);
+  fs.writeFileSync(validatorNestedLaunchPath, `${JSON.stringify(validatorLaunchPacket, null, 2)}\n`);
   fs.writeFileSync(releasePath, `${JSON.stringify(makeReleasePacket(), null, 2)}\n`);
+  fs.writeFileSync(validatorReleasePath, `${JSON.stringify(makeValidatorReleasePacket(), null, 2)}\n`);
 
   const checks = [];
   const launch = runSummary("launch", launchPath, stepSummaryPath);
   const release = runSummary("release", releasePath, stepSummaryPath);
+  fs.writeFileSync(launchSummaryPath, launch.stdout);
+  fs.writeFileSync(releaseSummaryPath, release.stdout);
   const appended = fs.readFileSync(stepSummaryPath, "utf8");
   const combined = `${launch.stdout}\n${release.stdout}\n${appended}`;
+  fs.writeFileSync(validatorLaunchSummaryPath, launch.stdout);
+  fs.writeFileSync(validatorReleaseSummaryPath, release.stdout);
+
+  const strictLaunch = runPacketValidator("check-launch-evidence-packet.mjs", ["--packet", validatorLaunchPath, "--require-summary"]);
+  const strictRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
+  const missingSummaryLaunch = runPacketValidator("check-launch-evidence-packet.mjs", ["--packet", validatorNestedLaunchPath, "--require-summary"]);
+  fs.writeFileSync(validatorReleaseSummaryPath, release.stdout.replace(
+    "Discord editorial queue data | `passed` (24 routed / 19 page-fit / 2 refusals; ready: `true`)",
+    "Discord editorial queue data | `failed` (24 routed / 19 page-fit / 2 refusals; ready: `false`)",
+  ));
+  const tamperedSummaryRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
 
   addCheck(checks, "launch-render-passed", launch.status === 0 && !launch.error, `exit=${launch.status}; ${launch.stderr || launch.error}`);
   addCheck(checks, "release-render-passed", release.status === 0 && !release.error, `exit=${release.status}; ${release.stderr || release.error}`);
+  addCheck(checks, "strict-launch-summary-validation-passed", strictLaunch.status === 0 && !strictLaunch.error, `exit=${strictLaunch.status}`);
+  addCheck(checks, "strict-release-summary-validation-passed", strictRelease.status === 0 && !strictRelease.error, `exit=${strictRelease.status}`);
+  addCheck(checks, "missing-summary-rejected", missingSummaryLaunch.status !== 0, `exit=${missingSummaryLaunch.status}`);
+  addCheck(checks, "tampered-summary-rejected", tamperedSummaryRelease.status !== 0, `exit=${tamperedSummaryRelease.status}`);
   addCheck(checks, "append-summary-created", appended.includes("Search Book Launch Evidence") && appended.includes("Search Book Release Dry Run"), "");
   addCheck(checks, "stdout-summaries-rendered", launch.stdout.includes("Search Book Launch Evidence") && release.stdout.includes("Search Book Release Dry Run"), "");
   addCheck(
@@ -538,6 +727,9 @@ function main() {
       launchSummaryLines: launch.stdout.split(/\r?\n/).filter(Boolean).length,
       releaseSummaryLines: release.stdout.split(/\r?\n/).filter(Boolean).length,
       appendedBytes: Buffer.byteLength(appended),
+      strictSummaryValidation: true,
+      missingSummaryRejected: missingSummaryLaunch.status !== 0,
+      tamperedSummaryRejected: tamperedSummaryRelease.status !== 0,
       valuesPrinted: false,
     },
     checks,

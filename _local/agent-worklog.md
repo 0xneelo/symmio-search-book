@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex summary-artifact negative validation guard
+- Task: Add an executable negative regression proving `--require-summary` rejects missing and tampered summary artifacts, while valid launch/release summaries still pass.
+- Scope: `scripts/check-evidence-summary-renderer.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-evidence-summary` passes with strict launch/release summary validation, missing-summary rejection, tampered-summary rejection, no raw seeded values, and no secret-like output; full verify remains green.
+- Result: Extended the existing evidence-summary guard with sanitized packet-validator fixtures and subprocess checks for the real launch/release packet validators. Focused verification passed with `strictSummaryValidation:true`, `missingSummaryRejected:true`, `tamperedSummaryRejected:true`, and `valuesPrinted:false`.
+
 ## 2026-07-01 — Codex summary-artifact packet validation
 - Task: Harden downloaded launch/release packet validation so adjacent GitHub summary Markdown artifacts are checked by the packet validators instead of only by workflow grep/manual review.
 - Scope: `scripts/check-launch-evidence-packet.mjs`, `scripts/check-release-dry-run-packet.mjs`, README/status docs if needed, and `_local/agent-worklog.md`.

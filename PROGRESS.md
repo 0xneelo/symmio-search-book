@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Summary Artifact Negative Validation Guard
+
+- Extended `npm run search-book:check-evidence-summary` so the canonical verify path now exercises the real packet validators with `--require-summary`.
+- The guard renders synthetic launch/release summary artifacts, validates strict launch and release packets successfully, then proves a missing summary and a tampered Discord editorial queue row are rejected.
+- The renderer still uses raw seeded fields for privacy coverage, while the packet-validator fixtures are sanitized so no source-body markers are accepted by launch/release validators; focused verification passed with `strictSummaryValidation:true`, `missingSummaryRejected:true`, `tamperedSummaryRejected:true`, and `valuesPrinted:false`.
+
 ## 2026-07-01 — Summary Artifact Packet Validation
 
 - Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` with `--require-summary`, which validates adjacent GitHub summary Markdown artifacts when strict downloaded-artifact review is expected.
