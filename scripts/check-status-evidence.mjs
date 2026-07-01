@@ -34,10 +34,24 @@ function countSyntaxCheckFiles() {
   return 1 + scriptChecks + dataChecks;
 }
 
+function progressEntries() {
+  return readText("PROGRESS.md")
+    .split(/\n(?=## \d{4}-\d{2}-\d{2} — )/)
+    .filter((entry) => entry.startsWith("## "));
+}
+
+function latestProgressEntry(predicate) {
+  return progressEntries().find(predicate) || "";
+}
+
 function latestManualEvidenceFromProgress() {
-  const progress = readText("PROGRESS.md");
-  const entry =
-    progress.match(/## 2026-07-01 — [^\n]*Manual Evidence[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+  const entry = latestProgressEntry(
+    (candidate) =>
+      candidate.includes("launch evidence run `") &&
+      candidate.includes("release dry-run run `") &&
+      candidate.includes("/tmp/search-book-gh-manual-launch-") &&
+      candidate.includes("/tmp/search-book-gh-manual-release-"),
+  );
   return {
     commit: entry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
     launchRun: entry.match(/launch evidence run `(\d+)`/)?.[1] || "",
@@ -48,9 +62,11 @@ function latestManualEvidenceFromProgress() {
 }
 
 function latestStaticArtifactEvidenceFromProgress() {
-  const progress = readText("PROGRESS.md");
-  const entry =
-    progress.match(/## 2026-07-01 — [^\n]*Static Artifact[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+  const entry = latestProgressEntry(
+    (candidate) =>
+      candidate.includes("/tmp/search-book-gh-static-artifact-") &&
+      (candidate.includes("static artifact run `") || candidate.includes("workflow run `")),
+  );
   return {
     commit: entry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
     run: entry.match(/workflow run `(\d+)`/)?.[1] || entry.match(/static artifact run `(\d+)`/)?.[1] || "",

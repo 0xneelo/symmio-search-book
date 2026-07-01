@@ -66,6 +66,16 @@ function valuesEqual(actual = [], expected = []) {
   return JSON.stringify(actualSorted) === JSON.stringify(expectedSorted);
 }
 
+function progressEntries() {
+  return progress
+    .split(/\n(?=## \d{4}-\d{2}-\d{2} — )/)
+    .filter((entry) => entry.startsWith("## "));
+}
+
+function latestProgressEntry(predicate) {
+  return progressEntries().find(predicate) || "";
+}
+
 const audit = readText("COMPLETION-AUDIT.md");
 const progress = readText("PROGRESS.md");
 const finalReportExists = fs.existsSync(path.join(searchBookRoot, "FINAL-REPORT.md"));
@@ -105,8 +115,13 @@ const routeCoverage = discordRouting.reviewPlan?.routeCoverage || {};
 const liveSuites = llm.liveEvaluation?.suites || {};
 const checks = [];
 
-const manualEvidenceEntry =
-  progress.match(/## 2026-07-01 — [^\n]*Manual Evidence[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+const manualEvidenceEntry = latestProgressEntry(
+  (candidate) =>
+    candidate.includes("launch evidence run `") &&
+    candidate.includes("release dry-run run `") &&
+    candidate.includes("/tmp/search-book-gh-manual-launch-") &&
+    candidate.includes("/tmp/search-book-gh-manual-release-"),
+);
 const manualEvidence = {
   commit: manualEvidenceEntry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
   launchRun: manualEvidenceEntry.match(/launch evidence run `(\d+)`/)?.[1] || "",
@@ -114,8 +129,11 @@ const manualEvidence = {
   launchArtifact: manualEvidenceEntry.match(/(\/tmp\/search-book-gh-manual-launch-\d+)/)?.[1] || "",
   releaseArtifact: manualEvidenceEntry.match(/(\/tmp\/search-book-gh-manual-release-\d+)/)?.[1] || "",
 };
-const staticArtifactEntry =
-  progress.match(/## 2026-07-01 — [^\n]*Static Artifact[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+const staticArtifactEntry = latestProgressEntry(
+  (candidate) =>
+    candidate.includes("/tmp/search-book-gh-static-artifact-") &&
+    (candidate.includes("static artifact run `") || candidate.includes("workflow run `")),
+);
 const staticArtifactEvidence = {
   commit: staticArtifactEntry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
   run: staticArtifactEntry.match(/workflow run `(\d+)`/)?.[1] || staticArtifactEntry.match(/static artifact run `(\d+)`/)?.[1] || "",

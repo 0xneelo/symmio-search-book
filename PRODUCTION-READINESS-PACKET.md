@@ -14,8 +14,8 @@ The standalone Search Book repo is the canonical working copy:
 - Runtime: static `index.html` plus standalone SQLite answer-engine service
 - Local LLM env: complete in `.secrets/search-book.env`; do not print it
 - Local preview evidence: passed against `127.0.0.1:8798` plus service `127.0.0.1:8797`
-- Latest strict manual launch/release evidence: launch run `28546462956` and release run `28546466120` passed from commit `acf8977`; downloaded artifacts under `/tmp/search-book-gh-manual-launch-28546462956` and `/tmp/search-book-gh-manual-release-28546466120` passed strict summary validation without printing secrets
-- Latest platform-neutral static artifact evidence: manual `Search Book Static Artifact` workflow run `28546465576` passed from commit `acf8977`; downloaded artifact `/tmp/search-book-gh-static-artifact-28546465576/search-book-static-site` passed checked packet validation plus static and preview-service smokes without loading secrets
+- Latest strict manual launch/release evidence: launch run `28547927761` and release run `28547927031` passed from commit `250f7d0`; downloaded artifacts under `/tmp/search-book-gh-manual-launch-28547927761` and `/tmp/search-book-gh-manual-release-28547927031` passed strict summary validation without printing secrets
+- Latest platform-neutral static artifact evidence: manual `Search Book Static Artifact` workflow run `28547927021` passed from commit `250f7d0`; downloaded artifact `/tmp/search-book-gh-static-artifact-28547927021/search-book-static-site` passed checked packet validation plus static and preview-service smokes without loading secrets
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue Markdown/JSON generated,
