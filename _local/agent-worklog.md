@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex refreshed static artifact evidence
+- Task: Trigger the manual static artifact workflow from latest `main`, download the platform-neutral bundle, and validate it against the current Search Book artifact contract.
+- Scope: GitHub Actions manual run, downloaded `/tmp` artifact, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `_local/agent-worklog.md`, and status guards only if refreshed evidence format requires it.
+- Status: Complete. Work stayed in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remained frozen.
+- Verification target: manual `Search Book Static Artifact` workflow passes from current commit; downloaded static bundle passes `npm run search-book:check-static-artifact-packet`, `npm run search-book:smoke-static -- --root`, and `npm run search-book:smoke-preview-service -- --static-root`; full verify and `git diff --check` pass; only #11/#4 remain open.
+- Result: Manual static artifact run `28542889764` passed from commit `9099ae4`. Downloaded artifact at `/tmp/search-book-gh-static-artifact-28542889764` passed checked packet validation with 1,652 copied files, 52,855,222 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open. Local static and preview-service smokes passed, focused status/completion/production-packet guards passed, and full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex refreshed manual reviewer-workflow launch/release evidence
 - Task: Trigger fresh no-secret manual launch/release workflows from commit `d021ecf`, download artifacts, and validate strict summary packets now that reviewer workflow rows are required.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `_local/agent-worklog.md`, and status guards only if required by refreshed evidence format.
