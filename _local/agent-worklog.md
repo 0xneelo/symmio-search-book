@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex source-freshness workflow visibility
+- Task: Make GitHub/manual release evidence summaries and stale docs reflect the source-freshness packet fields.
+- Scope: `.github/workflows/*` release/launch evidence summaries, stale readiness-count docs if found, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: workflow summaries mention source freshness, stale deterministic counts are corrected, focused syntax/docs checks pass, and #11/#4 remain the only operator gates.
+- Result: Updated launch-evidence and release-dry-run workflow packet checks to assert source freshness passed, no secret values were printed, and no source bodies were printed. Corrected the final report canonical build count to 73 syntax checks and added the latest no-secret release dry-run source-freshness evidence to `COMPLETION-AUDIT.md`. Tested the workflow node assertions against local launch/release packets; both passed with source freshness `4/4`. `node scripts/check-readiness-evidence.mjs`, `git diff --check`, and full `npm run search-book:verify` passed with 25 build steps, 73 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex source-freshness evidence packets
 - Task: Include Vibe source freshness results in launch-evidence and release-dry-run packets.
 - Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, status docs/generated data if needed, and `_local/agent-worklog.md`.

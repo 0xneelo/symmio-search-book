@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Source-Freshness Workflow Visibility
+
+- Updated the `Search Book Launch Evidence` workflow packet check so it asserts source freshness status `passed`, `valuesPrinted:false`, and `sourceBodiesPrinted:false`.
+- Updated the `Search Book Release Dry Run` workflow packet check so it asserts the outer release source-freshness status, nested launch source-freshness status, and no source-body printing.
+- Corrected the final report canonical build snapshot to 73 syntax checks after adding `scripts/check-vibe-source-freshness.mjs`.
+
 ## 2026-07-01 — Source-Freshness Evidence Packets
 
 - Added Vibe source-freshness evidence to `npm run search-book:launch-evidence` by default, with `--skip-source-freshness` available for offline staging packet generation.
