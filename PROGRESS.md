@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Source-Count Evidence Normalization
+
+- Normalized source-ingestion status counts in static-artifact, launch-evidence, and release-dry-run packets so zero-count statuses are explicit instead of omitted or `null`.
+- Generated evidence now reports `17 complete / 0 partial / 0 parked / 0 missing` in both JSON readiness snapshots and Markdown packet summaries.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-source-counts-20260701-1`: release status `passed`, static artifact `1,650` files / `52,929,756` bytes, launch and monitoring `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Targeted packet assertion passed across release, static-artifact, and launch-evidence JSON: all three carry source counts `{complete:17, partial:0, parked:0, missing:0}` while preserving Discord route coverage at 19/19 page-fit groups and 0 single-route groups.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Route-Coverage Evidence Packets
 
 - Updated `scripts/build-static-artifact.mjs`, `scripts/build-launch-evidence-packet.mjs`, and `scripts/run-release-dry-run.mjs` so generated static-artifact, launch-evidence, and release-dry-run packets include structured `discordRouteCoverage` readiness fields.

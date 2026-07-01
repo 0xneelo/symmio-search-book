@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex source-count evidence normalization
+- Task: Make evidence packets explicitly report zero-count source-ingestion statuses.
+- Scope: `scripts/build-static-artifact.mjs`, `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Static-artifact, launch-evidence, and release-dry-run readiness snapshots all report source counts as `17 complete / 0 partial / 0 parked / 0 missing`, not omitted or `null`, while preserving route-coverage and no-secret evidence.
+- Result: Added normalized source status counts to all three evidence packet layers and Markdown packet summaries. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-source-counts-20260701-1` passed with static artifact `1,650` files / `52,929,756` bytes, launch and monitoring `passed`, `valuesPrinted:false`, and sensitive matches `0`. Targeted packet assertion passed across release, static-artifact, and launch-evidence JSON: source counts `{complete:17, partial:0, parked:0, missing:0}` plus Discord route coverage 19/19 page-fit groups and 0 single-route groups. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex route-coverage evidence packets
 - Task: Make release/static/launch evidence packets carry Search Insights Discord route coverage directly.
 - Scope: `scripts/build-static-artifact.mjs`, `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, `README.md`, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.

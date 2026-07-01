@@ -146,6 +146,15 @@ function summarizeDiscordRouteCoverage() {
   };
 }
 
+function normalizeStatusCounts(byStatus = {}) {
+  return {
+    complete: byStatus.complete ?? 0,
+    partial: byStatus.partial ?? 0,
+    parked: byStatus.parked ?? 0,
+    missing: byStatus.missing ?? 0,
+  };
+}
+
 function runIntegrity(outDir) {
   const result = spawnSync(process.execPath, [
     path.join(searchBookRoot, "scripts", "check-static-integrity.mjs"),
@@ -215,6 +224,7 @@ function summarizeData() {
     qualityGates: quality.gates ? `${quality.gates.filter((gate) => gate.passed).length}/${quality.gates.length}` : null,
     completionReady: requirementMap.completionReady === true,
     sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
+    sourceRequirements: normalizeStatusCounts(sourceIngestion.byStatus),
     discordRouteCoverage: summarizeDiscordRouteCoverage(),
     openOperatorItems: (requirementMap.openOperatorItems || []).map((item) => ({
       id: item.id,
@@ -278,6 +288,7 @@ try {
       exactRoutes: manifest.readiness.exactRoutes,
       chunks: manifest.readiness.chunks,
       qualityGates: manifest.readiness.qualityGates,
+      sourceRequirements: manifest.readiness.sourceRequirements,
       discordRouteCoverage: manifest.readiness.discordRouteCoverage,
       openOperatorItems: manifest.readiness.openOperatorItems,
     },

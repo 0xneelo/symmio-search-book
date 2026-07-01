@@ -224,6 +224,15 @@ function summarizeDiscordRouteCoverage() {
   };
 }
 
+function normalizeStatusCounts(byStatus = {}) {
+  return {
+    complete: byStatus.complete ?? 0,
+    partial: byStatus.partial ?? 0,
+    parked: byStatus.parked ?? 0,
+    missing: byStatus.missing ?? 0,
+  };
+}
+
 function summarizeStaticArtifact(artifactDir) {
   const manifest = readJson(path.join(artifactDir, "static-artifact-manifest.json"), null);
   if (!manifest) return null;
@@ -281,7 +290,7 @@ function summarizeReadiness() {
     answerChunks: totals.answerChunks || null,
     qualityGates: gates.length ? `${gatePasses}/${gates.length}` : null,
     sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
-    sourceRequirements: sourceIngestion.byStatus || null,
+    sourceRequirements: normalizeStatusCounts(sourceIngestion.byStatus),
     completionReady: requirements.completionReady === true,
     requirementStatus: requirements.byStatus || null,
     deterministicReady: answerContract.deterministicReady === true,
@@ -371,6 +380,7 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Answer chunks: \`${readiness.answerChunks ?? "unknown"}\`
 - Quality gates: \`${readiness.qualityGates ?? "unknown"}\`
 - Source completion ready: \`${readiness.sourceCompletionReady}\`
+- Source requirements: \`${readiness.sourceRequirements?.complete ?? "unknown"} complete / ${readiness.sourceRequirements?.partial ?? "unknown"} partial / ${readiness.sourceRequirements?.parked ?? "unknown"} parked / ${readiness.sourceRequirements?.missing ?? "unknown"} missing\`
 - Discord route coverage: \`${readiness.discordRouteCoverage?.pageFitCoveredByPublicRoutes ?? "unknown"}/${readiness.discordRouteCoverage?.totalPageFitGroups ?? "unknown"} page-fit groups; ${readiness.discordRouteCoverage?.pageFitSingleRouteRemaining ?? "unknown"} single-route groups remaining\`
 - Completion ready: \`${readiness.completionReady}\`
 - LLM production ready: \`${readiness.llmProductionReady}\`
@@ -509,6 +519,7 @@ try {
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,
+      sourceRequirements: packet.readiness.sourceRequirements,
       discordRouteCoverage: packet.readiness.discordRouteCoverage,
       openOperatorItems: packet.readiness.openOperatorItems,
     },

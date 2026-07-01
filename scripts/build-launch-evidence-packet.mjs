@@ -213,6 +213,15 @@ function summarizeDiscordRouteCoverage() {
   };
 }
 
+function normalizeStatusCounts(byStatus = {}) {
+  return {
+    complete: byStatus.complete ?? 0,
+    partial: byStatus.partial ?? 0,
+    parked: byStatus.parked ?? 0,
+    missing: byStatus.missing ?? 0,
+  };
+}
+
 function sanitize(value, key = "") {
   if (Array.isArray(value)) return value.map((item) => sanitize(item, key));
   if (value && typeof value === "object") {
@@ -253,12 +262,7 @@ function summarizeReadiness() {
     llmProductionReady: answerContract.llmProductionReady === true || llm.llmProductionReady === true,
     livingDocsProductionReady: livingDocs.livingDocsProductionReady === true,
     sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
-    sourceRequirements: {
-      complete: sourceStatus.complete ?? null,
-      partial: sourceStatus.partial ?? 0,
-      parked: sourceStatus.parked ?? null,
-      missing: sourceStatus.missing ?? 0,
-    },
+    sourceRequirements: normalizeStatusCounts(sourceStatus),
     completionReady: requirements.completionReady === true,
     requirementStatus: requirements.byStatus || null,
     discordRouteCoverage: summarizeDiscordRouteCoverage(),
@@ -391,6 +395,7 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Quality gates: \`${readiness.qualityGates ?? "unknown"}\`
 - Exact routes: \`${readiness.exactRoutes ?? "unknown"}\`
 - Source completion ready: \`${readiness.sourceCompletionReady}\`
+- Source requirements: \`${readiness.sourceRequirements?.complete ?? "unknown"} complete / ${readiness.sourceRequirements?.partial ?? "unknown"} partial / ${readiness.sourceRequirements?.parked ?? "unknown"} parked / ${readiness.sourceRequirements?.missing ?? "unknown"} missing\`
 - Discord route coverage: \`${readiness.discordRouteCoverage?.pageFitCoveredByPublicRoutes ?? "unknown"}/${readiness.discordRouteCoverage?.totalPageFitGroups ?? "unknown"} page-fit groups; ${readiness.discordRouteCoverage?.pageFitSingleRouteRemaining ?? "unknown"} single-route groups remaining\`
 - Completion ready: \`${readiness.completionReady}\`
 - LLM production ready: \`${readiness.llmProductionReady}\`
@@ -534,6 +539,7 @@ function main() {
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,
+      sourceRequirements: packet.readiness.sourceRequirements,
       discordRouteCoverage: packet.readiness.discordRouteCoverage,
       openOperatorItems: packet.readiness.openOperatorItems,
     },
