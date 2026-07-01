@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Discord Review Artifact Validator
+
+- Added `scripts/check-discord-review-artifacts.mjs` and `npm run search-book:check-discord-review-artifacts` to validate the Discord/Lafa reviewer privacy boundary without printing raw excerpts.
+- The default check validates committed `data/discord-review-routing.json`: routing is ready, no raw Discord/source-answer flags, no raw text-like keys, consistent review-plan counts, and route coverage 19/19 with 0 single-route groups.
+- With `--review-json` and `--routing-json`, the validator also checks the raw review packet stayed outside the repo and is marked `doNotCommit`, then verifies the sanitized route report has 24 routed items, no raw keys, and zero sample-text leaks from the review packet.
+- Wired the default committed-summary check into `npm run search-book:verify` so Search Insights cannot regress into publishing raw Discord/Lafa fields.
+
 ## 2026-07-01 — Evidence Packet Validators
 
 - Added `scripts/check-launch-evidence-packet.mjs` and `scripts/check-release-dry-run-packet.mjs` so launch/release packet assertions are reusable locally instead of embedded as long GitHub workflow one-liners.

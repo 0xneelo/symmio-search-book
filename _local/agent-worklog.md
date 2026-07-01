@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord review artifact validator
+- Task: Add a reusable validator for the Discord/Lafa review packet boundary and sanitized routing summary.
+- Scope: `scripts/check-discord-review-artifacts.mjs`, `package.json`, build verification wiring if appropriate, docs/status notes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: The committed Discord routing summary remains no-raw and route-covered; optional `/tmp` review/routing packets can be validated without printing excerpts; full deterministic verify remains green; only #11/#4 remain operator gates.
+- Result: Added `npm run search-book:check-discord-review-artifacts`, wired the default committed-summary check into `npm run search-book:verify`, and documented the local `/tmp` reviewer validation path. The committed summary check passed with 24 routed items, no raw flags, zero raw-key hits, zero sample leaks, and route coverage `19/19` with 0 single-route groups. Optional validation against `/tmp/search-book-discord-review-20260701-1/discord-review-queue.json` and `/tmp/search-book-discord-routing-20260701-1/discord-review-routing.json` passed with raw review packet outside repo, `doNotCommit:true`, 12 question review items, 12 Lafa review items, 24 sanitized routed items, zero raw-key hits, and zero sample leaks. Full `npm run search-book:verify` passed with 25 build steps, 76 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, and quality gates `29/30`; `node scripts/check-readiness-evidence.mjs` and `git diff --check` passed.
+
 ## 2026-07-01 — Codex evidence packet validators
 - Task: Move launch-evidence and release-dry-run packet assertions out of GitHub workflow one-liners into reusable local validator scripts.
 - Scope: `scripts/check-launch-evidence-packet.mjs`, `scripts/check-release-dry-run-packet.mjs`, `package.json`, `.github/workflows/search-book-launch-evidence.yml`, `.github/workflows/search-book-release-dry-run.yml`, status docs if counts change, and `_local/agent-worklog.md`.

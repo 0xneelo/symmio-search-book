@@ -23,6 +23,7 @@ Generated evidence from the latest checked repo state:
 - `data/requirement-map.json`: 14 requirements complete, 2 partial, 2 parked, `completionReady:false`.
 - `data/quality-audit.json`: 29/30 gates passing; the only failing gate is `operator-inbox`.
 - `data/discord-corpus.json`: real Discord corpus imported in internal-only mode with 5,000 messages, 723 question clusters, 837 configured Lafa candidates, and no raw message text stored.
+- `data/discord-review-routing.json`: sanitized Discord/Lafa routing summary ready with 24 routed items, 19/19 page-fit groups covered by public route aliases, 0 single-route groups remaining, and no raw Discord/Lafa/source answer text included.
 - `data/question-routes.json`: 820 exact routes.
 - `data/faq.json`: 822 FAQ entries.
 - `data/answer-chunks.json`: 2,884 chunks.
@@ -36,7 +37,7 @@ Current localhost preview evidence:
 - Static preview: `http://127.0.0.1:8798/?service=http%3A%2F%2F127.0.0.1%3A8797&serviceMode=extractive`.
 - Answer-engine service: `http://127.0.0.1:8797`.
 - Staging launch drill: passed with 13 checks, 0 failures, and 3 staging warnings for reviewer owner, review cadence, and backup storage assignment.
-- Latest no-secret release dry run: `/tmp/search-book-release-dry-run-source-freshness-20260701-1` passed with static artifact integrity, launch evidence, monitoring evidence, source-freshness evidence, `valuesPrinted:false`, and 0 sensitive-pattern matches. The checked-in validators `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` also passed against the latest saved launch/release packets.
+- Latest no-secret release dry run: `/tmp/search-book-release-dry-run-source-freshness-20260701-1` passed with static artifact integrity, launch evidence, monitoring evidence, source-freshness evidence, `valuesPrinted:false`, and 0 sensitive-pattern matches. The checked-in validators `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` also passed against the latest saved launch/release packets. `npm run search-book:check-discord-review-artifacts` passed against the committed Search Insights summary and the local `/tmp` Discord review/routing packets without printing excerpts.
 
 ## Requirement Audit
 

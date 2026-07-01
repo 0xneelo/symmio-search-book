@@ -50,6 +50,20 @@ includes a `reviewPlan` that groups answered items into page-fit checks and sepa
 refusal-review items so Search Insights can drive editorial follow-up without exposing
 raw review text.
 
+Validate the privacy boundary before using the packet:
+
+```sh
+npm run search-book:check-discord-review-artifacts -- \
+  --review-json /tmp/search-book-discord-review-<date>/discord-review-queue.json \
+  --routing-json /tmp/search-book-discord-routing-<date>/discord-review-routing.json
+```
+
+Without arguments, the same command checks the committed `data/discord-review-routing.json`
+summary for no raw text flags, no raw text-like keys, consistent review-plan counts, and
+complete page-fit route coverage. With local `/tmp` packet paths, it also verifies the raw
+review packet stayed outside the repo and is marked `doNotCommit`, and checks the sanitized
+routing report for zero sample leaks without printing excerpts.
+
 ## Prerequisites
 
 Production service setup:
