@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex workflow Discord evidence summaries
+- Task: Surface Discord review-artifact evidence in GitHub launch/release workflow step summaries after packet validation.
+- Scope: `.github/workflows/search-book-launch-evidence.yml`, `.github/workflows/search-book-release-dry-run.yml`, status docs if evidence wording changes, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Workflow YAML parses, summary commands read only packet counts/booleans, focused packet validators still pass, full deterministic verify remains green, and only #11/#4 remain operator gates.
+- Result: Added `$GITHUB_STEP_SUMMARY` tables to both workflows, sourced only from generated packet counts/booleans. Verified both workflow YAML files with PyYAML, executed the parsed summary run blocks against `/tmp/search-book-release-dry-run-discord-artifacts-20260701-1`, and confirmed no secrets or raw Discord/Lafa text are printed. `npm run search-book:check-launch-evidence-packet`, `npm run search-book:check-release-dry-run-packet`, `npm run search-book:check-status-evidence`, `node scripts/check-readiness-evidence.mjs`, `npm run search-book:check-discord-review-artifacts`, `git diff --check`, and full `npm run search-book:verify` passed with 26 build steps, 79 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Discord editorial launch evidence
 - Task: Promote the Discord editorial queue privacy/consistency proof into launch-evidence and release-dry-run packets.
 - Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, packet validators, status docs, and `_local/agent-worklog.md`.

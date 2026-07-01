@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Workflow Discord Evidence Summaries
+
+- Updated the `Search Book Launch Evidence` and `Search Book Release Dry Run` GitHub workflows to write `$GITHUB_STEP_SUMMARY` tables after packet validation.
+- The launch summary displays packet, launch, monitoring, source-freshness, status-evidence, Discord review-artifact, Discord routed-item, route-coverage, editorial-queue, leakage-check, open-operator, and no-secret statuses from `launch-evidence.json`.
+- The release summary displays release/static-artifact/child-step status plus nested launch, source-freshness, status-evidence, Discord review-artifact, route-coverage, editorial-queue, leakage-check, open-operator, sensitive-match, and no-secret statuses from `release-dry-run.json`.
+- Verified both workflow YAML files parse with PyYAML and the parsed workflow summary run blocks render count-only Markdown against `/tmp/search-book-release-dry-run-discord-artifacts-20260701-1` without printing secrets or raw Discord/Lafa text.
+
 ## 2026-07-01 — Discord Review Artifacts In Launch Evidence
 
 - Added Discord review-artifact evidence to `npm run search-book:launch-evidence` by running the no-secret `scripts/check-discord-review-artifacts.mjs` command as a first-class packet child.

@@ -67,6 +67,55 @@ jobs:
           test -f "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/launch-evidence/launch-evidence.json"
           npm run search-book:check-release-dry-run-packet -- --packet "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.json"
 
+      - name: Summarize release dry run
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          import path from "node:path";
+
+          const packetPath = path.join(process.env.SEARCH_BOOK_RELEASE_DRY_RUN_DIR, "release-dry-run.json");
+          const packet = JSON.parse(fs.readFileSync(packetPath, "utf8"));
+          const artifact = packet.staticArtifact || {};
+          const launch = packet.launchEvidence || {};
+          const sourceFreshness = launch.sourceFreshness || {};
+          const statusEvidence = launch.statusEvidence || {};
+          const discord = launch.discordReviewArtifacts || {};
+          const discordSummary = discord.summary || {};
+          const routeCoverage = discordSummary.routeCoverage || {};
+          const queue = discord.editorialQueue || {};
+          const readinessRouteCoverage = packet.readiness?.discordRouteCoverage || {};
+          const stepSummary = (packet.steps || [])
+            .map((step) => `${step.id}:${step.status}`)
+            .join(", ") || "none";
+          const openOperatorItems = (packet.readiness?.openOperatorItems || [])
+            .map((item) => `#${item.id}`)
+            .join(", ") || "none";
+          const markdown = `## Search Book Release Dry Run
+
+          | Check | Value |
+          | --- | --- |
+          | Release status | \`${packet.status || "missing"}\` |
+          | Static artifact | \`${artifact.status || "missing"}\`, integrity \`${artifact.integrity || "missing"}\`, files \`${artifact.files ?? "unknown"}\`, bytes \`${artifact.bytes ?? "unknown"}\` |
+          | Child steps | \`${stepSummary}\` |
+          | Launch status | \`${launch.launchStatus || "missing"}\` |
+          | Monitoring status | \`${launch.monitoringStatus || "missing"}\` |
+          | Source freshness | \`${launch.sourceFreshnessStatus || "missing"}\` (${sourceFreshness.totals?.passed ?? 0}/${sourceFreshness.totals?.checks ?? 0} checks; source bodies printed: \`${sourceFreshness.secrets?.sourceBodiesPrinted ?? false}\`) |
+          | Status evidence | \`${launch.statusEvidenceStatus || "missing"}\` (${statusEvidence.documents?.passed ?? 0}/${statusEvidence.documents?.total ?? 0} documents) |
+          | Discord review artifacts | \`${launch.discordReviewArtifactsStatus || "missing"}\` |
+          | Discord routed items | \`${discordSummary.routedItems ?? "unknown"}\` |
+          | Discord route coverage | \`${routeCoverage.coveredPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\` |
+          | Discord editorial queue | \`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\` |
+          | Discord leakage checks | raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\` |
+          | Readiness route coverage | \`${readinessRouteCoverage.pageFitCoveredByPublicRoutes ?? "unknown"}/${readinessRouteCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\` |
+          | Open operator items | \`${openOperatorItems}\` |
+          | Sensitive matches | \`${packet.secrets?.sensitiveMatches?.length ?? "unknown"}\` |
+          | Secrets printed | \`${packet.secrets?.valuesPrinted ?? false}\` |
+          `;
+
+          if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${markdown}\n`);
+          console.log(markdown);
+          NODE
+
       - name: Upload release dry-run artifact
         if: always()
         uses: actions/upload-artifact@v4
