@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Packet Release Rehearsal
+
+- Refreshed the no-secret release rehearsal after adding the production-readiness packet guard.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-production-packet-20260701-2`: release status `passed`, static artifact `1,650` files / `52,819,005` bytes, copied-bundle integrity `passed`, launch/monitoring/source-freshness/status-evidence/spec-reconciliation/Discord-review-artifacts/Discord-refusal-runtime/publication-boundaries/backup-restore/living-docs-review/evidence-summary-renderer all `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Validated both packets with `npm run search-book:check-launch-evidence-packet -- --packet /tmp/search-book-release-dry-run-production-packet-20260701-2/launch-evidence/launch-evidence.json` and `npm run search-book:check-release-dry-run-packet -- --packet /tmp/search-book-release-dry-run-production-packet-20260701-2/release-dry-run.json`; both report clean repository state at commit `ccb3362`, same nested launch commit, 91 syntax checks, `productionReadinessPacket:passed`, source ingestion `17/17`, and only #11/#4 open.
+
 ## 2026-07-01 — Production Readiness Packet Guard
 
 - Added `npm run search-book:check-production-packet`, a no-secret guard for `PRODUCTION-READINESS-PACKET.md`.

@@ -122,7 +122,7 @@ function expectedChecks(evidence) {
       { id: "source-zero-counts", anyOf: [`0 partial, 0 parked, and 0 missing`, `0 partial / 0 parked / 0 missing`] },
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`] },
       { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} local review items`, `${evidence.discordPageFitCoverage} page-fit`, `source-backed triage at ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready for ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready at ${evidence.discordRefusalPolicyReady} refusal items`] },
-      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer status `passed`", "publication boundaries status `passed`", "backup-restore evidence", "living-docs review evidence"] },
+      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-production-packet", "repository dirty state `false`", "same commit", "productionReadinessPacket:passed", "original-spec reconciliation evidence", "evidence summary renderer status `passed`", "publication boundaries status `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "requirement-map", anyOf: [`${evidence.requirementComplete}/18 requirements complete`, `${evidence.requirementComplete} requirements complete`] },
       { id: "requirement-status", allOf: [`${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, and ${evidence.requirementMissing} missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates} gates`] },
@@ -148,7 +148,7 @@ function expectedChecks(evidence) {
       { id: "workflow-contract", allOf: ["search-book:check-github-workflows", "workflow contract guard"] },
       { id: "living-docs-review-evidence", allOf: ["search-book:check-living-docs-review", "living-docs reviewer evidence"] },
       { id: "production-packet", allOf: ["search-book:check-production-packet", "production-readiness packet guard"] },
-      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`", "backup-restore evidence", "living-docs review evidence"] },
+      { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-production-packet", "repository dirty state `false`", "same commit", "productionReadinessPacket:passed", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "completion-boundary", allOf: openOperatorFragments },
     ],
     "PRODUCTION-READINESS-PACKET.md": [

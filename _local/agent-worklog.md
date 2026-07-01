@@ -1,8 +1,9 @@
 ## 2026-07-01 — Codex production packet release dry-run evidence
 - Task: Refresh no-secret release rehearsal evidence from current `main` after adding the production-readiness packet guard.
-- Scope: `/tmp/search-book-release-dry-run-production-packet-20260701-1`, status docs if the packet proves new evidence, and `_local/agent-worklog.md`.
-- Status: In progress.
+- Scope: `/tmp/search-book-release-dry-run-production-packet-20260701-2`, status docs, and `_local/agent-worklog.md`.
+- Status: Complete; pending commit.
 - Verification target: Release dry-run and packet validators pass from clean commit `8e5a486` or newer, nested launch evidence includes the new `productionReadinessPacket:passed` verify summary, no secret/raw values are printed, and only #11/#4 remain open.
+- Result: First dry-run at `/tmp/search-book-release-dry-run-production-packet-20260701-1` passed but packet validators correctly rejected it because the worklog claim made repository dirty state true. After checkpointing the claim as `ccb3362`, reran `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-production-packet-20260701-2`; release status passed with static artifact 1,650 files / 52,819,005 bytes, clean release and nested launch repository state at commit `ccb3362`, same-commit check passed, nested fresh verify reported 91 syntax checks and `productionReadinessPacket:passed`, source ingestion `17/17`, Discord route coverage `19/19`, `valuesPrinted:false`, 0 sensitive-pattern matches, and only #11/#4 open. Both `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` passed against the clean packet.
 
 ## 2026-07-01 — Codex production readiness packet guard
 - Task: Add an executable guard for `PRODUCTION-READINESS-PACKET.md` so the #11/#4 operator handoff stays aligned with the canonical inbox, service env path, no-secret release commands, packet validators, and production pass criteria.
