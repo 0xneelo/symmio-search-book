@@ -31,4 +31,4 @@ Run:
 node scripts/build-answer-validation-report.mjs
 ```
 
-The generated artifact is `data/answer-validation-report.json`. It currently validates 12 cited-answer fixtures and 11 refusal fixtures. Production readiness still requires running the same validation against actual model responses.
+The generated artifact is `data/answer-validation-report.json`. It currently validates 12 cited-answer fixtures and 12 refusal fixtures. Production readiness still requires running the same validation against actual model responses.

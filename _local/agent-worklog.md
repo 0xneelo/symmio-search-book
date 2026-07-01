@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex G-008 source-boundary runtime guard
+- Task: Add an explicit Search Book runtime/eval guard for the resolved G-008 boundary: generic Symmio options lifecycle can answer, but Vibe-specific covered-call/vault-backed inventory exposure claims must refuse until a product-specific source/example exists.
+- Scope: `scripts/run-llm-rag-answer.mjs`, `scripts/build-llm-rag-contract.mjs`, generated LLM/answer-validation artifacts, status docs, `_local/agent-worklog.md`. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: regenerated `data/llm-rag-contract.*` and `data/answer-validation-report.*`, extractive/runtime refusal probe for the covered-call query, live eval if fixture counts change, full `npm run search-book:verify`, focused status guards, and `git diff --check`; only #11/#4 remain open.
+- Result: Added a narrow runtime preflight rule plus adversarial fixture for Vibe-specific covered-call/vault-backed inventory exposure semantics. Regenerated contract/validation artifacts (`16/16` adversarial, `28/28` answer-validation), verified the extractive runtime refusal returns `vibe-vault-options-source-boundary` with `G-008`, re-ran live `gpt-4.1-mini` eval through `.secrets/search-book.env` without printing secrets (`44/44`, 16 calls, 94,657 input tokens, 8,752 output tokens, `$0.01944975`), and full `npm run search-book:verify` plus `git diff --check` passed. Only #11/#4 remain open.
+
 ## 2026-07-01 — Codex align page-target wording
 - Task: Remove stale active 100-page target wording and make the 500-800 compendium target visible in the README and completion audit guard.
 - Scope: `README.md`, `scripts/check-completion-audit.mjs`, `_local/agent-worklog.md`, and `PROGRESS.md` if a durable note is needed. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

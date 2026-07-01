@@ -22,12 +22,12 @@
   "coverage": {
     "citedAnswerFixtures": 12,
     "groundedAdversarialFixtures": 4,
-    "refusalFixtures": 11,
-    "totalFixtures": 27,
-    "passingFixtures": 27,
+    "refusalFixtures": 12,
+    "totalFixtures": 28,
+    "passingFixtures": 28,
     "failingFixtures": 0,
     "exactRouteGoldenSet": 820,
-    "adversarialGoldenSet": 15,
+    "adversarialGoldenSet": 16,
     "answerChunkPages": 1613,
     "answerChunks": 2884,
     "sourceCatalogEntries": 127,
@@ -819,6 +819,39 @@
           "reason": "phase-b-economics-out-of-scope",
           "page": "",
           "gapId": "",
+          "operatorItemIds": [],
+          "time": "deterministic-build"
+        }
+      },
+      "passes": true,
+      "failures": []
+    },
+    {
+      "id": "fixture-adv-vibe-covered-call-vault-exposure",
+      "type": "refusal",
+      "query": "Can a Vibe vault LP see exact covered-call exposure, and what vault-backed inventory rules support it?",
+      "expectedStatus": "refusal",
+      "expectedRefusalReason": "vibe-vault-options-source-boundary",
+      "response": {
+        "requestId": "req-adv-vibe-covered-call-vault-exposure",
+        "status": "refusal",
+        "answer": "",
+        "primaryPageId": "",
+        "citations": [],
+        "refusalReason": "vibe-vault-options-source-boundary",
+        "events": [
+          {
+            "type": "gap-created",
+            "gapId": "G-008",
+            "operatorItemIds": []
+          }
+        ],
+        "gapEvent": {
+          "id": "gap-adv-vibe-covered-call-vault-exposure",
+          "query": "Can a Vibe vault LP see exact covered-call exposure, and what vault-backed inventory rules support it?",
+          "reason": "vibe-vault-options-source-boundary",
+          "page": "",
+          "gapId": "G-008",
           "operatorItemIds": [],
           "time": "deterministic-build"
         }

@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — G-008 Vault/Options Source-Boundary Guard
+
+- Added a runtime preflight guard and adversarial contract fixture for the resolved G-008 boundary: Vibe-specific covered-call/vault-backed inventory exposure semantics refuse as `vibe-vault-options-source-boundary` with `gapId:"G-008"` until a product-specific source exists.
+- Regenerated `data/llm-rag-contract.*` and `data/answer-validation-report.*`; the contract now reports `16/16` adversarial cases and answer validation reports `28/28` fixtures with `12` refusal fixtures.
+- Verified the runtime refusal probe for `Can a Vibe vault LP see exact covered-call exposure, and what vault-backed inventory rules support it?` returns `status:"refusal"`, `refusalReason:"vibe-vault-options-source-boundary"`, `gapId:"G-008"`, zero citations, and no answer text.
+- Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`.
+- Measured usage was `16` model calls, `94,657` input tokens, `8,752` output tokens, `103,409` total tokens, and `$0.01944975` estimated cost at `gpt-4.1-mini` pricing.
+
 ## 2026-07-01 — 500-800 Page Target Wording Alignment
 
 - Removed stale active 100-page-floor wording from the completion audit guard; the guard now requires the manifest to stay inside the 500-800 page target and the public/authored corpus to stay above the target floor.

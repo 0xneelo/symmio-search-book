@@ -126,6 +126,17 @@ const riskRules = [
     message: "Phase B revenue components are out of scope for the v1 public answer.",
   },
   {
+    id: "vibe-covered-call-vault-boundary",
+    reason: "vibe-vault-options-source-boundary",
+    status: "refusal",
+    gapId: "G-008",
+    patterns: [
+      /(?=.*\bcovered[- ]call\b)(?=.*\b(vault|vault-backed|inventory|exposure)\b)/i,
+      /(?=.*\bvibe\b)(?=.*\bvault\b)(?=.*\b(exact|exposure|semantics|coverage rules?)\b)/i,
+    ],
+    message: "The generic Symmio options intent lifecycle is sourced for v1, but Vibe-specific covered-call and vault-backed inventory exposure semantics need a product-specific source before they can be answered as public facts.",
+  },
+  {
     id: "discord",
     reason: "discord-corpus-review-required",
     status: "refusal",

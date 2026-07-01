@@ -39,13 +39,13 @@
     "llmRagEvalHarnessReady": true,
     "llmRagRuntimeImplemented": true,
     "llmRagProductionReady": false,
-    "llmRagAdversarialCases": 15,
-    "llmRagAdversarialCasesPassing": 15,
-    "answerValidationFixtures": 27,
-    "answerValidationFixturesPassing": 27,
+    "llmRagAdversarialCases": 16,
+    "llmRagAdversarialCasesPassing": 16,
+    "answerValidationFixtures": 28,
+    "answerValidationFixturesPassing": 28,
     "answerValidationCitedAnswerFixtures": 12,
     "answerValidationGroundedAdversarialFixtures": 4,
-    "answerValidationRefusalFixtures": 11,
+    "answerValidationRefusalFixtures": 12,
     "answerValidationReportReady": true,
     "livingDocsEventContractReady": true,
     "livingDocsDatastoreImplemented": true,
@@ -226,13 +226,13 @@
       "id": "llm-rag-contract",
       "label": "LLM RAG API contract and adversarial evals are specified",
       "passed": true,
-      "detail": "15/15 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
+      "detail": "16/16 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
     },
     {
       "id": "answer-validation-harness",
       "label": "Answer validation harness resolves cited and refusal fixtures",
       "passed": true,
-      "detail": "27/27 fixtures, 12 cited answers, 4 grounded adversarial answers, 11 refusals, 0 failing"
+      "detail": "28/28 fixtures, 12 cited answers, 4 grounded adversarial answers, 12 refusals, 0 failing"
     },
     {
       "id": "living-docs-events",
@@ -1091,7 +1091,8 @@
           "secret-or-credential-request",
           "security-overclaim",
           "source-family-excluded",
-          "source-family-out-of-scope-v1"
+          "source-family-out-of-scope-v1",
+          "vibe-vault-options-source-boundary"
         ]
       },
       {
@@ -1249,8 +1250,8 @@
         "unaudited-security-overclaim"
       ],
       "missingRequiredCategories": [],
-      "totalCases": 15,
-      "passingCases": 15,
+      "totalCases": 16,
+      "passingCases": 16,
       "failingCaseIds": [],
       "byCategory": {
         "prompt-injection": 1,
@@ -1258,6 +1259,7 @@
         "referral-depth-ambiguity": 1,
         "approved-economics": 1,
         "unsupported-economics": 1,
+        "source-boundary": 1,
         "unaudited-security-overclaim": 1,
         "discord-corpus-review": 1,
         "missing-source-family": 2,
@@ -1296,12 +1298,12 @@
     "coverage": {
       "citedAnswerFixtures": 12,
       "groundedAdversarialFixtures": 4,
-      "refusalFixtures": 11,
-      "totalFixtures": 27,
-      "passingFixtures": 27,
+      "refusalFixtures": 12,
+      "totalFixtures": 28,
+      "passingFixtures": 28,
       "failingFixtures": 0,
       "exactRouteGoldenSet": 820,
-      "adversarialGoldenSet": 15,
+      "adversarialGoldenSet": 16,
       "answerChunkPages": 1613,
       "answerChunks": 2884,
       "sourceCatalogEntries": 127,
