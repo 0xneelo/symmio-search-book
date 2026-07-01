@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex source-ingestion follow-up handoff refresh
+- Task: Replace stale untracked source-ingestion handoff notes with a current follow-up package after the reconciliation checkpoint.
+- Scope: `docs/goals/source-ingestion/*`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Handoff no longer asks a future agent to reopen #2/#5/#6/#7/#12; it names only #17 for Discord import and keeps #11/#4 as production gates.
+- Result: Rewrote the source-ingestion follow-up package around the reconciled state: Notion, SSHE, and whitepaper v1 boundary are complete; Discord #17 is the only source-import file-release follow-up; #11/#4 remain production gates. `git diff --check` passed, `node scripts/check-readiness-evidence.mjs` passed, and a stale-instruction scan found no obsolete 15/16, agent-notion branch, or SYN-226/SYN-225/SYN-238 instructions.
+
 ## 2026-07-01 — Codex source-blocker reconciliation and readiness rebuild
 - Task: Reconcile Search Book blockers after operator context refresh and rebuild readiness evidence from the standalone repo.
 - Scope: `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`, `FINAL-REPORT.md`, `GAPS.md`, `PROGRESS.md`, `_specs/app-docs/11-production-readiness-roadmap.md`, `LIVING-DOCS-OPERATIONS.md`, `README.md`, source-boundary authored pages, source/requirement/quality/LLM contract builders, and regenerated `data/*` artifacts.
