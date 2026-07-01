@@ -218,14 +218,14 @@ against that packet to produce a sanitized routing report with item ids, hashes,
 page ids, and source keys only. Run `npm run search-book:discord-routing-summary` with that
 routing report to publish the no-raw summary into static Search Insights as hashes, page ids,
 source keys, statuses, and counts only. Run `npm run search-book:discord-editorial-queue`
-to refresh `DISCORD-EDITORIAL-QUEUE.md`, a committed no-raw reviewer queue derived from
-the same sanitized summary, including automated triage status, public-copy readiness status, and
-refusal-policy readiness status.
+to refresh `DISCORD-EDITORIAL-QUEUE.md` plus `data/discord-editorial-queue.*`, committed
+no-raw reviewer queues derived from the same sanitized summary, including automated triage
+status, public-copy readiness status, and refusal-policy readiness status.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and
 paths, and checks for raw-field or sample-text leakage without echoing excerpts. The same
-check validates `DISCORD-EDITORIAL-QUEUE.md` against the sanitized routing summary so the
-Markdown reviewer handoff cannot silently drift.
+check validates `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.json`
+against the sanitized routing summary so the reviewer handoff cannot silently drift.
 Validate the public-safe runtime refusal boundary with `npm run search-book:check-discord-refusals`;
 it runs extractive-mode answer probes for the Discord/Lafa refusal lanes and requires refusal,
 `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials.

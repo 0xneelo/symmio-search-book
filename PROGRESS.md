@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Queue Data Artifact
+
+- Promoted the sanitized Discord editorial queue from Markdown-only review evidence into `data/discord-editorial-queue.json` and `data/discord-editorial-queue.js`.
+- The queue data mirrors `data/discord-review-routing.json` with item ids, page ids, source keys, counts, triage/public-copy/refusal-policy statuses, and next steps only; it carries explicit no-raw/no-source-answer/no-generated-answer privacy flags.
+- Extended `npm run search-book:check-discord-review-artifacts` and static integrity so the JSON/JS queue cannot drift from the routing summary or ship outside the static bundle contract.
+
 ## 2026-07-01 — Production Packet Validator Hardening
 
 - Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` so launch/release packet validation fails unless the nested fresh verify evidence explicitly carries `productionReadinessPacket:passed`.

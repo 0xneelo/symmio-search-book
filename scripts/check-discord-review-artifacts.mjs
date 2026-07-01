@@ -11,6 +11,7 @@ const defaults = {
   reviewJson: process.env.SEARCH_BOOK_DISCORD_REVIEW_QUEUE || "",
   routingJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_REPORT || "",
   summaryJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_SUMMARY || path.join(searchBookRoot, "data", "discord-review-routing.json"),
+  queueJson: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE_JSON || path.join(searchBookRoot, "data", "discord-editorial-queue.json"),
   queueMarkdown: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE || path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
 };
 
@@ -43,6 +44,7 @@ Options:
   --review-json path   Optional raw internal review packet; must be outside repo
   --routing-json path  Optional sanitized route-review report; must be outside repo
   --summary-json path  Defaults to data/discord-review-routing.json
+  --queue-json path    Defaults to data/discord-editorial-queue.json
   --queue-md path      Defaults to DISCORD-EDITORIAL-QUEUE.md
   --json               Accepted for command symmetry; output is always JSON
 
@@ -64,6 +66,7 @@ function parseArgs(argv) {
     if (arg === "--review-json") args.reviewJson = next;
     else if (arg === "--routing-json") args.routingJson = next;
     else if (arg === "--summary-json") args.summaryJson = next;
+    else if (arg === "--queue-json") args.queueJson = next;
     else if (arg === "--queue-md") args.queueMarkdown = next;
     else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
     index += 1;
@@ -71,6 +74,7 @@ function parseArgs(argv) {
   args.reviewJson = args.reviewJson ? path.resolve(args.reviewJson) : "";
   args.routingJson = args.routingJson ? path.resolve(args.routingJson) : "";
   args.summaryJson = path.resolve(args.summaryJson);
+  args.queueJson = path.resolve(args.queueJson);
   args.queueMarkdown = path.resolve(args.queueMarkdown);
   return args;
 }
@@ -413,6 +417,114 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
   };
 }
 
+function sameValues(left = [], right = []) {
+  const normalize = (values) => [...new Set((values || []).map(String).filter(Boolean))].sort();
+  return JSON.stringify(normalize(left)) === JSON.stringify(normalize(right));
+}
+
+function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
+  const hits = rawKeyHits(queue);
+  const leaks = sampleLeakCount(queue, samples);
+  const reviewPlan = summary.reviewPlan || {};
+  const routeCoverage = reviewPlan.routeCoverage || {};
+  const queueSummary = queue.summary || {};
+  const queueCoverage = queueSummary.routeCoverage || {};
+  const pageFitReview = reviewPlan.pageFitReview || [];
+  const queuePageFitReview = queue.pageFitReview || [];
+  const refusalReview = reviewPlan.refusalReview || [];
+  const queueRefusalReview = queue.refusalReview || [];
+
+  const pageFitMirrorFailures = pageFitReview.filter((entry) => {
+    const matching = queuePageFitReview.find((candidate) => candidate.pageId === entry.pageId);
+    return !matching ||
+      matching.routedItems !== entry.routedItems ||
+      matching.publicRouteCount !== entry.publicRouteCount ||
+      matching.automatedTriageStatus !== entry.automatedTriageStatus ||
+      matching.publicCopyStatus !== entry.publicCopyStatus ||
+      !sameValues(matching.itemIds, entry.itemIds) ||
+      !sameValues(matching.sourceKeys, entry.sourceKeys);
+  });
+  const refusalMirrorFailures = refusalReview.filter((entry) => {
+    const matching = queueRefusalReview.find((candidate) => candidate.itemId === entry.itemId);
+    return !matching ||
+      matching.reviewType !== entry.reviewType ||
+      matching.routeStatus !== entry.routeStatus ||
+      matching.refusalReason !== entry.refusalReason ||
+      matching.refusalPolicyStatus !== entry.refusalPolicyStatus ||
+      matching.reviewAction !== entry.reviewAction;
+  });
+
+  addCheck(
+    checks,
+    "editorial-queue-data-ready",
+    queue.status === "passed" &&
+      queue.queueReady === true &&
+      queue.privacy?.rawDiscordTextIncluded === false &&
+      queue.privacy?.sourceAnswerTextIncluded === false &&
+      queue.privacy?.generatedAnswerTextIncluded === false &&
+      queue.privacy?.valuesPrinted === false,
+    `status=${queue.status || "missing"}; queueReady=${queue.queueReady}; rawDiscord=${queue.privacy?.rawDiscordTextIncluded}; sourceAnswer=${queue.privacy?.sourceAnswerTextIncluded}; generatedAnswer=${queue.privacy?.generatedAnswerTextIncluded}; valuesPrinted=${queue.privacy?.valuesPrinted}`,
+  );
+  addCheck(checks, "editorial-queue-data-raw-keys-absent", hits.length === 0, hits.length ? `rawKeyHits=${hits.length}` : "none");
+  addCheck(checks, "editorial-queue-data-sample-leaks-absent", leaks === 0, `sampleLeaks=${leaks}`);
+  addCheck(
+    checks,
+    "editorial-queue-data-summary-current",
+    queueSummary.routingStatus === summary.status &&
+      queueSummary.routedItems === Number(summary.summary?.routedItems || 0) &&
+      queueSummary.pageFitGroupsReady === Number(reviewPlan.pageFitReviewReady || 0) &&
+      queueSummary.pageFitRoutedItems === Number(reviewPlan.pageFitItemCount || 0) &&
+      queueSummary.refusalReviewItems === Number(reviewPlan.refusalReviewReady || 0) &&
+      queueSummary.refusalPolicyReadyItems === Number(reviewPlan.refusalPolicyReadyItems || 0) &&
+      queueSummary.refusalPolicyReviewRequired === Number(reviewPlan.refusalPolicyReviewRequired || 0) &&
+      queueCoverage.totalPageFitGroups === Number(routeCoverage.totalPageFitGroups || 0) &&
+      queueCoverage.pageFitCoveredByPublicRoutes === Number(routeCoverage.pageFitCoveredByPublicRoutes || 0) &&
+      queueCoverage.sourceBackedPageFitGroups === Number(routeCoverage.triageReadyPageFitGroups || 0) &&
+      queueCoverage.publicCopyReadyPageFitGroups === Number(routeCoverage.publicCopyReadyPageFitGroups || 0) &&
+      queueCoverage.publicCopyReviewRequired === Number(routeCoverage.publicCopyReviewRequired || 0),
+    JSON.stringify({
+      routedItems: queueSummary.routedItems,
+      expectedRoutedItems: summary.summary?.routedItems ?? null,
+      pageFitGroupsReady: queueSummary.pageFitGroupsReady,
+      expectedPageFitGroupsReady: reviewPlan.pageFitReviewReady ?? null,
+      refusalReviewItems: queueSummary.refusalReviewItems,
+      expectedRefusalReviewItems: reviewPlan.refusalReviewReady ?? null,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-data-page-fit-plan-current",
+    queuePageFitReview.length === pageFitReview.length && pageFitMirrorFailures.length === 0,
+    JSON.stringify({
+      queuePageFitReview: queuePageFitReview.length,
+      expectedPageFitReview: pageFitReview.length,
+      mirrorFailures: pageFitMirrorFailures.length,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-data-refusal-plan-current",
+    queueRefusalReview.length === refusalReview.length && refusalMirrorFailures.length === 0,
+    JSON.stringify({
+      queueRefusalReview: queueRefusalReview.length,
+      expectedRefusalReview: refusalReview.length,
+      mirrorFailures: refusalMirrorFailures.length,
+    }),
+  );
+
+  return {
+    path: printablePath(filePath),
+    status: queue.status || null,
+    queueReady: queue.queueReady === true,
+    routedItems: queueSummary.routedItems ?? null,
+    pageFitReviewReady: queuePageFitReview.length,
+    refusalReviewReady: queueRefusalReview.length,
+    rawKeyHits: hits.length,
+    sampleLeaks: leaks,
+    valuesPrinted: queue.privacy?.valuesPrinted === true,
+  };
+}
+
 try {
   const args = parseArgs(process.argv.slice(2));
   const checks = [];
@@ -420,6 +532,7 @@ try {
   const samples = reviewSamples(reviewPacket);
   const routingReport = args.routingJson ? readJson(args.routingJson) : null;
   const summary = readJson(args.summaryJson);
+  const queueData = readJson(args.queueJson);
   const queueMarkdown = readText(args.queueMarkdown);
 
   const result = {
@@ -429,6 +542,7 @@ try {
     reviewPacket: validateReviewPacket(reviewPacket, args.reviewJson, checks),
     routingReport: validateRoutingReport(routingReport, args.routingJson, checks, samples),
     summary: validateSummary(summary, args.summaryJson, checks, samples),
+    editorialQueueData: validateEditorialQueueData(queueData, args.queueJson, summary, checks, samples),
     editorialQueue: validateEditorialQueue(queueMarkdown, args.queueMarkdown, summary, checks, samples),
     checks,
   };

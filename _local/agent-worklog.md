@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial queue data artifact
+- Task: Promote the sanitized Discord editorial queue from Markdown-only review evidence into a no-raw JSON/JS artifact that review tooling can consume without parsing Markdown.
+- Scope: Discord editorial queue generator/checker, generated sanitized queue data, static artifact references if needed, status docs if needed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:verify`, and `git diff --check` pass with no raw Discord/Lafa text, no source-answer text, and only #11/#4 open.
+- Result: Added `data/discord-editorial-queue.json` and `data/discord-editorial-queue.js`, loaded the JS artifact in the static prototype, and extended static integrity plus `check-discord-review-artifacts` to require the queue data to mirror `data/discord-review-routing.json`. Focused checks passed with 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`. Full `npm run search-book:verify` passed with 26 build steps, 92 syntax checks, 820 exact routes, 2,884 chunks, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex production packet validator hardening
 - Task: Harden launch/release packet validators so clean release evidence must explicitly contain nested `productionReadinessPacket:passed`, instead of merely carrying the field through fresh verify output.
 - Scope: Launch/release packet validator scripts, package/status docs if needed, status-evidence guard, and `_local/agent-worklog.md`.

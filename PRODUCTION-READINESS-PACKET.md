@@ -16,7 +16,7 @@ The standalone Search Book repo is the canonical working copy:
 - Local preview evidence: passed against `127.0.0.1:8798` plus service `127.0.0.1:8797`
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
-  Discord corpus imported internal-only, no-raw Discord editorial queue generated,
+  Discord corpus imported internal-only, no-raw Discord editorial queue Markdown/JSON generated,
   Discord refusal runtime probes `2/2` passing with no LLM credentials loaded,
   publication boundaries passed, living-docs review evidence passed, backup-restore evidence passed,
   quality gates `29/30`

@@ -11,6 +11,8 @@ const defaults = {
   routingJson: path.join(searchBookRoot, "data", "discord-review-routing.json"),
   authoredJson: path.join(searchBookRoot, "data", "authored-pages.json"),
   outMarkdown: path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
+  outJson: path.join(searchBookRoot, "data", "discord-editorial-queue.json"),
+  outJs: path.join(searchBookRoot, "data", "discord-editorial-queue.js"),
 };
 
 function parseArgs(argv) {
@@ -20,8 +22,10 @@ function parseArgs(argv) {
     if (arg === "--routing-json") args.routingJson = path.resolve(argv[++index] || "");
     else if (arg === "--authored-json") args.authoredJson = path.resolve(argv[++index] || "");
     else if (arg === "--out") args.outMarkdown = path.resolve(argv[++index] || "");
+    else if (arg === "--out-json") args.outJson = path.resolve(argv[++index] || "");
+    else if (arg === "--out-js") args.outJs = path.resolve(argv[++index] || "");
     else if (arg === "--help") {
-      console.log("Usage: node scripts/build-discord-editorial-queue.mjs [--routing-json data/discord-review-routing.json] [--out DISCORD-EDITORIAL-QUEUE.md]");
+      console.log("Usage: node scripts/build-discord-editorial-queue.mjs [--routing-json data/discord-review-routing.json] [--out DISCORD-EDITORIAL-QUEUE.md] [--out-json data/discord-editorial-queue.json] [--out-js data/discord-editorial-queue.js]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -62,7 +66,7 @@ function assertSafeRoutingSummary(routing) {
   if (routing.routingReady !== true || routing.status !== "routed") throw new Error("Discord routing summary is not ready.");
 }
 
-function renderMarkdown(routing, authored) {
+function buildQueueData(routing, authored) {
   assertSafeRoutingSummary(routing);
   const pageById = new Map((authored.pages || []).map((page) => [page.id, page]));
   const reviewPlan = routing.reviewPlan || {};
@@ -70,6 +74,78 @@ function renderMarkdown(routing, authored) {
   const pageFitReview = reviewPlan.pageFitReview || [];
   const refusalReview = reviewPlan.refusalReview || [];
   const summary = routing.summary || {};
+  return {
+    generatedAt: "deterministic-build",
+    status: "passed",
+    queueReady: true,
+    source: {
+      routingJson: "data/discord-review-routing.json",
+      markdown: "DISCORD-EDITORIAL-QUEUE.md",
+    },
+    privacy: {
+      rawDiscordTextIncluded: routing.rawDiscordTextIncluded === true,
+      sourceAnswerTextIncluded: routing.sourceAnswerTextIncluded === true,
+      generatedAnswerTextIncluded: false,
+      valuesPrinted: routing.valuesPrinted === true,
+      publicUseBoundary: reviewPlan.publicUseBoundary || "Do not quote Discord/Lafa text from this plan; use it only to prioritize source-backed page and route review.",
+    },
+    summary: {
+      routingStatus: routing.status || null,
+      routedItems: summary.routedItems || 0,
+      pageFitGroupsReady: reviewPlan.pageFitReviewReady || 0,
+      pageFitRoutedItems: reviewPlan.pageFitItemCount || 0,
+      refusalReviewItems: reviewPlan.refusalReviewReady || 0,
+      refusalPolicyReadyItems: reviewPlan.refusalPolicyReadyItems || 0,
+      refusalPolicyReviewRequired: reviewPlan.refusalPolicyReviewRequired || 0,
+      routeCoverage: {
+        totalPageFitGroups: routeCoverage.totalPageFitGroups || 0,
+        pageFitCoveredByPublicRoutes: routeCoverage.pageFitCoveredByPublicRoutes || 0,
+        sourceBackedPageFitGroups: routeCoverage.triageReadyPageFitGroups || 0,
+        publicCopyReadyPageFitGroups: routeCoverage.publicCopyReadyPageFitGroups || 0,
+        publicCopyReviewRequired: routeCoverage.publicCopyReviewRequired || 0,
+        pageFitSingleRouteRemaining: routeCoverage.pageFitSingleRouteRemaining || 0,
+        pageFitWithoutPublicRoute: routeCoverage.pageFitWithoutPublicRoute || 0,
+        totalPublicRoutesToPageFitPages: routeCoverage.totalPublicRoutesToPageFitPages || 0,
+        coverageReady: routeCoverage.coverageReady === true,
+        triageReady: routeCoverage.triageReady === true,
+        publicCopyReady: routeCoverage.publicCopyReady === true,
+      },
+    },
+    reviewerRules: [
+      "Treat this as evidence for existing public pages, not permission to quote Discord or Lafa.",
+      "Add new public copy only when a cited page is missing a source-backed explanation.",
+      "Promote only primary-source paraphrases; do not quote Discord or Lafa excerpts from local packets.",
+      "Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes.",
+    ],
+    pageFitReview: pageFitReview.map((entry, index) => ({
+      rank: index + 1,
+      pageId: entry.pageId,
+      title: pageTitle(pageById, entry.pageId),
+      routedItems: entry.routedItems || 0,
+      itemIds: entry.itemIds || [],
+      byReviewType: entry.byReviewType || {},
+      sourceKeys: entry.sourceKeys || [],
+      publicRouteCount: entry.publicRouteCount || 0,
+      automatedTriageStatus: entry.automatedTriageStatus || "untriaged",
+      publicCopyStatus: entry.publicCopyStatus || "editorial-review-required",
+      reviewAction: entry.reviewAction || "",
+      nextStep: entry.nextStep || "Confirm the existing page fit before changing public copy.",
+    })),
+    refusalReview: refusalReview.map((entry) => ({
+      itemId: entry.itemId,
+      reviewType: entry.reviewType,
+      routeStatus: entry.routeStatus,
+      refusalReason: entry.refusalReason,
+      refusalPolicyStatus: entry.refusalPolicyStatus || "needs-refusal-policy-review",
+      reviewAction: entry.reviewAction,
+      nextStep: entry.nextStep || "Keep refusal behavior unless primary-source review approves a grounded public answer.",
+    })),
+  };
+}
+
+function renderMarkdown(queue) {
+  const summary = queue.summary || {};
+  const routeCoverage = summary.routeCoverage || {};
 
   const lines = [
     "# Discord Editorial Queue",
@@ -80,39 +156,36 @@ function renderMarkdown(routing, authored) {
     "",
     "## Summary",
     "",
-    `- Routing status: \`${routing.status}\``,
+    `- Routing status: \`${summary.routingStatus}\``,
     `- Routed review items: ${summary.routedItems || 0}`,
-    `- Page-fit groups ready: ${reviewPlan.pageFitReviewReady || 0}`,
-    `- Page-fit routed items: ${reviewPlan.pageFitItemCount || 0}`,
-    `- Refusal-review items: ${reviewPlan.refusalReviewReady || 0}`,
-    `- Refusal policy ready: ${reviewPlan.refusalPolicyReadyItems || 0}/${reviewPlan.refusalReviewReady || 0}`,
-    `- Refusal policy review required: ${reviewPlan.refusalPolicyReviewRequired || 0}/${reviewPlan.refusalReviewReady || 0}`,
+    `- Page-fit groups ready: ${summary.pageFitGroupsReady || 0}`,
+    `- Page-fit routed items: ${summary.pageFitRoutedItems || 0}`,
+    `- Refusal-review items: ${summary.refusalReviewItems || 0}`,
+    `- Refusal policy ready: ${summary.refusalPolicyReadyItems || 0}/${summary.refusalReviewItems || 0}`,
+    `- Refusal policy review required: ${summary.refusalPolicyReviewRequired || 0}/${summary.refusalReviewItems || 0}`,
     `- Route coverage: ${routeCoverage.pageFitCoveredByPublicRoutes || 0}/${routeCoverage.totalPageFitGroups || 0} page-fit groups covered by public route aliases`,
-    `- Source-backed existing page fits: ${routeCoverage.triageReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
+    `- Source-backed existing page fits: ${routeCoverage.sourceBackedPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
     `- Public copy sufficient: ${routeCoverage.publicCopyReadyPageFitGroups || 0}/${routeCoverage.totalPageFitGroups || 0}`,
     `- Public copy review required: ${routeCoverage.publicCopyReviewRequired || 0}/${routeCoverage.totalPageFitGroups || 0}`,
     `- Single-route page-fit groups remaining: ${routeCoverage.pageFitSingleRouteRemaining || 0}`,
     `- Groups without a public route: ${routeCoverage.pageFitWithoutPublicRoute || 0}`,
-    `- Raw Discord text included: \`${routing.rawDiscordTextIncluded}\``,
-    `- Source answer text included: \`${routing.sourceAnswerTextIncluded}\``,
-    `- Values printed: \`${routing.valuesPrinted}\``,
+    `- Raw Discord text included: \`${queue.privacy?.rawDiscordTextIncluded}\``,
+    `- Source answer text included: \`${queue.privacy?.sourceAnswerTextIncluded}\``,
+    `- Values printed: \`${queue.privacy?.valuesPrinted}\``,
     "",
     "## Reviewer Rules",
     "",
-    "- Treat this as evidence for existing public pages, not permission to quote Discord or Lafa.",
-    "- Add new public copy only when a cited page is missing a source-backed explanation.",
-    "- Promote only primary-source paraphrases; do not quote Discord or Lafa excerpts from local packets.",
-    "- Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes.",
+    ...queue.reviewerRules.map((rule) => `- ${rule}`),
     "",
     "## Page-Fit Review",
     "",
     "| Rank | Page | Title | Routed Items | Item IDs | Review Types | Source Keys | Public Routes | Triage Status | Public Copy | Next Step |",
     "| ---: | --- | --- | ---: | --- | --- | --- | ---: | --- | --- | --- |",
-    ...pageFitReview.map((entry, index) =>
+    ...queue.pageFitReview.map((entry) =>
       [
-        index + 1,
+        entry.rank,
         `\`${markdownCell(entry.pageId)}\``,
-        markdownCell(pageTitle(pageById, entry.pageId)),
+        markdownCell(entry.title),
         entry.routedItems || 0,
         inlineCodeList(entry.itemIds),
         markdownCell(reviewTypeSummary(entry.byReviewType)),
@@ -128,7 +201,7 @@ function renderMarkdown(routing, authored) {
     "",
     "| Item ID | Type | Status | Refusal Reason | Policy Status | Action | Next Step |",
     "| --- | --- | --- | --- | --- | --- | --- |",
-    ...refusalReview.map((entry) =>
+    ...queue.refusalReview.map((entry) =>
       [
         `\`${markdownCell(entry.itemId)}\``,
         markdownCell(entry.reviewType),
@@ -148,20 +221,26 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const routing = readJson(args.routingJson);
   const authored = readJson(args.authoredJson);
-  const markdown = renderMarkdown(routing, authored);
+  const queue = buildQueueData(routing, authored);
+  const markdown = renderMarkdown(queue);
   fs.writeFileSync(args.outMarkdown, markdown);
-  const reviewPlan = routing.reviewPlan || {};
-  const routeCoverage = reviewPlan.routeCoverage || {};
+  fs.writeFileSync(args.outJson, `${JSON.stringify(queue, null, 2)}\n`);
+  fs.writeFileSync(args.outJs, `window.SearchBookDiscordEditorialQueue = ${JSON.stringify(queue)};\n`);
+  const routeCoverage = queue.summary?.routeCoverage || {};
   console.log(JSON.stringify({
     status: "passed",
     service: "search-book-discord-editorial-queue",
     output: path.relative(searchBookRoot, args.outMarkdown),
-    routedItems: routing.summary?.routedItems || 0,
-    pageFitReviewReady: reviewPlan.pageFitReviewReady || 0,
-    refusalReviewReady: reviewPlan.refusalReviewReady || 0,
+    outputJson: path.relative(searchBookRoot, args.outJson),
+    outputJs: path.relative(searchBookRoot, args.outJs),
+    routedItems: queue.summary?.routedItems || 0,
+    pageFitReviewReady: queue.summary?.pageFitGroupsReady || 0,
+    refusalReviewReady: queue.summary?.refusalReviewItems || 0,
     pageFitCoveredByPublicRoutes: routeCoverage.pageFitCoveredByPublicRoutes || 0,
     totalPageFitGroups: routeCoverage.totalPageFitGroups || 0,
-    valuesPrinted: false,
+    rawDiscordTextIncluded: queue.privacy?.rawDiscordTextIncluded === true,
+    sourceAnswerTextIncluded: queue.privacy?.sourceAnswerTextIncluded === true,
+    valuesPrinted: queue.privacy?.valuesPrinted === true,
   }, null, 2));
 }
 

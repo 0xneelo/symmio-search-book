@@ -23,6 +23,7 @@ const requiredScriptGlobals = new Map([
   ["./data/faq.js", "SearchBookFAQ"],
   ["./data/gap-queue.js", "SearchBookGapQueue"],
   ["./data/discord-review-routing.js", "SearchBookDiscordReviewRouting"],
+  ["./data/discord-editorial-queue.js", "SearchBookDiscordEditorialQueue"],
   ["./data/answer-chunks.js", "SearchBookAnswerChunks"],
   ["./data/answer-engine-contract.js", "SearchBookAnswerEngineContract"],
   ["./data/llm-rag-contract.js", "SearchBookLlmRagContract"],
