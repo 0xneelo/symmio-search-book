@@ -124,6 +124,10 @@ To create attachable operator evidence, run `npm run search-book:launch-evidence
 drill and monitoring probe when no deployment URLs are supplied.
 The manual GitHub workflow `Search Book Launch Evidence` runs the same no-secret packet
 path and uploads those files as a short-lived artifact for review handoffs.
+To build a platform-neutral static preview bundle, run
+`npm run search-book:build-static-artifact`; the manual GitHub workflow
+`Search Book Static Artifact` uploads the same `index.html`/data/content bundle for
+review or platform handoff without choosing the final deploy route.
 
 ## Environment
 

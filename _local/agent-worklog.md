@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex static preview artifact workflow
+- Task: Add a platform-neutral static preview artifact path that does not decide the final deploy route.
+- Scope: `scripts/build-static-artifact.mjs`, `scripts/check-static-integrity.mjs`, `.github/workflows/search-book-static-artifact.yml`, `package.json`, README/deployment/final-report/progress docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Artifact script copies only public static app/data/content files, validates the copied bundle, reports no sensitive-pattern matches, GitHub workflow YAML parses, full `npm run search-book:verify` remains green, and readiness boundaries stay at #17/#11/#4.
+- Result: Added `npm run search-book:build-static-artifact` plus the manual/PR-scoped `Search Book Static Artifact` workflow. The artifact command copied `index.html`, generated data assets, and content markdown to `/tmp/search-book-static-site-test-20260701-3`, wrote `static-artifact-manifest.json`, validated the copied bundle's own `data/*` assets, and passed with 1,648 files, 48,327,442 bytes, public navigation pages `800`, no public pages missing reader data, 0 sensitive-pattern matches, and `valuesPrinted:false`. Python YAML parse reported `workflow-yaml-ok`; `node scripts/check-readiness-evidence.mjs` passed; full `npm run search-book:verify` passed with 24 build steps, 67 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`; `npm run search-book:smoke-static` passed home, exact-page URL, generated asset, and missing-route checks.
+
 ## 2026-07-01 — Codex launch evidence artifact workflow
 - Task: Add a no-secret GitHub/manual workflow that builds the launch evidence packet and uploads it for review handoffs.
 - Scope: `.github/workflows/search-book-launch-evidence.yml`, `README.md`, `DEPLOYMENT.md`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

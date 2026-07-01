@@ -10,9 +10,6 @@ const repoRoot = searchBookRoot;
 
 const defaults = {
   indexHtml: path.join(searchBookRoot, "index.html"),
-  pageStateRegistry: path.join(searchBookRoot, "data", "page-state-registry.json"),
-  searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
-  authoredPages: path.join(searchBookRoot, "data", "authored-pages.json"),
 };
 
 const requiredScriptGlobals = new Map([
@@ -43,7 +40,7 @@ function parseArgs(argv) {
     const arg = argv[index];
     if (arg === "--index") args.indexHtml = path.resolve(argv[++index] || "");
     else if (arg === "--help") {
-      console.log("Usage: node src/search-book/scripts/check-static-integrity.mjs [--index src/search-book/index.html]");
+      console.log("Usage: node scripts/check-static-integrity.mjs [--index index.html]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -60,10 +57,10 @@ function unique(values) {
   return [...new Set(values.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b)));
 }
 
-function resolveAsset(assetPath) {
+function resolveAsset(assetRoot, assetPath) {
   const normalized = assetPath.replace(/^\.\//, "");
-  const absolutePath = path.resolve(searchBookRoot, normalized);
-  const relative = path.relative(searchBookRoot, absolutePath);
+  const absolutePath = path.resolve(assetRoot, normalized);
+  const relative = path.relative(assetRoot, absolutePath);
   if (relative.startsWith("..") || path.isAbsolute(relative)) return null;
   return absolutePath;
 }
@@ -85,10 +82,15 @@ function assert(condition, message, failures) {
 }
 
 const args = parseArgs(process.argv.slice(2));
+const assetRoot = path.dirname(args.indexHtml);
+const dataRoot = path.join(assetRoot, "data");
+const pageStateRegistryPath = path.join(dataRoot, "page-state-registry.json");
+const searchIndexPath = path.join(dataRoot, "search-index.json");
+const authoredPagesPath = path.join(dataRoot, "authored-pages.json");
 const html = fs.readFileSync(args.indexHtml, "utf8");
-const pageStateRegistry = readJson(args.pageStateRegistry);
-const searchIndex = readJson(args.searchIndex);
-const authoredPages = readJson(args.authoredPages);
+const pageStateRegistry = readJson(pageStateRegistryPath);
+const searchIndex = readJson(searchIndexPath);
+const authoredPages = readJson(authoredPagesPath);
 const failures = [];
 const warnings = [];
 
@@ -110,7 +112,7 @@ const unexpectedLocalScripts = scriptSources.filter((scriptPath) => !requiredScr
 for (const scriptPath of unexpectedLocalScripts) warnings.push(`unexpected-local-script:${scriptPath}`);
 
 for (const [scriptPath, globalName] of requiredScriptGlobals) {
-  const absolutePath = resolveAsset(scriptPath);
+  const absolutePath = resolveAsset(assetRoot, scriptPath);
   if (!absolutePath || !fs.existsSync(absolutePath)) {
     failures.push(`script-file-missing:${scriptPath}`);
     continue;
@@ -144,6 +146,7 @@ const result = {
   status: failures.length ? "failed" : "passed",
   service: "search-book-static-integrity",
   index: path.relative(repoRoot, args.indexHtml),
+  assetRoot: path.relative(repoRoot, assetRoot) || ".",
   checks: {
     scriptReferences: `${requiredScriptGlobals.size - missingScriptRefs.length}/${requiredScriptGlobals.size}`,
     expectedGlobals: requiredScriptGlobals.size,

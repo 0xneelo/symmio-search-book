@@ -1,0 +1,76 @@
+name: Search Book Static Artifact
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-book-static-artifact.yml"
+      - "scripts/**"
+      - "data/**"
+      - "content/**"
+      - "index.html"
+      - "answer-corpus.js"
+      - "page-manifest.json"
+      - "package.json"
+      - "README.md"
+      - "DEPLOYMENT.md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: search-book-static-artifact-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-artifact:
+    name: Build static preview artifact
+    runs-on: ubuntu-latest
+    env:
+      VIBE_DOCS_ROOT: /tmp/vibe_docs
+      VIBE_DOCS_PUBLIC: /tmp/vibe_docs/Docs/public
+      VIBE_DOCS_DATA: /tmp/vibe_docs/Website/public/generated/docs-data.json
+      SEARCH_BOOK_STATIC_ARTIFACT_DIR: /tmp/search-book-static-site
+    steps:
+      - name: Check out Search Book
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Show runtime
+        run: |
+          node --version
+          npm --version
+
+      - name: Fetch public Vibe docs export
+        run: |
+          git clone --depth 1 https://github.com/0xneelo/vibe_docs.git "$VIBE_DOCS_ROOT"
+          test -d "$VIBE_DOCS_PUBLIC"
+          test -f "$VIBE_DOCS_DATA"
+
+      - name: Verify corpus and static integrity
+        run: npm run search-book:verify
+
+      - name: Build static artifact
+        run: |
+          npm run search-book:build-static-artifact -- --out-dir "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"
+
+      - name: Check artifact manifest
+        run: |
+          test -f "$SEARCH_BOOK_STATIC_ARTIFACT_DIR/index.html"
+          test -f "$SEARCH_BOOK_STATIC_ARTIFACT_DIR/static-artifact-manifest.json"
+          node -e 'const fs = require("node:fs"); const manifest = JSON.parse(fs.readFileSync(process.env.SEARCH_BOOK_STATIC_ARTIFACT_DIR + "/static-artifact-manifest.json", "utf8")); if (manifest.status !== "passed") throw new Error(`artifact status ${manifest.status}`); if (manifest.secrets?.valuesPrinted !== false) throw new Error("artifact reported printed secret values"); if ((manifest.secrets?.sensitiveMatches || []).length) throw new Error("artifact contains sensitive-pattern matches"); console.log(JSON.stringify({ status: manifest.status, files: manifest.files, bytes: manifest.bytes, integrity: manifest.integrity?.status || null }, null, 2));'
+
+      - name: Upload static artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-book-static-site
+          path: /tmp/search-book-static-site/
+          if-no-files-found: warn
+          retention-days: 14

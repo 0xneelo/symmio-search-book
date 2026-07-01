@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Static Preview Artifact Workflow
+
+- Added `scripts/build-static-artifact.mjs` and `npm run search-book:build-static-artifact` to copy the static Search Book front door, generated data assets, and content markdown into a clean `/tmp/search-book-static-site` bundle.
+- Updated `scripts/check-static-integrity.mjs` so `--index` validates the copied artifact's own `data/*` assets instead of always reading from the repo root.
+- Added `.github/workflows/search-book-static-artifact.yml`, a no-secret manual/PR workflow that fetches the public Vibe docs export, runs full deterministic verify, builds the static artifact, validates `static-artifact-manifest.json`, and uploads the bundle with 14-day retention.
+- Verified the artifact command locally with `/tmp/search-book-static-site-test-20260701-3`: status `passed`, 1,648 files, 48,327,442 bytes, copied-bundle integrity `passed`, public navigation pages `800`, no public pages missing reader data, 0 sensitive-pattern matches, and `valuesPrinted:false`. Full `npm run search-book:verify` remained green with 24 build steps, 67 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`; `npm run search-book:smoke-static` also passed home, exact-page URL, generated asset, and missing-route checks.
+
 ## 2026-07-01 — Launch Evidence Artifact Workflow
 
 - Added `.github/workflows/search-book-launch-evidence.yml`, a no-secret GitHub Actions workflow for building and uploading the launch evidence packet.

@@ -142,6 +142,17 @@ For repository-hosted staging evidence, run the manual GitHub workflow
 no-secret packet, validates that the packet passed, and uploads the JSON/Markdown files
 as a short-lived artifact.
 
+To hand off a static preview bundle without choosing the final deploy platform, run:
+
+```bash
+npm run search-book:build-static-artifact
+```
+
+The command writes a clean `/tmp/search-book-static-site` bundle containing `index.html`,
+generated data assets, and content markdown, then validates the copied bundle with static
+integrity checks and writes `static-artifact-manifest.json`. The manual GitHub workflow
+`Search Book Static Artifact` builds and uploads the same bundle as a short-lived artifact.
+
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
 boundary. Load the same service env file so it can see the production LLM/service settings,
