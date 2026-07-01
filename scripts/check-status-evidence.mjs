@@ -47,6 +47,18 @@ function latestManualEvidenceFromProgress() {
   };
 }
 
+function latestStaticArtifactEvidenceFromProgress() {
+  const progress = readText("PROGRESS.md");
+  const entry =
+    progress.match(/## 2026-07-01 — [^\n]*Static Artifact[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+  return {
+    commit: entry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
+    run: entry.match(/workflow run `(\d+)`/)?.[1] || entry.match(/static artifact run `(\d+)`/)?.[1] || "",
+    artifactRoot: entry.match(/(\/tmp\/search-book-gh-static-artifact-\d+)/)?.[1] || "",
+    bytes: entry.match(/([\d,]+) bytes/)?.[1] || "",
+  };
+}
+
 function fragmentsForEvidence() {
   const manifest = readJson("page-manifest.json");
   const authored = readJson("data/authored-pages.json");
@@ -79,6 +91,7 @@ function fragmentsForEvidence() {
   const live = llm.liveEvaluation || {};
   const suites = live.suites || {};
   const manualEvidence = latestManualEvidenceFromProgress();
+  const staticArtifactEvidence = latestStaticArtifactEvidenceFromProgress();
 
   return {
     manifestPages: String(manifest.pages.length),
@@ -117,6 +130,7 @@ function fragmentsForEvidence() {
     liveEvalAdversarial: suites.adversarial ? `${suites.adversarial.passing}/${suites.adversarial.total}` : "",
     liveEvalAnswerValidation: suites.answerValidation ? `${suites.answerValidation.passing}/${suites.answerValidation.total}` : "",
     manualEvidence,
+    staticArtifactEvidence,
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => String(item.id)).sort((a, b) => Number(a) - Number(b)),
   };
 }
@@ -138,6 +152,7 @@ function expectedChecks(evidence) {
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`] },
       { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} local review items`, `${evidence.discordPageFitCoverage} page-fit`, `source-backed triage at ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready for ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready at ${evidence.discordRefusalPolicyReady} refusal items`] },
       { id: "manual-evidence", allOf: [`launch evidence run \`${evidence.manualEvidence.launchRun}\``, `release dry-run run \`${evidence.manualEvidence.releaseRun}\``, `commit \`${evidence.manualEvidence.commit}\``, evidence.manualEvidence.launchArtifact, evidence.manualEvidence.releaseArtifact, "strict summary validation", "Open operator Linear tasks | #4=SYN-285, #11=SYN-281", "Secrets printed | false"] },
+      { id: "static-artifact-evidence", allOf: [`run \`${evidence.staticArtifactEvidence.run}\``, `commit \`${evidence.staticArtifactEvidence.commit}\``, evidence.staticArtifactEvidence.artifactRoot, evidence.staticArtifactEvidence.bytes, "check-static-artifact-packet", "smoke-preview-service"] },
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-discord-editorial-data", "repository dirty state `false`", "same commit", "productionReadinessPacket:passed", "Discord editorial queue data evidence", "original-spec reconciliation evidence", "evidence summary renderer status `passed`", "publication boundaries status `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "requirement-map", anyOf: [`${evidence.requirementComplete}/18 requirements complete`, `${evidence.requirementComplete} requirements complete`] },
       { id: "requirement-status", allOf: [`${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, and ${evidence.requirementMissing} missing`] },
@@ -161,6 +176,7 @@ function expectedChecks(evidence) {
       { id: "authored", allOf: [`${evidence.authoredPages} authored pages`] },
       { id: "page-state", allOf: [`${evidence.publicNavigationPages} published public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`] },
       { id: "live-eval", allOf: [evidence.liveEvalTotal] },
+      { id: "static-artifact-evidence", allOf: [`run \`${evidence.staticArtifactEvidence.run}\``, `commit \`${evidence.staticArtifactEvidence.commit}\``, evidence.staticArtifactEvidence.artifactRoot, evidence.staticArtifactEvidence.bytes, "check-static-artifact-packet", "smoke-preview-service"] },
       { id: "workflow-contract", allOf: ["search-book:check-github-workflows", "workflow contract guard"] },
       { id: "living-docs-review-evidence", allOf: ["search-book:check-living-docs-review", "living-docs reviewer evidence"] },
       { id: "production-packet", allOf: ["search-book:check-production-packet", "production-readiness packet guard"] },
@@ -174,6 +190,7 @@ function expectedChecks(evidence) {
       { id: "source-ingestion", allOf: [`${evidence.sourceIngestion}`] },
       { id: "source-zero-counts", anyOf: [`0 partial / 0 parked / 0 missing`, `0 partial, 0 parked, and 0 missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates}`] },
+      { id: "static-artifact-evidence", allOf: [`run \`${evidence.staticArtifactEvidence.run}\``, `commit \`${evidence.staticArtifactEvidence.commit}\``, evidence.staticArtifactEvidence.artifactRoot, "checked packet validation plus static and preview-service smokes"] },
       { id: "discord-route-coverage", allOf: [`${evidence.discordPageFitCoverage} page-fit groups`, `${evidence.discordSingleRouteRemaining} single-route groups`, `source-backed triage ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready ${evidence.discordRefusalPolicyReady} refusal items`] },
       { id: "discord-queue-data-proof", allOf: ["Discord editorial queue data evidence reports `passed`", "`queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`"] },
       { id: "backup-restore-evidence", allOf: ["backup-restore evidence passed", "4/4 tables matched"] },

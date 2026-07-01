@@ -114,6 +114,14 @@ const manualEvidence = {
   launchArtifact: manualEvidenceEntry.match(/(\/tmp\/search-book-gh-manual-launch-\d+)/)?.[1] || "",
   releaseArtifact: manualEvidenceEntry.match(/(\/tmp\/search-book-gh-manual-release-\d+)/)?.[1] || "",
 };
+const staticArtifactEntry =
+  progress.match(/## 2026-07-01 — [^\n]*Static Artifact[^\n]*\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+const staticArtifactEvidence = {
+  commit: staticArtifactEntry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
+  run: staticArtifactEntry.match(/workflow run `(\d+)`/)?.[1] || staticArtifactEntry.match(/static artifact run `(\d+)`/)?.[1] || "",
+  artifactRoot: staticArtifactEntry.match(/(\/tmp\/search-book-gh-static-artifact-\d+)/)?.[1] || "",
+  bytes: staticArtifactEntry.match(/([\d,]+) bytes/)?.[1] || "",
+};
 
 addCheck(
   checks,
@@ -332,6 +340,20 @@ addCheck(
   "completion audit must reflect the latest strict manual launch/release evidence from PROGRESS.md",
   manualEvidence,
 );
+addCheck(
+  checks,
+  "static-artifact-evidence-reflected-in-audit",
+  Boolean(staticArtifactEvidence.commit) &&
+    Boolean(staticArtifactEvidence.run) &&
+    Boolean(staticArtifactEvidence.artifactRoot) &&
+    audit.includes(staticArtifactEvidence.commit) &&
+    audit.includes(staticArtifactEvidence.run) &&
+    audit.includes(staticArtifactEvidence.artifactRoot) &&
+    audit.includes("check-static-artifact-packet") &&
+    audit.includes("smoke-preview-service"),
+  "completion audit must reflect the latest static artifact evidence from PROGRESS.md",
+  staticArtifactEvidence,
+);
 
 const failed = checks.filter((check) => !check.passed);
 const result = {
@@ -351,6 +373,7 @@ const result = {
     openOperatorIds,
     quality: `${qualityPassed}/${qualityTotal}`,
     manualEvidence,
+    staticArtifactEvidence,
   },
   checks,
 };
