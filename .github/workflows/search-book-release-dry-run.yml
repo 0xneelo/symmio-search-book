@@ -71,7 +71,10 @@ jobs:
         run: |
           npm run search-book:evidence-summary -- \
             --kind release \
-            --packet "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.json"
+            --packet "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.json" \
+            > "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.summary.md"
+          cat "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.summary.md"
+          grep -F 'Discord editorial queue data | `passed` (24 routed / 19 page-fit / 2 refusals; ready: `true`)' "$SEARCH_BOOK_RELEASE_DRY_RUN_DIR/release-dry-run.summary.md"
 
       - name: Upload release dry-run artifact
         if: always()

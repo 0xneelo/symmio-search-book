@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex workflow queue-data proof guard
+- Task: Require GitHub launch/release workflow contracts to carry the Discord editorial queue data proof through checked validators and no-secret summaries.
+- Scope: `.github/workflows/search-book-launch-evidence.yml`, `.github/workflows/search-book-release-dry-run.yml`, `scripts/check-github-workflows.mjs`, status docs if required, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-github-workflows`, `npm run search-book:check-evidence-summary`, full `npm run search-book:verify`, and `git diff --check` pass with only #11/#4 open.
+- Result: The launch/release workflows now save the rendered evidence summary Markdown, print it, and grep for the exact no-secret `Discord editorial queue data` row before artifact upload. `scripts/check-github-workflows.mjs` requires those summary artifact paths and grep fragments. Verification passed: `npm run search-book:check-github-workflows`, `npm run search-book:check-evidence-summary`, `npm run search-book:check-status-evidence`, `git diff --check`, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, source ingestion `17/17`, quality gates `29/30`, `githubWorkflows:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex production packet Discord queue-data proof
 - Task: Promote the sanitized Discord editorial queue JSON proof into `PRODUCTION-READINESS-PACKET.md` and its executable guard.
 - Scope: `PRODUCTION-READINESS-PACKET.md`, `scripts/check-production-readiness-packet.mjs`, status docs if required, and `_local/agent-worklog.md`.

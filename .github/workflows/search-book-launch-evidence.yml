@@ -65,7 +65,10 @@ jobs:
         run: |
           npm run search-book:evidence-summary -- \
             --kind launch \
-            --packet "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json"
+            --packet "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.json" \
+            > "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.summary.md"
+          cat "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.summary.md"
+          grep -F 'Discord editorial queue data | `passed` (24 routed / 19 page-fit / 2 refusals; ready: `true`)' "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR/launch-evidence.summary.md"
 
       - name: Upload launch evidence
         if: always()
@@ -75,5 +78,6 @@ jobs:
           path: |
             /tmp/search-book-launch-evidence/launch-evidence.json
             /tmp/search-book-launch-evidence/launch-evidence.md
+            /tmp/search-book-launch-evidence/launch-evidence.summary.md
           if-no-files-found: warn
           retention-days: 14

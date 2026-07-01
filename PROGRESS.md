@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Workflow Summary Queue-Data Proof
+
+- Hardened the launch-evidence and release-dry-run GitHub workflows so their rendered `$GITHUB_STEP_SUMMARY` path is also saved as a short-lived artifact and checked for the no-secret Discord editorial queue data row.
+- `npm run search-book:check-github-workflows` now requires the summary artifact paths plus the explicit queue-data grep in both workflows, alongside the existing packet validators and evidence-summary renderer.
+- Verification passed: `npm run search-book:check-github-workflows`, `npm run search-book:check-evidence-summary`, `npm run search-book:check-status-evidence`, `git diff --check`, and full `npm run search-book:verify` with 26 build steps, 92 syntax checks, source ingestion `17/17`, quality gates `29/30`, `githubWorkflows:passed`, queue data `passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Production Packet Discord Queue-Data Proof
 
 - Promoted the sanitized Discord editorial queue JSON proof into `PRODUCTION-READINESS-PACKET.md` and `npm run search-book:check-production-packet`.
