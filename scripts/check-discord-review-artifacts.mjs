@@ -582,8 +582,12 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
     refusalReviewReady: queueRefusalReview.length,
     disposition: {
       readyForReviewerHandoff: disposition.readyForReviewerHandoff === true,
+      pageFitGroups: disposition.pageFitGroups ?? null,
       pageFitKeepExistingPublicCopy: disposition.pageFitKeepExistingPublicCopy ?? null,
+      pageFitNeedsPublicCopyChange: disposition.pageFitNeedsPublicCopyChange ?? null,
+      refusalItems: disposition.refusalItems ?? null,
       refusalKeepPolicy: disposition.refusalKeepPolicy ?? null,
+      refusalNeedsPolicyReview: disposition.refusalNeedsPolicyReview ?? null,
       publicCopyChangesProposed: disposition.publicCopyChangesProposed ?? null,
       exactDiscordStatementsPromoted: disposition.exactDiscordStatementsPromoted ?? null,
     },
