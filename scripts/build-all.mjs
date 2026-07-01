@@ -364,6 +364,20 @@ function runDeployTemplatesCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runBackupRestoreEvidenceCheck(env, dryRun) {
+  const step = {
+    id: "check-backup-restore-evidence",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-backup-restore-evidence.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runMonitoringEvidenceCheck(env, dryRun) {
   const step = {
     id: "check-monitoring-evidence",
@@ -553,6 +567,7 @@ if (args.dryRun) {
     runPublicationBoundariesCheck(env, true);
     runProductionEnvFixtureCheck(env, true);
     runDeployTemplatesCheck(env, true);
+    runBackupRestoreEvidenceCheck(env, true);
     runMonitoringEvidenceCheck(env, true);
   }
   process.exit(0);
@@ -579,6 +594,7 @@ let evidenceSummaryRenderer = null;
 let publicationBoundaries = null;
 let productionEnvFixture = null;
 let deployTemplates = null;
+let backupRestoreEvidence = null;
 let monitoringEvidence = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
@@ -596,6 +612,7 @@ if (args.verify) {
   publicationBoundaries = runPublicationBoundariesCheck(env, false);
   productionEnvFixture = runProductionEnvFixtureCheck(env, false);
   deployTemplates = runDeployTemplatesCheck(env, false);
+  backupRestoreEvidence = runBackupRestoreEvidenceCheck(env, false);
   monitoringEvidence = runMonitoringEvidenceCheck(env, false);
 }
 
@@ -618,6 +635,7 @@ console.log(JSON.stringify({
   publicationBoundaries,
   productionEnvFixture,
   deployTemplates,
+  backupRestoreEvidence,
   monitoringEvidence,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));

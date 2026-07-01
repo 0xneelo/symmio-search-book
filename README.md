@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | ~59 build/serve/smoke/evidence scripts (Node built-ins only). |
+| `scripts/` | 63 build/serve/smoke/evidence scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -80,6 +80,7 @@ npm run search-book:check-spec-reconciliation
 npm run search-book:check-publication-boundaries
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
+npm run search-book:check-backup-restore
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
@@ -113,8 +114,9 @@ npm run search-book:smoke-preview-service
 ```
 
 The `search-book:verify` step includes the no-secret local monitoring evidence probe for
-`/health` and token-gated `/api/search-book/metrics`. The workflow does not load LLM
-credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
+`/health` and token-gated `/api/search-book/metrics`, plus the no-secret backup/restore
+evidence guard against a temporary SQLite answer-engine database. The workflow does not
+load LLM credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
 
 ## Answer-engine service
 
@@ -130,7 +132,10 @@ and curated-example fallback. Retention,
 the browser CORS allowlist (`SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`, default `*`),
 the disabled-by-default token-gated moderation and metrics exports, the reviewer gap-summary
 job (`npm run search-book:living-docs-summary`), and the backup/restore-check utility
-(`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. Before
+(`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. The
+CI-safe `npm run search-book:check-backup-restore` guard starts a temporary answer-engine
+service, persists answer/rating/page-feedback events, runs the backup utility with
+restore-check, and emits counts/booleans only. Before
 production launch, run `npm run search-book:check-production-env` with the service env
 loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local
 SQLite paths, missing production VPS LLM env, missing reviewer/cadence assignment, and missing
@@ -152,12 +157,14 @@ source-backed existing-page triage, public-copy readiness state, and refusal-pol
 Discord refusal-runtime evidence proving the public-safe Discord/Lafa probes remain refusal-only
 without loaded LLM credentials,
 source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
-evidence as public/source/internal counts only, and status-document evidence proving
+evidence as public/source/internal counts only, backup-restore evidence as table/count/check
+booleans only, and status-document evidence proving
 current report counts match generated data. It also includes original-spec reconciliation
 evidence proving source ingestion is `17/17`, local LLM provider/model assumptions are current,
 and open operator items remain limited to #4/#11.
 Validate a saved packet with `npm run search-book:check-launch-evidence-packet -- --packet <launch-evidence.json>`;
-the validator requires the packet to come from a clean repository state.
+the validator requires the packet to come from a clean repository state and include passing
+backup-restore evidence.
 Render the same count-only Markdown summary used by GitHub Actions with
 `npm run search-book:evidence-summary -- --kind launch --packet <launch-evidence.json>`.
 Validate the renderer's no-raw/no-secret boundary with `npm run search-book:check-evidence-summary`.
@@ -168,7 +175,7 @@ builds the static artifact, smoke-tests the copied artifact both statically and 
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
 include source-freshness, status-document, Discord review-artifact, Discord refusal-runtime,
-original-spec reconciliation, and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
+original-spec reconciliation, backup-restore, and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
 companions stay out of public navigation/routes and internal drafts stay out of runtime
 context, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same

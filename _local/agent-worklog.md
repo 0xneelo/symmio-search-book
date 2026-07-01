@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex backup restore evidence guard
+- Task: Add a CI-safe backup/restore evidence guard and promote it into launch/release evidence so the SQLite backup manifest path is continuously verified without production secrets or VPS access.
+- Scope: backup checker script, package/build verification wiring, launch/release evidence packets and validators, evidence summaries, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: A temporary SQLite answer-engine DB is seeded, backed up with restore-check, validated as count-only/no-secret evidence, launch/release packets require the proof, full verify remains green, and only #11/#4 remain open.
+- Result: Added `npm run search-book:check-backup-restore`, wired it into `npm run search-book:verify`, and promoted backup-restore evidence into launch packets, release dry-run summaries, packet validators, and GitHub-style evidence summaries. Focused guard passed with restore `passed`, integrity `ok`, 4/4 required tables matched, 2 questions / 2 ratings / 2 gaps seeded, `valuesPrinted:false`, no loaded LLM credentials, and no raw content printed. Full `npm run search-book:verify` passed with 26 build steps, 88 syntax checks, `backupRestoreEvidence:passed`, `monitoringEvidence:passed`, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex spec reconciliation release evidence
 - Task: Promote the original-spec reconciliation guard into launch/release evidence packets and validators so release artifacts prove the reconciled #11/#4-only operator boundary and current source-ingestion state.
 - Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, packet validators, evidence summary renderer/checker, status docs, and `_local/agent-worklog.md`.

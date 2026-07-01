@@ -479,6 +479,13 @@ function runEvidenceSummaryRendererCommand() {
   };
 }
 
+function runBackupRestoreEvidenceCommand() {
+  return {
+    source: "backup-restore-evidence",
+    result: commandResult(["scripts/check-backup-restore-evidence.mjs"]),
+  };
+}
+
 function renderMarkdown(packet) {
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
@@ -488,6 +495,7 @@ function renderMarkdown(packet) {
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
+  const backupRestoreEvidence = normalizedBackupRestoreEvidence(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const totals = launch.totals || {};
   const monitoringTotals = monitoring.totals || {};
@@ -506,6 +514,9 @@ function renderMarkdown(packet) {
   const publicationEvidence = publicationBoundaries.evidence || {};
   const publicationChecks = publicationBoundaries.checks || [];
   const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
+  const backupEvidence = backupRestoreEvidence.evidence || {};
+  const backupChecks = backupRestoreEvidence.checks || [];
+  const backupChecksPassed = backupChecks.filter((check) => check.passed).length;
   const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
   const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const failedMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "error");
@@ -614,6 +625,17 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Checks: \`${publicationChecksPassed}/${publicationChecks.length}\`
 - Values printed: \`${publicationBoundaries.valuesPrinted ?? false}\`
 
+## Backup Restore Evidence
+
+- Backup restore evidence status: \`${backupRestoreEvidence.status || "missing"}\`
+- Restore check: \`${backupEvidence.restoreCheckStatus || "missing"}\`
+- Integrity: \`${backupEvidence.integrity || "missing"}\`
+- Tables matched: \`${backupEvidence.tablesMatched ?? "unknown"}/${backupEvidence.tablesChecked ?? "unknown"}\`
+- Seeded counts: \`questions=${backupEvidence.seededCounts?.questions ?? "unknown"}, ratings=${backupEvidence.seededCounts?.ratings ?? "unknown"}, gaps=${backupEvidence.seededCounts?.gaps ?? "unknown"}, answerCache=${backupEvidence.seededCounts?.answerCache ?? "unknown"}\`
+- Checks: \`${backupChecksPassed}/${backupChecks.length}\`
+- Values printed: \`${backupRestoreEvidence.valuesPrinted ?? false}\`
+- Raw content printed: \`${backupEvidence.rawContentPrinted ?? "unknown"}\`
+
 ## Evidence Summary Renderer
 
 - Evidence summary renderer status: \`${evidenceSummaryRenderer.status || "missing"}\`
@@ -676,6 +698,10 @@ function normalizedPublicationBoundaries(packet) {
   return packet.publicationBoundaries?.parsed || {};
 }
 
+function normalizedBackupRestoreEvidence(packet) {
+  return packet.backupRestoreEvidence?.parsed || {};
+}
+
 function normalizedEvidenceSummaryRenderer(packet) {
   return packet.evidenceSummaryRenderer?.parsed || {};
 }
@@ -690,6 +716,7 @@ function buildPacket(
   discordReviewArtifacts,
   discordRefusalRuntime,
   publicationBoundaries,
+  backupRestoreEvidence,
   evidenceSummaryRenderer,
 ) {
   const parsed = evidence.result.parsed || null;
@@ -700,6 +727,7 @@ function buildPacket(
   const discordReviewArtifactsParsed = discordReviewArtifacts.result.parsed || null;
   const discordRefusalRuntimeParsed = discordRefusalRuntime.result.parsed || null;
   const publicationBoundariesParsed = publicationBoundaries.result.parsed || null;
+  const backupRestoreEvidenceParsed = backupRestoreEvidence.result.parsed || null;
   const evidenceSummaryRendererParsed = evidenceSummaryRenderer.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
   const monitoringPassed = monitoringEvidence.result.passed && (!monitoringParsed || ["passed", "skipped"].includes(monitoringParsed.status));
@@ -715,6 +743,8 @@ function buildPacket(
     discordRefusalRuntime.result.passed && (!discordRefusalRuntimeParsed || discordRefusalRuntimeParsed.status === "passed");
   const publicationBoundariesPassed =
     publicationBoundaries.result.passed && (!publicationBoundariesParsed || publicationBoundariesParsed.status === "passed");
+  const backupRestoreEvidencePassed =
+    backupRestoreEvidence.result.passed && (!backupRestoreEvidenceParsed || backupRestoreEvidenceParsed.status === "passed");
   const evidenceSummaryRendererPassed =
     evidenceSummaryRenderer.result.passed && (!evidenceSummaryRendererParsed || evidenceSummaryRendererParsed.status === "passed");
   const status =
@@ -726,6 +756,7 @@ function buildPacket(
       && discordReviewArtifactsPassed
       && discordRefusalRuntimePassed
       && publicationBoundariesPassed
+      && backupRestoreEvidencePassed
       && evidenceSummaryRendererPassed
       ? "passed"
       : "failed";
@@ -751,6 +782,8 @@ function buildPacket(
     discordRefusalRuntimeCommand: discordRefusalRuntime.result.command,
     publicationBoundariesSource: publicationBoundaries.source,
     publicationBoundariesCommand: publicationBoundaries.result.command,
+    backupRestoreEvidenceSource: backupRestoreEvidence.source,
+    backupRestoreEvidenceCommand: backupRestoreEvidence.result.command,
     evidenceSummaryRendererSource: evidenceSummaryRenderer.source,
     evidenceSummaryRendererCommand: evidenceSummaryRenderer.result.command,
     repository: {
@@ -839,6 +872,15 @@ function buildPacket(
       stdoutTail: publicationBoundaries.result.stdoutTail,
       stderrTail: publicationBoundaries.result.stderrTail,
     },
+    backupRestoreEvidence: {
+      exitCode: backupRestoreEvidence.result.exitCode,
+      signal: backupRestoreEvidence.result.signal,
+      passed: backupRestoreEvidence.result.passed,
+      parsed: backupRestoreEvidenceParsed,
+      error: backupRestoreEvidence.result.error,
+      stdoutTail: backupRestoreEvidence.result.stdoutTail,
+      stderrTail: backupRestoreEvidence.result.stderrTail,
+    },
     evidenceSummaryRenderer: {
       exitCode: evidenceSummaryRenderer.result.exitCode,
       signal: evidenceSummaryRenderer.result.signal,
@@ -879,6 +921,7 @@ function main() {
   const discordReviewArtifacts = runDiscordReviewArtifactsCommand();
   const discordRefusalRuntime = runDiscordRefusalRuntimeCommand();
   const publicationBoundaries = runPublicationBoundariesCommand();
+  const backupRestoreEvidence = runBackupRestoreEvidenceCommand();
   const evidenceSummaryRenderer = runEvidenceSummaryRendererCommand();
   const packet = writePacket(
     args,
@@ -892,6 +935,7 @@ function main() {
       discordReviewArtifacts,
       discordRefusalRuntime,
       publicationBoundaries,
+      backupRestoreEvidence,
       evidenceSummaryRenderer,
     ),
   );
@@ -913,6 +957,7 @@ function main() {
     discordReviewArtifactsStatus: normalizedDiscordReviewArtifacts(packet).status || (packet.discordReviewArtifacts?.passed ? "passed" : "failed"),
     discordRefusalRuntimeStatus: normalizedDiscordRefusalRuntime(packet).status || (packet.discordRefusalRuntime?.passed ? "passed" : "failed"),
     publicationBoundariesStatus: normalizedPublicationBoundaries(packet).status || (packet.publicationBoundaries?.passed ? "passed" : "failed"),
+    backupRestoreEvidenceStatus: normalizedBackupRestoreEvidence(packet).status || (packet.backupRestoreEvidence?.passed ? "passed" : "failed"),
     evidenceSummaryRendererStatus: normalizedEvidenceSummaryRenderer(packet).status || (packet.evidenceSummaryRenderer?.passed ? "passed" : "failed"),
     readiness: {
       completionReady: packet.readiness.completionReady,

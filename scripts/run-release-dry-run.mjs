@@ -261,6 +261,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const discordReviewArtifacts = packet.discordReviewArtifacts?.parsed || null;
   const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || null;
   const publicationBoundaries = packet.publicationBoundaries?.parsed || null;
+  const backupRestoreEvidence = packet.backupRestoreEvidence?.parsed || null;
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
@@ -273,6 +274,8 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     : [];
   const publicationBoundaryChecks = publicationBoundaries?.checks || [];
   const publicationBoundaryChecksPassed = publicationBoundaryChecks.filter((check) => check.passed).length;
+  const backupRestoreChecks = backupRestoreEvidence?.checks || [];
+  const backupRestoreChecksPassed = backupRestoreChecks.filter((check) => check.passed).length;
   return {
     status: packet.status || null,
     generatedAt: packet.generatedAt || null,
@@ -287,6 +290,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     discordReviewArtifactsStatus: discordReviewArtifacts?.status || null,
     discordRefusalRuntimeStatus: discordRefusalRuntime?.status || null,
     publicationBoundariesStatus: publicationBoundaries?.status || null,
+    backupRestoreEvidenceStatus: backupRestoreEvidence?.status || null,
     evidenceSummaryRendererStatus: evidenceSummaryRenderer?.status || null,
     sourceFreshness: sourceFreshness
       ? {
@@ -381,6 +385,17 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
             total: publicationBoundaryChecks.length,
           },
           valuesPrinted: publicationBoundaries.valuesPrinted === true,
+        }
+      : null,
+    backupRestoreEvidence: backupRestoreEvidence
+      ? {
+          status: backupRestoreEvidence.status || null,
+          evidence: backupRestoreEvidence.evidence || null,
+          checks: {
+            passed: backupRestoreChecksPassed,
+            total: backupRestoreChecks.length,
+          },
+          valuesPrinted: backupRestoreEvidence.valuesPrinted === true,
         }
       : null,
     evidenceSummaryRenderer: evidenceSummaryRenderer
@@ -530,6 +545,11 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Publication boundary exact/FAQ routes: \`${launch.publicationBoundaries?.evidence?.exactRoutes ?? "unknown"}/${launch.publicationBoundaries?.evidence?.faqAnswerable ?? "unknown"}\`
 - Publication boundary internal-draft runtime chunks: \`${launch.publicationBoundaries?.evidence?.internalDraftRuntimeChunks ?? "unknown"}\`
 - Publication boundary checks: \`${launch.publicationBoundaries?.checks?.passed ?? "unknown"}/${launch.publicationBoundaries?.checks?.total ?? "unknown"}\`
+- Backup restore evidence status: \`${launch.backupRestoreEvidenceStatus || "missing"}\`
+- Backup restore tables matched: \`${launch.backupRestoreEvidence?.evidence?.tablesMatched ?? "unknown"}/${launch.backupRestoreEvidence?.evidence?.tablesChecked ?? "unknown"}\`
+- Backup restore check: \`${launch.backupRestoreEvidence?.evidence?.restoreCheckStatus || "missing"}\`
+- Backup restore raw content printed: \`${launch.backupRestoreEvidence?.evidence?.rawContentPrinted ?? "unknown"}\`
+- Backup restore checks: \`${launch.backupRestoreEvidence?.checks?.passed ?? "unknown"}/${launch.backupRestoreEvidence?.checks?.total ?? "unknown"}\`
 - Evidence summary renderer status: \`${launch.evidenceSummaryRendererStatus || "missing"}\`
 - Evidence summary lines: \`${launch.evidenceSummaryRenderer?.launchSummaryLines ?? "unknown"} launch / ${launch.evidenceSummaryRenderer?.releaseSummaryLines ?? "unknown"} release\`
 - Evidence summary values printed: \`${launch.evidenceSummaryRenderer?.valuesPrinted ?? "unknown"}\`
@@ -681,6 +701,7 @@ try {
       discordReviewArtifactsStatus: packet.launchEvidence?.discordReviewArtifactsStatus || null,
       discordRefusalRuntimeStatus: packet.launchEvidence?.discordRefusalRuntimeStatus || null,
       publicationBoundariesStatus: packet.launchEvidence?.publicationBoundariesStatus || null,
+      backupRestoreEvidenceStatus: packet.launchEvidence?.backupRestoreEvidenceStatus || null,
       evidenceSummaryRendererStatus: packet.launchEvidence?.evidenceSummaryRendererStatus || null,
     },
     steps: packet.steps.map((step) => ({

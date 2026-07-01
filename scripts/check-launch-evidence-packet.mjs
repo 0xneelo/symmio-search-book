@@ -32,8 +32,8 @@ Options:
 Validates a no-secret launch-evidence packet, including launch readiness,
 monitoring, Vibe source freshness, status-document evidence, source-ingestion
 readiness, original-spec reconciliation, Discord route coverage, publication
-boundaries, living-docs controls, clean repository state, and reconciled open
-operator gates.`;
+boundaries, backup/restore evidence, living-docs controls, clean repository
+state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -104,6 +104,10 @@ function normalizedDiscordRefusalRuntime(packet) {
 
 function normalizedPublicationBoundaries(packet) {
   return packet.publicationBoundaries?.parsed || {};
+}
+
+function normalizedBackupRestoreEvidence(packet) {
+  return packet.backupRestoreEvidence?.parsed || {};
 }
 
 function normalizedEvidenceSummaryRenderer(packet) {
@@ -280,6 +284,31 @@ function publicationBoundariesReady(evidence = {}) {
   );
 }
 
+function backupRestoreEvidenceReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.valuesPrinted === false
+    && evidence.secrets?.valuesPrinted === false
+    && evidence.secrets?.llmCredentialsLoaded === false
+    && totals.manifestStatus === "passed"
+    && totals.restoreCheckStatus === "passed"
+    && totals.integrity === "ok"
+    && Number(totals.tablesChecked || 0) === 4
+    && Number(totals.tablesMatched || 0) === 4
+    && totals.backupSizePositive === true
+    && totals.checksumPresent === true
+    && totals.latestManifestWritten === true
+    && totals.rawContentPrinted === false
+    && Number(totals.seededCounts?.questions || 0) >= 2
+    && Number(totals.seededCounts?.ratings || 0) >= 2
+    && Number(totals.seededCounts?.gaps || 0) >= 2
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateLaunchPacket(packet, packetPath) {
   const checks = [];
   const launch = normalizedLaunchEvidence(packet);
@@ -290,6 +319,7 @@ function validateLaunchPacket(packet, packetPath) {
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
   const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
+  const backupRestoreEvidence = normalizedBackupRestoreEvidence(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const repository = packet.repository || {};
   const readiness = packet.readiness || {};
@@ -447,6 +477,29 @@ function validateLaunchPacket(packet, packetPath) {
   );
   addCheck(
     checks,
+    "backup-restore-evidence-passed",
+    packet.backupRestoreEvidence?.passed === true,
+    `passed=${packet.backupRestoreEvidence?.passed}`,
+  );
+  addCheck(
+    checks,
+    "backup-restore-evidence-status",
+    backupRestoreEvidence.status === "passed",
+    `status=${backupRestoreEvidence.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "backup-restore-evidence-ready",
+    backupRestoreEvidenceReady(backupRestoreEvidence),
+    JSON.stringify({
+      evidence: backupRestoreEvidence.evidence || null,
+      valuesPrinted: backupRestoreEvidence.valuesPrinted ?? null,
+      secrets: backupRestoreEvidence.secrets || null,
+      checks: Array.isArray(backupRestoreEvidence.checks) ? backupRestoreEvidence.checks.length : null,
+    }),
+  );
+  addCheck(
+    checks,
     "evidence-summary-renderer-passed",
     packet.evidenceSummaryRenderer?.passed === true,
     `passed=${packet.evidenceSummaryRenderer?.passed}`,
@@ -535,6 +588,8 @@ function validateLaunchPacket(packet, packetPath) {
       },
       publicationBoundariesStatus: publicationBoundaries.status || null,
       publicationBoundaries: publicationBoundaries.evidence || null,
+      backupRestoreEvidenceStatus: backupRestoreEvidence.status || null,
+      backupRestoreEvidence: backupRestoreEvidence.evidence || null,
       evidenceSummaryRendererStatus: evidenceSummaryRenderer.status || null,
       evidenceSummaryRenderer: evidenceSummaryRenderer.evidence || null,
       sourceCompletionReady: readiness.sourceCompletionReady === true,

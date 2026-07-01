@@ -173,6 +173,40 @@ function makeLaunchPacket() {
         pageIds: ["RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT"],
       },
     },
+    backupRestoreEvidence: {
+      parsed: {
+        status: "passed",
+        valuesPrinted: false,
+        secrets: {
+          valuesPrinted: false,
+          llmCredentialsLoaded: false,
+        },
+        evidence: {
+          manifestStatus: "passed",
+          restoreCheckStatus: "passed",
+          integrity: "ok",
+          tablesChecked: 4,
+          tablesMatched: 4,
+          backupSizePositive: true,
+          checksumPresent: true,
+          latestManifestWritten: true,
+          seededCounts: {
+            questions: 2,
+            ratings: 2,
+            gaps: 2,
+            answerCache: 0,
+          },
+          rawContentPrinted: false,
+          rawQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
+        },
+        checks: [
+          { id: "backup-command-passed", passed: true },
+          { id: "restore-check-passed", passed: true },
+          { id: "required-tables-matched", passed: true },
+          { id: "raw-content-not-printed", passed: true },
+        ],
+      },
+    },
   };
 }
 
@@ -215,6 +249,7 @@ function makeReleasePacket() {
       discordReviewArtifactsStatus: "passed",
       discordRefusalRuntimeStatus: "passed",
       publicationBoundariesStatus: "passed",
+      backupRestoreEvidenceStatus: "passed",
       sourceFreshness: {
         totals: { passed: 4, checks: 4 },
         secrets: {
@@ -308,6 +343,26 @@ function makeReleasePacket() {
         checks: { passed: 1, total: 1 },
         pageIds: ["RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT"],
       },
+      backupRestoreEvidence: {
+        status: "passed",
+        valuesPrinted: false,
+        evidence: {
+          manifestStatus: "passed",
+          restoreCheckStatus: "passed",
+          integrity: "ok",
+          tablesChecked: 4,
+          tablesMatched: 4,
+          seededCounts: {
+            questions: 2,
+            ratings: 2,
+            gaps: 2,
+            answerCache: 0,
+          },
+          rawContentPrinted: false,
+          rawQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
+        },
+        checks: { passed: 4, total: 4 },
+      },
     },
   };
 }
@@ -363,7 +418,10 @@ function main() {
       && /Discord refusal runtime \| `passed` \(2\/2 probes; LLM credentials loaded: `false`\)/.test(combined)
       && /Spec reconciliation \| `passed` \(10\/10 checks; source 17\/17; open #4, #11\)/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
-      && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined),
+      && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined)
+      && /Backup restore tables \| `4\/4 tables`; restore `passed`; integrity `ok`/.test(combined)
+      && /Backup restore seed counts \| questions `2`, ratings `2`, gaps `2`, answer cache `0`/.test(combined)
+      && /Backup restore checks \| `4\/4`; values printed: `false`; raw content printed: `false`/.test(combined),
     "",
   );
   const leakedValues = forbiddenValues.filter((value) => combined.includes(value));

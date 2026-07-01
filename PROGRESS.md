@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Backup Restore Evidence Guard
+
+- Added `npm run search-book:check-backup-restore`, a no-secret guard that starts a temporary answer-engine service, persists answer/rating/page-feedback events into SQLite, runs `scripts/backup-answer-engine-db.mjs` with restore-check enabled, and emits only table/count/check booleans.
+- Promoted backup-restore evidence into launch evidence packets, release dry-run summaries, packet validators, reusable evidence summaries, and the canonical `npm run search-book:verify` path.
+- Focused verification currently passes for the new guard with 4/4 required tables matched, restore `passed`, integrity `ok`, seeded counts of 2 questions / 2 ratings / 2 gaps / 0 answer-cache rows, `valuesPrinted:false`, no loaded LLM credentials, and no raw content printed.
+
 ## 2026-07-01 — Spec Reconciliation Release Evidence
 
 - Promoted `npm run search-book:check-spec-reconciliation` into launch evidence packets, release dry-run summaries, packet validators, and reusable evidence summaries.

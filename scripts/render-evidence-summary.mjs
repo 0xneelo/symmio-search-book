@@ -86,6 +86,7 @@ function launchSummary(packet) {
   const discord = packet.discordReviewArtifacts?.parsed || {};
   const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || {};
   const publication = packet.publicationBoundaries?.parsed || {};
+  const backupRestore = packet.backupRestoreEvidence?.parsed || {};
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
@@ -94,6 +95,9 @@ function launchSummary(packet) {
   const publicationEvidence = publication.evidence || {};
   const publicationChecks = publication.checks || [];
   const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
+  const backupEvidence = backupRestore.evidence || {};
+  const backupChecks = backupRestore.checks || [];
+  const backupChecksPassed = backupChecks.filter((check) => check.passed).length;
   const statusDocuments = statusEvidence.documents || [];
   const passedStatusDocuments = statusDocuments.filter((doc) => doc.passed).length;
   const specReconciliationChecks = specReconciliation.checks || [];
@@ -144,6 +148,16 @@ function launchSummary(packet) {
       `source companions \`${publicationEvidence.sourceCompanionRuntimeChunks ?? "unknown"}\`, internal drafts \`${publicationEvidence.internalDraftRuntimeChunks ?? "unknown"}\``,
     ],
     ["Publication boundary checks", `\`${publicationChecksPassed}/${publicationChecks.length}\`; values printed: \`${publication.valuesPrinted ?? false}\``],
+    ["Backup restore evidence", `\`${backupRestore.status || "missing"}\``],
+    [
+      "Backup restore tables",
+      `\`${backupEvidence.tablesMatched ?? "unknown"}/${backupEvidence.tablesChecked ?? "unknown"} tables\`; restore \`${backupEvidence.restoreCheckStatus || "missing"}\`; integrity \`${backupEvidence.integrity || "missing"}\``,
+    ],
+    [
+      "Backup restore seed counts",
+      `questions \`${backupEvidence.seededCounts?.questions ?? "unknown"}\`, ratings \`${backupEvidence.seededCounts?.ratings ?? "unknown"}\`, gaps \`${backupEvidence.seededCounts?.gaps ?? "unknown"}\`, answer cache \`${backupEvidence.seededCounts?.answerCache ?? "unknown"}\``,
+    ],
+    ["Backup restore checks", `\`${backupChecksPassed}/${backupChecks.length}\`; values printed: \`${backupRestore.valuesPrinted ?? false}\`; raw content printed: \`${backupEvidence.rawContentPrinted ?? "unknown"}\``],
     [
       "Evidence summary renderer",
       `\`${evidenceSummaryRenderer.status || "missing"}\` (${evidenceSummaryRenderer.evidence?.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.evidence?.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.evidence?.valuesPrinted ?? "unknown"}\`)`,
@@ -162,12 +176,14 @@ function releaseSummary(packet) {
   const discord = launch.discordReviewArtifacts || {};
   const discordRefusalRuntime = launch.discordRefusalRuntime || {};
   const publication = launch.publicationBoundaries || {};
+  const backupRestore = launch.backupRestoreEvidence || {};
   const evidenceSummaryRenderer = launch.evidenceSummaryRenderer || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
   const refusalProbes = refusalProbeCount(discordRefusalRuntime);
   const publicationEvidence = publication.evidence || {};
+  const backupEvidence = backupRestore.evidence || {};
   const readinessRouteCoverage = packet.readiness?.discordRouteCoverage || {};
   const stepSummary = (packet.steps || [])
     .map((step) => `${step.id}:${step.status}`)
@@ -222,6 +238,16 @@ function releaseSummary(packet) {
       `source companions \`${publicationEvidence.sourceCompanionRuntimeChunks ?? "unknown"}\`, internal drafts \`${publicationEvidence.internalDraftRuntimeChunks ?? "unknown"}\``,
     ],
     ["Publication boundary checks", `\`${publication.checks?.passed ?? "unknown"}/${publication.checks?.total ?? "unknown"}\`; values printed: \`${publication.valuesPrinted ?? false}\``],
+    ["Backup restore evidence", `\`${launch.backupRestoreEvidenceStatus || "missing"}\``],
+    [
+      "Backup restore tables",
+      `\`${backupEvidence.tablesMatched ?? "unknown"}/${backupEvidence.tablesChecked ?? "unknown"} tables\`; restore \`${backupEvidence.restoreCheckStatus || "missing"}\`; integrity \`${backupEvidence.integrity || "missing"}\``,
+    ],
+    [
+      "Backup restore seed counts",
+      `questions \`${backupEvidence.seededCounts?.questions ?? "unknown"}\`, ratings \`${backupEvidence.seededCounts?.ratings ?? "unknown"}\`, gaps \`${backupEvidence.seededCounts?.gaps ?? "unknown"}\`, answer cache \`${backupEvidence.seededCounts?.answerCache ?? "unknown"}\``,
+    ],
+    ["Backup restore checks", `\`${backupRestore.checks?.passed ?? "unknown"}/${backupRestore.checks?.total ?? "unknown"}\`; values printed: \`${backupRestore.valuesPrinted ?? false}\`; raw content printed: \`${backupEvidence.rawContentPrinted ?? "unknown"}\``],
     [
       "Evidence summary renderer",
       `\`${launch.evidenceSummaryRendererStatus || "missing"}\` (${evidenceSummaryRenderer.launchSummaryLines ?? "unknown"} launch lines / ${evidenceSummaryRenderer.releaseSummaryLines ?? "unknown"} release lines; values printed: \`${evidenceSummaryRenderer.valuesPrinted ?? "unknown"}\`)`,

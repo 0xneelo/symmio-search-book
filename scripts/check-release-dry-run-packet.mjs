@@ -32,8 +32,8 @@ Options:
 Validates a no-secret release dry-run packet plus its nested launch-evidence
 packet. This checks child steps, static artifact integrity, launch readiness,
 monitoring, Vibe source freshness, status-document evidence, original-spec
-reconciliation, no sensitive matches, publication boundaries, clean repository
-state, and reconciled open operator gates.`;
+reconciliation, no sensitive matches, publication boundaries, backup/restore
+evidence, clean repository state, and reconciled open operator gates.`;
 }
 
 function parseArgs(argv) {
@@ -107,6 +107,10 @@ function normalizedDiscordRefusalRuntime(packet) {
 
 function normalizedPublicationBoundaries(packet) {
   return packet.publicationBoundaries?.parsed || {};
+}
+
+function normalizedBackupRestoreEvidence(packet) {
+  return packet.backupRestoreEvidence?.parsed || {};
 }
 
 function normalizedEvidenceSummaryRenderer(packet) {
@@ -283,6 +287,31 @@ function publicationBoundariesReady(evidence = {}) {
   );
 }
 
+function backupRestoreEvidenceReady(evidence = {}) {
+  const totals = evidence.evidence || {};
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.valuesPrinted === false
+    && evidence.secrets?.valuesPrinted === false
+    && evidence.secrets?.llmCredentialsLoaded === false
+    && totals.manifestStatus === "passed"
+    && totals.restoreCheckStatus === "passed"
+    && totals.integrity === "ok"
+    && Number(totals.tablesChecked || 0) === 4
+    && Number(totals.tablesMatched || 0) === 4
+    && totals.backupSizePositive === true
+    && totals.checksumPresent === true
+    && totals.latestManifestWritten === true
+    && totals.rawContentPrinted === false
+    && Number(totals.seededCounts?.questions || 0) >= 2
+    && Number(totals.seededCounts?.ratings || 0) >= 2
+    && Number(totals.seededCounts?.gaps || 0) >= 2
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLaunchPath) {
   const checks = [];
   const failedSteps = (packet.steps || []).filter((step) => step.status !== "passed" || step.passed !== true);
@@ -298,6 +327,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedDiscordReviewArtifacts = normalizedDiscordReviewArtifacts(nestedLaunchPacket);
   const nestedDiscordRefusalRuntime = normalizedDiscordRefusalRuntime(nestedLaunchPacket);
   const nestedPublicationBoundaries = normalizedPublicationBoundaries(nestedLaunchPacket);
+  const nestedBackupRestoreEvidence = normalizedBackupRestoreEvidence(nestedLaunchPacket);
   const nestedEvidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(nestedLaunchPacket);
   const nestedSourceSecrets = nestedSourceFreshness.secrets || {};
   const nestedSourceTotals = nestedSourceFreshness.totals || {};
@@ -383,6 +413,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-publication-boundaries-status",
     launchSummary.publicationBoundariesStatus === "passed",
     `publicationBoundariesStatus=${launchSummary.publicationBoundariesStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-backup-restore-evidence-status",
+    launchSummary.backupRestoreEvidenceStatus === "passed",
+    `backupRestoreEvidenceStatus=${launchSummary.backupRestoreEvidenceStatus || "missing"}`,
   );
   addCheck(
     checks,
@@ -533,6 +569,29 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   );
   addCheck(
     checks,
+    "nested-backup-restore-evidence-passed",
+    nestedLaunchPacket.backupRestoreEvidence?.passed === true,
+    `passed=${nestedLaunchPacket.backupRestoreEvidence?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-backup-restore-evidence-status",
+    nestedBackupRestoreEvidence.status === "passed",
+    `status=${nestedBackupRestoreEvidence.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-backup-restore-evidence-ready",
+    backupRestoreEvidenceReady(nestedBackupRestoreEvidence),
+    JSON.stringify({
+      evidence: nestedBackupRestoreEvidence.evidence || null,
+      valuesPrinted: nestedBackupRestoreEvidence.valuesPrinted ?? null,
+      secrets: nestedBackupRestoreEvidence.secrets || null,
+      checks: Array.isArray(nestedBackupRestoreEvidence.checks) ? nestedBackupRestoreEvidence.checks.length : null,
+    }),
+  );
+  addCheck(
+    checks,
     "nested-evidence-summary-renderer-passed",
     nestedLaunchPacket.evidenceSummaryRenderer?.passed === true,
     `passed=${nestedLaunchPacket.evidenceSummaryRenderer?.passed}`,
@@ -632,6 +691,8 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       },
       publicationBoundariesStatus: launchSummary.publicationBoundariesStatus || null,
       publicationBoundaries: nestedPublicationBoundaries.evidence || null,
+      backupRestoreEvidenceStatus: launchSummary.backupRestoreEvidenceStatus || null,
+      backupRestoreEvidence: nestedBackupRestoreEvidence.evidence || null,
       evidenceSummaryRendererStatus: launchSummary.evidenceSummaryRendererStatus || null,
       evidenceSummaryRenderer: nestedEvidenceSummaryRenderer.evidence || null,
       steps: (packet.steps || []).map((step) => ({ id: step.id, status: step.status })),
