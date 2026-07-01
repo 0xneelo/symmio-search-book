@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex launch evidence packet command
+- Task: Add a no-secret launch evidence packet command for Search Book production/staging handoffs.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `package.json`, README/deployment/operations docs, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Command writes JSON and Markdown evidence packets without printing secrets, can use the local launch drill for staging evidence, can wrap production/staging launch-readiness checks, and full `npm run search-book:verify` remains green.
+- Result: Added `npm run search-book:launch-evidence`. The default no-secret local-drill packet passed and wrote `/tmp/search-book-launch-evidence-2026-07-01T030117-298Z/launch-evidence.json` plus `.md`; packet status `passed`, launch status `passed`, 13/13 launch checks passed, 0 failures, 0 warnings, quality `27/30`, exact routes `799/799`, authored pages `801`, live eval `42/42`, `valuesPrinted:false`, and a targeted secret-pattern scan over the packet directory found no matches.
+
 ## 2026-07-01 — Codex local launch drill command
 - Task: Add a one-command local staging launch drill for the standalone Search Book static preview plus answer-engine service.
 - Scope: `scripts/run-local-launch-drill.mjs`, `package.json`, README/deployment/operations docs, `PROGRESS.md`, and `_local/agent-worklog.md`.

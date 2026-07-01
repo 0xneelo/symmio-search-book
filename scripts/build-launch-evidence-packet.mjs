@@ -1,0 +1,439 @@
+#!/usr/bin/env node
+
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const searchBookRoot = path.resolve(__dirname, "..");
+const validProfiles = new Set(["production", "staging"]);
+
+const defaults = {
+  profile: "staging",
+  siteUrl: process.env.SEARCH_BOOK_DEPLOYMENT_SITE_URL || "",
+  serviceUrl: process.env.SEARCH_BOOK_ANSWER_ENGINE_URL || "",
+  backupManifest: process.env.SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST || process.env.SEARCH_BOOK_BACKUP_MANIFEST || "",
+  backupMaxAgeHours: process.env.SEARCH_BOOK_BACKUP_MAX_AGE_HOURS || "24",
+  runVerify: true,
+  writeSmoke: null,
+  allowLocal: false,
+  skipProductionEnv: false,
+  skipDeploymentSmoke: false,
+  localDrill: false,
+  outDir: "",
+};
+
+function usage() {
+  return `Usage:
+  node scripts/build-launch-evidence-packet.mjs [options]
+
+Options:
+  --profile production|staging     Default: staging
+  --site-url url                   Defaults to SEARCH_BOOK_DEPLOYMENT_SITE_URL
+  --service-url url                Defaults to SEARCH_BOOK_ANSWER_ENGINE_URL
+  --backup-manifest path           Defaults to SEARCH_BOOK_ANSWER_ENGINE_BACKUP_MANIFEST / SEARCH_BOOK_BACKUP_MANIFEST
+  --backup-max-age-hours n         Default: SEARCH_BOOK_BACKUP_MAX_AGE_HOURS or 24
+  --run-verify / --no-run-verify   Default: --run-verify
+  --write-smoke / --no-write-smoke Let launch readiness write one answer/rating
+  --allow-local                    Permit localhost URLs in staging launch readiness
+  --skip-production-env            Staging only
+  --skip-deployment-smoke          Staging only
+  --local-drill                    Run scripts/run-local-launch-drill.mjs and package its evidence
+  --out-dir path                   Default: /tmp/search-book-launch-evidence-<timestamp>
+
+If no site/service URL is provided for the staging profile, --local-drill is implied.
+The packet writes launch-evidence.json and launch-evidence.md and never prints secret values.`;
+}
+
+function parseArgs(argv) {
+  const args = { ...defaults };
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--help" || arg === "-h") {
+      console.log(usage());
+      process.exit(0);
+    }
+    if (arg === "--run-verify") {
+      args.runVerify = true;
+      continue;
+    }
+    if (arg === "--no-run-verify") {
+      args.runVerify = false;
+      continue;
+    }
+    if (arg === "--write-smoke") {
+      args.writeSmoke = true;
+      continue;
+    }
+    if (arg === "--no-write-smoke") {
+      args.writeSmoke = false;
+      continue;
+    }
+    if (arg === "--allow-local") {
+      args.allowLocal = true;
+      continue;
+    }
+    if (arg === "--skip-production-env") {
+      args.skipProductionEnv = true;
+      continue;
+    }
+    if (arg === "--skip-deployment-smoke") {
+      args.skipDeploymentSmoke = true;
+      continue;
+    }
+    if (arg === "--local-drill") {
+      args.localDrill = true;
+      continue;
+    }
+
+    const next = argv[index + 1];
+    if (!next || next.startsWith("--")) throw new Error(`${arg} requires a value.\n${usage()}`);
+    if (arg === "--profile") args.profile = next;
+    else if (arg === "--site-url") args.siteUrl = next;
+    else if (arg === "--service-url") args.serviceUrl = next;
+    else if (arg === "--backup-manifest") args.backupManifest = next;
+    else if (arg === "--backup-max-age-hours") args.backupMaxAgeHours = next;
+    else if (arg === "--out-dir") args.outDir = path.resolve(next);
+    else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
+    index += 1;
+  }
+
+  if (!validProfiles.has(args.profile)) throw new Error("--profile must be production or staging.");
+  if (args.profile === "production" && args.localDrill) throw new Error("--local-drill is staging-only.");
+  if (args.profile === "production" && args.allowLocal) throw new Error("--allow-local is staging-only.");
+  if (args.profile === "production" && args.skipProductionEnv) throw new Error("--skip-production-env is staging-only.");
+  if (args.profile === "production" && args.skipDeploymentSmoke) throw new Error("--skip-deployment-smoke is staging-only.");
+  if (args.profile === "staging" && !args.siteUrl && !args.serviceUrl) args.localDrill = true;
+  if (!args.outDir) args.outDir = defaultOutDir();
+  return args;
+}
+
+function defaultOutDir() {
+  const stamp = new Date().toISOString().replaceAll(":", "").replaceAll(".", "-");
+  return path.join(os.tmpdir(), `search-book-launch-evidence-${stamp}`);
+}
+
+function tail(text, maxLength = 6000) {
+  const value = String(text || "");
+  return value.length > maxLength ? value.slice(value.length - maxLength) : value;
+}
+
+function parseJsonFromOutput(output) {
+  const raw = String(output || "").trim();
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    for (let index = raw.lastIndexOf("{"); index >= 0; index = raw.lastIndexOf("{", index - 1)) {
+      try {
+        return JSON.parse(raw.slice(index));
+      } catch {
+        // Keep scanning for the final JSON object.
+      }
+    }
+  }
+  return null;
+}
+
+function commandResult(commandArgs, env = {}) {
+  const result = spawnSync(process.execPath, commandArgs, {
+    cwd: searchBookRoot,
+    encoding: "utf8",
+    env: {
+      ...process.env,
+      ...env,
+    },
+    maxBuffer: 1024 * 1024 * 40,
+  });
+  const parsed = parseJsonFromOutput(result.stdout) || parseJsonFromOutput(result.stderr);
+  return {
+    command: ["node", ...commandArgs],
+    exitCode: result.status,
+    signal: result.signal,
+    passed: result.status === 0,
+    parsed,
+    stdoutTail: parsed ? "" : tail(result.stdout),
+    stderrTail: parsed ? "" : tail(result.stderr),
+    error: result.error?.message || "",
+  };
+}
+
+function gitValue(args) {
+  const result = spawnSync("git", args, {
+    cwd: searchBookRoot,
+    encoding: "utf8",
+  });
+  return result.status === 0 ? result.stdout.trim() : "";
+}
+
+function readJson(relativePath, fallback = null) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(searchBookRoot, relativePath), "utf8"));
+  } catch {
+    return fallback;
+  }
+}
+
+function sanitize(value, key = "") {
+  if (Array.isArray(value)) return value.map((item) => sanitize(item, key));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([childKey, childValue]) => [
+      childKey,
+      sanitize(childValue, childKey),
+    ]));
+  }
+  if (typeof value !== "string") return value;
+  if (/api[_-]?key|token|secret|authorization|password|bearer/i.test(key)) {
+    return value ? "[redacted]" : "";
+  }
+  return value
+    .replace(/sk-[A-Za-z0-9_-]{12,}/g, "sk-[redacted]")
+    .replace(/Bearer\s+[A-Za-z0-9._-]{12,}/gi, "Bearer [redacted]");
+}
+
+function summarizeReadiness() {
+  const quality = readJson("data/quality-audit.json", {});
+  const requirements = readJson("data/requirement-map.json", {});
+  const sourceIngestion = readJson("data/source-ingestion.json", {});
+  const answerContract = readJson("data/answer-engine-contract.json", {});
+  const livingDocs = readJson("data/living-docs-events.json", {});
+  const llm = readJson("data/llm-rag-contract.json", {});
+  const gates = Array.isArray(quality.gates) ? quality.gates : [];
+  const gatePasses = gates.filter((gate) => gate?.passed === true).length;
+  const totals = quality.totals || {};
+  const sourceStatus = sourceIngestion.byStatus || {};
+  const llmSuites = llm.liveEvaluation?.suites || {};
+  return {
+    manifestPages: totals.manifestPages || null,
+    authoredPages: totals.authoredFiles || totals.authoredPublicationCandidates || null,
+    qualityGates: gates.length ? `${gatePasses}/${gates.length}` : null,
+    exactRoutes: totals.answerEngineExactRouteTestsPassing && totals.answerEngineExactRouteTests
+      ? `${totals.answerEngineExactRouteTestsPassing}/${totals.answerEngineExactRouteTests}`
+      : null,
+    retrievalEligiblePages: totals.pageStateRetrievalEligiblePages || null,
+    llmProductionReady: answerContract.llmProductionReady === true || llm.llmProductionReady === true,
+    livingDocsProductionReady: livingDocs.livingDocsProductionReady === true,
+    sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
+    sourceRequirements: {
+      complete: sourceStatus.complete ?? null,
+      partial: sourceStatus.partial ?? 0,
+      parked: sourceStatus.parked ?? null,
+      missing: sourceStatus.missing ?? 0,
+    },
+    completionReady: requirements.completionReady === true,
+    requirementStatus: requirements.byStatus || null,
+    openOperatorItems: (requirements.openOperatorItems || []).map((item) => ({
+      id: item.id,
+      title: item.title,
+    })),
+    liveLlmEval: {
+      status: llm.liveEvaluation?.status || null,
+      provider: llm.liveEvaluation?.provider || null,
+      model: llm.liveEvaluation?.model || null,
+      total: llmSuites.total ? `${llmSuites.total.passing}/${llmSuites.total.total}` : null,
+      adversarial: llmSuites.adversarial ? `${llmSuites.adversarial.passing}/${llmSuites.adversarial.total}` : null,
+      answerValidation: llmSuites.answerValidation ? `${llmSuites.answerValidation.passing}/${llmSuites.answerValidation.total}` : null,
+      estimatedCostUsd: llm.liveEvaluation?.measuredUsage?.estimatedCostUsd ?? null,
+    },
+  };
+}
+
+function runEvidenceCommand(args) {
+  if (args.localDrill) {
+    const commandArgs = ["scripts/run-local-launch-drill.mjs"];
+    if (!args.runVerify) commandArgs.push("--no-run-verify");
+    if (args.writeSmoke === false) commandArgs.push("--no-write-smoke");
+    return {
+      source: "local-launch-drill",
+      result: commandResult(commandArgs),
+    };
+  }
+
+  const commandArgs = [
+    "scripts/check-launch-readiness.mjs",
+    "--profile",
+    args.profile,
+    "--site-url",
+    args.siteUrl,
+    "--service-url",
+    args.serviceUrl,
+    "--mode",
+    args.profile === "production" ? "llm" : "extractive",
+  ];
+  if (args.backupManifest) commandArgs.push("--backup-manifest", args.backupManifest);
+  if (args.backupMaxAgeHours) commandArgs.push("--backup-max-age-hours", String(args.backupMaxAgeHours));
+  if (args.runVerify) commandArgs.push("--run-verify");
+  if (args.writeSmoke === true) commandArgs.push("--write-smoke");
+  if (args.allowLocal) commandArgs.push("--allow-local");
+  if (args.skipProductionEnv) commandArgs.push("--skip-production-env");
+  if (args.skipDeploymentSmoke) commandArgs.push("--skip-deployment-smoke");
+  return {
+    source: "launch-readiness",
+    result: commandResult(commandArgs),
+  };
+}
+
+function renderMarkdown(packet) {
+  const launch = normalizedLaunchEvidence(packet);
+  const totals = launch.totals || {};
+  const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
+  const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
+  const readiness = packet.readiness;
+  const openItems = readiness.openOperatorItems || [];
+  return `# Search Book Launch Evidence Packet
+
+Generated: ${packet.generatedAt}
+
+Status: **${packet.status}**
+
+Profile: \`${packet.profile}\`
+
+Evidence source: \`${packet.evidenceSource}\`
+
+Secrets printed: \`${packet.secrets.valuesPrinted}\`
+
+## Repository
+
+- Commit: \`${packet.repository.commit || "unknown"}\`
+- Branch: \`${packet.repository.branch || "unknown"}\`
+- Dirty worktree: \`${packet.repository.dirty}\`
+
+## Readiness Snapshot
+
+- Manifest pages: \`${readiness.manifestPages ?? "unknown"}\`
+- Authored pages: \`${readiness.authoredPages ?? "unknown"}\`
+- Quality gates: \`${readiness.qualityGates ?? "unknown"}\`
+- Exact routes: \`${readiness.exactRoutes ?? "unknown"}\`
+- Source completion ready: \`${readiness.sourceCompletionReady}\`
+- Completion ready: \`${readiness.completionReady}\`
+- LLM production ready: \`${readiness.llmProductionReady}\`
+- Living-docs production ready: \`${readiness.livingDocsProductionReady}\`
+
+## Launch Evidence
+
+- Launch status: \`${launch.status || "missing"}\`
+- Checks: \`${totals.passed ?? 0}/${totals.checks ?? 0}\`
+- Failed errors: \`${totals.failed ?? failedChecks.length}\`
+- Warnings: \`${totals.warnings ?? warningChecks.length}\`
+- Values printed: \`${launch.secrets?.valuesPrinted ?? false}\`
+
+## Open Operator Items
+
+${openItems.length ? openItems.map((item) => `- #${item.id}: ${item.title}`).join("\n") : "- None recorded in requirement map."}
+
+## Failed Checks
+
+${failedChecks.length ? failedChecks.map((check) => `- ${check.id}: ${check.detail || "failed"}`).join("\n") : "- None."}
+
+## Warning Checks
+
+${warningChecks.length ? warningChecks.map((check) => `- ${check.id}: ${check.detail || "warning"}`).join("\n") : "- None."}
+
+## Packet Files
+
+- JSON: \`${packet.files.json}\`
+- Markdown: \`${packet.files.markdown}\`
+`;
+}
+
+function normalizedLaunchEvidence(packet) {
+  const parsed = packet.launchEvidence?.parsed || {};
+  if (packet.evidenceSource === "local-launch-drill") {
+    return parsed.evidence?.launchReadiness || {};
+  }
+  return parsed;
+}
+
+function buildPacket(args, evidence) {
+  const parsed = evidence.result.parsed || null;
+  const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
+  const status = commandPassed ? "passed" : "failed";
+  const dirtyStatus = gitValue(["status", "--short"]);
+  const packet = {
+    status,
+    service: "search-book-launch-evidence-packet",
+    generatedAt: new Date().toISOString(),
+    profile: args.profile,
+    evidenceSource: evidence.source,
+    command: evidence.result.command,
+    repository: {
+      root: searchBookRoot,
+      branch: gitValue(["branch", "--show-current"]),
+      commit: gitValue(["rev-parse", "--short", "HEAD"]),
+      dirty: Boolean(dirtyStatus),
+      dirtyStatus: dirtyStatus ? dirtyStatus.split("\n") : [],
+    },
+    secrets: {
+      valuesPrinted: false,
+      llmApiKeyConfigured: Boolean(process.env.SEARCH_BOOK_LLM_API_KEY),
+      moderationTokenConfigured: Boolean(process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN),
+      metricsTokenConfigured: Boolean(process.env.SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN),
+    },
+    readiness: summarizeReadiness(),
+    launchEvidence: {
+      exitCode: evidence.result.exitCode,
+      signal: evidence.result.signal,
+      passed: evidence.result.passed,
+      parsed,
+      error: evidence.result.error,
+      stdoutTail: evidence.result.stdoutTail,
+      stderrTail: evidence.result.stderrTail,
+    },
+    files: {
+      json: "",
+      markdown: "",
+    },
+  };
+  return sanitize(packet);
+}
+
+function writePacket(args, packet) {
+  fs.mkdirSync(args.outDir, { recursive: true });
+  const jsonPath = path.join(args.outDir, "launch-evidence.json");
+  const markdownPath = path.join(args.outDir, "launch-evidence.md");
+  packet.files = {
+    json: jsonPath,
+    markdown: markdownPath,
+  };
+  fs.writeFileSync(jsonPath, `${JSON.stringify(packet, null, 2)}\n`);
+  fs.writeFileSync(markdownPath, renderMarkdown(packet));
+  return packet;
+}
+
+function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const evidence = runEvidenceCommand(args);
+  const packet = writePacket(args, buildPacket(args, evidence));
+  console.log(JSON.stringify({
+    status: packet.status,
+    service: packet.service,
+    generatedAt: packet.generatedAt,
+    profile: packet.profile,
+    evidenceSource: packet.evidenceSource,
+    files: packet.files,
+    secrets: {
+      valuesPrinted: false,
+    },
+    launchStatus: normalizedLaunchEvidence(packet).status || (packet.launchEvidence?.passed ? "passed" : "failed"),
+    readiness: {
+      completionReady: packet.readiness.completionReady,
+      sourceCompletionReady: packet.readiness.sourceCompletionReady,
+      openOperatorItems: packet.readiness.openOperatorItems,
+    },
+  }, null, 2));
+  if (packet.status !== "passed") process.exitCode = 1;
+}
+
+try {
+  main();
+} catch (error) {
+  console.error(JSON.stringify({
+    status: "failed",
+    service: "search-book-launch-evidence-packet",
+    message: error.message,
+    secrets: { valuesPrinted: false },
+  }, null, 2));
+  process.exitCode = 1;
+}

@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Launch Evidence Packet Command
+
+- Added `scripts/build-launch-evidence-packet.mjs` and `npm run search-book:launch-evidence` so operators and release owners can attach one no-secret JSON/Markdown evidence packet instead of scraping terminal logs.
+- The command writes `launch-evidence.json` and `launch-evidence.md` under `/tmp` by default, uses the local launch drill automatically when no staging/production URLs are supplied, and can wrap production launch readiness with `--profile production --site-url ... --service-url ... --backup-manifest ... --run-verify`.
+- Verified the default no-secret packet path on 2026-07-01: packet status `passed`, evidence source `local-launch-drill`, launch status `passed`, launch readiness `13/13`, 0 failures, 0 warnings, quality `27/30`, exact routes `799/799`, authored pages `801`, live eval `42/42`, and `valuesPrinted:false`.
+- Generated packet files at `/tmp/search-book-launch-evidence-2026-07-01T030117-298Z/launch-evidence.json` and `/tmp/search-book-launch-evidence-2026-07-01T030117-298Z/launch-evidence.md`; a targeted secret-pattern scan over that directory found no matches.
+
 ## 2026-07-01 — Local Launch Drill Command
 
 - Added `scripts/run-local-launch-drill.mjs` and `npm run search-book:drill-local-launch` as a one-command no-secret staging rehearsal for the standalone Search Book.

@@ -168,6 +168,13 @@ node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-rea
   --service-url https://<answer-engine-host> \
   --backup-manifest /var/backups/symmio-search-book/latest.manifest.json \
   --run-verify
+
+node --env-file=/etc/symmio-search-book/search-book.env scripts/build-launch-evidence-packet.mjs \
+  --profile production \
+  --site-url https://<public-docs-route> \
+  --service-url https://<answer-engine-host> \
+  --backup-manifest /var/backups/symmio-search-book/latest.manifest.json \
+  --run-verify
 ```
 
 Production pass criteria:
@@ -178,6 +185,7 @@ Production pass criteria:
 - latest backup manifest reports restore-check `passed`
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
+- `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values
 
 ## #17 Discord Import Follow-Up
 

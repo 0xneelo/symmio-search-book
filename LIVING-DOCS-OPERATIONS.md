@@ -80,6 +80,16 @@ restore-checked SQLite backup manifest, runs staging `check-launch-readiness` wi
 verify and write-smoke, and then stops the services. The output reports only local paths
 and booleans; it does not load or print LLM keys.
 
+For handoff evidence that does not depend on terminal scrollback, write the packet files:
+
+```sh
+npm run search-book:launch-evidence
+```
+
+The packet command writes `launch-evidence.json` and `launch-evidence.md` under `/tmp` by
+default. In production, run it with `node --env-file=/etc/symmio-search-book/search-book.env`
+and the same public URLs plus backup manifest used by the launch gate.
+
 Helpful-answer reuse needs embeddings:
 
 ```sh

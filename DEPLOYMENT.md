@@ -118,6 +118,26 @@ The drill starts temporary static and answer-engine services, writes one smoke a
 rating, creates a restore-checked backup manifest, runs the staging launch gate with fresh
 verify and write-smoke enabled, then stops both services.
 
+To package the same evidence into files for an operator handoff or release note, run:
+
+```bash
+npm run search-book:launch-evidence
+```
+
+For production, load the production env file and pass the final URLs/manifest:
+
+```bash
+node --env-file=/etc/symmio-search-book/search-book.env scripts/build-launch-evidence-packet.mjs \
+  --profile production \
+  --site-url https://<public-docs-route> \
+  --service-url https://<answer-engine-host> \
+  --backup-manifest /var/backups/symmio-search-book/latest.manifest.json \
+  --run-verify
+```
+
+The packet writes `launch-evidence.json` and `launch-evidence.md` and records only booleans
+for secret presence.
+
 The full launch gate composes the production preflight, deterministic verify, URL-driven
 deployment smoke, reviewer assignment, backup-storage evidence, and unresolved completion
 boundary. Load the same service env file so it can see the production LLM/service settings,
