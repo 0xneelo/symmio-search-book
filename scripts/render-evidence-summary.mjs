@@ -92,6 +92,10 @@ function dispositionSummary(disposition = {}) {
   return `ready \`${disposition.readyForReviewerHandoff ?? "unknown"}\` (keep-copy \`${disposition.pageFitKeepExistingPublicCopy ?? "unknown"}/${disposition.pageFitGroups ?? "unknown"}\`; keep-refusal \`${disposition.refusalKeepPolicy ?? "unknown"}/${disposition.refusalItems ?? "unknown"}\`; copy changes \`${disposition.publicCopyChangesProposed ?? "unknown"}\`; promoted \`${disposition.exactDiscordStatementsPromoted ?? "unknown"}\`)`;
 }
 
+function reviewerWorkflowSummary(workflow = {}) {
+  return `ready \`${workflow.status || "missing"}\` (${workflow.phases ?? "unknown"} phases; page-fit \`${workflow.pageFitGroups ?? "unknown"}\`; refusals \`${workflow.refusalItems ?? "unknown"}\`; copy changes allowed \`${workflow.publicCopyChangesAllowed ?? "unknown"}\`; exact promotions allowed \`${workflow.exactDiscordStatementsAllowed ?? "unknown"}\`)`;
+}
+
 function launchSummary(packet) {
   const launch = packet.launchEvidence?.parsed?.evidence?.launchReadiness || packet.launchEvidence?.parsed || {};
   const monitoring = packet.monitoringEvidence?.parsed || {};
@@ -151,6 +155,7 @@ function launchSummary(packet) {
       `\`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`,
     ],
     ["Discord editorial disposition", dispositionSummary(queueData.disposition || {})],
+    ["Discord reviewer workflow", reviewerWorkflowSummary(queueData.reviewerWorkflow || {})],
     [
       "Discord refusal runtime",
       `\`${discordRefusalRuntime.status || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
@@ -261,6 +266,7 @@ function releaseSummary(packet) {
       `\`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`,
     ],
     ["Discord editorial disposition", dispositionSummary(queueData.disposition || {})],
+    ["Discord reviewer workflow", reviewerWorkflowSummary(queueData.reviewerWorkflow || {})],
     [
       "Discord refusal runtime",
       `\`${launch.discordRefusalRuntimeStatus || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,

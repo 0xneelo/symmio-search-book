@@ -539,6 +539,7 @@ function renderMarkdown(packet) {
   const discordQueue = discordReviewArtifacts.editorialQueue || {};
   const discordQueueData = discordReviewArtifacts.editorialQueueData || {};
   const discordDisposition = discordQueueData.disposition || {};
+  const discordReviewerWorkflow = discordQueueData.reviewerWorkflow || {};
   const discordRefusalEvidence = discordRefusalRuntime.evidence || {};
   const discordRefusalProbes = discordRefusalEvidence.probes || [];
   const discordRefusalPassedProbes = discordRefusalProbes.filter((probe) => probe.status === "refusal").length;
@@ -638,6 +639,7 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Route coverage: \`${discordRouteCoverage.coveredPageFitGroups ?? "unknown"}/${discordRouteCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\`
 - Editorial queue data: \`${discordQueueData.status || "missing"}\`; routed/page-fit/refusal \`${discordQueueData.routedItems ?? "unknown"}/${discordQueueData.pageFitReviewReady ?? "unknown"}/${discordQueueData.refusalReviewReady ?? "unknown"}\`; ready \`${discordQueueData.queueReady ?? "unknown"}\`
 - Editorial disposition: ready \`${discordDisposition.readyForReviewerHandoff ?? "unknown"}\`; keep-copy \`${discordDisposition.pageFitKeepExistingPublicCopy ?? "unknown"}/${discordDisposition.pageFitGroups ?? "unknown"}\`; keep-refusal \`${discordDisposition.refusalKeepPolicy ?? "unknown"}/${discordDisposition.refusalItems ?? "unknown"}\`; public-copy changes \`${discordDisposition.publicCopyChangesProposed ?? "unknown"}\`; promoted statements \`${discordDisposition.exactDiscordStatementsPromoted ?? "unknown"}\`
+- Reviewer workflow: \`${discordReviewerWorkflow.status || "missing"}\`; phases \`${discordReviewerWorkflow.phases ?? "unknown"}\`; page-fit groups \`${discordReviewerWorkflow.pageFitGroups ?? "unknown"}\`; refusal items \`${discordReviewerWorkflow.refusalItems ?? "unknown"}\`; public-copy changes allowed \`${discordReviewerWorkflow.publicCopyChangesAllowed ?? "unknown"}\`; exact promotions allowed \`${discordReviewerWorkflow.exactDiscordStatementsAllowed ?? "unknown"}\`
 - Editorial queue: \`${discordQueue.pageFitReviewReady ?? "unknown"} page-fit groups; ${discordQueue.refusalReviewReady ?? "unknown"} refusal items\`
 - Raw key hits: \`${discordSummary.rawKeyHits ?? "unknown"}\`
 - Sample leaks: \`${discordSummary.sampleLeaks ?? "unknown"}\`

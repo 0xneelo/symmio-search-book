@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Launch/Release Discord Reviewer Workflow Evidence
+
+- Promoted the no-raw Discord reviewer workflow into launch/release evidence surfaces: `launch-evidence.md`, `release-dry-run.md`, and rendered summary tables now carry 4 workflow phases, 19 page-fit groups, 2 refusal items, 0 public-copy changes allowed from Discord/Lafa alone, and 0 exact Discord/Lafa promotions allowed.
+- Hardened `npm run search-book:check-launch-evidence-packet`, `npm run search-book:check-release-dry-run-packet`, and `npm run search-book:check-evidence-summary` so strict summary validation fails if the workflow row is missing or tampered.
+- Focused validation passed with `npm run search-book:check-evidence-summary`: strict launch/release summary validation true, missing summary rejected, tampered disposition summary rejected, tampered workflow summary rejected, rendered summaries 39 launch lines / 43 release lines, and `valuesPrinted:false`.
+- Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, source ingestion `17/17`, quality gates `29/30`, `evidenceSummaryRenderer:passed`, and only #11/#4 open.
+
 ## 2026-07-01 — Discord Editorial Reviewer Workflow
 
 - Added a no-raw reviewer workflow to `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.*`: privacy preflight, page-fit review, refusal review, and closeout.

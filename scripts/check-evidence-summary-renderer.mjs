@@ -199,6 +199,15 @@ function makeLaunchPacket() {
             publicCopyChangesProposed: 0,
             exactDiscordStatementsPromoted: 0,
           },
+          reviewerWorkflow: {
+            status: "ready",
+            mode: "no-raw-source-backed-review",
+            phases: 4,
+            pageFitGroups: 19,
+            refusalItems: 2,
+            publicCopyChangesAllowed: 0,
+            exactDiscordStatementsAllowed: 0,
+          },
           rawKeyHits: 0,
           sampleLeaks: 0,
           valuesPrinted: false,
@@ -490,6 +499,15 @@ function makeReleasePacket() {
             publicCopyChangesProposed: 0,
             exactDiscordStatementsPromoted: 0,
           },
+          reviewerWorkflow: {
+            status: "ready",
+            mode: "no-raw-source-backed-review",
+            phases: 4,
+            pageFitGroups: 19,
+            refusalItems: 2,
+            publicCopyChangesAllowed: 0,
+            exactDiscordStatementsAllowed: 0,
+          },
           rawKeyHits: 0,
           sampleLeaks: 0,
           valuesPrinted: false,
@@ -699,18 +717,26 @@ function main() {
   const strictLaunch = runPacketValidator("check-launch-evidence-packet.mjs", ["--packet", validatorLaunchPath, "--require-summary"]);
   const strictRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
   const missingSummaryLaunch = runPacketValidator("check-launch-evidence-packet.mjs", ["--packet", validatorNestedLaunchPath, "--require-summary"]);
-  fs.writeFileSync(validatorReleaseSummaryPath, release.stdout.replace(
+  const tamperedDispositionReleaseSummary = release.stdout.replace(
     "Discord editorial disposition | ready `true` (keep-copy `19/19`; keep-refusal `2/2`; copy changes `0`; promoted `0`)",
     "Discord editorial disposition | ready `false` (keep-copy `19/19`; keep-refusal `2/2`; copy changes `1`; promoted `1`)",
-  ));
-  const tamperedSummaryRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
+  );
+  fs.writeFileSync(validatorReleaseSummaryPath, tamperedDispositionReleaseSummary);
+  const tamperedDispositionSummaryRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
+  const tamperedWorkflowReleaseSummary = release.stdout.replace(
+    "Discord reviewer workflow | ready `ready` (4 phases; page-fit `19`; refusals `2`; copy changes allowed `0`; exact promotions allowed `0`)",
+    "Discord reviewer workflow | ready `stale` (3 phases; page-fit `18`; refusals `1`; copy changes allowed `1`; exact promotions allowed `1`)",
+  );
+  fs.writeFileSync(validatorReleaseSummaryPath, tamperedWorkflowReleaseSummary);
+  const tamperedWorkflowSummaryRelease = runPacketValidator("check-release-dry-run-packet.mjs", ["--packet", validatorReleasePath, "--require-summary"]);
 
   addCheck(checks, "launch-render-passed", launch.status === 0 && !launch.error, `exit=${launch.status}; ${launch.stderr || launch.error}`);
   addCheck(checks, "release-render-passed", release.status === 0 && !release.error, `exit=${release.status}; ${release.stderr || release.error}`);
   addCheck(checks, "strict-launch-summary-validation-passed", strictLaunch.status === 0 && !strictLaunch.error, `exit=${strictLaunch.status}`);
   addCheck(checks, "strict-release-summary-validation-passed", strictRelease.status === 0 && !strictRelease.error, `exit=${strictRelease.status}`);
   addCheck(checks, "missing-summary-rejected", missingSummaryLaunch.status !== 0, `exit=${missingSummaryLaunch.status}`);
-  addCheck(checks, "tampered-summary-rejected", tamperedSummaryRelease.status !== 0, `exit=${tamperedSummaryRelease.status}`);
+  addCheck(checks, "tampered-disposition-summary-rejected", tamperedDispositionSummaryRelease.status !== 0, `exit=${tamperedDispositionSummaryRelease.status}`);
+  addCheck(checks, "tampered-workflow-summary-rejected", tamperedWorkflowSummaryRelease.status !== 0, `exit=${tamperedWorkflowSummaryRelease.status}`);
   addCheck(checks, "append-summary-created", appended.includes("Search Book Launch Evidence") && appended.includes("Search Book Release Dry Run"), "");
   addCheck(checks, "stdout-summaries-rendered", launch.stdout.includes("Search Book Launch Evidence") && release.stdout.includes("Search Book Release Dry Run"), "");
   addCheck(
@@ -723,6 +749,7 @@ function main() {
       && /Discord refusal policy \| `2\/2 refusals`/.test(combined)
       && /Discord editorial queue data \| `passed` \(24 routed \/ 19 page-fit \/ 2 refusals; ready: `true`\)/.test(combined)
       && /Discord editorial disposition \| ready `true` \(keep-copy `19\/19`; keep-refusal `2\/2`; copy changes `0`; promoted `0`\)/.test(combined)
+      && /Discord reviewer workflow \| ready `ready` \(4 phases; page-fit `19`; refusals `2`; copy changes allowed `0`; exact promotions allowed `0`\)/.test(combined)
       && /Discord refusal runtime \| `passed` \(2\/2 probes; LLM credentials loaded: `false`\)/.test(combined)
       && /Discord leakage checks \| raw keys `0`, sample leaks `0`, queue-data raw keys `0`, queue-data sample leaks `0`, queue raw tables `0`/.test(combined)
       && /Spec reconciliation \| `passed` \(10\/10 checks; source 17\/17; open #4, #11\)/.test(combined)
@@ -752,7 +779,8 @@ function main() {
       appendedBytes: Buffer.byteLength(appended),
       strictSummaryValidation: true,
       missingSummaryRejected: missingSummaryLaunch.status !== 0,
-      tamperedSummaryRejected: tamperedSummaryRelease.status !== 0,
+      tamperedDispositionSummaryRejected: tamperedDispositionSummaryRelease.status !== 0,
+      tamperedWorkflowSummaryRejected: tamperedWorkflowSummaryRelease.status !== 0,
       valuesPrinted: false,
     },
     checks,

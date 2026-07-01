@@ -217,6 +217,7 @@ function discordReviewArtifactsReady(evidence = {}) {
   const editorialQueue = evidence.editorialQueue || {};
   const editorialQueueData = evidence.editorialQueueData || {};
   const disposition = editorialQueueData.disposition || {};
+  const reviewerWorkflow = editorialQueueData.reviewerWorkflow || {};
   const total = Number(routeCoverage.totalPageFitGroups || 0);
   const covered = Number(routeCoverage.coveredPageFitGroups || 0);
   const triageReady = Number(routeCoverage.triageReadyPageFitGroups || 0);
@@ -235,6 +236,11 @@ function discordReviewArtifactsReady(evidence = {}) {
   const dispositionRefusalItems = Number(disposition.refusalItems || 0);
   const dispositionKeepRefusal = Number(disposition.refusalKeepPolicy || 0);
   const dispositionNeedsRefusalReview = Number(disposition.refusalNeedsPolicyReview || 0);
+  const reviewerWorkflowPhases = Number(reviewerWorkflow.phases || 0);
+  const reviewerWorkflowPageFitGroups = Number(reviewerWorkflow.pageFitGroups || 0);
+  const reviewerWorkflowRefusalItems = Number(reviewerWorkflow.refusalItems || 0);
+  const reviewerWorkflowCopyAllowed = Number(reviewerWorkflow.publicCopyChangesAllowed || 0);
+  const reviewerWorkflowExactAllowed = Number(reviewerWorkflow.exactDiscordStatementsAllowed || 0);
   return (
     evidence.status === "passed"
     && summary.routingReady === true
@@ -281,6 +287,13 @@ function discordReviewArtifactsReady(evidence = {}) {
     && dispositionNeedsRefusalReview === 0
     && Number(disposition.publicCopyChangesProposed || 0) === 0
     && Number(disposition.exactDiscordStatementsPromoted || 0) === 0
+    && reviewerWorkflow.status === "ready"
+    && reviewerWorkflow.mode === "no-raw-source-backed-review"
+    && reviewerWorkflowPhases === 4
+    && reviewerWorkflowPageFitGroups === queueDataPageFits
+    && reviewerWorkflowRefusalItems === queueDataRefusals
+    && reviewerWorkflowCopyAllowed === 0
+    && reviewerWorkflowExactAllowed === 0
   );
 }
 
@@ -330,12 +343,17 @@ function queueDispositionRow(disposition = {}) {
   return `Discord editorial disposition | ready \`${disposition.readyForReviewerHandoff ?? "unknown"}\` (keep-copy \`${disposition.pageFitKeepExistingPublicCopy ?? "unknown"}/${disposition.pageFitGroups ?? "unknown"}\`; keep-refusal \`${disposition.refusalKeepPolicy ?? "unknown"}/${disposition.refusalItems ?? "unknown"}\`; copy changes \`${disposition.publicCopyChangesProposed ?? "unknown"}\`; promoted \`${disposition.exactDiscordStatementsPromoted ?? "unknown"}\`)`;
 }
 
+function queueReviewerWorkflowRow(workflow = {}) {
+  return `Discord reviewer workflow | ready \`${workflow.status || "missing"}\` (${workflow.phases ?? "unknown"} phases; page-fit \`${workflow.pageFitGroups ?? "unknown"}\`; refusals \`${workflow.refusalItems ?? "unknown"}\`; copy changes allowed \`${workflow.publicCopyChangesAllowed ?? "unknown"}\`; exact promotions allowed \`${workflow.exactDiscordStatementsAllowed ?? "unknown"}\`)`;
+}
+
 function validateSummaryArtifact({
   kind,
   summaryPath,
   repository = {},
   queueData = {},
   queueDisposition = {},
+  queueReviewerWorkflow = {},
   readiness = {},
   required = false,
 }) {
@@ -356,6 +374,10 @@ function validateSummaryArtifact({
     {
       id: "discord-disposition-row",
       fragment: queueDispositionRow(queueDisposition),
+    },
+    {
+      id: "discord-reviewer-workflow-row",
+      fragment: queueReviewerWorkflowRow(queueReviewerWorkflow),
     },
     {
       id: "open-operator-linear-tasks-row",
@@ -552,6 +574,7 @@ function validateLaunchPacket(packet, packetPath, options = {}) {
     repository,
     queueData: discordReviewArtifacts.editorialQueueData || {},
     queueDisposition: discordReviewArtifacts.editorialQueueData?.disposition || {},
+    queueReviewerWorkflow: discordReviewArtifacts.editorialQueueData?.reviewerWorkflow || {},
     readiness,
     required: options.requireSummary === true,
   });
