@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-01 — Source-Freshness Evidence Packets
+
+- Added Vibe source-freshness evidence to `npm run search-book:launch-evidence` by default, with `--skip-source-freshness` available for offline staging packet generation.
+- `launch-evidence.json` now records the source-freshness command, status, official-source hashes, 4/4 claim checks, and no-body/no-secret flags alongside launch-readiness and monitoring evidence.
+- `release-dry-run.json` and `release-dry-run.md` now surface the nested source-freshness status so the outer release packet shows launch, monitoring, and publication-day source freshness together.
+- Verified `npm run search-book:launch-evidence -- --out-dir /tmp/search-book-launch-evidence-source-freshness-20260701-1`: packet status `passed`, launch `passed`, monitoring `passed`, source freshness `passed`, 2/2 sources fetched, 4/4 checks passed, `valuesPrinted:false`, and `sourceBodiesPrinted:false`.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-source-freshness-20260701-1`: release status `passed`, static artifact `1,650` files / `52,935,066` bytes, launch/monitoring/source freshness all `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- Targeted packet assertions confirmed neither launch nor release evidence includes normalized source text or Markdown bodies.
+
 ## 2026-07-01 — Vibe Source Freshness Check
 
 - Added `scripts/check-vibe-source-freshness.mjs` and `npm run search-book:check-source-freshness` for publication-day verification of exact Vibe market-count and leverage wording.

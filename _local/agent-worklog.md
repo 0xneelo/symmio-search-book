@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex source-freshness evidence packets
+- Task: Include Vibe source freshness results in launch-evidence and release-dry-run packets.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, status docs/generated data if needed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: launch/release packets include source-freshness status and no-body/no-secret evidence, release dry-run passes, full deterministic verify still passes, and #11/#4 remain the only operator gates.
+- Result: `npm run search-book:launch-evidence -- --out-dir /tmp/search-book-launch-evidence-source-freshness-20260701-1` passed with launch, monitoring, and source freshness all `passed`; source freshness fetched 2/2 official Vibe Markdown sources and passed 4/4 checks with `valuesPrinted:false` and `sourceBodiesPrinted:false`. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-source-freshness-20260701-1` passed with static artifact `1,650` files / `52,935,066` bytes, launch/monitoring/source freshness all `passed`, and 0 sensitive-pattern matches. Targeted packet assertions found no normalized source text or Markdown bodies in the launch or release evidence. Full `npm run search-book:verify` passed with 25 build steps, 73 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex Vibe source freshness check
 - Task: Add an executable publication-day freshness check for exact Vibe market-count and leverage wording.
 - Scope: `scripts/check-vibe-source-freshness.mjs`, `package.json`, quality-audit wording/data, README/GAPS/PROGRESS/FINAL-REPORT status notes, and `_local/agent-worklog.md`.

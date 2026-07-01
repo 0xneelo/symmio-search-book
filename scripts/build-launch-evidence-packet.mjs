@@ -22,6 +22,7 @@ const defaults = {
   skipProductionEnv: false,
   skipDeploymentSmoke: false,
   includeMonitoring: true,
+  includeSourceFreshness: true,
   monitoringRequired: null,
   monitoringTokenEnv: "SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN",
   monitoringOrigin: "",
@@ -45,6 +46,7 @@ Options:
   --skip-production-env            Staging only
   --skip-deployment-smoke          Staging only
   --skip-monitoring                Do not include health/metrics monitoring evidence
+  --skip-source-freshness          Do not include Vibe public-docs freshness evidence
   --monitoring-required            Fail packet if metrics monitoring evidence is unavailable
   --monitoring-optional            Include monitoring as warning-only evidence
   --monitoring-token-env NAME      Default: SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN
@@ -94,6 +96,10 @@ function parseArgs(argv) {
     }
     if (arg === "--skip-monitoring") {
       args.includeMonitoring = false;
+      continue;
+    }
+    if (arg === "--skip-source-freshness") {
+      args.includeSourceFreshness = false;
       continue;
     }
     if (arg === "--monitoring-required") {
@@ -370,11 +376,42 @@ function runMonitoringCommand(args) {
   };
 }
 
+function runSourceFreshnessCommand(args) {
+  if (!args.includeSourceFreshness) {
+    return {
+      source: "skipped",
+      result: {
+        command: [],
+        exitCode: 0,
+        signal: null,
+        passed: true,
+        parsed: {
+          status: "skipped",
+          service: "search-book-vibe-source-freshness",
+          reason: "skipped by --skip-source-freshness",
+          totals: { sources: 0, sourcesFetched: 0, checks: 0, passed: 0, failed: 0 },
+          secrets: { valuesPrinted: false, sourceBodiesPrinted: false },
+        },
+        stdoutTail: "",
+        stderrTail: "",
+        error: "",
+      },
+    };
+  }
+
+  return {
+    source: "vibe-source-freshness",
+    result: commandResult(["scripts/check-vibe-source-freshness.mjs"]),
+  };
+}
+
 function renderMarkdown(packet) {
   const launch = normalizedLaunchEvidence(packet);
   const monitoring = normalizedMonitoringEvidence(packet);
+  const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const totals = launch.totals || {};
   const monitoringTotals = monitoring.totals || {};
+  const sourceFreshnessTotals = sourceFreshness.totals || {};
   const failedChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "error");
   const warningChecks = (launch.checks || []).filter((check) => !check.passed && check.severity === "warning");
   const failedMonitoringChecks = (monitoring.checks || []).filter((check) => !check.passed && check.severity === "error");
@@ -431,6 +468,15 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Metrics: \`${monitoring.summary?.metrics?.status || "missing"}\`
 - Values printed: \`${monitoring.secrets?.valuesPrinted ?? false}\`
 
+## Source Freshness Evidence
+
+- Source freshness status: \`${sourceFreshness.status || "missing"}\`
+- Sources fetched: \`${sourceFreshnessTotals.sourcesFetched ?? 0}/${sourceFreshnessTotals.sources ?? 0}\`
+- Claim checks: \`${sourceFreshnessTotals.passed ?? 0}/${sourceFreshnessTotals.checks ?? 0}\`
+- Values printed: \`${sourceFreshness.secrets?.valuesPrinted ?? false}\`
+- Source bodies printed: \`${sourceFreshness.secrets?.sourceBodiesPrinted ?? false}\`
+- Boundary: ${sourceFreshness.claimBoundary || "not recorded"}
+
 ## Open Operator Items
 
 ${openItems.length ? openItems.map((item) => `- #${item.id}: ${item.title}`).join("\n") : "- None recorded in requirement map."}
@@ -462,12 +508,19 @@ function normalizedMonitoringEvidence(packet) {
   return packet.monitoringEvidence?.parsed || {};
 }
 
-function buildPacket(args, evidence, monitoringEvidence) {
+function normalizedSourceFreshnessEvidence(packet) {
+  return packet.sourceFreshnessEvidence?.parsed || {};
+}
+
+function buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence) {
   const parsed = evidence.result.parsed || null;
   const monitoringParsed = monitoringEvidence.result.parsed || null;
+  const sourceFreshnessParsed = sourceFreshnessEvidence.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
   const monitoringPassed = monitoringEvidence.result.passed && (!monitoringParsed || ["passed", "skipped"].includes(monitoringParsed.status));
-  const status = commandPassed && monitoringPassed ? "passed" : "failed";
+  const sourceFreshnessPassed =
+    sourceFreshnessEvidence.result.passed && (!sourceFreshnessParsed || ["passed", "skipped"].includes(sourceFreshnessParsed.status));
+  const status = commandPassed && monitoringPassed && sourceFreshnessPassed ? "passed" : "failed";
   const dirtyStatus = gitValue(["status", "--short"]);
   const packet = {
     status,
@@ -478,6 +531,8 @@ function buildPacket(args, evidence, monitoringEvidence) {
     command: evidence.result.command,
     monitoringSource: monitoringEvidence.source,
     monitoringCommand: monitoringEvidence.result.command,
+    sourceFreshnessSource: sourceFreshnessEvidence.source,
+    sourceFreshnessCommand: sourceFreshnessEvidence.result.command,
     repository: {
       root: searchBookRoot,
       branch: gitValue(["branch", "--show-current"]),
@@ -510,6 +565,15 @@ function buildPacket(args, evidence, monitoringEvidence) {
       stdoutTail: monitoringEvidence.result.stdoutTail,
       stderrTail: monitoringEvidence.result.stderrTail,
     },
+    sourceFreshnessEvidence: {
+      exitCode: sourceFreshnessEvidence.result.exitCode,
+      signal: sourceFreshnessEvidence.result.signal,
+      passed: sourceFreshnessEvidence.result.passed,
+      parsed: sourceFreshnessParsed,
+      error: sourceFreshnessEvidence.result.error,
+      stdoutTail: sourceFreshnessEvidence.result.stdoutTail,
+      stderrTail: sourceFreshnessEvidence.result.stderrTail,
+    },
     files: {
       json: "",
       markdown: "",
@@ -535,7 +599,8 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const evidence = runEvidenceCommand(args);
   const monitoringEvidence = runMonitoringCommand(args);
-  const packet = writePacket(args, buildPacket(args, evidence, monitoringEvidence));
+  const sourceFreshnessEvidence = runSourceFreshnessCommand(args);
+  const packet = writePacket(args, buildPacket(args, evidence, monitoringEvidence, sourceFreshnessEvidence));
   console.log(JSON.stringify({
     status: packet.status,
     service: packet.service,
@@ -548,6 +613,7 @@ function main() {
     },
     launchStatus: normalizedLaunchEvidence(packet).status || (packet.launchEvidence?.passed ? "passed" : "failed"),
     monitoringStatus: normalizedMonitoringEvidence(packet).status || (packet.monitoringEvidence?.passed ? "passed" : "failed"),
+    sourceFreshnessStatus: normalizedSourceFreshnessEvidence(packet).status || (packet.sourceFreshnessEvidence?.passed ? "passed" : "failed"),
     readiness: {
       completionReady: packet.readiness.completionReady,
       sourceCompletionReady: packet.readiness.sourceCompletionReady,

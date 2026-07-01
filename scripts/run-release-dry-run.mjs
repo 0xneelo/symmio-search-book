@@ -255,6 +255,7 @@ function summarizeStaticArtifact(artifactDir) {
 function summarizeLaunchEvidence(launchEvidenceDir) {
   const packet = readJson(path.join(launchEvidenceDir, "launch-evidence.json"), null);
   if (!packet) return null;
+  const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
   return {
     status: packet.status || null,
     generatedAt: packet.generatedAt || null,
@@ -263,6 +264,18 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
       || packet.launchEvidence?.parsed?.status
       || null,
     monitoringStatus: packet.monitoringEvidence?.parsed?.status || null,
+    sourceFreshnessStatus: sourceFreshness?.status || null,
+    sourceFreshness: sourceFreshness
+      ? {
+          status: sourceFreshness.status || null,
+          claimBoundary: sourceFreshness.claimBoundary || "",
+          totals: sourceFreshness.totals || null,
+          secrets: {
+            valuesPrinted: sourceFreshness.secrets?.valuesPrinted === true,
+            sourceBodiesPrinted: sourceFreshness.secrets?.sourceBodiesPrinted === true,
+          },
+        }
+      : null,
     secrets: {
       valuesPrinted: packet.secrets?.valuesPrinted === true,
     },
@@ -381,6 +394,9 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Status: \`${launch.status || "missing"}\`
 - Launch status: \`${launch.launchStatus || "missing"}\`
 - Monitoring status: \`${launch.monitoringStatus || "missing"}\`
+- Source freshness status: \`${launch.sourceFreshnessStatus || "missing"}\`
+- Source freshness checks: \`${launch.sourceFreshness?.totals?.passed ?? 0}/${launch.sourceFreshness?.totals?.checks ?? 0}\`
+- Source freshness source bodies printed: \`${launch.sourceFreshness?.secrets?.sourceBodiesPrinted ?? false}\`
 - Values printed: \`${launch.secrets?.valuesPrinted ?? false}\`
 
 ## Readiness Snapshot
@@ -523,6 +539,7 @@ try {
       status: packet.launchEvidence?.status || null,
       launchStatus: packet.launchEvidence?.launchStatus || null,
       monitoringStatus: packet.launchEvidence?.monitoringStatus || null,
+      sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
     },
     steps: packet.steps.map((step) => ({
       id: step.id,
