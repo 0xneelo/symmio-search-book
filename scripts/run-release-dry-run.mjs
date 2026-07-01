@@ -270,6 +270,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const specReconciliationPassedChecks = specReconciliationChecks.filter((check) => check.passed).length;
   const discordSummary = discordReviewArtifacts?.summary || null;
   const discordQueue = discordReviewArtifacts?.editorialQueue || null;
+  const discordQueueData = discordReviewArtifacts?.editorialQueueData || null;
   const discordRefusalProbes = Array.isArray(discordRefusalRuntime?.evidence?.probes)
     ? discordRefusalRuntime.evidence.probes
     : [];
@@ -358,6 +359,18 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
                 refusalPolicyReviewRequired: discordQueue.refusalPolicyReviewRequired ?? null,
                 rawTableHits: discordQueue.rawTableHits ?? null,
                 sampleLeaks: discordQueue.sampleLeaks ?? null,
+              }
+            : null,
+          editorialQueueData: discordQueueData
+            ? {
+                status: discordQueueData.status || null,
+                queueReady: discordQueueData.queueReady === true,
+                routedItems: discordQueueData.routedItems ?? null,
+                pageFitReviewReady: discordQueueData.pageFitReviewReady ?? null,
+                refusalReviewReady: discordQueueData.refusalReviewReady ?? null,
+                rawKeyHits: discordQueueData.rawKeyHits ?? null,
+                sampleLeaks: discordQueueData.sampleLeaks ?? null,
+                valuesPrinted: discordQueueData.valuesPrinted === true,
               }
             : null,
         }
@@ -554,6 +567,9 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Spec reconciliation checks: \`${launch.specReconciliation?.checks?.passed ?? 0}/${launch.specReconciliation?.checks?.total ?? 0}\`
 - Discord review artifacts status: \`${launch.discordReviewArtifactsStatus || "missing"}\`
 - Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
+- Discord queue data status: \`${launch.discordReviewArtifacts?.editorialQueueData?.status || "missing"}\`
+- Discord queue data routed/page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueueData?.routedItems ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.refusalReviewReady ?? "unknown"}\`
+- Discord queue data raw keys/sample leaks: \`${launch.discordReviewArtifacts?.editorialQueueData?.rawKeyHits ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueueData?.sampleLeaks ?? "unknown"}\`
 - Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
 - Discord queue raw table hits: \`${launch.discordReviewArtifacts?.editorialQueue?.rawTableHits ?? "unknown"}\`
 - Discord refusal runtime status: \`${launch.discordRefusalRuntimeStatus || "missing"}\`

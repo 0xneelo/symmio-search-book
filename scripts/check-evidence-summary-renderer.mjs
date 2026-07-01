@@ -13,6 +13,7 @@ const forbiddenValues = [
   "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
   "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
   "SOURCE_BODY_SHOULD_NOT_PRINT",
+  "RAW_GENERATED_ANSWER_SHOULD_NOT_PRINT",
   "RAW_PUBLICATION_PAGE_ID_SHOULD_NOT_PRINT",
   "RAW_REVIEWER_NOTE_SHOULD_NOT_PRINT",
   "sk-test-secret-should-not-print",
@@ -123,6 +124,17 @@ function makeLaunchPacket() {
           rawTableHits: 0,
           sampleLeaks: 0,
           answerExcerpt: "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
+        },
+        editorialQueueData: {
+          status: "passed",
+          queueReady: true,
+          routedItems: 24,
+          pageFitReviewReady: 19,
+          refusalReviewReady: 2,
+          rawKeyHits: 0,
+          sampleLeaks: 0,
+          valuesPrinted: false,
+          generatedAnswer: "RAW_GENERATED_ANSWER_SHOULD_NOT_PRINT",
         },
       },
     },
@@ -343,6 +355,17 @@ function makeReleasePacket() {
           sampleLeaks: 0,
           relatedQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
         },
+        editorialQueueData: {
+          status: "passed",
+          queueReady: true,
+          routedItems: 24,
+          pageFitReviewReady: 19,
+          refusalReviewReady: 2,
+          rawKeyHits: 0,
+          sampleLeaks: 0,
+          valuesPrinted: false,
+          generatedAnswer: "RAW_GENERATED_ANSWER_SHOULD_NOT_PRINT",
+        },
       },
       discordRefusalRuntime: {
         status: "passed",
@@ -487,7 +510,9 @@ function main() {
       && /Discord source-backed triage \| `19\/19 page-fit groups`/.test(combined)
       && /Discord public copy ready \| `19\/19 page-fit groups`/.test(combined)
       && /Discord refusal policy \| `2\/2 refusals`/.test(combined)
+      && /Discord editorial queue data \| `passed` \(24 routed \/ 19 page-fit \/ 2 refusals; ready: `true`\)/.test(combined)
       && /Discord refusal runtime \| `passed` \(2\/2 probes; LLM credentials loaded: `false`\)/.test(combined)
+      && /Discord leakage checks \| raw keys `0`, sample leaks `0`, queue-data raw keys `0`, queue-data sample leaks `0`, queue raw tables `0`/.test(combined)
       && /Spec reconciliation \| `passed` \(10\/10 checks; source 17\/17; open #4, #11\)/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
       && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined)
@@ -503,7 +528,7 @@ function main() {
   const leakedValues = forbiddenValues.filter((value) => combined.includes(value));
   addCheck(checks, "forbidden-values-absent", leakedValues.length === 0, leakedValues.length ? `leaked=${leakedValues.join(",")}` : "none");
   addCheck(checks, "secret-like-values-absent", !/\bsk-[A-Za-z0-9_-]{8,}\b|Bearer\s+[A-Za-z0-9._-]{8,}/i.test(combined), "summary output must not include token-like values");
-  addCheck(checks, "raw-field-labels-absent", !/\b(rawText|rawQuestion|answerExcerpt|relatedQuestion|sourceBody|sourceAnswer|pageIds|reviewerNote|ratingNote)\b/.test(combined), "summary output must not include raw field labels");
+  addCheck(checks, "raw-field-labels-absent", !/\b(rawText|rawQuestion|answerExcerpt|relatedQuestion|generatedAnswer|sourceBody|sourceAnswer|pageIds|reviewerNote|ratingNote)\b/.test(combined), "summary output must not include raw field labels");
 
   const failed = checks.filter((check) => !check.passed);
   const result = {

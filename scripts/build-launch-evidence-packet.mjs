@@ -516,6 +516,7 @@ function renderMarkdown(packet) {
   const discordSummary = discordReviewArtifacts.summary || {};
   const discordRouteCoverage = discordSummary.routeCoverage || {};
   const discordQueue = discordReviewArtifacts.editorialQueue || {};
+  const discordQueueData = discordReviewArtifacts.editorialQueueData || {};
   const discordRefusalEvidence = discordRefusalRuntime.evidence || {};
   const discordRefusalProbes = discordRefusalEvidence.probes || [];
   const discordRefusalPassedProbes = discordRefusalProbes.filter((probe) => probe.status === "refusal").length;
@@ -612,9 +613,12 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Discord review artifacts status: \`${discordReviewArtifacts.status || "missing"}\`
 - Routed review items: \`${discordSummary.routedItems ?? "unknown"}\`
 - Route coverage: \`${discordRouteCoverage.coveredPageFitGroups ?? "unknown"}/${discordRouteCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\`
+- Editorial queue data: \`${discordQueueData.status || "missing"}\`; routed/page-fit/refusal \`${discordQueueData.routedItems ?? "unknown"}/${discordQueueData.pageFitReviewReady ?? "unknown"}/${discordQueueData.refusalReviewReady ?? "unknown"}\`; ready \`${discordQueueData.queueReady ?? "unknown"}\`
 - Editorial queue: \`${discordQueue.pageFitReviewReady ?? "unknown"} page-fit groups; ${discordQueue.refusalReviewReady ?? "unknown"} refusal items\`
 - Raw key hits: \`${discordSummary.rawKeyHits ?? "unknown"}\`
 - Sample leaks: \`${discordSummary.sampleLeaks ?? "unknown"}\`
+- Queue data raw key hits: \`${discordQueueData.rawKeyHits ?? "unknown"}\`
+- Queue data sample leaks: \`${discordQueueData.sampleLeaks ?? "unknown"}\`
 - Queue raw table hits: \`${discordQueue.rawTableHits ?? "unknown"}\`
 
 ## Discord Refusal Runtime Evidence

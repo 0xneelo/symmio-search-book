@@ -174,6 +174,7 @@ function discordReviewArtifactsReady(evidence = {}) {
   const summary = evidence.summary || {};
   const routeCoverage = summary.routeCoverage || {};
   const editorialQueue = evidence.editorialQueue || {};
+  const editorialQueueData = evidence.editorialQueueData || {};
   const total = Number(routeCoverage.totalPageFitGroups || 0);
   const covered = Number(routeCoverage.coveredPageFitGroups || 0);
   const triageReady = Number(routeCoverage.triageReadyPageFitGroups || 0);
@@ -183,6 +184,9 @@ function discordReviewArtifactsReady(evidence = {}) {
   const refusalReviewReady = Number(editorialQueue.refusalReviewReady || 0);
   const refusalPolicyReady = Number(editorialQueue.refusalPolicyReadyItems || 0);
   const refusalPolicyReviewRequired = Number(editorialQueue.refusalPolicyReviewRequired || 0);
+  const queueDataRouted = Number(editorialQueueData.routedItems || 0);
+  const queueDataPageFits = Number(editorialQueueData.pageFitReviewReady || 0);
+  const queueDataRefusals = Number(editorialQueueData.refusalReviewReady || 0);
   return (
     evidence.status === "passed"
     && summary.routingReady === true
@@ -209,6 +213,17 @@ function discordReviewArtifactsReady(evidence = {}) {
     && refusalPolicyReviewRequired === 0
     && Number(editorialQueue.rawTableHits || 0) === 0
     && Number(editorialQueue.sampleLeaks || 0) === 0
+    && editorialQueueData.status === "passed"
+    && editorialQueueData.queueReady === true
+    && queueDataRouted === Number(summary.routedItems || 0)
+    && queueDataRouted === 24
+    && queueDataPageFits === Number(editorialQueue.pageFitReviewReady || 0)
+    && queueDataPageFits === 19
+    && queueDataRefusals === refusalReviewReady
+    && queueDataRefusals === 2
+    && Number(editorialQueueData.rawKeyHits || 0) === 0
+    && Number(editorialQueueData.sampleLeaks || 0) === 0
+    && editorialQueueData.valuesPrinted === false
   );
 }
 
@@ -492,6 +507,7 @@ function validateLaunchPacket(packet, packetPath) {
       routedItems: discordReviewArtifacts.summary?.routedItems ?? null,
       routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
       editorialQueue: discordReviewArtifacts.editorialQueue || null,
+      editorialQueueData: discordReviewArtifacts.editorialQueueData || null,
       rawKeyHits: discordReviewArtifacts.summary?.rawKeyHits ?? null,
       sampleLeaks: discordReviewArtifacts.summary?.sampleLeaks ?? null,
     }),
@@ -668,6 +684,7 @@ function validateLaunchPacket(packet, packetPath) {
         routedItems: discordReviewArtifacts.summary?.routedItems ?? null,
         routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: discordReviewArtifacts.editorialQueue || null,
+        editorialQueueData: discordReviewArtifacts.editorialQueueData || null,
       },
       discordRefusalRuntimeStatus: discordRefusalRuntime.status || null,
       discordRefusalRuntime: {

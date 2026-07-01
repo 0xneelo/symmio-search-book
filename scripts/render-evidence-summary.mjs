@@ -92,6 +92,7 @@ function launchSummary(packet) {
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
+  const queueData = discord.editorialQueueData || {};
   const refusalProbes = refusalProbeCount(discordRefusalRuntime);
   const publicationEvidence = publication.evidence || {};
   const publicationChecks = publication.checks || [];
@@ -130,13 +131,17 @@ function launchSummary(packet) {
     ["Discord public copy ready", `\`${routeCoverage.publicCopyReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord refusal policy", `\`${queue.refusalPolicyReadyItems ?? "unknown"}/${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
+      "Discord editorial queue data",
+      `\`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`,
+    ],
+    [
       "Discord refusal runtime",
       `\`${discordRefusalRuntime.status || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
     ],
     ["Discord editorial queue", `\`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
       "Discord leakage checks",
-      `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
+      `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue-data raw keys \`${queueData.rawKeyHits ?? "unknown"}\`, queue-data sample leaks \`${queueData.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
     ],
     ["Publication boundaries", `\`${publication.status || "missing"}\``],
     [
@@ -196,6 +201,7 @@ function releaseSummary(packet) {
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
+  const queueData = discord.editorialQueueData || {};
   const refusalProbes = refusalProbeCount(discordRefusalRuntime);
   const publicationEvidence = publication.evidence || {};
   const backupEvidence = backupRestore.evidence || {};
@@ -232,13 +238,17 @@ function releaseSummary(packet) {
     ["Discord public copy ready", `\`${routeCoverage.publicCopyReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord refusal policy", `\`${queue.refusalPolicyReadyItems ?? "unknown"}/${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
+      "Discord editorial queue data",
+      `\`${queueData.status || "missing"}\` (${queueData.routedItems ?? "unknown"} routed / ${queueData.pageFitReviewReady ?? "unknown"} page-fit / ${queueData.refusalReviewReady ?? "unknown"} refusals; ready: \`${queueData.queueReady ?? "unknown"}\`)`,
+    ],
+    [
       "Discord refusal runtime",
       `\`${launch.discordRefusalRuntimeStatus || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
     ],
     ["Discord editorial queue", `\`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
       "Discord leakage checks",
-      `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
+      `raw keys \`${discordSummary.rawKeyHits ?? "unknown"}\`, sample leaks \`${discordSummary.sampleLeaks ?? "unknown"}\`, queue-data raw keys \`${queueData.rawKeyHits ?? "unknown"}\`, queue-data sample leaks \`${queueData.sampleLeaks ?? "unknown"}\`, queue raw tables \`${queue.rawTableHits ?? "unknown"}\``,
     ],
     ["Publication boundaries", `\`${launch.publicationBoundariesStatus || "missing"}\``],
     [

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial queue data release evidence
+- Task: Require launch/release evidence packets to prove the sanitized Discord editorial queue JSON/JS data artifact, not only the Markdown queue summary.
+- Scope: Launch/release packet validators, evidence summaries, status docs if needed, and `_local/agent-worklog.md`.
+- Status: Validator checkpoint complete; fresh clean release dry-run evidence pending.
+- Verification target: Older packets without `editorialQueueData` fail validation, fresh packets pass with count-only queue-data evidence, full `npm run search-book:verify` remains green, and only #11/#4 remain open.
+- Result: Packet validators now require `editorialQueueData` to pass with 24 routed items, 19 page-fit groups, 2 refusal-review items, no raw-key hits, no sample leaks, and `valuesPrinted:false`. Evidence summaries render the same counts without raw values. Focused syntax checks, `npm run search-book:check-evidence-summary`, `npm run search-book:check-discord-review-artifacts`, and `git diff --check` passed. The previous clean packet `/tmp/search-book-release-dry-run-production-packet-20260701-2` now fails both packet validators because it predates `editorialQueueData`, as intended.
+
 ## 2026-07-01 — Codex Discord editorial queue data artifact
 - Task: Promote the sanitized Discord editorial queue from Markdown-only review evidence into a no-raw JSON/JS artifact that review tooling can consume without parsing Markdown.
 - Scope: Discord editorial queue generator/checker, generated sanitized queue data, static artifact references if needed, status docs if needed, and `_local/agent-worklog.md`.
