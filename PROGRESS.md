@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Production Packet Discord Queue-Data Proof
+
+- Promoted the sanitized Discord editorial queue JSON proof into `PRODUCTION-READINESS-PACKET.md` and `npm run search-book:check-production-packet`.
+- The production packet now requires `npm run search-book:check-discord-review-artifacts` in the #11 and release checklists, and names queue-data pass criteria for launch/release packets.
+- Full `npm run search-book:verify` passed with 26 build steps, 92 syntax checks, source ingestion `17/17`, quality gates `29/30`, queue data `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, `valuesPrinted:false`, and only #11/#4 open.
+
 ## 2026-07-01 — Discord Editorial Queue Data Release Evidence
 
 - Hardened `npm run search-book:check-launch-evidence-packet` and `npm run search-book:check-release-dry-run-packet` so launch/release packets fail unless Discord review artifacts include `editorialQueueData` from `data/discord-editorial-queue.json`.

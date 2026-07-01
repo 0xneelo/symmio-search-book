@@ -159,6 +159,7 @@ function expectedChecks(evidence) {
       { id: "source-zero-counts", anyOf: [`0 partial / 0 parked / 0 missing`, `0 partial, 0 parked, and 0 missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates}`] },
       { id: "discord-route-coverage", allOf: [`${evidence.discordPageFitCoverage} page-fit groups`, `${evidence.discordSingleRouteRemaining} single-route groups`, `source-backed triage ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready ${evidence.discordRefusalPolicyReady} refusal items`] },
+      { id: "discord-queue-data-proof", allOf: ["Discord editorial queue data evidence reports `passed`", "`queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`"] },
       { id: "backup-restore-evidence", allOf: ["backup-restore evidence passed", "4/4 tables matched"] },
       { id: "workflow-contract", allOf: ["GitHub workflow contract evidence reports 4/4 expected workflows"] },
       { id: "living-docs-review-evidence", allOf: ["living-docs review evidence passed", "living-docs reviewer evidence reports"] },

@@ -73,6 +73,45 @@ const packageJson = readJson("package.json");
 const requirementMap = readJson("data/requirement-map.json");
 const sourceIngestion = readJson("data/source-ingestion.json");
 const discordRouting = readJson("data/discord-review-routing.json");
+const discordEditorialQueue = readJson("data/discord-editorial-queue.json");
+
+const forbiddenQueueKeys = new Set([
+  "answer",
+  "answerExcerpt",
+  "content",
+  "generatedAnswer",
+  "markdownBody",
+  "messageText",
+  "normalizedContent",
+  "normalizedQuestion",
+  "normalizedText",
+  "paragraphs",
+  "question",
+  "rawMarkdown",
+  "rawText",
+  "relatedQuestion",
+  "sourceAnswer",
+  "sourceBody",
+  "sourceText",
+  "text",
+]);
+
+function rawQueueKeyHits(value) {
+  const hits = [];
+  const visit = (node, trail = []) => {
+    if (Array.isArray(node)) {
+      node.forEach((item, index) => visit(item, [...trail, String(index)]));
+      return;
+    }
+    if (!node || typeof node !== "object") return;
+    for (const [key, child] of Object.entries(node)) {
+      if (forbiddenQueueKeys.has(key)) hits.push([...trail, key].join("."));
+      visit(child, [...trail, key]);
+    }
+  };
+  visit(value);
+  return hits;
+}
 
 const openEntries = parseInboxEntries(sectionBetween(inbox, "## Open", "## Resolved")).filter((entry) => entry.status === "OPEN");
 const resolvedEntries = parseInboxEntries(sectionBetween(inbox, "## Resolved", "---")).filter((entry) => entry.status === "RESOLVED");
@@ -80,6 +119,10 @@ const openIds = sortedIds(openEntries);
 const resolvedIds = sortedIds(resolvedEntries);
 const currentBoundary = sectionBetween(packet, "## Current Boundary", "## #11 Production Env Install");
 const releaseChecklist = sectionBetween(packet, "## Release Checklist", "");
+const queueSummary = discordEditorialQueue.summary || {};
+const queueCoverage = queueSummary.routeCoverage || {};
+const queuePrivacy = discordEditorialQueue.privacy || {};
+const queueRawKeyHits = rawQueueKeyHits(discordEditorialQueue);
 const checks = [];
 
 addCheck(
@@ -114,6 +157,7 @@ addCheck(
     "OPERATOR-INBOX #4",
     "Local LLM env: complete in `.secrets/search-book.env`; do not print it",
     "source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families",
+    "Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields",
     "quality gates `29/30`",
   ]) &&
     countMatches(currentBoundary, /OPERATOR-INBOX #\d+/g) === 2,
@@ -128,8 +172,34 @@ addCheck(
     (sourceIngestion.byStatus?.partial || 0) === 0 &&
     (sourceIngestion.byStatus?.parked || 0) === 0 &&
     sourceIngestionMissing(sourceIngestion) === 0 &&
-    (discordRouting.reviewPlan?.routeCoverage?.pageFitCoveredByPublicRoutes || 0) === (discordRouting.reviewPlan?.routeCoverage?.totalPageFitGroups || -1),
-  "packet guard must run against current source-ingestion and Discord route-coverage evidence",
+    (discordRouting.reviewPlan?.routeCoverage?.pageFitCoveredByPublicRoutes || 0) === (discordRouting.reviewPlan?.routeCoverage?.totalPageFitGroups || -1) &&
+    discordEditorialQueue.status === "passed" &&
+    discordEditorialQueue.queueReady === true &&
+    queueSummary.routingStatus === "routed" &&
+    Number(queueSummary.routedItems || 0) === 24 &&
+    Number(queueSummary.pageFitGroupsReady || 0) === 19 &&
+    Number(queueSummary.refusalReviewItems || 0) === 2 &&
+    Number(queueSummary.refusalPolicyReadyItems || 0) === 2 &&
+    Number(queueSummary.refusalPolicyReviewRequired || 0) === 0 &&
+    queueCoverage.coverageReady === true &&
+    queueCoverage.triageReady === true &&
+    queueCoverage.publicCopyReady === true &&
+    Number(queueCoverage.pageFitCoveredByPublicRoutes || 0) === 19 &&
+    Number(queueCoverage.sourceBackedPageFitGroups || 0) === 19 &&
+    Number(queueCoverage.publicCopyReadyPageFitGroups || 0) === 19 &&
+    Number(queueCoverage.publicCopyReviewRequired || 0) === 0 &&
+    Number(queueCoverage.pageFitSingleRouteRemaining || 0) === 0 &&
+    Number(queueCoverage.pageFitWithoutPublicRoute || 0) === 0 &&
+    queuePrivacy.rawDiscordTextIncluded === false &&
+    queuePrivacy.sourceAnswerTextIncluded === false &&
+    queuePrivacy.generatedAnswerTextIncluded === false &&
+    queuePrivacy.valuesPrinted === false &&
+    queueRawKeyHits.length === 0 &&
+    Array.isArray(discordEditorialQueue.pageFitReview) &&
+    discordEditorialQueue.pageFitReview.length === 19 &&
+    Array.isArray(discordEditorialQueue.refusalReview) &&
+    discordEditorialQueue.refusalReview.length === 2,
+  "packet guard must run against current source-ingestion, Discord route-coverage, and queue-data evidence",
   {
     sourceIngestion: {
       complete: sourceIngestion.byStatus?.complete || 0,
@@ -138,6 +208,15 @@ addCheck(
       missing: sourceIngestionMissing(sourceIngestion),
     },
     discordPageFitCoverage: `${discordRouting.reviewPlan?.routeCoverage?.pageFitCoveredByPublicRoutes || 0}/${discordRouting.reviewPlan?.routeCoverage?.totalPageFitGroups || 0}`,
+    discordEditorialQueue: {
+      status: discordEditorialQueue.status || null,
+      queueReady: discordEditorialQueue.queueReady === true,
+      routedItems: queueSummary.routedItems || 0,
+      pageFitGroupsReady: queueSummary.pageFitGroupsReady || 0,
+      refusalReviewItems: queueSummary.refusalReviewItems || 0,
+      rawKeyHits: queueRawKeyHits.length,
+      valuesPrinted: queuePrivacy.valuesPrinted === true,
+    },
   },
 );
 
@@ -198,7 +277,9 @@ addCheck(
     "no-secret local backup-restore evidence passes before relying on production backup manifests",
     "no-secret GitHub workflow contract guard passes before relying on CI/manual release artifacts",
     "no-secret living-docs reviewer evidence reports count-only summary output before enabling reviewer handoffs",
+    "no-secret Discord editorial queue data proof passes before using the committed reviewer queue for operator handoff",
     "launch/release packet validators require the living-docs reviewer evidence before operator handoff",
+    "launch/release packet validators require Discord editorial queue data evidence before operator handoff",
   ]),
   "#11 pass criteria must preserve no-secret, LLM-first, backup, workflow, and reviewer boundaries",
 );
@@ -245,12 +326,14 @@ addCheck(
     "deterministic verify runs in the launch gate",
     "source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families",
     "sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered",
+    "Discord editorial queue data evidence reports `passed`, `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`",
     "Discord refusal runtime evidence reports 2/2 public-safe probes refused",
     "deployment smoke passes against non-local HTTPS URLs",
     "latest backup manifest reports restore-check `passed`",
     "backup-restore evidence reports 4/4 tables matched",
     "GitHub workflow contract evidence reports 4/4 expected workflows",
     "living-docs reviewer evidence reports raw internal summaries are privacy-flagged",
+    "launch/release packet validators report Discord editorial queue data evidence `passed`",
     "launch/release packet validators report living-docs review evidence `passed`",
     "reviewer owner/cadence evidence is configured",
     "no launch-blocking operator items remain for the chosen release scope",
@@ -269,6 +352,7 @@ addCheck(
     "npm run search-book:check-backup-restore",
     "npm run search-book:check-github-workflows",
     "npm run search-book:check-living-docs-review",
+    "npm run search-book:check-discord-review-artifacts",
     "node scripts/check-readiness-evidence.mjs",
     `node --env-file=${productionEnvPath} scripts/check-production-env.mjs`,
     `node --env-file=${productionEnvPath} scripts/check-launch-readiness.mjs \\`,
@@ -318,6 +402,15 @@ const result = {
       missing: sourceIngestionMissing(sourceIngestion),
     },
     discordPageFitCoverage: `${discordRouting.reviewPlan?.routeCoverage?.pageFitCoveredByPublicRoutes || 0}/${discordRouting.reviewPlan?.routeCoverage?.totalPageFitGroups || 0}`,
+    discordEditorialQueue: {
+      status: discordEditorialQueue.status || null,
+      queueReady: discordEditorialQueue.queueReady === true,
+      routedItems: queueSummary.routedItems || 0,
+      pageFitGroupsReady: queueSummary.pageFitGroupsReady || 0,
+      refusalReviewItems: queueSummary.refusalReviewItems || 0,
+      rawKeyHits: queueRawKeyHits.length,
+      valuesPrinted: queuePrivacy.valuesPrinted === true,
+    },
     secretMatches: secretMatches.length,
   },
   checks,

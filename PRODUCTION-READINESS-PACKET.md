@@ -17,6 +17,7 @@ The standalone Search Book repo is the canonical working copy:
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue Markdown/JSON generated,
+  Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields,
   Discord refusal runtime probes `2/2` passing with no LLM credentials loaded,
   publication boundaries passed, living-docs review evidence passed, backup-restore evidence passed,
   quality gates `29/30`
@@ -105,6 +106,7 @@ npm run search-book:check-production-packet
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
 npm run search-book:check-living-docs-review
+npm run search-book:check-discord-review-artifacts
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 sudo cp deploy/symmio-search-book.service /etc/systemd/system/
 sudo cp deploy/symmio-search-book-backup.service /etc/systemd/system/
@@ -128,7 +130,9 @@ Pass criteria:
 - no-secret local backup-restore evidence passes before relying on production backup manifests
 - no-secret GitHub workflow contract guard passes before relying on CI/manual release artifacts
 - no-secret living-docs reviewer evidence reports count-only summary output before enabling reviewer handoffs
+- no-secret Discord editorial queue data proof passes before using the committed reviewer queue for operator handoff
 - launch/release packet validators require the living-docs reviewer evidence before operator handoff
+- launch/release packet validators require Discord editorial queue data evidence before operator handoff
 - backup timer is enabled and the latest manifest exists after the first run
 
 ## #4 Public Frontend And Deploy Route Decision
@@ -200,12 +204,14 @@ Production pass criteria:
 - deterministic verify runs in the launch gate
 - source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families
 - sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered, 0 single-route groups remaining, source-backed triage 19/19 page-fit groups, public-copy ready 19/19 page-fit groups, public-copy review required 0/19 page-fit groups, refusal policy ready 2/2 refusal items, and refusal policy review required 0/2 refusal items
+- Discord editorial queue data evidence reports `passed`, `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`
 - Discord refusal runtime evidence reports 2/2 public-safe probes refused with `discord-corpus-review-required`, `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`
 - backup-restore evidence reports 4/4 tables matched, restore `passed`, integrity `ok`, and no raw content printed
 - GitHub workflow contract evidence reports 4/4 expected workflows, no unexpected workflows, validator/summary calls present, and no secret-loading fragments
 - living-docs reviewer evidence reports raw internal summaries are privacy-flagged, sanitized evidence prints only counts/booleans, no raw content is printed, and no LLM credentials are loaded
+- launch/release packet validators report Discord editorial queue data evidence `passed`
 - launch/release packet validators report living-docs review evidence `passed`
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
@@ -248,6 +254,7 @@ npm run search-book:check-production-packet
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
 npm run search-book:check-living-docs-review
+npm run search-book:check-discord-review-artifacts
 node scripts/check-readiness-evidence.mjs
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \

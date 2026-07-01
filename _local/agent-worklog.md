@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex production packet Discord queue-data proof
+- Task: Promote the sanitized Discord editorial queue JSON proof into `PRODUCTION-READINESS-PACKET.md` and its executable guard.
+- Scope: `PRODUCTION-READINESS-PACKET.md`, `scripts/check-production-readiness-packet.mjs`, status docs if required, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-production-packet`, `npm run search-book:check-status-evidence`, full `npm run search-book:verify`, and `git diff --check` pass while only #11/#4 remain open.
+- Result: `PRODUCTION-READINESS-PACKET.md` now requires the no-secret Discord editorial queue data proof in current boundary, #11 validation/pass criteria, production pass criteria, and release checklist. `scripts/check-production-readiness-packet.mjs` reads `data/discord-editorial-queue.json` directly and requires status `passed`, `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, no raw queue keys, false raw/source/generated text flags, and `valuesPrinted:false`. Focused checks and full `npm run search-book:verify` passed with 26 build steps, 92 syntax checks, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex Discord editorial queue data release evidence
 - Task: Require launch/release evidence packets to prove the sanitized Discord editorial queue JSON/JS data artifact, not only the Markdown queue summary.
 - Scope: Launch/release packet validators, evidence summaries, status docs if needed, and `_local/agent-worklog.md`.
