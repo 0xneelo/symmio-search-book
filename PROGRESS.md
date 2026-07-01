@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh
+
+- Re-ran `npm run search-book:drill-local-launch`; it passed with generatedAt `2026-07-01T21:33:32.279Z` against temporary preview `http://127.0.0.1:46494` and temporary answer-engine service `http://127.0.0.1:44980`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-Oz88Hg/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+
 ## 2026-07-02 — Vibe Publication-Day Source Freshness Refresh
 
 - Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-01T21:28:26.710Z`.
