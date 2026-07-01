@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex no-secret production env fixture guard
+- Task: Add a CI-safe production-shaped env fixture so the #11 preflight path stays verified without real secrets or VPS access.
+- Scope: `scripts/check-production-env-fixture.mjs`, `scripts/build-all.mjs`, `package.json`, `README.md`, `FINAL-REPORT.md`, `PRODUCTION-READINESS-PACKET.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Fixture guard proves no-env preflight fails closed, production-shaped placeholder env passes with `valuesPrinted:false`, no placeholder token value is printed, full verify includes the guard, and only #11/#4 remain open.
+- Result: Added `scripts/check-production-env-fixture.mjs`, `npm run search-book:check-production-env-fixture`, and `npm run search-book:verify` wiring. Focused checks passed: `node --check scripts/check-production-env-fixture.mjs`, `node --check scripts/build-all.mjs`, `npm run search-book:check-production-env-fixture`, `node scripts/build-all.mjs --dry-run --verify`, and `npm run search-book:check-status-evidence`. Full `npm run search-book:verify` passed with 26 build steps, 85 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, `completionAudit:passed`, `productionEnvFixture:passed`, no-env preflight failing closed with 13 missing-env failures, production-shaped placeholder env passing 29/29, and only #11/#4 open.
+
 ## 2026-07-01 — Codex production preflight quality-boundary refresh
 - Task: Keep production env preflight aligned with the reconciled generated quality-audit boundary.
 - Scope: `scripts/check-production-env.mjs`, `PROGRESS.md`, and `_local/agent-worklog.md`.

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — No-Secret Production Env Fixture Guard
+
+- Added `npm run search-book:check-production-env-fixture`, a CI-safe guard for the #11 production env handoff path.
+- The guard strips Search Book env, confirms `check-production-env` fails closed when production values are absent, then runs a production-shaped placeholder env and requires the preflight to pass without printing placeholder token values.
+- Wired the guard into `npm run search-book:verify` so the production env contract stays continuously checked while the real VPS env install remains operator-gated.
+
 ## 2026-07-01 — Production Preflight Quality Boundary
 
 - Updated `scripts/check-production-env.mjs` so the quality-audit preflight derives its allowed non-production boundary from `data/quality-audit.json` instead of the stale `27/30` count.

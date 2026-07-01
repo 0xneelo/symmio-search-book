@@ -322,6 +322,20 @@ function runPublicationBoundariesCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runProductionEnvFixtureCheck(env, dryRun) {
+  const step = {
+    id: "check-production-env-fixture",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-production-env-fixture.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -494,6 +508,7 @@ if (args.dryRun) {
     runOperatorInboxConsistencyCheck(env, true);
     runEvidenceSummaryRendererCheck(env, true);
     runPublicationBoundariesCheck(env, true);
+    runProductionEnvFixtureCheck(env, true);
   }
   process.exit(0);
 }
@@ -516,6 +531,7 @@ let completionAudit = null;
 let operatorInboxConsistency = null;
 let evidenceSummaryRenderer = null;
 let publicationBoundaries = null;
+let productionEnvFixture = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -529,6 +545,7 @@ if (args.verify) {
   operatorInboxConsistency = runOperatorInboxConsistencyCheck(env, false);
   evidenceSummaryRenderer = runEvidenceSummaryRendererCheck(env, false);
   publicationBoundaries = runPublicationBoundariesCheck(env, false);
+  productionEnvFixture = runProductionEnvFixtureCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -547,5 +564,6 @@ console.log(JSON.stringify({
   operatorInboxConsistency,
   evidenceSummaryRenderer,
   publicationBoundaries,
+  productionEnvFixture,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));
