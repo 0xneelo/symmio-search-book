@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-01 — Static Artifact Evidence Refresh From Launch-Release Guard Checkpoint
+
+- Triggered manual `Search Book Static Artifact` workflow run `28544931805` from commit `6608820`; the workflow passed verify, static artifact build, static smoke, answer-engine bridge smoke, checked artifact packet validation, and artifact upload.
+- Downloaded the `search-book-static-site` artifact to `/tmp/search-book-gh-static-artifact-28544931805`; local `npm run search-book:check-static-artifact-packet -- --root /tmp/search-book-gh-static-artifact-28544931805/search-book-static-site` passed with 1,652 copied files, 52,855,222 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, and only #11/#4 open.
+- Local copied-bundle smokes also passed: `npm run search-book:smoke-static -- --root /tmp/search-book-gh-static-artifact-28544931805/search-book-static-site` and `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-gh-static-artifact-28544931805/search-book-static-site`.
+- Readiness booleans did not flip from the previous verified state: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-01 — Manual Evidence Refresh From Static-Artifact Guard Checkpoint
 
 - Triggered fresh manual workflows from commit `07d1d09`: launch evidence run `28544482309` and release dry-run run `28544483658`; both passed.
