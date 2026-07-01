@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Workflow Contract Guard
+
+- Added `npm run search-book:check-github-workflows`, a no-secret guard for the four checked GitHub Actions workflows: verify, launch evidence, release dry run, and static artifact.
+- The guard requires read-only workflow permissions, public Vibe docs export fetches, Node 22 setup, canonical verify/smoke/build commands, launch/release packet validators, evidence summaries, artifact uploads, and 14-day retention.
+- Focused verification passes with 4/4 expected workflows, 0 unexpected workflows, validator/summary/smoke/artifact commands present, and no secret/env-file/production-env loading fragments.
+
 ## 2026-07-01 — Backup Restore Evidence Guard
 
 - Added `npm run search-book:check-backup-restore`, a no-secret guard that starts a temporary answer-engine service, persists answer/rating/page-feedback events into SQLite, runs `scripts/backup-answer-engine-db.mjs` with restore-check enabled, and emits only table/count/check booleans.

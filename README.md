@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | 63 build/serve/smoke/evidence scripts (Node built-ins only). |
+| `scripts/` | 64 build/serve/smoke/evidence scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -81,6 +81,7 @@ npm run search-book:check-publication-boundaries
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
 npm run search-book:check-backup-restore
+npm run search-book:check-github-workflows
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
@@ -115,7 +116,8 @@ npm run search-book:smoke-preview-service
 
 The `search-book:verify` step includes the no-secret local monitoring evidence probe for
 `/health` and token-gated `/api/search-book/metrics`, plus the no-secret backup/restore
-evidence guard against a temporary SQLite answer-engine database. The workflow does not
+evidence guard against a temporary SQLite answer-engine database and the workflow-contract
+guard for the checked GitHub Actions release paths. The workflow does not
 load LLM credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
 
 ## Answer-engine service

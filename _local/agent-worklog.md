@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex workflow contract guard
+- Task: Add a no-secret guard for the GitHub Actions workflow contracts so verify, launch-evidence, release-dry-run, and static-artifact workflows keep running the checked validators and summary paths.
+- Scope: workflow checker script, package/build verification wiring, workflow/status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Guard validates workflow triggers, Node setup, Vibe docs export, no-secret permissions, canonical npm commands, packet validators, evidence summaries, artifact upload retention, full verify remains green, and only #11/#4 remain open.
+- Result: Added `npm run search-book:check-github-workflows`, wired it into `npm run search-book:verify`, and updated status docs plus status-evidence checks. Focused guard passed with 4/4 expected workflow files, 0 unexpected workflows, required verify/smoke/build/validator/summary/artifact commands present, and no secret/env-file/production-env loading fragments. Full `npm run search-book:verify` passed with 26 build steps, 89 syntax checks, `githubWorkflows:passed`, `backupRestoreEvidence:passed`, `monitoringEvidence:passed`, source ingestion `17/17`, quality gates `29/30`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex backup restore evidence guard
 - Task: Add a CI-safe backup/restore evidence guard and promote it into launch/release evidence so the SQLite backup manifest path is continuously verified without production secrets or VPS access.
 - Scope: backup checker script, package/build verification wiring, launch/release evidence packets and validators, evidence summaries, status docs, and `_local/agent-worklog.md`.

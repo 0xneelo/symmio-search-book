@@ -101,6 +101,7 @@ cd /opt/symmio-search-book
 npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
 npm run search-book:check-backup-restore
+npm run search-book:check-github-workflows
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 sudo cp deploy/symmio-search-book.service /etc/systemd/system/
 sudo cp deploy/symmio-search-book-backup.service /etc/systemd/system/
@@ -122,6 +123,7 @@ Pass criteria:
 - CORS origins are exact HTTPS public docs origins, never `*`
 - reviewer owner/cadence and backup storage are configured
 - no-secret local backup-restore evidence passes before relying on production backup manifests
+- no-secret GitHub workflow contract guard passes before relying on CI/manual release artifacts
 - backup timer is enabled and the latest manifest exists after the first run
 
 ## #4 Public Frontend And Deploy Route Decision
@@ -197,6 +199,7 @@ Production pass criteria:
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`
 - backup-restore evidence reports 4/4 tables matched, restore `passed`, integrity `ok`, and no raw content printed
+- GitHub workflow contract evidence reports 4/4 expected workflows, no unexpected workflows, validator/summary calls present, and no secret-loading fragments
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
 - `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values
@@ -235,6 +238,7 @@ Before calling Search Book production-ready:
 ```sh
 npm run search-book:verify
 npm run search-book:check-backup-restore
+npm run search-book:check-github-workflows
 node scripts/check-readiness-evidence.mjs
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \

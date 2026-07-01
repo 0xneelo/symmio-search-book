@@ -127,6 +127,7 @@ function expectedChecks(evidence) {
       { id: "requirement-status", allOf: [`${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, and ${evidence.requirementMissing} missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates} gates`] },
       { id: "syntax-checks", allOf: [`${evidence.syntaxChecks} syntax checks`] },
+      { id: "workflow-contract", allOf: ["GitHub workflow contract consistency", "search-book:check-github-workflows"] },
       { id: "llm-eval", allOf: [evidence.liveEvalTotal, evidence.liveEvalAdversarial, evidence.liveEvalAnswerValidation] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
@@ -142,6 +143,7 @@ function expectedChecks(evidence) {
       { id: "authored", allOf: [`${evidence.authoredPages} authored pages`] },
       { id: "page-state", allOf: [`${evidence.publicNavigationPages} published public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`] },
       { id: "live-eval", allOf: [evidence.liveEvalTotal] },
+      { id: "workflow-contract", allOf: ["search-book:check-github-workflows", "workflow contract guard"] },
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`", "backup-restore evidence"] },
       { id: "completion-boundary", allOf: openOperatorFragments },
     ],
@@ -154,6 +156,7 @@ function expectedChecks(evidence) {
       { id: "quality-gates", allOf: [`${evidence.qualityGates}`] },
       { id: "discord-route-coverage", allOf: [`${evidence.discordPageFitCoverage} page-fit groups`, `${evidence.discordSingleRouteRemaining} single-route groups`, `source-backed triage ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready ${evidence.discordRefusalPolicyReady} refusal items`] },
       { id: "backup-restore-evidence", allOf: ["backup-restore evidence passed", "4/4 tables matched"] },
+      { id: "workflow-contract", allOf: ["GitHub workflow contract evidence reports 4/4 expected workflows"] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
     "README.md": [
@@ -162,6 +165,7 @@ function expectedChecks(evidence) {
       { id: "discord-artifacts-script", allOf: ["search-book:check-discord-review-artifacts"] },
       { id: "spec-reconciliation-evidence", allOf: ["original-spec reconciliation"] },
       { id: "backup-restore-script", allOf: ["search-book:check-backup-restore"] },
+      { id: "workflow-contract-script", allOf: ["search-book:check-github-workflows"] },
     ],
   };
 }
