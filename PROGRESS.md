@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Publication-Day Source Freshness Refresh From Source-Ingestion Checkpoint
+
+- Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-01T23:30:08.745Z`.
+- The check fetched both registered official Vibe Markdown sources, `vibe-what-is` and `vibe-platform`, with HTTP 200, passed 4/4 checks for Binance perp market coverage, 390+ market wording, and platform leverage wording, and reported `valuesPrinted:false` plus `sourceBodiesPrinted:false`.
+- This remains a public-docs wording freshness check, not a live exchange market-index audit. Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+- Focused guards and full verify passed: `npm run search-book:check-status-evidence`, `npm run search-book:check-completion-audit`, `npm run search-book:check-production-packet`, `npm run search-book:verify`, and `git diff --check`. Full verify reported 26 build steps, 93 syntax checks, 820 routes, 2,884 chunks, 801 authored pages, quality `29/30`, and only #11/#4 open.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Source-Ingestion Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `b7beb3b`; it passed with generatedAt `2026-07-01T23:19:57.093Z` against temporary preview `http://127.0.0.1:46288` and temporary answer-engine service `http://127.0.0.1:46216`.
