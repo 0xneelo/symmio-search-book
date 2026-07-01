@@ -16,7 +16,8 @@ The standalone Search Book repo is the canonical working copy:
 - Local preview evidence: passed against `127.0.0.1:8798` plus service `127.0.0.1:8797`
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
-  Discord corpus imported internal-only, quality gates `29/30`
+  Discord corpus imported internal-only, no-raw Discord editorial queue generated,
+  quality gates `29/30`
 
 Only these production gates remain:
 
@@ -198,7 +199,16 @@ Production pass criteria:
 
 Do not reopen OPERATOR-INBOX #2 or #17. The real Discord export is imported in
 internal-only mode and the source-ingestion map is `17/17`. Before publishing exact
-Discord-derived statements, review:
+Discord-derived statements, review the no-raw committed work queue:
+
+```sh
+npm run search-book:discord-editorial-queue
+sed -n '1,220p' DISCORD-EDITORIAL-QUEUE.md
+```
+
+The queue is derived from `data/discord-review-routing.json` and contains only item ids,
+page ids, page titles, source keys, route counts, public-route coverage, and refusal
+reasons. For source corpus counts, review:
 
 ```sh
 node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("data/discord-corpus.json","utf8")); console.log(JSON.stringify(d.totals, null, 2));'

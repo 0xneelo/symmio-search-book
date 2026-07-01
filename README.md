@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | ~53 build/serve/smoke/evidence scripts (Node built-ins only). |
+| `scripts/` | ~54 build/serve/smoke/evidence scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -85,6 +85,7 @@ npm run search-book:check-source-freshness
 npm run search-book:discord-review -- --input /path/to/discord-export.json --lafa-author-id <id> --out-dir /tmp/search-book-discord-review
 npm run search-book:discord-route-review -- --review-json /tmp/search-book-discord-review/discord-review-queue.json --out-dir /tmp/search-book-discord-routing
 npm run search-book:discord-routing-summary -- --routing-json /tmp/search-book-discord-routing/discord-review-routing.json
+npm run search-book:discord-editorial-queue
 npm run search-book:check-discord-review-artifacts -- --review-json /tmp/search-book-discord-review/discord-review-queue.json --routing-json /tmp/search-book-discord-routing/discord-review-routing.json
 
 # SQLite backup with restore-check manifest
@@ -172,7 +173,9 @@ Discord corpus stays text-redacted. Then run `npm run search-book:discord-route-
 against that packet to produce a sanitized routing report with item ids, hashes, statuses,
 page ids, and source keys only. Run `npm run search-book:discord-routing-summary` with that
 routing report to publish the no-raw summary into static Search Insights as hashes, page ids,
-source keys, statuses, and counts only.
+source keys, statuses, and counts only. Run `npm run search-book:discord-editorial-queue`
+to refresh `DISCORD-EDITORIAL-QUEUE.md`, a committed no-raw reviewer queue derived from
+the same sanitized summary.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and
 paths, and checks for raw-field or sample-text leakage without echoing excerpts.

@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-01 — Discord Editorial Queue Markdown
+
+- Added `scripts/build-discord-editorial-queue.mjs` and `npm run search-book:discord-editorial-queue` to generate `DISCORD-EDITORIAL-QUEUE.md` from the sanitized `data/discord-review-routing.json` review plan.
+- The queue gives reviewers 19 page-fit groups and 2 refusal-review items using only item ids, page ids, page titles, source keys, route counts, public-route coverage, and refusal reasons; it does not carry raw Discord questions, raw Lafa excerpts, or generated answer text.
+- Wired the queue generator into `npm run search-book:verify` immediately after the Discord routing summary so the Markdown handoff stays deterministic.
+- Full `npm run search-book:verify` passed with 26 build steps, 79 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+- Production readiness remains gated only on OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/deploy route; the Discord queue is editorial follow-up evidence, not publication approval for exact Discord/Lafa claims.
+
 ## 2026-07-01 — Operator Inbox Consistency Gate
 
 - Added `scripts/check-operator-inbox-consistency.mjs` and `npm run search-book:check-operator-inbox` to compare the canonical `_specs/app-docs/OPERATOR-INBOX.md` against `data/requirement-map.json`.

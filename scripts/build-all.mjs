@@ -70,6 +70,7 @@ function buildSteps(args) {
     ["build-faq-map", ["scripts/build-faq-map.mjs"]],
     ["build-discord-corpus", ["scripts/build-discord-corpus.mjs"]],
     ["build-discord-routing-summary", ["scripts/build-discord-routing-summary.mjs"]],
+    ["build-discord-editorial-queue", ["scripts/build-discord-editorial-queue.mjs"]],
     ["build-gap-queue", ["scripts/build-gap-queue.mjs"]],
     ["build-answer-chunks", ["scripts/build-answer-chunks.mjs"]],
     ["build-crosslink-map", ["scripts/build-crosslink-map.mjs"]],

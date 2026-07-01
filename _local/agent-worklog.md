@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord editorial queue markdown
+- Task: Add a deterministic no-raw Markdown review queue derived from the sanitized Discord routing summary.
+- Scope: `scripts/build-discord-editorial-queue.mjs`, `DISCORD-EDITORIAL-QUEUE.md`, `package.json`, `scripts/build-all.mjs`, status docs, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Reviewer queue contains page ids/source keys/counts/refusal reasons only, no raw Discord/Lafa text-like fields, deterministic verify remains green, and only #11/#4 remain operator gates.
+- Result: Added `npm run search-book:discord-editorial-queue`, generated `DISCORD-EDITORIAL-QUEUE.md`, and wired the generator into `npm run search-book:verify` after the sanitized Discord routing summary. The queue reports 24 routed review items, 19 page-fit groups, 2 refusal-review items, 19/19 page-fit groups covered by public route aliases, and `valuesPrinted:false` using only item ids, page ids, page titles, source keys, counts, public-route coverage, and refusal reasons. `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-status-evidence`, `git diff --check`, and full `npm run search-book:verify` passed; full verify reports 26 build steps, 79 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, Discord review artifacts `passed`, status evidence `passed`, operator inbox consistency `passed`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex operator inbox consistency gate
 - Task: Add an executable guard that keeps `_specs/app-docs/OPERATOR-INBOX.md` reconciled with generated requirement-map open operator items.
 - Scope: `scripts/check-operator-inbox-consistency.mjs`, `package.json`, `scripts/build-all.mjs`, README/status docs if counts change, and `_local/agent-worklog.md`.

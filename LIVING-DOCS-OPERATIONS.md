@@ -50,6 +50,17 @@ includes a `reviewPlan` that groups answered items into page-fit checks and sepa
 refusal-review items so Search Insights can drive editorial follow-up without exposing
 raw review text.
 
+To refresh the committed reviewer handoff from that sanitized summary, run:
+
+```sh
+npm run search-book:discord-editorial-queue
+```
+
+This writes `DISCORD-EDITORIAL-QUEUE.md` from `data/discord-review-routing.json`. The queue
+lists only item ids, page ids, page titles, source keys, route counts, public-route coverage,
+and refusal reasons. It is safe as an internal work queue, but it still is not approval to
+publish exact Discord/Lafa statements.
+
 Validate the privacy boundary before using the packet:
 
 ```sh
