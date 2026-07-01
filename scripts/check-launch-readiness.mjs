@@ -201,11 +201,22 @@ function checkUrl(checks, { id, label, value, profile, allowLocal }) {
   });
 }
 
+function normalizeStatusCounts(byStatus = {}) {
+  return {
+    complete: byStatus.complete ?? 0,
+    partial: byStatus.partial ?? 0,
+    parked: byStatus.parked ?? 0,
+    missing: byStatus.missing ?? 0,
+  };
+}
+
 function checkBuiltEvidence(checks, profile) {
   const quality = readJson("data/quality-audit.json");
   const requirements = readJson("data/requirement-map.json");
   const livingDocs = readJson("data/living-docs-events.json");
   const llm = readJson("data/llm-rag-contract.json");
+  const sourceIngestion = readJson("data/source-ingestion.json");
+  const discordRouting = readJson("data/discord-review-routing.json");
 
   addCheck(checks, {
     id: "manifest-target",
@@ -235,6 +246,57 @@ function checkBuiltEvidence(checks, profile) {
       livingDocs.backupRestoreImplemented === true &&
       livingDocs.productionPreflightImplemented === true,
     detail: `datastore=${livingDocs.datastoreImplemented === true}, frontendBridge=${livingDocs.frontendServiceIntegrationImplemented === true}, retention=${livingDocs.retentionPolicyImplemented === true}, moderation=${livingDocs.moderationExportImplemented === true}, metrics=${livingDocs.metricsExportImplemented === true}, cors=${livingDocs.corsPolicyImplemented === true}, backup=${livingDocs.backupRestoreImplemented === true}, preflight=${livingDocs.productionPreflightImplemented === true}`,
+  });
+
+  const sourceCounts = normalizeStatusCounts(sourceIngestion.byStatus);
+  addCheck(checks, {
+    id: "source-ingestion-complete",
+    label: "Source-ingestion map is complete for v1",
+    passed:
+      sourceIngestion.sourceCompletionReady === true &&
+      sourceCounts.complete === sourceIngestion.totalSourceRequirements &&
+      sourceCounts.partial === 0 &&
+      sourceCounts.parked === 0 &&
+      sourceCounts.missing === 0,
+    detail: `${sourceCounts.complete}/${sourceIngestion.totalSourceRequirements || 0} complete; partial=${sourceCounts.partial}, parked=${sourceCounts.parked}, missing=${sourceCounts.missing}`,
+    evidence: {
+      sourceCompletionReady: sourceIngestion.sourceCompletionReady === true,
+      totalSourceRequirements: sourceIngestion.totalSourceRequirements ?? null,
+      byStatus: sourceCounts,
+      openOperatorItems: (sourceIngestion.openOperatorItems || []).map((item) => ({
+        id: item.id,
+        title: item.title,
+      })),
+    },
+  });
+
+  const routeCoverage = discordRouting.reviewPlan?.routeCoverage || {};
+  addCheck(checks, {
+    id: "discord-route-coverage",
+    label: "Sanitized Discord demand has public route coverage",
+    passed:
+      discordRouting.routingReady === true &&
+      discordRouting.rawDiscordTextIncluded === false &&
+      discordRouting.sourceAnswerTextIncluded === false &&
+      discordRouting.valuesPrinted === false &&
+      routeCoverage.coverageReady === true &&
+      routeCoverage.pageFitSingleRouteRemaining === 0 &&
+      routeCoverage.pageFitWithoutPublicRoute === 0,
+    detail: `${routeCoverage.pageFitCoveredByPublicRoutes ?? 0}/${routeCoverage.totalPageFitGroups ?? 0} page-fit groups covered; singleRoute=${routeCoverage.pageFitSingleRouteRemaining ?? "unknown"}, withoutPublicRoute=${routeCoverage.pageFitWithoutPublicRoute ?? "unknown"}`,
+    evidence: {
+      routingReady: discordRouting.routingReady === true,
+      rawDiscordTextIncluded: discordRouting.rawDiscordTextIncluded === true,
+      sourceAnswerTextIncluded: discordRouting.sourceAnswerTextIncluded === true,
+      valuesPrinted: discordRouting.valuesPrinted === true,
+      routeCoverage: {
+        coverageReady: routeCoverage.coverageReady === true,
+        totalPageFitGroups: routeCoverage.totalPageFitGroups ?? null,
+        pageFitCoveredByPublicRoutes: routeCoverage.pageFitCoveredByPublicRoutes ?? null,
+        pageFitSingleRouteRemaining: routeCoverage.pageFitSingleRouteRemaining ?? null,
+        pageFitWithoutPublicRoute: routeCoverage.pageFitWithoutPublicRoute ?? null,
+        totalPublicRoutesToPageFitPages: routeCoverage.totalPublicRoutesToPageFitPages ?? null,
+      },
+    },
   });
 
   const unresolved = [

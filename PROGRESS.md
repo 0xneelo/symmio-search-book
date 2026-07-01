@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-01 — Launch Gate Source And Demand Checks
+
+- Added first-class launch-readiness checks for source ingestion and sanitized Discord demand route coverage in `scripts/check-launch-readiness.mjs`.
+- The source-ingestion launch check now passes only when `sourceCompletionReady:true`, complete count equals total requirements, and partial/parked/missing source-family counts are all zero.
+- The Discord route-coverage launch check now passes only when the committed routing summary is ready, carries no raw Discord or Lafa/source answer text, prints no values, and has 19/19 page-fit groups covered with 0 single-route groups and 0 groups without public routes.
+- Verified direct staging launch-readiness output with local URLs: status `passed`, 15 checks, source check `17/17 complete; partial=0, parked=0, missing=0`, and Discord check `19/19 page-fit groups covered`.
+- Verified `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-launch-gate-coverage-20260701-1`: release status `passed`, static artifact `1,650` files / `52,929,756` bytes, launch status `passed`, monitoring status `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches. Targeted packet assertion confirmed both new launch checks passed inside `launch-evidence.json`.
+- Full `npm run search-book:verify` passed afterward with 25 build steps, 72 syntax checks, 820 exact routes, 822 FAQ entries, 2,884 chunks, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Production Status Wording Cleanup
 
 - Removed stale production-status language that still implied unresolved source-ingestion work after source ingestion reached 17/17 complete.

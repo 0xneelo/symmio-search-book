@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex launch gate source and demand checks
+- Task: Add first-class launch-readiness checks for source-ingestion completeness and sanitized Discord route coverage.
+- Scope: `scripts/check-launch-readiness.mjs`, regenerated `data/gap-queue.*`, `PRODUCTION-READINESS-PACKET.md`, `FINAL-REPORT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Launch readiness directly reports source ingestion `17/17` with 0 partial/parked/missing and Discord route coverage 19/19 with no raw text/value leakage; release dry-run and full verify remain green.
+- Result: Added `source-ingestion-complete` and `discord-route-coverage` checks to the launch gate. Direct staging launch-readiness check passed with 15 checks; the new source check reported `17/17 complete; partial=0, parked=0, missing=0`, and the new Discord check reported `19/19 page-fit groups covered; singleRoute=0, withoutPublicRoute=0`. `npm run search-book:release-dry-run -- --out-dir /tmp/search-book-release-dry-run-launch-gate-coverage-20260701-1` passed with static artifact `1,650` files / `52,929,756` bytes, launch and monitoring `passed`, `valuesPrinted:false`, and sensitive matches `0`; targeted packet assertion confirmed both new launch checks passed inside `launch-evidence.json`. Full `npm run search-book:verify` passed with 25 build steps, 72 syntax checks, exact routes `820/820`, FAQ entries `822`, chunks `2,884`, static integrity `20/20`, and quality gates `29/30`.
+
 ## 2026-07-01 — Codex production status wording cleanup
 - Task: Remove stale source-import wording from production readiness docs after source ingestion reached 17/17 complete.
 - Scope: `PRODUCTION-READINESS-PACKET.md`, `GAPS.md`, `COMPLETION-AUDIT.md`, `PROGRESS.md`, and `_local/agent-worklog.md`.

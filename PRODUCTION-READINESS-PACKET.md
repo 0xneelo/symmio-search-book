@@ -185,6 +185,8 @@ Production pass criteria:
 
 - production env preflight passes
 - deterministic verify runs in the launch gate
+- source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families
+- sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered and 0 single-route groups remaining
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`
 - reviewer owner/cadence evidence is configured
