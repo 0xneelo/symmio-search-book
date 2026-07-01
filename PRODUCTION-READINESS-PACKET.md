@@ -18,7 +18,8 @@ The standalone Search Book repo is the canonical working copy:
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue generated,
   Discord refusal runtime probes `2/2` passing with no LLM credentials loaded,
-  publication boundaries passed, backup-restore evidence passed, quality gates `29/30`
+  publication boundaries passed, living-docs review evidence passed, backup-restore evidence passed,
+  quality gates `29/30`
 
 Only these production gates remain:
 
@@ -102,6 +103,7 @@ npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
+npm run search-book:check-living-docs-review
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 sudo cp deploy/symmio-search-book.service /etc/systemd/system/
 sudo cp deploy/symmio-search-book-backup.service /etc/systemd/system/
@@ -124,6 +126,7 @@ Pass criteria:
 - reviewer owner/cadence and backup storage are configured
 - no-secret local backup-restore evidence passes before relying on production backup manifests
 - no-secret GitHub workflow contract guard passes before relying on CI/manual release artifacts
+- no-secret living-docs reviewer evidence reports count-only summary output before enabling reviewer handoffs
 - backup timer is enabled and the latest manifest exists after the first run
 
 ## #4 Public Frontend And Deploy Route Decision
@@ -200,6 +203,7 @@ Production pass criteria:
 - latest backup manifest reports restore-check `passed`
 - backup-restore evidence reports 4/4 tables matched, restore `passed`, integrity `ok`, and no raw content printed
 - GitHub workflow contract evidence reports 4/4 expected workflows, no unexpected workflows, validator/summary calls present, and no secret-loading fragments
+- living-docs reviewer evidence reports raw internal summaries are privacy-flagged and sanitized evidence prints only counts/booleans
 - reviewer owner/cadence evidence is configured
 - no launch-blocking operator items remain for the chosen release scope
 - `launch-evidence.json` and `launch-evidence.md` are attached or linked without secret values
@@ -239,6 +243,7 @@ Before calling Search Book production-ready:
 npm run search-book:verify
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
+npm run search-book:check-living-docs-review
 node scripts/check-readiness-evidence.mjs
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-production-env.mjs
 node --env-file=/etc/symmio-search-book/search-book.env scripts/check-launch-readiness.mjs \

@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex living-docs review evidence guard
+- Task: Add a no-secret/no-raw guard for the living-docs reviewer summary path so the raw internal SQLite summary can be converted into count-only evidence without leaking user questions, rating notes, Discord/Lafa text, or token-like values.
+- Scope: New checker script, package/build verification wiring, status docs/evidence checks, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: Temporary answer-engine service seeds answer/rating/page-feedback/unanswered events, raw `summarize-living-docs-gaps` remains flagged internal, sanitized evidence includes only counts/booleans, full verify stays green, and only #11/#4 remain open.
+- Result: Added `npm run search-book:check-living-docs-review` and wired it into `npm run search-book:verify`. Focused guard passed with 4 questions, 2 ratings, 4 gaps, 3 gap-backlog rows, 2 low-rated answers, 2 unanswered/refused questions, 1 repeated-question group, 3 recommendations, 5 seeded raw values present in the raw internal summary, 0 seeded raw values in sanitized evidence, 0 raw-key hits, `valuesPrinted:false`, and no loaded LLM credentials. Full verify passed with 26 build steps, 90 syntax checks, `livingDocsReviewEvidence:passed`, quality gates `29/30`, source ingestion `17/17`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex workflow contract guard
 - Task: Add a no-secret guard for the GitHub Actions workflow contracts so verify, launch-evidence, release-dry-run, and static-artifact workflows keep running the checked validators and summary paths.
 - Scope: workflow checker script, package/build verification wiring, workflow/status docs, and `_local/agent-worklog.md`.

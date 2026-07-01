@@ -17,7 +17,7 @@ needs no network or API key. Live LLM answers (`--mode llm`) are optional and ga
 
 | Path | What |
 | --- | --- |
-| `scripts/` | 64 build/serve/smoke/evidence scripts (Node built-ins only). |
+| `scripts/` | 65 build/serve/smoke/evidence scripts (Node built-ins only). |
 | `data/` | Deterministic generated artifacts (manifest, routes, chunks, audits…). |
 | `content/` | Authored + generated corpus markdown. |
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
@@ -82,6 +82,7 @@ npm run search-book:check-production-env-fixture
 npm run search-book:check-deploy-templates
 npm run search-book:check-backup-restore
 npm run search-book:check-github-workflows
+npm run search-book:check-living-docs-review
 npm run search-book:check-production-env
 npm run search-book:check-launch -- --site-url https://docs.example.com --service-url https://answers.example.com --backup-manifest /path/to/latest.manifest.json --run-verify
 
@@ -115,9 +116,10 @@ npm run search-book:smoke-preview-service
 ```
 
 The `search-book:verify` step includes the no-secret local monitoring evidence probe for
-`/health` and token-gated `/api/search-book/metrics`, plus the no-secret backup/restore
-evidence guard against a temporary SQLite answer-engine database and the workflow-contract
-guard for the checked GitHub Actions release paths. The workflow does not
+`/health` and token-gated `/api/search-book/metrics`, the no-secret backup/restore
+evidence guard against a temporary SQLite answer-engine database, the workflow-contract
+guard for the checked GitHub Actions release paths, and the living-docs reviewer evidence
+guard that proves raw internal summaries can be reduced to count-only evidence. The workflow does not
 load LLM credentials, production env files, moderation tokens, metrics tokens, or Discord tokens.
 
 ## Answer-engine service
@@ -137,7 +139,11 @@ job (`npm run search-book:living-docs-summary`), and the backup/restore-check ut
 (`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. The
 CI-safe `npm run search-book:check-backup-restore` guard starts a temporary answer-engine
 service, persists answer/rating/page-feedback events, runs the backup utility with
-restore-check, and emits counts/booleans only. Before
+restore-check, and emits counts/booleans only.
+`npm run search-book:check-living-docs-review` starts a temporary answer-engine service,
+persists answer, low-rating, page-feedback, repeated-question, and refusal events, runs the
+raw internal reviewer summary, then emits a count-only evidence report proving raw questions,
+rating notes, and token-like marker values were not printed. Before
 production launch, run `npm run search-book:check-production-env` with the service env
 loaded; it fails local defaults such as wildcard CORS, extractive default mode, repo-local
 SQLite paths, missing production VPS LLM env, missing reviewer/cadence assignment, and missing

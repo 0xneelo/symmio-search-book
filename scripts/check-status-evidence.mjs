@@ -128,6 +128,7 @@ function expectedChecks(evidence) {
       { id: "quality-gates", allOf: [`${evidence.qualityGates} gates`] },
       { id: "syntax-checks", allOf: [`${evidence.syntaxChecks} syntax checks`] },
       { id: "workflow-contract", allOf: ["GitHub workflow contract consistency", "search-book:check-github-workflows"] },
+      { id: "living-docs-review-evidence", allOf: ["no-secret living-docs reviewer evidence privacy", "search-book:check-living-docs-review"] },
       { id: "llm-eval", allOf: [evidence.liveEvalTotal, evidence.liveEvalAdversarial, evidence.liveEvalAnswerValidation] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
@@ -144,6 +145,7 @@ function expectedChecks(evidence) {
       { id: "page-state", allOf: [`${evidence.publicNavigationPages} published public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`] },
       { id: "live-eval", allOf: [evidence.liveEvalTotal] },
       { id: "workflow-contract", allOf: ["search-book:check-github-workflows", "workflow contract guard"] },
+      { id: "living-docs-review-evidence", allOf: ["search-book:check-living-docs-review", "living-docs reviewer evidence"] },
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-clean-repo", "repository dirty state `false`", "same commit", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`", "backup-restore evidence"] },
       { id: "completion-boundary", allOf: openOperatorFragments },
     ],
@@ -157,6 +159,7 @@ function expectedChecks(evidence) {
       { id: "discord-route-coverage", allOf: [`${evidence.discordPageFitCoverage} page-fit groups`, `${evidence.discordSingleRouteRemaining} single-route groups`, `source-backed triage ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready ${evidence.discordRefusalPolicyReady} refusal items`] },
       { id: "backup-restore-evidence", allOf: ["backup-restore evidence passed", "4/4 tables matched"] },
       { id: "workflow-contract", allOf: ["GitHub workflow contract evidence reports 4/4 expected workflows"] },
+      { id: "living-docs-review-evidence", allOf: ["living-docs review evidence passed", "living-docs reviewer evidence reports"] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
     "README.md": [
@@ -166,6 +169,7 @@ function expectedChecks(evidence) {
       { id: "spec-reconciliation-evidence", allOf: ["original-spec reconciliation"] },
       { id: "backup-restore-script", allOf: ["search-book:check-backup-restore"] },
       { id: "workflow-contract-script", allOf: ["search-book:check-github-workflows"] },
+      { id: "living-docs-review-script", allOf: ["search-book:check-living-docs-review"] },
     ],
   };
 }

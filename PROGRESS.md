@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Living Docs Review Evidence Guard
+
+- Added `npm run search-book:check-living-docs-review`, a no-secret guard for the living-docs reviewer summary path.
+- The guard starts a temporary answer-engine service, persists answer, low-rating, page-feedback, repeated-question, and refusal events, runs the raw internal `living-docs-summary`, and emits only count/boolean evidence.
+- The check fails if seeded raw question text, rating notes, Discord/Lafa-like text, token-like values, or raw summary field labels appear in the sanitized evidence.
+
 ## 2026-07-01 — Workflow Contract Guard
 
 - Added `npm run search-book:check-github-workflows`, a no-secret guard for the four checked GitHub Actions workflows: verify, launch evidence, release dry run, and static artifact.

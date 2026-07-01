@@ -392,6 +392,20 @@ function runGithubWorkflowsCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runLivingDocsReviewEvidenceCheck(env, dryRun) {
+  const step = {
+    id: "check-living-docs-review-evidence",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-living-docs-review-evidence.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runMonitoringEvidenceCheck(env, dryRun) {
   const step = {
     id: "check-monitoring-evidence",
@@ -583,6 +597,7 @@ if (args.dryRun) {
     runDeployTemplatesCheck(env, true);
     runBackupRestoreEvidenceCheck(env, true);
     runGithubWorkflowsCheck(env, true);
+    runLivingDocsReviewEvidenceCheck(env, true);
     runMonitoringEvidenceCheck(env, true);
   }
   process.exit(0);
@@ -611,6 +626,7 @@ let productionEnvFixture = null;
 let deployTemplates = null;
 let backupRestoreEvidence = null;
 let githubWorkflows = null;
+let livingDocsReviewEvidence = null;
 let monitoringEvidence = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
@@ -630,6 +646,7 @@ if (args.verify) {
   deployTemplates = runDeployTemplatesCheck(env, false);
   backupRestoreEvidence = runBackupRestoreEvidenceCheck(env, false);
   githubWorkflows = runGithubWorkflowsCheck(env, false);
+  livingDocsReviewEvidence = runLivingDocsReviewEvidenceCheck(env, false);
   monitoringEvidence = runMonitoringEvidenceCheck(env, false);
 }
 
@@ -654,6 +671,7 @@ console.log(JSON.stringify({
   deployTemplates,
   backupRestoreEvidence,
   githubWorkflows,
+  livingDocsReviewEvidence,
   monitoringEvidence,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));
