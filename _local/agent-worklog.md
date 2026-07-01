@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord refusal launch evidence
+- Task: Promote the Discord/Lafa runtime refusal regression into launch-evidence and release-dry-run packets.
+- Scope: `scripts/build-launch-evidence-packet.mjs`, `scripts/run-release-dry-run.mjs`, packet validators, evidence summary renderer/checker, status docs, and `_local/agent-worklog.md`.
+- Status: Checkpointing.
+- Verification target: Launch/release packets include count-only `check-discord-refusals` evidence, validators fail if it is missing or failed, summaries stay no-raw/no-secret, full verify and clean release dry-run pass, only #11/#4 remain operator gates.
+- Result: Focused guards passed (`check-discord-refusals`, `check-status-evidence`, `check-evidence-summary`, `git diff --check`); full `npm run search-book:verify` passed with 26 build steps, 83 syntax checks, 820 exact routes, 2,884 chunks, quality gates 29/30, Discord refusal runtime passed, and only #11/#4 as operator gates. Clean release dry-run target is `/tmp/search-book-release-dry-run-clean-repo-discord-refusal-runtime-evidence-20260701-1` after checkpoint commit.
+
 ## 2026-07-01 — Codex Discord refusal runtime regression
 - Task: Add a deterministic runtime regression proving public-safe Discord/Lafa refusal-lane probes still refuse before retrieval/LLM answer synthesis.
 - Scope: `scripts/check-discord-refusal-runtime.mjs`, `scripts/build-all.mjs`, `package.json`, status docs, and `_local/agent-worklog.md`.

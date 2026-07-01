@@ -93,6 +93,10 @@ function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
 
+function normalizedDiscordRefusalRuntime(packet) {
+  return packet.discordRefusalRuntime?.parsed || {};
+}
+
 function normalizedPublicationBoundaries(packet) {
   return packet.publicationBoundaries?.parsed || {};
 }
@@ -194,6 +198,27 @@ function discordReviewArtifactsReady(evidence = {}) {
   );
 }
 
+function discordRefusalRuntimeReady(evidence = {}) {
+  const probes = Array.isArray(evidence.evidence?.probes) ? evidence.evidence.probes : [];
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.secrets?.valuesPrinted === false
+    && evidence.secrets?.llmCredentialsLoaded === false
+    && Number(evidence.evidence?.routingRefusals || 0) === 2
+    && probes.length === 2
+    && probes.every((probe) => (
+      probe.status === "refusal"
+      && probe.refusalReason === "discord-corpus-review-required"
+      && probe.gapId === "G-001"
+      && Number(probe.citations || 0) === 0
+      && Number(probe.answerBytes || 0) === 0
+    ))
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function evidenceSummaryRendererReady(evidence = {}) {
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
   return (
@@ -231,6 +256,7 @@ function validateLaunchPacket(packet, packetPath) {
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
+  const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const repository = packet.repository || {};
@@ -318,6 +344,28 @@ function validateLaunchPacket(packet, packetPath) {
       editorialQueue: discordReviewArtifacts.editorialQueue || null,
       rawKeyHits: discordReviewArtifacts.summary?.rawKeyHits ?? null,
       sampleLeaks: discordReviewArtifacts.summary?.sampleLeaks ?? null,
+    }),
+  );
+  addCheck(
+    checks,
+    "discord-refusal-runtime-passed",
+    packet.discordRefusalRuntime?.passed === true,
+    `passed=${packet.discordRefusalRuntime?.passed}`,
+  );
+  addCheck(
+    checks,
+    "discord-refusal-runtime-status",
+    discordRefusalRuntime.status === "passed",
+    `status=${discordRefusalRuntime.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "discord-refusal-runtime-ready",
+    discordRefusalRuntimeReady(discordRefusalRuntime),
+    JSON.stringify({
+      routingRefusals: discordRefusalRuntime.evidence?.routingRefusals ?? null,
+      probes: discordRefusalRuntime.evidence?.probes || [],
+      secrets: discordRefusalRuntime.secrets || null,
     }),
   );
   addCheck(
@@ -418,6 +466,12 @@ function validateLaunchPacket(packet, packetPath) {
         routedItems: discordReviewArtifacts.summary?.routedItems ?? null,
         routeCoverage: discordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: discordReviewArtifacts.editorialQueue || null,
+      },
+      discordRefusalRuntimeStatus: discordRefusalRuntime.status || null,
+      discordRefusalRuntime: {
+        routingRefusals: discordRefusalRuntime.evidence?.routingRefusals ?? null,
+        probes: discordRefusalRuntime.evidence?.probes || [],
+        secrets: discordRefusalRuntime.secrets || null,
       },
       publicationBoundariesStatus: publicationBoundaries.status || null,
       publicationBoundaries: publicationBoundaries.evidence || null,

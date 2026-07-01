@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-01 — Discord Refusal Runtime Launch Evidence
+
+- Added Discord refusal-runtime evidence to launch evidence packets and release dry-run summaries.
+- Launch and release packet validators now require the two public-safe Discord/Lafa runtime probes to stay refusal-only with `discord-corpus-review-required`, `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials.
+- Evidence summaries now include a count-only Discord refusal runtime row and continue to reject raw Discord/Lafa/source text and secret-like values.
+
 ## 2026-07-01 — Discord Refusal Runtime Regression
 
 - Added `npm run search-book:check-discord-refusals`, a deterministic extractive-mode runtime guard for public-safe Discord/Lafa refusal probes.

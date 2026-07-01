@@ -17,6 +17,7 @@ The standalone Search Book repo is the canonical working copy:
 - Current deterministic evidence: 820 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue generated,
+  Discord refusal runtime probes `2/2` passing with no LLM credentials loaded,
   publication boundaries passed, quality gates `29/30`
 
 Only these production gates remain:
@@ -188,6 +189,7 @@ Production pass criteria:
 - deterministic verify runs in the launch gate
 - source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families
 - sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered, 0 single-route groups remaining, source-backed triage 19/19 page-fit groups, public-copy ready 19/19 page-fit groups, public-copy review required 0/19 page-fit groups, refusal policy ready 2/2 refusal items, and refusal policy review required 0/2 refusal items
+- Discord refusal runtime evidence reports 2/2 public-safe probes refused with `discord-corpus-review-required`, `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`
 - reviewer owner/cadence evidence is configured

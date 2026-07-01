@@ -258,12 +258,16 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || null;
   const statusEvidence = packet.statusEvidence?.parsed || null;
   const discordReviewArtifacts = packet.discordReviewArtifacts?.parsed || null;
+  const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || null;
   const publicationBoundaries = packet.publicationBoundaries?.parsed || null;
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || null;
   const statusEvidenceDocuments = statusEvidence?.documents || [];
   const statusEvidencePassedDocuments = statusEvidenceDocuments.filter((doc) => doc.passed).length;
   const discordSummary = discordReviewArtifacts?.summary || null;
   const discordQueue = discordReviewArtifacts?.editorialQueue || null;
+  const discordRefusalProbes = Array.isArray(discordRefusalRuntime?.evidence?.probes)
+    ? discordRefusalRuntime.evidence.probes
+    : [];
   const publicationBoundaryChecks = publicationBoundaries?.checks || [];
   const publicationBoundaryChecksPassed = publicationBoundaryChecks.filter((check) => check.passed).length;
   return {
@@ -277,6 +281,7 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
     sourceFreshnessStatus: sourceFreshness?.status || null,
     statusEvidenceStatus: statusEvidence?.status || null,
     discordReviewArtifactsStatus: discordReviewArtifacts?.status || null,
+    discordRefusalRuntimeStatus: discordRefusalRuntime?.status || null,
     publicationBoundariesStatus: publicationBoundaries?.status || null,
     evidenceSummaryRendererStatus: evidenceSummaryRenderer?.status || null,
     sourceFreshness: sourceFreshness
@@ -319,6 +324,24 @@ function summarizeLaunchEvidence(launchEvidenceDir) {
                 sampleLeaks: discordQueue.sampleLeaks ?? null,
               }
             : null,
+        }
+      : null,
+    discordRefusalRuntime: discordRefusalRuntime
+      ? {
+          status: discordRefusalRuntime.status || null,
+          probes: discordRefusalProbes.map((probe) => ({
+            id: probe.id || "",
+            status: probe.status || "",
+            refusalReason: probe.refusalReason || "",
+            gapId: probe.gapId || "",
+            citations: probe.citations ?? null,
+            answerBytes: probe.answerBytes ?? null,
+          })),
+          routingRefusals: discordRefusalRuntime.evidence?.routingRefusals ?? null,
+          secrets: {
+            valuesPrinted: discordRefusalRuntime.secrets?.valuesPrinted === true,
+            llmCredentialsLoaded: discordRefusalRuntime.secrets?.llmCredentialsLoaded === true,
+          },
         }
       : null,
     publicationBoundaries: publicationBoundaries
@@ -468,6 +491,9 @@ Sensitive-pattern matches: \`${packet.secrets.sensitiveMatches.length}\`
 - Discord routed review items: \`${launch.discordReviewArtifacts?.summary?.routedItems ?? "unknown"}\`
 - Discord queue page-fit/refusal items: \`${launch.discordReviewArtifacts?.editorialQueue?.pageFitReviewReady ?? "unknown"}/${launch.discordReviewArtifacts?.editorialQueue?.refusalReviewReady ?? "unknown"}\`
 - Discord queue raw table hits: \`${launch.discordReviewArtifacts?.editorialQueue?.rawTableHits ?? "unknown"}\`
+- Discord refusal runtime status: \`${launch.discordRefusalRuntimeStatus || "missing"}\`
+- Discord refusal runtime probes: \`${launch.discordRefusalRuntime?.probes?.filter((probe) => probe.status === "refusal").length ?? "unknown"}/${launch.discordRefusalRuntime?.probes?.length ?? "unknown"}\`
+- Discord refusal runtime LLM credentials loaded: \`${launch.discordRefusalRuntime?.secrets?.llmCredentialsLoaded ?? "unknown"}\`
 - Publication boundaries status: \`${launch.publicationBoundariesStatus || "missing"}\`
 - Publication boundary public/source pages: \`${launch.publicationBoundaries?.evidence?.publicNavigationPages ?? "unknown"}/${launch.publicationBoundaries?.evidence?.sourceCompanionPages ?? "unknown"}\`
 - Publication boundary exact/FAQ routes: \`${launch.publicationBoundaries?.evidence?.exactRoutes ?? "unknown"}/${launch.publicationBoundaries?.evidence?.faqAnswerable ?? "unknown"}\`
@@ -621,6 +647,7 @@ try {
       sourceFreshnessStatus: packet.launchEvidence?.sourceFreshnessStatus || null,
       statusEvidenceStatus: packet.launchEvidence?.statusEvidenceStatus || null,
       discordReviewArtifactsStatus: packet.launchEvidence?.discordReviewArtifactsStatus || null,
+      discordRefusalRuntimeStatus: packet.launchEvidence?.discordRefusalRuntimeStatus || null,
       publicationBoundariesStatus: packet.launchEvidence?.publicationBoundariesStatus || null,
       evidenceSummaryRendererStatus: packet.launchEvidence?.evidenceSummaryRendererStatus || null,
     },

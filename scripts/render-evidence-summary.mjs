@@ -65,17 +65,31 @@ function markdownTable(title, rows) {
   ].join("\n");
 }
 
+function refusalProbeCount(runtime = {}) {
+  const probes = Array.isArray(runtime.probes)
+    ? runtime.probes
+    : Array.isArray(runtime.evidence?.probes)
+      ? runtime.evidence.probes
+      : [];
+  return {
+    passed: probes.filter((probe) => probe.status === "refusal").length,
+    total: probes.length,
+  };
+}
+
 function launchSummary(packet) {
   const launch = packet.launchEvidence?.parsed?.evidence?.launchReadiness || packet.launchEvidence?.parsed || {};
   const monitoring = packet.monitoringEvidence?.parsed || {};
   const sourceFreshness = packet.sourceFreshnessEvidence?.parsed || {};
   const statusEvidence = packet.statusEvidence?.parsed || {};
   const discord = packet.discordReviewArtifacts?.parsed || {};
+  const discordRefusalRuntime = packet.discordRefusalRuntime?.parsed || {};
   const publication = packet.publicationBoundaries?.parsed || {};
   const evidenceSummaryRenderer = packet.evidenceSummaryRenderer?.parsed || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
+  const refusalProbes = refusalProbeCount(discordRefusalRuntime);
   const publicationEvidence = publication.evidence || {};
   const publicationChecks = publication.checks || [];
   const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
@@ -99,6 +113,10 @@ function launchSummary(packet) {
     ["Discord source-backed triage", `\`${routeCoverage.triageReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord public copy ready", `\`${routeCoverage.publicCopyReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord refusal policy", `\`${queue.refusalPolicyReadyItems ?? "unknown"}/${queue.refusalReviewReady ?? "unknown"} refusals\``],
+    [
+      "Discord refusal runtime",
+      `\`${discordRefusalRuntime.status || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
+    ],
     ["Discord editorial queue", `\`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
       "Discord leakage checks",
@@ -133,11 +151,13 @@ function releaseSummary(packet) {
   const sourceFreshness = launch.sourceFreshness || {};
   const statusEvidence = launch.statusEvidence || {};
   const discord = launch.discordReviewArtifacts || {};
+  const discordRefusalRuntime = launch.discordRefusalRuntime || {};
   const publication = launch.publicationBoundaries || {};
   const evidenceSummaryRenderer = launch.evidenceSummaryRenderer || {};
   const discordSummary = discord.summary || {};
   const routeCoverage = discordSummary.routeCoverage || {};
   const queue = discord.editorialQueue || {};
+  const refusalProbes = refusalProbeCount(discordRefusalRuntime);
   const publicationEvidence = publication.evidence || {};
   const readinessRouteCoverage = packet.readiness?.discordRouteCoverage || {};
   const stepSummary = (packet.steps || [])
@@ -166,6 +186,10 @@ function releaseSummary(packet) {
     ["Discord source-backed triage", `\`${routeCoverage.triageReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord public copy ready", `\`${routeCoverage.publicCopyReadyPageFitGroups ?? "unknown"}/${routeCoverage.totalPageFitGroups ?? "unknown"} page-fit groups\``],
     ["Discord refusal policy", `\`${queue.refusalPolicyReadyItems ?? "unknown"}/${queue.refusalReviewReady ?? "unknown"} refusals\``],
+    [
+      "Discord refusal runtime",
+      `\`${launch.discordRefusalRuntimeStatus || "missing"}\` (${refusalProbes.passed}/${refusalProbes.total} probes; LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`)`,
+    ],
     ["Discord editorial queue", `\`${queue.pageFitReviewReady ?? "unknown"} page-fit groups / ${queue.refusalReviewReady ?? "unknown"} refusals\``],
     [
       "Discord leakage checks",

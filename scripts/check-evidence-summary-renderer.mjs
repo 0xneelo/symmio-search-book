@@ -98,6 +98,38 @@ function makeLaunchPacket() {
         },
       },
     },
+    discordRefusalRuntime: {
+      parsed: {
+        status: "passed",
+        secrets: {
+          valuesPrinted: false,
+          llmCredentialsLoaded: false,
+        },
+        evidence: {
+          routingRefusals: 2,
+          probes: [
+            {
+              id: "discord-repeated-solver-question",
+              status: "refusal",
+              refusalReason: "discord-corpus-review-required",
+              gapId: "G-001",
+              citations: 0,
+              answerBytes: 0,
+              rawQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
+            },
+            {
+              id: "lafa-identity-public-safe",
+              status: "refusal",
+              refusalReason: "discord-corpus-review-required",
+              gapId: "G-001",
+              citations: 0,
+              answerBytes: 0,
+              answerExcerpt: "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
+            },
+          ],
+        },
+      },
+    },
     publicationBoundaries: {
       parsed: {
         status: "passed",
@@ -153,6 +185,7 @@ function makeReleasePacket() {
       sourceFreshnessStatus: "passed",
       statusEvidenceStatus: "passed",
       discordReviewArtifactsStatus: "passed",
+      discordRefusalRuntimeStatus: "passed",
       publicationBoundariesStatus: "passed",
       sourceFreshness: {
         totals: { passed: 4, checks: 4 },
@@ -190,6 +223,33 @@ function makeReleasePacket() {
           rawTableHits: 0,
           sampleLeaks: 0,
           relatedQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
+        },
+      },
+      discordRefusalRuntime: {
+        status: "passed",
+        probes: [
+          {
+            id: "discord-repeated-solver-question",
+            status: "refusal",
+            refusalReason: "discord-corpus-review-required",
+            gapId: "G-001",
+            citations: 0,
+            answerBytes: 0,
+            rawQuestion: "RAW_DISCORD_QUESTION_SHOULD_NOT_PRINT",
+          },
+          {
+            id: "lafa-identity-public-safe",
+            status: "refusal",
+            refusalReason: "discord-corpus-review-required",
+            gapId: "G-001",
+            citations: 0,
+            answerBytes: 0,
+            answerExcerpt: "RAW_LAFA_EXCERPT_SHOULD_NOT_PRINT",
+          },
+        ],
+        secrets: {
+          valuesPrinted: false,
+          llmCredentialsLoaded: false,
         },
       },
       publicationBoundaries: {
@@ -258,6 +318,7 @@ function main() {
       && /Discord source-backed triage \| `19\/19 page-fit groups`/.test(combined)
       && /Discord public copy ready \| `19\/19 page-fit groups`/.test(combined)
       && /Discord refusal policy \| `2\/2 refusals`/.test(combined)
+      && /Discord refusal runtime \| `passed` \(2\/2 probes; LLM credentials loaded: `false`\)/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
       && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined),
     "",

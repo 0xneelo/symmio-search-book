@@ -419,6 +419,13 @@ function runDiscordReviewArtifactsCommand() {
   };
 }
 
+function runDiscordRefusalRuntimeCommand() {
+  return {
+    source: "discord-refusal-runtime",
+    result: commandResult(["scripts/check-discord-refusal-runtime.mjs"]),
+  };
+}
+
 function summarizePublicationBoundariesParsed(parsed) {
   if (!parsed) return null;
   const evidence = parsed.evidence || {};
@@ -471,6 +478,7 @@ function renderMarkdown(packet) {
   const sourceFreshness = normalizedSourceFreshnessEvidence(packet);
   const statusEvidence = normalizedStatusEvidence(packet);
   const discordReviewArtifacts = normalizedDiscordReviewArtifacts(packet);
+  const discordRefusalRuntime = normalizedDiscordRefusalRuntime(packet);
   const publicationBoundaries = normalizedPublicationBoundaries(packet);
   const evidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(packet);
   const totals = launch.totals || {};
@@ -481,6 +489,9 @@ function renderMarkdown(packet) {
   const discordSummary = discordReviewArtifacts.summary || {};
   const discordRouteCoverage = discordSummary.routeCoverage || {};
   const discordQueue = discordReviewArtifacts.editorialQueue || {};
+  const discordRefusalEvidence = discordRefusalRuntime.evidence || {};
+  const discordRefusalProbes = discordRefusalEvidence.probes || [];
+  const discordRefusalPassedProbes = discordRefusalProbes.filter((probe) => probe.status === "refusal").length;
   const publicationEvidence = publicationBoundaries.evidence || {};
   const publicationChecks = publicationBoundaries.checks || [];
   const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;
@@ -565,6 +576,13 @@ Secrets printed: \`${packet.secrets.valuesPrinted}\`
 - Sample leaks: \`${discordSummary.sampleLeaks ?? "unknown"}\`
 - Queue raw table hits: \`${discordQueue.rawTableHits ?? "unknown"}\`
 
+## Discord Refusal Runtime Evidence
+
+- Discord refusal runtime status: \`${discordRefusalRuntime.status || "missing"}\`
+- Runtime refusal probes: \`${discordRefusalPassedProbes}/${discordRefusalProbes.length}\`
+- Values printed: \`${discordRefusalRuntime.secrets?.valuesPrinted ?? "unknown"}\`
+- LLM credentials loaded: \`${discordRefusalRuntime.secrets?.llmCredentialsLoaded ?? "unknown"}\`
+
 ## Publication Boundary Evidence
 
 - Publication boundaries status: \`${publicationBoundaries.status || "missing"}\`
@@ -627,6 +645,10 @@ function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
 
+function normalizedDiscordRefusalRuntime(packet) {
+  return packet.discordRefusalRuntime?.parsed || {};
+}
+
 function normalizedPublicationBoundaries(packet) {
   return packet.publicationBoundaries?.parsed || {};
 }
@@ -642,6 +664,7 @@ function buildPacket(
   sourceFreshnessEvidence,
   statusEvidence,
   discordReviewArtifacts,
+  discordRefusalRuntime,
   publicationBoundaries,
   evidenceSummaryRenderer,
 ) {
@@ -650,6 +673,7 @@ function buildPacket(
   const sourceFreshnessParsed = sourceFreshnessEvidence.result.parsed || null;
   const statusEvidenceParsed = statusEvidence.result.parsed || null;
   const discordReviewArtifactsParsed = discordReviewArtifacts.result.parsed || null;
+  const discordRefusalRuntimeParsed = discordRefusalRuntime.result.parsed || null;
   const publicationBoundariesParsed = publicationBoundaries.result.parsed || null;
   const evidenceSummaryRendererParsed = evidenceSummaryRenderer.result.parsed || null;
   const commandPassed = evidence.result.passed && (!parsed || parsed.status === "passed");
@@ -660,6 +684,8 @@ function buildPacket(
     statusEvidence.result.passed && (!statusEvidenceParsed || statusEvidenceParsed.status === "passed");
   const discordReviewArtifactsPassed =
     discordReviewArtifacts.result.passed && (!discordReviewArtifactsParsed || discordReviewArtifactsParsed.status === "passed");
+  const discordRefusalRuntimePassed =
+    discordRefusalRuntime.result.passed && (!discordRefusalRuntimeParsed || discordRefusalRuntimeParsed.status === "passed");
   const publicationBoundariesPassed =
     publicationBoundaries.result.passed && (!publicationBoundariesParsed || publicationBoundariesParsed.status === "passed");
   const evidenceSummaryRendererPassed =
@@ -670,6 +696,7 @@ function buildPacket(
       && sourceFreshnessPassed
       && statusEvidencePassed
       && discordReviewArtifactsPassed
+      && discordRefusalRuntimePassed
       && publicationBoundariesPassed
       && evidenceSummaryRendererPassed
       ? "passed"
@@ -690,6 +717,8 @@ function buildPacket(
     statusEvidenceCommand: statusEvidence.result.command,
     discordReviewArtifactsSource: discordReviewArtifacts.source,
     discordReviewArtifactsCommand: discordReviewArtifacts.result.command,
+    discordRefusalRuntimeSource: discordRefusalRuntime.source,
+    discordRefusalRuntimeCommand: discordRefusalRuntime.result.command,
     publicationBoundariesSource: publicationBoundaries.source,
     publicationBoundariesCommand: publicationBoundaries.result.command,
     evidenceSummaryRendererSource: evidenceSummaryRenderer.source,
@@ -753,6 +782,15 @@ function buildPacket(
       stdoutTail: discordReviewArtifacts.result.stdoutTail,
       stderrTail: discordReviewArtifacts.result.stderrTail,
     },
+    discordRefusalRuntime: {
+      exitCode: discordRefusalRuntime.result.exitCode,
+      signal: discordRefusalRuntime.result.signal,
+      passed: discordRefusalRuntime.result.passed,
+      parsed: discordRefusalRuntimeParsed,
+      error: discordRefusalRuntime.result.error,
+      stdoutTail: discordRefusalRuntime.result.stdoutTail,
+      stderrTail: discordRefusalRuntime.result.stderrTail,
+    },
     publicationBoundaries: {
       exitCode: publicationBoundaries.result.exitCode,
       signal: publicationBoundaries.result.signal,
@@ -799,6 +837,7 @@ function main() {
   const sourceFreshnessEvidence = runSourceFreshnessCommand(args);
   const statusEvidence = runStatusEvidenceCommand();
   const discordReviewArtifacts = runDiscordReviewArtifactsCommand();
+  const discordRefusalRuntime = runDiscordRefusalRuntimeCommand();
   const publicationBoundaries = runPublicationBoundariesCommand();
   const evidenceSummaryRenderer = runEvidenceSummaryRendererCommand();
   const packet = writePacket(
@@ -810,6 +849,7 @@ function main() {
       sourceFreshnessEvidence,
       statusEvidence,
       discordReviewArtifacts,
+      discordRefusalRuntime,
       publicationBoundaries,
       evidenceSummaryRenderer,
     ),
@@ -829,6 +869,7 @@ function main() {
     sourceFreshnessStatus: normalizedSourceFreshnessEvidence(packet).status || (packet.sourceFreshnessEvidence?.passed ? "passed" : "failed"),
     statusEvidenceStatus: normalizedStatusEvidence(packet).status || (packet.statusEvidence?.passed ? "passed" : "failed"),
     discordReviewArtifactsStatus: normalizedDiscordReviewArtifacts(packet).status || (packet.discordReviewArtifacts?.passed ? "passed" : "failed"),
+    discordRefusalRuntimeStatus: normalizedDiscordRefusalRuntime(packet).status || (packet.discordRefusalRuntime?.passed ? "passed" : "failed"),
     publicationBoundariesStatus: normalizedPublicationBoundaries(packet).status || (packet.publicationBoundaries?.passed ? "passed" : "failed"),
     evidenceSummaryRendererStatus: normalizedEvidenceSummaryRenderer(packet).status || (packet.evidenceSummaryRenderer?.passed ? "passed" : "failed"),
     readiness: {

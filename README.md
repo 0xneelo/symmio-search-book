@@ -144,6 +144,8 @@ drill, monitoring probe, and Vibe public-docs source-freshness check when no dep
 are supplied. The packet includes the current sanitized Discord route-coverage snapshot for
 Search Insights, Discord review-artifact evidence for the no-raw editorial queue including
 source-backed existing-page triage, public-copy readiness state, and refusal-policy readiness state,
+Discord refusal-runtime evidence proving the public-safe Discord/Lafa probes remain refusal-only
+without loaded LLM credentials,
 source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
 evidence as public/source/internal counts only, and status-document evidence proving
 current report counts match generated data.
@@ -158,13 +160,13 @@ To run the full local release rehearsal, run `npm run search-book:release-dry-ru
 builds the static artifact, smoke-tests the copied artifact both statically and with the
 answer-engine bridge, builds launch evidence, and writes `release-dry-run.json` plus
 `release-dry-run.md` under `/tmp` by default. Its release and launch-evidence packets
-include source-freshness, status-document, Discord review-artifact, and evidence-summary
-renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
+include source-freshness, status-document, Discord review-artifact, Discord refusal-runtime,
+and evidence-summary renderer no-raw/no-secret evidence, plus publication-boundary evidence proving source
 companions stay out of public navigation/routes and internal drafts stay out of runtime
 context, while
 release, static-artifact, and launch-evidence readiness snapshots all include the same
 Discord route-coverage counts, source-backed triage counts, public-copy readiness counts,
-refusal-policy readiness counts, and
+refusal-policy readiness counts, runtime refusal probe counts, and
 living-docs control flags, including service-backed page feedback.
 Validate a saved dry-run packet with `npm run search-book:check-release-dry-run-packet -- --packet <release-dry-run.json>`;
 the validator requires clean release and nested launch repository state from the same commit.

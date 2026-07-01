@@ -97,6 +97,10 @@ function normalizedDiscordReviewArtifacts(packet) {
   return packet.discordReviewArtifacts?.parsed || {};
 }
 
+function normalizedDiscordRefusalRuntime(packet) {
+  return packet.discordRefusalRuntime?.parsed || {};
+}
+
 function normalizedPublicationBoundaries(packet) {
   return packet.publicationBoundaries?.parsed || {};
 }
@@ -198,6 +202,27 @@ function discordReviewArtifactsReady(evidence = {}) {
   );
 }
 
+function discordRefusalRuntimeReady(evidence = {}) {
+  const probes = Array.isArray(evidence.evidence?.probes) ? evidence.evidence.probes : [];
+  const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  return (
+    evidence.status === "passed"
+    && evidence.secrets?.valuesPrinted === false
+    && evidence.secrets?.llmCredentialsLoaded === false
+    && Number(evidence.evidence?.routingRefusals || 0) === 2
+    && probes.length === 2
+    && probes.every((probe) => (
+      probe.status === "refusal"
+      && probe.refusalReason === "discord-corpus-review-required"
+      && probe.gapId === "G-001"
+      && Number(probe.citations || 0) === 0
+      && Number(probe.answerBytes || 0) === 0
+    ))
+    && checks.length > 0
+    && checks.every((check) => check.passed === true)
+  );
+}
+
 function evidenceSummaryRendererReady(evidence = {}) {
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
   return (
@@ -240,6 +265,7 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   const nestedSourceFreshness = normalizedSourceFreshnessEvidence(nestedLaunchPacket);
   const nestedStatusEvidence = normalizedStatusEvidence(nestedLaunchPacket);
   const nestedDiscordReviewArtifacts = normalizedDiscordReviewArtifacts(nestedLaunchPacket);
+  const nestedDiscordRefusalRuntime = normalizedDiscordRefusalRuntime(nestedLaunchPacket);
   const nestedPublicationBoundaries = normalizedPublicationBoundaries(nestedLaunchPacket);
   const nestedEvidenceSummaryRenderer = normalizedEvidenceSummaryRenderer(nestedLaunchPacket);
   const nestedSourceSecrets = nestedSourceFreshness.secrets || {};
@@ -306,6 +332,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
     "launch-summary-discord-review-artifacts-status",
     launchSummary.discordReviewArtifactsStatus === "passed",
     `discordReviewArtifactsStatus=${launchSummary.discordReviewArtifactsStatus || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "launch-summary-discord-refusal-runtime-status",
+    launchSummary.discordRefusalRuntimeStatus === "passed",
+    `discordRefusalRuntimeStatus=${launchSummary.discordRefusalRuntimeStatus || "missing"}`,
   );
   addCheck(
     checks,
@@ -393,6 +425,28 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
       editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
       rawKeyHits: nestedDiscordReviewArtifacts.summary?.rawKeyHits ?? null,
       sampleLeaks: nestedDiscordReviewArtifacts.summary?.sampleLeaks ?? null,
+    }),
+  );
+  addCheck(
+    checks,
+    "nested-discord-refusal-runtime-passed",
+    nestedLaunchPacket.discordRefusalRuntime?.passed === true,
+    `passed=${nestedLaunchPacket.discordRefusalRuntime?.passed}`,
+  );
+  addCheck(
+    checks,
+    "nested-discord-refusal-runtime-status",
+    nestedDiscordRefusalRuntime.status === "passed",
+    `status=${nestedDiscordRefusalRuntime.status || "missing"}`,
+  );
+  addCheck(
+    checks,
+    "nested-discord-refusal-runtime-ready",
+    discordRefusalRuntimeReady(nestedDiscordRefusalRuntime),
+    JSON.stringify({
+      routingRefusals: nestedDiscordRefusalRuntime.evidence?.routingRefusals ?? null,
+      probes: nestedDiscordRefusalRuntime.evidence?.probes || [],
+      secrets: nestedDiscordRefusalRuntime.secrets || null,
     }),
   );
   addCheck(
@@ -504,6 +558,12 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
         routedItems: nestedDiscordReviewArtifacts.summary?.routedItems ?? null,
         routeCoverage: nestedDiscordReviewArtifacts.summary?.routeCoverage || null,
         editorialQueue: nestedDiscordReviewArtifacts.editorialQueue || null,
+      },
+      discordRefusalRuntimeStatus: launchSummary.discordRefusalRuntimeStatus || null,
+      discordRefusalRuntime: {
+        routingRefusals: nestedDiscordRefusalRuntime.evidence?.routingRefusals ?? null,
+        probes: nestedDiscordRefusalRuntime.evidence?.probes || [],
+        secrets: nestedDiscordRefusalRuntime.secrets || null,
       },
       publicationBoundariesStatus: launchSummary.publicationBoundariesStatus || null,
       publicationBoundaries: nestedPublicationBoundaries.evidence || null,
