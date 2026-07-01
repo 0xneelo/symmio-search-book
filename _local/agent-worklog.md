@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex Discord internal-only text redaction
+- Task: Tighten the Discord corpus importer so committed `internal-only` data contains no raw or normalized Discord message text, then regenerate and verify the Search Book readiness data.
+- Scope: `scripts/build-discord-corpus.mjs`, regenerated `data/discord-corpus.*` and dependent readiness artifacts, privacy/status docs if needed, and `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `data/discord-corpus.json` keeps `content`, `normalizedContent`, `question`, `normalizedQuestion`, `answer`, and `relatedQuestion` empty in internal-only mode; counts remain imported/ready; `npm run search-book:verify`, `git diff --check`, and targeted Discord-text checks pass.
+- Result: Updated `scripts/build-discord-corpus.mjs` so internal-only question clusters serialize a stable `questionHash` while redacting `normalizedQuestion`; the help path now uses the standalone repo layout. Regenerated `data/discord-corpus.*` from the real export in internal-only mode. Targeted privacy assertion passed with zero non-empty `content`, `normalizedContent`, `question`, `normalizedQuestion`, `answer`, or `relatedQuestion` fields; import counts remain 5,000 messages, 723 question clusters, 837 Lafa candidates, and `corpusReady:true`. Updated status docs/runbook to state that Discord import is complete but exact Discord/Lafa claims still need editorial review. Full `npm run search-book:verify` passed with 24 build steps, 68 syntax checks, 17/17 source ingestion, 2,883 chunks, 801 authored pages, and quality gates `29/30` with only `operator-inbox` failing.
+
 ## 2026-07-01 — Codex real Discord corpus import
 - Task: Import the now-readable Symmio Discord export without reopening #2, preserve the imported corpus through deterministic verifies, and update readiness docs/inbox for #17.
 - Scope: `scripts/build-discord-corpus.mjs`, `data/discord-corpus.*`, generated readiness data, `_specs/app-docs/OPERATOR-INBOX.md`, GAPS/final-report/progress/completion docs, and `_local/agent-worklog.md`.

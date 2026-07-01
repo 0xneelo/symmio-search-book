@@ -4,7 +4,7 @@
 
 The prompt asks to mine Discord, especially Lafa answers and repeated support questions. Operator reconciliation on 2026-07-01 marks Discord access/export as provided and resolves OPERATOR-INBOX #2. Do not re-open #2.
 
-The repository has `scripts/build-discord-corpus.mjs` and generated `data/discord-corpus.*`, which now carry the real imported corpus from the provided Windows export. OPERATOR-INBOX #17 is resolved: the file became readable from WSL and the importer ran in `internal-only` mode with the single unambiguous `lafachief` author id resolved from the export. The committed corpus reports 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `corpusReady:true`, and `storesMessageText:false`.
+The repository has `scripts/build-discord-corpus.mjs` and generated `data/discord-corpus.*`, which now carry the real imported corpus from the provided Windows export. OPERATOR-INBOX #17 is resolved: the file became readable from WSL and the importer ran in `internal-only` mode with the single unambiguous `lafachief` author id resolved from the export. The committed corpus reports 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `corpusReady:true`, and `storesMessageText:false`. In checked-in `internal-only` data, raw and normalized Discord text fields are empty; clusters keep hashes and metadata for review routing.
 
 **Needed:** Review the generated question clusters and Lafa candidates before turning any specific Discord statement into public copy or an exact answer. Do not quote raw Discord text from the internal-only corpus.
 
@@ -122,7 +122,7 @@ The source spec names the Vibe Trading Notion workspace as a required working so
 
 Operator decisions recorded this session (Linear epic SYN-209; operator mirror in `_specs/app-docs/OPERATOR-INBOX.md`).
 
-- **G-001 Discord** — ✅ RESOLVED as a source-ingestion item on 2026-07-01: export/access is provided, #2 must not be re-opened, #17 is resolved, and `data/discord-corpus.json` imports 5,000 messages, 723 question clusters, and 837 configured Lafa candidates in internal-only mode. Remaining work is editorial review before public use of specific Discord claims.
+- **G-001 Discord** — ✅ RESOLVED as a source-ingestion item on 2026-07-01: export/access is provided, #2 must not be re-opened, #17 is resolved, and `data/discord-corpus.json` imports 5,000 messages, 723 question clusters, and 837 configured Lafa candidates in internal-only mode. Checked-in data redacts raw and normalized Discord text. Remaining work is editorial review before public use of specific Discord claims.
 - **G-002 Opyn sweep** — ✅ RESOLVED: Opyn excluded (shut down, low priority) — SYN-213. Sweep finalized 49/50 with documented exclusion.
 - **G-002A Manifest authoring** — Disposition: SYN-221 (promote source-companion drafts → publication pages + normalize terminology). Ongoing; the deterministic engine is already prod-ready.
 - **G-003 Referral depth** — ✅ RESOLVED: public = **15 levels** (SYN-212); historical backfill additive (never lowers a balance). Fix stale 5-level copy in `src/dashboard/volume.jsx`.

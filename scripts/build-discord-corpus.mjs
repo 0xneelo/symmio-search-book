@@ -47,7 +47,7 @@ function parseArgs(argv) {
     else if (arg === "--out-json") args.outJson = argv[++index];
     else if (arg === "--out-js") args.outJs = argv[++index];
     else if (arg === "--help") {
-      console.log(`Usage: node src/search-book/scripts/build-discord-corpus.mjs [--input export.json] [--from-api --channel-id <id>] [--publication-mode unknown|cite|paraphrase|internal-only]`);
+      console.log(`Usage: node scripts/build-discord-corpus.mjs [--input export.json] [--from-api --channel-id <id>] [--publication-mode unknown|cite|paraphrase|internal-only]`);
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -261,7 +261,8 @@ function buildQuestionClusters(messages, seededTopics, canStoreContent) {
     const existing =
       clusters.get(key) || {
         id: `discord-question-${sha(key)}`,
-        normalizedQuestion: key,
+        questionHash: sha(key),
+        normalizedQuestion: canStoreContent ? key : "",
         question: canStoreContent ? compact(message.content) : "",
         count: 0,
         messageIds: [],
@@ -284,7 +285,7 @@ function buildQuestionClusters(messages, seededTopics, canStoreContent) {
       channelIds: [...cluster.channelIds].sort(),
       seededTopicMatches: [...cluster.seededTopicMatches].sort(),
     }))
-    .sort((a, b) => b.count - a.count || a.normalizedQuestion.localeCompare(b.normalizedQuestion));
+    .sort((a, b) => b.count - a.count || (a.normalizedQuestion || a.id).localeCompare(b.normalizedQuestion || b.id));
 }
 
 function findPreviousQuestion(messages, index) {
@@ -389,7 +390,7 @@ function importContract() {
       "attachments[]",
     ],
     publicationModes: [...publicationModes],
-    defaultPrivacy: "Message text is omitted unless publication mode is cite/paraphrase or --store-content is set.",
+    defaultPrivacy: "Message and normalized question text are omitted unless publication mode is cite/paraphrase or --store-content is set.",
   };
 }
 

@@ -5,6 +5,7 @@
 - Re-probed the provided Windows Discord export and confirmed it is now readable from WSL.
 - Ran a temporary paraphrase-mode import first; it imported 5,000 messages, 723 question clusters, and 837 Lafa-name candidates, but would have stored message text, so it was not committed.
 - Resolved the Lafa author map locally from the export: there is one unambiguous `lafachief` author. Ran the committed import in `internal-only` mode with that author id, producing `data/discord-corpus.*` with `corpusReady:true`, 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, and `storesMessageText:false`.
+- Tightened the committed `internal-only` corpus privacy boundary after import: `content`, `normalizedContent`, `question`, `normalizedQuestion`, `answer`, and `relatedQuestion` are empty in checked-in data; question clusters keep stable hashes, counts, message ids, channels, timestamps, and seeded-topic matches for review routing.
 - Updated `scripts/build-discord-corpus.mjs` so deterministic no-input rebuilds preserve a checked-in ready corpus instead of reverting it to parked mode; explicit `--input`, `--from-api`, or `SEARCH_BOOK_DISCORD_EXPORT_PATH(S)` still rebuild from source.
 - Flipped OPERATOR-INBOX #17 to resolved without reopening #2, and updated current readiness docs to show #11 and #4 as the only remaining operator gates.
 - Updated the Discord/Lafa adversarial fixture to keep refusing exact Lafa-in-Discord claims until corpus review approves public paraphrases, instead of attaching resolved operator item #17.
@@ -90,7 +91,7 @@
 - Verified the live local preview manually: static page returned `200` with the Ask UI and service bridge, service `/health` returned `200` with 2,883 chunks and 799 routes, and "What is Vibe Trading?" returned `answered` with primary page `authored-vibe-product-overview`, 2 citations, and persisted telemetry.
 - Created restore-checked backup manifest `/tmp/search-book-localhost-8797-launch-drill.manifest.json`; backup status `passed`, restore-check `passed`, integrity `ok`, 4 tables checked, table counts matched, checksum present, and backup size positive.
 - Ran the staging launch gate against the live local preview/service with write-smoke: `13` checks, `10` passed, `0` failed, `3` expected staging warnings for reviewer owner, review cadence, and backup storage assignment. Fresh verify inside the launch gate passed with 24 build steps, 63 syntax checks, 799 routes, 2,883 chunks, 801 authored pages, and quality gates `27/30`; deployment smoke answered and recorded a rating with 2 citations.
-- Re-probed the provided Discord export path; direct Node open and `scripts/build-discord-corpus.mjs --input ... --publication-mode paraphrase` still return `EACCES`, so OPERATOR-INBOX #17 remains the single Discord file-release follow-up and #2 remains resolved.
+- Historical note from this earlier same-day checkpoint, superseded by the "Real Discord Corpus Import" entry above: the provided Discord export path still returned `EACCES` then, so OPERATOR-INBOX #17 was the single Discord file-release follow-up at that point and #2 remained resolved.
 
 ## 2026-07-01 — Source-Blocker Reconciliation And Readiness Rebuild
 
