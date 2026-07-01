@@ -1,3 +1,10 @@
+## 2026-07-01 — Codex final report manual-evidence guard
+- Task: Keep `FINAL-REPORT.md` aligned with the latest strict manual launch/release evidence and make `npm run search-book:check-status-evidence` enforce that linkage from `PROGRESS.md`.
+- Scope: `FINAL-REPORT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.
+- Status: Complete.
+- Verification target: `npm run search-book:check-status-evidence`, `npm run search-book:check-completion-audit`, full `npm run search-book:verify`, and `git diff --check` pass with the latest manual launch/release run IDs, the open-operator Linear task summary row, and only #11/#4 open.
+- Result: `FINAL-REPORT.md` now names the latest manual GitHub launch/release evidence from commit `b330251`, launch run `28535275223`, release run `28535275202`, strict summary validation, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`. `scripts/check-status-evidence.mjs` now parses the latest manual-evidence entry from `PROGRESS.md` and fails if the final report drifts from that evidence. Focused verification passed with source ingestion `17/17`, quality `29/30`, manual evidence commit `b330251`, and only #11/#4 open.
+
 ## 2026-07-01 — Codex completion audit manual-evidence guard
 - Task: Keep `COMPLETION-AUDIT.md` aligned with the latest strict manual launch/release evidence and make `npm run search-book:check-completion-audit` enforce that linkage from `PROGRESS.md`.
 - Scope: `COMPLETION-AUDIT.md`, `scripts/check-completion-audit.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`.

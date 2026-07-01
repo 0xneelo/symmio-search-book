@@ -34,6 +34,19 @@ function countSyntaxCheckFiles() {
   return 1 + scriptChecks + dataChecks;
 }
 
+function latestManualEvidenceFromProgress() {
+  const progress = readText("PROGRESS.md");
+  const entry =
+    progress.match(/## 2026-07-01 — Manual Evidence Refresh For Production Packet Guard\n\n([\s\S]*?)(?=\n## |\n?$)/)?.[1] || "";
+  return {
+    commit: entry.match(/commit `([a-f0-9]+)`/)?.[1] || "",
+    launchRun: entry.match(/launch evidence run `(\d+)`/)?.[1] || "",
+    releaseRun: entry.match(/release dry-run run `(\d+)`/)?.[1] || "",
+    launchArtifact: entry.match(/(\/tmp\/search-book-gh-manual-launch-\d+)/)?.[1] || "",
+    releaseArtifact: entry.match(/(\/tmp\/search-book-gh-manual-release-\d+)/)?.[1] || "",
+  };
+}
+
 function fragmentsForEvidence() {
   const manifest = readJson("page-manifest.json");
   const authored = readJson("data/authored-pages.json");
@@ -65,6 +78,7 @@ function fragmentsForEvidence() {
   const routeCoverage = discordRouting.reviewPlan?.routeCoverage || {};
   const live = llm.liveEvaluation || {};
   const suites = live.suites || {};
+  const manualEvidence = latestManualEvidenceFromProgress();
 
   return {
     manifestPages: String(manifest.pages.length),
@@ -102,6 +116,7 @@ function fragmentsForEvidence() {
     liveEvalTotal: suites.total ? `${suites.total.passing}/${suites.total.total}` : "",
     liveEvalAdversarial: suites.adversarial ? `${suites.adversarial.passing}/${suites.adversarial.total}` : "",
     liveEvalAnswerValidation: suites.answerValidation ? `${suites.answerValidation.passing}/${suites.answerValidation.total}` : "",
+    manualEvidence,
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => String(item.id)).sort((a, b) => Number(a) - Number(b)),
   };
 }
@@ -122,6 +137,7 @@ function expectedChecks(evidence) {
       { id: "source-zero-counts", anyOf: [`0 partial, 0 parked, and 0 missing`, `0 partial / 0 parked / 0 missing`] },
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`] },
       { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} local review items`, `${evidence.discordPageFitCoverage} page-fit`, `source-backed triage at ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready for ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready at ${evidence.discordRefusalPolicyReady} refusal items`] },
+      { id: "manual-evidence", allOf: [`launch evidence run \`${evidence.manualEvidence.launchRun}\``, `release dry-run run \`${evidence.manualEvidence.releaseRun}\``, `commit \`${evidence.manualEvidence.commit}\``, evidence.manualEvidence.launchArtifact, evidence.manualEvidence.releaseArtifact, "strict summary validation", "Open operator Linear tasks | #4=SYN-285, #11=SYN-281", "Secrets printed | false"] },
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-discord-editorial-data", "repository dirty state `false`", "same commit", "productionReadinessPacket:passed", "Discord editorial queue data evidence", "original-spec reconciliation evidence", "evidence summary renderer status `passed`", "publication boundaries status `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "requirement-map", anyOf: [`${evidence.requirementComplete}/18 requirements complete`, `${evidence.requirementComplete} requirements complete`] },
       { id: "requirement-status", allOf: [`${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, and ${evidence.requirementMissing} missing`] },
