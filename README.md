@@ -238,12 +238,15 @@ preflight, page-fit review, refusal review, and closeout, with required evidence
 and a zero-promotion policy for Discord/Lafa statements. Current disposition keeps existing source-backed public copy for 91/91
 page-fit groups, keeps refusal policy for 13/13 refusal items, proposes 0 public-copy
 changes, and promotes 0 exact Discord/Lafa statements.
+It also carries grounding evidence proving 91/91 page-fit groups resolve to published authored
+pages, queued source keys on those pages and in the source catalog, source URLs plus `## Sources`,
+and public route counts matching generated question routes.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and
 paths, and checks for raw-field or sample-text leakage without echoing excerpts. The same
 check validates `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.json`
-against the sanitized routing summary, workflow, and disposition so the reviewer handoff cannot
-silently drift or start publishing Discord-derived claims by accident.
+against the sanitized routing summary, workflow, disposition, and grounding summary so the
+reviewer handoff cannot silently drift or start publishing Discord-derived claims by accident.
 Validate the public-safe runtime refusal boundary with `npm run search-book:check-discord-refusals`;
 it runs extractive-mode answer probes for the Discord/Lafa refusal lanes and requires refusal,
 `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials.

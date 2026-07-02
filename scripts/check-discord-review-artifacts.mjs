@@ -13,6 +13,9 @@ const defaults = {
   summaryJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_SUMMARY || path.join(searchBookRoot, "data", "discord-review-routing.json"),
   queueJson: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE_JSON || path.join(searchBookRoot, "data", "discord-editorial-queue.json"),
   queueMarkdown: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE || path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
+  authoredJson: path.join(searchBookRoot, "data", "authored-pages.json"),
+  questionRoutesJson: path.join(searchBookRoot, "data", "question-routes.json"),
+  sourceCatalogJson: path.join(searchBookRoot, "data", "source-catalog.json"),
 };
 
 const forbiddenSanitizedKeys = new Set([
@@ -46,6 +49,11 @@ Options:
   --summary-json path  Defaults to data/discord-review-routing.json
   --queue-json path    Defaults to data/discord-editorial-queue.json
   --queue-md path      Defaults to DISCORD-EDITORIAL-QUEUE.md
+  --authored-json path Defaults to data/authored-pages.json
+  --question-routes-json path
+                       Defaults to data/question-routes.json
+  --source-catalog-json path
+                       Defaults to data/source-catalog.json
   --json               Accepted for command symmetry; output is always JSON
 
 The command validates Discord/Lafa review privacy boundaries without printing raw
@@ -68,6 +76,9 @@ function parseArgs(argv) {
     else if (arg === "--summary-json") args.summaryJson = next;
     else if (arg === "--queue-json") args.queueJson = next;
     else if (arg === "--queue-md") args.queueMarkdown = next;
+    else if (arg === "--authored-json") args.authoredJson = next;
+    else if (arg === "--question-routes-json") args.questionRoutesJson = next;
+    else if (arg === "--source-catalog-json") args.sourceCatalogJson = next;
     else throw new Error(`Unknown argument: ${arg}\n${usage()}`);
     index += 1;
   }
@@ -76,6 +87,9 @@ function parseArgs(argv) {
   args.summaryJson = path.resolve(args.summaryJson);
   args.queueJson = path.resolve(args.queueJson);
   args.queueMarkdown = path.resolve(args.queueMarkdown);
+  args.authoredJson = path.resolve(args.authoredJson);
+  args.questionRoutesJson = path.resolve(args.questionRoutesJson);
+  args.sourceCatalogJson = path.resolve(args.sourceCatalogJson);
   return args;
 }
 
@@ -307,11 +321,12 @@ function validateSummary(summary, filePath, checks, samples) {
   };
 }
 
-function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
+function validateEditorialQueue(markdown, filePath, summary, queueData, checks, samples) {
   const reviewPlan = summary.reviewPlan || {};
   const routeCoverage = reviewPlan.routeCoverage || {};
   const pageFitReview = reviewPlan.pageFitReview || [];
   const refusalReview = reviewPlan.refusalReview || [];
+  const grounding = queueData.grounding || {};
   const pageFitKeepExistingPublicCopy = pageFitReview.filter(
     (entry) =>
       entry.reviewAction === "keep-existing-public-copy" &&
@@ -363,6 +378,13 @@ function validateEditorialQueue(markdown, filePath, summary, checks, samples) {
     `- Refusal disposition: ${refusalKeepPolicy}/${refusalReview.length} keep refusal policy`,
     "- Refusal policy review required: 0",
     "- Exact Discord/Lafa statements promoted: 0",
+    "## Grounding Evidence",
+    `- Page-fit groups grounded to published authored pages: ${grounding.publishedAuthoredPageFits || 0}/${grounding.pageFitGroups || 0}`,
+    `- Page-fit groups with queued source keys on page: ${grounding.sourceKeyBackedPageFits || 0}/${grounding.pageFitGroups || 0}`,
+    `- Page-fit groups with source keys in catalog: ${grounding.sourceCatalogBackedPageFits || 0}/${grounding.pageFitGroups || 0}`,
+    `- Page-fit groups with source URLs and Sources section: ${grounding.sourceUrlsPresentPageFits || 0}/${grounding.pageFitGroups || 0} source URLs, ${grounding.sourcesSectionPageFits || 0}/${grounding.pageFitGroups || 0} Sources sections`,
+    `- Page-fit groups with public route counts matching generated routes: ${grounding.publicRouteCountMatchedPageFits || 0}/${grounding.pageFitGroups || 0}`,
+    `- Grounding failures: ${grounding.groundedFailures || 0}`,
   ];
   const missingSummaryFragments = summaryFragments.filter((fragment) => !markdown.includes(fragment));
   const missingPageIds = pageFitReview.map((entry) => entry.pageId).filter((pageId) => !markdown.includes(`\`${pageId}\``));
@@ -455,7 +477,7 @@ function sameValues(left = [], right = []) {
   return JSON.stringify(normalize(left)) === JSON.stringify(normalize(right));
 }
 
-function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
+function validateEditorialQueueData(queue, filePath, summary, checks, samples, supportingData = {}) {
   const hits = rawKeyHits(queue);
   const leaks = sampleLeakCount(queue, samples);
   const reviewPlan = summary.reviewPlan || {};
@@ -484,6 +506,19 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
   const publicCopyChangesProposed = queuePageFitReview.filter(
     (entry) => entry.publicCopyStatus !== "source-backed-public-copy-sufficient",
   ).length;
+  const authoredPages = supportingData.authored?.pages || [];
+  const authoredById = new Map(authoredPages.map((page) => [page.id, page]));
+  const sourceCatalog = supportingData.sourceCatalog || {};
+  const knownSourceKeys = new Set([
+    ...Object.keys(sourceCatalog.sourceByKey || {}),
+    ...(sourceCatalog.sources || []).map((source) => source.key).filter(Boolean),
+  ]);
+  const routeCountsByPage = new Map();
+  for (const route of supportingData.questionRoutes?.answerable || []) {
+    if (route?.pageStatus !== "published" || route?.missing === true) continue;
+    routeCountsByPage.set(route.pageId, (routeCountsByPage.get(route.pageId) || 0) + 1);
+  }
+  const queueGrounding = queue.grounding || {};
 
   const pageFitMirrorFailures = pageFitReview.filter((entry) => {
     const matching = queuePageFitReview.find((candidate) => candidate.pageId === entry.pageId);
@@ -504,6 +539,50 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
       matching.refusalPolicyStatus !== entry.refusalPolicyStatus ||
       matching.reviewAction !== entry.reviewAction;
   });
+  const pageFitGroundingRows = queuePageFitReview.map((entry) => {
+    const page = authoredById.get(entry.pageId);
+    const pageSourceKeys = new Set(page?.sourceKeys || []);
+    const queueSourceKeys = entry.sourceKeys || [];
+    const routeCount = routeCountsByPage.get(entry.pageId) || 0;
+    const authoredPublished = page?.status === "published";
+    const sourceKeysOnPage = queueSourceKeys.length > 0 && queueSourceKeys.every((sourceKey) => pageSourceKeys.has(sourceKey));
+    const sourceKeysInCatalog = queueSourceKeys.length > 0 && queueSourceKeys.every((sourceKey) => knownSourceKeys.has(sourceKey));
+    const sourceUrlsPresent = (page?.sourceUrls || []).length > 0;
+    const sourcesSectionPresent = String(page?.bodyMarkdown || "").includes("## Sources");
+    const publicRouteCountMatches = routeCount === Number(entry.publicRouteCount || 0);
+    const grounded =
+      authoredPublished &&
+      sourceKeysOnPage &&
+      sourceKeysInCatalog &&
+      sourceUrlsPresent &&
+      sourcesSectionPresent &&
+      publicRouteCountMatches;
+    return {
+      authoredPublished,
+      sourceKeysOnPage,
+      sourceKeysInCatalog,
+      sourceUrlsPresent,
+      sourcesSectionPresent,
+      publicRouteCountMatches,
+      grounded,
+    };
+  });
+  const countGrounding = (key) => pageFitGroundingRows.filter((row) => row[key] === true).length;
+  const pageFitGroundingFailures = pageFitGroundingRows.filter((row) => row.grounded !== true).length;
+  const expectedGrounding = {
+    pageFitGroups: queuePageFitReview.length,
+    publishedAuthoredPageFits: countGrounding("authoredPublished"),
+    sourceKeyBackedPageFits: countGrounding("sourceKeysOnPage"),
+    sourceCatalogBackedPageFits: countGrounding("sourceKeysInCatalog"),
+    sourceUrlsPresentPageFits: countGrounding("sourceUrlsPresent"),
+    sourcesSectionPageFits: countGrounding("sourcesSectionPresent"),
+    publicRouteCountMatchedPageFits: countGrounding("publicRouteCountMatches"),
+    groundedPageFits: countGrounding("grounded"),
+    groundedFailures: pageFitGroundingFailures,
+    authoredPages: authoredPages.length,
+    publicRoutePages: routeCountsByPage.size,
+    sourceCatalogKeys: knownSourceKeys.size,
+  };
 
   addCheck(
     checks,
@@ -550,6 +629,27 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
       queuePageFitReview: queuePageFitReview.length,
       expectedPageFitReview: pageFitReview.length,
       mirrorFailures: pageFitMirrorFailures.length,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-data-page-fit-grounded",
+    pageFitGroundingFailures === 0,
+    JSON.stringify({
+      pageFitGroups: queuePageFitReview.length,
+      groundedFailures: pageFitGroundingFailures,
+      authoredPages: authoredPages.length,
+      publicRoutePages: routeCountsByPage.size,
+      sourceCatalogKeys: knownSourceKeys.size,
+    }),
+  );
+  addCheck(
+    checks,
+    "editorial-queue-data-grounding-summary-current",
+    Object.entries(expectedGrounding).every(([key, value]) => Number(queueGrounding[key] ?? -1) === value),
+    JSON.stringify({
+      expected: expectedGrounding,
+      actual: queueGrounding,
     }),
   );
   addCheck(
@@ -630,6 +730,14 @@ function validateEditorialQueueData(queue, filePath, summary, checks, samples) {
     routedItems: queueSummary.routedItems ?? null,
     pageFitReviewReady: queuePageFitReview.length,
     refusalReviewReady: queueRefusalReview.length,
+    pageFitGrounding: {
+      pageFitGroups: queuePageFitReview.length,
+      groundedFailures: pageFitGroundingFailures,
+      groundedPageFits: expectedGrounding.groundedPageFits,
+      authoredPages: authoredPages.length,
+      publicRoutePages: routeCountsByPage.size,
+      sourceCatalogKeys: knownSourceKeys.size,
+    },
     disposition: {
       readyForReviewerHandoff: disposition.readyForReviewerHandoff === true,
       pageFitGroups: disposition.pageFitGroups ?? null,
@@ -665,6 +773,9 @@ try {
   const summary = readJson(args.summaryJson);
   const queueData = readJson(args.queueJson);
   const queueMarkdown = readText(args.queueMarkdown);
+  const authored = readJson(args.authoredJson);
+  const questionRoutes = readJson(args.questionRoutesJson);
+  const sourceCatalog = readJson(args.sourceCatalogJson);
 
   const result = {
     status: "passed",
@@ -673,8 +784,12 @@ try {
     reviewPacket: validateReviewPacket(reviewPacket, args.reviewJson, checks),
     routingReport: validateRoutingReport(routingReport, args.routingJson, checks, samples),
     summary: validateSummary(summary, args.summaryJson, checks, samples),
-    editorialQueueData: validateEditorialQueueData(queueData, args.queueJson, summary, checks, samples),
-    editorialQueue: validateEditorialQueue(queueMarkdown, args.queueMarkdown, summary, checks, samples),
+    editorialQueueData: validateEditorialQueueData(queueData, args.queueJson, summary, checks, samples, {
+      authored,
+      questionRoutes,
+      sourceCatalog,
+    }),
+    editorialQueue: validateEditorialQueue(queueMarkdown, args.queueMarkdown, summary, queueData, checks, samples),
     checks,
   };
 

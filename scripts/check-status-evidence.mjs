@@ -161,6 +161,7 @@ function fragmentsForEvidence() {
   const editorialDisposition = discordEditorialQueue.disposition || {};
   const editorialWorkflow = discordEditorialQueue.reviewerWorkflow || {};
   const editorialWorkflowCounts = editorialWorkflow.counts || {};
+  const editorialGrounding = discordEditorialQueue.grounding || {};
   const manualEvidence = latestManualEvidenceFromProgress();
   const staticArtifactEvidence = latestStaticArtifactEvidenceFromProgress();
   const localLaunchEvidence = latestLocalLaunchEvidenceFromProgress();
@@ -247,6 +248,14 @@ function fragmentsForEvidence() {
     discordEditorialWorkflowRefusalItems: String(editorialWorkflowCounts.refusalItems || 0),
     discordEditorialWorkflowCopyChangesAllowed: String(editorialWorkflowCounts.publicCopyChangesAllowed || 0),
     discordEditorialWorkflowExactStatementsAllowed: String(editorialWorkflowCounts.exactDiscordStatementsAllowed || 0),
+    discordEditorialGroundedPageFits: `${editorialGrounding.groundedPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialPublishedPageFits: `${editorialGrounding.publishedAuthoredPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialSourceKeyBackedPageFits: `${editorialGrounding.sourceKeyBackedPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialSourceCatalogBackedPageFits: `${editorialGrounding.sourceCatalogBackedPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialSourceUrlsPageFits: `${editorialGrounding.sourceUrlsPresentPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialSourcesSectionPageFits: `${editorialGrounding.sourcesSectionPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialRouteCountMatchedPageFits: `${editorialGrounding.publicRouteCountMatchedPageFits || 0}/${editorialGrounding.pageFitGroups || 0}`,
+    discordEditorialGroundingFailures: String(editorialGrounding.groundedFailures || 0),
     syntaxChecks: String(countSyntaxCheckFiles()),
     liveEvalTotal: suites.total ? `${suites.total.passing}/${suites.total.total}` : "",
     liveEvalAdversarial: suites.adversarial ? `${suites.adversarial.passing}/${suites.adversarial.total}` : "",
@@ -429,6 +438,7 @@ function expectedChecks(evidence) {
       { id: "workflow-counts", allOf: [`Workflow status: \`${evidence.discordEditorialWorkflowStatus}\``, `Workflow mode: \`${evidence.discordEditorialWorkflowMode}\``, `Page-fit groups to review: ${evidence.discordEditorialWorkflowPageFitGroups}`, `Refusal items to review: ${evidence.discordEditorialWorkflowRefusalItems}`, `Public-copy changes allowed from Discord/Lafa alone: ${evidence.discordEditorialWorkflowCopyChangesAllowed}`, `Exact Discord/Lafa statements allowed for promotion: ${evidence.discordEditorialWorkflowExactStatementsAllowed}`] },
       { id: "workflow-phases", allOf: ["`privacy-preflight`", "`page-fit-review`", "`refusal-review`", "`closeout`", "`npm run search-book:discord-editorial-queue`", "`npm run search-book:check-discord-review-artifacts`", "`npm run search-book:check-discord-refusals`"] },
       { id: "automated-disposition", allOf: [`Ready for reviewer handoff: \`${evidence.discordEditorialReadyForReviewerHandoff}\``, `Page-fit disposition: ${evidence.discordEditorialKeepCopy} keep existing source-backed public copy`, `Page-fit public-copy changes proposed: ${evidence.discordEditorialCopyChanges}`, `Refusal disposition: ${evidence.discordEditorialKeepRefusal} keep refusal policy`, `Refusal policy review required: ${evidence.discordRefusalPolicyReviewRequired.split("/")[0]}`, `Exact Discord/Lafa statements promoted: ${evidence.discordEditorialExactPromotions}`] },
+      { id: "grounding-evidence", allOf: ["## Grounding Evidence", `Page-fit groups grounded to published authored pages: ${evidence.discordEditorialPublishedPageFits}`, `Page-fit groups with queued source keys on page: ${evidence.discordEditorialSourceKeyBackedPageFits}`, `Page-fit groups with source keys in catalog: ${evidence.discordEditorialSourceCatalogBackedPageFits}`, `Page-fit groups with source URLs and Sources section: ${evidence.discordEditorialSourceUrlsPageFits} source URLs, ${evidence.discordEditorialSourcesSectionPageFits} Sources sections`, `Page-fit groups with public route counts matching generated routes: ${evidence.discordEditorialRouteCountMatchedPageFits}`, `Grounding failures: ${evidence.discordEditorialGroundingFailures}`] },
       { id: "public-effect", allOf: ["Existing source-backed public pages and refusal behavior stay unchanged", "Discord/Lafa items remain demand signals unless a future primary-source review approves new public paraphrases"] },
     ],
     "LIVING-DOCS-OPERATIONS.md": [

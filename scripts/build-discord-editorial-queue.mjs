@@ -10,6 +10,8 @@ const searchBookRoot = path.resolve(__dirname, "..");
 const defaults = {
   routingJson: path.join(searchBookRoot, "data", "discord-review-routing.json"),
   authoredJson: path.join(searchBookRoot, "data", "authored-pages.json"),
+  questionRoutesJson: path.join(searchBookRoot, "data", "question-routes.json"),
+  sourceCatalogJson: path.join(searchBookRoot, "data", "source-catalog.json"),
   outMarkdown: path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
   outJson: path.join(searchBookRoot, "data", "discord-editorial-queue.json"),
   outJs: path.join(searchBookRoot, "data", "discord-editorial-queue.js"),
@@ -21,11 +23,13 @@ function parseArgs(argv) {
     const arg = argv[index];
     if (arg === "--routing-json") args.routingJson = path.resolve(argv[++index] || "");
     else if (arg === "--authored-json") args.authoredJson = path.resolve(argv[++index] || "");
+    else if (arg === "--question-routes-json") args.questionRoutesJson = path.resolve(argv[++index] || "");
+    else if (arg === "--source-catalog-json") args.sourceCatalogJson = path.resolve(argv[++index] || "");
     else if (arg === "--out") args.outMarkdown = path.resolve(argv[++index] || "");
     else if (arg === "--out-json") args.outJson = path.resolve(argv[++index] || "");
     else if (arg === "--out-js") args.outJs = path.resolve(argv[++index] || "");
     else if (arg === "--help") {
-      console.log("Usage: node scripts/build-discord-editorial-queue.mjs [--routing-json data/discord-review-routing.json] [--out DISCORD-EDITORIAL-QUEUE.md] [--out-json data/discord-editorial-queue.json] [--out-js data/discord-editorial-queue.js]");
+      console.log("Usage: node scripts/build-discord-editorial-queue.mjs [--routing-json data/discord-review-routing.json] [--authored-json data/authored-pages.json] [--question-routes-json data/question-routes.json] [--source-catalog-json data/source-catalog.json] [--out DISCORD-EDITORIAL-QUEUE.md] [--out-json data/discord-editorial-queue.json] [--out-js data/discord-editorial-queue.js]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -156,7 +160,65 @@ function buildReviewerWorkflow(pageFitReview, refusalReview) {
   };
 }
 
-function buildQueueData(routing, authored) {
+function buildGrounding(pageFitReview, authored, questionRoutes, sourceCatalog) {
+  const authoredPages = authored.pages || [];
+  const pageById = new Map(authoredPages.map((page) => [page.id, page]));
+  const knownSourceKeys = new Set([
+    ...Object.keys(sourceCatalog.sourceByKey || {}),
+    ...(sourceCatalog.sources || []).map((source) => source.key).filter(Boolean),
+  ]);
+  const routeCountsByPage = new Map();
+  for (const route of questionRoutes.answerable || []) {
+    if (route?.pageStatus !== "published" || route?.missing === true) continue;
+    routeCountsByPage.set(route.pageId, (routeCountsByPage.get(route.pageId) || 0) + 1);
+  }
+
+  const rows = pageFitReview.map((entry) => {
+    const page = pageById.get(entry.pageId);
+    const pageSourceKeys = new Set(page?.sourceKeys || []);
+    const queueSourceKeys = entry.sourceKeys || [];
+    const authoredPublished = page?.status === "published";
+    const sourceKeysOnPage = queueSourceKeys.length > 0 && queueSourceKeys.every((sourceKey) => pageSourceKeys.has(sourceKey));
+    const sourceKeysInCatalog = queueSourceKeys.length > 0 && queueSourceKeys.every((sourceKey) => knownSourceKeys.has(sourceKey));
+    const sourceUrlsPresent = (page?.sourceUrls || []).length > 0;
+    const sourcesSectionPresent = String(page?.bodyMarkdown || "").includes("## Sources");
+    const publicRouteCountMatches = (routeCountsByPage.get(entry.pageId) || 0) === Number(entry.publicRouteCount || 0);
+    const grounded =
+      authoredPublished &&
+      sourceKeysOnPage &&
+      sourceKeysInCatalog &&
+      sourceUrlsPresent &&
+      sourcesSectionPresent &&
+      publicRouteCountMatches;
+    return {
+      authoredPublished,
+      sourceKeysOnPage,
+      sourceKeysInCatalog,
+      sourceUrlsPresent,
+      sourcesSectionPresent,
+      publicRouteCountMatches,
+      grounded,
+    };
+  });
+
+  const count = (key) => rows.filter((row) => row[key] === true).length;
+  return {
+    pageFitGroups: pageFitReview.length,
+    publishedAuthoredPageFits: count("authoredPublished"),
+    sourceKeyBackedPageFits: count("sourceKeysOnPage"),
+    sourceCatalogBackedPageFits: count("sourceKeysInCatalog"),
+    sourceUrlsPresentPageFits: count("sourceUrlsPresent"),
+    sourcesSectionPageFits: count("sourcesSectionPresent"),
+    publicRouteCountMatchedPageFits: count("publicRouteCountMatches"),
+    groundedPageFits: count("grounded"),
+    groundedFailures: pageFitReview.length - count("grounded"),
+    authoredPages: authoredPages.length,
+    publicRoutePages: routeCountsByPage.size,
+    sourceCatalogKeys: knownSourceKeys.size,
+  };
+}
+
+function buildQueueData(routing, authored, questionRoutes, sourceCatalog) {
   assertSafeRoutingSummary(routing);
   const pageById = new Map((authored.pages || []).map((page) => [page.id, page]));
   const reviewPlan = routing.reviewPlan || {};
@@ -208,6 +270,7 @@ function buildQueueData(routing, authored) {
       "Keep unreviewed Discord/Lafa identity claims, Phase B economics, secrets, and financial advice in refusal lanes.",
     ],
     reviewerWorkflow: buildReviewerWorkflow(pageFitReview, refusalReview),
+    grounding: buildGrounding(pageFitReview, authored, questionRoutes, sourceCatalog),
     pageFitReview: pageFitReview.map((entry, index) => ({
       rank: index + 1,
       pageId: entry.pageId,
@@ -303,6 +366,15 @@ function renderMarkdown(queue) {
     `- Exact Discord/Lafa statements promoted: ${disposition.exactDiscordStatementsPromoted || 0}`,
     `- Public effect: ${disposition.publicEffect || "Existing source-backed public pages and refusal behavior stay unchanged."}`,
     "",
+    "## Grounding Evidence",
+    "",
+    `- Page-fit groups grounded to published authored pages: ${queue.grounding?.publishedAuthoredPageFits || 0}/${queue.grounding?.pageFitGroups || 0}`,
+    `- Page-fit groups with queued source keys on page: ${queue.grounding?.sourceKeyBackedPageFits || 0}/${queue.grounding?.pageFitGroups || 0}`,
+    `- Page-fit groups with source keys in catalog: ${queue.grounding?.sourceCatalogBackedPageFits || 0}/${queue.grounding?.pageFitGroups || 0}`,
+    `- Page-fit groups with source URLs and Sources section: ${queue.grounding?.sourceUrlsPresentPageFits || 0}/${queue.grounding?.pageFitGroups || 0} source URLs, ${queue.grounding?.sourcesSectionPageFits || 0}/${queue.grounding?.pageFitGroups || 0} Sources sections`,
+    `- Page-fit groups with public route counts matching generated routes: ${queue.grounding?.publicRouteCountMatchedPageFits || 0}/${queue.grounding?.pageFitGroups || 0}`,
+    `- Grounding failures: ${queue.grounding?.groundedFailures || 0}`,
+    "",
     "## Page-Fit Review",
     "",
     "| Rank | Page | Title | Routed Items | Item IDs | Review Types | Source Keys | Public Routes | Triage Status | Public Copy | Next Step |",
@@ -347,7 +419,9 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const routing = readJson(args.routingJson);
   const authored = readJson(args.authoredJson);
-  const queue = buildQueueData(routing, authored);
+  const questionRoutes = readJson(args.questionRoutesJson);
+  const sourceCatalog = readJson(args.sourceCatalogJson);
+  const queue = buildQueueData(routing, authored, questionRoutes, sourceCatalog);
   const markdown = renderMarkdown(queue);
   fs.writeFileSync(args.outMarkdown, markdown);
   fs.writeFileSync(args.outJson, `${JSON.stringify(queue, null, 2)}\n`);
@@ -365,6 +439,8 @@ function main() {
     pageFitCoveredByPublicRoutes: routeCoverage.pageFitCoveredByPublicRoutes || 0,
     totalPageFitGroups: routeCoverage.totalPageFitGroups || 0,
     readyForReviewerHandoff: queue.disposition?.readyForReviewerHandoff === true,
+    pageFitGrounded: queue.grounding?.groundedPageFits || 0,
+    pageFitGroundingFailures: queue.grounding?.groundedFailures || 0,
     pageFitKeepExistingPublicCopy: queue.disposition?.pageFitKeepExistingPublicCopy || 0,
     refusalKeepPolicy: queue.disposition?.refusalKeepPolicy || 0,
     exactDiscordStatementsPromoted: queue.disposition?.exactDiscordStatementsPromoted || 0,

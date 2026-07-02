@@ -58,6 +58,15 @@ Required evidence: `npm run search-book:discord-editorial-queue`, `npm run searc
 - Exact Discord/Lafa statements promoted: 0
 - Public effect: Existing source-backed public pages and refusal behavior stay unchanged; Discord/Lafa items remain demand signals unless a future primary-source review approves new public paraphrases.
 
+## Grounding Evidence
+
+- Page-fit groups grounded to published authored pages: 91/91
+- Page-fit groups with queued source keys on page: 91/91
+- Page-fit groups with source keys in catalog: 91/91
+- Page-fit groups with source URLs and Sources section: 91/91 source URLs, 91/91 Sources sections
+- Page-fit groups with public route counts matching generated routes: 91/91
+- Grounding failures: 0
+
 ## Page-Fit Review
 
 | Rank | Page | Title | Routed Items | Item IDs | Review Types | Source Keys | Public Routes | Triage Status | Public Copy | Next Step |

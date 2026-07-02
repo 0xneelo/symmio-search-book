@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Discord Editorial Queue Grounding Guard
+
+- Added explicit grounding evidence to `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.*`: 91/91 page-fit groups resolve to published authored pages, 91/91 have queued source keys on the page, 91/91 have source keys in `data/source-catalog.json`, 91/91 have source URLs plus `## Sources`, 91/91 have public route counts matching `data/question-routes.json`, and grounding failures are 0.
+- Extended `scripts/build-discord-editorial-queue.mjs` to derive that grounding from authored pages, question routes, and source catalog data; regenerated the queue artifacts without adding raw Discord/Lafa text or generated answer text.
+- Extended `scripts/check-discord-review-artifacts.mjs` and `scripts/check-status-evidence.mjs` so the grounding summary is recomputed and the Markdown grounding section is required.
+- Verification passed: `node --check scripts/build-discord-editorial-queue.mjs`, `node --check scripts/check-discord-review-artifacts.mjs`, `node --check scripts/check-status-evidence.mjs`, `npm run search-book:discord-editorial-queue`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-discord-refusals`, and `npm run search-book:check-status-evidence`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Current Local-Launch Checkpoint
 
 - Triggered fresh manual workflows from commit `ddeb94a`: launch evidence run `28609583940`, release dry-run run `28609589661`, and static artifact workflow run `28609591544`; all passed.
