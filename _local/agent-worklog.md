@@ -1,3 +1,10 @@
+## 2026-07-02 — Codex reconcile source-ingestion rebuild after operator refresh
+- Task: Re-read the reconciled operator/status docs, rerun real Discord corpus ingestion plus the full Search Book verify rebuild, and report which readiness booleans changed after regeneration.
+- Scope: `_specs/app-docs/OPERATOR-INBOX.md`, `FINAL-REPORT.md`, `GAPS.md`, `PROGRESS.md`, Discord/source-ingestion generated data, focused readiness inspection, and no-secret verification output. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: real Discord import remains `corpusReady:true` with no message text stored, Notion/SSHE/whitepaper boundaries remain resolved in generated maps, `npm run search-book:verify` passes, and only #11/#4 remain open.
+- Result: Re-read the reconciled inbox/status docs; real Discord import from the readable Windows export regenerated 5,000 messages, 723 question clusters, and 837 Lafa candidates with `storesMessageText:false`; full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, source ingestion 17/17 complete, quality gates 29/30, and only `operator-inbox` failing by design for #11/#4. No readiness booleans flipped: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`.
+
 ## 2026-07-02 — Codex refresh local launch drill from refusal-policy checkpoint
 - Task: Re-run the no-secret local staging launch drill from current head after the expanded Discord refusal-policy checkpoint so preview/service/write-smoke/backup/launch-gate evidence matches the latest pushed main.
 - Scope: local temporary launch-drill artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verification if required, `git diff --check`, and a scoped checkpoint. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
