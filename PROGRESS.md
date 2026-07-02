@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Expanded Discord Backlog Source-Route Alias Slice
+
+- Added 10 public, source-title question aliases for already-authored pages surfaced by the sanitized expanded Discord/Lafa routing packet. The aliases are deliberately phrased from page titles and source themes, not raw Discord/Lafa text.
+- Regenerated route, FAQ, answer-engine, living-docs, page-state, LLM contract, answer-validation, requirement-map, and quality-audit data. Generated totals moved to 830 exact routes and 832 local FAQ entries while retrieval chunks stayed at 2,884 and authored pages stayed at 801.
+- Expanded internal-only routing coverage improved from 21/91 to 31/91 page-fit groups covered by public routes; single-route remaining dropped from 70 to 60. The 10 selected source-backed groups are now covered, with 0 selected groups left uncovered. The expanded packet remains internal-only because it still surfaces 60 page-fit groups needing route/public-copy review and 3 no-grounded-context refusal items needing policy review.
+- The committed no-raw launch-ready editorial queue remains unchanged in scope: 24 routed items, 19/19 page-fit groups covered, 19/19 public-copy-ready groups, 2/2 refusal-policy-ready items, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Discord Editorial Review Packet Refresh
 
 - Generated a fresh expanded internal Discord/Lafa review packet from the readable Windows export without printing raw message text or the resolved author id: `/tmp/search-book-discord-review-20260702-codex-ypSr5Z` and routed packet `/tmp/search-book-discord-routing-20260702-codex-JNWREt`.

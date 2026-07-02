@@ -190,7 +190,8 @@ addCheck(
   answerContract.deterministicReady === true &&
     answerContract.evaluation?.allExactRoutesPass === true &&
     answerContract.evaluation?.allRefusalTestsPass === true &&
-    routes.totalRoutes === 820 &&
+    routes.totalRoutes === answerContract.evaluation?.totalExactRouteTests &&
+    answerValidation.coverage?.exactRouteGoldenSet === routes.totalRoutes &&
     faq.totalAnswerable === routes.totalRoutes &&
     chunks.totalChunks >= chunks.totalPages &&
     (chunks.unknownSourceKeys || []).length === 0 &&
