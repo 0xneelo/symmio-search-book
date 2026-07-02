@@ -13,7 +13,7 @@ The standalone Search Book repo is the canonical working copy:
 - Repo: `~/apps/symmio-search-book`
 - Runtime: static `index.html` plus standalone SQLite answer-engine service
 - Local LLM env: complete in `.secrets/search-book.env`; do not print it
-- Local preview evidence: latest local launch drill passed against temporary preview `127.0.0.1:45784` plus service `127.0.0.1:46328`, with write-smoke, restore-check, and 15/15 staging launch checks from generatedAt `2026-07-02T03:55:09.104Z`
+- Local preview evidence: latest local launch drill passed against temporary preview `127.0.0.1:46444` plus service `127.0.0.1:45198`, with write-smoke, restore-check, and 15/15 staging launch checks from generatedAt `2026-07-02T04:12:14.476Z`
 - Latest strict manual launch/release evidence: launch run `28564475318` and release run `28564475519` passed from commit `52215c6`; downloaded artifacts under `/tmp/search-book-gh-manual-launch-28564475318` and `/tmp/search-book-gh-manual-release-28564475519` passed strict summary validation without printing secrets, and check-run annotations were empty (`[]`)
 - Latest platform-neutral static artifact evidence: manual `Search Book Static Artifact` workflow run `28564475634` passed from commit `52215c6`; downloaded artifact `/tmp/search-book-gh-static-artifact-28564475634/search-book-static-site` passed checked packet validation plus static and preview-service smokes without loading secrets, and check-run annotations were empty (`[]`)
 - Current deterministic evidence: 890 exact routes, 2,884 chunks, 801 authored pages,
