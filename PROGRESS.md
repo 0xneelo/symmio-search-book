@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Style Guide Evidence Guard
+
+- Refreshed `STYLEGUIDE.md` from an early editorial note into the current public writing contract for the standalone Search Book: generated corpus counts, primary-source rules, Neelo vision/manifesto voice, AMFQ-to-Intent terminology, Phase A revenue wording, 15-level referral wording, Discord/Lafa internal-only handling, Notion paraphrase-only use, SSHE and whitepaper source boundaries, answer-runtime citation rules, and #11/#4-only production gates.
+- Added `STYLEGUIDE.md` to `npm run search-book:check-status-evidence` so the single style guide now fails on drift from generated evidence: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 17/17 source families complete, 890 exact routes, 892 FAQ entries, 44/44 live OpenAI `gpt-4.1-mini` eval evidence, Discord/Lafa import/routing counts, approved AMFQ/Intent language, approved Phase A revenue/referral terminology, source-use boundaries, and production-readiness booleans.
+- `node --check scripts/check-status-evidence.mjs`, `npm run search-book:check-status-evidence`, `npm run search-book:check-completion-audit`, `npm run search-book:check-production-packet`, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check` passed. Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, and `livingDocsProductionReady:false`; only #11 production VPS env install and #4 public frontend/deploy route remain open.
+
 ## 2026-07-02 — Source Registry Evidence Guard
 
 - Refreshed `SOURCES.md` from the older Session-1/not-exhaustive caveat to the current v1 source-complete state: 127 registered source keys across 7 groups, 17/17 source families complete, 0 partial, 0 parked, 0 missing, and `sourceCompletionReady:true`.
