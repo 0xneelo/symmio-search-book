@@ -1,3 +1,10 @@
+## 2026-07-02 - Codex refresh publication-day Vibe source freshness
+- Task: Re-run the no-secret publication-day Vibe public-docs source freshness check from current standalone `main`, update status docs if the generatedAt/source freshness evidence changes, and keep the #11/#4 production boundary intact.
+- Scope: `npm run search-book:check-source-freshness`, `PROGRESS.md`, `GAPS.md`, `FINAL-REPORT.md`, `_local/agent-worklog.md`, focused status/source freshness references, full verification if docs change, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: source freshness check passes on the registered official Vibe Markdown sources with HTTP 200 for both, 4/4 wording checks, `valuesPrinted:false`, `sourceBodiesPrinted:false`, and only #11/#4 remain open.
+- Result: `npm run search-book:check-source-freshness` passed with generatedAt `2026-07-02T04:20:12.607Z`; `vibe-what-is` and `vibe-platform` both fetched with HTTP 200, 4/4 freshness-sensitive wording checks passed, `valuesPrinted:false`, and `sourceBodiesPrinted:false`. This refreshed public-docs wording evidence only, not a live exchange market-index audit; readiness booleans remain unchanged and only #11/#4 remain open.
+
 ## 2026-07-02 - Codex refresh local launch drill from current manual-evidence checkpoint
 - Task: Re-run the no-secret local staging launch drill from current standalone `main` after the latest current-head manual GitHub evidence checkpoint so localhost preview/service/write-smoke/backup/launch-gate evidence matches commit `2751c75`.
 - Scope: local temporary launch-drill artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verification, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

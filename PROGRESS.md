@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Publication-Day Vibe Source Freshness Refresh
+
+- Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-02T04:20:12.607Z`.
+- Both registered official Vibe Markdown sources fetched with HTTP 200: `vibe-what-is` (`https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md`) and `vibe-platform` (`https://docs.vibe.trading/about-vibe-trading/the-platform.md`).
+- Freshness checks passed 4/4 for the current public-docs wording: Binance perp market coverage, 390+ market wording on both pages, and platform leverage wording including up to 60x / x100 on some. `valuesPrinted:false` and `sourceBodiesPrinted:false`.
+- This remains a public-docs wording freshness check, not a live exchange market-index audit; readiness booleans did not flip and production completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Current Manual-Evidence Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `2751c75`; it passed with generatedAt `2026-07-02T04:12:14.476Z` against temporary preview `http://127.0.0.1:46444` and temporary answer-engine service `http://127.0.0.1:45198`.
