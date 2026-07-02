@@ -15,7 +15,11 @@ const defaults = {
   outJs: path.join(searchBookRoot, "data", "discord-corpus.js"),
 };
 
-const publicationModes = new Set(["unknown", "cite", "paraphrase", "internal-only"]);
+// "lafa-cite" (SYN-309): hydrate ONLY Lafa's founder-voice answers and the
+// specific community questions Lafa answered (retrieval context). General
+// message text (messages[].content) and unanswered community questions stay
+// empty — the ~4,896 general chat messages' text never enters the public repo.
+const publicationModes = new Set(["unknown", "cite", "paraphrase", "internal-only", "lafa-cite"]);
 const questionStart = /^(who|what|when|where|why|how|can|could|should|would|do|does|did|is|are|will)\b/i;
 
 function parseArgs(argv) {
@@ -254,7 +258,7 @@ function topicMatches(text, topics) {
     .map((item) => item.topic);
 }
 
-function buildQuestionClusters(messages, seededTopics, canStoreContent) {
+function buildQuestionClusters(messages, seededTopics, storeAll, storeAnswered, answeredMessageIds) {
   const clusters = new Map();
   for (const message of messages.filter(isQuestion)) {
     const key = message.normalizedContent || `message-${message.id}`;
@@ -262,8 +266,8 @@ function buildQuestionClusters(messages, seededTopics, canStoreContent) {
       clusters.get(key) || {
         id: `discord-question-${sha(key)}`,
         questionHash: sha(key),
-        normalizedQuestion: canStoreContent ? key : "",
-        question: canStoreContent ? compact(message.content) : "",
+        normalizedQuestionFull: key,
+        questionFull: compact(message.content),
         count: 0,
         messageIds: [],
         channelIds: new Set(),
@@ -280,11 +284,25 @@ function buildQuestionClusters(messages, seededTopics, canStoreContent) {
     clusters.set(key, existing);
   }
   return [...clusters.values()]
-    .map((cluster) => ({
-      ...cluster,
-      channelIds: [...cluster.channelIds].sort(),
-      seededTopicMatches: [...cluster.seededTopicMatches].sort(),
-    }))
+    .map((cluster) => {
+      // In lafa-cite mode only the community questions Lafa actually answered are
+      // hydrated; unanswered general-chat questions stay text-empty (public repo).
+      const answeredByLafa = cluster.messageIds.some((id) => answeredMessageIds.has(id));
+      const storeText = storeAll || (storeAnswered && answeredByLafa);
+      return {
+        id: cluster.id,
+        questionHash: cluster.questionHash,
+        normalizedQuestion: storeText ? cluster.normalizedQuestionFull : "",
+        question: storeText ? cluster.questionFull : "",
+        answeredByLafa,
+        count: cluster.count,
+        messageIds: cluster.messageIds,
+        channelIds: [...cluster.channelIds].sort(),
+        firstSeen: cluster.firstSeen,
+        lastSeen: cluster.lastSeen,
+        seededTopicMatches: [...cluster.seededTopicMatches].sort(),
+      };
+    })
     .sort((a, b) => b.count - a.count || (a.normalizedQuestion || a.id).localeCompare(b.normalizedQuestion || b.id));
 }
 
@@ -394,9 +412,12 @@ function importContract() {
   };
 }
 
-function buildReport({ args, seededTopics, messages, canStoreContent, openInboxItems }) {
-  const questionClusters = buildQuestionClusters(messages, seededTopics, canStoreContent);
-  const lafaAnswerCandidates = buildLafaAnswerCandidates(messages, canStoreContent);
+function buildReport({ args, seededTopics, messages, canStoreContent, canStoreLafaText, openInboxItems }) {
+  const lafaAnswerCandidates = buildLafaAnswerCandidates(messages, canStoreLafaText);
+  const answeredMessageIds = new Set(
+    lafaAnswerCandidates.map((candidate) => candidate.relatedQuestionMessageId).filter(Boolean),
+  );
+  const questionClusters = buildQuestionClusters(messages, seededTopics, canStoreContent, canStoreLafaText, answeredMessageIds);
   const blockedBy = [];
   const missingInputs = messages.length
     ? [
@@ -417,11 +438,16 @@ function buildReport({ args, seededTopics, messages, canStoreContent, openInboxI
     sourceKey: "discord-ingestion-contract",
     publicationMode: args.publicationMode,
     storesMessageText: canStoreContent,
+    storesLafaText: canStoreLafaText,
+    textScope: canStoreContent ? "all" : canStoreLafaText ? "lafa-only" : "none",
     totals: {
       seededTopics: seededTopics.length,
       importedMessages: messages.length,
       questionClusters: questionClusters.length,
       lafaAnswerCandidates: lafaAnswerCandidates.length,
+      lafaAnswerCandidatesWithText: lafaAnswerCandidates.filter((candidate) => candidate.answer).length,
+      answeredQuestionClusters: questionClusters.filter((cluster) => cluster.answeredByLafa).length,
+      hydratedQuestionClusters: questionClusters.filter((cluster) => cluster.question).length,
       configuredLafaAuthorIds: args.lafaAuthorIds.length,
     },
     missingInputs,
@@ -483,7 +509,8 @@ async function main() {
     .sort((a, b) => String(a.timestamp).localeCompare(String(b.timestamp)) || a.id.localeCompare(b.id))
     .slice(0, args.maxMessages);
   const canStoreContent = args.storeContent || args.publicationMode === "cite" || args.publicationMode === "paraphrase";
-  writeOutputs(buildReport({ args, seededTopics, messages, canStoreContent, openInboxItems }), args);
+  const canStoreLafaText = canStoreContent || args.publicationMode === "lafa-cite";
+  writeOutputs(buildReport({ args, seededTopics, messages, canStoreContent, canStoreLafaText, openInboxItems }), args);
 }
 
 main().catch((error) => {
