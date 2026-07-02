@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh From No-Secret Evidence Checkpoint
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `f4c1e32`; it passed with generatedAt `2026-07-02T00:03:16.293Z` against temporary preview `http://127.0.0.1:46356` and temporary answer-engine service `http://127.0.0.1:46528`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-8Nvv6x/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — No-Secret Evidence Refresh From Local-Launch Checkpoint
 
 - Triggered fresh manual workflows from commit `d1f6de2`: launch evidence run `28555605693`, release dry-run run `28555605152`, and static artifact run `28555605220`; all passed.
