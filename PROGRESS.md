@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh After Expanded Discord Queue
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `0232a37`; it passed with generatedAt `2026-07-02T05:32:41.415Z` against temporary preview `http://127.0.0.1:45452` and temporary answer-engine service `http://127.0.0.1:45940`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-vH8l1F/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Discord Editorial Closeout Expanded To Full 160-Item Packet
 
 - Regenerated the internal Discord/Lafa review packet from the real Windows export into `/tmp/search-book-discord-review-20260702-codex-TyPHRy`, using the single unambiguous `lafachief` author id without printing it. The raw packet stays outside git, is marked `doNotCommit`, and contains 80 repeated-question review items plus 80 paired Lafa candidate review items from the real 5,000-message corpus.
