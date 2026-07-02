@@ -1,6 +1,14 @@
 # Source Registry
 
-This registry is the current source map for the Session 1 dossier. It is not exhaustive yet.
+This registry is the current v1 source-complete map for the Search Book dossier and runtime. It is checked by `npm run search-book:check-status-evidence` against generated source-ingestion and source-catalog artifacts.
+
+## Current Generated Evidence Snapshot
+
+Refreshed 2026-07-02 from generated artifacts: 127 registered source keys across 7 source groups. Source ingestion is 17/17 source families complete with 0 partial, 0 parked, and 0 missing; sourceCompletionReady:true. The source groups are Local Specs: 12, Local Product And Code: 17, Linear Research: 13, Public Vibe Sources: 33, Public Symmio Sources: 44, Competitive Context: 6, and Authored Publication Candidates: 2.
+
+Resolved source-family boundaries: OPERATOR-INBOX #2, #5, #6, #7, #12, and #17 are resolved and must not be reopened. Discord/Lafa import is internal-only with 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, corpusReady:true, storesMessageText:false, 160 routed review items, 91/91 page-fit groups covered by public route aliases, and 13/13 refusal-policy-ready items. Notion is registered as `vibe-trading-notion` with a paraphrase-only public-use boundary. SSHE v1 boundary is SuperFlow/SHE OpenAPI plus Symmio Foundation Meta-Solvers/Clearing Layers. Original/pre-v0.8 Symmio whitepaper recovery is out of scope for v1; use the registered official Git/current-docs boundary. Add Token Info uses official Markdown, but payment details remain routed to the live app form. The competitive sweep is 50 target docs across 25 lanes with 5 explorer batches, 49/50 docs verified, 1 excluded, and Opyn documented as the exclusion.
+
+Only two production operator gates remain: OPERATOR-INBOX #11 production VPS env install and OPERATOR-INBOX #4 public frontend platform/repo/deploy route. Local product/code rows below reference pre-extraction onboarding-app source paths as evidence for product behavior; the standalone Search Book implementation lives at the repo root, and the frozen onboarding-app `src/search-book` subtree must not be edited.
 
 ## Local Specs
 

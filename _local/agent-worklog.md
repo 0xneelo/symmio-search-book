@@ -1,3 +1,10 @@
+## 2026-07-02 - Codex guard source registry evidence
+- Task: Refresh `SOURCES.md` after the standalone migration and source-ingestion reconciliation, then add it to `npm run search-book:check-status-evidence` so source-family claims cannot drift from generated evidence.
+- Scope: `SOURCES.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verify, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:check-status-evidence` fails if the source registry stops matching 127 source keys, 17/17 v1 source-family completion, no-raw Discord/Lafa import/routing counts, resolved Notion/SSHE/whitepaper boundaries, competitive sweep evidence, or #4/#11-only production gates.
+- Result: Added a current generated-evidence snapshot to `SOURCES.md`, clarified resolved source-family boundaries, and added `SOURCES.md` to `scripts/check-status-evidence.mjs`. `node --check scripts/check-status-evidence.mjs`, `npm run search-book:check-status-evidence`, `npm run search-book:check-completion-audit`, `npm run search-book:check-production-packet`, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check` passed. Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; only #11/#4 remain open.
+
 ## 2026-07-02 - Codex guard decision ledger evidence
 - Task: Refresh `DECISIONS.md` after the 2026-07-01 reconciliation and add it to `npm run search-book:check-status-evidence` so decision-ledger claims cannot drift from generated evidence.
 - Scope: `DECISIONS.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verify, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

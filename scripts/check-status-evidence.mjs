@@ -11,6 +11,7 @@ const docs = [
   { id: "final-report", relativePath: "FINAL-REPORT.md" },
   { id: "gaps", relativePath: "GAPS.md" },
   { id: "decisions", relativePath: "DECISIONS.md" },
+  { id: "sources", relativePath: "SOURCES.md" },
   { id: "questions", relativePath: "QUESTIONS.md" },
   { id: "completion-audit", relativePath: "COMPLETION-AUDIT.md" },
   { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
@@ -121,6 +122,7 @@ function fragmentsForEvidence() {
   const routes = readJson("data/question-routes.json");
   const faq = readJson("data/faq.json");
   const chunks = readJson("data/answer-chunks.json");
+  const sourceCatalog = readJson("data/source-catalog.json");
   const answerContract = readJson("data/answer-engine-contract.json");
   const answerValidation = readJson("data/answer-validation-report.json");
   const livingDocs = readJson("data/living-docs-events.json");
@@ -194,6 +196,15 @@ function fragmentsForEvidence() {
     faqEntries: String(faq.totalEntries),
     chunks: formatInteger(chunks.totalChunks),
     chunksRaw: String(chunks.totalChunks),
+    sourceCatalogSources: String(sourceCatalog.totalSources || 0),
+    sourceCatalogGroups: String(Object.keys(sourceCatalog.byGroup || {}).length),
+    sourceCatalogLocalSpecs: String(sourceCatalog.byGroup?.["Local Specs"] || 0),
+    sourceCatalogLocalProductCode: String(sourceCatalog.byGroup?.["Local Product And Code"] || 0),
+    sourceCatalogLinearResearch: String(sourceCatalog.byGroup?.["Linear Research"] || 0),
+    sourceCatalogPublicVibe: String(sourceCatalog.byGroup?.["Public Vibe Sources"] || 0),
+    sourceCatalogPublicSymmio: String(sourceCatalog.byGroup?.["Public Symmio Sources"] || 0),
+    sourceCatalogCompetitive: String(sourceCatalog.byGroup?.["Competitive Context"] || 0),
+    sourceCatalogAuthoredCandidates: String(sourceCatalog.byGroup?.["Authored Publication Candidates"] || 0),
     sourceIngestion: `${sourceStatus.complete}/${sourceIngestion.totalSourceRequirements}`,
     sourceComplete: String(sourceStatus.complete),
     sourcePartial: String(sourceStatus.partial),
@@ -300,6 +311,15 @@ function expectedChecks(evidence) {
       { id: "amfq-terminology", allOf: ["AMFQ/aMFQ", "Automated Market for Quotes", "legacy naming", "Intents vocabulary"] },
       { id: "resolved-source-boundaries", allOf: ["OPERATOR-INBOX #2, #5, #6, #7, #12, and #17 are resolved and must not be reopened", "OPERATOR-INBOX #6 and #7", "OPERATOR-INBOX #2 and #17", "Notion paraphrase-only boundary", "SSHE v1 boundary"] },
       { id: "runtime-boundary", allOf: ["standalone answer-engine service plus SQLite", "OpenAI-compatible runtime", "`llmProductionReady` remains false", "production VPS env install", "public frontend platform/repo/deploy route"] },
+      { id: "operator-gates", allOf: ["Only two production operator gates remain", "OPERATOR-INBOX #11 production VPS env install", "OPERATOR-INBOX #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
+    ],
+    "SOURCES.md": [
+      { id: "source-catalog-snapshot", allOf: [`${evidence.sourceCatalogSources} registered source keys`, `${evidence.sourceCatalogGroups} source groups`, `Local Specs: ${evidence.sourceCatalogLocalSpecs}`, `Local Product And Code: ${evidence.sourceCatalogLocalProductCode}`, `Linear Research: ${evidence.sourceCatalogLinearResearch}`, `Public Vibe Sources: ${evidence.sourceCatalogPublicVibe}`, `Public Symmio Sources: ${evidence.sourceCatalogPublicSymmio}`, `Competitive Context: ${evidence.sourceCatalogCompetitive}`, `Authored Publication Candidates: ${evidence.sourceCatalogAuthoredCandidates}`] },
+      { id: "source-ingestion-snapshot", allOf: [`${evidence.sourceIngestion} source families complete`, `${evidence.sourcePartial} partial`, `${evidence.sourceParked} parked`, `${evidence.sourceMissing} missing`, `sourceCompletionReady:${evidence.sourceCompletionReady}`] },
+      { id: "discord-source-boundary", allOf: ["Discord/Lafa import is internal-only", `${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, `corpusReady:${evidence.discordCorpusReady}`, `storesMessageText:${evidence.discordStoresMessageText}`, `${evidence.discordRoutedItems} routed review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordRefusalPolicyReady} refusal-policy-ready items`] },
+      { id: "resolved-source-boundaries", allOf: ["OPERATOR-INBOX #2, #5, #6, #7, #12, and #17 are resolved and must not be reopened", "Notion is registered as `vibe-trading-notion` with a paraphrase-only public-use boundary", "SSHE v1 boundary is SuperFlow/SHE OpenAPI plus Symmio Foundation Meta-Solvers/Clearing Layers", "Original/pre-v0.8 Symmio whitepaper recovery is out of scope for v1", "Add Token Info uses official Markdown"] },
+      { id: "competitive-sweep", allOf: ["50 target docs", "25 lanes", "5 explorer batches", "49/50 docs verified", "1 excluded", "Opyn documented as the exclusion"] },
+      { id: "standalone-boundary", allOf: ["pre-extraction onboarding-app source paths", "standalone Search Book implementation lives at the repo root", "frozen onboarding-app `src/search-book` subtree must not be edited"] },
       { id: "operator-gates", allOf: ["Only two production operator gates remain", "OPERATOR-INBOX #11 production VPS env install", "OPERATOR-INBOX #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
     ],
     "QUESTIONS.md": [

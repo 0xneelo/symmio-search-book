@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Source Registry Evidence Guard
+
+- Refreshed `SOURCES.md` from the older Session-1/not-exhaustive caveat to the current v1 source-complete state: 127 registered source keys across 7 groups, 17/17 source families complete, 0 partial, 0 parked, 0 missing, and `sourceCompletionReady:true`.
+- Added the current source-boundary snapshot for Discord/Lafa internal-only import, Notion paraphrase-only use, SSHE v1 source boundary, original/pre-v0.8 Symmio whitepaper v1 de-scope, Add Token Info live-form payment boundary, the 49/50 competitive sweep with Opyn excluded, and the standalone repo versus frozen onboarding-app `src/search-book` boundary.
+- Added `SOURCES.md` to `npm run search-book:check-status-evidence` so source-catalog counts, source-ingestion readiness, Discord routing counts, resolved source-family boundaries, competitive-sweep evidence, and #4/#11-only production gates are generated-evidence guarded. Full `npm run search-book:verify` passed; readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`.
+
 ## 2026-07-02 — Decision Ledger Evidence Guard
 
 - Refreshed `DECISIONS.md` after the 2026-07-01 reconciliation with a generated-evidence snapshot: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 17/17 source families complete, 5,000 Discord messages / 723 clusters / 837 Lafa candidates imported in internal-only mode, 890 exact public routes, 892 FAQ entries, 44/44 live OpenAI `gpt-4.1-mini` eval, and only #11/#4 production gates open.
