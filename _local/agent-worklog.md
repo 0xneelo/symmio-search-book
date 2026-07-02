@@ -1,3 +1,9 @@
+## 2026-07-02 — Codex refresh release/static evidence after reconciled source rebuild
+- Task: Run current no-secret release/static evidence from standalone `main` after the reconciled source-ingestion rebuild, validate generated packets/artifacts, and record aggregate evidence only if status documents need a refresh.
+- Scope: `npm run search-book:release-dry-run`, static artifact build/validation and copied-bundle smokes if needed, local temporary artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused evidence guards, `git diff --check`, and a scoped checkpoint if files change. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: In progress.
+- Verification target: release/static evidence passes from current head with repository dirty=false inside packets, source ingestion `17/17`, no secret values printed, static integrity/smokes passing, and only #11/#4 open.
+
 ## 2026-07-02 — Codex refresh local launch drill from latest no-secret evidence checkpoint
 - Task: Re-run the no-secret local staging launch drill from current head `9f859c6` so localhost preview/service/write-smoke/backup/launch-gate evidence matches the latest pushed no-secret manual/static evidence checkpoint.
 - Scope: local temporary launch-drill artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verification if required, `git diff --check`, and a scoped checkpoint. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
