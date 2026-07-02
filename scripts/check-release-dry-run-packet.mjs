@@ -322,8 +322,15 @@ function discordRefusalRuntimeReady(evidence = {}, expectedRoutingRefusals = 0) 
     && routingRefusals > 0
     && routingRefusals === Number(expectedRoutingRefusals || 0)
     && probes.length === 2
-    && probes.every((probe) => (
-      probe.status === "refusal"
+    && probes.some((probe) => (
+      probe.expect === "lafa-answer"
+      && probe.status === "answered"
+      && probe.citationSourceKey === "discord-lafa"
+      && Number(probe.answerBytes || 0) > 0
+    ))
+    && probes.some((probe) => (
+      probe.expect === "refusal"
+      && probe.status === "refusal"
       && probe.refusalReason === "discord-corpus-review-required"
       && probe.gapId === "G-001"
       && Number(probe.citations || 0) === 0

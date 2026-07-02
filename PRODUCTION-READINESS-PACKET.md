@@ -211,7 +211,7 @@ Production pass criteria:
 - source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families
 - sanitized Discord route-coverage launch check reports 91/91 page-fit groups covered, 0 single-route groups remaining, source-backed triage 91/91 page-fit groups, public-copy ready 91/91 page-fit groups, public-copy review required 0/91 page-fit groups, refusal policy ready 13/13 refusal items, and refusal policy review required 0/13 refusal items
 - Discord editorial queue data evidence reports `passed`, `queueReady:true`, 160 routed items, 91 page-fit groups, 13 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`; disposition evidence is reviewer-handoff ready with 91/91 page-fit groups keeping existing source-backed public copy, 13/13 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted
-- Discord refusal runtime evidence reports 2/2 public-safe probes refused with `discord-corpus-review-required`, `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials
+- Discord refusal runtime evidence reports 2/2 public-safe probes behaving as expected (Lafa founder answer quoted with attribution; non-Lafa community quote refused) with `discord-corpus-review-required`, `G-001`, and no loaded LLM credentials
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`
 - backup-restore evidence reports 4/4 tables matched, restore `passed`, integrity `ok`, and no raw content printed

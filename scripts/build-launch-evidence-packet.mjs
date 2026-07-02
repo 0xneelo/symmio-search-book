@@ -542,7 +542,9 @@ function renderMarkdown(packet) {
   const discordReviewerWorkflow = discordQueueData.reviewerWorkflow || {};
   const discordRefusalEvidence = discordRefusalRuntime.evidence || {};
   const discordRefusalProbes = discordRefusalEvidence.probes || [];
-  const discordRefusalPassedProbes = discordRefusalProbes.filter((probe) => probe.status === "refusal").length;
+  const discordRefusalPassedProbes = discordRefusalProbes.filter((probe) => (probe.expect === "lafa-answer"
+    ? probe.status === "answered"
+    : probe.status === "refusal")).length;
   const publicationEvidence = publicationBoundaries.evidence || {};
   const publicationChecks = publicationBoundaries.checks || [];
   const publicationChecksPassed = publicationChecks.filter((check) => check.passed).length;

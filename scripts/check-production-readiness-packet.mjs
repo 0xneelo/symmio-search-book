@@ -397,7 +397,7 @@ addCheck(
     `public-copy ready ${queuePublicCopyReadyPageFits}/${queueTotalPageFitGroups} page-fit groups`,
     `refusal policy ready ${queueRefusalPolicyReady}/${queueRefusalItems} refusal items`,
     productionQueueEvidenceFragment,
-    "Discord refusal runtime evidence reports 2/2 public-safe probes refused",
+    "Discord refusal runtime evidence reports 2/2 public-safe probes behaving as expected (Lafa founder answer quoted with attribution; non-Lafa community quote refused)",
     "deployment smoke passes against non-local HTTPS URLs",
     "latest backup manifest reports restore-check `passed`",
     "backup-restore evidence reports 4/4 tables matched",

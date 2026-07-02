@@ -83,7 +83,11 @@ function refusalProbeCount(runtime = {}) {
       ? runtime.evidence.probes
       : [];
   return {
-    passed: probes.filter((probe) => probe.status === "refusal").length,
+    // A probe "passes" when it behaves as expected: the Lafa lane answers, the
+    // non-Lafa community lane refuses (SYN-309).
+    passed: probes.filter((probe) => (probe.expect === "lafa-answer"
+      ? probe.status === "answered"
+      : probe.status === "refusal")).length,
     total: probes.length,
   };
 }
