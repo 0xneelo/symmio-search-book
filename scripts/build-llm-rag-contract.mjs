@@ -350,7 +350,7 @@ const apiContractReady =
   evalHarnessReady;
 const recordedLiveEvaluation = {
   status: "passed",
-  verifiedAt: "2026-07-01",
+  verifiedAt: "2026-07-02",
   issueId: "SYN-215",
   provider: "OpenAI",
   model: "gpt-4.1-mini",
@@ -362,8 +362,8 @@ const recordedLiveEvaluation = {
   measuredUsage: {
     calls: 16,
     inputTokens: 94657,
-    outputTokens: 8752,
-    estimatedCostUsd: 0.01944975,
+    outputTokens: 8378,
+    estimatedCostUsd: 0.01922535,
     pricing: "gpt-4.1-mini input $0.15/1M, output $0.60/1M",
   },
   notes:

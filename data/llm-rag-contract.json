@@ -9,7 +9,7 @@
   "reasonLlmProductionReadyIsFalse": "Runtime harness is implemented, OpenAI-compatible provider policy is approved, local LLM credentials are available, a recorded gpt-4.1-mini live eval passed, the standalone SQLite service boundary exists, and the Discord/Lafa export is imported for review; production readiness remains false until the VPS service env is installed and the public frontend/deploy route is selected.",
   "liveEvaluation": {
     "status": "passed",
-    "verifiedAt": "2026-07-01",
+    "verifiedAt": "2026-07-02",
     "issueId": "SYN-215",
     "provider": "OpenAI",
     "model": "gpt-4.1-mini",
@@ -30,8 +30,8 @@
     "measuredUsage": {
       "calls": 16,
       "inputTokens": 94657,
-      "outputTokens": 8752,
-      "estimatedCostUsd": 0.01944975,
+      "outputTokens": 8378,
+      "estimatedCostUsd": 0.01922535,
       "pricing": "gpt-4.1-mini input $0.15/1M, output $0.60/1M"
     },
     "notes": "Live eval exercised the OpenAI-compatible runtime with structured JSON outputs, canonical sourceHref copying, citation validation, validation-retry feedback, required-phrase preservation, adversarial refusals, and answer-validation fixtures. This is runtime evidence, not a deployed-service readiness claim."

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Live LLM Eval Evidence Refresh From Latest Main
+
+- Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `51b268c` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
+- Measured usage was `16` model calls, `94,657` input tokens, `8,378` output tokens, `103,035` total tokens, and `$0.01922535` estimated cost at `gpt-4.1-mini` pricing.
+- Updated the recorded LLM contract evidence; this remains runtime evidence only, not a deployed production readiness claim. `llmProductionReady` remains `false` until #11 production VPS env install and #4 public frontend/deploy-route decision are resolved.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Latest GitHub-Evidence Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `3fbed65`; it passed with generatedAt `2026-07-02T02:53:59.792Z` against temporary preview `http://127.0.0.1:45958` and temporary answer-engine service `http://127.0.0.1:46554`.

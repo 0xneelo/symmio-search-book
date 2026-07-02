@@ -37,7 +37,7 @@ Generated evidence from the latest checked repo state:
 - `data/answer-chunks.json`: 2,884 chunks.
 - `data/authored-pages.json`: 801 authored pages.
 - `data/page-state-registry.json`: 800 published public-navigation pages, 792 source companions, 3 internal drafts.
-- `data/llm-rag-contract.json`: live OpenAI `gpt-4.1-mini` eval passed 44/44 on 2026-07-01.
+- `data/llm-rag-contract.json`: live OpenAI `gpt-4.1-mini` eval passed 44/44 on 2026-07-02.
 - `data/living-docs-events.json`: local living-docs service boundary implemented, `livingDocsProductionReady:false`.
 
 Current preview and release evidence:
