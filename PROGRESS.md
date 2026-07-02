@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Lafa-Cite Ingestion + Contradiction Screen (SYN-309, partial landing)
+
+- Landed sub-steps 1 & 3 of the Lafa verbatim-answers work under plan.md §Step 6's timeboxed partial-landing rule; the guard-web activation (sub-steps 2/4/5/6) is carved into follow-up SYN-316.
+- `scripts/build-discord-corpus.mjs` gains `--publication-mode lafa-cite`: hydrates ONLY Lafa's founder-voice answers (`lafaAnswerCandidates[].answer`/`relatedQuestion`) and the specific community questions Lafa answered (`questionClusters[].question` for `answeredByLafa` clusters only). `messages[].content` stays empty and unanswered community questions stay text-empty; reports `storesMessageText:false`, `storesLafaText:true`, `textScope:"lafa-only"`. Verified locally against the gitignored raw export: reproduces 5,000/723/837 counts, hydrates 820 answers + 311 Lafa-answered question clusters, 0 unanswered clusters hydrated (privacy preserved). The mode is dormant — the checked-in corpus is still the reused no-raw corpus, so every existing guard stays green.
+- `scripts/screen-lafa-answers.mjs`: deterministic contradiction screen of hydrated Lafa answers against the reconciled boundaries — G-003 referral depth (15 levels), G-004 Phase-A/B revenue (0.05% / 5 bps + 30%, Phase B out of scope), G-006 market counts (publication-date verification), the Add-Token disallowed static-payment phrases, and key-shape secrets. Triage output stores ids + reasons + counts only, never answer text. Local run on the hydrated trial: 820 hydrated → 815 auto-approved, 5 flagged (4 revenue-rate, 1 market-count).
+- No raw or non-Lafa Discord text committed; the raw export stays gitignored. Full `npm run search-book:verify` green (26 build steps, 94 syntax checks, 890 routes, 2,884 chunks, 17/17 ingestion, quality 29/30 with only `operator-inbox` open). Syntax-check count moved 93→94 for the new screen script.
+
 ## 2026-07-02 — Fail-Closed Sensitive-Pattern Scan (SYN-306)
 
 - Turned `runSensitivePatternScan` in `scripts/build-all.mjs` from a never-failing counter into a fail-closed verify gate.
