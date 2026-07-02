@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh From Live-Eval Checkpoint
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `932db8f`; it passed with generatedAt `2026-07-02T16:21:25.498Z` against temporary preview `http://127.0.0.1:45632` and temporary answer-engine service `http://127.0.0.1:46028`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-PCY0Yp/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Updated `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, and `PRODUCTION-READINESS-PACKET.md` to the refreshed local launch drill evidence.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Live LLM Eval Evidence Refresh From Current Main
 
 - Re-ran the local OpenAI-backed Search Book live RAG eval from current standalone head `30dafb7` using `.secrets/search-book.env` via `--env-file` without printing API keys or env values.
