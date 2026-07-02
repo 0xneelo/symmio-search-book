@@ -1,5 +1,15 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh From Prod-Finalization Head (SYN-307)
+
+- Triggered fresh manual workflows from commit `7306dce`: launch evidence run `28617507527`, release dry-run run `28617509890`, and static artifact workflow run `28617511668`; all passed.
+- Check-run annotations were empty (`[]`) for launch job `84864874323`, release job `84864882325`, and static job `84864887399`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28617507527`, `/tmp/search-book-gh-manual-release-28617509890`, and `/tmp/search-book-gh-static-artifact-28617511668`; strict launch/release summary validation passed, static packet validation passed, and static/preview-service smokes passed against both the standalone static artifact and the release bundle static site.
+- The static artifact contains 1,653 copied files, 54,008,896 bytes, integrity `passed`, `valuesPrinted:false`, `0` sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `91/91`, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- The launch/release summaries carry repository commit `7306dce`, dirty `false`, `Discord editorial queue data | passed (160 routed / 91 page-fit / 13 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 91/91; keep-refusal 13/13; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 91; refusals 13; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- This head includes the advice-disclaimer checkpoint (SYN-305), the undocumented-fact gap events (SYN-301), the fail-closed sensitive-pattern scan (SYN-306), and the Lafa-cite ingestion + contradiction screen (SYN-309 partial); the deterministic build now runs 94 syntax checks.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Lafa-Cite Ingestion + Contradiction Screen (SYN-309, partial landing)
 
 - Landed sub-steps 1 & 3 of the Lafa verbatim-answers work under plan.md §Step 6's timeboxed partial-landing rule; the guard-web activation (sub-steps 2/4/5/6) is carved into follow-up SYN-316.
