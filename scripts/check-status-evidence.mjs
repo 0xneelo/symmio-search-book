@@ -15,6 +15,7 @@ const docs = [
   { id: "answer-engine-contract", relativePath: "ANSWER-ENGINE-CONTRACT.md" },
   { id: "llm-rag-contract", relativePath: "LLM-RAG-CONTRACT.md" },
   { id: "answer-validation-harness", relativePath: "ANSWER-VALIDATION-HARNESS.md" },
+  { id: "living-docs-operations", relativePath: "LIVING-DOCS-OPERATIONS.md" },
   { id: "source-ingestion-goal", relativePath: "docs/goals/source-ingestion/goal.md" },
   { id: "source-ingestion-plan", relativePath: "docs/goals/source-ingestion/plan.md" },
   { id: "source-ingestion-launch-prompt", relativePath: "docs/goals/source-ingestion/launch-prompt.md" },
@@ -126,6 +127,7 @@ function fragmentsForEvidence() {
   const quality = readJson("data/quality-audit.json");
   const discord = readJson("data/discord-corpus.json");
   const discordRouting = readJson("data/discord-review-routing.json");
+  const discordEditorialQueue = readJson("data/discord-editorial-queue.json");
   const llm = readJson("data/llm-rag-contract.json");
 
   const qualityPassed = (quality.gates || []).filter((gate) => gate.passed).length;
@@ -149,6 +151,9 @@ function fragmentsForEvidence() {
   const live = llm.liveEvaluation || {};
   const suites = live.suites || {};
   const measuredUsage = live.measuredUsage || {};
+  const editorialDisposition = discordEditorialQueue.disposition || {};
+  const editorialWorkflow = discordEditorialQueue.reviewerWorkflow || {};
+  const editorialWorkflowCounts = editorialWorkflow.counts || {};
   const manualEvidence = latestManualEvidenceFromProgress();
   const staticArtifactEvidence = latestStaticArtifactEvidenceFromProgress();
   const localLaunchEvidence = latestLocalLaunchEvidenceFromProgress();
@@ -171,7 +176,10 @@ function fragmentsForEvidence() {
     glossaryFailingRoutes: String((answerEvaluation.failingGlossaryRouteIds || []).length),
     refusalTests: `${answerEvaluation.refusalTestsPassing || 0}/${answerEvaluation.totalRefusalTests || 0}`,
     refusalTestsPassing: String(answerEvaluation.refusalTestsPassing || 0),
+    livingDocsEventContractReady: String(Boolean(livingDocs.eventContractReady)),
     livingDocsFixtures: `${livingDocs.coverage?.passingFixtures || 0}/${livingDocs.coverage?.totalFixtures || 0}`,
+    livingDocsReviewerWorkflowDocumented: String(Boolean(livingDocs.reviewerWorkflowDocumented)),
+    livingDocsProductionReady: String(Boolean(livingDocs.livingDocsProductionReady)),
     answerValidationFixtures: `${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0}`,
     answerValidationCitedFixtures: String(answerValidationCoverage.citedAnswerFixtures || 0),
     answerValidationGroundedAdversarialFixtures: String(answerValidationCoverage.groundedAdversarialFixtures || 0),
@@ -209,6 +217,16 @@ function fragmentsForEvidence() {
     discordRefusalPolicyReady: `${discordRouting.reviewPlan?.refusalPolicyReadyItems || 0}/${discordRouting.reviewPlan?.refusalReviewReady || 0}`,
     discordRefusalPolicyReviewRequired: `${discordRouting.reviewPlan?.refusalPolicyReviewRequired || 0}/${discordRouting.reviewPlan?.refusalReviewReady || 0}`,
     discordSingleRouteRemaining: String(routeCoverage.pageFitSingleRouteRemaining || 0),
+    discordEditorialReadyForReviewerHandoff: String(Boolean(editorialDisposition.readyForReviewerHandoff)),
+    discordEditorialKeepCopy: `${editorialDisposition.pageFitKeepExistingPublicCopy || 0}/${editorialDisposition.pageFitGroups || 0}`,
+    discordEditorialKeepRefusal: `${editorialDisposition.refusalKeepPolicy || 0}/${editorialDisposition.refusalItems || 0}`,
+    discordEditorialCopyChanges: String(editorialDisposition.publicCopyChangesProposed || 0),
+    discordEditorialExactPromotions: String(editorialDisposition.exactDiscordStatementsPromoted || 0),
+    discordEditorialWorkflowStatus: editorialWorkflow.status || "",
+    discordEditorialWorkflowMode: editorialWorkflow.mode || "",
+    discordEditorialWorkflowPhases: String((editorialWorkflow.phaseOrder || []).length),
+    discordEditorialWorkflowPageFitGroups: String(editorialWorkflowCounts.pageFitGroups || 0),
+    discordEditorialWorkflowRefusalItems: String(editorialWorkflowCounts.refusalItems || 0),
     syntaxChecks: String(countSyntaxCheckFiles()),
     liveEvalTotal: suites.total ? `${suites.total.passing}/${suites.total.total}` : "",
     liveEvalAdversarial: suites.adversarial ? `${suites.adversarial.passing}/${suites.adversarial.total}` : "",
@@ -333,6 +351,13 @@ function expectedChecks(evidence) {
       { id: "golden-sets", allOf: [`${evidence.answerValidationExactRouteGoldenSet} exact-route golden set`, `${evidence.answerValidationAdversarialGoldenSet} adversarial golden set`] },
       { id: "status-evidence-guard", allOf: ["checked by `npm run search-book:check-status-evidence`", "against `data/answer-validation-report.json`"] },
       { id: "production-boundary", allOf: ["Production readiness still requires running the same validation against actual model responses"] },
+    ],
+    "LIVING-DOCS-OPERATIONS.md": [
+      { id: "runtime-contract", allOf: [`${evidence.livingDocsFixtures} event fixtures`, `event contract ready=${evidence.livingDocsEventContractReady}`, `reviewer workflow documented=${evidence.livingDocsReviewerWorkflowDocumented}`, `livingDocsProductionReady:${evidence.livingDocsProductionReady}`] },
+      { id: "discord-closeout-counts", allOf: [`${evidence.discordRoutedItems} routed Discord/Lafa review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordPageFitTriage} source-backed existing page fits`, `${evidence.discordPublicCopyReady} page-fit groups with public copy sufficient`, `${evidence.discordPublicCopyReviewRequired} page-fit groups requiring public-copy review`, `${evidence.discordRefusalPolicyReady} refusal items with policy ready`, `${evidence.discordRefusalPolicyReviewRequired} refusal items requiring policy review`] },
+      { id: "discord-closeout-disposition", allOf: [`${evidence.discordEditorialKeepCopy} page-fit groups keep existing source-backed public copy`, `${evidence.discordEditorialKeepRefusal} refusal items keep refusal policy`, `${evidence.discordEditorialCopyChanges} public-copy changes proposed`, `${evidence.discordEditorialExactPromotions} exact Discord/Lafa statements promoted`] },
+      { id: "discord-workflow-boundary", allOf: [`Workflow status: \`${evidence.discordEditorialWorkflowStatus}\``, `Workflow mode: \`${evidence.discordEditorialWorkflowMode}\``, `${evidence.discordEditorialWorkflowPhases} phases`, `${evidence.discordEditorialWorkflowPageFitGroups} page-fit groups`, `${evidence.discordEditorialWorkflowRefusalItems} refusal items`, "Do not use Discord/Lafa alone as the source for public copy"] },
+      { id: "production-boundary", allOf: ["production still needs the selected public route", "production VPS service environment", "Production service setup:", "node --env-file=/etc/symmio-search-book/search-book.env"] },
     ],
     "docs/goals/source-ingestion/goal.md": [
       { id: "completed-state", allOf: ["Source ingestion is complete for v1", `${evidence.sourceIngestion} complete`, `${evidence.sourcePartial} partial`, `${evidence.sourceParked} parked`, `${evidence.sourceMissing} missing`, `sourceCompletionReady:${evidence.sourceCompletionReady}`] },

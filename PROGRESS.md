@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Living-Docs Operations Discord Closeout Guard
+
+- Updated `LIVING-DOCS-OPERATIONS.md` with the current generated no-raw Discord/Lafa closeout state: 160 routed review items, 91/91 source-backed page-fit groups, 13/13 refusal-policy-ready items, 0 public-copy changes, and 0 exact Discord/Lafa statements promoted.
+- Added `LIVING-DOCS-OPERATIONS.md` to `npm run search-book:check-status-evidence`, deriving the required runbook fragments from `data/living-docs-events.json`, `data/discord-review-routing.json`, and `data/discord-editorial-queue.json`.
+- Full `npm run search-book:verify` passed; readiness booleans stayed unchanged and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — Source-Ingestion Goal Docs Reconciled
 
 - Refreshed `docs/goals/source-ingestion/*` from the old #17/Discord-unreadable final-mile state to the current v1 completion state: 17/17 source families complete, Discord `imported-needs-review` with 5,000 messages / 723 question clusters / 837 configured Lafa answer candidates, and no raw message text stored in committed data.

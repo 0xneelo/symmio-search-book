@@ -12,6 +12,13 @@ The living-docs loop exists to turn real questions into better docs without weak
 - Operator-blocked topics stay blocked. Do not turn unreviewed Discord/Lafa messages, production VPS credential setup, or deploy-route gaps into public claims until the matching review or `OPERATOR-INBOX.md` item is resolved. Notion, oldest-whitepaper v1 scope, and SSHE v1 boundary are resolved; keep their documented public-use boundaries instead of re-opening blockers.
 - Guardrail refusals are product behavior, not content bugs: secret requests, prompt injection, source-family-missing questions, internal-draft requests, financial advice, and Phase B economics should continue refusing unless the approved source boundary changes.
 
+Current generated living-docs evidence:
+
+- 12/12 event fixtures.
+- event contract ready=true.
+- reviewer workflow documented=true.
+- livingDocsProductionReady:false.
+
 ## Discord/Lafa Editorial Review Packets
 
 The checked-in Discord corpus is intentionally text-redacted in `internal-only` mode. To review the real Discord/Lafa excerpts, generate a local packet outside the repo:
@@ -77,6 +84,42 @@ keys, refusal ids, and no raw review-packet table shape. With local `/tmp` packe
 also verifies the raw review packet stayed outside the repo and is marked `doNotCommit`, and
 checks the sanitized routing report plus Markdown queue for zero sample leaks without
 printing excerpts.
+
+## Current Discord/Lafa Closeout State
+
+The committed v1 reviewer queue is a no-change, no-raw closeout for public copy. It is
+generated from `data/discord-review-routing.json` and mirrored into
+`DISCORD-EDITORIAL-QUEUE.md` plus `data/discord-editorial-queue.*`.
+
+Current generated evidence:
+
+- 160 routed Discord/Lafa review items.
+- 91 page-fit groups and 147 page-fit routed items.
+- 13 refusal-review items.
+- 91/91 page-fit groups covered by public route aliases.
+- 91/91 source-backed existing page fits.
+- 91/91 page-fit groups with public copy sufficient.
+- 0/91 page-fit groups requiring public-copy review.
+- 13/13 refusal items with policy ready.
+- 0/13 refusal items requiring policy review.
+- 91/91 page-fit groups keep existing source-backed public copy.
+- 13/13 refusal items keep refusal policy.
+- 0 public-copy changes proposed.
+- 0 exact Discord/Lafa statements promoted.
+- Workflow status: `ready`.
+- Workflow mode: `no-raw-source-backed-review`.
+- 4 phases.
+- 91 page-fit groups.
+- 13 refusal items.
+
+This is evidence that existing public pages and refusal behavior cover the imported
+Discord/Lafa demand signals for v1. It is not permission to publish Discord quotes, Lafa
+quotes, local review excerpts, or exact claims from private packets. If a future reviewer
+finds a primary-source gap, create or edit the public page from the primary source, then
+refresh the Discord route summary and editorial queue. Do not use Discord/Lafa alone as the
+source for public copy.
+
+Rule: Do not use Discord/Lafa alone as the source for public copy.
 
 ## Prerequisites
 
