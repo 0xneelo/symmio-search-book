@@ -19,7 +19,7 @@ Use these numbers as the baseline until the next regenerated audit supersedes th
 | Quality audit | 29/30 gates passing; only `operator-inbox` remains red | 97% |
 | Source ingestion | 17/17 complete, 0 partial, 0 parked, 0 missing | 100% |
 | Deterministic answer engine | 890 exact-route tests pass; 32 glossary route tests pass; 2 refusal tests pass | 95% |
-| LLM RAG runtime | Live OpenAI `gpt-4.1-mini` eval passed 46/46 | 88% |
+| LLM RAG runtime | Live OpenAI `gpt-4.1-mini` eval passed 47/47 | 88% |
 | Living-docs loop | SQLite service, ratings, gaps, answer cache, examples, moderation export, metrics, backup/restore-check, summary job, runbook | 85% |
 | Discord/Lafa corpus | Imported internal-only: 5,000 messages, 723 question clusters, 837 configured Lafa candidates; checked-in data stores no raw Discord/Lafa text | 100% for v1 demand evidence |
 | Production deploy | Local static and service smoke paths exist; public platform/deploy route open | 25% |
