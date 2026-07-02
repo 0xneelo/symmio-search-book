@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh From Current Live-Eval Checkpoint
+
+- Triggered fresh manual workflows from commit `ba771ce`: launch evidence run `28565765515`, release dry-run run `28565766479`, and static artifact run `28565766803`; all passed from head `ba771ce58497f7934657b00c695aca61c49c92a5`.
+- Check-run annotations were empty (`[]`) for launch job `84692619486`, release job `84692622140`, and static job `84692622903`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28565765515`, `/tmp/search-book-gh-manual-release-28565766479`, and `/tmp/search-book-gh-static-artifact-28565766803`; strict launch/release summary validation passed, static packet validation passed, and static/preview-service smokes passed against the copied bundle.
+- The launch/release packets report repository commit `ba771ce`, dirty `false`, source ingestion `17/17`, `productionReadinessPacket:passed`, spec reconciliation `passed`, 93 syntax checks, Discord editorial queue data `passed`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- The static artifact reports 1,652 files, 53,476,055 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, exact routes 890, chunks 2,884, source ingestion 17/17, Discord route coverage 19/19, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Live LLM Eval Evidence Refresh From Current Source-Freshness Checkpoint
 
 - Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `477a478` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
