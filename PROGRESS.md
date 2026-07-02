@@ -1,5 +1,15 @@
 # Progress
 
+## 2026-07-03 — No-Secret GitHub Evidence Refresh From Source-Freshness Checkpoint
+
+- Triggered fresh manual workflows from commit `836f455`: launch evidence run `28623296192`, release dry-run run `28623297626`, and static artifact workflow run `28623295329`; all passed.
+- Check-run annotations were empty (`[]`) for launch job `84883990383`, release job `84883994939`, and static job `84883987873`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28623296192`, `/tmp/search-book-gh-manual-release-28623297626`, and `/tmp/search-book-gh-static-artifact-28623295329`; strict launch/release summary validation passed, the release nested launch packet passed checked validation, static packet validation passed, and static/preview-service smokes passed against both the standalone static artifact and the release bundle static site.
+- The static artifact contains 1,654 copied files, 54,402,594 bytes, integrity `passed`, `valuesPrinted:false`, `0` sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `91/91`, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- The launch/release summaries carry repository commit `836f455`, dirty `false`, `Discord editorial disposition | ready true (keep-copy 91/91; keep-refusal 13/13; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 91; refusals 13; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`. The Discord refusal-runtime evidence reports 2/2 probes behaving as expected (Lafa founder answer quoted with attribution; non-Lafa community quote refused).
+- This head carries the publication-day Vibe source freshness refresh (`2026-07-02T21:33:16.139Z`) plus the current local launch drill evidence and fully activated Lafa verbatim-answer feature; the deterministic build runs 95 syntax checks.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-03 — Publication-Day Vibe Source Freshness Refresh
 
 - Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-02T21:33:16.139Z`.
