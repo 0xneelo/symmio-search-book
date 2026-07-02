@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Live LLM Eval Evidence Refresh From Current Main
+
+- Re-ran the local OpenAI-backed Search Book live RAG eval from current standalone head `30dafb7` using `.secrets/search-book.env` via `--env-file` without printing API keys or env values.
+- The eval passed `44/44` fixtures: `16/16` adversarial refusals and `28/28` answer-validation cases, with `0` failures.
+- Measured usage was `16` model calls, `94,657` input tokens, `8,710` output tokens, `103,367` total tokens, and `$0.01942455` estimated cost at `gpt-4.1-mini` pricing.
+- Refreshed `scripts/build-llm-rag-contract.mjs`, `data/llm-rag-contract.*`, `LLM-RAG-CONTRACT.md`, `FINAL-REPORT.md`, and `_specs/app-docs/11-production-readiness-roadmap.md` to the current run evidence.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Referral Depth Question Ledger Cleanup
 
 - Replaced stale `QUESTIONS.md` wording that still said referral depth was parked with the operator-approved public stance: public depth is resolved at fifteen levels with additive backfill; only final settlement/claim mechanics, future economics, and policy overlays remain deferred or owner-review.
