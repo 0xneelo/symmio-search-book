@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — Expanded Discord Backlog Source-Route Alias Slice 2
+
+- Added 10 more public, source-title/theme question aliases for already-authored pages surfaced by the sanitized expanded Discord/Lafa routing packet. The aliases avoid raw Discord/Lafa phrasing and do not promote exact Discord/Lafa claims.
+- Regenerated route, FAQ, answer-engine, living-docs, page-state, LLM contract, answer-validation, requirement-map, and quality-audit data. Generated totals moved to 840 exact routes and 842 local FAQ entries while retrieval chunks stayed at 2,884 and authored pages stayed at 801.
+- Expanded internal-only routing coverage improved from 31/91 to 41/91 page-fit groups covered by public routes; single-route remaining dropped from 60 to 50. The 10 selected source-backed groups are now covered, with 0 selected groups left uncovered. The expanded packet remains internal-only because it still surfaces 50 page-fit groups needing route/public-copy review and 3 no-grounded-context refusal items needing policy review.
+- The committed no-raw launch-ready editorial queue remains unchanged in scope: 24 routed items, 19/19 page-fit groups covered, 19/19 public-copy-ready groups, 2/2 refusal-policy-ready items, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+- Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 840 routes, 840 answerable FAQs, 2,884 chunks, 801 authored pages, static integrity passed, status evidence passed, completion audit passed, production readiness packet passed, and quality gates `29/30`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Expanded Discord Backlog Source-Route Alias Slice
 
 - Added 10 public, source-title question aliases for already-authored pages surfaced by the sanitized expanded Discord/Lafa routing packet. The aliases are deliberately phrased from page titles and source themes, not raw Discord/Lafa text.
