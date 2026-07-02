@@ -8,8 +8,8 @@ Refresh source: `npm run search-book:verify` plus `npm run search-book:check-sta
 
 - Corpus scale: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 792 source companions, and 3 internal drafts.
 - Source status: Source ingestion is 17/17 complete with 0 partial, 0 parked, and 0 missing source families; `sourceCompletionReady:true`.
-- Answer-engine status: 890 exact public question routes, 892 FAQ entries, 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusal tests, and 28/28 answer-validation fixtures.
-- Live LLM evidence: live OpenAI `gpt-4.1-mini` eval passes 44/44 total fixtures, including 16/16 adversarial cases and 28/28 answer-validation cases.
+- Answer-engine status: 890 exact public question routes, 892 FAQ entries, 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusal tests, and 27/27 answer-validation fixtures.
+- Live LLM evidence: live OpenAI `gpt-4.1-mini` eval passes 44/44 total fixtures, including 17/17 adversarial cases and 27/27 answer-validation cases.
 - Discord/Lafa evidence: Discord/Lafa import is internal-only with 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `corpusReady:true`, and `storesMessageText:false`.
 - Discord review state: 160 routed review items, 91/91 page-fit groups covered by public route aliases, 91/91 source-backed page-fit groups, 91/91 public-copy-ready page-fit groups, and 13/13 refusal-policy-ready items.
 - Production boundary: `completionReady:false`, `llmProductionReady:false`, and `livingDocsProductionReady:false` remain intentional until OPERATOR-INBOX #11 production VPS env install and OPERATOR-INBOX #4 public frontend platform/repo/deploy route are resolved.

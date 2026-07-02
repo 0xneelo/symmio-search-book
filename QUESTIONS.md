@@ -4,7 +4,7 @@ Questions are grouped by whether the current source set can answer them.
 
 ## Generated Coverage
 
-The deterministic build currently derives 890 answerable question routes, 2 reconciliation questions, and 892 FAQ entries from this ledger. The answer-engine checks pass 890/890 exact-route tests, 32/32 glossary route tests, and 2/2 refusal tests; the answer-validation harness passes 28/28 fixtures; and the recorded live OpenAI `gpt-4.1-mini` eval passes 44/44 fixtures. Discord/Lafa import is internal-only with 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer candidates; raw Discord/Lafa text stays out of public answers until editorial review maps a paraphrase to sourced Search Book prose. Production readiness still has only #11 production VPS env install and #4 public frontend/deploy route open.
+The deterministic build currently derives 890 answerable question routes, 2 reconciliation questions, and 892 FAQ entries from this ledger. The answer-engine checks pass 890/890 exact-route tests, 32/32 glossary route tests, and 2/2 refusal tests; the answer-validation harness passes 27/27 fixtures; and the recorded live OpenAI `gpt-4.1-mini` eval passes 44/44 fixtures. Discord/Lafa import is internal-only with 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer candidates; raw Discord/Lafa text stays out of public answers until editorial review maps a paraphrase to sourced Search Book prose. Production readiness still has only #11 production VPS env install and #4 public frontend/deploy route open.
 
 ## Answerable In Prototype
 

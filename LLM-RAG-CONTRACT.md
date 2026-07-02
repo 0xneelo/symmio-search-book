@@ -58,6 +58,8 @@ node scripts/build-llm-rag-contract.mjs
 
 The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 17 adversarial eval cases are specified (including two answered-with-disclaimer financial-advice cases, blunt plus paraphrase). It also records the 2026-07-02 OpenAI-backed live `gpt-4.1-mini` validation run: 44/44 total fixtures passed, including 17/17 adversarial cases and 27/27 answer-validation cases, with 18 measured calls, 106,385 input tokens, 9,485 output tokens, and an estimated cost of $0.02164875. The two disclaimer cases are live-only and intentionally excluded from the static answer-validation mirror because their primary page is retrieval-dependent. `llmProductionReady` intentionally remains false until the production VPS service env is installed and public frontend/deploy wiring is selected.
 
+This generated-proof section is checked by `npm run search-book:check-status-evidence` against `data/llm-rag-contract.json`.
+
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should rerun those checks against actual model responses before production launch and after source-corpus changes.
 
 ## Runtime Harness
