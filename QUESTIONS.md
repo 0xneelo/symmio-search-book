@@ -887,6 +887,17 @@ Questions are grouped by whether the current source set can answer them.
 | What does SYMM LP prove is possible? | `authored-symm-lp-proof-of-possibility` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
 | How should SYMM LP benchmarks adapt to regimes? | `authored-symm-lp-regime-updated-benchmarks` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
 
+| How should SYMM LP source and reproducibility notes be used? | `authored-symm-lp-source-and-reproducibility-notes` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How do Symmio Account Layer virtual accounts work? | `authored-symmio-account-layer-virtual-accounts` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How does Symmio withdrawal provider system work? | `authored-symmio-withdrawal-provider-system` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How should the TGE settlement multiplier be interpreted? | `authored-tge-settlement-multiplier` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| What is the Thiel 10x technology test for Vibe? | `authored-thiel-proprietary-technology-test` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How do Thiel software scale economics apply to Vibe? | `authored-thiel-software-scale-economics` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How do token-vault perps differ from USDC pools? | `authored-token-vault-perps-versus-usdc-pools` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| Why does universal issuance need derivatives? | `authored-universal-issuance-needs-derivatives` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How should Vibe fees and funding be read? | `authored-vibe-fees-and-funding` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+| How do Vibe rakeback and trading fees fit together? | `authored-vibe-rakeback-trading-fees` | Medium | Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text. |
+
 ## Prototype Event Log
 
 The static prototype records asked questions, routed pages, answer ratings, and low-rated or unanswered gaps in browser `localStorage`. The Search insights view can export that JSON for later ingestion into the production datastore once the platform/backend decision is resolved.

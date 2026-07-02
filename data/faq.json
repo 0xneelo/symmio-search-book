@@ -8,34 +8,34 @@
   ],
   "seedSource": "local-question-ledger-plus-sanitized-discord-demand",
   "status": "prototype-faq-discord-imported-review-bound",
-  "totalEntries": 882,
-  "totalAnswerable": 880,
+  "totalEntries": 892,
+  "totalAnswerable": 890,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
   "missingSourceKeys": [],
   "byCategory": {
-    "Getting Started": 127,
-    "Trading Flow": 55,
-    "Solvers And Settlement": 205,
+    "Getting Started": 129,
+    "Trading Flow": 57,
+    "Solvers And Settlement": 207,
     "Data And Volume": 11,
-    "Revenue": 109,
-    "Rewards And Referrals": 106,
+    "Revenue": 111,
+    "Rewards And Referrals": 107,
     "Dashboard": 13,
     "Risk And Markets": 78,
-    "Manifesto": 175,
+    "Manifesto": 176,
     "Discord Import": 3
   },
   "byConfidence": {
-    "Medium": 574,
+    "Medium": 584,
     "High": 47,
     "Low": 259
   },
   "byRouteSource": {
-    "authored": 880
+    "authored": 890
   },
   "byType": {
-    "answerable": 880,
+    "answerable": 890,
     "reconciliation": 2
   },
   "answerable": [
@@ -28779,6 +28779,360 @@
           "group": "Public Vibe Sources",
           "use": "Research-paper corpus and long-form themes.",
           "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-symm-lp-source-and-reproducibility-notes-be-used",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How should SYMM LP source and reproducibility notes be used?",
+      "normalizedQuestion": "how should symm lp source and reproducibility notes be used",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "SYMM LP Source And Reproducibility Notes The SYMM LP data snapshot section names the source set behind the case study: ../16 data.md and provided dashboard screenshots from the same SYMM session. The reproducibility notes then define the analysis window and annualization convention. The analysis window starts at the first deposit timestamp, 29/12/2025 11:...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-source-and-reproducibility-notes",
+      "pageTitle": "SYMM LP Source And Reproducibility Notes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-symmio-account-layer-virtual-accounts-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "How do Symmio Account Layer virtual accounts work?",
+      "normalizedQuestion": "how do symmio account layer virtual accounts work",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Symmio Account Layer And Virtual Accounts The Account Layer page introduces the hierarchy that sits between a user and Symmio Core: a user owns SubAccounts, and SubAccounts own Virtual Accounts. SubAccounts SubAccounts are the user's top level organizational units. The official architecture page says each SubAccount is bound to a frontend affiliate, a Sym...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-account-layer-virtual-accounts",
+      "pageTitle": "Symmio Account Layer And Virtual Accounts",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-symmio-withdrawal-provider-system-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "How does Symmio withdrawal provider system work?",
+      "normalizedQuestion": "how does symmio withdrawal provider system work",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Symmio Withdrawal And Provider System The official architecture page describes withdrawals as a lifecycle that begins with deallocated free balance, not with margin still assigned to positions. From Allocated Margin To Withdrawal The source flow is: allocated margin sits in a Virtual Account, margin is removed and swept back to the SubAccount balance, the...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-withdrawal-provider-system",
+      "pageTitle": "Symmio Withdrawal And Provider System",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-contract-interactions"
+      ],
+      "sources": [
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-contract-interactions",
+          "group": "Public Symmio Sources",
+          "use": "Trader contract-interaction index for querying contract info and closing positions on-chain.",
+          "href": "https://docs.symm.io/trader-documentation/interacting-with-contracts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-the-tge-settlement-multiplier-be-interpreted",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should the TGE settlement multiplier be interpreted?",
+      "normalizedQuestion": "how should the tge settlement multiplier be interpreted",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier...",
+      "confidence": "Medium",
+      "pageId": "authored-tge-settlement-multiplier",
+      "pageTitle": "TGE Settlement Multiplier",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "spec-03",
+        "server-points",
+        "dashboard-overview"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-thiel-10x-technology-test-for-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the Thiel 10x technology test for Vibe?",
+      "normalizedQuestion": "what is the thiel 10x technology test for vibe",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "The Thiel 10x Technology Test Neelo's Thiel analysis uses the 10x technology test to separate real category creation from ordinary differentiation. The question is not whether Vibe has a nicer trading screen. The question is whether the architecture enables a market state that alternatives cannot reach. The source names the hybrid architecture, solver sys...",
+      "confidence": "Medium",
+      "pageId": "authored-thiel-proprietary-technology-test",
+      "pageTitle": "The Thiel 10x Technology Test",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-thiel-software-scale-economics-apply-to-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do Thiel software scale economics apply to Vibe?",
+      "normalizedQuestion": "how do thiel software scale economics apply to vibe",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Software Like Scale Economics The scale economics claim in Neelo's Thiel analysis is not that risk disappears at scale. It is that the reusable parts of Vibe's system can cover more markets without every market needing a bespoke venue, committee, or one off market maker. The source frames the fixed cost side as solver infrastructure, smart contracts, audi...",
+      "confidence": "Medium",
+      "pageId": "authored-thiel-software-scale-economics",
+      "pageTitle": "Software-Like Scale Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-token-vault-perps-differ-from-usdc-pools",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do token-vault perps differ from USDC pools?",
+      "normalizedQuestion": "how do token vault perps differ from usdc pools",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Token Vault Perps Versus USDC Pools Neelo's token margined comparison frames low cap perps as a capital structure problem: who supplies the backstop, what risks they absorb, and whether the yield can compensate them. The USDC pool model asks stablecoin LPs to back markets whose underlying spot liquidity may be thin, manipulable, or highly path dependent....",
+      "confidence": "Medium",
+      "pageId": "authored-token-vault-perps-versus-usdc-pools",
+      "pageTitle": "Token-Vault Perps Versus USDC Pools",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-universal-issuance-need-derivatives",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does universal issuance need derivatives?",
+      "normalizedQuestion": "why does universal issuance need derivatives",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Universal Issuance Needs Derivatives Crypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity. That is an extraordinary ac...",
+      "confidence": "Medium",
+      "pageId": "authored-universal-issuance-needs-derivatives",
+      "pageTitle": "Universal Issuance Needs Derivatives",
+      "pageSection": "manifesto",
+      "pageTrack": "02 — Thesis",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-vibe-fees-and-funding-be-read",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should Vibe fees and funding be read?",
+      "normalizedQuestion": "how should vibe fees and funding be read",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Vibe Fees And Funding Vibe trading costs have two distinct layers: explicit fees around opening or closing trades, and funding payments that affect the cost of holding a perpetual position over time. The current official fee guide is useful for categories but not final numeric publication. It states that platform fees apply on opening and closing trades,...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-fees-and-funding",
+      "pageTitle": "Vibe Fees And Funding",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sources": [
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-rakeback-and-trading-fees-fit-together",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How do Vibe rakeback and trading fees fit together?",
+      "normalizedQuestion": "how do vibe rakeback and trading fees fit together",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Vibe Rakeback And Trading Fees The public rakeback page says signing up with a friend's referral code gives the user trading fee rakeback: part of the fees paid by the trader is returned to that trader. The mechanism is progressive, so higher trading volume maps to a higher rakeback percentage. Rakeback Tiers The official table starts below $25,000 of tra...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-rakeback-trading-fees",
+      "pageTitle": "Vibe Rakeback And Trading Fees",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Fees",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-rakeback",
+        "vibe-referral-codes",
+        "vibe-fees"
+      ],
+      "sources": [
+        {
+          "key": "vibe-rakeback",
+          "group": "Public Vibe Sources",
+          "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+          "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
           "missing": false
         }
       ]
@@ -57623,6 +57977,360 @@
           "group": "Public Vibe Sources",
           "use": "Research-paper corpus and long-form themes.",
           "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-symm-lp-source-and-reproducibility-notes-be-used",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How should SYMM LP source and reproducibility notes be used?",
+      "normalizedQuestion": "how should symm lp source and reproducibility notes be used",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "SYMM LP Source And Reproducibility Notes The SYMM LP data snapshot section names the source set behind the case study: ../16 data.md and provided dashboard screenshots from the same SYMM session. The reproducibility notes then define the analysis window and annualization convention. The analysis window starts at the first deposit timestamp, 29/12/2025 11:...",
+      "confidence": "Medium",
+      "pageId": "authored-symm-lp-source-and-reproducibility-notes",
+      "pageTitle": "SYMM LP Source And Reproducibility Notes",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-symmio-account-layer-virtual-accounts-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "How do Symmio Account Layer virtual accounts work?",
+      "normalizedQuestion": "how do symmio account layer virtual accounts work",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Symmio Account Layer And Virtual Accounts The Account Layer page introduces the hierarchy that sits between a user and Symmio Core: a user owns SubAccounts, and SubAccounts own Virtual Accounts. SubAccounts SubAccounts are the user's top level organizational units. The official architecture page says each SubAccount is bound to a frontend affiliate, a Sym...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-account-layer-virtual-accounts",
+      "pageTitle": "Symmio Account Layer And Virtual Accounts",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-core"
+      ],
+      "sources": [
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-core",
+          "group": "Public Symmio Sources",
+          "use": "PartyA, PartyB, solvers, intents, collateral, margin, CVA.",
+          "href": "https://docs.symm.io/getting-started/core-concepts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-symmio-withdrawal-provider-system-work",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Trading Flow",
+      "question": "How does Symmio withdrawal provider system work?",
+      "normalizedQuestion": "how does symmio withdrawal provider system work",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Symmio Withdrawal And Provider System The official architecture page describes withdrawals as a lifecycle that begins with deallocated free balance, not with margin still assigned to positions. From Allocated Margin To Withdrawal The source flow is: allocated margin sits in a Virtual Account, margin is removed and swept back to the SubAccount balance, the...",
+      "confidence": "Medium",
+      "pageId": "authored-symmio-withdrawal-provider-system",
+      "pageTitle": "Symmio Withdrawal And Provider System",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Symmio Contracts",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "symmio-contract-architecture",
+        "symmio-contract-interactions"
+      ],
+      "sources": [
+        {
+          "key": "symmio-contract-architecture",
+          "group": "Public Symmio Sources",
+          "use": "Current Symmio contract architecture: perps diamond, Account Layer, Instant Layer, Muon verifier, ClearingHouse, account hierarchy, quote lifecycle, liquidation, funding aggregation, and withdrawal system.",
+          "href": "https://docs.symm.io/security-and-architecture/contract-architecture-overview.md",
+          "missing": false
+        },
+        {
+          "key": "symmio-contract-interactions",
+          "group": "Public Symmio Sources",
+          "use": "Trader contract-interaction index for querying contract info and closing positions on-chain.",
+          "href": "https://docs.symm.io/trader-documentation/interacting-with-contracts.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-the-tge-settlement-multiplier-be-interpreted",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "How should the TGE settlement multiplier be interpreted?",
+      "normalizedQuestion": "how should the tge settlement multiplier be interpreted",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "TGE Settlement Multiplier The dashboard footer currently tells users that onboarding points are tallied off chain during the GTM push and will be settled at TGE with a multiplier on the network's Vibecaps trading volume. It also warns that these onboarding points are not the same thing as trading points on beta.vibe.trading . That makes the TGE multiplier...",
+      "confidence": "Medium",
+      "pageId": "authored-tge-settlement-multiplier",
+      "pageTitle": "TGE Settlement Multiplier",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Points",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "spec-03",
+        "server-points",
+        "dashboard-overview"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        },
+        {
+          "key": "server-points",
+          "group": "Local Product And Code",
+          "use": "Referral depth config and percentages.",
+          "href": "../../server/points.js",
+          "missing": false
+        },
+        {
+          "key": "dashboard-overview",
+          "group": "Local Product And Code",
+          "use": "Overview cards for revenue, tasks, referral link, invites, and points ledger.",
+          "href": "../../src/dashboard/overview.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-thiel-10x-technology-test-for-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "What is the Thiel 10x technology test for Vibe?",
+      "normalizedQuestion": "what is the thiel 10x technology test for vibe",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "The Thiel 10x Technology Test Neelo's Thiel analysis uses the 10x technology test to separate real category creation from ordinary differentiation. The question is not whether Vibe has a nicer trading screen. The question is whether the architecture enables a market state that alternatives cannot reach. The source names the hybrid architecture, solver sys...",
+      "confidence": "Medium",
+      "pageId": "authored-thiel-proprietary-technology-test",
+      "pageTitle": "The Thiel 10x Technology Test",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-thiel-software-scale-economics-apply-to-vibe",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Getting Started",
+      "question": "How do Thiel software scale economics apply to Vibe?",
+      "normalizedQuestion": "how do thiel software scale economics apply to vibe",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Software Like Scale Economics The scale economics claim in Neelo's Thiel analysis is not that risk disappears at scale. It is that the reusable parts of Vibe's system can cover more markets without every market needing a bespoke venue, committee, or one off market maker. The source frames the fixed cost side as solver infrastructure, smart contracts, audi...",
+      "confidence": "Medium",
+      "pageId": "authored-thiel-software-scale-economics",
+      "pageTitle": "Software-Like Scale Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "01 - Perps Categories & Bootstrap Trilemma",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-token-vault-perps-differ-from-usdc-pools",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "How do token-vault perps differ from USDC pools?",
+      "normalizedQuestion": "how do token vault perps differ from usdc pools",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Token Vault Perps Versus USDC Pools Neelo's token margined comparison frames low cap perps as a capital structure problem: who supplies the backstop, what risks they absorb, and whether the yield can compensate them. The USDC pool model asks stablecoin LPs to back markets whose underlying spot liquidity may be thin, manipulable, or highly path dependent....",
+      "confidence": "Medium",
+      "pageId": "authored-token-vault-perps-versus-usdc-pools",
+      "pageTitle": "Token-Vault Perps Versus USDC Pools",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Economics",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-does-universal-issuance-need-derivatives",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why does universal issuance need derivatives?",
+      "normalizedQuestion": "why does universal issuance need derivatives",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Universal Issuance Needs Derivatives Crypto solved issuance in stages. Bitcoin proved digital scarcity. Ethereum made assets programmable. Uniswap made spot trading permissionless. Launchpads made creation cheap enough that almost anything can become an asset: a project, community, claim, event, outcome, or productive capacity. That is an extraordinary ac...",
+      "confidence": "Medium",
+      "pageId": "authored-universal-issuance-needs-derivatives",
+      "pageTitle": "Universal Issuance Needs Derivatives",
+      "pageSection": "manifesto",
+      "pageTrack": "02 — Thesis",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-vibe-fees-and-funding-be-read",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should Vibe fees and funding be read?",
+      "normalizedQuestion": "how should vibe fees and funding be read",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Vibe Fees And Funding Vibe trading costs have two distinct layers: explicit fees around opening or closing trades, and funding payments that affect the cost of holding a perpetual position over time. The current official fee guide is useful for categories but not final numeric publication. It states that platform fees apply on opening and closing trades,...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-fees-and-funding",
+      "pageTitle": "Vibe Fees And Funding",
+      "pageSection": "product-reference",
+      "pageTrack": "Fees",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-fees",
+        "vibe-funding"
+      ],
+      "sources": [
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-funding",
+          "group": "Public Vibe Sources",
+          "use": "Funding-rate direction, holding-cost effects, solver pricing, and minimum payment threshold.",
+          "href": "https://docs.vibe.trading/trading/funding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-do-vibe-rakeback-and-trading-fees-fit-together",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How do Vibe rakeback and trading fees fit together?",
+      "normalizedQuestion": "how do vibe rakeback and trading fees fit together",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Vibe Rakeback And Trading Fees The public rakeback page says signing up with a friend's referral code gives the user trading fee rakeback: part of the fees paid by the trader is returned to that trader. The mechanism is progressive, so higher trading volume maps to a higher rakeback percentage. Rakeback Tiers The official table starts below $25,000 of tra...",
+      "confidence": "Medium",
+      "pageId": "authored-vibe-rakeback-trading-fees",
+      "pageTitle": "Vibe Rakeback And Trading Fees",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Fees",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-rakeback",
+        "vibe-referral-codes",
+        "vibe-fees"
+      ],
+      "sources": [
+        {
+          "key": "vibe-rakeback",
+          "group": "Public Vibe Sources",
+          "use": "Progressive trading-fee rakeback tiers for users who sign up with a friend's referral code.",
+          "href": "https://docs.vibe.trading/trading/rakeback-trading-fees.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-referral-codes",
+          "group": "Public Vibe Sources",
+          "use": "Referral-code entry, account NFT minting, code sharing, QR/link flow, rakeback benefit, and referrer/referee benefit framing.",
+          "href": "https://docs.vibe.trading/getting-started/referral-codes.md",
+          "missing": false
+        },
+        {
+          "key": "vibe-fees",
+          "group": "Public Vibe Sources",
+          "use": "User-facing fee categories and trade-panel fee breakdown caveat.",
+          "href": "https://docs.vibe.trading/trading/fees.md",
           "missing": false
         }
       ]
