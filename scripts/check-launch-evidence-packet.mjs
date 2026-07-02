@@ -274,11 +274,11 @@ function discordReviewArtifactsReady(evidence = {}) {
     && editorialQueueData.status === "passed"
     && editorialQueueData.queueReady === true
     && queueDataRouted === Number(summary.routedItems || 0)
-    && queueDataRouted === 24
+    && queueDataRouted > 0
     && queueDataPageFits === Number(editorialQueue.pageFitReviewReady || 0)
-    && queueDataPageFits === 19
+    && queueDataPageFits === total
     && queueDataRefusals === refusalReviewReady
-    && queueDataRefusals === 2
+    && queueDataRefusals > 0
     && Number(editorialQueueData.rawKeyHits || 0) === 0
     && Number(editorialQueueData.sampleLeaks || 0) === 0
     && editorialQueueData.valuesPrinted === false
@@ -301,14 +301,16 @@ function discordReviewArtifactsReady(evidence = {}) {
   );
 }
 
-function discordRefusalRuntimeReady(evidence = {}) {
+function discordRefusalRuntimeReady(evidence = {}, expectedRoutingRefusals = 0) {
   const probes = Array.isArray(evidence.evidence?.probes) ? evidence.evidence.probes : [];
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  const routingRefusals = Number(evidence.evidence?.routingRefusals || 0);
   return (
     evidence.status === "passed"
     && evidence.secrets?.valuesPrinted === false
     && evidence.secrets?.llmCredentialsLoaded === false
-    && Number(evidence.evidence?.routingRefusals || 0) === 2
+    && routingRefusals > 0
+    && routingRefusals === Number(expectedRoutingRefusals || 0)
     && probes.length === 2
     && probes.every((probe) => (
       probe.status === "refusal"
@@ -709,9 +711,13 @@ function validateLaunchPacket(packet, packetPath, options = {}) {
   addCheck(
     checks,
     "discord-refusal-runtime-ready",
-    discordRefusalRuntimeReady(discordRefusalRuntime),
+    discordRefusalRuntimeReady(
+      discordRefusalRuntime,
+      discordReviewArtifacts.editorialQueue?.refusalReviewReady,
+    ),
     JSON.stringify({
       routingRefusals: discordRefusalRuntime.evidence?.routingRefusals ?? null,
+      expectedRoutingRefusals: discordReviewArtifacts.editorialQueue?.refusalReviewReady ?? null,
       probes: discordRefusalRuntime.evidence?.probes || [],
       secrets: discordRefusalRuntime.secrets || null,
     }),

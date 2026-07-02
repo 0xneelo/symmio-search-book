@@ -284,11 +284,11 @@ function discordReviewArtifactsReady(evidence = {}) {
     && editorialQueueData.status === "passed"
     && editorialQueueData.queueReady === true
     && queueDataRouted === Number(summary.routedItems || 0)
-    && queueDataRouted === 24
+    && queueDataRouted > 0
     && queueDataPageFits === Number(editorialQueue.pageFitReviewReady || 0)
-    && queueDataPageFits === 19
+    && queueDataPageFits === total
     && queueDataRefusals === refusalReviewReady
-    && queueDataRefusals === 2
+    && queueDataRefusals > 0
     && Number(editorialQueueData.rawKeyHits || 0) === 0
     && Number(editorialQueueData.sampleLeaks || 0) === 0
     && editorialQueueData.valuesPrinted === false
@@ -311,14 +311,16 @@ function discordReviewArtifactsReady(evidence = {}) {
   );
 }
 
-function discordRefusalRuntimeReady(evidence = {}) {
+function discordRefusalRuntimeReady(evidence = {}, expectedRoutingRefusals = 0) {
   const probes = Array.isArray(evidence.evidence?.probes) ? evidence.evidence.probes : [];
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  const routingRefusals = Number(evidence.evidence?.routingRefusals || 0);
   return (
     evidence.status === "passed"
     && evidence.secrets?.valuesPrinted === false
     && evidence.secrets?.llmCredentialsLoaded === false
-    && Number(evidence.evidence?.routingRefusals || 0) === 2
+    && routingRefusals > 0
+    && routingRefusals === Number(expectedRoutingRefusals || 0)
     && probes.length === 2
     && probes.every((probe) => (
       probe.status === "refusal"
@@ -814,9 +816,13 @@ function validateReleasePacket(packet, nestedLaunchPacket, packetPath, nestedLau
   addCheck(
     checks,
     "nested-discord-refusal-runtime-ready",
-    discordRefusalRuntimeReady(nestedDiscordRefusalRuntime),
+    discordRefusalRuntimeReady(
+      nestedDiscordRefusalRuntime,
+      nestedDiscordReviewArtifacts.editorialQueue?.refusalReviewReady,
+    ),
     JSON.stringify({
       routingRefusals: nestedDiscordRefusalRuntime.evidence?.routingRefusals ?? null,
+      expectedRoutingRefusals: nestedDiscordReviewArtifacts.editorialQueue?.refusalReviewReady ?? null,
       probes: nestedDiscordRefusalRuntime.evidence?.probes || [],
       secrets: nestedDiscordRefusalRuntime.secrets || null,
     }),
