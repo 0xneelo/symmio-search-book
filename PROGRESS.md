@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Discord Import Boundary Wording Guard
+
+- Cleared stale README and living-docs wording that made Discord/Lafa import or exact-claim review sound like a remaining production follow-up. The docs now state the import is complete for internal-only v1 demand evidence, while future public promotion of specific Discord/Lafa claims remains editorially gated and primary-source-grounded.
+- Added `scripts/check-status-evidence.mjs` coverage so the stale `launch-parked` and production-follow-up wording cannot return.
+- Verification passed: `node --check scripts/check-status-evidence.mjs`, `npm run search-book:check-status-evidence`, `npm run search-book:check-spec-reconciliation`, `npm run search-book:check-living-docs-review`, `npm run search-book:check-completion-audit`, and full `npm run search-book:verify`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Discord Editorial Queue Grounding Guard
 
 - Added explicit grounding evidence to `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.*`: 91/91 page-fit groups resolve to published authored pages, 91/91 have queued source keys on the page, 91/91 have source keys in `data/source-catalog.json`, 91/91 have source URLs plus `## Sources`, 91/91 have public route counts matching `data/question-routes.json`, and grounding failures are 0.

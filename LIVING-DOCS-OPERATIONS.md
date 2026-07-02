@@ -1,6 +1,6 @@
 # Search Book Living-Docs Operations
 
-This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, service-backed answer ratings and reader page feedback, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route, production VPS service environment, and Discord/Lafa editorial review before specific Discord statements become public copy.
+This runbook is the internal reviewer workflow for the Search Book answer-engine loop. It assumes the standalone service, SQLite datastore, Search Insights bridge, service-backed answer ratings and reader page feedback, retention policy, CORS allowlist, gated moderation export, gated metrics export, helpful-answer reuse cache, dynamic examples endpoint, gap-summary job, and backup/restore-check utility are implemented. It does not make the system production-deployed by itself; production still needs the selected public route and production VPS service environment. Discord/Lafa import is already complete for internal-only v1 demand evidence; only future public use of specific Discord/Lafa claims requires editorial approval and primary-source grounding.
 
 ## Operating Boundary
 
@@ -395,7 +395,7 @@ Before calling the living-docs loop production-ready, verify all of this is true
 - Moderation export is disabled by default and token-gated when enabled.
 - Metrics export is disabled by default and token-gated when enabled.
 - Reviewer owner and cadence are assigned.
-- Discord/Lafa import is either completed or explicitly launch-parked.
+- Discord/Lafa import is complete for internal-only v1 demand evidence; future public promotion of specific Discord/Lafa claims remains editorially gated.
 - `npm run search-book:smoke-service` passes against an isolated database.
 - `npm run search-book:smoke-preview-service` passes against local preview/service ports.
 - `node scripts/build-all.mjs --verify` passes.

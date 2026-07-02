@@ -276,6 +276,7 @@ operator packet for the remaining VPS env and public deploy-route gates is
 ## Non-goals
 
 This is the corpus + runtime harness, not yet a deployed production docs site. Production
-service env, the selected public frontend route, production moderation/backup access, an
-assigned reviewer owner/cadence, and exact Discord/Lafa claim review remain production follow-ups
-(tracked under Linear SYN-209 and its children).
+service env, the selected public frontend route, production moderation/backup access, and an
+assigned reviewer owner/cadence remain production follow-ups (tracked under Linear SYN-209 and
+its children). Discord/Lafa import is complete for internal-only v1 demand evidence; future public
+promotion of specific Discord/Lafa claims remains editorially gated.

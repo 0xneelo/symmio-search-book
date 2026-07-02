@@ -446,6 +446,7 @@ function expectedChecks(evidence) {
       { id: "discord-closeout-counts", allOf: [`${evidence.discordRoutedItems} routed Discord/Lafa review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordPageFitTriage} source-backed existing page fits`, `${evidence.discordPublicCopyReady} page-fit groups with public copy sufficient`, `${evidence.discordPublicCopyReviewRequired} page-fit groups requiring public-copy review`, `${evidence.discordRefusalPolicyReady} refusal items with policy ready`, `${evidence.discordRefusalPolicyReviewRequired} refusal items requiring policy review`] },
       { id: "discord-closeout-disposition", allOf: [`${evidence.discordEditorialKeepCopy} page-fit groups keep existing source-backed public copy`, `${evidence.discordEditorialKeepRefusal} refusal items keep refusal policy`, `${evidence.discordEditorialCopyChanges} public-copy changes proposed`, `${evidence.discordEditorialExactPromotions} exact Discord/Lafa statements promoted`] },
       { id: "discord-workflow-boundary", allOf: [`Workflow status: \`${evidence.discordEditorialWorkflowStatus}\``, `Workflow mode: \`${evidence.discordEditorialWorkflowMode}\``, `${evidence.discordEditorialWorkflowPhases} phases`, `${evidence.discordEditorialWorkflowPageFitGroups} page-fit groups`, `${evidence.discordEditorialWorkflowRefusalItems} refusal items`, "Do not use Discord/Lafa alone as the source for public copy"] },
+      { id: "discord-import-not-parked", allOf: ["Discord/Lafa import is already complete for internal-only v1 demand evidence", "only future public use of specific Discord/Lafa claims requires editorial approval and primary-source grounding", "Discord/Lafa import is complete for internal-only v1 demand evidence", "future public promotion of specific Discord/Lafa claims remains editorially gated"], forbidden: ["Discord/Lafa import is either completed or explicitly launch-parked", "Discord/Lafa editorial review before specific Discord statements become public copy"] },
       { id: "production-boundary", allOf: ["production still needs the selected public route", "production VPS service environment", "Production service setup:", "node --env-file=/etc/symmio-search-book/search-book.env"] },
     ],
     "docs/goals/source-ingestion/goal.md": [
@@ -476,6 +477,7 @@ function expectedChecks(evidence) {
       { id: "workflow-contract-script", allOf: ["search-book:check-github-workflows"] },
       { id: "living-docs-review-script", allOf: ["search-book:check-living-docs-review"] },
       { id: "production-packet-script", allOf: ["search-book:check-production-packet", "production-readiness packet guard"] },
+      { id: "discord-import-not-production-follow-up", allOf: ["Discord/Lafa import is complete for internal-only v1 demand evidence", "future public", "editorially gated"], forbidden: ["exact Discord/Lafa claim review remain production follow-ups"] },
     ],
   };
 }
