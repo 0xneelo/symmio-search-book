@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Answer-Validation Harness Evidence Guard
+
+- Updated `ANSWER-VALIDATION-HARNESS.md` so its generated-proof section matches `data/answer-validation-report.json`: `28/28` passing fixtures, 0 failures, 12 cited-answer fixtures, 4 grounded adversarial fixtures, 12 refusal fixtures, an 890 exact-route golden set, and a 16 adversarial golden set.
+- Added the harness doc to `npm run search-book:check-status-evidence`, deriving required fragments from the generated answer-validation report so fixture coverage and production-boundary claims fail on drift.
+- Full `npm run search-book:verify` passed after the guard update; readiness booleans stayed unchanged and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — LLM RAG Contract Evidence Guard
 
 - Added `LLM-RAG-CONTRACT.md` to `npm run search-book:check-status-evidence` so live RAG eval claims are checked against `data/llm-rag-contract.json`.

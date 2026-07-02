@@ -14,6 +14,7 @@ const docs = [
   { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
   { id: "answer-engine-contract", relativePath: "ANSWER-ENGINE-CONTRACT.md" },
   { id: "llm-rag-contract", relativePath: "LLM-RAG-CONTRACT.md" },
+  { id: "answer-validation-harness", relativePath: "ANSWER-VALIDATION-HARNESS.md" },
   { id: "readme", relativePath: "README.md" },
 ];
 
@@ -113,6 +114,7 @@ function fragmentsForEvidence() {
   const faq = readJson("data/faq.json");
   const chunks = readJson("data/answer-chunks.json");
   const answerContract = readJson("data/answer-engine-contract.json");
+  const answerValidation = readJson("data/answer-validation-report.json");
   const livingDocs = readJson("data/living-docs-events.json");
   const publicationPlan = readJson("data/publication-plan.json");
   const sourceIngestion = readJson("data/source-ingestion.json");
@@ -138,6 +140,7 @@ function fragmentsForEvidence() {
   };
   const routeCoverage = discordRouting.reviewPlan?.routeCoverage || {};
   const answerEvaluation = answerContract.evaluation || {};
+  const answerValidationCoverage = answerValidation.coverage || {};
   const glossaryRoutesByRuntimeAction = answerEvaluation.glossaryRoutesByRuntimeAction || {};
   const live = llm.liveEvaluation || {};
   const suites = live.suites || {};
@@ -165,6 +168,13 @@ function fragmentsForEvidence() {
     refusalTests: `${answerEvaluation.refusalTestsPassing || 0}/${answerEvaluation.totalRefusalTests || 0}`,
     refusalTestsPassing: String(answerEvaluation.refusalTestsPassing || 0),
     livingDocsFixtures: `${livingDocs.coverage?.passingFixtures || 0}/${livingDocs.coverage?.totalFixtures || 0}`,
+    answerValidationFixtures: `${answerValidationCoverage.passingFixtures || 0}/${answerValidationCoverage.totalFixtures || 0}`,
+    answerValidationCitedFixtures: String(answerValidationCoverage.citedAnswerFixtures || 0),
+    answerValidationGroundedAdversarialFixtures: String(answerValidationCoverage.groundedAdversarialFixtures || 0),
+    answerValidationRefusalFixtures: String(answerValidationCoverage.refusalFixtures || 0),
+    answerValidationFailingFixtures: String(answerValidationCoverage.failingFixtures || 0),
+    answerValidationExactRouteGoldenSet: String(answerValidationCoverage.exactRouteGoldenSet || 0),
+    answerValidationAdversarialGoldenSet: String(answerValidationCoverage.adversarialGoldenSet || 0),
     faqEntries: String(faq.totalEntries),
     chunks: formatInteger(chunks.totalChunks),
     chunksRaw: String(chunks.totalChunks),
@@ -307,6 +317,13 @@ function expectedChecks(evidence) {
       { id: "answer-validation-harness", allOf: ["ANSWER-VALIDATION-HARNESS.md", "data/answer-validation-report.json", "actual model responses before production launch"] },
       { id: "runtime-env-boundary", allOf: ["SEARCH_BOOK_LLM_API_STYLE=openai-compatible", "SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true", "`--mode llm` fails closed", "not printed or persisted"] },
       { id: "production-boundary", allOf: ["`llmProductionReady` intentionally remains false", "production VPS service env", "public frontend/deploy wiring"] },
+    ],
+    "ANSWER-VALIDATION-HARNESS.md": [
+      { id: "fixture-families", allOf: ["three fixture families", "cited-answer fixtures sampled from the deterministic exact-route golden set", "grounded adversarial fixtures", "refusal fixtures derived from `data/llm-rag-contract.json` adversarial cases"] },
+      { id: "generated-coverage", allOf: [`${evidence.answerValidationFixtures} passing fixtures`, `${evidence.answerValidationFailingFixtures} failures`, `${evidence.answerValidationCitedFixtures} cited-answer fixtures`, `${evidence.answerValidationGroundedAdversarialFixtures} grounded adversarial fixtures`, `${evidence.answerValidationRefusalFixtures} refusal fixtures`] },
+      { id: "golden-sets", allOf: [`${evidence.answerValidationExactRouteGoldenSet} exact-route golden set`, `${evidence.answerValidationAdversarialGoldenSet} adversarial golden set`] },
+      { id: "status-evidence-guard", allOf: ["checked by `npm run search-book:check-status-evidence`", "against `data/answer-validation-report.json`"] },
+      { id: "production-boundary", allOf: ["Production readiness still requires running the same validation against actual model responses"] },
     ],
     "README.md": [
       { id: "check-status-script", allOf: ["search-book:check-status-evidence"] },
