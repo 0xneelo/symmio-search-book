@@ -348,7 +348,8 @@ const answerValidationAdversarialFixtures =
   (answerValidationCoverage.groundedAdversarialFixtures || 0) +
   (answerValidationCoverage.refusalFixtures || 0) +
   (answerValidationCoverage.disclaimeredLiveOnlyCases || 0) +
-  (answerValidationCoverage.undocumentedFactLiveOnlyCases || 0);
+  (answerValidationCoverage.undocumentedFactLiveOnlyCases || 0) +
+  (answerValidationCoverage.discordLafaLiveOnlyCases || 0);
 const answerValidationReportReady =
   answerValidationReport.reportReady === true &&
   (answerValidationCoverage.totalFixtures || 0) >= 20 &&

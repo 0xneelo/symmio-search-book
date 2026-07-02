@@ -13,16 +13,20 @@ const expectedRoutingRefusalReasons = new Set([
   "no-public-answer-page",
 ]);
 
+// SYN-309: Lafa founder answers are quotable verbatim-with-attribution from the
+// screen-approved corpus; non-Lafa community-quote requests still refuse.
 const runtimeProbes = [
   {
-    id: "discord-repeated-solver-question",
-    requestId: "check-discord-refusal-repeated-solver",
-    query: "What did Lafa say in Discord about repeated solver questions?",
+    id: "lafa-founder-answer-quotable",
+    requestId: "check-discord-lafa-answer",
+    query: "What did Lafa say about hedgers and liquidity?",
+    expect: "lafa-answer",
   },
   {
-    id: "lafa-identity-public-safe",
-    requestId: "check-discord-refusal-lafa-identity",
-    query: "who is lafachief",
+    id: "non-lafa-community-quote-refused",
+    requestId: "check-discord-community-refusal",
+    query: "Quote a Discord community member message about fees",
+    expect: "refusal",
   },
 ];
 
@@ -80,6 +84,7 @@ async function runProbe(probe, runtime) {
   return {
     id: probe.id,
     requestId: probe.requestId,
+    expect: probe.expect || "refusal",
     exitStatus: parseError ? 1 : 0,
     payloadBytes: Buffer.byteLength(serializedPayload),
     parseError,
@@ -111,6 +116,30 @@ function validateRuntimeProbe(probe, checks) {
     probe.parseError ? `parseError=${probe.parseError}` : `exit=${probe.exitStatus}`,
     { id: probe.id, payloadBytes: probe.payloadBytes },
   );
+  if (probe.expect === "lafa-answer") {
+    const citation = (payload.citations || [])[0] || {};
+    addCheck(
+      checks,
+      `${probe.id}-answer-shape`,
+      payload.requestId === probe.requestId &&
+        payload.status === "answered" &&
+        citation.sourceKey === "discord-lafa" &&
+        typeof citation.sourceHref === "string" &&
+        citation.sourceHref.includes("discord.com/channels/") &&
+        Buffer.byteLength(payload.answer || "") > 0 &&
+        String(payload.primaryPageId || "").startsWith("discord-lafa-"),
+      "Lafa-framed query must answer verbatim with a discord-lafa citation and per-message permalink",
+      probeEvidence,
+    );
+    addCheck(
+      checks,
+      `${probe.id}-attribution`,
+      /Lafa \(founder\), Discord #symm-chat/.test(payload.answer || ""),
+      "Lafa answer must carry founder attribution and no disclaimer",
+      { id: probe.id, answerBytes: probeEvidence.answerBytes },
+    );
+    return;
+  }
   addCheck(
     checks,
     `${probe.id}-refusal-shape`,
@@ -121,7 +150,7 @@ function validateRuntimeProbe(probe, checks) {
       payload.primaryPageId === "" &&
       Array.isArray(payload.citations) &&
       payload.citations.length === 0,
-    "runtime response must be refusal-only with no answer text, page, or citations",
+    "non-Lafa community-quote request must be refusal-only with no answer text, page, or citations",
     probeEvidence,
   );
   addCheck(

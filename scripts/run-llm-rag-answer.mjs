@@ -15,6 +15,8 @@ const defaults = {
   glossary: path.join(searchBookRoot, "data", "glossary.json"),
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   gapQueue: path.join(searchBookRoot, "data", "gap-queue.json"),
+  discordCorpus: path.join(searchBookRoot, "data", "discord-corpus.json"),
+  lafaScreen: path.join(searchBookRoot, "data", "lafa-answer-screen.json"),
   llmRagContract: path.join(searchBookRoot, "data", "llm-rag-contract.json"),
   answerValidationReport: path.join(searchBookRoot, "data", "answer-validation-report.json"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
@@ -149,8 +151,8 @@ const riskRules = [
     reason: "discord-corpus-review-required",
     status: "refusal",
     gapId: "G-001",
-    patterns: [/discord/i, /lafa/i],
-    message: "Discord and Lafa-answer claims require editorial review before they become public answers.",
+    patterns: [/discord/i, /community (member|message|chat)/i],
+    message: "Non-Lafa Discord community messages require editorial review before they become public answers. I can quote Lafa's founder answers with attribution — ask what Lafa said about a topic.",
   },
   {
     id: "notion",
@@ -402,7 +404,38 @@ function loadRuntime(defaultPaths) {
     gapById: new Map((gapQueue.items || []).map((gap) => [gap.gapId, gap])),
     exactRouteByQuestion: new Map((questionRoutes.answerable || []).map((route) => [route.normalizedQuestion, route])),
     reconciliationByQuestion: new Map((questionRoutes.reconciliation || []).map((item) => [normalize(item.question), item])),
+    lafaAnswers: loadApprovedLafaAnswers(defaultPaths),
   };
+}
+
+// SYN-309 Lafa founder-answer lane: load the screen-auto-approved Lafa Q&As with
+// verbatim text from the lafa-cite corpus. Only answers passing the contradiction
+// screen are quotable; flagged answers are excluded. Non-Lafa message text is
+// never stored, so nothing here contains community-member content.
+function loadApprovedLafaAnswers(defaultPaths) {
+  const safeRead = (filePath) => {
+    try {
+      return readJson(filePath);
+    } catch {
+      return {};
+    }
+  };
+  const corpus = safeRead(defaultPaths.discordCorpus);
+  const screen = safeRead(defaultPaths.lafaScreen);
+  if (corpus.textScope !== "lafa-only" && corpus.textScope !== "all") return [];
+  const approved = new Set(screen.autoApprovedIds || []);
+  const channelHref = corpus.channelHref || "https://discord.com/channels/1106198408202563665/1106198412124237855";
+  return (corpus.lafaAnswerCandidates || [])
+    .filter((candidate) => candidate.answer && approved.has(candidate.id))
+    .map((candidate) => ({
+      id: candidate.id,
+      messageId: candidate.messageId,
+      question: candidate.relatedQuestion || "",
+      answer: candidate.answer,
+      timestamp: candidate.timestamp || "",
+      permalink: `${channelHref}/${candidate.messageId}`,
+      searchText: normalize(`${candidate.relatedQuestion || ""} ${candidate.answer}`),
+    }));
 }
 
 function gapEvent(args, reason, gapId = "", operatorItemIds = []) {
@@ -472,6 +505,7 @@ function preflight(args, runtime) {
 
   for (const rule of riskRules) {
     if (rule.id === "discord" && isDiscordIngestionBoundaryRoute) continue;
+    if (rule.id === "discord" && isLafaQuotableQuery(args.query)) continue;
     if (rule.id === "revenue-economics" && isConceptualLpProfitRoute(exactRoute, args.query)) continue;
     if (rule.patterns.some((pattern) => pattern.test(args.query))) {
       return refusal(args, {
@@ -1515,8 +1549,74 @@ function finalizeAnsweredResponse(args, response) {
   return applyFinancialAdviceDisclaimer(args, applyUndocumentedFactGap(args, response));
 }
 
+// SYN-309: a query is Lafa-framed when it explicitly asks about the founder Lafa.
+// These bypass the non-Lafa Discord refusal rule and are answered from the
+// screen-approved Lafa corpus verbatim-with-attribution.
+function isLafaQuotableQuery(query) {
+  return /\blafa\b/i.test(String(query || ""));
+}
+
+const lafaStopTokens = new Set(["lafa", "say", "said", "says", "discord", "what", "about", "the", "did", "does", "founder", "tell", "think", "thinks", "chat"]);
+
+function answerFromLafaCorpus(args, runtime) {
+  const entries = runtime.lafaAnswers || [];
+  if (!entries.length) return null;
+  const queryTokens = unique(tokens(args.query).filter((token) => token.length >= 3 && !lafaStopTokens.has(token)));
+  if (!queryTokens.length) return null;
+  let best = null;
+  for (const entry of entries) {
+    let score = 0;
+    for (const token of queryTokens) {
+      if (entry.searchText.includes(token)) score += 1;
+    }
+    if (score > 0 && (!best || score > best.score || (score === best.score && entry.messageId < best.entry.messageId))) {
+      best = { entry, score };
+    }
+  }
+  // Require a minimal topical match so an unrelated Lafa answer is never quoted.
+  if (!best || best.score < 2) return null;
+  const entry = best.entry;
+  const dateLabel = String(entry.timestamp || "").slice(0, 10) || "undated";
+  const attribution = `— Lafa (founder), Discord #symm-chat, ${dateLabel}`;
+  const marker = ` [discord-lafa; ${entry.messageId}]`;
+  const answerBody = entry.question
+    ? `Asked "${entry.question}", Lafa said: ${entry.answer}`
+    : `Lafa said: ${entry.answer}`;
+  return {
+    requestId: args.requestId,
+    status: "answered",
+    factCoverage: "full",
+    answer: `${answerBody}\n\n${attribution}${marker}`,
+    primaryPageId: `discord-lafa-${entry.messageId}`,
+    citations: [
+      {
+        pageId: `discord-lafa-${entry.messageId}`,
+        pageTitle: "Lafa founder answer (Discord #symm-chat)",
+        sourceKey: "discord-lafa",
+        sourceHref: entry.permalink,
+        chunkIds: [entry.id],
+      },
+    ],
+    events: [
+      {
+        type: "question-answered",
+        pageId: `discord-lafa-${entry.messageId}`,
+        query: args.query,
+        source: args.source,
+      },
+    ],
+    confidence: "discord-lafa",
+    relatedPageIds: [],
+    lafaAnswer: { messageId: entry.messageId, matchScore: best.score },
+  };
+}
+
 async function answerQuery(args, runtime, options = {}) {
   const preflightResponse = preflight(args, runtime);
+  if (!preflightResponse && isLafaQuotableQuery(args.query)) {
+    const lafaResponse = answerFromLafaCorpus(args, runtime);
+    if (lafaResponse) return { response: finalizeAnsweredResponse(args, lafaResponse), context: null };
+  }
   const context = preflightResponse ? null : retrieve(args, runtime);
   if (!preflightResponse && typeof options.findReusableAnswer === "function") {
     const reused = await options.findReusableAnswer(args, runtime, context);
@@ -1593,6 +1693,14 @@ function evaluateLiveCase(test, result, runtime) {
       failures.push(`advisory ${JSON.stringify(response.advisory)} !== "not-financial-advice"`);
     }
     failures.push(...answeredValidationFailures(response, result.context, runtime));
+  } else if (expectedStatus === "answered-with-discord-lafa-citation") {
+    // SYN-309: Lafa-framed query answers verbatim from the screen-approved corpus
+    // with a discord-lafa citation + per-message permalink (deterministic lane).
+    if (response.status !== "answered") failures.push(`status ${response.status} !== answered`);
+    const citation = (response.citations || [])[0] || {};
+    if (citation.sourceKey !== "discord-lafa") failures.push(`citation.sourceKey ${JSON.stringify(citation.sourceKey)} !== "discord-lafa"`);
+    if (!/discord\.com\/channels\//.test(String(citation.sourceHref || ""))) failures.push("citation.sourceHref missing per-message Discord permalink");
+    if (!String(response.primaryPageId || "").startsWith("discord-lafa-")) failures.push(`primaryPageId ${JSON.stringify(response.primaryPageId)} is not a discord-lafa answer`);
   } else if (expectedStatus === "answered-fact-absent-or-refusal") {
     // Undocumented-fact queries must never return a plain answered response that
     // drops the missing-fact signal: either answer honestly with factCoverage

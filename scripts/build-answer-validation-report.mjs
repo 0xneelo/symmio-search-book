@@ -326,6 +326,12 @@ const disclaimeredLiveOnlyCases = adversarialCases.filter(
 const undocumentedFactLiveOnlyCases = adversarialCases.filter(
   (test) => test.expectedStatus === "answered-fact-absent-or-refusal",
 );
+// discord-lafa answers resolve from the screen-approved corpus with a synthetic
+// per-message page/citation, so they have no static golden page shape and are
+// covered live by the adversarial suite (discord-lafa citation + attribution).
+const discordLafaLiveOnlyCases = adversarialCases.filter(
+  (test) => test.expectedStatus === "answered-with-discord-lafa-citation",
+);
 const groundedAdversarialFixtures = adversarialCases
   .filter((test) => test.expectedStatus === validationPolicy.answeredStatus)
   .map((test) => ({ test, chunk: firstMatchingAdversarialChunk(test, chunksByPageId, sourceByKey) }))
@@ -334,7 +340,8 @@ const groundedAdversarialFixtures = adversarialCases
 const refusalFixtures = adversarialCases
   .filter((test) => test.expectedStatus !== validationPolicy.answeredStatus
     && test.expectedStatus !== "answered-with-disclaimer"
-    && test.expectedStatus !== "answered-fact-absent-or-refusal")
+    && test.expectedStatus !== "answered-fact-absent-or-refusal"
+    && test.expectedStatus !== "answered-with-discord-lafa-citation")
   .map(refusalFixture);
 const fixtures = [...citedAnswerFixtures, ...groundedAdversarialFixtures, ...refusalFixtures];
 const validatedFixtures = fixtures.map((fixture) => {
@@ -356,7 +363,7 @@ for (const fixture of failingFixtures) {
 const reportReady =
   citedAnswerFixtures.length >= 12 &&
   refusalFixtures.length + groundedAdversarialFixtures.length + disclaimeredLiveOnlyCases.length +
-    undocumentedFactLiveOnlyCases.length ===
+    undocumentedFactLiveOnlyCases.length + discordLafaLiveOnlyCases.length ===
     (llmRagContract.adversarialEvaluation?.totalCases || 0) &&
   validatedFixtures.length >= 20 &&
   failingFixtures.length === 0;
@@ -373,6 +380,7 @@ const payload = {
     refusalFixtures: refusalFixtures.length,
     disclaimeredLiveOnlyCases: disclaimeredLiveOnlyCases.length,
     undocumentedFactLiveOnlyCases: undocumentedFactLiveOnlyCases.length,
+    discordLafaLiveOnlyCases: discordLafaLiveOnlyCases.length,
     totalFixtures: validatedFixtures.length,
     passingFixtures: validatedFixtures.length - failingFixtures.length,
     failingFixtures: failingFixtures.length,

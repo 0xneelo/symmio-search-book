@@ -277,7 +277,7 @@ addCheck(
   checks,
   "discord-import-current",
   discord.corpusReady === true &&
-    discord.publicationMode === "internal-only" &&
+    (discord.publicationMode === "internal-only" || discord.publicationMode === "lafa-cite") &&
     discord.storesMessageText === false &&
     evidence.discordMessages > 0 &&
     evidence.discordQuestionClusters > 0 &&
