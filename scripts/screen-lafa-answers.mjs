@@ -73,6 +73,19 @@ function rawFieldHits(value, pathParts = []) {
 function checkReport(reportPath) {
   const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
   const rawFields = rawFieldHits(report);
+  const flagged = Array.isArray(report.flagged) ? report.flagged : [];
+  const autoApprovedIds = new Set(Array.isArray(report.autoApprovedIds) ? report.autoApprovedIds : []);
+  const flaggedIds = flagged.map((item) => item.id).filter(Boolean);
+  const flaggedAutoApprovedOverlap = flaggedIds.filter((id) => autoApprovedIds.has(id));
+  const computedReasonCounts = {};
+  for (const item of flagged) {
+    for (const reason of item.reasons || []) computedReasonCounts[reason] = (computedReasonCounts[reason] || 0) + 1;
+  }
+  const reportedReasonCounts = report.reasonCounts || {};
+  const reasonKeys = new Set([...Object.keys(computedReasonCounts), ...Object.keys(reportedReasonCounts)]);
+  const reasonCountsMatch = [...reasonKeys].every(
+    (key) => Number(computedReasonCounts[key] || 0) === Number(reportedReasonCounts[key] || 0),
+  );
   const checks = [
     {
       id: "status",
@@ -101,6 +114,16 @@ function checkReport(reportPath) {
       id: "flagged-counts-match",
       passed: (report.flagged || []).length === Number(report.totals?.flagged || 0),
       detail: `flagged=${(report.flagged || []).length}; expected=${Number(report.totals?.flagged || 0)}`,
+    },
+    {
+      id: "flagged-disjoint-from-auto-approved",
+      passed: flaggedAutoApprovedOverlap.length === 0,
+      detail: `overlap=${flaggedAutoApprovedOverlap.length}`,
+    },
+    {
+      id: "reason-counts-match",
+      passed: reasonCountsMatch,
+      detail: JSON.stringify(reportedReasonCounts || {}),
     },
   ];
   const failed = checks.filter((check) => !check.passed);

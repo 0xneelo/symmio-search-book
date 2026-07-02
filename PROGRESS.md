@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-03 — Lafa Flagged-Answer Quarantine Guard
+
+- Hardened the Lafa contradiction-screen guard so `data/lafa-answer-screen.json` must keep flagged IDs disjoint from auto-approved IDs and keep reported reason counts aligned with the flagged items.
+- Hardened `npm run search-book:check-discord-refusals` so the runtime must load exactly the screen-approved Lafa answer count (`815`) and exclude every flagged answer (`5`, overlap `0`) before proving the Lafa founder-answer probe and non-Lafa community-quote refusal probe.
+- Focused verification passed: `node --check scripts/screen-lafa-answers.mjs`, `node --check scripts/check-discord-refusal-runtime.mjs`, `node scripts/screen-lafa-answers.mjs --check-report data/lafa-answer-screen.json`, and `npm run search-book:check-discord-refusals`.
+- Full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify` passed with 26 build steps, 95 syntax checks, 890 routes, 2,884 chunks, 801 authored pages, and quality `29/30`.
+- No readiness booleans flipped; the new checks only harden the existing no-raw Lafa answer boundary while #11 and #4 remain the only production gates.
+
 ## 2026-07-03 — Current-Head Local Launch Drill After Manual Evidence Refresh
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `a9d004a`; it passed with generatedAt `2026-07-02T21:53:12.173Z` against temporary preview `http://127.0.0.1:46366` and temporary answer-engine service `http://127.0.0.1:44868`.

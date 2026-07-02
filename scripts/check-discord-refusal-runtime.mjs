@@ -167,11 +167,41 @@ function validateRuntimeProbe(probe, checks) {
 
 async function main() {
   const discordRouting = readJson("data/discord-review-routing.json");
+  const lafaScreen = readJson("data/lafa-answer-screen.json");
   const reviewPlan = discordRouting.reviewPlan || {};
   const refusalReview = reviewPlan.refusalReview || [];
   const routingReasons = new Set(refusalReview.map((item) => item.refusalReason).filter(Boolean));
   const runtime = loadRuntime(runtimeDefaults);
   const checks = [];
+  const screenApproved = new Set(Array.isArray(lafaScreen.autoApprovedIds) ? lafaScreen.autoApprovedIds : []);
+  const screenFlagged = new Set((Array.isArray(lafaScreen.flagged) ? lafaScreen.flagged : []).map((item) => item.id).filter(Boolean));
+  const runtimeLafaIds = new Set((runtime.lafaAnswers || []).map((item) => item.id).filter(Boolean));
+  const flaggedRuntimeOverlap = [...screenFlagged].filter((id) => runtimeLafaIds.has(id));
+
+  addCheck(
+    checks,
+    "lafa-screen-approved-count",
+    runtimeLafaIds.size === screenApproved.size &&
+      runtimeLafaIds.size === Number(lafaScreen.totals?.autoApproved || 0) &&
+      Number(lafaScreen.totals?.flagged || 0) === screenFlagged.size,
+    `runtime=${runtimeLafaIds.size}; approved=${screenApproved.size}; flagged=${screenFlagged.size}`,
+    {
+      runtimeApprovedAnswers: runtimeLafaIds.size,
+      screenAutoApproved: screenApproved.size,
+      screenFlagged: screenFlagged.size,
+    },
+  );
+
+  addCheck(
+    checks,
+    "lafa-flagged-answers-excluded",
+    flaggedRuntimeOverlap.length === 0,
+    `flaggedRuntimeOverlap=${flaggedRuntimeOverlap.length}`,
+    {
+      screenFlagged: screenFlagged.size,
+      flaggedRuntimeOverlap: flaggedRuntimeOverlap.length,
+    },
+  );
 
   addCheck(
     checks,
