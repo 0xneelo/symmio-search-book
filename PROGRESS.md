@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Discord Editorial Closeout Validation From Current Head
+
+- Regenerated the internal Discord/Lafa review packet from the provided export at current head `5a39841`: `/tmp/search-book-discord-review-closeout-5a39841/discord-review-queue.json`.
+- The review packet is marked `containsRawDiscordExcerpts:true`, `doNotCommit:true`, and `valuesPrinted:false`; it contains 80 question-review items, 80 Lafa-review items, 80 paired Lafa items, and source totals of 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer candidates.
+- Routed the internal packet into sanitized routing evidence at `/tmp/search-book-discord-routing-closeout-5a39841/discord-review-routing.json`; it reports 160 routed items, 147 answered existing-page fits, 13 refusals, `rawDiscordTextIncluded:false`, `sourceAnswerTextIncluded:false`, `valuesPrinted:false`, `rawKeyHits:0`, and `sampleLeaks:0`.
+- Validated the committed `data/discord-review-routing.json`, `data/discord-editorial-queue.json`, and `DISCORD-EDITORIAL-QUEUE.md` against both local packets with `npm run search-book:check-discord-review-artifacts -- --review-json /tmp/search-book-discord-review-closeout-5a39841/discord-review-queue.json --routing-json /tmp/search-book-discord-routing-closeout-5a39841/discord-review-routing.json`.
+- Closeout disposition did not change: 91/91 page-fit groups keep existing source-backed public copy, 13/13 refusal items keep refusal policy, 0 public-copy changes proposed, 0 exact Discord/Lafa statements promoted, and only #11/#4 remain open.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Local-Launch Checkpoint
 
 - Triggered fresh manual workflows from commit `6c831f6`: launch evidence run `28605622743`, release dry-run run `28605624182`, and static artifact workflow run `28605625812`; all passed.
