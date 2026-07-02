@@ -391,8 +391,8 @@ async function main() {
     const guardrail = await requestJson(baseUrl, "/api/search-book/answer", {
       method: "POST",
       body: JSON.stringify({
-        requestId: "smoke-guardrail-lafa",
-        query: "who is lafachief",
+        requestId: "smoke-guardrail-community",
+        query: "Quote a Discord community member message about fees",
         source: "service-smoke",
         mode: "llm",
       }),
