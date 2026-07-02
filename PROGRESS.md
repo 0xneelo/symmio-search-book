@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh From Latest Local-Drill Checkpoint
+
+- Triggered fresh manual workflows from commit `086ae7a`: launch evidence run `28571262091`, release dry-run run `28571262743`, and static artifact run `28571262213`; all passed.
+- Check-run annotations were empty (`[]`) for launch job `84709383898`, release job `84709386372`, and static job `84709384050`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28571262091`, `/tmp/search-book-gh-manual-release-28571262743`, and `/tmp/search-book-gh-static-artifact-28571262213`; strict launch/release summary validation passed, static packet validation passed, and static/preview-service smokes passed against the copied bundle.
+- The launch/release summaries carry repository commit `086ae7a`, dirty `false`, `Discord editorial queue data | passed (160 routed / 91 page-fit / 13 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 91/91; keep-refusal 13/13; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 91; refusals 13; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- The static artifact reports 1,652 files, 53,991,047 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, exact routes 890, chunks 2,884, source ingestion 17/17, Discord route coverage 91/91, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Current Live-Eval Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `1b944e2`; it passed with generatedAt `2026-07-02T06:41:12.787Z` against temporary preview `http://127.0.0.1:45762` and temporary answer-engine service `http://127.0.0.1:45656`.
