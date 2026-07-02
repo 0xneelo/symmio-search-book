@@ -235,8 +235,8 @@ no-raw reviewer queues derived from the same sanitized summary, including automa
 status, public-copy readiness status, refusal-policy readiness status, and automated
 disposition. The queue also carries a four-phase no-raw reviewer workflow: privacy
 preflight, page-fit review, refusal review, and closeout, with required evidence commands
-and a zero-promotion policy for Discord/Lafa statements. Current disposition keeps existing source-backed public copy for 19/19
-page-fit groups, keeps refusal policy for 2/2 refusal items, proposes 0 public-copy
+and a zero-promotion policy for Discord/Lafa statements. Current disposition keeps existing source-backed public copy for 91/91
+page-fit groups, keeps refusal policy for 13/13 refusal items, proposes 0 public-copy
 changes, and promotes 0 exact Discord/Lafa statements.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and

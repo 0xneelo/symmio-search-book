@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Discord Editorial Closeout Expanded To Full 160-Item Packet
+
+- Regenerated the internal Discord/Lafa review packet from the real Windows export into `/tmp/search-book-discord-review-20260702-codex-TyPHRy`, using the single unambiguous `lafachief` author id without printing it. The raw packet stays outside git, is marked `doNotCommit`, and contains 80 repeated-question review items plus 80 paired Lafa candidate review items from the real 5,000-message corpus.
+- Routed that packet through the extractive answer runtime into `/tmp/search-book-discord-routing-20260702-codex-pIBZe5` and regenerated the committed no-raw Search Insights/editorial queue artifacts. The sanitized routing summary now covers `160` review items: `147` answered existing-page fits and `13` refusal-policy items. Page-fit coverage is `91/91`; source-backed triage is `91/91`; public-copy ready is `91/91`; public-copy review required is `0/91`; refusal policy ready is `13/13`; refusal policy review required is `0/13`; exact Discord/Lafa statements promoted remain `0`.
+- Validation passed with `npm run search-book:check-discord-review-artifacts -- --review-json /tmp/search-book-discord-review-20260702-codex-TyPHRy/discord-review-queue.json --routing-json /tmp/search-book-discord-routing-20260702-codex-pIBZe5/discord-review-routing.json`, `npm run search-book:check-discord-refusals`, `npm run search-book:check-status-evidence`, and `npm run search-book:check-production-packet`. Raw-key hits and sample leaks stayed `0`, `valuesPrinted:false`, and the public-safe Discord/Lafa probes still refuse with `discord-corpus-review-required` / `G-001` without loading LLM credentials.
+
 ## 2026-07-02 — Reconciled Source Rebuild Confirmation
 
 - Re-read the 2026-07-01 reconciliation ground truth in `OPERATOR-INBOX.md`, `FINAL-REPORT.md`, `GAPS.md`, and the latest progress entry: only #11 production VPS env install and #4 public frontend/deploy route remain open; local `.secrets/search-book.env` is complete for local live evals and was not printed.

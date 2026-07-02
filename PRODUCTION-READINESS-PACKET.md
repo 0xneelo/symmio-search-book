@@ -19,7 +19,7 @@ The standalone Search Book repo is the canonical working copy:
 - Current deterministic evidence: 890 exact routes, 2,884 chunks, 801 authored pages,
   source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families,
   Discord corpus imported internal-only, no-raw Discord editorial queue Markdown/JSON generated,
-  Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields; disposition evidence is reviewer-handoff ready with 19/19 page-fit groups keeping existing source-backed public copy, 2/2 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted; reviewer workflow evidence is ready with 4 phases, 19 page-fit groups, 2 refusal items, 0 public-copy changes allowed, and 0 exact Discord/Lafa promotions allowed,
+  Discord editorial queue JSON proof `passed` with `queueReady:true`, 160 routed items, 91 page-fit groups, 13 refusal-review items, and no raw text fields; disposition evidence is reviewer-handoff ready with 91/91 page-fit groups keeping existing source-backed public copy, 13/13 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted; reviewer workflow evidence is ready with 4 phases, 91 page-fit groups, 13 refusal items, 0 public-copy changes allowed, and 0 exact Discord/Lafa promotions allowed,
   Discord refusal runtime probes `2/2` passing with no LLM credentials loaded,
   publication boundaries passed, living-docs review evidence passed, backup-restore evidence passed,
   quality gates `29/30`
@@ -209,8 +209,8 @@ Production pass criteria:
 - production env preflight passes
 - deterministic verify runs in the launch gate
 - source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families
-- sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered, 0 single-route groups remaining, source-backed triage 19/19 page-fit groups, public-copy ready 19/19 page-fit groups, public-copy review required 0/19 page-fit groups, refusal policy ready 2/2 refusal items, and refusal policy review required 0/2 refusal items
-- Discord editorial queue data evidence reports `passed`, `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`; disposition evidence is reviewer-handoff ready with 19/19 page-fit groups keeping existing source-backed public copy, 2/2 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted
+- sanitized Discord route-coverage launch check reports 91/91 page-fit groups covered, 0 single-route groups remaining, source-backed triage 91/91 page-fit groups, public-copy ready 91/91 page-fit groups, public-copy review required 0/91 page-fit groups, refusal policy ready 13/13 refusal items, and refusal policy review required 0/13 refusal items
+- Discord editorial queue data evidence reports `passed`, `queueReady:true`, 160 routed items, 91 page-fit groups, 13 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`; disposition evidence is reviewer-handoff ready with 91/91 page-fit groups keeping existing source-backed public copy, 13/13 refusal items keeping refusal policy, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted
 - Discord refusal runtime evidence reports 2/2 public-safe probes refused with `discord-corpus-review-required`, `G-001`, zero citations, zero answer bytes, no primary page, and no loaded LLM credentials
 - deployment smoke passes against non-local HTTPS URLs
 - latest backup manifest reports restore-check `passed`

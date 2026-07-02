@@ -155,6 +155,24 @@ const queueSummary = discordEditorialQueue.summary || {};
 const queueCoverage = queueSummary.routeCoverage || {};
 const queuePrivacy = discordEditorialQueue.privacy || {};
 const queueRawKeyHits = rawQueueKeyHits(discordEditorialQueue);
+const queueRoutedItems = Number(queueSummary.routedItems || 0);
+const queuePageFitGroups = Number(queueSummary.pageFitGroupsReady || 0);
+const queueRefusalItems = Number(queueSummary.refusalReviewItems || 0);
+const queueRefusalPolicyReady = Number(queueSummary.refusalPolicyReadyItems || 0);
+const queueRefusalPolicyReviewRequired = Number(queueSummary.refusalPolicyReviewRequired || 0);
+const queueTotalPageFitGroups = Number(queueCoverage.totalPageFitGroups || 0);
+const queuePageFitCovered = Number(queueCoverage.pageFitCoveredByPublicRoutes || 0);
+const queueSourceBackedPageFits = Number(queueCoverage.sourceBackedPageFitGroups || 0);
+const queuePublicCopyReadyPageFits = Number(queueCoverage.publicCopyReadyPageFitGroups || 0);
+const queuePublicCopyReviewRequired = Number(queueCoverage.publicCopyReviewRequired || 0);
+const queueSingleRouteRemaining = Number(queueCoverage.pageFitSingleRouteRemaining || 0);
+const queueWithoutPublicRoute = Number(queueCoverage.pageFitWithoutPublicRoute || 0);
+const currentBoundaryDiscordFragment =
+  `Discord editorial queue JSON proof \`passed\` with \`queueReady:true\`, ${queueRoutedItems} routed items, ${queuePageFitGroups} page-fit groups, ${queueRefusalItems} refusal-review items, and no raw text fields`;
+const productionRouteCoverageFragment =
+  `sanitized Discord route-coverage launch check reports ${queuePageFitCovered}/${queueTotalPageFitGroups} page-fit groups covered`;
+const productionQueueEvidenceFragment =
+  `Discord editorial queue data evidence reports \`passed\`, \`queueReady:true\`, ${queueRoutedItems} routed items, ${queuePageFitGroups} page-fit groups, ${queueRefusalItems} refusal-review items, 0 raw-key hits, 0 sample leaks, and \`valuesPrinted:false\``;
 const checks = [];
 
 addCheck(
@@ -192,7 +210,7 @@ addCheck(
     "Open operator Linear task map: `#4=SYN-285`, `#11=SYN-281`.",
     "Local LLM env: complete in `.secrets/search-book.env`; do not print it",
     "source ingestion `17/17` with 0 partial / 0 parked / 0 missing source families",
-    "Discord editorial queue JSON proof `passed` with `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, and no raw text fields",
+    currentBoundaryDiscordFragment,
     "quality gates `29/30`",
   ]) &&
     countMatches(currentBoundary, /OPERATOR-INBOX #\d+/g) === 2,
@@ -224,29 +242,29 @@ addCheck(
     discordEditorialQueue.status === "passed" &&
     discordEditorialQueue.queueReady === true &&
     queueSummary.routingStatus === "routed" &&
-    Number(queueSummary.routedItems || 0) === 24 &&
-    Number(queueSummary.pageFitGroupsReady || 0) === 19 &&
-    Number(queueSummary.refusalReviewItems || 0) === 2 &&
-    Number(queueSummary.refusalPolicyReadyItems || 0) === 2 &&
-    Number(queueSummary.refusalPolicyReviewRequired || 0) === 0 &&
+    queueRoutedItems === Number(discordRouting.summary?.routedItems || 0) &&
+    queuePageFitGroups === queueTotalPageFitGroups &&
+    queueRefusalItems === Number(discordRouting.reviewPlan?.refusalReviewReady || 0) &&
+    queueRefusalPolicyReady === queueRefusalItems &&
+    queueRefusalPolicyReviewRequired === 0 &&
     queueCoverage.coverageReady === true &&
     queueCoverage.triageReady === true &&
     queueCoverage.publicCopyReady === true &&
-    Number(queueCoverage.pageFitCoveredByPublicRoutes || 0) === 19 &&
-    Number(queueCoverage.sourceBackedPageFitGroups || 0) === 19 &&
-    Number(queueCoverage.publicCopyReadyPageFitGroups || 0) === 19 &&
-    Number(queueCoverage.publicCopyReviewRequired || 0) === 0 &&
-    Number(queueCoverage.pageFitSingleRouteRemaining || 0) === 0 &&
-    Number(queueCoverage.pageFitWithoutPublicRoute || 0) === 0 &&
+    queuePageFitCovered === queueTotalPageFitGroups &&
+    queueSourceBackedPageFits === queueTotalPageFitGroups &&
+    queuePublicCopyReadyPageFits === queueTotalPageFitGroups &&
+    queuePublicCopyReviewRequired === 0 &&
+    queueSingleRouteRemaining === 0 &&
+    queueWithoutPublicRoute === 0 &&
     queuePrivacy.rawDiscordTextIncluded === false &&
     queuePrivacy.sourceAnswerTextIncluded === false &&
     queuePrivacy.generatedAnswerTextIncluded === false &&
     queuePrivacy.valuesPrinted === false &&
     queueRawKeyHits.length === 0 &&
     Array.isArray(discordEditorialQueue.pageFitReview) &&
-    discordEditorialQueue.pageFitReview.length === 19 &&
+    discordEditorialQueue.pageFitReview.length === queuePageFitGroups &&
     Array.isArray(discordEditorialQueue.refusalReview) &&
-    discordEditorialQueue.refusalReview.length === 2,
+    discordEditorialQueue.refusalReview.length === queueRefusalItems,
   "packet guard must run against current source-ingestion, Discord route-coverage, and queue-data evidence",
   {
     sourceIngestion: {
@@ -374,8 +392,11 @@ addCheck(
     "production env preflight passes",
     "deterministic verify runs in the launch gate",
     "source-ingestion launch check reports `17/17 complete`, 0 partial, 0 parked, and 0 missing source families",
-    "sanitized Discord route-coverage launch check reports 19/19 page-fit groups covered",
-    "Discord editorial queue data evidence reports `passed`, `queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`",
+    productionRouteCoverageFragment,
+    `source-backed triage ${queueSourceBackedPageFits}/${queueTotalPageFitGroups} page-fit groups`,
+    `public-copy ready ${queuePublicCopyReadyPageFits}/${queueTotalPageFitGroups} page-fit groups`,
+    `refusal policy ready ${queueRefusalPolicyReady}/${queueRefusalItems} refusal items`,
+    productionQueueEvidenceFragment,
     "Discord refusal runtime evidence reports 2/2 public-safe probes refused",
     "deployment smoke passes against non-local HTTPS URLs",
     "latest backup manifest reports restore-check `passed`",
