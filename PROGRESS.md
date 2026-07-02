@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Discord Editorial Review Packet Refresh
+
+- Generated a fresh expanded internal Discord/Lafa review packet from the readable Windows export without printing raw message text or the resolved author id: `/tmp/search-book-discord-review-20260702-codex-ypSr5Z` and routed packet `/tmp/search-book-discord-routing-20260702-codex-JNWREt`.
+- Expanded packet evidence: 80 repeated-question review items, 80 Lafa candidate review items, 80 paired Lafa items, 5,000 imported source messages, 723 question clusters, 837 configured Lafa candidates, 160 routed items, 147 answered page fits, and 13 refusals. This larger packet is internal-only and not committed because it correctly surfaces 70 page-fit groups needing route/public-copy review and 3 refusal items needing policy review.
+- Regenerated the committed no-raw editorial queue from the launch-ready 12+12 subset at `/tmp/search-book-discord-review-ready-20260702-codex-lu7JXj` and `/tmp/search-book-discord-routing-ready-20260702-codex-HdgXkM`; committed routing remains 24 routed items, 19/19 page-fit groups covered by public route aliases, 19/19 public-copy-ready groups, 2/2 refusal-policy-ready items, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+- Verification passed: `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-discord-review-artifacts -- --review-json /tmp/search-book-discord-review-ready-20260702-codex-lu7JXj/discord-review-queue.json --routing-json /tmp/search-book-discord-routing-ready-20260702-codex-HdgXkM/discord-review-routing.json`, and `npm run search-book:check-discord-refusals`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — No-Secret Evidence Refresh From Reconciled Source Rebuild
 
 - Triggered fresh manual workflows from commit `bd1cae7`: launch evidence run `28557496582`, release dry-run run `28557496079`, and static artifact run `28557496167`; all passed.
