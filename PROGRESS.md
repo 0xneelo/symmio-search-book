@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — Production-Finalization Final Sweep (SYN-308, goal SYN-304)
+
+- Closed out the prod-finalization goal (SYN-304). All six in-scope steps landed: SYN-305 (advice-disclaimer checkpoint), SYN-301 (undocumented-fact gap events), SYN-306 (fail-closed sensitive-pattern scan), SYN-309 (Lafa-cite ingestion + contradiction screen; activation → SYN-316), SYN-307 (evidence refresh), SYN-308 (this sweep).
+- Re-ran `npm run search-book:drill-local-launch`: passed with generatedAt `2026-07-02T20:01:55.251Z`, temporary service `http://127.0.0.1:65230`, deployment write-smoke answer `answered` / rating `recorded` / pageFeedback `recorded`, launch readiness passed, 0 warnings, `valuesPrinted:false`, no LLM API key loaded.
+- Full `npm run search-book:verify` green: 26 build steps, 94 syntax checks, 890 routes, 2,884 chunks, 801 authored pages, 17/17 source ingestion, quality gates `29/30` with only `operator-inbox` failing by design. `_specs/app-docs/OPERATOR-INBOX.md` lists exactly #11 (SYN-281) and #4 (SYN-285) as real open items (the `#1` entry is the section template).
+- Read `PRODUCTION-READINESS-PACKET.md` end-to-end as the operator: every referenced npm script, `scripts/*.mjs`, and `deploy/*.service|*.timer` file exists and is executable; the #11/#4 runbook is push-button once the operator lands the VPS env and route decision.
+- Live eval evidence current (46/46, 19/19 adversarial, 27/27 answer-validation, 22 calls, $0.02655765, `valuesPrinted:false`). Manual launch/release/static evidence current from head `7306dce` (runs 28617507527/28617509890/28617511668).
+- Readiness booleans unchanged: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 and #4.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Prod-Finalization Head (SYN-307)
 
 - Triggered fresh manual workflows from commit `7306dce`: launch evidence run `28617507527`, release dry-run run `28617509890`, and static artifact workflow run `28617511668`; all passed.
