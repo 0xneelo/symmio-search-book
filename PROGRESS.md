@@ -1,5 +1,15 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh After Route-Total Validator Fix
+
+- Fixed launch/release evidence packet validators and the evidence-summary fixture to compare publication-boundary route and FAQ counts against generated data instead of stale `820` constants; strict equality is preserved and now matches 890 exact routes / 890 answerable FAQs.
+- Full `npm run search-book:verify` passed locally from commit `b1078f2` with 26 build steps, 93 syntax checks, 890 routes, 890 answerable FAQs, 2,884 chunks, 801 authored pages, source ingestion 17/17, and quality gates 29/30.
+- Push CI run `28561575618` passed from head `b1078f27374a18e4deda16aed6d52233d56d07ca`; check-run annotations were empty (`[]`) for job `84680140914`.
+- Triggered fresh manual workflows from commit `b1078f2`: launch evidence run `28561587749`, release dry-run run `28561587711`, and static artifact run `28561587827`; all passed, with empty annotations (`[]`) for launch job `84680175477`, release job `84680175770`, and static job `84680176337`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28561587749`, `/tmp/search-book-gh-manual-release-28561587711`, and `/tmp/search-book-gh-static-artifact-28561587827`; strict launch/release summary validation passed, static packet validation passed, and static/preview-service smokes passed against the copied bundle.
+- The static artifact reports 1,652 files, 53,476,055 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, exact routes 890, chunks 2,884, source ingestion 17/17, Discord route coverage 19/19, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Refusal-Policy Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `a36e967`; it passed with generatedAt `2026-07-02T02:20:15.743Z` against temporary preview `http://127.0.0.1:46482` and temporary answer-engine service `http://127.0.0.1:45006`.
