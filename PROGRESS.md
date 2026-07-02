@@ -1,5 +1,17 @@
 # Progress
 
+## 2026-07-02 — Reconciled Source Rebuild Confirmation
+
+- Re-read the 2026-07-01 reconciliation ground truth in `OPERATOR-INBOX.md`, `FINAL-REPORT.md`, `GAPS.md`, and the latest progress entry: only #11 production VPS env install and #4 public frontend/deploy route remain open; local `.secrets/search-book.env` is complete for local live evals and was not printed.
+- Re-ran `npm run search-book:verify`; it passed with 26 build steps, 93 syntax checks, 890 exact routes, 2,884 chunks, 801 authored pages, 29/30 quality gates, `17/17` source-ingestion requirements complete, and only #11/#4 open. Discord ingestion reused the checked-in real sanitized corpus: `5,000` imported messages, `723` question clusters, `837` configured Lafa answer candidates, `storesMessageText:false`.
+- Readiness booleans did not flip after the rebuild: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, and `livingDocsProductionReady:false`. Notion, SSHE, and whitepaper v1 boundary evidence stayed complete; no resolved blocker was re-logged.
+
+## 2026-07-02 — Live LLM Eval Evidence Refresh From Current Manual-Evidence Checkpoint
+
+- Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `e4ea69c` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
+- Measured usage was `16` model calls, `94,657` input tokens, `8,525` output tokens, `103,182` total tokens, and `$0.01931355` estimated cost at `gpt-4.1-mini` pricing.
+- Recorded LLM contract evidence was refreshed; this remains runtime evidence only, not a deployed-service readiness claim. `llmProductionReady` remains `false` until #11 production VPS env install and #4 public frontend/deploy-route decision are resolved.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Current Local-Drill Checkpoint
 
 - Triggered fresh manual workflows from commit `1c6589d`: launch evidence run `28566355604`, release dry-run run `28566356824`, and static artifact run `28566356203`; all passed from head `1c6589d44479bab3eb612fe6151b31200727a970`.
