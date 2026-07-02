@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Discord Editorial Queue Status Guard
+
+- Added `DISCORD-EDITORIAL-QUEUE.md` to `npm run search-book:check-status-evidence` so the sanitized reviewer Markdown is checked against generated queue data, not just produced by it.
+- The guard now verifies the queue identity, no-raw privacy flags, 160 routed review items, 91/91 page-fit groups, 91/91 source-backed existing page fits, 91/91 public-copy-sufficient page fits, 0/91 public-copy review required, 13/13 refusal-policy-ready items, 0/13 refusal-policy review required, 0 single-route page-fit groups remaining, workflow status `ready`, workflow mode `no-raw-source-backed-review`, 4 workflow phases, 0 public-copy changes allowed from Discord/Lafa alone, 0 exact Discord/Lafa statements allowed, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+- Verification passed: `node --check scripts/check-status-evidence.mjs`, `npm run search-book:check-status-evidence`, `npm run search-book:check-discord-review-artifacts`, `npm run search-book:check-discord-refusals`, full `npm run search-book:verify`, and `git diff --check`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Local-Launch Checkpoint
 
 - Triggered fresh manual workflows from commit `a3153f3`: launch evidence run `28602590754`, release dry-run run `28602592251`, and static artifact workflow run `28602590162`; all passed.
