@@ -666,6 +666,7 @@ async function findReusableAnswer(db, args) {
     response: {
       requestId: args.requestId,
       status: "answered",
+      factCoverage: response.factCoverage || "full",
       answer: response.answer,
       primaryPageId: response.primaryPageId || best.candidate.primary_page_id || "",
       citations: response.citations || [],

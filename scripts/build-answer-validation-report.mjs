@@ -319,6 +319,13 @@ const adversarialCases = llmRagContract.adversarialEvaluation?.cases || [];
 const disclaimeredLiveOnlyCases = adversarialCases.filter(
   (test) => test.expectedStatus === "answered-with-disclaimer",
 );
+// undocumented-fact cases resolve live to either an honest answer with
+// factCoverage "absent" plus a gap event or a gap-carrying refusal, depending on
+// retrieval; neither has a deterministic static golden shape, so they are covered
+// live by the adversarial suite (factCoverage + asked-fact-not-in-corpus gap).
+const undocumentedFactLiveOnlyCases = adversarialCases.filter(
+  (test) => test.expectedStatus === "answered-fact-absent-or-refusal",
+);
 const groundedAdversarialFixtures = adversarialCases
   .filter((test) => test.expectedStatus === validationPolicy.answeredStatus)
   .map((test) => ({ test, chunk: firstMatchingAdversarialChunk(test, chunksByPageId, sourceByKey) }))
@@ -326,7 +333,8 @@ const groundedAdversarialFixtures = adversarialCases
   .map((item) => groundedAdversarialAnswerFixture(item.test, item.chunk, sourceByKey));
 const refusalFixtures = adversarialCases
   .filter((test) => test.expectedStatus !== validationPolicy.answeredStatus
-    && test.expectedStatus !== "answered-with-disclaimer")
+    && test.expectedStatus !== "answered-with-disclaimer"
+    && test.expectedStatus !== "answered-fact-absent-or-refusal")
   .map(refusalFixture);
 const fixtures = [...citedAnswerFixtures, ...groundedAdversarialFixtures, ...refusalFixtures];
 const validatedFixtures = fixtures.map((fixture) => {
@@ -347,7 +355,8 @@ for (const fixture of failingFixtures) {
 }
 const reportReady =
   citedAnswerFixtures.length >= 12 &&
-  refusalFixtures.length + groundedAdversarialFixtures.length + disclaimeredLiveOnlyCases.length ===
+  refusalFixtures.length + groundedAdversarialFixtures.length + disclaimeredLiveOnlyCases.length +
+    undocumentedFactLiveOnlyCases.length ===
     (llmRagContract.adversarialEvaluation?.totalCases || 0) &&
   validatedFixtures.length >= 20 &&
   failingFixtures.length === 0;
@@ -363,6 +372,7 @@ const payload = {
     groundedAdversarialFixtures: groundedAdversarialFixtures.length,
     refusalFixtures: refusalFixtures.length,
     disclaimeredLiveOnlyCases: disclaimeredLiveOnlyCases.length,
+    undocumentedFactLiveOnlyCases: undocumentedFactLiveOnlyCases.length,
     totalFixtures: validatedFixtures.length,
     passingFixtures: validatedFixtures.length - failingFixtures.length,
     failingFixtures: failingFixtures.length,

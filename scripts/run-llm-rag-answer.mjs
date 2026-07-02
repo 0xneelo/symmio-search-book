@@ -658,6 +658,7 @@ function extractiveAnswer(args, runtime, context) {
   const response = {
     requestId: args.requestId,
     status: "answered",
+    factCoverage: "full",
     answer,
     primaryPageId,
     citations,
@@ -862,6 +863,7 @@ function responseJsonSchema() {
     properties: {
       requestId: { type: "string" },
       status: { type: "string", enum: ["answered", "refusal", "operator-blocked-refusal", "postprocess-failure"] },
+      factCoverage: { type: "string", enum: ["full", "partial", "absent"] },
       answer: { type: "string" },
       primaryPageId: { type: "string" },
       citations: {
@@ -888,6 +890,7 @@ function responseJsonSchema() {
     required: [
       "requestId",
       "status",
+      "factCoverage",
       "answer",
       "primaryPageId",
       "citations",
@@ -926,6 +929,7 @@ function buildWorkedExample(context, runtime) {
     response: {
       requestId: "example-request-id",
       status: "answered",
+      factCoverage: "full",
       answer: `Example grounded sentence using only supplied context. [${citation.sourceKey}; ${chunk.id}]`,
       primaryPageId: chunk.pageId,
       citations: [
@@ -1120,6 +1124,8 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         "You are the Search Book answer runtime for Vibe x Symmio.",
         "Return only JSON matching the SearchBookAnswerResponse schema.",
         "When answering, status MUST be exactly \"answered\".",
+        "factCoverage MUST report whether the supplied chunks contain the specific fact(s) the question asks for: \"full\" when the chunks fully contain them, \"partial\" when the chunks cover the topic but not the specific requested fact, and \"absent\" when the chunks do not contain the specific fact asked for.",
+        "If the specific fact is not in the supplied chunks, still answer honestly (state that the documentation does not include it and give the closest grounded context), set factCoverage to \"absent\", and keep status \"answered\"; the runtime records the missing-fact demand signal from factCoverage.",
         "Use a defined refusal status only if the supplied context is insufficient, unsafe, or asks for blocked content.",
         "For questions asking for personal trading, investment, or allocation advice: when grounded context exists, do not refuse; answer with documented mechanics and risks only and never recommend a specific action or position.",
         "requestId MUST echo the input requestId exactly.",
@@ -1145,7 +1151,9 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         responseContract: {
           answeredStatus: "answered",
           refusalStatuses: ["refusal", "operator-blocked-refusal", "postprocess-failure"],
-          requiredAnsweredFields: ["requestId", "status", "answer", "primaryPageId", "citations", "events"],
+          requiredAnsweredFields: ["requestId", "status", "factCoverage", "answer", "primaryPageId", "citations", "events"],
+          factCoverageValues: ["full", "partial", "absent"],
+          factCoverageRule: "Set factCoverage to \"absent\" when the supplied chunks do not contain the specific fact the question asks for, even if you can answer honestly about what the docs do cover.",
           citationRequiredFields: ["pageId", "pageTitle", "sourceKey", "sourceHref", "chunkIds"],
           emptyAnsweredFields: {
             refusalReason: "",
@@ -1286,6 +1294,9 @@ function formatValidationFeedback(error, response, context) {
   if (response?.status !== "answered") {
     feedback.push(`status was ${JSON.stringify(response?.status)}, must be "answered" when answering.`);
   }
+  if (!["full", "partial", "absent"].includes(response?.factCoverage)) {
+    feedback.push(`factCoverage was ${JSON.stringify(response?.factCoverage)}, must be one of "full", "partial", "absent" (use "absent" when the supplied chunks do not contain the specific fact asked for).`);
+  }
   if (response?.requestId !== context.requestId) {
     feedback.push(`requestId was ${JSON.stringify(response?.requestId)}, must echo ${JSON.stringify(context.requestId)}.`);
   }
@@ -1393,6 +1404,9 @@ function collectValidationFailures(response, context, runtime) {
   if (response.status !== "answered") {
     failures.push(validationFailure("status-not-answered", `status was ${JSON.stringify(response.status)}, must be "answered".`));
   }
+  if (!["full", "partial", "absent"].includes(response.factCoverage)) {
+    failures.push(validationFailure("fact-coverage-invalid", `factCoverage was ${JSON.stringify(response.factCoverage)}, must be one of "full", "partial", "absent".`));
+  }
   if (!response.requestId) {
     failures.push(validationFailure("request-id-missing", "requestId missing; it must echo the input requestId."));
   } else if (response.requestId !== context.requestId) {
@@ -1471,19 +1485,49 @@ function applyFinancialAdviceDisclaimer(args, response) {
   return response;
 }
 
+// When an answered response self-reports factCoverage "absent" (the corpus does
+// not contain the specific fact asked for), attach a typed gap event so the
+// living-docs loop captures the missing-fact demand signal instead of silently
+// dropping it. The service persists any response.gapEvent to search_book_gaps on
+// both the fresh-answer and answer-cache reuse paths (single persistQuestion path).
+const ASKED_FACT_NOT_IN_CORPUS = "asked-fact-not-in-corpus";
+function applyUndocumentedFactGap(args, response) {
+  if (!response || response.status !== "answered") return response;
+  if (response.factCoverage !== "absent") return response;
+  if (response.gapEvent) return response;
+  response.gapEvent = gapEvent(args, ASKED_FACT_NOT_IN_CORPUS);
+  response.events = [
+    ...(response.events || []),
+    {
+      type: "gap-created",
+      pageId: response.primaryPageId || "",
+      query: args.query,
+      source: args.source,
+      gapId: "",
+      operatorItemIds: [],
+      reason: ASKED_FACT_NOT_IN_CORPUS,
+    },
+  ];
+  return response;
+}
+
+function finalizeAnsweredResponse(args, response) {
+  return applyFinancialAdviceDisclaimer(args, applyUndocumentedFactGap(args, response));
+}
+
 async function answerQuery(args, runtime, options = {}) {
   const preflightResponse = preflight(args, runtime);
   const context = preflightResponse ? null : retrieve(args, runtime);
   if (!preflightResponse && typeof options.findReusableAnswer === "function") {
     const reused = await options.findReusableAnswer(args, runtime, context);
     if (reused?.response) {
-      return { response: applyFinancialAdviceDisclaimer(args, reused.response), context, reuse: reused.meta || null };
+      return { response: finalizeAnsweredResponse(args, reused.response), context, reuse: reused.meta || null };
     }
   }
   const response = preflightResponse || (args.mode === "llm"
     ? await llmAnswer(args, runtime, context)
     : extractiveAnswer(args, runtime, context));
-  return { response: applyFinancialAdviceDisclaimer(args, response), context };
+  return { response: finalizeAnsweredResponse(args, response), context };
 }
 
 function fixtureCasesFromAnswerValidation(answerValidationReport) {
@@ -1549,6 +1593,24 @@ function evaluateLiveCase(test, result, runtime) {
       failures.push(`advisory ${JSON.stringify(response.advisory)} !== "not-financial-advice"`);
     }
     failures.push(...answeredValidationFailures(response, result.context, runtime));
+  } else if (expectedStatus === "answered-fact-absent-or-refusal") {
+    // Undocumented-fact queries must never return a plain answered response that
+    // drops the missing-fact signal: either answer honestly with factCoverage
+    // "absent" plus an asked-fact-not-in-corpus gap event, or refuse with a gap.
+    const gapReason = test.requiredGapReason || "asked-fact-not-in-corpus";
+    if (response.status === "answered") {
+      if (response.factCoverage !== "absent") {
+        failures.push(`answered but factCoverage ${JSON.stringify(response.factCoverage)} !== "absent"`);
+      }
+      if (!response.gapEvent || response.gapEvent.reason !== gapReason) {
+        failures.push(`answered undocumented-fact without ${gapReason} gap event`);
+      }
+      failures.push(...answeredValidationFailures(response, result.context, runtime));
+    } else if (["refusal", "operator-blocked-refusal"].includes(response.status)) {
+      if (!response.gapEvent) failures.push("refusal for undocumented fact carried no gap event");
+    } else {
+      failures.push(`status ${response.status} is neither answered-with-gap nor gap-carrying refusal`);
+    }
   } else if (expectedStatus === "caveated-answer-or-refusal") {
     if (response.status === "answered") {
       failures.push(...answeredValidationFailures(response, result.context, runtime));

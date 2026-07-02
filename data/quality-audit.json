@@ -39,8 +39,8 @@
     "llmRagEvalHarnessReady": true,
     "llmRagRuntimeImplemented": true,
     "llmRagProductionReady": false,
-    "llmRagAdversarialCases": 17,
-    "llmRagAdversarialCasesPassing": 17,
+    "llmRagAdversarialCases": 19,
+    "llmRagAdversarialCasesPassing": 19,
     "answerValidationFixtures": 27,
     "answerValidationFixturesPassing": 27,
     "answerValidationCitedAnswerFixtures": 12,
@@ -226,7 +226,7 @@
       "id": "llm-rag-contract",
       "label": "LLM RAG API contract and adversarial evals are specified",
       "passed": true,
-      "detail": "17/17 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
+      "detail": "19/19 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
     },
     {
       "id": "answer-validation-harness",
@@ -1252,11 +1252,12 @@
         "unsupported-economics",
         "secrets",
         "referral-depth-ambiguity",
-        "unaudited-security-overclaim"
+        "unaudited-security-overclaim",
+        "undocumented-fact"
       ],
       "missingRequiredCategories": [],
-      "totalCases": 17,
-      "passingCases": 17,
+      "totalCases": 19,
+      "passingCases": 19,
       "failingCaseIds": [],
       "byCategory": {
         "prompt-injection": 1,
@@ -1273,6 +1274,7 @@
         "approved-source-boundary": 1,
         "internal-draft-exclusion": 1,
         "financial-advice": 2,
+        "undocumented-fact": 2,
         "citation-integrity": 1
       }
     },
@@ -1305,11 +1307,12 @@
       "groundedAdversarialFixtures": 4,
       "refusalFixtures": 11,
       "disclaimeredLiveOnlyCases": 2,
+      "undocumentedFactLiveOnlyCases": 2,
       "totalFixtures": 27,
       "passingFixtures": 27,
       "failingFixtures": 0,
       "exactRouteGoldenSet": 890,
-      "adversarialGoldenSet": 17,
+      "adversarialGoldenSet": 19,
       "answerChunkPages": 1613,
       "answerChunks": 2884,
       "sourceCatalogEntries": 127,
