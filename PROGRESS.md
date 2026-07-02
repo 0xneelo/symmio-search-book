@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh From Style-Guide Checkpoint
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `fd7c2e1`; it passed with generatedAt `2026-07-02T14:00:31.639Z` against temporary preview `http://127.0.0.1:45600` and temporary answer-engine service `http://127.0.0.1:44784`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-5AdxJs/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Style Guide Evidence Guard
 
 - Refreshed `STYLEGUIDE.md` from an early editorial note into the current public writing contract for the standalone Search Book: generated corpus counts, primary-source rules, Neelo vision/manifesto voice, AMFQ-to-Intent terminology, Phase A revenue wording, 15-level referral wording, Discord/Lafa internal-only handling, Notion paraphrase-only use, SSHE and whitepaper source boundaries, answer-runtime citation rules, and #11/#4-only production gates.
