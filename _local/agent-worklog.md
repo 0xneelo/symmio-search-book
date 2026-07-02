@@ -1,3 +1,10 @@
+## 2026-07-02 - Codex guard LLM RAG contract live-eval evidence
+- Task: Extend status evidence so `LLM-RAG-CONTRACT.md` is checked against generated live LLM eval evidence and cannot drift on pass rates, provider/model, usage, fallback boundaries, or production gates.
+- Scope: `LLM-RAG-CONTRACT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verify, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:check-status-evidence` fails if `LLM-RAG-CONTRACT.md` drifts from generated live eval suite counts, provider/model, measured usage/cost, no-secret runtime boundary, or #4/#11 production boundary.
+- Result: Added `LLM-RAG-CONTRACT.md` to `scripts/check-status-evidence.mjs`, deriving provider/model, suite counts, measured token usage, estimated cost, runtime env boundary, and production gate fragments from `data/llm-rag-contract.json`. The LLM contract doc now states that its generated-proof section is checked against the artifact. `node --check scripts/check-status-evidence.mjs`, `npm run search-book:check-status-evidence`, `npm run search-book:check-completion-audit`, `npm run search-book:check-production-packet`, full `npm run search-book:verify`, and `git diff --check` passed; only #4/#11 remain open.
+
 ## 2026-07-02 - Codex guard deterministic answer-engine contract doc counts
 - Task: Remove stale generated-proof counts from `ANSWER-ENGINE-CONTRACT.md` and extend status evidence so this contract doc is checked against generated answer-engine and living-docs event evidence.
 - Scope: `ANSWER-ENGINE-CONTRACT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verify, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

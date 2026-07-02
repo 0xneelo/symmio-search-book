@@ -13,6 +13,7 @@ const docs = [
   { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
   { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
   { id: "answer-engine-contract", relativePath: "ANSWER-ENGINE-CONTRACT.md" },
+  { id: "llm-rag-contract", relativePath: "LLM-RAG-CONTRACT.md" },
   { id: "readme", relativePath: "README.md" },
 ];
 
@@ -140,6 +141,7 @@ function fragmentsForEvidence() {
   const glossaryRoutesByRuntimeAction = answerEvaluation.glossaryRoutesByRuntimeAction || {};
   const live = llm.liveEvaluation || {};
   const suites = live.suites || {};
+  const measuredUsage = live.measuredUsage || {};
   const manualEvidence = latestManualEvidenceFromProgress();
   const staticArtifactEvidence = latestStaticArtifactEvidenceFromProgress();
   const localLaunchEvidence = latestLocalLaunchEvidenceFromProgress();
@@ -192,8 +194,13 @@ function fragmentsForEvidence() {
     liveEvalTotal: suites.total ? `${suites.total.passing}/${suites.total.total}` : "",
     liveEvalAdversarial: suites.adversarial ? `${suites.adversarial.passing}/${suites.adversarial.total}` : "",
     liveEvalAnswerValidation: suites.answerValidation ? `${suites.answerValidation.passing}/${suites.answerValidation.total}` : "",
+    liveEvalAdversarialTotal: String(suites.adversarial?.total || 0),
     liveEvalProvider: live.provider || "",
     liveEvalModel: live.model || "",
+    liveEvalCalls: String(measuredUsage.calls || 0),
+    liveEvalInputTokens: formatInteger(measuredUsage.inputTokens || 0),
+    liveEvalOutputTokens: formatInteger(measuredUsage.outputTokens || 0),
+    liveEvalEstimatedCost: `$${measuredUsage.estimatedCostUsd || 0}`,
     manualEvidence,
     staticArtifactEvidence,
     localLaunchEvidence,
@@ -291,6 +298,15 @@ function expectedChecks(evidence) {
       { id: "glossary-breakdown", allOf: [`${evidence.glossaryPublicRoutes} route to a public page`, `${evidence.glossaryRetrievalOnlyRoutes} are retrieval-context-only`, `${evidence.glossaryFailingRoutes} failing glossary route ids`] },
       { id: "service-runtime", allOf: ["gated moderation and metrics exports", "GET /api/search-book/metrics", "backup/restore-check utility"] },
       { id: "production-boundary", allOf: ["llmProductionReady` intentionally remains false", "production VPS service env and public route/deploy wiring remain open"] },
+    ],
+    "LLM-RAG-CONTRACT.md": [
+      { id: "generated-proof", allOf: ["API contract", "runtime harness", "executable exact-route/glossary preflight", `${evidence.liveEvalAdversarialTotal} adversarial eval cases are specified`] },
+      { id: "status-evidence-guard", allOf: ["checked by `npm run search-book:check-status-evidence`", "against `data/llm-rag-contract.json`"] },
+      { id: "live-eval-suite-counts", allOf: [`${evidence.liveEvalProvider}-backed live \`${evidence.liveEvalModel}\` validation run`, `${evidence.liveEvalTotal} total fixtures passed`, `${evidence.liveEvalAdversarial} adversarial cases`, `${evidence.liveEvalAnswerValidation} answer-validation cases`] },
+      { id: "live-eval-usage", allOf: [`${evidence.liveEvalCalls} measured calls`, `${evidence.liveEvalInputTokens} input tokens`, `${evidence.liveEvalOutputTokens} output tokens`, `estimated cost of ${evidence.liveEvalEstimatedCost}`] },
+      { id: "answer-validation-harness", allOf: ["ANSWER-VALIDATION-HARNESS.md", "data/answer-validation-report.json", "actual model responses before production launch"] },
+      { id: "runtime-env-boundary", allOf: ["SEARCH_BOOK_LLM_API_STYLE=openai-compatible", "SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true", "`--mode llm` fails closed", "not printed or persisted"] },
+      { id: "production-boundary", allOf: ["`llmProductionReady` intentionally remains false", "production VPS service env", "public frontend/deploy wiring"] },
     ],
     "README.md": [
       { id: "check-status-script", allOf: ["search-book:check-status-evidence"] },

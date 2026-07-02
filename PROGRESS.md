@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — LLM RAG Contract Evidence Guard
+
+- Added `LLM-RAG-CONTRACT.md` to `npm run search-book:check-status-evidence` so live RAG eval claims are checked against `data/llm-rag-contract.json`.
+- The guard now enforces the current OpenAI `gpt-4.1-mini` evidence: `44/44` total fixtures, `16/16` adversarial cases, `28/28` answer-validation cases, 16 measured calls, 94,657 input tokens, 8,984 output tokens, and `$0.01958895` estimated cost.
+- Full `npm run search-book:verify` passed after the guard update; readiness booleans stayed unchanged and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — Deterministic Answer-Engine Contract Evidence Guard
 
 - Corrected `ANSWER-ENGINE-CONTRACT.md` generated-proof counts to match generated evidence: 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusals, and 12/12 living-docs fixtures.
