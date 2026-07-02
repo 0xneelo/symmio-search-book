@@ -240,6 +240,7 @@ function addPublicRouteCoverage(pageFitReview, args) {
 
 const refusalPolicyReadyReasons = new Set([
   "discord-corpus-review-required",
+  "no-grounded-context",
   "no-public-answer-page",
 ]);
 

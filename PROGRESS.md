@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — Expanded Discord Refusal-Policy Lane Closure
+
+- Classified `no-grounded-context` as a policy-ready refusal in the sanitized Discord routing summary builder. This matches the answer runtime boundary: no grounded context means the system must keep refusing and create demand/gap evidence, not synthesize an answer.
+- Regenerated the expanded internal-only routing summary under `/tmp/search-book-discord-routing-expanded-after-refusal-policy.json` without raw Discord text, raw Lafa/source answer text, generated answer text, or printed values.
+- Expanded internal-only page-fit coverage remains complete at 91/91 page-fit groups covered by public routes, 91/91 public-copy-ready groups, 0 single-route groups, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+- Expanded internal-only refusal policy readiness improved from 10/13 to 13/13, with refusal-policy review required dropping from 3 to 0. The refusal reasons are 7 `discord-corpus-review-required`, 3 `no-public-answer-page`, and 3 `no-grounded-context`; all keep refusal behavior until future primary-source review creates a grounded public page or route.
+- Full `npm run search-book:verify` passed with 26 build steps, 93 syntax checks, 890 routes, 890 answerable FAQs, 2,884 chunks, 801 authored pages, static integrity passed, Discord review artifacts passed, Discord refusal runtime passed, status evidence passed, completion audit passed, production readiness packet passed, and quality gates `29/30`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Expanded Discord Backlog Source-Route Alias Final Slice
 
 - Added the final 10 public, source-title/theme question aliases for already-authored pages surfaced by the sanitized expanded Discord/Lafa routing packet. The aliases avoid raw Discord/Lafa phrasing and do not promote exact Discord/Lafa claims.
