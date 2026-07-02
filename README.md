@@ -175,7 +175,7 @@ drill, monitoring probe, and Vibe public-docs source-freshness check when no dep
 are supplied. The packet includes the current sanitized Discord route-coverage snapshot for
 Search Insights, Discord review-artifact evidence for the no-raw editorial queue including
 source-backed existing-page triage, public-copy readiness state, and refusal-policy readiness state,
-Discord refusal-runtime evidence proving the public-safe Discord/Lafa probes remain refusal-only
+Discord refusal-runtime evidence proving the Lafa-founder probe answers with a `discord-lafa` citation while the non-Lafa community-quote probe remains refusal-only
 without loaded LLM credentials,
 source-freshness evidence as statuses, hashes, and booleans only, publication-boundary
 evidence as public/source/internal counts only, backup-restore evidence as table/count/check
