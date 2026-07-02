@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — Discord-Lafa Screened Source Evidence (SYN-316 prep)
+
+- Registered `discord-lafa` as a first-class Public Symmio source key and included it in the complete Discord source-ingestion family; generated catalog evidence now reports 128 sources, 45 Public Symmio sources, 110 linked source keys, and source ingestion `17/17` complete.
+- Committed `data/lafa-answer-screen.json` as count/id/reason-only screening evidence from the real `lafa-cite` corpus: 820 hydrated Lafa answers, 815 auto-approved, 5 flagged (4 revenue-rate contradiction, 1 market-count verification). The report stores no answer, question, message, or community text.
+- Added `scripts/screen-lafa-answers.mjs --check-report` and wired it into `npm run search-book:verify` as `lafaAnswerScreen`, so the no-raw screen contract now fails closed in the standard verification suite.
+- Verification green after rebasing on the SYN-308 final sweep: `npm run search-book:check-status-evidence`, `node scripts/screen-lafa-answers.mjs --check-report data/lafa-answer-screen.json`, full `/home/tabor/.nvm/versions/node/v23.9.0/bin/npm run search-book:verify`, and `git diff --check`. Full verify now runs 95 syntax checks and still reports 890 routes, 2,884 chunks, 801 authored pages, quality gates `29/30`, and only `operator-inbox` failing by design.
+- Readiness booleans unchanged: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Production-Finalization Final Sweep (SYN-308, goal SYN-304)
 
 - Closed out the prod-finalization goal (SYN-304). All six in-scope steps landed: SYN-305 (advice-disclaimer checkpoint), SYN-301 (undocumented-fact gap events), SYN-306 (fail-closed sensitive-pattern scan), SYN-309 (Lafa-cite ingestion + contradiction screen; activation → SYN-316), SYN-307 (evidence refresh), SYN-308 (this sweep).

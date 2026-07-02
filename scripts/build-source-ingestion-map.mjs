@@ -200,7 +200,7 @@ const notionKeys = ["vibe-trading-notion"];
 const superflowKeys = ["superflow-she-openapi", "symmio-foundation-metasolver"];
 const hyperliquidGoldskyKeys = ["hyperliquid-llms", "hyperliquid-hip3", "goldsky-subgraphs", "goldsky-graphql-endpoints"];
 const competitiveSweepKeys = ["competitive-sweep-batch-01", "competitive-sweep-synthesis"];
-const discordToolingKeys = ["discord-ingestion-contract"];
+const discordToolingKeys = ["discord-ingestion-contract", "discord-lafa"];
 
 const localSpecStatus = requiredKeysStatus(keys, localSpecKeys);
 const localCodeStatus = requiredKeysStatus(keys, localCodeKeys);

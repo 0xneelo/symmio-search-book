@@ -550,6 +550,24 @@ function runUndocumentedFactGapCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runLafaAnswerScreenCheck(env, dryRun) {
+  const step = {
+    id: "check-lafa-answer-screen",
+    command: process.execPath,
+    args: [
+      path.join(searchBookRoot, "scripts", "screen-lafa-answers.mjs"),
+      "--check-report",
+      path.join(searchBookRoot, "data", "lafa-answer-screen.json"),
+    ],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -736,6 +754,7 @@ if (args.dryRun) {
     runLivingDocsReviewEvidenceCheck(env, true);
     runMonitoringEvidenceCheck(env, true);
     runUndocumentedFactGapCheck(env, true);
+    runLafaAnswerScreenCheck(env, true);
   }
   process.exit(0);
 }
@@ -767,6 +786,7 @@ let githubWorkflows = null;
 let livingDocsReviewEvidence = null;
 let monitoringEvidence = null;
 let undocumentedFactGap = null;
+let lafaAnswerScreen = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -789,6 +809,7 @@ if (args.verify) {
   livingDocsReviewEvidence = runLivingDocsReviewEvidenceCheck(env, false);
   monitoringEvidence = runMonitoringEvidenceCheck(env, false);
   undocumentedFactGap = runUndocumentedFactGapCheck(env, false);
+  lafaAnswerScreen = runLafaAnswerScreenCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -816,5 +837,6 @@ console.log(JSON.stringify({
   livingDocsReviewEvidence,
   monitoringEvidence,
   undocumentedFactGap,
+  lafaAnswerScreen,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));

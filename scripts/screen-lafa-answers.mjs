@@ -17,6 +17,7 @@
 //
 // Usage:
 //   node scripts/screen-lafa-answers.mjs [--corpus data/discord-corpus.json] [--out-json /tmp/lafa-screen.json]
+//   node scripts/screen-lafa-answers.mjs --check-report data/lafa-answer-screen.json
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -28,19 +29,92 @@ function parseArgs(argv) {
   const args = {
     corpus: path.join(repoRoot, "data", "discord-corpus.json"),
     outJson: "",
+    checkReport: "",
   };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--corpus") args.corpus = argv[++index];
     else if (arg === "--out-json") args.outJson = argv[++index];
+    else if (arg === "--check-report") args.checkReport = argv[++index];
     else if (arg === "--help") {
-      console.log("Usage: node scripts/screen-lafa-answers.mjs [--corpus path] [--out-json path]");
+      console.log("Usage: node scripts/screen-lafa-answers.mjs [--corpus path] [--out-json path] [--check-report path]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
   }
   return args;
+}
+
+const rawFieldNames = new Set([
+  "answer",
+  "content",
+  "message",
+  "normalizedContent",
+  "question",
+  "relatedQuestion",
+  "text",
+]);
+
+function rawFieldHits(value, pathParts = []) {
+  if (!value || typeof value !== "object") return [];
+  if (Array.isArray(value)) {
+    return value.flatMap((item, index) => rawFieldHits(item, [...pathParts, String(index)]));
+  }
+  const hits = [];
+  for (const [key, nested] of Object.entries(value)) {
+    const nextPath = [...pathParts, key];
+    if (rawFieldNames.has(key)) hits.push(nextPath.join("."));
+    hits.push(...rawFieldHits(nested, nextPath));
+  }
+  return hits;
+}
+
+function checkReport(reportPath) {
+  const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+  const rawFields = rawFieldHits(report);
+  const checks = [
+    {
+      id: "status",
+      passed: report.status === "lafa-answers-screened",
+      detail: report.status || "missing",
+    },
+    {
+      id: "lafa-only-corpus",
+      passed: report.corpusPublicationMode === "lafa-cite" && report.corpusTextScope === "lafa-only",
+      detail: `publicationMode=${report.corpusPublicationMode || "missing"}; textScope=${report.corpusTextScope || "missing"}`,
+    },
+    {
+      id: "screen-counts",
+      passed:
+        Number(report.totals?.hydratedAnswers || 0) > 0 &&
+        Number(report.totals?.autoApproved || 0) + Number(report.totals?.flagged || 0) ===
+          Number(report.totals?.hydratedAnswers || 0),
+      detail: JSON.stringify(report.totals || {}),
+    },
+    {
+      id: "no-raw-fields",
+      passed: rawFields.length === 0,
+      detail: rawFields.length ? rawFields.join(",") : "none",
+    },
+    {
+      id: "flagged-counts-match",
+      passed: (report.flagged || []).length === Number(report.totals?.flagged || 0),
+      detail: `flagged=${(report.flagged || []).length}; expected=${Number(report.totals?.flagged || 0)}`,
+    },
+  ];
+  const failed = checks.filter((check) => !check.passed);
+  const summary = {
+    status: failed.length ? "failed" : "passed",
+    service: "search-book-lafa-answer-screen-check",
+    valuesPrinted: false,
+    report: path.relative(repoRoot, reportPath),
+    totals: report.totals || {},
+    reasonCounts: report.reasonCounts || {},
+    checks,
+  };
+  console.log(JSON.stringify(summary, null, 2));
+  if (failed.length) process.exit(1);
 }
 
 const keyShapePatterns = [
@@ -120,6 +194,10 @@ function screenAnswer(candidate) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (args.checkReport) {
+    checkReport(path.resolve(args.checkReport));
+    return;
+  }
   const corpus = JSON.parse(fs.readFileSync(args.corpus, "utf8"));
   const candidates = (corpus.lafaAnswerCandidates || []).filter((candidate) => candidate.answer);
   const flagged = [];
