@@ -1,6 +1,6 @@
 # 12 - Search Book To 100 Percent
 
-Date: 2026-07-01
+Date: 2026-07-01; refreshed 2026-07-02
 
 This document is the completion checklist for turning the current Search Book research package, local prototype, and validated RAG runtime into a production-ready public documentation product.
 
@@ -13,13 +13,13 @@ Use these numbers as the baseline until the next regenerated audit supersedes th
 | Area | Current state | Completion read |
 | --- | --- | ---: |
 | Public compendium shape | 794 manifest pages, inside the 500-800 target | 98% |
-| Authored public corpus | 801 authored pages; 800 public-navigation pages; 820 exact public question routes; 0 candidates | 95% |
+| Authored public corpus | 801 authored pages; 800 public-navigation pages; 890 exact public question routes; 0 candidates | 95% |
 | Source-companion coverage | 792/792 source companions covered by authored pages | 100% |
 | Requirement map | 14/18 complete, 2 partial, 2 parked, 0 missing | 78% by raw requirement count; higher by implementation weight |
 | Quality audit | 29/30 gates passing; only `operator-inbox` remains red | 97% |
 | Source ingestion | 17/17 complete, 0 partial, 0 parked, 0 missing | 100% |
-| Deterministic answer engine | 820 exact-route tests pass; 32 glossary route tests pass; 2 refusal tests pass | 95% |
-| LLM RAG runtime | Live OpenAI `gpt-4.1-mini` eval passed 42/42 | 88% |
+| Deterministic answer engine | 890 exact-route tests pass; 32 glossary route tests pass; 2 refusal tests pass | 95% |
+| LLM RAG runtime | Live OpenAI `gpt-4.1-mini` eval passed 44/44 | 88% |
 | Living-docs loop | SQLite service, ratings, gaps, answer cache, examples, moderation export, metrics, backup/restore-check, summary job, runbook | 85% |
 | Discord/Lafa corpus | Imported internal-only: 5,000 messages, 723 question clusters, 837 configured Lafa candidates; checked-in data stores no raw Discord/Lafa text | 100% for v1 demand evidence |
 | Production deploy | Local static and service smoke paths exist; public platform/deploy route open | 25% |

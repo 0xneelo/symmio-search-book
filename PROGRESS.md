@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — 100-Percent Checklist Evidence Guard
+
+- Corrected `_specs/app-docs/12-search-book-to-100-percent.md` so its current-completion snapshot matches generated evidence: 890 exact public question routes, 890 exact-route tests, and the latest live `gpt-4.1-mini` eval at `44/44`.
+- Extended `npm run search-book:check-status-evidence` to include the 100-percent checklist and derive its required fragments from `data/answer-engine-contract.json`, `data/llm-rag-contract.json`, and the existing generated status maps.
+- The focused guard now fails if that checklist drifts from generated manifest/authored/page-state/source-ingestion/quality/Discord/route/live-eval/operator-boundary evidence.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Latest Local-Launch Checkpoint
 
 - Triggered fresh manual workflows from commit `3d69991`: launch evidence run `28589129207`, release dry-run run `28589128842`, and static artifact run `28589130424`; all passed.

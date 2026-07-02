@@ -11,6 +11,7 @@ const docs = [
   { id: "final-report", relativePath: "FINAL-REPORT.md" },
   { id: "completion-audit", relativePath: "COMPLETION-AUDIT.md" },
   { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
+  { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
   { id: "readme", relativePath: "README.md" },
 ];
 
@@ -109,6 +110,8 @@ function fragmentsForEvidence() {
   const routes = readJson("data/question-routes.json");
   const faq = readJson("data/faq.json");
   const chunks = readJson("data/answer-chunks.json");
+  const answerContract = readJson("data/answer-engine-contract.json");
+  const publicationPlan = readJson("data/publication-plan.json");
   const sourceIngestion = readJson("data/source-ingestion.json");
   const requirements = readJson("data/requirement-map.json");
   const quality = readJson("data/quality-audit.json");
@@ -142,8 +145,13 @@ function fragmentsForEvidence() {
     authoredPages: String(authored.totalPages),
     publicNavigationPages: String(pageState.publicNavigationPages),
     sourceCompanionPages: String(pageState.sourceCompanionPages),
+    sourceCompanionCoverage: `${publicationPlan.totals?.sourceCompanionsCoveredByAuthoredPages || 0}/${publicationPlan.totals?.sourceCompanionsQueued || 0}`,
     internalDraftPages: String(pageState.internalDraftPages),
+    candidatePages: String(pageState.candidatePages || 0),
     exactRoutes: String(routes.totalRoutes),
+    exactRouteTestsPassing: String(answerContract.evaluation?.exactRouteTestsPassing || 0),
+    glossaryRouteTestsPassing: String(answerContract.evaluation?.glossaryRouteTestsPassing || 0),
+    refusalTestsPassing: String(answerContract.evaluation?.refusalTestsPassing || 0),
     faqEntries: String(faq.totalEntries),
     chunks: formatInteger(chunks.totalChunks),
     chunksRaw: String(chunks.totalChunks),
@@ -173,6 +181,8 @@ function fragmentsForEvidence() {
     liveEvalTotal: suites.total ? `${suites.total.passing}/${suites.total.total}` : "",
     liveEvalAdversarial: suites.adversarial ? `${suites.adversarial.passing}/${suites.adversarial.total}` : "",
     liveEvalAnswerValidation: suites.answerValidation ? `${suites.answerValidation.passing}/${suites.answerValidation.total}` : "",
+    liveEvalProvider: live.provider || "",
+    liveEvalModel: live.model || "",
     manualEvidence,
     staticArtifactEvidence,
     localLaunchEvidence,
@@ -248,6 +258,19 @@ function expectedChecks(evidence) {
       { id: "living-docs-review-evidence", allOf: ["living-docs review evidence passed", "living-docs reviewer evidence reports"] },
       { id: "production-packet", allOf: ["npm run search-book:check-production-packet"] },
       { id: "operator-gates", allOf: openOperatorFragments },
+    ],
+    "_specs/app-docs/12-search-book-to-100-percent.md": [
+      { id: "snapshot-date", allOf: ["refreshed 2026-07-02"] },
+      { id: "manifest-pages", allOf: [`${evidence.manifestPages} manifest pages`] },
+      { id: "authored-public-corpus", allOf: [`${evidence.authoredPages} authored pages`, `${evidence.publicNavigationPages} public-navigation pages`, `${evidence.exactRoutes} exact public question routes`, `${evidence.candidatePages} candidates`] },
+      { id: "source-companion-coverage", allOf: [`${evidence.sourceCompanionCoverage} source companions covered by authored pages`] },
+      { id: "requirement-map", allOf: [`${evidence.requirementComplete}/18 complete, ${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, ${evidence.requirementMissing} missing`] },
+      { id: "quality-audit", allOf: [`${evidence.qualityGates} gates passing`] },
+      { id: "source-ingestion", allOf: [`${evidence.sourceIngestion} complete, ${evidence.sourcePartial} partial, ${evidence.sourceParked} parked, ${evidence.sourceMissing} missing`] },
+      { id: "deterministic-answer-engine", allOf: [`${evidence.exactRouteTestsPassing} exact-route tests pass`, `${evidence.glossaryRouteTestsPassing} glossary route tests pass`, `${evidence.refusalTestsPassing} refusal tests pass`] },
+      { id: "llm-eval", allOf: [`Live ${evidence.liveEvalProvider} \`${evidence.liveEvalModel}\` eval passed ${evidence.liveEvalTotal}`] },
+      { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa candidates`] },
+      { id: "operator-gates", allOf: ["OPERATOR-INBOX #11", "OPERATOR-INBOX #4", ...openOperatorFragments] },
     ],
     "README.md": [
       { id: "check-status-script", allOf: ["search-book:check-status-evidence"] },
