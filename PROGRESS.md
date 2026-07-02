@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Vibe Source Freshness Refresh
+
+- Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-02T18:43:25.532Z`.
+- The check fetched both registered official Vibe Markdown sources, `vibe-what-is` and `vibe-platform`, with HTTP 200, passed 4/4 checks for Binance perp market coverage, 390+ market wording, and platform leverage wording, and reported `valuesPrinted:false` plus `sourceBodiesPrinted:false`.
+- Updated `GAPS.md` and `FINAL-REPORT.md` to point at the refreshed source-freshness evidence. Readiness booleans did not flip; only #11/#4 remain open.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Boundary Checkpoint
 
 - Triggered fresh manual workflows from commit `dc3153e`: launch evidence run `28612838559`, release dry-run run `28612837666`, and static artifact workflow run `28612839613`; all passed.
