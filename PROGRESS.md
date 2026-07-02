@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — Fail-Closed Sensitive-Pattern Scan (SYN-306)
+
+- Turned `runSensitivePatternScan` in `scripts/build-all.mjs` from a never-failing counter into a fail-closed verify gate.
+- Tier 1 — key-shape credential patterns (`sk-`/`sk-proj-`, `gh[opsu]_`, `AKIA`, Google `AIza`, Slack `xox…`, PEM `BEGIN … PRIVATE KEY`) with **zero tolerance**: any hit throws and fails verify. Bodies are alphanumeric-only and word-boundary anchored so hyphenated English slugs (e.g. `risk-adjusted-…`) do not false-positive.
+- Tier 2 — the coarse keyword scan (PRIVATE/TOKEN/SECRET/ADMIN, VIBE_BACK_URL, 40-hex) is gated against a committed per-file baseline `data/sensitive-scan-baseline.json` (151 benign matches across 55 files); a new file with matches or an existing file exceeding its baseline fails verify. Regenerate with `node scripts/build-all.mjs --update-sensitive-baseline` after a reviewed benign change.
+- Skips gitignored/vendored/binary trees (`.git`, `node_modules`, `backups`, `.secrets`, `raw-discord-exports`, plus binary extensions).
+- Proved fail-closed: planting a fake `sk-…` key in a scratch repo file made `npm run search-book:verify` exit non-zero with the exact key-shape violation, and the baseline updater refused to allowlist it; removing the file returned verify to green.
+- Full verify green (26 build steps, 93 syntax checks, 890 routes, 2,884 chunks, 17/17 ingestion, quality 29/30 with only `operator-inbox` open); all four GitHub workflows unaffected.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Pushed Head
 
 - Triggered fresh manual workflows from commit `7d4cc70`: launch evidence run `28615249628`, release dry-run run `28615254607`, and static artifact workflow run `28615248663`; all passed.
