@@ -75,6 +75,33 @@ function latestStaticArtifactEvidenceFromProgress() {
   };
 }
 
+function latestLocalLaunchEvidenceFromProgress() {
+  const entry = latestProgressEntry(
+    (candidate) =>
+      candidate.includes("search-book:drill-local-launch") &&
+      candidate.includes("generatedAt `") &&
+      candidate.includes("temporary preview `") &&
+      candidate.includes("temporary answer-engine service `"),
+  );
+  const previewUrl = entry.match(/temporary preview `([^`]+)`/)?.[1] || "";
+  const serviceUrl = entry.match(/temporary answer-engine service `([^`]+)`/)?.[1] || "";
+  const bareUrl = (value) => value.replace(/^https?:\/\//, "");
+  const backupManifest = entry.match(/latest manifest `([^`]+)`/)?.[1] || "";
+  const artifactDir = entry.match(/artifacts (?:kept )?under `([^`]+)`/)?.[1] || backupManifest.replace(/\/backups\/latest\.manifest\.json$/, "");
+  return {
+    commit: entry.match(/current head `([a-f0-9]+)`/)?.[1] || "",
+    generatedAt: entry.match(/generatedAt `([^`]+)`/)?.[1] || "",
+    previewUrl,
+    serviceUrl,
+    previewBare: bareUrl(previewUrl),
+    serviceBare: bareUrl(serviceUrl),
+    artifactDir,
+    backupManifest,
+    launchReadiness: entry.match(/Launch readiness passed (\d+\/\d+) staging checks/)?.[1] || "",
+    syntaxChecks: entry.match(/(\d+) syntax checks/)?.[1] || "",
+  };
+}
+
 function fragmentsForEvidence() {
   const manifest = readJson("page-manifest.json");
   const authored = readJson("data/authored-pages.json");
@@ -108,6 +135,7 @@ function fragmentsForEvidence() {
   const suites = live.suites || {};
   const manualEvidence = latestManualEvidenceFromProgress();
   const staticArtifactEvidence = latestStaticArtifactEvidenceFromProgress();
+  const localLaunchEvidence = latestLocalLaunchEvidenceFromProgress();
 
   return {
     manifestPages: String(manifest.pages.length),
@@ -147,12 +175,15 @@ function fragmentsForEvidence() {
     liveEvalAnswerValidation: suites.answerValidation ? `${suites.answerValidation.passing}/${suites.answerValidation.total}` : "",
     manualEvidence,
     staticArtifactEvidence,
+    localLaunchEvidence,
     openOperatorItems: (requirements.openOperatorItems || []).map((item) => String(item.id)).sort((a, b) => Number(a) - Number(b)),
   };
 }
 
 function expectedChecks(evidence) {
   const openOperatorFragments = evidence.openOperatorItems.map((id) => `#${id}`);
+  const required = (value, label) => value || `<missing ${label}>`;
+  const localLaunch = evidence.localLaunchEvidence;
   return {
     "FINAL-REPORT.md": [
       { id: "manifest-pages", allOf: [`${evidence.manifestPages} manifest pages`] },
@@ -169,6 +200,7 @@ function expectedChecks(evidence) {
       { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} local review items`, `${evidence.discordPageFitCoverage} page-fit`, `source-backed triage at ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready for ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready at ${evidence.discordRefusalPolicyReady} refusal items`] },
       { id: "manual-evidence", allOf: [`launch evidence run \`${evidence.manualEvidence.launchRun}\``, `release dry-run run \`${evidence.manualEvidence.releaseRun}\``, `commit \`${evidence.manualEvidence.commit}\``, evidence.manualEvidence.launchArtifact, evidence.manualEvidence.releaseArtifact, "strict summary validation", "Open operator Linear tasks | #4=SYN-285, #11=SYN-281", "Secrets printed | false"] },
       { id: "static-artifact-evidence", allOf: [`run \`${evidence.staticArtifactEvidence.run}\``, `commit \`${evidence.staticArtifactEvidence.commit}\``, evidence.staticArtifactEvidence.artifactRoot, evidence.staticArtifactEvidence.bytes, "check-static-artifact-packet", "smoke-preview-service"] },
+      { id: "local-launch-evidence", allOf: [required(localLaunch.generatedAt, "local launch generatedAt"), required(localLaunch.previewUrl, "local launch preview URL"), required(localLaunch.serviceUrl, "local launch service URL"), required(localLaunch.artifactDir, "local launch artifact dir"), required(localLaunch.backupManifest, "local launch backup manifest"), required(localLaunch.launchReadiness, "local launch readiness"), "no LLM API key loaded"] },
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-discord-editorial-data", "repository dirty state `false`", "same commit", "productionReadinessPacket:passed", "Discord editorial queue data evidence", "original-spec reconciliation evidence", "evidence summary renderer status `passed`", "publication boundaries status `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "requirement-map", anyOf: [`${evidence.requirementComplete}/18 requirements complete`, `${evidence.requirementComplete} requirements complete`] },
       { id: "requirement-status", allOf: [`${evidence.requirementPartial} partial, ${evidence.requirementParked} parked, and ${evidence.requirementMissing} missing`] },
@@ -193,6 +225,7 @@ function expectedChecks(evidence) {
       { id: "page-state", allOf: [`${evidence.publicNavigationPages} published public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`] },
       { id: "live-eval", allOf: [evidence.liveEvalTotal] },
       { id: "static-artifact-evidence", allOf: [`run \`${evidence.staticArtifactEvidence.run}\``, `commit \`${evidence.staticArtifactEvidence.commit}\``, evidence.staticArtifactEvidence.artifactRoot, evidence.staticArtifactEvidence.bytes, "check-static-artifact-packet", "smoke-preview-service"] },
+      { id: "local-launch-evidence", allOf: [required(localLaunch.generatedAt, "local launch generatedAt"), required(localLaunch.previewUrl, "local launch preview URL"), required(localLaunch.serviceUrl, "local launch service URL"), required(localLaunch.artifactDir, "local launch artifact dir"), required(localLaunch.backupManifest, "local launch backup manifest"), required(localLaunch.launchReadiness, "local launch readiness")] },
       { id: "workflow-contract", allOf: ["search-book:check-github-workflows", "workflow contract guard"] },
       { id: "living-docs-review-evidence", allOf: ["search-book:check-living-docs-review", "living-docs reviewer evidence"] },
       { id: "production-packet", allOf: ["search-book:check-production-packet", "production-readiness packet guard"] },
@@ -207,6 +240,7 @@ function expectedChecks(evidence) {
       { id: "source-zero-counts", anyOf: [`0 partial / 0 parked / 0 missing`, `0 partial, 0 parked, and 0 missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates}`] },
       { id: "static-artifact-evidence", allOf: [`run \`${evidence.staticArtifactEvidence.run}\``, `commit \`${evidence.staticArtifactEvidence.commit}\``, evidence.staticArtifactEvidence.artifactRoot, "checked packet validation plus static and preview-service smokes"] },
+      { id: "local-launch-evidence", allOf: [required(localLaunch.generatedAt, "local launch generatedAt"), required(localLaunch.previewBare, "local launch preview URL"), required(localLaunch.serviceBare, "local launch service URL"), required(localLaunch.launchReadiness, "local launch readiness"), "write-smoke", "restore-check"] },
       { id: "discord-route-coverage", allOf: [`${evidence.discordPageFitCoverage} page-fit groups`, `${evidence.discordSingleRouteRemaining} single-route groups`, `source-backed triage ${evidence.discordPageFitTriage} page-fit groups`, `public-copy ready ${evidence.discordPublicCopyReady} page-fit groups`, `refusal policy ready ${evidence.discordRefusalPolicyReady} refusal items`] },
       { id: "discord-queue-data-proof", allOf: ["Discord editorial queue data evidence reports `passed`", "`queueReady:true`, 24 routed items, 19 page-fit groups, 2 refusal-review items, 0 raw-key hits, 0 sample leaks, and `valuesPrinted:false`"] },
       { id: "backup-restore-evidence", allOf: ["backup-restore evidence passed", "4/4 tables matched"] },
