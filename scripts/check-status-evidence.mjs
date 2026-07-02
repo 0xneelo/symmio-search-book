@@ -10,6 +10,7 @@ const searchBookRoot = path.resolve(__dirname, "..");
 const docs = [
   { id: "final-report", relativePath: "FINAL-REPORT.md" },
   { id: "gaps", relativePath: "GAPS.md" },
+  { id: "questions", relativePath: "QUESTIONS.md" },
   { id: "completion-audit", relativePath: "COMPLETION-AUDIT.md" },
   { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
   { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
@@ -168,6 +169,7 @@ function fragmentsForEvidence() {
     internalDraftPages: String(pageState.internalDraftPages),
     candidatePages: String(pageState.candidatePages || 0),
     exactRoutes: String(routes.totalRoutes),
+    reconciliationQuestions: String(routes.totalReconciliationQuestions || 0),
     exactRouteTests: `${answerEvaluation.exactRouteTestsPassing || 0}/${answerEvaluation.totalExactRouteTests || 0}`,
     exactRouteTestsPassing: String(answerEvaluation.exactRouteTestsPassing || 0),
     glossaryRouteTests: `${answerEvaluation.glossaryRouteTestsPassing || 0}/${answerEvaluation.totalGlossaryRouteTests || 0}`,
@@ -286,6 +288,13 @@ function expectedChecks(evidence) {
       { id: "manifest-authoring", allOf: [`${evidence.manifestPages} manifest pages`, `${evidence.authoredPages} authored pages`, `${evidence.publicNavigationPages} public-navigation pages`, `${evidence.sourceCompanionCoverage} source companions covered by authored pages`, `${evidence.candidatePages} candidate pages remaining`] },
       { id: "resolved-source-boundaries", allOf: ["Discord, Notion, SSHE, and whitepaper v1 de-scope are resolved", "Do not re-open OPERATOR-INBOX #6", "Do not re-open OPERATOR-INBOX #5", "Do not quote Notion text", "All publication-stance and source-ingestion questions are now resolved for v1"] },
       { id: "operator-gates", allOf: ["remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4)", "only remaining production operator gates are OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
+    ],
+    "QUESTIONS.md": [
+      { id: "generated-coverage", allOf: [`${evidence.exactRoutes} answerable question routes`, `${evidence.reconciliationQuestions} reconciliation questions`, `${evidence.faqEntries} FAQ entries`, `${evidence.exactRouteTests} exact-route tests`, `${evidence.glossaryRouteTests} glossary route tests`, `${evidence.refusalTests} refusal tests`, `${evidence.answerValidationFixtures} fixtures`, `live ${evidence.liveEvalProvider} \`${evidence.liveEvalModel}\` eval passes ${evidence.liveEvalTotal}`] },
+      { id: "approved-public-answers", allOf: ["What was AMFQ?", "legacy Automated Market for Quotes name", "networkVolume × platformFeeRate × referrerPlatformShare", "0.05% / 5 bps platform fee and 30% referrer platform share", "Phase B economics are out of scope for v1", "Public referral depth is fifteen levels", "historical backfill is additive and never lowers a balance"] },
+      { id: "discord-boundary", allOf: ["Discord/Lafa import is internal-only", `${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, "raw Discord/Lafa text stays out of public answers", "specific Discord/Lafa claims remain non-public until editorial review"] },
+      { id: "service-boundary", allOf: ["standalone answer-engine service", "persists questions, ratings, page feedback", "gated moderation and metrics exports", "backup/restore evidence in SQLite"] },
+      { id: "operator-gates", allOf: ["only #11 production VPS env install and #4 public frontend/deploy route open", "Production wiring remains gated by #11 production VPS env install and #4 public frontend/deploy route", ...openOperatorFragments] },
     ],
     "COMPLETION-AUDIT.md": [
       { id: "source-ingestion", allOf: [`${evidence.sourceIngestion} source families complete`] },

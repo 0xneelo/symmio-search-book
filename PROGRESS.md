@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Question Ledger Evidence Guard
+
+- Refreshed `QUESTIONS.md` with a generated-coverage snapshot: 890 answerable routes, 2 reconciliation questions, 892 FAQ entries, 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusal tests, 28/28 answer-validation fixtures, and recorded live OpenAI `gpt-4.1-mini` eval `44/44`.
+- Removed stale Discord-pending/localStorage-only wording from the dashboard FAQ route and event-log notes. `authored-dashboard-faq` now cites `discord-ingestion-contract`, treats the local FAQ as a seed beside the imported no-raw Discord/Lafa demand queue, and keeps exact Discord/Lafa statements non-public until editorial review maps them to sourced Search Book prose.
+- Added `QUESTIONS.md` to `npm run search-book:check-status-evidence` so question counts, approved Phase-A revenue/referral-depth answers, internal-only Discord boundaries, service persistence, and #4/#11-only production gates are generated-evidence guarded. Full `npm run search-book:verify` passed; readiness booleans stayed unchanged and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — Gaps Reconciliation Evidence Guard
 
 - Added `GAPS.md` to `npm run search-book:check-status-evidence` so the reconciled Discord/Notion/SSHE/whitepaper source-boundary statements, 500-800 page compendium counts, and #4/#11-only production boundary are checked against generated artifacts.

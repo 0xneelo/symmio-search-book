@@ -2,6 +2,10 @@
 
 Questions are grouped by whether the current source set can answer them.
 
+## Generated Coverage
+
+The deterministic build currently derives 890 answerable question routes, 2 reconciliation questions, and 892 FAQ entries from this ledger. The answer-engine checks pass 890/890 exact-route tests, 32/32 glossary route tests, and 2/2 refusal tests; the answer-validation harness passes 28/28 fixtures; and the recorded live OpenAI `gpt-4.1-mini` eval passes 44/44 fixtures. Discord/Lafa import is internal-only with 5,000 imported messages, 723 question clusters, and 837 configured Lafa answer candidates; raw Discord/Lafa text stays out of public answers until editorial review maps a paraphrase to sourced Search Book prose. Production readiness still has only #11 production VPS env install and #4 public frontend/deploy route open.
+
 ## Answerable In Prototype
 
 | Question | Routed page | Confidence | Notes |
@@ -90,7 +94,7 @@ Questions are grouped by whether the current source set can answer them.
 | What is the Barometer volume upgrade? | `authored-barometer-subgraph-upgrade` | Medium | Linear research and Goldsky docs support the subgraph-backed direction; exact endpoint and venue mapping remain owner-review. |
 | What do dashboard tasks unlock? | `authored-dashboard-tasks` | High | Local task view and FAQ explain onboarding actions, bonuses, and referral-completion context. |
 | What can I change in Settings? | `authored-dashboard-settings` | High | Local settings code captures contact metadata and recovery email without implying live email recovery. |
-| Where is the dashboard FAQ sourced from? | `authored-dashboard-faq` | Medium | Local FAQ is a seed until Discord/Lafa import is provided. |
+| Where is the dashboard FAQ sourced from? | `authored-dashboard-faq` | Medium | Local dashboard FAQ is now a seed plus the imported no-raw Discord/Lafa demand queue; specific Discord/Lafa claims remain non-public until editorial review maps them to sourced Search Book prose. |
 | What are the different kinds of points? | `authored-points-taxonomy` | Medium | Local points ledger, network points aggregation, dashboard footer, and public Vibe docs support rail-by-rail terminology. |
 | Are onboarding points the same as Vibe trading points? | `authored-points-and-vibe-points` | Medium | The canonical taxonomy separates onboarding points, referral points, network/trading points, and Vibe points; the public TGE settlement formula is deferred and not public for v1. |
 | How do onboarding points settle at TGE? | `authored-tge-settlement-multiplier` | Low | Dashboard footer and grounding spec support the TGE multiplier concept; the final settlement formula and claim mechanics are deferred and not public for v1. |
@@ -900,7 +904,7 @@ Questions are grouped by whether the current source set can answer them.
 
 ## Prototype Event Log
 
-The static prototype records asked questions, routed pages, answer ratings, and low-rated or unanswered gaps in browser `localStorage`. The Search insights view can export that JSON for later ingestion into the production datastore once the platform/backend decision is resolved.
+The static prototype records asked questions, routed pages, answer ratings, and low-rated or unanswered gaps in browser `localStorage` when no service is configured. The standalone answer-engine service now persists questions, ratings, page feedback, helpful answer-cache rows, Search Insights data, gated moderation and metrics exports, and backup/restore evidence in SQLite. Production wiring remains gated by #11 production VPS env install and #4 public frontend/deploy route.
 
 ## Needs Reconciliation
 
