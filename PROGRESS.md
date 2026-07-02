@@ -1,5 +1,15 @@
 # Progress
 
+## 2026-07-03 — No-Secret GitHub Evidence Refresh From Current Local-Evidence Checkpoint
+
+- Triggered fresh manual workflows from commit `110c684`: launch evidence run `28622312449`, release dry-run run `28622310504`, and static artifact workflow run `28622310287`; all passed.
+- Check-run annotations were empty (`[]`) for launch job `84880761974`, release job `84880755772`, and static job `84880755457`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28622312449`, `/tmp/search-book-gh-manual-release-28622310504`, and `/tmp/search-book-gh-static-artifact-28622310287`; strict launch/release summary validation passed, the release nested launch packet passed checked validation, static packet validation passed, and static/preview-service smokes passed against both the standalone static artifact and the release bundle static site.
+- The static artifact contains 1,654 copied files, 54,402,594 bytes, integrity `passed`, `valuesPrinted:false`, `0` sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `91/91`, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- The launch/release summaries carry repository commit `110c684`, dirty `false`, `Discord editorial disposition | ready true (keep-copy 91/91; keep-refusal 13/13; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 91; refusals 13; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`. The Discord refusal-runtime evidence reports 2/2 probes behaving as expected (Lafa founder answer quoted with attribution; non-Lafa community quote refused).
+- This head carries the current local launch drill evidence plus the fully activated Lafa verbatim-answer feature (live eval 47/47); the deterministic build runs 95 syntax checks.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh After Lafa Activation (SYN-309/SYN-307)
 
 - Triggered fresh manual workflows from commit `ad2c695` (the Lafa-verbatim-activated head): launch evidence run `28621010906`, release dry-run run `28621012744`, and static artifact workflow run `28621014214`; all passed.
