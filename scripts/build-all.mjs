@@ -183,7 +183,7 @@ const sensitiveKeyShapePatterns = [
   { id: "pem-private-key", re: /-----BEGIN (?:[A-Z0-9 ]+ )?PRIVATE KEY-----/ },
 ];
 const sensitiveKeywordPattern = /VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}/;
-const sensitiveSkipDirs = new Set([".git", "node_modules", "backups", ".secrets", "raw-discord-exports"]);
+const sensitiveSkipDirs = new Set([".git", ".claude", "node_modules", "backups", ".secrets", "raw-discord-exports"]);
 const sensitiveSkipExtensions = new Set([
   ".png", ".jpg", ".jpeg", ".gif", ".ico", ".webp", ".bmp",
   ".woff", ".woff2", ".ttf", ".otf", ".eot",
@@ -536,6 +536,20 @@ function runMonitoringEvidenceCheck(env, dryRun) {
   return { passed: true };
 }
 
+function runUndocumentedFactGapCheck(env, dryRun) {
+  const step = {
+    id: "check-undocumented-fact-gap",
+    command: process.execPath,
+    args: [path.join(searchBookRoot, "scripts", "check-undocumented-fact-gap.mjs")],
+  };
+  if (dryRun) {
+    console.log(commandLine(step));
+    return { dryRun: true };
+  }
+  runStep(step, env);
+  return { passed: true };
+}
+
 function runInvariants() {
   const journeys = readJson("data/journeys.json");
   assert(!journeys.missingPageIds.length && journeys.totalJourneys >= 5, "journey routes are incomplete");
@@ -721,6 +735,7 @@ if (args.dryRun) {
     runGithubWorkflowsCheck(env, true);
     runLivingDocsReviewEvidenceCheck(env, true);
     runMonitoringEvidenceCheck(env, true);
+    runUndocumentedFactGapCheck(env, true);
   }
   process.exit(0);
 }
@@ -751,6 +766,7 @@ let backupRestoreEvidence = null;
 let githubWorkflows = null;
 let livingDocsReviewEvidence = null;
 let monitoringEvidence = null;
+let undocumentedFactGap = null;
 if (args.verify) {
   syntaxChecks = runSyntaxChecks(env, false);
   invariants = runInvariants();
@@ -772,6 +788,7 @@ if (args.verify) {
   githubWorkflows = runGithubWorkflowsCheck(env, false);
   livingDocsReviewEvidence = runLivingDocsReviewEvidenceCheck(env, false);
   monitoringEvidence = runMonitoringEvidenceCheck(env, false);
+  undocumentedFactGap = runUndocumentedFactGapCheck(env, false);
 }
 
 console.log(JSON.stringify({
@@ -798,5 +815,6 @@ console.log(JSON.stringify({
   githubWorkflows,
   livingDocsReviewEvidence,
   monitoringEvidence,
+  undocumentedFactGap,
   elapsedMs: Date.now() - startedAt,
 }, null, 2));

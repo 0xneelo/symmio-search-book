@@ -332,6 +332,7 @@ Operational rules:
 | --- | --- | --- |
 | Low-rated but cited answer | Re-run extractive/LLM answer locally and inspect cited page text. | Improve the cited page, route, or answer fixture if the corpus supports it. |
 | `no-grounded-page` | Check whether a public page already answers it. | Add route/FAQ only if grounded; otherwise keep or create a gap. |
+| `asked-fact-not-in-corpus` | Re-run the query in LLM mode and inspect the cited context; the answer likely says the supplied context does not provide the requested fact. | Add a cited page/route only if a primary source supports the fact; otherwise keep the gap as demand evidence. |
 | `source-family-missing` | Check `OPERATOR-INBOX.md` for the source family. | Leave parked unless resolved; do not infer missing source facts. |
 | `operator-access-required` | Check the exact inbox item and Linear epic status. | Resume only after `[RESOLVED]` appears inline. |
 | Prompt injection or secret request | Confirm refusal still fires. | Keep refusal; add regression fixture if a new attack pattern appears. |
