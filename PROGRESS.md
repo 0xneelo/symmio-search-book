@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh From Latest Live-Eval Checkpoint
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `d73910e`; it passed with generatedAt `2026-07-02T09:17:18.217Z` against temporary preview `http://127.0.0.1:46248` and temporary answer-engine service `http://127.0.0.1:45502`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-YRrHv9/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Live LLM Eval Evidence Refresh From Latest Manual-Evidence Checkpoint
 
 - Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `26483ad` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
