@@ -34,10 +34,19 @@ Production may add transport metadata, but answer semantics must stay compatible
 The LLM must refuse or create a gap event when:
 
 - no grounded context exists;
-- the question asks for secrets, private credentials, personal trading advice, or unsupported economics;
+- the question asks for secrets, private credentials, or unsupported economics;
 - a topic is parked in `OPERATOR-INBOX.md`;
 - a required source family is unavailable, outside the approved public-use boundary, or explicitly excluded;
 - the answer would depend on internal-draft pages.
+
+## Financial-Advice Disclaimer Rule
+
+Personal trading, investment, and allocation questions are answered, not refused, when grounded
+context exists. The runtime detects advice-flavored phrasing (direct "should I buy/sell" asks and
+comparative allocation phrasings such as "is X safer than holding Y"), answers with documented
+mechanics and risks only — never a specific action recommendation — and deterministically appends
+a mandatory not-financial-advice disclaimer in postprocess, marking the response with
+`advisory: "not-financial-advice"`. Advice questions still refuse when no grounded context exists.
 
 ## Generated Proof
 
@@ -47,9 +56,7 @@ Run:
 node scripts/build-llm-rag-contract.mjs
 ```
 
-The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 16 adversarial eval cases are specified. It also records the 2026-07-02 OpenAI-backed live `gpt-4.1-mini` validation run: 44/44 total fixtures passed, including 16/16 adversarial cases and 28/28 answer-validation cases, with 16 measured calls, 94,657 input tokens, 8,803 output tokens, and an estimated cost of $0.01948035. `llmProductionReady` intentionally remains false until the production VPS service env is installed and public frontend/deploy wiring is selected.
-
-This generated-proof section is checked by `npm run search-book:check-status-evidence` against `data/llm-rag-contract.json`.
+The generated artifact is `data/llm-rag-contract.json`. It currently proves the API contract, runtime harness, executable exact-route/glossary preflight, and 17 adversarial eval cases are specified (including two answered-with-disclaimer financial-advice cases, blunt plus paraphrase). It also records the 2026-07-02 OpenAI-backed live `gpt-4.1-mini` validation run: 44/44 total fixtures passed, including 17/17 adversarial cases and 27/27 answer-validation cases, with 18 measured calls, 106,385 input tokens, 9,485 output tokens, and an estimated cost of $0.02164875. The two disclaimer cases are live-only and intentionally excluded from the static answer-validation mirror because their primary page is retrieval-dependent. `llmProductionReady` intentionally remains false until the production VPS service env is installed and public frontend/deploy wiring is selected.
 
 The executable response-shape checks live in `ANSWER-VALIDATION-HARNESS.md` and `data/answer-validation-report.json`. Runtime implementation should rerun those checks against actual model responses before production launch and after source-corpus changes.
 
