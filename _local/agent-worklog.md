@@ -1,3 +1,10 @@
+## 2026-07-02 - Codex refresh Vibe source freshness evidence
+- Task: Re-run the publication-day Vibe public-docs source freshness check from current standalone `main` and refresh tracked status docs if the current timestamp/hash evidence changes.
+- Scope: `PROGRESS.md`, `FINAL-REPORT.md`, `GAPS.md`, `_local/agent-worklog.md`, focused status evidence guard, full verification, `git diff --check`, scoped checkpoint, push, and CI if tracked evidence changes. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:check-source-freshness` passes against the two registered official Vibe Markdown sources with 2/2 sources fetched, 4/4 checks passed, no source bodies printed, no secret values printed, and only #11/#4 open.
+- Result: `npm run search-book:check-source-freshness -- --out-json /tmp/search-book-source-freshness-20260702-codex.json` passed with generatedAt `2026-07-02T14:50:26.565Z`, both sources fetched with HTTP 200, 4/4 freshness checks passed, `valuesPrinted:false`, and `sourceBodiesPrinted:false`. Updated `PROGRESS.md`, `FINAL-REPORT.md`, and `GAPS.md` to the refreshed evidence. `npm run search-book:check-status-evidence`, full `npm run search-book:verify`, and `git diff --check` passed; readiness booleans did not flip and only #11/#4 remain open.
+
 ## 2026-07-02 - Codex refresh local launch drill from GitHub-evidence checkpoint 255fd30
 - Task: Re-run the no-secret local staging launch drill from current standalone `main` after no-secret GitHub evidence checkpoint `255fd30` so localhost preview/service/write-smoke/backup/launch-gate evidence matches the latest checked source.
 - Scope: local temporary launch-drill artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verification, `git diff --check`, scoped checkpoint, push, and CI if tracked evidence changes. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

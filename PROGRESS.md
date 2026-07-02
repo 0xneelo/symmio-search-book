@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Vibe Source Freshness Evidence Refresh
+
+- Re-ran `npm run search-book:check-source-freshness -- --out-json /tmp/search-book-source-freshness-20260702-codex.json`; it passed with generatedAt `2026-07-02T14:50:26.565Z`.
+- Both registered official Vibe Markdown sources fetched with HTTP 200: `vibe-what-is` (`https://docs.vibe.trading/about-vibe-trading/what-is-vibe-trading.md`, sha256 `b9fc143eb8986799abaf167bf21a6e5e22d34d5759416be326167f68954f1820`) and `vibe-platform` (`https://docs.vibe.trading/about-vibe-trading/the-platform.md`, sha256 `06650f57a38eb6b851103e692adec95cebcb140c09121113333cb054efaed21e`).
+- Freshness checks passed 4/4 for current public-docs wording: Binance perp market coverage, 390+ market wording on both pages, and platform leverage wording including up to 60x / x100 on some. `valuesPrinted:false` and `sourceBodiesPrinted:false`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From GitHub-Evidence Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `255fd30`; it passed with generatedAt `2026-07-02T14:43:58.320Z` against temporary preview `http://127.0.0.1:45252` and temporary answer-engine service `http://127.0.0.1:45004`.
