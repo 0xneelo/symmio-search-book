@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Live LLM Eval Evidence Refresh From GitHub-Evidence Checkpoint
+
+- Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `e3130dd` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
+- Measured usage was `16` model calls, `94,657` input tokens, `8,087` output tokens, `102,744` total tokens, and `$0.01905075` estimated cost at `gpt-4.1-mini` pricing.
+- Recorded LLM contract evidence was refreshed from `/tmp/search-book-live-eval-e3130dd.json`; this remains runtime evidence only, not a deployed-service readiness claim. `llmProductionReady` remains `false` until #11 production VPS env install and #4 public frontend/deploy-route decision are resolved.
+
 ## 2026-07-02 — No-Secret GitHub Evidence Refresh From Style-Guide Checkpoint
 
 - Triggered fresh manual workflows from commit `fab5443`: launch evidence run `28596428188`, release dry-run run `28596430894`, and static artifact run `28596428498`; all passed.
@@ -67,7 +73,7 @@
 ## 2026-07-02 — LLM RAG Contract Evidence Guard
 
 - Added `LLM-RAG-CONTRACT.md` to `npm run search-book:check-status-evidence` so live RAG eval claims are checked against `data/llm-rag-contract.json`.
-- The guard now enforces the current OpenAI `gpt-4.1-mini` evidence: `44/44` total fixtures, `16/16` adversarial cases, `28/28` answer-validation cases, 16 measured calls, 94,657 input tokens, 8,984 output tokens, and `$0.01958895` estimated cost.
+- The guard now enforces the current OpenAI `gpt-4.1-mini` evidence: `44/44` total fixtures, `16/16` adversarial cases, `28/28` answer-validation cases, 16 measured calls, 94,657 input tokens, 8,087 output tokens, and `$0.01905075` estimated cost.
 - Full `npm run search-book:verify` passed after the guard update; readiness booleans stayed unchanged and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
 
 ## 2026-07-02 — Deterministic Answer-Engine Contract Evidence Guard
