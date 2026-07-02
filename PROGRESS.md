@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-03 — Publication-Day Vibe Source Freshness Refresh
+
+- Re-ran `npm run search-book:check-source-freshness`; it passed with generatedAt `2026-07-02T21:33:16.139Z`.
+- The check fetched both registered official Vibe Markdown sources, `vibe-what-is` and `vibe-platform`, with HTTP 200, passed 4/4 checks for Binance perp market coverage, 390+ market wording, and platform leverage wording, and reported `valuesPrinted:false` plus `sourceBodiesPrinted:false`.
+- Source hashes and byte counts were unchanged from the previous refresh: `vibe-what-is` 2,377 bytes / `b9fc143eb8986799abaf167bf21a6e5e22d34d5759416be326167f68954f1820`; `vibe-platform` 2,806 bytes / `06650f57a38eb6b851103e692adec95cebcb140c09121113333cb054efaed21e`.
+- Updated `GAPS.md` and `FINAL-REPORT.md` to point at the refreshed source-freshness evidence. Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; only #11/#4 remain open.
+
 ## 2026-07-03 — No-Secret GitHub Evidence Refresh From Current Local-Evidence Checkpoint
 
 - Triggered fresh manual workflows from commit `110c684`: launch evidence run `28622312449`, release dry-run run `28622310504`, and static artifact workflow run `28622310287`; all passed.
