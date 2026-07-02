@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Referral Depth Question Ledger Cleanup
+
+- Replaced stale `QUESTIONS.md` wording that still said referral depth was parked with the operator-approved public stance: public depth is resolved at fifteen levels with additive backfill; only final settlement/claim mechanics, future economics, and policy overlays remain deferred or owner-review.
+- Regenerated dependent `data/question-routes.*` and `data/faq.*`; the corrected notes now propagate into route and FAQ artifacts.
+- Added `referral-depth-not-reparked` status-evidence coverage with forbidden fragments for the old parked-depth wording, so `npm run search-book:check-status-evidence` fails if those stale phrases return to `QUESTIONS.md`.
+- Verification passed: `node --check scripts/check-status-evidence.mjs`, `npm run search-book:check-status-evidence`, full `npm run search-book:verify`, targeted stale-fragment search over question/FAQ artifacts, and `git diff --check`.
+
 ## 2026-07-02 — Discord Editorial Queue Status Guard
 
 - Added `DISCORD-EDITORIAL-QUEUE.md` to `npm run search-book:check-status-evidence` so the sanitized reviewer Markdown is checked against generated queue data, not just produced by it.

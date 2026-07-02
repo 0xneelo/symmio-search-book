@@ -341,6 +341,7 @@ function expectedChecks(evidence) {
     "QUESTIONS.md": [
       { id: "generated-coverage", allOf: [`${evidence.exactRoutes} answerable question routes`, `${evidence.reconciliationQuestions} reconciliation questions`, `${evidence.faqEntries} FAQ entries`, `${evidence.exactRouteTests} exact-route tests`, `${evidence.glossaryRouteTests} glossary route tests`, `${evidence.refusalTests} refusal tests`, `${evidence.answerValidationFixtures} fixtures`, `live ${evidence.liveEvalProvider} \`${evidence.liveEvalModel}\` eval passes ${evidence.liveEvalTotal}`] },
       { id: "approved-public-answers", allOf: ["What was AMFQ?", "legacy Automated Market for Quotes name", "networkVolume × platformFeeRate × referrerPlatformShare", "0.05% / 5 bps platform fee and 30% referrer platform share", "Phase B economics are out of scope for v1", "Public referral depth is fifteen levels", "historical backfill is additive and never lowers a balance"] },
+      { id: "referral-depth-not-reparked", allOf: ["public depth is resolved at fifteen levels with additive backfill", "Public referral depth is fifteen levels"], forbidden: ["final production depth and settlement wording remain parked", "depth claims remain parked"] },
       { id: "discord-boundary", allOf: ["Discord/Lafa import is internal-only", `${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, "raw Discord/Lafa text stays out of public answers", "specific Discord/Lafa claims remain non-public until editorial review"] },
       { id: "service-boundary", allOf: ["standalone answer-engine service", "persists questions, ratings, page feedback", "gated moderation and metrics exports", "backup/restore evidence in SQLite"] },
       { id: "operator-gates", allOf: ["only #11 production VPS env install and #4 public frontend/deploy route open", "Production wiring remains gated by #11 production VPS env install and #4 public frontend/deploy route", ...openOperatorFragments] },
@@ -475,15 +476,19 @@ function checkDocument(doc, checks) {
     .map((check) => {
       const allOf = (check.allOf || []).filter(Boolean);
       const anyOf = (check.anyOf || []).filter(Boolean);
+      const forbidden = (check.forbidden || []).filter(Boolean);
       const missingAllOf = allOf.filter((fragment) => !text.includes(fragment));
       const anyOfPassed = anyOf.length === 0 || anyOf.some((fragment) => text.includes(fragment));
+      const forbiddenPresent = forbidden.filter((fragment) => text.includes(fragment));
       return {
         id: check.id,
         expectedAllOf: allOf,
         expectedAnyOf: anyOf,
+        forbidden,
         missing: [
           ...missingAllOf,
           ...(!anyOfPassed ? [`one of: ${anyOf.join(" | ")}`] : []),
+          ...forbiddenPresent.map((fragment) => `forbidden: ${fragment}`),
         ],
       };
     })
