@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh From Live-Eval Checkpoint
+
+- Triggered fresh manual workflows from commit `9db18ec`: launch evidence run `28598252396`, release dry-run run `28598251655`, and static artifact workflow run `28598253055`; all passed.
+- Check-run annotations were empty (`[]`) for launch job `84799293046`, release job `84799282540`, and static job `84799298516`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28598252396`, `/tmp/search-book-gh-manual-release-28598251655`, and `/tmp/search-book-gh-static-artifact-28598253055`; strict launch/release summary validation passed, the nested release launch packet passed checked validation, static packet validation passed, and static/preview-service smokes passed against the copied bundle. The static artifact contains 1,652 copied files, 53,995,498 bytes, integrity `passed`, `valuesPrinted:false`, and `0` sensitive-pattern matches.
+- The launch/release summaries carry repository commit `9db18ec`, dirty `false`, `Discord editorial queue data | passed (160 routed / 91 page-fit / 13 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 91/91; keep-refusal 13/13; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 91; refusals 13; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Live LLM Eval Evidence Refresh From GitHub-Evidence Checkpoint
 
 - Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `e3130dd` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
