@@ -1,8 +1,9 @@
 ## 2026-07-02 — Codex refresh release/static evidence after reconciled source rebuild
 - Task: Run current no-secret release/static evidence from standalone `main` after the reconciled source-ingestion rebuild, validate generated packets/artifacts, and record aggregate evidence only if status documents need a refresh.
 - Scope: `npm run search-book:release-dry-run`, static artifact build/validation and copied-bundle smokes if needed, local temporary artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused evidence guards, `git diff --check`, and a scoped checkpoint if files change. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
-- Status: In progress.
+- Status: Complete.
 - Verification target: release/static evidence passes from current head with repository dirty=false inside packets, source ingestion `17/17`, no secret values printed, static integrity/smokes passing, and only #11/#4 open.
+- Result: Manual launch run `28557496582`, release run `28557496079`, and static artifact run `28557496167` passed from commit `bd1cae7`; job annotations were empty (`[]`) for launch job `84667984769`, release job `84667983141`, and static job `84667983484`. Downloaded artifacts under `/tmp/search-book-gh-manual-launch-28557496582`, `/tmp/search-book-gh-manual-release-28557496079`, and `/tmp/search-book-gh-static-artifact-28557496167` passed checked launch/release/static packet validation plus static and preview-service smokes. Evidence stayed no-secret, repository dirty was `false` inside launch/release packets, source ingestion stayed `17/17`, static artifact integrity stayed `passed`, sensitive matches stayed `0`, readiness booleans did not flip, and only #11/#4 remain open.
 
 ## 2026-07-02 — Codex refresh local launch drill from latest no-secret evidence checkpoint
 - Task: Re-run the no-secret local staging launch drill from current head `9f859c6` so localhost preview/service/write-smoke/backup/launch-gate evidence matches the latest pushed no-secret manual/static evidence checkpoint.

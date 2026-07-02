@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — No-Secret Evidence Refresh From Reconciled Source Rebuild
+
+- Triggered fresh manual workflows from commit `bd1cae7`: launch evidence run `28557496582`, release dry-run run `28557496079`, and static artifact run `28557496167`; all passed.
+- Check-run annotations were empty (`[]`) for launch job `84667984769`, release job `84667983141`, and static job `84667983484`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28557496582`, `/tmp/search-book-gh-manual-release-28557496079`, and `/tmp/search-book-gh-static-artifact-28557496167`; strict launch/release summary validation passed, and the nested release launch packet passed checked validation without requiring a separate nested summary artifact.
+- Both launch/release summaries carry repository commit `bd1cae7`, dirty `false`, `Discord editorial queue data | passed (24 routed / 19 page-fit / 2 refusals; ready: true)`, `Discord editorial disposition | ready true (keep-copy 19/19; keep-refusal 2/2; copy changes 0; promoted 0)`, `Discord reviewer workflow | ready ready (4 phases; page-fit 19; refusals 2; copy changes allowed 0; exact promotions allowed 0)`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`; release evidence also reports static artifact integrity `passed`, 1,652 files, 52,859,001 bytes, sensitive matches `0`, source ingestion `17/17`, `productionReadinessPacket:passed`, spec reconciliation `passed`, 93 syntax checks, and only #11/#4 open.
+- The downloaded static artifact passed `npm run search-book:check-static-artifact-packet`, `npm run search-book:smoke-static -- --root /tmp/search-book-gh-static-artifact-28557496167/search-book-static-site`, and `npm run search-book:smoke-preview-service -- --static-root /tmp/search-book-gh-static-artifact-28557496167/search-book-static-site` with 1,652 files, 52,859,001 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, source ingestion `17/17`, Discord route coverage `19/19`, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- Readiness booleans did not flip from the previous verified state: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Latest No-Secret Evidence Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `9f859c6`; it passed with generatedAt `2026-07-02T00:24:37.711Z` against temporary preview `http://127.0.0.1:45812` and temporary answer-engine service `http://127.0.0.1:45990`.
