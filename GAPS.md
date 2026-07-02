@@ -116,7 +116,7 @@ The build/buy decision is resolved: build a standalone answer-engine service wit
 
 The source spec names the Vibe Trading Notion workspace as a required working source. Operator reconciliation on 2026-07-01 confirms access is installed through the Notion MCP. The Vibe Trading workspace root and the "Turning your perpetual listing into a Perpetual Bid" child pages were fetched through Claude's Notion MCP and registered as `vibe-trading-notion`.
 
-**Disposition:** Resolved for v1 with a paraphrase-only public-use boundary. Do not quote Notion text, do not publish signed media URLs, and keep payment, treasury, token-address, chain-list, and live commercial details routed to the live app or agreement-specific materials.
+**Disposition:** Resolved for v1 with a paraphrase-only public-use boundary. Do not re-open OPERATOR-INBOX #5. Do not quote Notion text, do not publish signed media URLs, and keep payment, treasury, token-address, chain-list, and live commercial details routed to the live app or agreement-specific materials.
 
 ---
 

@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Gaps Reconciliation Evidence Guard
+
+- Added `GAPS.md` to `npm run search-book:check-status-evidence` so the reconciled Discord/Notion/SSHE/whitepaper source-boundary statements, 500-800 page compendium counts, and #4/#11-only production boundary are checked against generated artifacts.
+- Tightened the G-011 Notion disposition to explicitly say not to re-open OPERATOR-INBOX #5; Notion remains paraphrase-only and must not be quoted or used for signed media/payment/live commercial details.
+- Focused `npm run search-book:check-status-evidence` passed with `GAPS.md` included. Readiness booleans stayed unchanged after the current rebuild evidence: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; source ingestion is `17/17`, quality is `29/30`, and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — Living-Docs Operations Discord Closeout Guard
 
 - Updated `LIVING-DOCS-OPERATIONS.md` with the current generated no-raw Discord/Lafa closeout state: 160 routed review items, 91/91 source-backed page-fit groups, 13/13 refusal-policy-ready items, 0 public-copy changes, and 0 exact Discord/Lafa statements promoted.

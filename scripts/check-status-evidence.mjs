@@ -9,6 +9,7 @@ const searchBookRoot = path.resolve(__dirname, "..");
 
 const docs = [
   { id: "final-report", relativePath: "FINAL-REPORT.md" },
+  { id: "gaps", relativePath: "GAPS.md" },
   { id: "completion-audit", relativePath: "COMPLETION-AUDIT.md" },
   { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
   { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
@@ -217,6 +218,7 @@ function fragmentsForEvidence() {
     discordRefusalPolicyReady: `${discordRouting.reviewPlan?.refusalPolicyReadyItems || 0}/${discordRouting.reviewPlan?.refusalReviewReady || 0}`,
     discordRefusalPolicyReviewRequired: `${discordRouting.reviewPlan?.refusalPolicyReviewRequired || 0}/${discordRouting.reviewPlan?.refusalReviewReady || 0}`,
     discordSingleRouteRemaining: String(routeCoverage.pageFitSingleRouteRemaining || 0),
+    discordTotalPublicRoutesToPageFitPages: String(routeCoverage.totalPublicRoutesToPageFitPages || 0),
     discordEditorialReadyForReviewerHandoff: String(Boolean(editorialDisposition.readyForReviewerHandoff)),
     discordEditorialKeepCopy: `${editorialDisposition.pageFitKeepExistingPublicCopy || 0}/${editorialDisposition.pageFitGroups || 0}`,
     discordEditorialKeepRefusal: `${editorialDisposition.refusalKeepPolicy || 0}/${editorialDisposition.refusalItems || 0}`,
@@ -276,6 +278,14 @@ function expectedChecks(evidence) {
       { id: "production-packet", allOf: ["production-readiness packet consistency", "search-book:check-production-packet"] },
       { id: "llm-eval", allOf: [evidence.liveEvalTotal, evidence.liveEvalAdversarial, evidence.liveEvalAnswerValidation] },
       { id: "operator-gates", allOf: openOperatorFragments },
+    ],
+    "GAPS.md": [
+      { id: "discord-reconciliation", allOf: ["G-001: Discord Source Mining Is Imported, Editorial Review Required", "resolves OPERATOR-INBOX #2", "Do not re-open #2", "OPERATOR-INBOX #17 is resolved", "internal-only"] },
+      { id: "discord-corpus", allOf: [`${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, `corpusReady:${evidence.discordCorpusReady}`, `storesMessageText:${evidence.discordStoresMessageText}`] },
+      { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordSingleRouteRemaining} single-route groups remaining`, `${evidence.discordTotalPublicRoutesToPageFitPages} public exact routes`, `${evidence.discordEditorialKeepCopy} page-fit groups keeping existing source-backed public copy`, `${evidence.discordEditorialKeepRefusal} refusal items keeping refusal policy`, `${evidence.discordEditorialCopyChanges} public-copy changes proposed`, `${evidence.discordEditorialExactPromotions} exact Discord/Lafa statements promoted`] },
+      { id: "manifest-authoring", allOf: [`${evidence.manifestPages} manifest pages`, `${evidence.authoredPages} authored pages`, `${evidence.publicNavigationPages} public-navigation pages`, `${evidence.sourceCompanionCoverage} source companions covered by authored pages`, `${evidence.candidatePages} candidate pages remaining`] },
+      { id: "resolved-source-boundaries", allOf: ["Discord, Notion, SSHE, and whitepaper v1 de-scope are resolved", "Do not re-open OPERATOR-INBOX #6", "Do not re-open OPERATOR-INBOX #5", "Do not quote Notion text", "All publication-stance and source-ingestion questions are now resolved for v1"] },
+      { id: "operator-gates", allOf: ["remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4)", "only remaining production operator gates are OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
     ],
     "COMPLETION-AUDIT.md": [
       { id: "source-ingestion", allOf: [`${evidence.sourceIngestion} source families complete`] },
