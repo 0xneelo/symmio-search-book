@@ -1,3 +1,9 @@
+## 2026-07-02 — Codex refresh no-secret GitHub evidence from reconciled rebuild checkpoint
+- Task: Trigger fresh no-secret launch, release, and static artifact workflows from current standalone `main` after the reconciled source rebuild checkpoint, validate downloaded artifacts locally, and record aggregate evidence.
+- Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, status docs if evidence run ids are refreshed, `_local/agent-worklog.md`, focused packet/static/smoke validators, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: In progress.
+- Verification target: manual `Search Book Launch Evidence`, `Search Book Release Dry Run`, and `Search Book Static Artifact` workflows pass from current head `603a32f`; downloaded packets validate with checked scripts; static and preview-service smokes pass against the copied bundle; evidence stays no-secret; only #11/#4 remain open.
+
 ## 2026-07-02 — Codex reconcile source-ingestion rebuild after operator refresh
 - Task: Re-read the reconciled operator/status docs, rerun real Discord corpus ingestion plus the full Search Book verify rebuild, and report which readiness booleans changed after regeneration.
 - Scope: `_specs/app-docs/OPERATOR-INBOX.md`, `FINAL-REPORT.md`, `GAPS.md`, `PROGRESS.md`, Discord/source-ingestion generated data, focused readiness inspection, and no-secret verification output. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.

@@ -26,7 +26,21 @@ function addCheck(checks, id, passed, detail = "") {
   checks.push({ id, passed: Boolean(passed), detail });
 }
 
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(searchBookRoot, relativePath), "utf8"));
+}
+
+function currentRouteTotals() {
+  const questionRoutes = readJson("data/question-routes.json");
+  const faq = readJson("data/faq.json");
+  return {
+    exactRoutes: Number(questionRoutes.totalRoutes || 0),
+    faqAnswerable: Number(faq.totalAnswerable || 0),
+  };
+}
+
 function makeLaunchPacket() {
+  const routeTotals = currentRouteTotals();
   return {
     status: "passed",
     generatedAt: "deterministic-summary-fixture",
@@ -257,8 +271,8 @@ function makeLaunchPacket() {
         evidence: {
           publicNavigationPages: 800,
           sourceCompanionPages: 792,
-          exactRoutes: 820,
-          faqAnswerable: 820,
+          exactRoutes: routeTotals.exactRoutes,
+          faqAnswerable: routeTotals.faqAnswerable,
           sourceCompanionRuntimeChunks: 1321,
           internalDraftRuntimeChunks: 0,
         },
@@ -359,6 +373,7 @@ function makeLaunchPacket() {
 }
 
 function makeReleasePacket() {
+  const routeTotals = currentRouteTotals();
   return {
     status: "passed",
     generatedAt: "deterministic-summary-fixture",
@@ -547,8 +562,8 @@ function makeReleasePacket() {
         evidence: {
           publicNavigationPages: 800,
           sourceCompanionPages: 792,
-          exactRoutes: 820,
-          faqAnswerable: 820,
+          exactRoutes: routeTotals.exactRoutes,
+          faqAnswerable: routeTotals.faqAnswerable,
           sourceCompanionRuntimeChunks: 1321,
           internalDraftRuntimeChunks: 0,
         },
@@ -696,6 +711,7 @@ function main() {
   const validatorReleaseSummaryPath = path.join(validatorDir, "release-dry-run.summary.md");
   const stepSummaryPath = path.join(tmpDir, "github-step-summary.md");
   const launchPacket = makeLaunchPacket();
+  const routeTotals = currentRouteTotals();
   const validatorLaunchPacket = makeValidatorLaunchPacket();
   fs.mkdirSync(validatorNestedLaunchDir, { recursive: true });
   fs.writeFileSync(launchPath, `${JSON.stringify(launchPacket, null, 2)}\n`);
@@ -754,7 +770,7 @@ function main() {
       && /Discord leakage checks \| raw keys `0`, sample leaks `0`, queue-data raw keys `0`, queue-data sample leaks `0`, queue raw tables `0`/.test(combined)
       && /Spec reconciliation \| `passed` \(10\/10 checks; source 17\/17; open #4, #11\)/.test(combined)
       && /Publication public\/source pages \| `800\/792 pages`/.test(combined)
-      && /Publication exact\/FAQ routes \| `820\/820 routes`/.test(combined)
+      && combined.includes(`Publication exact/FAQ routes | \`${routeTotals.exactRoutes}/${routeTotals.faqAnswerable} routes\``)
       && /Backup restore tables \| `4\/4 tables`; restore `passed`; integrity `ok`/.test(combined)
       && /Backup restore seed counts \| questions `2`, ratings `2`, gaps `2`, answer cache `0`/.test(combined)
       && /Backup restore checks \| `4\/4`; values printed: `false`; raw content printed: `false`/.test(combined)

@@ -74,6 +74,10 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+function readRepoJson(relativePath) {
+  return readJson(path.join(searchBookRoot, relativePath));
+}
+
 function addCheck(checks, id, passed, detail = "", evidence = null) {
   checks.push({
     id,
@@ -462,13 +466,19 @@ function specReconciliationReady(evidence = {}) {
 function publicationBoundariesReady(evidence = {}) {
   const totals = evidence.evidence || {};
   const checks = Array.isArray(evidence.checks) ? evidence.checks : [];
+  const questionRoutes = readRepoJson("data/question-routes.json");
+  const faq = readRepoJson("data/faq.json");
+  const expectedExactRoutes = Number(questionRoutes.totalRoutes || 0);
+  const expectedFaqAnswerable = Number(faq.totalAnswerable || 0);
   return (
     evidence.status === "passed"
     && evidence.valuesPrinted === false
     && Number(totals.publicNavigationPages || 0) === 800
     && Number(totals.sourceCompanionPages || 0) === 792
-    && Number(totals.exactRoutes || 0) === 820
-    && Number(totals.faqAnswerable || 0) === 820
+    && expectedExactRoutes > 0
+    && Number(totals.exactRoutes || 0) === expectedExactRoutes
+    && expectedFaqAnswerable > 0
+    && Number(totals.faqAnswerable || 0) === expectedFaqAnswerable
     && Number(totals.sourceCompanionRuntimeChunks || 0) > 0
     && Number(totals.internalDraftRuntimeChunks || 0) === 0
     && checks.length > 0
