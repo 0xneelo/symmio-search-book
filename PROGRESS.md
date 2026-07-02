@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Decision Ledger Evidence Guard
+
+- Refreshed `DECISIONS.md` after the 2026-07-01 reconciliation with a generated-evidence snapshot: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 17/17 source families complete, 5,000 Discord messages / 723 clusters / 837 Lafa candidates imported in internal-only mode, 890 exact public routes, 892 FAQ entries, 44/44 live OpenAI `gpt-4.1-mini` eval, and only #11/#4 production gates open.
+- Updated stale decision entries that still referenced legacy `src/search-book` paths, pre-import Discord blockers, unresolved SSHE/whitepaper source families, old `42/42` live-eval counts, or source-ingestion work as parked. The ledger now states that local `.secrets/search-book.env` is complete and #11 is only the VPS env install at `/etc/symmio-search-book/search-book.env`.
+- Added `DECISIONS.md` to `npm run search-book:check-status-evidence` so the decision ledger fails on drift from generated source, Discord, answer-engine, live-eval, revenue/referral, AMFQ/Intents, runtime, and #4/#11-only operator-boundary evidence. Full `npm run search-book:verify` passed; readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`.
+
 ## 2026-07-02 — Question Ledger Evidence Guard
 
 - Refreshed `QUESTIONS.md` with a generated-coverage snapshot: 890 answerable routes, 2 reconciliation questions, 892 FAQ entries, 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusal tests, 28/28 answer-validation fixtures, and recorded live OpenAI `gpt-4.1-mini` eval `44/44`.

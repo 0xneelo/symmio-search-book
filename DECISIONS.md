@@ -1,5 +1,15 @@
 # Decisions
 
+## Current Generated Evidence Snapshot
+
+Refreshed 2026-07-02 from generated artifacts: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 792 source companions, 3 internal drafts, and 0 candidate pages. Source ingestion is 17/17 complete with 0 partial, 0 parked, and 0 missing source families. The requirement map is 14/18 complete, 2 partial, 2 parked, and 0 missing; completionReady remains false. Quality gates are 29/30, with the remaining failing gate being the open production operator boundary.
+
+Discord/Lafa ingestion is resolved for v1 and internal-only: 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, corpusReady:true, and storesMessageText:false. The sanitized routing summary has 160 routed review items, 91/91 page-fit groups covered by public route aliases, 91/91 source-backed page-fit groups, 91/91 public-copy-ready page-fit groups, 13/13 refusal-policy-ready items, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
+
+The answer-engine evidence reports 890 exact public question routes, 892 FAQ entries, 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusal tests, and 28/28 answer-validation fixtures. The live OpenAI `gpt-4.1-mini` eval is 44/44 total, with 16/16 adversarial cases and 28/28 answer-validation cases. Local `.secrets/search-book.env` is complete for local LLM work and must not be printed; OPERATOR-INBOX #11 is only the production VPS service env install at `/etc/symmio-search-book/search-book.env`.
+
+Only two production operator gates remain: OPERATOR-INBOX #11 production VPS env install and OPERATOR-INBOX #4 public frontend platform/repo/deploy route. OPERATOR-INBOX #2, #5, #6, #7, #12, and #17 are resolved and must not be reopened.
+
 ## D-001: Start With A Session 1 Dossier Before Writing The Full Book
 
 **Decision:** Build a research package, source registry, gaps list, questions list, and 500-800 page manifest before authoring full pages.
@@ -10,7 +20,7 @@
 
 ## D-002: Use A Static Throwaway Prototype For The Front Door
 
-**Decision:** Put a self-contained static prototype in `src/search-book/index.html` with local corpus data in `answer-corpus.js`.
+**Decision:** Put a self-contained static prototype in the standalone Search Book `index.html` with generated corpus data from the repo-root `data/` modules.
 
 **Reason:** The repo currently has a lightweight static frontend pattern and no docs framework dependency. This lets us test the answer-loop interaction without adding platform lock-in or touching dashboard code.
 
@@ -22,7 +32,7 @@
 
 **Reason:** The prompt calls out a build/buy decision. A docs platform choice needs owner approval on repo location, auth, analytics, answer-engine implementation, and update workflow.
 
-**Status:** Pending operator decision.
+**Status:** Partially resolved. Backend architecture is decided as a standalone answer-engine service plus SQLite; the remaining operator decision is the public frontend platform, repo owner, and deploy route under OPERATOR-INBOX #4.
 
 ## D-004: Treat Revenue Rates As Configurable Current Inputs
 
@@ -30,7 +40,7 @@
 
 **Reason:** Local code defaults to a platform-fee and referrer-share formula, while Linear issues describe Phase B revenue sources that are not fully implemented.
 
-**Status:** Accepted.
+**Status:** Accepted. Public v1 copy may publish the Phase A formula `networkVolume × platformFeeRate × referrerPlatformShare` with defaults `0.05%` / `5 bps` platform fee and 30% referrer platform share; Phase B economics remain out of scope for v1.
 
 ## D-005: Publish Referral Depth As Fifteen Levels After Reconciliation
 
@@ -84,7 +94,7 @@
 
 **Decision:** Add generated navigation data and local question/rating/gap persistence to the static prototype before choosing the final docs platform.
 
-**Reason:** The platform/repo/backend decision is parked with the operator, but the final product still needs an ask-first front door, browseable IA, ratings, question tracking, and a gaps queue. A deterministic static loop lets the team test those mechanics against the full 794-page corpus without pretending it is the final vector/Claude-backed production engine.
+**Reason:** The public frontend platform/repo decision remains with the operator, but the final product still needs an ask-first front door, browseable IA, ratings, question tracking, and a gaps queue. A deterministic static loop plus the standalone SQLite service lets the team test those mechanics against the full 794-page corpus without pretending the public deployment route is final.
 
 **Status:** Accepted for prototype iteration.
 
@@ -106,9 +116,9 @@
 
 ## D-014: Treat Publication Readiness As A Generated Audit
 
-**Decision:** Add a deterministic `quality-audit` dataset that checks manifest size, generated-file parity, search-index parity, source-key and source-URL coverage, authored page bodies, duplicate ids, and unresolved operator/Discord gates.
+**Decision:** Add a deterministic `quality-audit` dataset that checks manifest size, generated-file parity, search-index parity, source-key and source-URL coverage, authored page bodies, duplicate ids, and unresolved production operator gates.
 
-**Reason:** The compendium is large enough that readiness cannot be judged by manual scanning. A generated audit keeps source traceability, parked blockers, and remaining editorial work visible without claiming the static prototype is final production.
+**Reason:** The compendium is large enough that readiness cannot be judged by manual scanning. A generated audit keeps source traceability, remaining production gates, and editorial-review boundaries visible without claiming the static prototype is final production.
 
 **Status:** Accepted for QA and handoff.
 
@@ -168,13 +178,13 @@
 
 **Status:** Accepted for prototype iteration.
 
-## D-022: Treat The FAQ As A Local Seed Until Discord Is Imported
+## D-022: Treat The FAQ As A Local Seed Plus Imported Discord Demand
 
-**Decision:** Generate `data/faq.*` from the local question ledger, route it through exact page ids and registered source keys, and render unresolved questions as gaps instead of final answers.
+**Decision:** Generate `data/faq.*` from the local question ledger and the imported no-raw Discord/Lafa demand workflow, route it through exact page ids and registered source keys, and render unresolved or Discord-claim-only questions as gaps/refusals instead of final answers.
 
-**Reason:** The spec requires a Discord-seeded FAQ, but the Discord/Lafa corpus is parked in the operator inbox. A local FAQ seed makes current known questions visible and auditable without pretending community mining is complete.
+**Reason:** The spec requires a Discord-seeded FAQ, and the real corpus is now imported in internal-only mode. The public FAQ should expose route coverage and demand signals without quoting raw Discord/Lafa text or promoting exact community statements before editorial review maps them to primary-source-backed prose.
 
-**Status:** Accepted for prototype iteration; superseded by Discord-derived FAQ once OPERATOR-INBOX #17 releases a readable export for import and review. OPERATOR-INBOX #2 is resolved as an access/export decision and must not be reopened.
+**Status:** Accepted for prototype iteration. OPERATOR-INBOX #2 and #17 are resolved and must not be reopened; exact Discord/Lafa statements remain non-public until editorial review.
 
 ## D-023: Generate The Living-Docs Gap Queue
 
@@ -188,9 +198,9 @@
 
 **Decision:** Generate `data/answer-chunks.*` from authored pages, curated prototype pages, and generated markdown, then use those chunks as the static prototype's retrieval tier before broad page scoring.
 
-**Reason:** The production answer engine still needs a platform/backend decision, embeddings, analytics, and update workflow. Deterministic local chunks let the team validate exact-page routing, source coverage, and chunk-level answer behavior now without pretending the static prototype is the final vector or Claude-backed system.
+**Reason:** The production answer engine still needs public deploy wiring and the production VPS service env, but retrieval, analytics events, and update workflow now have an executable standalone-service boundary. Deterministic local chunks let the team validate exact-page routing, source coverage, and chunk-level answer behavior without making LLM synthesis the only fallback.
 
-**Status:** Accepted for prototype iteration; production retrieval remains pending D-003/operator decision.
+**Status:** Accepted for runtime readiness. The local OpenAI-compatible LLM runtime and extractive fallback are implemented; production readiness remains gated by OPERATOR-INBOX #11 and #4.
 
 ## D-025: Map The 500-800 Page Corpus Into Volumes
 
@@ -228,7 +238,7 @@
 
 **Decision:** Generate `data/source-ingestion.*` from the spec-required source families and current `SOURCES.md`, then feed it into the audit and requirement coverage.
 
-**Reason:** A claim can be properly cited to registered sources while the overall research mandate still has unmined source families. The compendium needs both citation integrity and ingestion completeness, especially for parked sources such as Discord and the Vibe Trading Notion.
+**Reason:** A claim can be properly cited to registered sources while the overall research mandate still needs a source-family completion ledger. The compendium needs both citation integrity and ingestion completeness, including resolved-but-boundary-limited families such as Discord/Lafa, Notion, SSHE, and whitepaper history.
 
 **Status:** Accepted for research completeness tracking.
 
@@ -242,11 +252,11 @@
 
 ## D-031: Register Only Confirmed Official Public Source Families
 
-**Decision:** Treat official Symmio Foundation/options docs, official SYMM-IO GitHub repositories, and official Goldsky subgraph/GraphQL docs as registered source families. Keep SuperFlow/SSHE and the exact original Symmio whitepaper open until stronger primary-source evidence is found.
+**Decision:** Treat official Symmio Foundation/options docs, official SYMM-IO GitHub repositories, official Goldsky subgraph/GraphQL docs, SuperFlow/SHE OpenAPI, Symmio Foundation Meta-Solvers/Clearing Layers, and the registered current whitepaper/Git-history boundary as the v1 source families.
 
-**Reason:** Source-ingestion coverage should improve when official source material is found, but the compendium should not close vague requirements by stretching generic links. The public source map can now cite Symmio options/foundation material and Goldsky mechanics while still showing the unresolved historical and SuperFlow gaps.
+**Reason:** Source-ingestion coverage should improve when official source material is found, but the compendium should not close vague requirements by stretching generic links. The public source map can now cite Symmio options/foundation material, Goldsky mechanics, SuperFlow/SHE, Meta-Solvers/Clearing Layers, and whitepaper-history boundary evidence while keeping exact original/oldest-whitepaper claims out of scope for v1.
 
-**Status:** Accepted for research completeness tracking.
+**Status:** Accepted for research completeness tracking. 2026-07-01 reconciliation resolves OPERATOR-INBOX #6 and #7 for v1; do not reopen those source-family items.
 
 ## D-032: Track The Competitive Sweep As Batch Evidence Until Synthesized
 
@@ -274,7 +284,7 @@
 
 ## D-035: Keep Deepening The Neelo Vision Spine While Blockers Are Parked
 
-**Decision:** Add another authored Neelo-backed batch covering market assembly-line, CLOB graduation, anti-narrative listings, liquidity as trader experience, the last primitive, and token-margined reflexivity risk. Mark SSHE-specific mechanics for owner/source review where the source mentions them but the canonical SSHE source family remains unresolved.
+**Decision:** Add another authored Neelo-backed batch covering market assembly-line, CLOB graduation, anti-narrative listings, liquidity as trader experience, the last primitive, and token-margined reflexivity risk. Mark SSHE-specific production-integration claims for owner/source review while using the resolved v1 SSHE boundary for source-map routing.
 
 **Reason:** The 500-800 page target is already mapped at corpus scale, but the strongest near-term quality gain is converting high-leverage Neelo source material into compact authored pages that the answer engine can route to directly.
 
@@ -378,7 +388,7 @@
 
 ## D-048: Keep Referral Architecture Separate From Referral-Depth Policy
 
-**Decision:** Promote Neelo's referral-program architecture into authored pages for identity, claims, rakeback, qualified issuance, market-scoped referrals, and KPI/integrity controls, while keeping exact public depth, backfill, and settlement economics parked behind the operator decision.
+**Decision:** Promote Neelo's referral-program architecture into authored pages for identity, claims, rakeback, qualified issuance, market-scoped referrals, and KPI/integrity controls, while publishing the resolved public depth/backfill stance and keeping settlement economics review-bound.
 
 **Reason:** The referral corpus is strong enough to explain referrals as market-formation infrastructure: identity anchors, fee-linked activity, tier windows, qualified code issuance, partner overlays, high-quality listing metrics, and anti-gaming controls. Those mechanisms should be documented now, but final public depth and economic promises still depend on unresolved product policy.
 
@@ -550,7 +560,7 @@
 
 **Reason:** The LLM and launch pipeline need an explicit boundary between reviewable public prose and raw source scaffolding. Without that boundary, generated companion material could accidentally appear as final documentation or unresolved referral/revenue contradictions could leak into answer synthesis.
 
-**Status:** Accepted for production readiness and quality-audit enforcement.
+**Status:** Accepted for production readiness and quality-audit enforcement. Current generated evidence reports 800 public-navigation pages, 792 source companions, 3 internal drafts, and 0 candidate pages.
 
 ## D-070: Keep Deterministic Routing As The Answer-Engine Fallback
 
@@ -558,7 +568,7 @@
 
 **Reason:** The production LLM should not become the only way to answer. The docs need a measurable fallback: exact page routing when the corpus already knows the question, retrieval over eligible chunks for broader questions, and refusal/gap creation when evidence is missing. This protects primary-source discipline and gives the LLM layer a golden set.
 
-**Status:** Accepted for answer-engine implementation readiness.
+**Status:** Accepted for answer-engine implementation readiness. Current generated evidence reports 890/890 exact-route tests, 32/32 glossary route tests, and 2/2 refusal tests passing.
 
 ## D-071: Specify LLM RAG Before Runtime Integration
 
@@ -566,7 +576,7 @@
 
 **Reason:** The model layer must inherit the deterministic route fallback, page-state boundaries, source-key validation, and operator-inbox refusal rules. A contract-first slice lets implementation, QA, and design work proceed without binding the docs to a provider or allowing uncited synthesis into production.
 
-**Status:** Accepted for production answer-engine implementation readiness.
+**Status:** Accepted for production answer-engine implementation readiness. The local OpenAI-compatible runtime now passes live `gpt-4.1-mini` validation; `llmProductionReady` remains false until #11 production VPS env install and #4 public deploy route are resolved.
 
 ## D-072: Validate Answer Shapes Before Live Model Calls
 
@@ -582,7 +592,7 @@
 
 **Reason:** The compendium now has strong pre-runtime proof: exact-route and refusal golden tests pass, the LLM API contract is specified, adversarial cases pass, and response-shape validation is executable. That should count as implementation readiness, but it must not imply that live model answering, persistent ratings, or deployed answer storage are production-ready.
 
-**Status:** Accepted for requirement-map and quality-audit readiness tracking.
+**Status:** Accepted for requirement-map and quality-audit readiness tracking. The runtime endpoint/datastore boundary now exists as the standalone SQLite service; production launch remains gated by #11 and #4.
 
 ## D-074: Present Proof Of Value As Costly Evidence, Not Perfect Truth
 
@@ -622,7 +632,7 @@
 
 **Reason:** The docs vision depends on every question being tracked, every answer being rated, and gaps driving improvement. The prototype already stores events locally, but production readiness needs machine-checkable event semantics that can move into a backend without guessing at field names or refusal behavior.
 
-**Status:** Accepted for living-docs implementation readiness. The standalone SQLite service boundary is implemented; production route/platform remains under OPERATOR-INBOX #4, production env install remains under #11, and Discord import remains parked under OPERATOR-INBOX #17 until the provided export is readable.
+**Status:** Accepted for living-docs implementation readiness. The standalone SQLite service boundary is implemented; production route/platform remains under OPERATOR-INBOX #4, production env install remains under #11, and Discord import is resolved with no-raw editorial-review boundaries after OPERATOR-INBOX #17.
 
 ## D-079: Treat Proof Of Value Economics As A Review-Bound Framework
 
@@ -662,7 +672,7 @@
 
 **Reason:** Neelo's referral corpus is not only a rewards pitch. It defines phased launch control, claim-security surfaces, KPI governance, public dashboard standards, and decision ownership. The compendium should preserve that operational discipline so referral growth is documented as market-formation infrastructure rather than a generic acquisition funnel.
 
-**Status:** Accepted for the authored reference layer; referral depth, code activation thresholds, transferability, signer models, partner tiers, reward caps, and public dashboard publication policy remain under operator/product/security review.
+**Status:** Accepted for the authored reference layer. Public referral depth is resolved at 15 levels with additive backfill; code activation thresholds, transferability, signer models, partner tiers, reward caps, and public dashboard publication policy remain under operator/product/security review.
 
 ## D-084: Document Token-Margin Failure Modes As Mechanisms
 
@@ -1666,43 +1676,43 @@
 
 ## D-209: Separate Discord Ingestion Tooling From Discord Source Completion
 
-**Decision:** Add a deterministic Discord/Lafa import contract and scraper path, generate parked `data/discord-corpus.*` artifacts, and register `discord-ingestion-contract` as local tooling evidence. Keep the Discord/Lafa source family parked until the provided export is readable, imported, and reviewed under the approved public-use boundary.
+**Decision:** Add a deterministic Discord/Lafa import contract and scraper path, generate internal-only `data/discord-corpus.*` artifacts, and register `discord-ingestion-contract` as local tooling evidence. Treat the source family as imported for v1 while keeping exact Discord/Lafa statements behind editorial review and primary-source mapping.
 
 **Reason:** The docs need Discord-seeded FAQ and Lafa answers, but guessing community answers would violate the primary-source rule. Tooling can be built now without pretending the corpus exists. The importer supports export JSON/JSONL and Discord REST fetches, but generated public artifacts omit message text unless a citation/paraphrase mode is explicitly approved.
 
-**Status:** Accepted for ingestion tooling, source-ingestion evidence, and answer routing. 2026-07-01 reconciliation update: OPERATOR-INBOX #2 is resolved as an access/export decision; OPERATOR-INBOX #17 is the scoped file-release follow-up because the provided Windows export still returns `EACCES` from WSL. Runtime answers may explain the ingestion boundary; questions asking what Lafa said in Discord must still refuse until the corpus is imported and reviewed.
+**Status:** Accepted for ingestion tooling, source-ingestion evidence, and answer routing. 2026-07-01 reconciliation update: OPERATOR-INBOX #2 and #17 are resolved; the real corpus imports 5,000 messages, 723 question clusters, and 837 configured Lafa answer candidates with `storesMessageText:false`. Runtime answers may explain the ingestion boundary; questions asking what Lafa said in Discord still refuse until editorial review maps the claim to public, source-backed prose.
 
 ## D-210: Treat Live LLM Eval As Runtime Evidence, Not Production Readiness
 
-**Decision:** Record the 2026-06-29 OpenAI `gpt-4.1-mini` live eval in the LLM RAG contract and requirement map, while keeping `llmProductionReady=false` until production service environment, public frontend/deploy wiring, source-ingestion, and deployment work are complete.
+**Decision:** Record the OpenAI `gpt-4.1-mini` live eval in the LLM RAG contract and requirement map, while keeping `llmProductionReady=false` until production service environment, public frontend/deploy wiring, and deployment work are complete.
 
-**Reason:** The runtime has now proven real model-backed cited answers against the strict validator: 42/42 total live fixtures passed, including 15/15 adversarial cases and 27/27 answer-validation cases. That should remove the stale "live validation pending" blocker. It must not imply the public service is launched, because production env installation, public frontend platform/deploy wiring, and Discord/Lafa source import are still open.
+**Reason:** The runtime has now proven real model-backed cited answers against the strict validator: 44/44 total live fixtures passed, including 16/16 adversarial cases and 28/28 answer-validation cases, with recorded measured usage and no printed secrets. That removes the stale "live validation pending" blocker. It must not imply the public service is launched, because production VPS env installation and public frontend platform/deploy wiring are still open.
 
-**Status:** Accepted for production-readiness tracking. Future provider/model changes must rerun the same live eval suite before deployment.
+**Status:** Accepted for production-readiness tracking. Local `.secrets/search-book.env` is complete; OPERATOR-INBOX #11 tracks only the production VPS env install at `/etc/symmio-search-book/search-book.env`. Future provider/model changes must rerun the same live eval suite before deployment.
 
 ## D-211: Serve The Answer Runtime Through A SQLite-Backed Service
 
-**Decision:** Export the validated Search Book answer runtime and wrap it with `src/search-book/scripts/serve-answer-engine.mjs`, a standalone HTTP service that persists question, rating, and gap events to SQLite.
+**Decision:** Export the validated Search Book answer runtime and wrap it with `scripts/serve-answer-engine.mjs`, a standalone HTTP service that persists question, rating, and gap events to SQLite.
 
 **Reason:** The answer-engine requirement is not just a CLI or localStorage prototype. Production needs a server boundary that can call the exact same strict citation/refusal runtime, record Search Insights events durably, accept ratings, and generate low-rated-answer gaps without exposing API keys or weakening validation.
 
-**Status:** Accepted as the standalone service boundary. Production readiness still requires service environment installation, selected public frontend route/deploy wiring, retention/moderation policy, deployment, and remaining source imports.
+**Status:** Accepted as the standalone service boundary. Production readiness still requires service environment installation, selected public frontend route/deploy wiring, reviewer/moderation operations, backup/monitoring configuration, and deployment.
 
 ## D-212: Let The Static Search Book Use The Standalone Service When Configured
 
-**Decision:** Add an optional configured-service bridge to `src/search-book/index.html` so the static Ask front door calls `POST /api/search-book/answer`, ratings call `POST /api/search-book/rating`, and Search Insights reads `GET /api/search-book/insights` when `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL` is present.
+**Decision:** Add an optional configured-service bridge to the standalone `index.html` so the static Ask front door calls `POST /api/search-book/answer`, ratings call `POST /api/search-book/rating`, and Search Insights reads `GET /api/search-book/insights` when `?service=...` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL` is present.
 
 **Reason:** The static prototype still needs to work as a file/local preview with no backend, but production readiness requires proving that the same UI can hand questions, ratings, and gap signals to the SQLite-backed service without exposing LLM credentials. Keeping `localStorage` fallback avoids platform lock-in while the public frontend route remains open.
 
-**Status:** Accepted for frontend-service integration. This does not mark production ready; service env, deploy route, retention/moderation policy, and remaining source imports are still open.
+**Status:** Accepted for frontend-service integration. This does not mark production ready; service env, deploy route, reviewer/moderation operations, backup/monitoring configuration, and launch smoke remain open.
 
 ## D-213: Default To Retained Local Telemetry And Token-Gated Reviewer Export
 
-**Decision:** Add a 180-day default retention policy to `src/search-book/scripts/serve-answer-engine.mjs` for persisted question, rating, and gap events, configurable with `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS`. Add `GET /api/search-book/moderation` as a disabled-by-default reviewer export that requires `SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=true` and `SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN`.
+**Decision:** Add a 180-day default retention policy to `scripts/serve-answer-engine.mjs` for persisted question, rating, and gap events, configurable with `SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS`. Add `GET /api/search-book/moderation` as a disabled-by-default reviewer export that requires `SEARCH_BOOK_ANSWER_ENGINE_ENABLE_MODERATION_EXPORT=true` and `SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN`.
 
 **Reason:** Search Insights needs durable event data, but a production service should not keep user questions forever by accident or expose the editorial queue publicly. The answer-engine service can now prune telemetry, keep local archive mode explicit, and provide editors with gap, low-rating, unanswered, and repeated-question queues without putting moderation data or tokens in public frontend code.
 
-**Status:** Accepted for service operations. This does not mark production ready; production still needs service env installation, selected public route/deploy wiring, reviewer/admin operating procedure, source imports, and deployment QA.
+**Status:** Accepted for service operations. This does not mark production ready; production still needs service env installation, selected public route/deploy wiring, reviewer/admin operating procedure, backup/monitoring configuration, and deployment QA.
 
 ## D-214: Map Proof Of Value Subsection Drafts Through One Source Map
 
@@ -1778,11 +1788,11 @@
 
 ## D-223: Use One Canonical Build And Verification Entrypoint
 
-**Decision:** Add `src/search-book/scripts/build-all.mjs` as the canonical Search Book generation and verification orchestrator, expose it through root npm aliases, and make the first README verification block call `node src/search-book/scripts/build-all.mjs --verify`.
+**Decision:** Add `scripts/build-all.mjs` as the canonical Search Book generation and verification orchestrator, expose it through root npm aliases, and make the first README verification block call `npm run search-book:verify`.
 
 **Reason:** The package had a reliable deterministic build chain, but it lived as a long README command block that agents had to copy exactly. A single entrypoint reduces drift, supports dry-run/list/resume workflows, and lets CI or future agents run the same generation, syntax, invariant, and sensitive-pattern checks from one command.
 
-**Status:** Accepted for production-readiness workflow. The orchestrator does not resolve parked source imports, production service env, frontend deploy route, Discord/Lafa ingestion, or final-report work; those remain separately tracked in the requirement map and operator inbox.
+**Status:** Accepted for production-readiness workflow. The orchestrator does not resolve production service env or frontend deploy route; those remain separately tracked in the requirement map and operator inbox as #11 and #4.
 
 ## D-224: Use A Dashboard Route Inventory As The Coverage Map
 
@@ -1790,23 +1800,23 @@
 
 **Reason:** The product already has focused authored pages for Overview, My invites, My network, Volume, Tasks, FAQ, Settings, estimated revenue, and revenue pulse. A route inventory makes the "every dashboard view is documented" claim auditable while keeping citations narrow and avoiding another large dashboard omnibus page.
 
-**Status:** Accepted for dashboard-reference coverage. The inventory records the current route list and Search Book page mapping; it does not make revenue Phase B, Discord/Lafa FAQ import, the Barometer/subgraph migration, or production frontend deployment complete.
+**Status:** Accepted for dashboard-reference coverage. The inventory records the current route list and Search Book page mapping; it does not make revenue Phase B, Discord/Lafa claim publication, the Barometer/subgraph migration, or production frontend deployment complete.
 
 ## D-225: Final Report Must Document Parked Production Boundaries
 
 **Decision:** Commit `FINAL-REPORT.md` for the current Search Book dossier state, but require the report to document current status, verification evidence, remaining production work, and every open operator inbox item before the requirement map treats it as complete.
 
-**Reason:** The mission requires a final report, while the production deploy route, Discord/Lafa corpus, Notion ingestion, oldest whitepaper, SSHE identification, and service env remain parked. A report that hides those gaps would be a shortcut; an explicit readiness-boundary report gives future operators the evidence and the unfinished work in one place.
+**Reason:** The mission requires a final report, while the production deploy route and service env remain parked. A report that hides those gates would be a shortcut; an explicit readiness-boundary report gives future operators the evidence and the unfinished work in one place without reopening resolved Discord/Lafa, Notion, whitepaper, or SSHE source items.
 
 **Status:** Accepted for delivery tracking. The report is a current-state delivery artifact, not proof that the whole Search Book goal is production-complete.
 
 ## D-226: Count Resolved Publication Stances Separately From Production Blockers
 
-**Decision:** Treat dashboard route coverage and v1 revenue/volume/points wording as complete when required authored pages and exact question routes exist, while keeping deployment, production service env, Discord/Lafa, Notion, oldest whitepaper, and SSHE under their own parked requirements.
+**Decision:** Treat dashboard route coverage, v1 revenue/volume/points wording, and v1 source-ingestion follow-ups as complete when required authored pages, exact question routes, and generated source maps exist, while keeping deployment and production service env under their own parked requirements.
 
 **Reason:** Several old gap rows still carried "needs reconciliation" language after operator decisions had already resolved the v1 public stance: Phase A revenue is approved, referral depth is 15 levels, current volume source is backend REST plus snapshots with Barometer as the tracked upgrade, and the point taxonomy is canonical while the public TGE formula is deferred/not public for v1. Keeping those rows open made the readiness map understate completed publication work and blurred it with genuine production blockers.
 
-**Status:** Accepted for readiness accounting. This does not claim the Search Book is deployed or source-complete.
+**Status:** Accepted for readiness accounting. Source ingestion is complete for v1 at 17/17; this does not claim the Search Book is deployed or production-complete.
 
 ## D-227: Make The Remaining Authoring Queue Deterministic
 
@@ -1886,7 +1896,7 @@
 
 **Reason:** The dashboard and answer-engine pages are the user's operational front door, but broad questions should not route directly to one view or one event-loop page. A volume overview lets readers start from route coverage, then move into view-specific answers, economics/points semantics, FAQ/source boundaries, and production living-docs requirements.
 
-**Status:** Accepted for compendium authoring. V1 Phase A revenue, 15-level public referral depth, current backend volume snapshots, Notion paraphrase-only boundary, and SSHE v1 boundary are publishable with their stated boundaries. Discord/Lafa ingestion, production LLM service env, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
+**Status:** Accepted for compendium authoring. V1 Phase A revenue, 15-level public referral depth, current backend volume snapshots, Notion paraphrase-only boundary, SSHE v1 boundary, and Discord/Lafa internal-only import are publishable with their stated boundaries. Production LLM service env, public frontend platform/deploy route, Barometer endpoint details, FAQ canonicalization, rating moderation, retention policy enforcement, and final analytics/storage operations remain parked or implementation-review items before production launch.
 
 ## D-237: Use Volume 01 As The Thesis Orientation Reading Order
 
@@ -1894,7 +1904,7 @@
 
 **Reason:** Volumes 02 through 08 now have direct broad reading-order routes, but Volume 01 still lacked the same route and still compressed the opening thesis into a short stub. The first volume should orient the reader before they encounter the more specialized market, architecture, product, dashboard, and living-docs volumes.
 
-**Status:** Accepted for compendium authoring. Original/oldest Symmio whitepaper history, exact market counts, HIP-3 outcomes, downstream venue routing, automatic graduation behavior, global reputation protocol claims, product availability, and final public deployment details remain source-completeness, current-source, product, legal, risk, accounting, security, and operator review items before publication.
+**Status:** Accepted for compendium authoring. Original/oldest Symmio whitepaper recovery is out of scope for v1; exact market counts, HIP-3 outcomes, downstream venue routing, automatic graduation behavior, global reputation protocol claims, product availability, and final public deployment details remain current-source, product, legal, risk, accounting, security, and operator review items before publication.
 
 ## D-238: Treat Authored Related-Generated Links As Source-Companion Coverage
 
@@ -1902,7 +1912,7 @@
 
 **Reason:** The compendium now uses authored overview, reference, and source-navigation pages to absorb generated source companions without promoting every companion stub into a public page. The old plan treated those already-folded companions as unworked authoring demand, which made the next batch noisy and obscured genuinely uncovered work.
 
-**Status:** Accepted for G-002A authoring workflow. As of 2026-06-30, all `792/792` source companions are covered by authored pages; final publication review, current-source review, operator review, deployment, and parked source-ingestion items remain separate readiness gates.
+**Status:** Accepted for G-002A authoring workflow. As of the current generated evidence, all `792/792` source companions are covered by authored pages; final publication review, current-source review, operator review, deployment, and the two production operator gates (#11/#4) remain separate readiness gates.
 
 ## D-239: Shift Readiness Tracking From Companion Promotion To Candidate Review
 
