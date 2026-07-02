@@ -21,6 +21,7 @@ function parseArgs(argv) {
     verify: false,
     dryRun: false,
     list: false,
+    updateSensitiveBaseline: false,
     from: "",
     only: "",
   };
@@ -28,6 +29,7 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--verify") args.verify = true;
+    else if (arg === "--update-sensitive-baseline") args.updateSensitiveBaseline = true;
     else if (arg === "--dry-run") args.dryRun = true;
     else if (arg === "--list") args.list = true;
     else if (arg === "--from" || arg === "--resume-from") args.from = argv[++index] || "";
@@ -43,6 +45,7 @@ function parseArgs(argv) {
 
 Options:
   --verify          Run build steps, syntax checks, invariant checks, and sensitive-pattern scan.
+  --update-sensitive-baseline  Regenerate data/sensitive-scan-baseline.json from the working tree and exit.
   --dry-run         Print selected steps without running them.
   --list            Print available build step ids.
   --from ID         Resume from a build step id.
@@ -160,39 +163,138 @@ function runSyntaxChecks(env, dryRun) {
   return files.length;
 }
 
-function runSensitivePatternScan(dryRun) {
-  const pattern = /VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}/;
-  const targetDir = searchBookRoot;
-  if (dryRun) {
-    console.log(`native sensitive-pattern scan ${JSON.stringify(path.relative(repoRoot, targetDir))}`);
-    return { matches: 0, files: 0, dryRun: true };
-  }
-  const files = [];
-  const skipDirs = new Set([".git", "node_modules", "backups"]);
+// Fail-closed sensitive-pattern scan (SYN-306). Two tiers:
+//   1. Key-shape patterns — real credential shapes (API keys, PEM private keys).
+//      Zero tolerance: any hit fails verify. No allowlist; these never appear
+//      legitimately. Bodies are alphanumeric-only and word-boundary anchored so
+//      hyphenated English slugs (e.g. "risk-adjusted-...") do not false-positive.
+//   2. Keyword matches — the coarse historical scan (PRIVATE/TOKEN/SECRET/ADMIN,
+//      VIBE_BACK_URL, 40-hex). These hit many benign doc/config lines, so they are
+//      gated against a committed per-file baseline (data/sensitive-scan-baseline.json):
+//      a new file with matches or an existing file exceeding its baseline fails verify.
+// Regenerate the baseline after a reviewed benign change:
+//   node scripts/build-all.mjs --update-sensitive-baseline
+const sensitiveKeyShapePatterns = [
+  { id: "openai-secret-key", re: /\bsk-(?:proj-)?[A-Za-z0-9]{20,}\b/ },
+  { id: "github-token", re: /\bgh[opsu]_[A-Za-z0-9]{20,}\b/ },
+  { id: "aws-access-key-id", re: /\bAKIA[0-9A-Z]{16}\b/ },
+  { id: "google-api-key", re: /\bAIza[0-9A-Za-z_-]{35}\b/ },
+  { id: "slack-token", re: /\bxox[baprs]-[A-Za-z0-9-]{10,}\b/ },
+  { id: "pem-private-key", re: /-----BEGIN (?:[A-Z0-9 ]+ )?PRIVATE KEY-----/ },
+];
+const sensitiveKeywordPattern = /VIBE_BACK_URL|PRIVATE|TOKEN|SECRET|ADMIN|0x[a-fA-F0-9]{40}/;
+const sensitiveSkipDirs = new Set([".git", "node_modules", "backups", ".secrets", "raw-discord-exports"]);
+const sensitiveSkipExtensions = new Set([
+  ".png", ".jpg", ".jpeg", ".gif", ".ico", ".webp", ".bmp",
+  ".woff", ".woff2", ".ttf", ".otf", ".eot",
+  ".pdf", ".zip", ".gz", ".tar", ".sqlite", ".wasm", ".map",
+]);
+const sensitiveBaselinePath = path.join(searchBookRoot, "data", "sensitive-scan-baseline.json");
+
+function scanSensitivePatterns() {
+  const scanFiles = [];
   const visit = (dirPath) => {
     for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
-      if (entry.isDirectory() && skipDirs.has(entry.name)) continue;
-      const fullPath = path.join(dirPath, entry.name);
-      if (entry.isDirectory()) visit(fullPath);
-      else if (entry.isFile()) files.push(fullPath);
+      if (entry.isDirectory()) {
+        if (sensitiveSkipDirs.has(entry.name)) continue;
+        visit(path.join(dirPath, entry.name));
+      } else if (entry.isFile()) {
+        if (sensitiveSkipExtensions.has(path.extname(entry.name).toLowerCase())) continue;
+        scanFiles.push(path.join(dirPath, entry.name));
+      }
     }
   };
-  visit(targetDir);
+  visit(searchBookRoot);
+  scanFiles.sort((a, b) => a.localeCompare(b));
 
-  let matches = 0;
-  const matchedFiles = new Set();
-  for (const filePath of files) {
-    const text = fs.readFileSync(filePath, "utf8");
-    const lines = text.split(/\r?\n/);
-    const fileMatches = lines.filter((line) => pattern.test(line)).length;
-    if (fileMatches) {
-      matches += fileMatches;
-      matchedFiles.add(filePath);
+  const keywordCounts = {};
+  const keyShapeHits = [];
+  for (const filePath of scanFiles) {
+    let text;
+    try {
+      text = fs.readFileSync(filePath, "utf8");
+    } catch {
+      continue;
     }
+    const rel = path.relative(searchBookRoot, filePath);
+    const lines = text.split(/\r?\n/);
+    let keywordMatches = 0;
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index];
+      if (sensitiveKeywordPattern.test(line)) keywordMatches += 1;
+      for (const pattern of sensitiveKeyShapePatterns) {
+        if (pattern.re.test(line)) keyShapeHits.push({ file: rel, patternId: pattern.id, line: index + 1 });
+      }
+    }
+    if (keywordMatches) keywordCounts[rel] = keywordMatches;
+  }
+  const files = {};
+  for (const rel of Object.keys(keywordCounts).sort((a, b) => a.localeCompare(b))) files[rel] = keywordCounts[rel];
+  return {
+    files,
+    keyShapeHits,
+    totalMatches: Object.values(files).reduce((sum, count) => sum + count, 0),
+    fileCount: Object.keys(files).length,
+  };
+}
+
+function updateSensitiveBaseline() {
+  const scan = scanSensitivePatterns();
+  if (scan.keyShapeHits.length) {
+    console.error("Refusing to baseline: key-shape secret patterns present (never allowlist these):");
+    for (const hit of scan.keyShapeHits) console.error(`  ${hit.file}:${hit.line} [${hit.patternId}]`);
+    process.exit(1);
+  }
+  const baseline = {
+    generatedNote: "Committed allowlist of benign keyword-scan matches. Regenerate with node scripts/build-all.mjs --update-sensitive-baseline after a reviewed change. Key-shape credential patterns are never baselined.",
+    version: "2026-07-02.v1",
+    totalMatches: scan.totalMatches,
+    fileCount: scan.fileCount,
+    files: scan.files,
+  };
+  fs.writeFileSync(sensitiveBaselinePath, `${JSON.stringify(baseline, null, 2)}\n`);
+  console.log(JSON.stringify({ status: "written", path: path.relative(repoRoot, sensitiveBaselinePath), totalMatches: scan.totalMatches, fileCount: scan.fileCount }, null, 2));
+}
+
+function runSensitivePatternScan(dryRun) {
+  if (dryRun) {
+    console.log(`native sensitive-pattern scan ${JSON.stringify(path.relative(repoRoot, searchBookRoot))} (fail-closed: key-shapes + baselined keywords)`);
+    return { matches: 0, files: 0, dryRun: true };
+  }
+  const baseline = fs.existsSync(sensitiveBaselinePath)
+    ? JSON.parse(fs.readFileSync(sensitiveBaselinePath, "utf8"))
+    : { files: {} };
+  const baselineFiles = baseline.files || {};
+  const scan = scanSensitivePatterns();
+  const newKeywordHits = [];
+  for (const [rel, count] of Object.entries(scan.files)) {
+    const allowed = baselineFiles[rel] || 0;
+    if (count > allowed) newKeywordHits.push({ file: rel, count, allowed });
+  }
+  if (scan.keyShapeHits.length || newKeywordHits.length) {
+    const problems = [];
+    if (scan.keyShapeHits.length) {
+      problems.push(
+        `key-shape credential patterns detected (zero tolerance): ${scan.keyShapeHits
+          .map((hit) => `${hit.file}:${hit.line} [${hit.patternId}]`)
+          .join(", ")}`,
+      );
+    }
+    if (newKeywordHits.length) {
+      problems.push(
+        `new/exceeded keyword matches not in data/sensitive-scan-baseline.json: ${newKeywordHits
+          .map((hit) => `${hit.file} (${hit.count} > allowed ${hit.allowed})`)
+          .join(", ")}. If benign, review and regenerate: node scripts/build-all.mjs --update-sensitive-baseline`,
+      );
+    }
+    throw new Error(`Sensitive-pattern scan failed closed. ${problems.join(" | ")}`);
   }
   return {
-    matches,
-    files: matchedFiles.size,
+    matches: scan.totalMatches,
+    files: scan.fileCount,
+    keyShapeHits: scan.keyShapeHits.length,
+    baselinedFiles: Object.keys(baselineFiles).length,
+    failClosed: true,
   };
 }
 
@@ -580,6 +682,11 @@ const steps = buildSteps(args);
 
 if (args.list) {
   for (const step of steps) console.log(step.id);
+  process.exit(0);
+}
+
+if (args.updateSensitiveBaseline) {
+  updateSensitiveBaseline();
   process.exit(0);
 }
 

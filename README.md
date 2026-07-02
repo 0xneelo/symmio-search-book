@@ -47,6 +47,12 @@ npm run search-book:build
 # Build, then run invariant checks, monitoring evidence, and sensitive-pattern scan (CI gate)
 node scripts/build-all.mjs --verify     # == npm run search-book:verify
 
+# The sensitive-pattern scan is fail-closed: any key-shape credential (sk-…, gho_…,
+# AKIA…, PEM private keys) fails verify with zero tolerance, and benign keyword
+# matches are gated against data/sensitive-scan-baseline.json. After a reviewed
+# benign change, regenerate the baseline:
+node scripts/build-all.mjs --update-sensitive-baseline
+
 # Inspect / resume build steps
 node scripts/build-all.mjs --list
 node scripts/build-all.mjs --from <step-id>
