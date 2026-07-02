@@ -345,7 +345,9 @@ const llmRagContractReady =
 const answerValidationCoverage = answerValidationReport.coverage || {};
 const answerValidationFailingFixtureIds = answerValidationReport.failureSummary?.failingFixtureIds || [];
 const answerValidationAdversarialFixtures =
-  (answerValidationCoverage.groundedAdversarialFixtures || 0) + (answerValidationCoverage.refusalFixtures || 0);
+  (answerValidationCoverage.groundedAdversarialFixtures || 0) +
+  (answerValidationCoverage.refusalFixtures || 0) +
+  (answerValidationCoverage.disclaimeredLiveOnlyCases || 0);
 const answerValidationReportReady =
   answerValidationReport.reportReady === true &&
   (answerValidationCoverage.totalFixtures || 0) >= 20 &&

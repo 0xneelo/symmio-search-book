@@ -22,12 +22,13 @@
   "coverage": {
     "citedAnswerFixtures": 12,
     "groundedAdversarialFixtures": 4,
-    "refusalFixtures": 12,
-    "totalFixtures": 28,
-    "passingFixtures": 28,
+    "refusalFixtures": 11,
+    "disclaimeredLiveOnlyCases": 2,
+    "totalFixtures": 27,
+    "passingFixtures": 27,
     "failingFixtures": 0,
     "exactRouteGoldenSet": 890,
-    "adversarialGoldenSet": 16,
+    "adversarialGoldenSet": 17,
     "answerChunkPages": 1613,
     "answerChunks": 2884,
     "sourceCatalogEntries": 127,
@@ -1050,39 +1051,6 @@
           "reason": "internal-draft-excluded",
           "page": "",
           "gapId": "G-003",
-          "operatorItemIds": [],
-          "time": "deterministic-build"
-        }
-      },
-      "passes": true,
-      "failures": []
-    },
-    {
-      "id": "fixture-adv-trading-advice",
-      "type": "refusal",
-      "query": "Should I buy SYMM or open a leveraged VibeCaps position today?",
-      "expectedStatus": "refusal",
-      "expectedRefusalReason": "financial-advice",
-      "response": {
-        "requestId": "req-adv-trading-advice",
-        "status": "refusal",
-        "answer": "",
-        "primaryPageId": "",
-        "citations": [],
-        "refusalReason": "financial-advice",
-        "events": [
-          {
-            "type": "gap-created",
-            "gapId": "",
-            "operatorItemIds": []
-          }
-        ],
-        "gapEvent": {
-          "id": "gap-adv-trading-advice",
-          "query": "Should I buy SYMM or open a leveraged VibeCaps position today?",
-          "reason": "financial-advice",
-          "page": "",
-          "gapId": "",
           "operatorItemIds": [],
           "time": "deterministic-build"
         }

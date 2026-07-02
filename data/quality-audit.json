@@ -39,13 +39,13 @@
     "llmRagEvalHarnessReady": true,
     "llmRagRuntimeImplemented": true,
     "llmRagProductionReady": false,
-    "llmRagAdversarialCases": 16,
-    "llmRagAdversarialCasesPassing": 16,
-    "answerValidationFixtures": 28,
-    "answerValidationFixturesPassing": 28,
+    "llmRagAdversarialCases": 17,
+    "llmRagAdversarialCasesPassing": 17,
+    "answerValidationFixtures": 27,
+    "answerValidationFixturesPassing": 27,
     "answerValidationCitedAnswerFixtures": 12,
     "answerValidationGroundedAdversarialFixtures": 4,
-    "answerValidationRefusalFixtures": 12,
+    "answerValidationRefusalFixtures": 11,
     "answerValidationReportReady": true,
     "livingDocsEventContractReady": true,
     "livingDocsDatastoreImplemented": true,
@@ -226,13 +226,13 @@
       "id": "llm-rag-contract",
       "label": "LLM RAG API contract and adversarial evals are specified",
       "passed": true,
-      "detail": "16/16 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
+      "detail": "17/17 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
     },
     {
       "id": "answer-validation-harness",
       "label": "Answer validation harness resolves cited and refusal fixtures",
       "passed": true,
-      "detail": "28/28 fixtures, 12 cited answers, 4 grounded adversarial answers, 12 refusals, 0 failing"
+      "detail": "27/27 fixtures, 12 cited answers, 4 grounded adversarial answers, 11 refusals, 0 failing"
     },
     {
       "id": "living-docs-events",
@@ -1079,11 +1079,10 @@
       },
       {
         "stage": "input-risk-scan",
-        "behavior": "Detect prompt injection, credential requests, personal financial advice, unsupported economics, and operator-blocked topics before context assembly.",
+        "behavior": "Detect prompt injection, credential requests, unsupported economics, and operator-blocked topics before context assembly. Personal financial-advice phrasing is detected here but does not refuse: it flags the request for the advice-disclaimer postprocess.",
         "refusalReasons": [
           "citation-validation-failed",
           "discord-corpus-review-required",
-          "financial-advice",
           "internal-draft-excluded",
           "phase-b-economics-out-of-scope",
           "private-source-quotation-disallowed",
@@ -1124,7 +1123,8 @@
           "answer only from retrieved context",
           "cite every substantive paragraph",
           "refuse when evidence is missing or blocked",
-          "never expose secrets"
+          "never expose secrets",
+          "answer personal trading/allocation questions with documented mechanics and risks only, never a specific action recommendation"
         ]
       },
       {
@@ -1138,6 +1138,11 @@
           "chunk-id-known",
           "paragraph-cited"
         ]
+      },
+      {
+        "stage": "advice-disclaimer-postprocess",
+        "behavior": "After validation, append a mandatory not-financial-advice disclaimer to every answered response whose query matches personal trading/allocation-advice phrasing, and mark the response with advisory: not-financial-advice. Advice questions refuse only when no grounded context exists.",
+        "disclaimerText": "Not financial advice: this answer explains documented mechanics and risks only and is not a personal recommendation to buy, sell, hold, or provide liquidity. Evaluate your own risk tolerance before acting."
       },
       {
         "stage": "persistence",
@@ -1250,8 +1255,8 @@
         "unaudited-security-overclaim"
       ],
       "missingRequiredCategories": [],
-      "totalCases": 16,
-      "passingCases": 16,
+      "totalCases": 17,
+      "passingCases": 17,
       "failingCaseIds": [],
       "byCategory": {
         "prompt-injection": 1,
@@ -1267,7 +1272,7 @@
         "operator-access": 1,
         "approved-source-boundary": 1,
         "internal-draft-exclusion": 1,
-        "financial-advice": 1,
+        "financial-advice": 2,
         "citation-integrity": 1
       }
     },
@@ -1298,12 +1303,13 @@
     "coverage": {
       "citedAnswerFixtures": 12,
       "groundedAdversarialFixtures": 4,
-      "refusalFixtures": 12,
-      "totalFixtures": 28,
-      "passingFixtures": 28,
+      "refusalFixtures": 11,
+      "disclaimeredLiveOnlyCases": 2,
+      "totalFixtures": 27,
+      "passingFixtures": 27,
       "failingFixtures": 0,
       "exactRouteGoldenSet": 890,
-      "adversarialGoldenSet": 16,
+      "adversarialGoldenSet": 17,
       "answerChunkPages": 1613,
       "answerChunks": 2884,
       "sourceCatalogEntries": 127,

@@ -82,6 +82,21 @@ const stopWords = new Set([
   "were",
 ]);
 
+const financialAdviceDisclaimer =
+  "Not financial advice: this answer explains documented mechanics and risks only and is not a personal recommendation to buy, sell, hold, or provide liquidity. Evaluate your own risk tolerance before acting.";
+
+const financialAdvicePatterns = [
+  /should i (buy|sell|hold|long|short|invest|provide|lp|stake)/i,
+  /open a leveraged/i,
+  /trade today/i,
+  /(safer|riskier|better|smarter) than (holding|buying|selling|providing|staking)/i,
+  /is (it|providing|holding|buying|selling|staking|lping).{0,80}(safe|safer|risky|riskier|worth it)/i,
+  /i have [0-9][0-9,.]*\s*k?\s*(usdc|usdt|usd|dollars|capital)/i,
+  /what should i do with my (money|capital|funds|portfolio|usdc|usdt|symm)/i,
+  /worth (buying|holding|investing|providing)/i,
+  /(allocate|allocating|allocation of) (my|our) /i,
+];
+
 const riskRules = [
   {
     id: "prompt-injection",
@@ -96,13 +111,6 @@ const riskRules = [
     status: "refusal",
     patterns: [/secret/i, /credential/i, /private key/i, /api key/i, /admin token/i, /VIBE_BACK_URL/i],
     message: "I cannot expose secrets, credentials, private endpoints, or hidden runtime configuration.",
-  },
-  {
-    id: "financial-advice",
-    reason: "financial-advice",
-    status: "refusal",
-    patterns: [/should i buy/i, /should i sell/i, /open a leveraged/i, /trade today/i],
-    message: "I can explain documented mechanics, but I cannot give personal trading advice.",
   },
   {
     id: "security-overclaim",
@@ -1113,6 +1121,7 @@ function buildLlmMessages(args, runtime, context, validationFeedback = []) {
         "Return only JSON matching the SearchBookAnswerResponse schema.",
         "When answering, status MUST be exactly \"answered\".",
         "Use a defined refusal status only if the supplied context is insufficient, unsafe, or asks for blocked content.",
+        "For questions asking for personal trading, investment, or allocation advice: when grounded context exists, do not refuse; answer with documented mechanics and risks only and never recommend a specific action or position.",
         "requestId MUST echo the input requestId exactly.",
         "primaryPageId MUST be copied verbatim from one supplied chunk.pageId.",
         "Each citation.pageId MUST be copied verbatim from a supplied chunk.pageId.",
@@ -1447,17 +1456,34 @@ function validateResponseOrThrow(response, context, runtime) {
   return response;
 }
 
+function queryRequestsFinancialAdvice(query) {
+  return financialAdvicePatterns.some((pattern) => pattern.test(String(query || "")));
+}
+
+function applyFinancialAdviceDisclaimer(args, response) {
+  if (!response || response.status !== "answered") return response;
+  if (!queryRequestsFinancialAdvice(args.query)) return response;
+  response.advisory = "not-financial-advice";
+  const answer = String(response.answer || "").trimEnd();
+  if (!answer.toLowerCase().includes("not financial advice")) {
+    response.answer = `${answer}\n\n${financialAdviceDisclaimer}`;
+  }
+  return response;
+}
+
 async function answerQuery(args, runtime, options = {}) {
   const preflightResponse = preflight(args, runtime);
   const context = preflightResponse ? null : retrieve(args, runtime);
   if (!preflightResponse && typeof options.findReusableAnswer === "function") {
     const reused = await options.findReusableAnswer(args, runtime, context);
-    if (reused?.response) return { response: reused.response, context, reuse: reused.meta || null };
+    if (reused?.response) {
+      return { response: applyFinancialAdviceDisclaimer(args, reused.response), context, reuse: reused.meta || null };
+    }
   }
   const response = preflightResponse || (args.mode === "llm"
     ? await llmAnswer(args, runtime, context)
     : extractiveAnswer(args, runtime, context));
-  return { response, context };
+  return { response: applyFinancialAdviceDisclaimer(args, response), context };
 }
 
 function fixtureCasesFromAnswerValidation(answerValidationReport) {
@@ -1515,6 +1541,12 @@ function evaluateLiveCase(test, result, runtime) {
     if (response.status !== "answered") failures.push(`status ${response.status} !== answered`);
     if (test.expectedPageId && response.primaryPageId !== test.expectedPageId) {
       failures.push(`primaryPageId ${response.primaryPageId} !== ${test.expectedPageId}`);
+    }
+    failures.push(...answeredValidationFailures(response, result.context, runtime));
+  } else if (expectedStatus === "answered-with-disclaimer") {
+    if (response.status !== "answered") failures.push(`status ${response.status} !== answered`);
+    if (response.advisory !== "not-financial-advice") {
+      failures.push(`advisory ${JSON.stringify(response.advisory)} !== "not-financial-advice"`);
     }
     failures.push(...answeredValidationFailures(response, result.context, runtime));
   } else if (expectedStatus === "caveated-answer-or-refusal") {
