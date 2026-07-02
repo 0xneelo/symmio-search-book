@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Source-Ingestion Goal Docs Reconciled
+
+- Refreshed `docs/goals/source-ingestion/*` from the old #17/Discord-unreadable final-mile state to the current v1 completion state: 17/17 source families complete, Discord `imported-needs-review` with 5,000 messages / 723 question clusters / 837 configured Lafa answer candidates, and no raw message text stored in committed data.
+- Added the source-ingestion goal docs to `npm run search-book:check-status-evidence` so they fail on drift from generated source-ingestion, Discord, requirement-map, and #4/#11-only operator-boundary evidence.
+- Full `npm run search-book:verify` passed; readiness booleans stayed unchanged and production readiness remains gated only by #11 production VPS env install and #4 public frontend/deploy route.
+
 ## 2026-07-02 — Answer-Validation Harness Evidence Guard
 
 - Updated `ANSWER-VALIDATION-HARNESS.md` so its generated-proof section matches `data/answer-validation-report.json`: `28/28` passing fixtures, 0 failures, 12 cited-answer fixtures, 4 grounded adversarial fixtures, 12 refusal fixtures, an 890 exact-route golden set, and a 16 adversarial golden set.

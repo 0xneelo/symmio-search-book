@@ -1,4 +1,4 @@
-# Plan: Source Ingestion Final Mile
+# Plan: Source Ingestion Maintenance
 
 Target repo: `/home/tabor/apps/symmio-search-book`.
 
@@ -14,15 +14,15 @@ node -e 'const s=require("./data/source-ingestion.json"); const d=require("./dat
 git status --short
 ```
 
-Expected before Discord import:
+Expected current state:
 
-- Source ingestion: 16 complete, 1 parked.
-- Discord corpus: parked unreadable export, 0 messages.
-- Open items: #17, #11, #4.
+- Source ingestion: 17 complete, 0 parked.
+- Discord corpus: imported-needs-review, 5,000 messages, 723 question clusters, 837 configured Lafa answer candidates.
+- Open operator items: #11 and #4 only.
 
-## 2. Import Discord When #17 Is Resolved
+## 2. Maintain Discord Import Evidence
 
-When the operator provides a readable copy or releases the file lock:
+Discord and #17 are resolved for v1. When the source corpus changes or a new export is intentionally imported:
 
 1. Put the readable export in a gitignored local path or pass it through the existing importer configuration.
 2. Run `scripts/build-discord-corpus.mjs` against the real export.
@@ -38,7 +38,7 @@ git diff --check
 
 ## 3. Fold Safe Discord Demand Into The Product
 
-After import, update only launch-safe surfaces:
+After import or review, update only launch-safe surfaces:
 
 - FAQ/question seeds in `QUESTIONS.md` or generated route inputs where the corpus supports them.
 - Gap queue wording for repeated unresolved community questions.
@@ -48,15 +48,15 @@ Do not use Discord content to answer unsupported protocol, financial, secret, or
 
 ## 4. Close The Source Follow-Up
 
-When source ingestion reaches 17/17:
+The source follow-up is already closed for v1. For future source-corpus changes:
 
-- Move OPERATOR-INBOX #17 to resolved with the import path, message counts, and verification command.
-- Update `GAPS.md`, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md`.
+- Keep OPERATOR-INBOX #17 resolved and do not reopen #2.
+- Update `GAPS.md`, `PROGRESS.md`, `FINAL-REPORT.md`, and `_local/agent-worklog.md` if generated source or Discord counts change.
 - Commit a scoped checkpoint.
-- Update SYN-289 with before/after counts and verification output.
+- Update the relevant Linear issue with before/after counts and verification output.
 
 ## Still Out Of Scope
 
 - Production VPS env install (#11).
 - Public deploy route/platform decision (#4).
-- Reopening #2, #5, #6, #7, or #12.
+- Reopening #2, #5, #6, #7, #12, or #17.

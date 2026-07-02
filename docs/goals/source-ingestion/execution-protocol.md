@@ -1,20 +1,20 @@
 # Execution Protocol
 
-Use this for the remaining source-ingestion follow-up.
+Use this for source-ingestion maintenance after the v1 source follow-up completion.
 
 ## Coordination
 
 1. Read `_local/agent-worklog.md`, `_specs/app-docs/OPERATOR-INBOX.md`, and `git status --short`.
 2. Work only in `/home/tabor/apps/symmio-search-book`.
 3. Do not edit `/home/tabor/projects/onboarding-app/src/search-book`.
-4. Do not reopen resolved operator items #2, #5, #6, #7, or #12.
+4. Do not reopen resolved operator items #2, #5, #6, #7, #12, or #17.
 5. If a new issue appears after actually running the importer, create a new scoped inbox entry instead of changing old resolved entries.
 
 ## Linear
 
 Current tracking:
 
-- SYN-289: readable Discord export file release (#17).
+- SYN-289: readable Discord export file release (#17, resolved).
 - SYN-281: production VPS env install (#11).
 - SYN-285: public frontend platform/repo/deploy route (#4).
 
