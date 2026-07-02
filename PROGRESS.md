@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh From Live-Eval Checkpoint
+
+- Triggered fresh manual workflows from commit `127c280`: launch evidence run `28562722103`, release dry-run run `28562721857`, and static artifact run `28562721783`; all passed from head `127c2808cc0d3558c08ffce152fab6f17f059741`.
+- Check-run annotations were empty (`[]`) for launch job `84683551797`, release job `84683551389`, and static job `84683551395`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28562722103`, `/tmp/search-book-gh-manual-release-28562721857`, and `/tmp/search-book-gh-static-artifact-28562721783`; strict launch/release summary validation passed, static packet validation passed, and static/preview-service smokes passed against the copied bundle.
+- The launch/release packets report repository commit `127c280`, dirty `false`, source ingestion `17/17`, `productionReadinessPacket:passed`, spec reconciliation `passed`, 93 syntax checks, Discord editorial queue data `passed`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- The static artifact reports 1,652 files, 53,476,055 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, exact routes 890, chunks 2,884, source ingestion 17/17, Discord route coverage 19/19, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Live LLM Eval Evidence Refresh From Latest Main
 
 - Re-ran the local OpenAI-backed Search Book RAG eval through `.secrets/search-book.env` from current head `51b268c` without printing the env file or API key. The live `gpt-4.1-mini` eval passed `44/44` fixtures: `16/16` adversarial cases and `28/28` answer-validation cases. Failing cases: `0`; runtime fallbacks: `0`; validation retries: `0`.
