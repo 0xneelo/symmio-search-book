@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-07-03 — Current-Head Local Launch Drill After Lafa Guard Hardening
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `3058564`; it passed with generatedAt `2026-07-02T22:09:51.457Z` against temporary preview `http://127.0.0.1:44894` and temporary answer-engine service `http://127.0.0.1:45552`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-UJbdeN/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 95 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Updated `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, and `PRODUCTION-READINESS-PACKET.md` to the refreshed local launch drill evidence.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `sourceIngestionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-03 — Lafa Flagged-Answer Quarantine Guard
 
 - Hardened the Lafa contradiction-screen guard so `data/lafa-answer-screen.json` must keep flagged IDs disjoint from auto-approved IDs and keep reported reason counts aligned with the flagged items.
