@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-07-02 — Deterministic Answer-Engine Contract Evidence Guard
+
+- Corrected `ANSWER-ENGINE-CONTRACT.md` generated-proof counts to match generated evidence: 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusals, and 12/12 living-docs fixtures.
+- Extended `npm run search-book:check-status-evidence` to include the answer-engine contract doc and derive required fragments from `data/answer-engine-contract.json` and `data/living-docs-events.json`.
+- The guard now fails if the deterministic fallback contract doc drifts from exact-route, glossary-route, refusal, living-docs, service-runtime, or production-boundary evidence.
+
 ## 2026-07-02 — 100-Percent Checklist Evidence Guard
 
 - Corrected `_specs/app-docs/12-search-book-to-100-percent.md` so its current-completion snapshot matches generated evidence: 890 exact public question routes, 890 exact-route tests, and the latest live `gpt-4.1-mini` eval at `44/44`.

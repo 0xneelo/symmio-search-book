@@ -12,6 +12,7 @@ const docs = [
   { id: "completion-audit", relativePath: "COMPLETION-AUDIT.md" },
   { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
   { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
+  { id: "answer-engine-contract", relativePath: "ANSWER-ENGINE-CONTRACT.md" },
   { id: "readme", relativePath: "README.md" },
 ];
 
@@ -111,6 +112,7 @@ function fragmentsForEvidence() {
   const faq = readJson("data/faq.json");
   const chunks = readJson("data/answer-chunks.json");
   const answerContract = readJson("data/answer-engine-contract.json");
+  const livingDocs = readJson("data/living-docs-events.json");
   const publicationPlan = readJson("data/publication-plan.json");
   const sourceIngestion = readJson("data/source-ingestion.json");
   const requirements = readJson("data/requirement-map.json");
@@ -134,6 +136,8 @@ function fragmentsForEvidence() {
     missing: requirements.byStatus?.missing || 0,
   };
   const routeCoverage = discordRouting.reviewPlan?.routeCoverage || {};
+  const answerEvaluation = answerContract.evaluation || {};
+  const glossaryRoutesByRuntimeAction = answerEvaluation.glossaryRoutesByRuntimeAction || {};
   const live = llm.liveEvaluation || {};
   const suites = live.suites || {};
   const manualEvidence = latestManualEvidenceFromProgress();
@@ -149,9 +153,16 @@ function fragmentsForEvidence() {
     internalDraftPages: String(pageState.internalDraftPages),
     candidatePages: String(pageState.candidatePages || 0),
     exactRoutes: String(routes.totalRoutes),
-    exactRouteTestsPassing: String(answerContract.evaluation?.exactRouteTestsPassing || 0),
-    glossaryRouteTestsPassing: String(answerContract.evaluation?.glossaryRouteTestsPassing || 0),
-    refusalTestsPassing: String(answerContract.evaluation?.refusalTestsPassing || 0),
+    exactRouteTests: `${answerEvaluation.exactRouteTestsPassing || 0}/${answerEvaluation.totalExactRouteTests || 0}`,
+    exactRouteTestsPassing: String(answerEvaluation.exactRouteTestsPassing || 0),
+    glossaryRouteTests: `${answerEvaluation.glossaryRouteTestsPassing || 0}/${answerEvaluation.totalGlossaryRouteTests || 0}`,
+    glossaryRouteTestsPassing: String(answerEvaluation.glossaryRouteTestsPassing || 0),
+    glossaryPublicRoutes: String(glossaryRoutesByRuntimeAction["route-to-public-page"] || 0),
+    glossaryRetrievalOnlyRoutes: String(glossaryRoutesByRuntimeAction["retrieve-context-without-public-primary"] || 0),
+    glossaryFailingRoutes: String((answerEvaluation.failingGlossaryRouteIds || []).length),
+    refusalTests: `${answerEvaluation.refusalTestsPassing || 0}/${answerEvaluation.totalRefusalTests || 0}`,
+    refusalTestsPassing: String(answerEvaluation.refusalTestsPassing || 0),
+    livingDocsFixtures: `${livingDocs.coverage?.passingFixtures || 0}/${livingDocs.coverage?.totalFixtures || 0}`,
     faqEntries: String(faq.totalEntries),
     chunks: formatInteger(chunks.totalChunks),
     chunksRaw: String(chunks.totalChunks),
@@ -271,6 +282,15 @@ function expectedChecks(evidence) {
       { id: "llm-eval", allOf: [`Live ${evidence.liveEvalProvider} \`${evidence.liveEvalModel}\` eval passed ${evidence.liveEvalTotal}`] },
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa candidates`] },
       { id: "operator-gates", allOf: ["OPERATOR-INBOX #11", "OPERATOR-INBOX #4", ...openOperatorFragments] },
+    ],
+    "ANSWER-ENGINE-CONTRACT.md": [
+      { id: "exact-route-tests", allOf: [`${evidence.exactRouteTests} exact-route tests`] },
+      { id: "glossary-route-tests", allOf: [`${evidence.glossaryRouteTests} glossary route tests`] },
+      { id: "refusal-tests", allOf: [`${evidence.refusalTests} refusal tests`] },
+      { id: "living-docs-fixtures", allOf: [`${evidence.livingDocsFixtures} event fixtures`] },
+      { id: "glossary-breakdown", allOf: [`${evidence.glossaryPublicRoutes} route to a public page`, `${evidence.glossaryRetrievalOnlyRoutes} are retrieval-context-only`, `${evidence.glossaryFailingRoutes} failing glossary route ids`] },
+      { id: "service-runtime", allOf: ["gated moderation and metrics exports", "GET /api/search-book/metrics", "backup/restore-check utility"] },
+      { id: "production-boundary", allOf: ["llmProductionReady` intentionally remains false", "production VPS service env and public route/deploy wiring remain open"] },
     ],
     "README.md": [
       { id: "check-status-script", allOf: ["search-book:check-status-evidence"] },

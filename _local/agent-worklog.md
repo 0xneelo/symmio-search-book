@@ -1,3 +1,10 @@
+## 2026-07-02 - Codex guard deterministic answer-engine contract doc counts
+- Task: Remove stale generated-proof counts from `ANSWER-ENGINE-CONTRACT.md` and extend status evidence so this contract doc is checked against generated answer-engine and living-docs event evidence.
+- Scope: `ANSWER-ENGINE-CONTRACT.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verify, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:check-status-evidence` fails if `ANSWER-ENGINE-CONTRACT.md` drifts from generated exact-route, glossary-route, refusal, living-docs fixture, and production-boundary evidence.
+- Result: Updated `ANSWER-ENGINE-CONTRACT.md` from stale generated proof language to current generated evidence: 890/890 exact-route tests, 32/32 glossary route tests, 2/2 refusal tests, and 12/12 living-docs fixtures. Extended `scripts/check-status-evidence.mjs` to include the answer-engine contract doc and enforce exact/glossary/refusal/living-docs/service-runtime/production-boundary fragments from generated evidence. `npm run search-book:check-status-evidence` passed with open operator items limited to #4/#11.
+
 ## 2026-07-02 - Codex align 100-percent checklist counts with generated evidence
 - Task: Remove stale route/live-eval counts from `_specs/app-docs/12-search-book-to-100-percent.md` and extend the status-evidence guard so this checklist is checked against generated corpus/runtime evidence.
 - Scope: `_specs/app-docs/12-search-book-to-100-percent.md`, `scripts/check-status-evidence.mjs`, `PROGRESS.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verify if guard behavior changes, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
