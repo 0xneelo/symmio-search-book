@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-07-02 — No-Secret GitHub Evidence Refresh From Current Local-Drill Checkpoint
+
+- Triggered fresh manual workflows from commit `52215c6`: launch evidence run `28564475318`, release dry-run run `28564475519`, and static artifact run `28564475634`; all passed from head `52215c6f85995aa87dfbd3721bbf1ea8f746ec73`.
+- Check-run annotations were empty (`[]`) for launch job `84688831544`, release job `84688833379`, and static job `84688832051`.
+- Downloaded artifacts to `/tmp/search-book-gh-manual-launch-28564475318`, `/tmp/search-book-gh-manual-release-28564475519`, and `/tmp/search-book-gh-static-artifact-28564475634`; strict launch/release summary validation passed, static packet validation passed, and static/preview-service smokes passed against the copied bundle.
+- The launch/release packets report repository commit `52215c6`, dirty `false`, source ingestion `17/17`, `productionReadinessPacket:passed`, spec reconciliation `passed`, 93 syntax checks, Discord editorial queue data `passed`, `Open operator Linear tasks | #4=SYN-285, #11=SYN-281`, and `Secrets printed | false`.
+- The static artifact reports 1,652 files, 53,476,055 bytes, integrity `passed`, `valuesPrinted:false`, 0 sensitive-pattern matches, exact routes 890, chunks 2,884, source ingestion 17/17, Discord route coverage 19/19, service-backed ask/rating/page-feedback persistence, and only #11/#4 open.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Local Launch Drill Evidence Refresh From Current Manual-Evidence Checkpoint
 
 - Re-ran `npm run search-book:drill-local-launch` from current head `4f2f8a2`; it passed with generatedAt `2026-07-02T03:55:09.104Z` against temporary preview `http://127.0.0.1:45784` and temporary answer-engine service `http://127.0.0.1:46328`.
