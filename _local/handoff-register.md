@@ -19,3 +19,12 @@ Newest first. Each entry links a temp handoff doc, its Linear issue, and the rec
 - Summary: Found in the 2026-07-02 local audit (SYMM-address repro). Extractive off-corpus lane gaps correctly; the LLM synthesis lane leaks. Recommendation: answer honestly + create gap event, consistent with the answer-with-disclaimer advice-lane decision.
 - Receiving agent: unassigned (pull via kickoff prompt in SYN-301)
 - Linear: SYN-301 — https://linear.app/synchronicity/issue/SYN-301/search-book-llm-answers-for-undocumented-facts-skip-gap-events-capture
+
+## 2026-07-02 — Search Book production-readiness blockers/gaps
+
+- Created: 2026-07-02
+- Handoff path: `/tmp/handoff-search-book-production-readiness-20260702.md`
+- Focus: Delegate remaining Search Book production readiness work: production VPS env install (#11/SYN-281), public frontend/deploy route (#4/SYN-285), and final production evidence.
+- Summary: Search Book is preview-ready with source ingestion 17/17, 794 manifest pages, 801 authored pages, 890 exact routes, local/live LLM eval evidence, local living-docs service boundary, and quality 29/30. Production remains open only on OPERATOR-INBOX #11 and #4; Discord/Notion/SSHE/whitepaper/source blockers are resolved for v1 and must not be reopened.
+- Receiving agent: Search Book production-readiness agent
+- Linear: SYN-292 — https://linear.app/synchronicity/issue/SYN-292/search-book-production-readiness-handoff-remaining-blockers-and-gaps
