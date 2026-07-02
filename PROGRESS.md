@@ -1,5 +1,12 @@
 # Progress
 
+## 2026-07-02 — Local Launch Drill Evidence Refresh From Refusal-Policy Checkpoint
+
+- Re-ran `npm run search-book:drill-local-launch` from current head `a36e967`; it passed with generatedAt `2026-07-02T02:20:15.743Z` against temporary preview `http://127.0.0.1:46482` and temporary answer-engine service `http://127.0.0.1:45006`.
+- Deployment write-smoke recorded answer `answered`, rating `recorded`, pageFeedback `recorded`, primary page `authored-vibe-product-overview`, 2 citations, and persisted status `answered`; backup and restore-check both passed with latest manifest `/tmp/search-book-local-launch-drill-rJ3lJg/backups/latest.manifest.json`.
+- Launch readiness passed 15/15 staging checks with 0 failures, 0 warnings, fresh verify 26 build steps / 93 syntax checks, `valuesPrinted:false`, and no LLM API key loaded.
+- Readiness booleans did not flip: `sourceCompletionReady:true`, `completionReady:false`, `llmProductionReady:false`, `livingDocsProductionReady:false`; completion remains gated only by #11 production VPS env install and #4 public frontend/deploy-route decision.
+
 ## 2026-07-02 — Expanded Discord Refusal-Policy Lane Closure
 
 - Classified `no-grounded-context` as a policy-ready refusal in the sanitized Discord routing summary builder. This matches the answer runtime boundary: no grounded context means the system must keep refusing and create demand/gap evidence, not synthesize an answer.
