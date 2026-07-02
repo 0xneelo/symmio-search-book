@@ -8,8 +8,8 @@
   ],
   "seedSource": "local-question-ledger-plus-sanitized-discord-demand",
   "status": "prototype-faq-discord-imported-review-bound",
-  "totalEntries": 842,
-  "totalAnswerable": 840,
+  "totalEntries": 852,
+  "totalAnswerable": 850,
   "totalUnresolved": 2,
   "totalCategories": 10,
   "missingPageIds": [],
@@ -17,25 +17,25 @@
   "byCategory": {
     "Getting Started": 127,
     "Trading Flow": 51,
-    "Solvers And Settlement": 194,
+    "Solvers And Settlement": 196,
     "Data And Volume": 11,
-    "Revenue": 101,
-    "Rewards And Referrals": 103,
+    "Revenue": 105,
+    "Rewards And Referrals": 104,
     "Dashboard": 13,
-    "Risk And Markets": 75,
-    "Manifesto": 164,
+    "Risk And Markets": 77,
+    "Manifesto": 165,
     "Discord Import": 3
   },
   "byConfidence": {
-    "Medium": 534,
+    "Medium": 544,
     "High": 47,
     "Low": 259
   },
   "byRouteSource": {
-    "authored": 840
+    "authored": 850
   },
   "byType": {
-    "answerable": 840,
+    "answerable": 850,
     "reconciliation": 2
   },
   "answerable": [
@@ -27552,6 +27552,320 @@
       "pageTitle": "The Capital Efficiency Trap",
       "pageSection": "manifesto",
       "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-phase-targets-be-read",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should referral phase targets be read?",
+      "normalizedQuestion": "how should referral phase targets be read",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Referral Illustrative Phase Targets Neelo's product metrics source treats phase targets as illustrative. That word matters. The page says targets should be finalized in public release notes for each milestone. The compendium should preserve that boundary. It can explain what a phase is trying to prove without turning draft bands into a product promise. Wh...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-illustrative-phase-targets",
+      "pageTitle": "Referral Illustrative Phase Targets",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-cross-margin-make-capital-fungible",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does cross-margin make capital fungible?",
+      "normalizedQuestion": "how does cross margin make capital fungible",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Cross Margin Capital Fungibility Neelo's Section 8 says USDC margined hybrid design can improve capital efficiency because cross margining and netting become possible. Capital can be made fungible across markets instead of being trapped in one isolated slab per market. This is the mirror image of the Percolator capital critique. In a one market one slab m...",
+      "confidence": "Medium",
+      "pageId": "authored-cross-margin-capital-fungibility",
+      "pageTitle": "Cross-Margin Capital Fungibility",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-my-invites-dashboard-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What does the My Invites dashboard show?",
+      "normalizedQuestion": "what does the my invites dashboard show",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Dashboard My Invites My invites is the operational table for referral code distribution. It shows every invite assigned to the user, masked invite values, status, who redeemed the invite, follow up flags, dashboard opened state, used timestamp, and referee progress. The view is routed as codes in the dashboard shell and implemented by DashCodes . Its filt...",
+      "confidence": "Medium",
+      "pageId": "authored-dashboard-invites",
+      "pageTitle": "Dashboard My Invites",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-codes",
+        "dashboard-faq"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-codes",
+          "group": "Local Product And Code",
+          "use": "My invites table, filters, masked invite values, and referee progress states.",
+          "href": "../../src/dashboard/codes.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-faq",
+          "group": "Local Product And Code",
+          "use": "User-facing FAQ copy, including 15-level wording.",
+          "href": "../../src/dashboard/faq.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-ddq-hybrid-liquidity-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the DDQ hybrid liquidity model?",
+      "normalizedQuestion": "what is the ddq hybrid liquidity model",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "DDQ Hybrid Liquidity Model The DDQ introduction describes Vibe's solution as a hybrid liquidity model that blends margin mechanics with perpetuals mechanics. The goal is to improve capital efficiency for LPs while supporting lower trading costs for traders. That hybrid framing matters because it prevents two oversimplifications. Vibe is not just a margin...",
+      "confidence": "Medium",
+      "pageId": "authored-ddq-hybrid-liquidity-model",
+      "pageTitle": "DDQ Hybrid Liquidity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-narrative-based-listings-break-down",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why do narrative-based listings break down?",
+      "normalizedQuestion": "why do narrative based listings break down",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains w...",
+      "confidence": "Medium",
+      "pageId": "authored-end-of-narrative-based-listings",
+      "pageTitle": "The End Of Narrative-Based Listings",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-engineering-fixes-solve-inverse-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why can't engineering fixes solve inverse economics?",
+      "normalizedQuestion": "why can t engineering fixes solve inverse economics",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Engineering Fixes Cannot Solve Inverse Economics Section 7 is careful: it credits Percolator's engineering, then lists the problems that engineering cannot fully fix. Reflexive collateral risk, negative convexity, LP lose lose exposure, the one times leverage constraint, spot perp manipulation, short side death spirals, and isolated slab capital inefficie...",
+      "confidence": "Medium",
+      "pageId": "authored-engineering-fix-economics-limit",
+      "pageTitle": "Engineering Fixes Cannot Solve Inverse Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-force-close-price-proof-require",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does force-close price proof require?",
+      "normalizedQuestion": "what does force close price proof require",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Force Close Price Proof The DDQ source says Force Close finalization depends on a price proof. After the user posts the Force Close request and the timer completes, the user supplies proof that the market traded at or through the requested close price after the request timestamp. The source describes the proof in terms of recent candle data and freshness...",
+      "confidence": "Medium",
+      "pageId": "authored-force-close-price-proof",
+      "pageTitle": "Force Close Price Proof",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-is-funding-adl-priority-ranked",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How is funding ADL priority ranked?",
+      "normalizedQuestion": "how is funding adl priority ranked",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Funding ADL Priority Ranking When Neelo's source reaches ADL, it also names a ranking rule for which positions are touched first. The stated priority is: 1. Largest winners first. 2. Oldest positions if profits are equal. 3. Proportional treatment if needed for fairness. The rationale is that deleveraging winners is less harmful than deleveraging losers,...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-priority-ranking",
+      "pageTitle": "Funding ADL Priority Ranking",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-bell-curve-flattening-show-in-funding",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does bell-curve flattening show in funding?",
+      "normalizedQuestion": "what does bell curve flattening show in funding",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Funding Bell Curve Flattening Example Neelo's bell curve worked example shows the cross market flattening arithmetic with five market profit values: The total remains $50,000 ; the mean is $10,000 . Tail Cutoffs Using the source example's standard deviation of about $45,960 and k = 1.0 , the cutoffs become: Market A is above the upper cutoff by $24,040 ....",
+      "confidence": "Medium",
+      "pageId": "authored-funding-bell-curve-example",
+      "pageTitle": "Funding Bell-Curve Flattening Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-dynamic-borrow-rate-shape-funding",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does a dynamic borrow rate shape funding?",
+      "normalizedQuestion": "how does a dynamic borrow rate shape funding",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Funding Dynamic Borrow Rate The dynamic borrow rate is the model's continuous capital usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation. The utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplie...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-borrow-rate",
+      "pageTitle": "Funding Dynamic Borrow Rate",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [
@@ -55180,6 +55494,320 @@
       "pageTitle": "The Capital Efficiency Trap",
       "pageSection": "manifesto",
       "pageTrack": "08 — Competitive Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-should-referral-phase-targets-be-read",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How should referral phase targets be read?",
+      "normalizedQuestion": "how should referral phase targets be read",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Referral Illustrative Phase Targets Neelo's product metrics source treats phase targets as illustrative. That word matters. The page says targets should be finalized in public release notes for each milestone. The compendium should preserve that boundary. It can explain what a phase is trying to prove without turning draft bands into a product promise. Wh...",
+      "confidence": "Medium",
+      "pageId": "authored-referral-illustrative-phase-targets",
+      "pageTitle": "Referral Illustrative Phase Targets",
+      "pageSection": "rewards-referrals",
+      "pageTrack": "Referral Architecture",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers",
+        "spec-03"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        },
+        {
+          "key": "spec-03",
+          "group": "Local Specs",
+          "use": "Product facts and revenue/referral contradictions.",
+          "href": "../../_specs/app-docs/03-grounding.md",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-cross-margin-make-capital-fungible",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "How does cross-margin make capital fungible?",
+      "normalizedQuestion": "how does cross margin make capital fungible",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Cross Margin Capital Fungibility Neelo's Section 8 says USDC margined hybrid design can improve capital efficiency because cross margining and netting become possible. Capital can be made fungible across markets instead of being trapped in one isolated slab per market. This is the mirror image of the Percolator capital critique. In a one market one slab m...",
+      "confidence": "Medium",
+      "pageId": "authored-cross-margin-capital-fungibility",
+      "pageTitle": "Cross-Margin Capital Fungibility",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-the-my-invites-dashboard-show",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Rewards And Referrals",
+      "question": "What does the My Invites dashboard show?",
+      "normalizedQuestion": "what does the my invites dashboard show",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Dashboard My Invites My invites is the operational table for referral code distribution. It shows every invite assigned to the user, masked invite values, status, who redeemed the invite, follow up flags, dashboard opened state, used timestamp, and referee progress. The view is routed as codes in the dashboard shell and implemented by DashCodes . Its filt...",
+      "confidence": "Medium",
+      "pageId": "authored-dashboard-invites",
+      "pageTitle": "Dashboard My Invites",
+      "pageSection": "dashboard-reference",
+      "pageTrack": "Dashboard Views",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "dashboard-app",
+        "dashboard-codes",
+        "dashboard-faq"
+      ],
+      "sources": [
+        {
+          "key": "dashboard-app",
+          "group": "Local Product And Code",
+          "use": "Points distinction and dashboard shell.",
+          "href": "../../src/dashboard/app.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-codes",
+          "group": "Local Product And Code",
+          "use": "My invites table, filters, masked invite values, and referee progress states.",
+          "href": "../../src/dashboard/codes.jsx",
+          "missing": false
+        },
+        {
+          "key": "dashboard-faq",
+          "group": "Local Product And Code",
+          "use": "User-facing FAQ copy, including 15-level wording.",
+          "href": "../../src/dashboard/faq.jsx",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-is-the-ddq-hybrid-liquidity-model",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What is the DDQ hybrid liquidity model?",
+      "normalizedQuestion": "what is the ddq hybrid liquidity model",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "DDQ Hybrid Liquidity Model The DDQ introduction describes Vibe's solution as a hybrid liquidity model that blends margin mechanics with perpetuals mechanics. The goal is to improve capital efficiency for LPs while supporting lower trading costs for traders. That hybrid framing matters because it prevents two oversimplifications. Vibe is not just a margin...",
+      "confidence": "Medium",
+      "pageId": "authored-ddq-hybrid-liquidity-model",
+      "pageTitle": "DDQ Hybrid Liquidity Model",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-do-narrative-based-listings-break-down",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Manifesto",
+      "question": "Why do narrative-based listings break down?",
+      "normalizedQuestion": "why do narrative based listings break down",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "The End Of Narrative Based Listings Narrative based listing is what happens when a venue has to infer future demand before a market exists. The source frames the listing problem around two signals: actual interest and perceived interest. Permissioned venues usually list from the second because the first cannot yet be observed. That substitution explains w...",
+      "confidence": "Medium",
+      "pageId": "authored-end-of-narrative-based-listings",
+      "pageTitle": "The End Of Narrative-Based Listings",
+      "pageSection": "manifesto",
+      "pageTrack": "08 — Market Structure",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-why-can-t-engineering-fixes-solve-inverse-economics",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Risk And Markets",
+      "question": "Why can't engineering fixes solve inverse economics?",
+      "normalizedQuestion": "why can t engineering fixes solve inverse economics",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Engineering Fixes Cannot Solve Inverse Economics Section 7 is careful: it credits Percolator's engineering, then lists the problems that engineering cannot fully fix. Reflexive collateral risk, negative convexity, LP lose lose exposure, the one times leverage constraint, spot perp manipulation, short side death spirals, and isolated slab capital inefficie...",
+      "confidence": "Medium",
+      "pageId": "authored-engineering-fix-economics-limit",
+      "pageTitle": "Engineering Fixes Cannot Solve Inverse Economics",
+      "pageSection": "manifesto",
+      "pageTrack": "07 - Token-Margined Issues (Percolator)",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-force-close-price-proof-require",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Solvers And Settlement",
+      "question": "What does force-close price proof require?",
+      "normalizedQuestion": "what does force close price proof require",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Force Close Price Proof The DDQ source says Force Close finalization depends on a price proof. After the user posts the Force Close request and the timer completes, the user supplies proof that the market traded at or through the requested close price after the request timestamp. The source describes the proof in terms of recent candle data and freshness...",
+      "confidence": "Medium",
+      "pageId": "authored-force-close-price-proof",
+      "pageTitle": "Force Close Price Proof",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-is-funding-adl-priority-ranked",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How is funding ADL priority ranked?",
+      "normalizedQuestion": "how is funding adl priority ranked",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Funding ADL Priority Ranking When Neelo's source reaches ADL, it also names a ranking rule for which positions are touched first. The stated priority is: 1. Largest winners first. 2. Oldest positions if profits are equal. 3. Proportional treatment if needed for fairness. The rationale is that deleveraging winners is less harmful than deleveraging losers,...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-adl-priority-ranking",
+      "pageTitle": "Funding ADL Priority Ranking",
+      "pageSection": "protocol-reference",
+      "pageTrack": "Solver And LP Operations",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-what-does-bell-curve-flattening-show-in-funding",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "What does bell-curve flattening show in funding?",
+      "normalizedQuestion": "what does bell curve flattening show in funding",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Funding Bell Curve Flattening Example Neelo's bell curve worked example shows the cross market flattening arithmetic with five market profit values: The total remains $50,000 ; the mean is $10,000 . Tail Cutoffs Using the source example's standard deviation of about $45,960 and k = 1.0 , the cutoffs become: Market A is above the upper cutoff by $24,040 ....",
+      "confidence": "Medium",
+      "pageId": "authored-funding-bell-curve-example",
+      "pageTitle": "Funding Bell-Curve Flattening Example",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
+      "pageStatus": "published",
+      "routeSource": "authored",
+      "sourceKeys": [
+        "vibe-papers"
+      ],
+      "sources": [
+        {
+          "key": "vibe-papers",
+          "group": "Public Vibe Sources",
+          "use": "Research-paper corpus and long-form themes.",
+          "href": "https://github.com/0xneelo/vibe_docs",
+          "missing": false
+        }
+      ]
+    },
+    {
+      "id": "faq-how-does-a-dynamic-borrow-rate-shape-funding",
+      "type": "answerable",
+      "seedSource": "local-question-ledger",
+      "category": "Revenue",
+      "question": "How does a dynamic borrow rate shape funding?",
+      "normalizedQuestion": "how does a dynamic borrow rate shape funding",
+      "shortAnswer": "Source-backed route alias from the expanded no-raw Discord demand backlog; phrasing uses the authored page title and source theme, not Discord/Lafa text.",
+      "answerSummary": "Funding Dynamic Borrow Rate The dynamic borrow rate is the model's continuous capital usage charge. In Neelo's source, borrow starts from a base rate and is multiplied by responses to inventory utilization and profit deviation. The utilization response has a kink. Below the chosen utilization point, borrow can stay near base. Above the kink, the multiplie...",
+      "confidence": "Medium",
+      "pageId": "authored-funding-dynamic-borrow-rate",
+      "pageTitle": "Funding Dynamic Borrow Rate",
+      "pageSection": "manifesto",
+      "pageTrack": "15 - Funding Rate Model",
       "pageStatus": "published",
       "routeSource": "authored",
       "sourceKeys": [

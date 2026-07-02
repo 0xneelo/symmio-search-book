@@ -17,11 +17,11 @@
     "readerRoutablePages": 1595,
     "guidedJourneys": 6,
     "guidedJourneySteps": 38,
-    "seededQuestionRoutes": 840,
-    "seededAuthoredQuestionRoutes": 840,
+    "seededQuestionRoutes": 850,
+    "seededAuthoredQuestionRoutes": 850,
     "seededReconciliationQuestions": 2,
-    "localFaqEntries": 842,
-    "localFaqAnswerable": 840,
+    "localFaqEntries": 852,
+    "localFaqAnswerable": 850,
     "localFaqUnresolved": 2,
     "localFaqCategories": 10,
     "gapQueueItems": 12,
@@ -29,8 +29,8 @@
     "gapQueueOperatorSignals": 2,
     "gapQueueParkedPageSignals": 0,
     "gapQueueCategories": 12,
-    "answerEngineExactRouteTests": 840,
-    "answerEngineExactRouteTestsPassing": 840,
+    "answerEngineExactRouteTests": 850,
+    "answerEngineExactRouteTestsPassing": 850,
     "answerEngineRefusalTests": 2,
     "answerEngineRefusalTestsPassing": 2,
     "answerEngineDeterministicReady": true,
@@ -116,7 +116,7 @@
     "openOperatorItems": 2,
     "resolvedOperatorItems": 15,
     "trackedGaps": 12,
-    "answerablePrototypeQuestions": 840,
+    "answerablePrototypeQuestions": 850,
     "reconciliationQuestions": 2
   },
   "gates": [
@@ -196,19 +196,19 @@
       "id": "question-routes",
       "label": "Question ledger routes resolve",
       "passed": true,
-      "detail": "840 generated routes, 840 answerable ledger rows, 0 missing page ids"
+      "detail": "850 generated routes, 850 answerable ledger rows, 0 missing page ids"
     },
     {
       "id": "authored-question-routes",
       "label": "Answerable seed questions use authored pages",
       "passed": true,
-      "detail": "840/840 seed routes use authored pages, 0 generated/curated fallbacks"
+      "detail": "850/850 seed routes use authored pages, 0 generated/curated fallbacks"
     },
     {
       "id": "local-faq-routes",
       "label": "FAQ route seed resolves",
       "passed": true,
-      "detail": "840 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
+      "detail": "850 answerable FAQs, 2 unresolved gaps, 0 missing page ids, 0 missing source keys"
     },
     {
       "id": "gap-queue",
@@ -220,7 +220,7 @@
       "id": "deterministic-answer-engine",
       "label": "Deterministic answer engine contract resolves",
       "passed": true,
-      "detail": "840/840 exact routes, 2/2 refusal tests, LLM production ready no"
+      "detail": "850/850 exact routes, 2/2 refusal tests, LLM production ready no"
     },
     {
       "id": "llm-rag-contract",
@@ -668,15 +668,15 @@
     ]
   },
   "questionRouteCoverage": {
-    "totalRoutes": 840,
+    "totalRoutes": 850,
     "totalReconciliationQuestions": 2,
     "byConfidence": {
-      "Medium": 534,
+      "Medium": 544,
       "High": 47,
       "Low": 259
     },
     "byRouteSource": {
-      "authored": 840
+      "authored": 850
     },
     "missingRouteIds": [],
     "nonAuthoredQuestionRoutes": []
@@ -684,29 +684,29 @@
   "faqCoverage": {
     "seedSource": "local-question-ledger-plus-sanitized-discord-demand",
     "status": "prototype-faq-discord-imported-review-bound",
-    "totalEntries": 842,
-    "totalAnswerable": 840,
+    "totalEntries": 852,
+    "totalAnswerable": 850,
     "totalUnresolved": 2,
     "totalCategories": 10,
     "byCategory": {
       "Getting Started": 127,
       "Trading Flow": 51,
-      "Solvers And Settlement": 194,
+      "Solvers And Settlement": 196,
       "Data And Volume": 11,
-      "Revenue": 101,
-      "Rewards And Referrals": 103,
+      "Revenue": 105,
+      "Rewards And Referrals": 104,
       "Dashboard": 13,
-      "Risk And Markets": 75,
-      "Manifesto": 164,
+      "Risk And Markets": 77,
+      "Manifesto": 165,
       "Discord Import": 3
     },
     "byConfidence": {
-      "Medium": 534,
+      "Medium": 544,
       "High": 47,
       "Low": 259
     },
     "byRouteSource": {
-      "authored": 840
+      "authored": 850
     },
     "missingPageIds": [],
     "missingSourceKeys": [],
@@ -761,15 +761,15 @@
     "contractVersion": "2026-06-28.v1",
     "deterministicReady": true,
     "llmProductionReady": false,
-    "exactRouteTests": 840,
-    "exactRouteTestsPassing": 840,
+    "exactRouteTests": 850,
+    "exactRouteTestsPassing": 850,
     "refusalTests": 2,
     "refusalTestsPassing": 2,
     "exactRoutesByPageState": {
-      "published": 840
+      "published": 850
     },
     "exactRoutesByConfidence": {
-      "Medium": 534,
+      "Medium": 544,
       "High": 47,
       "Low": 259
     },
@@ -846,7 +846,7 @@
           "candidate",
           "published"
         ],
-        "totalGoldenRoutes": 840
+        "totalGoldenRoutes": 850
       },
       {
         "stage": "glossary-route",
@@ -943,7 +943,7 @@
       "refusalBoundary": "If retrieved evidence is insufficient or page state is internal-draft, refuse and create a gap signal.",
       "citationBoundary": "Every substantive answer paragraph must cite page ids and source keys.",
       "evaluationSet": {
-        "exactRoutes": 840,
+        "exactRoutes": 850,
         "glossaryRoutes": 32,
         "refusals": 2,
         "lowRatedFeedback": 1,
@@ -1074,7 +1074,7 @@
           "data/question-routes.json",
           "data/glossary.json"
         ],
-        "goldenExactRoutes": 840,
+        "goldenExactRoutes": 850,
         "goldenRefusals": 2
       },
       {
@@ -1228,7 +1228,7 @@
       "deterministicReady": true,
       "runtimeScript": "scripts/run-llm-rag-answer.mjs",
       "runtimeImplemented": true,
-      "exactRouteTests": 840,
+      "exactRouteTests": 850,
       "refusalTests": 2,
       "answerChunkPages": 1613,
       "answerChunks": 2884,
@@ -1302,7 +1302,7 @@
       "totalFixtures": 28,
       "passingFixtures": 28,
       "failingFixtures": 0,
-      "exactRouteGoldenSet": 840,
+      "exactRouteGoldenSet": 850,
       "adversarialGoldenSet": 16,
       "answerChunkPages": 1613,
       "answerChunks": 2884,
@@ -1577,7 +1577,7 @@
       "ratingFixtures": 3,
       "gapFixtures": 4,
       "gapQueueItems": 12,
-      "questionRouteCount": 840,
+      "questionRouteCount": 850,
       "reconciliationQuestionCount": 2,
       "operatorSignals": 2,
       "openOperatorItems": 2,
