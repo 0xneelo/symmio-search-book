@@ -1,3 +1,9 @@
+## 2026-07-02 - Codex refresh local launch drill from current manual-evidence checkpoint
+- Task: Re-run the no-secret local staging launch drill from current standalone `main` after the latest manual GitHub evidence checkpoint so localhost preview/service/write-smoke/backup/launch-gate evidence matches commit `4f2f8a2`.
+- Scope: local temporary launch-drill artifacts under `/tmp`, `PROGRESS.md`, `FINAL-REPORT.md`, `COMPLETION-AUDIT.md`, `PRODUCTION-READINESS-PACKET.md`, `_local/agent-worklog.md`, focused status/completion/production guards, full verification, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
+- Status: Complete.
+- Verification target: `npm run search-book:drill-local-launch` passes from head `4f2f8a2` with write-smoke, restore-checked backup, staging launch readiness, no LLM credentials loaded, status docs reflecting current local launch drill evidence, and only #11/#4 open.
+
 ## 2026-07-02 - Codex refresh no-secret GitHub evidence from reconciled rebuild rerun
 - Task: Trigger fresh no-secret launch, release, and static artifact workflows from current standalone `main` after the reconciled ingestion rebuild rerun checkpoint, validate downloaded artifacts locally, and record aggregate evidence.
 - Scope: GitHub Actions manual runs, downloaded `/tmp` artifacts, status docs if evidence run ids are refreshed, `_local/agent-worklog.md`, focused packet/static/smoke validators, `git diff --check`, scoped checkpoint, push, and CI. Work stays in `/home/tabor/apps/symmio-search-book`; `~/projects/onboarding-app/src/search-book` remains frozen.
