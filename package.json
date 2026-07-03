@@ -9,6 +9,8 @@
     "node": ">=22.5.0"
   },
   "scripts": {
+    "web:dev": "npm --prefix web run dev",
+    "web:build": "npm --prefix web run build",
     "search-book:build": "node scripts/build-all.mjs",
     "search-book:verify": "node scripts/build-all.mjs --verify",
     "search-book:check-static": "node scripts/check-static-integrity.mjs",

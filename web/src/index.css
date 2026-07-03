@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/*
+ * Vibe × SYMM Field Manual — design tokens (DESIGN.MD v3a "Brand Max").
+ * Theming runs through CSS vars: --ink (accent), --paper (base), --gridc (figure grid).
+ */
+:root {
+  --ink: #f04fd6;
+  --paper: #05070f;
+  --gridc: rgba(255, 255, 255, 0.07);
+}
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* Core palette */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-blueprint: #2e6bff;
+
+  /* Text ramp (on dark) */
+  --color-headline: #ffffff;
+  --color-body: #d3dbff;
+  --color-lead: #c9d4ff;
+  --color-chip: #cdd8ff;
+  --color-nav: #aebaf0;
+  --color-meta: #8fa0d8;
+  --color-faint: #5f6cb0;
+
+  /* Surface tints (paper mixed toward navy/blue) */
+  --color-surface-sidebar: color-mix(in srgb, var(--paper) 80%, #12246e);
+  --color-surface-panel: color-mix(in srgb, var(--paper) 62%, #12246e);
+  --color-surface-deep: color-mix(in srgb, var(--paper) 55%, #16276e);
+  --color-surface-blue: color-mix(in srgb, var(--paper) 68%, #2e6bff);
+
+  /* Depth: hard offset shadows only — never blur */
+  --shadow-hard: 0 4px 0 rgba(0, 0, 0, 0.4);
+  --shadow-hard-lg: 0 6px 0 rgba(0, 0, 0, 0.4);
+  --shadow-rail: 30px 0 70px rgba(0, 0, 0, 0.45);
+
+  /* Flat print geometry: no border-radius anywhere */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --ease-manual: cubic-bezier(0.22, 0.75, 0.25, 1);
+  --ease-page: cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+
+@layer base {
+  /* Hard rule (DESIGN.MD §10): square corners everywhere, including third-party primitives. */
+  *,
+  ::before,
+  ::after {
+    border-radius: 0 !important;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    background: linear-gradient(
+      172deg,
+      var(--paper) 0%,
+      color-mix(in srgb, var(--paper) 55%, #0f3ac0) 58%,
+      color-mix(in srgb, var(--paper) 22%, #2e8ae8) 100%
+    );
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: #ffffff;
+  }
+
+  /* Styled scrollbar (DESIGN.MD §8) */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1b2c74;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
