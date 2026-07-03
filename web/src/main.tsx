@@ -13,9 +13,12 @@ import '@fontsource/space-mono/700.css'
 
 import './index.css'
 import App from './App.tsx'
+import { ComponentsGallery } from './gallery/ComponentsGallery.tsx'
+
+// Minimal route split: /components reviews the design system (SYN-349);
+// everything else is the app. Real page state arrives with the M4 shell.
+const isGallery = window.location.pathname.replace(/\/$/, '').endsWith('/components')
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <StrictMode>{isGallery ? <ComponentsGallery /> : <App />}</StrictMode>,
 )

@@ -60,6 +60,10 @@
   ::after {
     border-radius: 0 !important;
   }
+  /* Figure geometry only (timeline nodes, graph dots) — never UI chrome. */
+  [data-round] {
+    border-radius: 50% !important;
+  }
 
   html,
   body,
@@ -106,5 +110,252 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+/*
+ * Field-manual structural classes, ported from design/field-manual-comp.html.
+ * Class names match the comp so fidelity can be diffed side by side.
+ */
+@layer components {
+  .dropcap::first-letter {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    float: left;
+    font-size: 58px;
+    line-height: 0.88;
+    padding: 5px 12px 0 0;
+    color: var(--ink);
+  }
+
+  .askinput::placeholder {
+    color: #5f6cb0;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0.2px;
+  }
+
+  /* Sidebar nav rows */
+  .navrow {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-left: 3px solid transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .navrow:hover {
+    background: rgba(46, 107, 255, 0.14);
+  }
+  .navnum {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #5f6cb0;
+    min-width: 18px;
+  }
+  .navname {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    color: #aebaf0;
+    white-space: nowrap;
+    transition: opacity 0.2s ease 0.1s;
+  }
+  .navrow[data-active='true'] {
+    background: rgba(46, 107, 255, 0.22);
+    border-left-color: var(--ink);
+  }
+  .navrow[data-active='true'] .navnum {
+    color: var(--ink);
+  }
+  .navrow[data-active='true'] .navname {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  /* Collapsible sidebar: 64px rail, expands to 272px on hover */
+  .snav {
+    width: 272px;
+    transition: width 0.3s var(--ease-manual);
+  }
+  .snav:not(:hover):not(:focus-within) {
+    width: 64px;
+  }
+  .snav:hover,
+  .snav:focus-within {
+    box-shadow: 30px 0 70px rgba(0, 0, 0, 0.5);
+  }
+  .snav .sx {
+    transition: opacity 0.2s ease 0.1s;
+  }
+  .snav:not(:hover):not(:focus-within) .sx {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+  }
+  .snav .sc {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+  }
+  .snav:not(:hover):not(:focus-within) .sc {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.12s;
+  }
+  .snav:not(:hover):not(:focus-within) .navname {
+    opacity: 0;
+    transition: opacity 0.1s ease;
+  }
+
+  /* Chip + button hover inversions */
+  .chip:hover {
+    background: var(--ink) !important;
+    color: #fff !important;
+    border-color: var(--ink) !important;
+  }
+  .gbtn:hover {
+    background: #f2f4ff !important;
+    color: #05070f !important;
+  }
+
+  /* Rating buttons: hovered/selected one advances, the other recedes */
+  .rdown:hover {
+    background: var(--ink) !important;
+    color: #ffffff !important;
+    border-color: var(--ink) !important;
+  }
+  .raterow:has(.rdown:hover) .rup {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #f2f4ff !important;
+  }
+  .rup:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.45) !important;
+  }
+
+  /* Cross-field ghost "typing into another…" dots */
+  .tdot {
+    display: inline-block;
+    animation: tdotB 1.1s ease-in-out infinite;
+  }
+
+  /* Page + answer entry motion */
+  [data-page] > * {
+    animation: pageIn 0.56s var(--ease-page) backwards;
+  }
+  [data-page] > *:nth-child(1) {
+    animation-delay: 0.06s;
+  }
+  [data-page] > *:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  [data-page] > *:nth-child(3) {
+    animation-delay: 0.24s;
+  }
+  [data-page] > *:nth-child(4) {
+    animation-delay: 0.33s;
+  }
+  [data-page] > *:nth-child(5) {
+    animation-delay: 0.42s;
+  }
+  [data-answer] {
+    animation: ansIn 0.46s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  /* Figure stack (FIG_001) */
+  .stk-layer {
+    cursor: default;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: stkAssemble 0.78s cubic-bezier(0.16, 0.85, 0.24, 1) backwards;
+  }
+  .stk-float {
+    animation: stkFloat 6.5s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .stk-face {
+    transition:
+      fill 0.4s ease,
+      stroke 0.4s ease;
+  }
+  .stk-lname,
+  .stk-lsub {
+    transition: fill 0.25s ease;
+  }
+  .stk-layer:hover .stk-face {
+    filter: brightness(1.15);
+  }
+
+  /* Referral-graph pulses (FIG_021) */
+  .rg-pulse {
+    animation: rgFlow 1.9s linear infinite;
+    transform-box: fill-box;
+  }
+}
+
+@keyframes tdotB {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+@keyframes pageIn {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes ansIn {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes stkFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes stkAssemble {
+  from {
+    transform: scale(0.955);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes rgFlow {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0), var(--ty, 0));
+    opacity: 0;
   }
 }
