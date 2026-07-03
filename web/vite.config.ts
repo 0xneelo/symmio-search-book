@@ -11,4 +11,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    fs: {
+      // Corpus data (data/*.json, answer-corpus.js) lives in the repo root.
+      allow: ['..'],
+    },
+  },
 })
