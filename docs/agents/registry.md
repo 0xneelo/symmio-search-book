@@ -6,3 +6,4 @@ Claim a tag before working a goal; retire it (status `retired`) when the goal cl
 |-----|---------|-------|---------|-------------|--------------|--------|---------|-----------|
 | agent-codex-vps | codex | neelo | onboarding-app | search-book | SYN-292 production-readiness handoff | active | 2026-06-28 | 2026-07-02 |
 | agent-fable-001 | claude-opus-4-8 | admin | onboarding-app | search-book | SYN-304 production finalization | retired | 2026-07-02 | 2026-07-02 |
+| agent-fable-3 | claude-fable-5 | neelo | onboarding-app | search-book | SYN-347 field-manual-v2 rebuild | active | 2026-07-04 | 2026-07-04 |
