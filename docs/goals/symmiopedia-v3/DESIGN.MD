@@ -90,3 +90,31 @@ Paint order, inside a circular `clipPath`:
 - **Don't** use the Wikipedia name, wordmark, or trademarked logo; the globe is Symmiopedia's own mark.
 - **Don't** round corners (search bar's 2px is the ceiling), add shadows to chrome, or introduce accent colors.
 - **Don't** let the globe labels break their latitude curvature — text must follow the sphere.
+
+---
+
+## Operator amendment — Answer page (2026-07-04, post-sign-off)
+
+Operator-supplied comp: `comp/answer-page.html` (claude.ai artifact export; extracted
+markup in `comp/answer-page-extracted.html`). Amends §8 for the reference-desk
+answer surfaces only:
+
+- **Loading state (new):** bordered service box — "service answer-engine" meta,
+  Courier elapsed readout, `[cancel ×]`, bold 21.7px phase ticker (Scanning cited
+  context → Matching passages → Ranking sources → Composing answer) with three
+  blinking dots, indeterminate slide bar (34% `#cedff2` band), four shimmer
+  skeleton lines (97/100/90/62%).
+- **Routed answer panel:** `#cedff2` title bar ("Routed answer" + italic question +
+  `[dismiss ×]`) over a `#f5faff` body with `#a3b0bf` border; serif 21px headline;
+  dashed matched-chunk quote box; bordered source-key chip; numbered raw-URL
+  citations (`#3366bb` + ↗); bold "Open the exact page ↗".
+- **Rate row:** "RATE THIS ANSWER" label; solid buttons — Needs work
+  (`#f8f9fa`, pressed `#b32424`) and Useful (`#3366cc`, pressed `#2a4b8d`);
+  `✓ logged — thank you` in `#14866d`. 2px radius stays the ceiling.
+- **Idle state:** dashed "No active question" box with example questions.
+- **Sanctioned chroma additions** (answer surfaces only; mirrored in
+  `web/tests/symmiopedia-fidelity.spec.ts`): `#cedff2`, `#a3b0bf`, `#3366cc`,
+  `#2a4b8d`, `#b32424`, `#14866d` (`#f5faff` is within neutral tolerance).
+
+Behavior is unchanged (quarantine parity, one-shot vote lock, dismiss guard,
+thank-you countdown). The vote/dismiss contract and test selectors are preserved.

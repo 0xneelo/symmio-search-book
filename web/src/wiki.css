@@ -576,29 +576,23 @@ body:has(.wiki) {
   font-size: 13px;
 }
 
-/* Answer card — reference-desk register: 14px/1.6 sans, box-fill panel. */
+/* Answer panels — operator amendment 2026-07-04 ("Answer Page" comp,
+   docs/goals/symmiopedia-v3/comp/answer-page.html): loading box with phase
+   ticker + indeterminate bar + shimmer skeleton, routed-answer panel
+   (#cedff2 title bar over #f5faff body), dashed idle box. The panel palette
+   (#cedff2 / #a3b0bf / #3366cc / #2a4b8d / #b32424 / #14866d) is sanctioned
+   chroma — mirrored in web/tests/symmiopedia-fidelity.spec.ts. */
 .wk-answer {
-  border: 1px solid var(--wk-rule);
-  background: var(--wk-content);
   max-width: 720px;
-  padding: 14px 18px 16px;
   margin-top: 6px;
 }
-.wk-answer h3 {
-  margin: 4px 0 10px;
-  font-size: 17px;
-}
-.wk-answer h4 {
-  font-size: 13px;
-  margin: 12px 0 0;
-}
 .wk-answer p {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 14px;
   line-height: 1.6;
 }
 .wk-answer-meta {
-  font-size: 11.9px;
+  font-size: 12.6px;
 }
 .wk-answer-degraded {
   border: 1px solid var(--wk-rule);
@@ -609,37 +603,247 @@ body:has(.wiki) {
   margin-bottom: 10px;
 }
 
-/* Flat wiki-register answer vote row. */
-.wk-answer-rate {
-  border-top: 1px solid var(--wk-figure-border);
-  margin-top: 12px;
-  padding-top: 10px;
-  font-size: 12.6px;
-  color: var(--wk-muted);
+/* Loading state: bordered service box, live elapsed readout, cancel. */
+.wk-answer-loading {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-content);
+  padding: 12px 18px 18px;
 }
-.wk-answer-rate button {
+.wk-load-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.wk-load-elapsed {
+  margin-left: auto;
+  font-size: 11.7px;
+  color: #72777d;
+  font-family: 'Courier New', monospace;
+}
+.wk-load-cancel {
+  font-size: 11.7px;
+  color: var(--wk-muted);
+  white-space: nowrap;
+}
+.wk-load-cancel button {
   background: none;
   border: none;
   padding: 0;
   font-family: var(--wk-sans);
-  font-size: 12.6px;
+  font-size: 11.7px;
   color: var(--wk-link);
   cursor: pointer;
 }
-.wk-answer-rate button:hover {
+.wk-load-cancel button:hover {
   text-decoration: underline;
 }
-.wk-answer-rate button:disabled {
-  color: var(--wk-muted);
-  cursor: default;
-  text-decoration: none;
-}
-.wk-answer-rate .wk-answer-dismiss {
-  float: right;
-  color: var(--wk-muted);
-}
-.wk-answer-rate .wk-pagerate-done {
+.wk-load-phase {
+  display: flex;
+  align-items: baseline;
+  margin: 8px 0 10px;
+  font-size: 21.7px;
+  font-weight: bold;
   color: var(--wk-text);
+  line-height: 1.25;
+}
+.wk-load-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+.wk-load-dots svg {
+  animation: wk-blink 1.2s ease-in-out infinite;
+}
+.wk-load-bar {
+  position: relative;
+  height: 9px;
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  overflow: hidden;
+}
+.wk-load-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+  background: #cedff2;
+  border-left: 1px solid #a3b0bf;
+  border-right: 1px solid #a3b0bf;
+  animation: wk-slide 1.7s cubic-bezier(0.45, 0.1, 0.55, 0.9) infinite;
+}
+.wk-load-skel {
+  margin-top: 16px;
+}
+.wk-skel-line {
+  height: 13px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #eaecf0 0%, #f6f7f8 40%, #eaecf0 80%);
+  background-size: 600px 100%;
+  animation: wk-shimmer 1.6s linear infinite;
+}
+@keyframes wk-slide {
+  0% { left: -34%; }
+  100% { left: 102%; }
+}
+@keyframes wk-shimmer {
+  0% { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+@keyframes wk-blink {
+  0%, 80%, 100% { opacity: 0.15; }
+  40% { opacity: 1; }
+}
+
+/* Routed-answer panel: chrome-blue title bar over a pale-blue body. */
+.wk-answer-panel {
+  border: 1px solid #a3b0bf;
+  background: #f5faff;
+  padding: 0;
+}
+.wk-answer-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #cedff2;
+  border-bottom: 1px solid #a3b0bf;
+  padding: 5px 12px;
+}
+.wk-answer-titlebar-label {
+  font-weight: bold;
+  font-size: 12.6px;
+  white-space: nowrap;
+}
+.wk-answer-titlebar-q {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+  font-size: 12.6px;
+  color: var(--wk-muted);
+}
+.wk-answer-body {
+  padding: 12px 18px 14px;
+}
+.wk-answer-body > .wk-answer-meta {
+  margin: 0 0 4px;
+}
+/* Doubled class specificity: outranks the .wiki h3 base register. */
+.wk-answer-body h3.wk-answer-headline {
+  font-family: var(--wk-serif);
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 1.3;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--wk-rule);
+  margin: 0 0 10px;
+}
+.wk-chunk {
+  border: 1px dashed var(--wk-rule);
+  background: var(--wk-box-fill);
+  padding: 8px 12px;
+  margin: 0 0 12px;
+  font-size: 12.6px;
+  color: var(--wk-muted);
+  line-height: 1.55;
+}
+.wk-chunk b {
+  color: var(--wk-text);
+}
+.wk-source-row {
+  font-size: 12.6px;
+  margin: 0 0 6px;
+}
+.wk-source-chip {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-table-header);
+  padding: 1px 7px;
+  font-size: 11.7px;
+}
+.wk-cite-list {
+  margin: 0 0 10px;
+  padding-left: 30px;
+  font-size: 12.3px;
+  line-height: 1.6;
+}
+.wk-cite-list li {
+  margin: 0 0 2px;
+}
+.wk-cite-list a {
+  word-break: break-all;
+}
+.wk-open-exact {
+  font-size: 12.6px;
+  font-weight: bold;
+  margin: 0 0 14px;
+}
+
+/* Rate row: solid comp buttons with pressed/dimmed states. */
+.wk-answer-rate {
+  border-top: 1px solid var(--wk-figure-border);
+  margin-top: 12px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  font-size: 12.6px;
+  color: var(--wk-muted);
+}
+.wk-rate-label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--wk-muted);
+}
+.wk-answer-rate button {
+  font-family: var(--wk-sans);
+  font-size: 12.6px;
+  font-weight: bold;
+  padding: 5px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.wk-answer-rate button:disabled {
+  cursor: default;
+}
+.wk-rate-down {
+  background: var(--wk-box-fill);
+  color: var(--wk-text);
+  border: 1px solid var(--wk-rule);
+}
+.wk-rate-down.is-pressed {
+  background: #b32424;
+  color: #ffffff;
+  border-color: #b32424;
+}
+.wk-rate-up {
+  background: #3366cc;
+  color: #ffffff;
+  border: 1px solid #3366cc;
+}
+.wk-rate-up.is-pressed {
+  background: #2a4b8d;
+  border-color: #2a4b8d;
+}
+.wk-answer-rate .is-dimmed {
+  opacity: 0.55;
+}
+.wk-rate-done {
+  font-size: 12.3px;
+  color: #14866d;
+}
+
+/* Idle: no active question. */
+.wk-idle-box {
+  border: 1px dashed var(--wk-rule);
+  background: var(--wk-box-fill);
+  padding: 14px 18px;
+  margin: 4px 0 18px;
+  font-size: 13px;
+  color: var(--wk-muted);
+  max-width: 720px;
 }
 
 /* Wiki-register modals (dismiss-guard, vote-thanks): flat white panels,
