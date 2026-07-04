@@ -5,7 +5,6 @@ import type { SearchBookApp } from '../useSearchBook'
 import { AnswerBody } from '../AnswerBody'
 import { useVote } from '../useVote'
 import { useState } from 'react'
-import { CoverIndex } from './CoverIndex'
 
 /**
  * §00 Cover & Ask — comp cover layout: title row + tagline over the dashed
@@ -161,8 +160,6 @@ export function CoverView({ app }: { app: SearchBookApp }) {
           }
         />
       </div>
-
-      <CoverIndex app={app} />
 
       <DismissGuard
         open={guardOpen}

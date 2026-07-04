@@ -88,8 +88,8 @@ Current behavior (bug context): old UI has **no visual reaction** on vote; `reco
 
 ## 7. Remaining views (M7)
 
-- [x] `renderCards` → top-12 unique seeded-route pages, meta section, 3 source chips + Open page (L3181).
-- [x] `renderAuthoredCards` → publicAuthoredPages max 12, meta `section / status`, 4 chips + Open page (L3206).
+- [x] `renderCards` → top-12 unique seeded-route pages, meta section, 3 source chips + Open page (L3181). **Operator waiver 2026-07-04 (SYN-361, SYN-358 review): removed from the §00 cover — `CoverIndex` unmounted; cover is hero + Ask only.**
+- [x] `renderAuthoredCards` → publicAuthoredPages max 12, meta `section / status`, 4 chips + Open page (L3206). **Same SYN-361 waiver — `CoverIndex.tsx` kept in tree unmounted if a future home is wanted.**
 - [x] `renderJourneys` (L3226): journeyMap fallback to `corpus.journeys` (promise=focus, entryQuestion=focus, steps built from pageById); audience meta; entry-question chip (`data-example-query`); numbered steps (`data-jump`).
 - [x] `renderExampleQuestions` chips (L3271).
 - [x] `renderCollections` → collection cards (pageCount, sourceUrl link) (L3284).
