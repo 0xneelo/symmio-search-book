@@ -1,0 +1,37 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "search-book",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["up.sh"],
+      "port": 8890
+    },
+    {
+      "name": "symmiopedia-answerfix",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "STATIC_PORT=8992",
+        "SERVICE_PORT=8993",
+        "UP_ON_CONFLICT=new",
+        "SECRETS_FILE=/Users/misterislez/projects/symmio-search-book/.secrets/search-book.env",
+        "bash",
+        "/Users/misterislez/projects/symmio-search-book-answerfix/up.sh"
+      ],
+      "port": 8992
+    },
+    {
+      "name": "search-book-v2",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "STATIC_PORT=8990",
+        "SERVICE_PORT=8991",
+        "UP_ON_CONFLICT=new",
+        "SECRETS_FILE=/Users/misterislez/projects/symmio-search-book/.secrets/search-book.env",
+        "bash",
+        "/Users/misterislez/projects/symmio-search-book-v2/up.sh"
+      ],
+      "port": 8990
+    }
+  ]
+}
