@@ -38,6 +38,12 @@
   -webkit-font-smoothing: auto;
 }
 
+/* Public surfaces own the page: the v2 dark gradient never shows behind or
+ * around a wiki root (overscroll, load flash). */
+body:has(.wiki) {
+  background: var(--wk-canvas);
+}
+
 /* Links: #0645ad, no underline at rest, underline on hover (§8). */
 .wiki a {
   color: var(--wk-link);
