@@ -13,7 +13,7 @@ Re-implement the Search Book's entire public surface in the Symmiopedia legacy-w
 
 ## Provenance
 
-The operator produced the comp + spec on 2026-07-04 (`comp/`) and decided the same day that v3 supersedes v2: the Field Manual v2 skin will not ship; its codebase lands on main as the chassis (staged needs:operator on SYN-374, [PR #1](https://github.com/0xneelo/symmio-search-book/pull/1)); the v2 design gate SYN-358 is canceled in favor of SYN-372. SYN-365 anticipated exactly this pipeline (comp + spec → introduce-goal → goal package → worker agent).
+The operator produced the comp + spec on 2026-07-04 (`comp/`) and decided the same day that v3 supersedes v2: the Field Manual v2 skin will not ship; its codebase lands on main as the chassis (staged needs:operator on SYN-374, [PR #1](https://github.com/0xneelo/symmio-search-book/pull/1)); the v2 design gate SYN-358 is superseded by SYN-372 (its formal cancellation is an operator click — agent state-changes on that gate are permission-blocked). SYN-365 anticipated exactly this pipeline (comp + spec → introduce-goal → goal package → worker agent).
 
 ## Scope
 
