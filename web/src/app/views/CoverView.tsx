@@ -14,10 +14,10 @@ import { useState } from 'react'
  */
 export function CoverView({ app }: { app: SearchBookApp }) {
   const [guardOpen, setGuardOpen] = useState(false)
-  // Post-vote thank-you dialog (SYN-364). 'guard'-origin exits always clear the
-  // answer (the user had already asked to dismiss); 'row'-origin keeps it
-  // unless ASK NEXT QUESTION is used.
-  const [thanks, setThanks] = useState<null | 'row' | 'guard'>(null)
+  // Post-vote thank-you dialog (SYN-364). Every exit — countdown end, backdrop,
+  // Escape, or ASK NEXT QUESTION — clears the answer back to the ask form
+  // (operator correction 2026-07-04).
+  const [thanks, setThanks] = useState(false)
 
   const answer = app.answer
   const persist = useCallback(
@@ -44,13 +44,8 @@ export function CoverView({ app }: { app: SearchBookApp }) {
     app.dismissAnswer()
     voteState.reset()
     setGuardOpen(false)
-    setThanks(null)
+    setThanks(false)
   }, [app, voteState])
-
-  const closeThanks = useCallback(() => {
-    if (thanks === 'guard') resetAnswer()
-    setThanks(null)
-  }, [thanks, resetAnswer])
 
   const askNext = useCallback(() => {
     resetAnswer()
@@ -166,7 +161,7 @@ export function CoverView({ app }: { app: SearchBookApp }) {
                     error={voteState.error}
                     onRate={(dir) =>
                       void voteState.vote(dir).then((ok) => {
-                        if (ok) setThanks('row')
+                        if (ok) setThanks(true)
                       })
                     }
                     onDismiss={requestDismiss}
@@ -189,7 +184,7 @@ export function CoverView({ app }: { app: SearchBookApp }) {
             // rating hands off to the thank-you dialog.
             if (ok) {
               setGuardOpen(false)
-              setThanks('guard')
+              setThanks(true)
             }
           })
         }}
@@ -197,7 +192,7 @@ export function CoverView({ app }: { app: SearchBookApp }) {
         onDismiss={resetAnswer}
       />
 
-      <VoteThanks open={thanks !== null} onAskNext={askNext} onClose={closeThanks} />
+      <VoteThanks open={thanks} onAskNext={askNext} onClose={resetAnswer} />
     </div>
   )
 }

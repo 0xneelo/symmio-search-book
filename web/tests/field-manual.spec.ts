@@ -132,15 +132,16 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
     await expect(page.getByText(/AUTO-CLOSING IN [0-5]s/)).toBeVisible()
 
-    // Backdrop exit keeps the answer readable (row-origin vote).
+    // One-shot: a direct re-click on the locked button must not re-POST; the
+    // selected state is inverted to white. (element.click bypasses the overlay)
+    await page.getByRole('button', { name: 'USEFUL' }).evaluate((el) => (el as HTMLElement).click())
+    await expect(page.getByRole('button', { name: 'USEFUL' })).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+
+    // Any exit clears the answer back to the ask form (operator correction).
     await page.mouse.click(40, 500)
     await expect(page.getByRole('dialog')).toHaveCount(0)
-    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
-
-    // One-shot: a re-click must not re-POST; selected state inverted to white.
-    await page.getByRole('button', { name: 'USEFUL' }).click({ force: true })
-    await expect(page.getByRole('button', { name: 'USEFUL' })).toHaveCSS('background-color', 'rgb(255, 255, 255)')
-    await expect(page.getByText('✓ logged — thank you')).toBeVisible()
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    await expect(page.getByText(/service answer|service refusal/)).toHaveCount(0)
     await page.waitForTimeout(300)
     expect(ratingPosts).toEqual([200])
 
@@ -165,7 +166,7 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
 
     // Re-open, rate NEEDS WORK from the modal → thank-you dialog (SYN-364);
-    // its 5s auto-close clears the answer (guard-origin exit).
+    // its 5s auto-close clears the answer back to the ask form.
     await page.getByRole('button', { name: 'DISMISS ×' }).click()
     await page.getByRole('dialog').getByRole('button', { name: 'NEEDS WORK' }).click()
     await expect(page.getByText('HOLD ON —')).not.toBeVisible()
