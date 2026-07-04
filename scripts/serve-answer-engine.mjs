@@ -39,6 +39,9 @@ const config = {
   moderationToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN || "",
   metricsExportEnabled: process.env.SEARCH_BOOK_ANSWER_ENGINE_ENABLE_METRICS_EXPORT === "true",
   metricsToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_METRICS_TOKEN || process.env.SEARCH_BOOK_ANSWER_ENGINE_MODERATION_TOKEN || "",
+  // SYN-362: shared operator token gating the admin views + /insights feeds.
+  // Unset = gate disabled (local dev). Set only in .secrets/search-book.env.
+  adminToken: process.env.SEARCH_BOOK_ANSWER_ENGINE_ADMIN_TOKEN || "",
 };
 
 const allowedModes = new Set(["extractive", "llm"]);
@@ -104,7 +107,7 @@ function corsHeaders(req) {
   const headers = {
     "content-type": "application/json; charset=utf-8",
     "access-control-allow-methods": "GET,POST,OPTIONS",
-    "access-control-allow-headers": "content-type,authorization,x-search-book-moderation-token,x-search-book-metrics-token",
+    "access-control-allow-headers": "content-type,authorization,x-search-book-moderation-token,x-search-book-metrics-token,x-search-book-admin-token",
   };
   const origin = corsOrigin(req);
   if (origin) headers["access-control-allow-origin"] = origin;
@@ -146,6 +149,7 @@ function routeKey(method, pathname) {
   if (pathname === "/api/search-book/rating") return "rating";
   if (pathname === "/api/search-book/page-feedback") return "page-feedback";
   if (pathname === "/api/search-book/insights") return "insights";
+  if (pathname === "/api/search-book/admin/verify") return "admin-verify";
   if (pathname === "/api/search-book/examples") return "examples";
   if (pathname === "/api/search-book/moderation") return "moderation";
   if (pathname === "/api/search-book/metrics") return "metrics";
@@ -843,6 +847,21 @@ function tokenMatches(actual, expected) {
   return actualBuffer.length === expectedBuffer.length && crypto.timingSafeEqual(actualBuffer, expectedBuffer);
 }
 
+function adminBearerToken(req) {
+  const authorization = headerValue(req, "authorization");
+  const match = authorization.match(/^Bearer\s+(.+)$/i);
+  if (match) return match[1].trim();
+  return headerValue(req, "x-search-book-admin-token").trim();
+}
+
+/** SYN-362: when the admin token env is set, /insights becomes operator-only. */
+function requireAdminAccess(req) {
+  if (!config.adminToken) return;
+  if (!tokenMatches(adminBearerToken(req), config.adminToken)) {
+    throw Object.assign(new Error("Admin token is missing or invalid."), { statusCode: 401 });
+  }
+}
+
 function requireModerationAccess(req) {
   if (!config.moderationExportEnabled) {
     throw Object.assign(new Error("Moderation export is disabled."), { statusCode: 404 });
@@ -1107,6 +1126,24 @@ async function handlePageFeedback(db, runtime, req, res) {
   jsonResponse(req, res, 200, { status: "recorded", persisted });
 }
 
+/**
+ * SYN-362: lightweight admin-token verification. Gate disabled (env unset) →
+ * {gateEnabled:false} so local dev needs no login. Never echoes the token.
+ */
+async function handleAdminVerify(req, res) {
+  if (!config.adminToken) {
+    jsonResponse(req, res, 200, { status: "open", gateEnabled: false });
+    return;
+  }
+  const body = await readJsonBody(req);
+  const candidate = truncate(body.token, 512) || adminBearerToken(req);
+  if (!tokenMatches(candidate, config.adminToken)) {
+    jsonResponse(req, res, 401, { status: "unauthorized", gateEnabled: true, message: "Admin token is invalid." });
+    return;
+  }
+  jsonResponse(req, res, 200, { status: "ok", gateEnabled: true });
+}
+
 function handleInsights(db, req, res) {
   const retention = applyRetention(db);
   jsonResponse(req, res, 200, {
@@ -1272,7 +1309,12 @@ function createServer() {
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/insights") {
+        requireAdminAccess(req);
         handleInsights(db, req, res);
+        return;
+      }
+      if (req.method === "POST" && url.pathname === "/api/search-book/admin/verify") {
+        await handleAdminVerify(req, res);
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/examples") {

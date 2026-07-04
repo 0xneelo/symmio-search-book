@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import fs from "node:fs";
 import net from "node:net";
 import path from "node:path";
 import { spawn } from "node:child_process";
@@ -83,7 +84,13 @@ async function waitForPreview(baseUrl, child, logs) {
     }
     try {
       const index = await requestText(baseUrl, "/");
-      if (index.statusCode === 200 && index.body.includes("Vibe Docs Search Book Prototype")) return index;
+      // Pre-cutover the root is the old prototype; post-cutover it is the Field Manual.
+      if (
+        index.statusCode === 200 &&
+        (index.body.includes("Vibe Docs Search Book Prototype") || index.body.includes("Vibe × SYMM Field Manual"))
+      ) {
+        return index;
+      }
       lastError = `index status ${index.statusCode}`;
     } catch (error) {
       lastError = error.message;
@@ -128,13 +135,42 @@ async function main() {
   try {
     const home = await waitForPreview(baseUrl, child, logs);
     assert(home.contentType.includes("text/html"), "home did not return HTML content type.");
-    assert(home.body.includes("Ask the docs"), "home did not render the Ask the docs action.");
-    assert(home.body.includes("Search insights"), "home did not render Search insights navigation.");
-    assert(home.body.includes("./data/search-index.js"), "home did not reference the search index asset.");
+    const oldFrontDoor = home.body.includes("Vibe Docs Search Book Prototype");
+    if (oldFrontDoor) {
+      assert(home.body.includes("Ask the docs"), "home did not render the Ask the docs action.");
+      assert(home.body.includes("Search insights"), "home did not render Search insights navigation.");
+      assert(home.body.includes("./data/search-index.js"), "home did not reference the search index asset.");
+    }
 
     const index = await requestText(baseUrl, "/index.html?page=authored-vibe-product-overview");
     assert(index.statusCode === 200, `index exact-page URL returned ${index.statusCode}.`);
-    assert(index.body.includes("Vibe Docs Search Book Prototype"), "exact-page URL did not serve index.html.");
+    assert(
+      index.body.includes("Vibe Docs Search Book Prototype") || index.body.includes("Vibe × SYMM Field Manual"),
+      "exact-page URL did not serve a front door.",
+    );
+
+    // Field Manual v2 overlay (SYN-356): served whenever web/dist is built.
+    const webDistIndexPath = path.join(args.root, "web", "dist", "index.html");
+    let webChecks = "skipped (web/dist not built)";
+    if (fs.existsSync(webDistIndexPath)) {
+      const v2 = await requestText(baseUrl, "/v2/");
+      assert(v2.statusCode === 200, `/v2/ returned ${v2.statusCode}.`);
+      assert(v2.body.includes("Vibe × SYMM Field Manual"), "/v2/ did not serve the Field Manual app.");
+
+      const distHtml = fs.readFileSync(webDistIndexPath, "utf8");
+      const assetMatch = distHtml.match(/src="(\/assets\/[^"]+\.js)"/);
+      assert(assetMatch, "web/dist index.html did not reference a bundled asset.");
+      const asset = await requestText(baseUrl, assetMatch[1]);
+      assert(asset.statusCode === 200, `web asset ${assetMatch[1]} returned ${asset.statusCode}.`);
+
+      const pageDir = path.join(args.root, "web", "dist", "page");
+      const firstPage = fs.existsSync(pageDir) ? fs.readdirSync(pageDir).find(Boolean) : null;
+      assert(firstPage, "web/dist/page has no prerendered pages.");
+      const reader = await requestText(baseUrl, `/page/${firstPage}/`);
+      assert(reader.statusCode === 200, `prerendered page returned ${reader.statusCode}.`);
+      assert(reader.body.includes('class="reader-body"'), "prerendered page did not include reader content.");
+      webChecks = "ok";
+    }
 
     const searchIndex = await requestText(baseUrl, "/data/search-index.js");
     assert(searchIndex.statusCode === 200, `search-index asset returned ${searchIndex.statusCode}.`);
@@ -163,6 +199,7 @@ async function main() {
         questionRoutes: "ok",
         qualityAudit: "ok",
         missingRoute: 404,
+        fieldManualV2: webChecks,
       },
       server: {
         stdout: tail(logs.stdout, 600),

@@ -285,6 +285,15 @@ async function main() {
       `positive rating did not populate cache: ${JSON.stringify(helpfulRating.payload.cache)}.`,
     );
 
+    // Regression guard for the SYN-352 voting fix: a rating whose eventId was never
+    // persisted by /answer (e.g. a local-fallback `q-<ts>-…` id) must surface HTTP 404,
+    // not silently succeed. The v2 frontend only POSTs service-persisted ids.
+    const orphanRating = await requestJson(baseUrl, "/api/search-book/rating", {
+      method: "POST",
+      body: JSON.stringify({ eventId: "q-1751600000000-deadbeef", rating: "yes" }),
+    });
+    assert(orphanRating.statusCode === 404, `orphan-eventId rating returned ${orphanRating.statusCode}, expected 404.`);
+
     const reused = await requestJson(baseUrl, "/api/search-book/answer", {
       method: "POST",
       body: JSON.stringify({
