@@ -14,11 +14,17 @@ import '@fontsource/space-mono/700.css'
 import './index.css'
 import App from './App.tsx'
 import { ComponentsGallery } from './gallery/ComponentsGallery.tsx'
+import { SymmiopediaLab } from './gallery/SymmiopediaLab.tsx'
 
-// Minimal route split: /components reviews the design system (SYN-349);
-// everything else is the app. Real page state arrives with the M4 shell.
-const isGallery = window.location.pathname.replace(/\/$/, '').endsWith('/components')
+// Minimal route split: /components reviews the v2 design system (SYN-349),
+// /symmiopedia is the v3 foundation scratch route (SYN-367);
+// everything else is the app.
+const path = window.location.pathname.replace(/\/$/, '')
+const isGallery = path.endsWith('/components')
+const isWikiLab = path.endsWith('/symmiopedia')
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>{isGallery ? <ComponentsGallery /> : <App />}</StrictMode>,
+  <StrictMode>
+    {isWikiLab ? <SymmiopediaLab /> : isGallery ? <ComponentsGallery /> : <App />}
+  </StrictMode>,
 )

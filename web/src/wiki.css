@@ -1,0 +1,86 @@
+/*
+ * Symmiopedia v3 design tokens + global chrome (SYN-367).
+ * Source of truth: docs/goals/symmiopedia-v3/DESIGN.MD Part B §2–4.
+ *
+ * Everything is scoped under `.wiki` so the admin-gated ops views (SYN-363,
+ * out of scope) keep the v2 skin untouched until cutover. Zero chroma outside
+ * link colors and the #a7d7f9 chrome line; system fonts only; ≤2px radii;
+ * no shadows on chrome.
+ */
+
+:root {
+  /* Chrome — legacy-Vector palette (§2) */
+  --wk-canvas: #f6f6f6;
+  --wk-content: #ffffff;
+  --wk-chrome-line: #a7d7f9;
+  --wk-rule: #a2a9b1;
+  --wk-figure-border: #c8ccd1;
+  --wk-box-fill: #f8f9fa;
+  --wk-table-header: #eaecf0;
+  --wk-text: #202122;
+  --wk-muted: #54595d;
+  --wk-link: #0645ad;
+  --wk-link-external: #3366bb;
+  --wk-link-red: #ba0000;
+  --wk-tab-unselected: linear-gradient(to top, #e8f0f6 0%, #ffffff 90%);
+
+  /* Typography (§3) — system fonts only */
+  --wk-serif: 'Linux Libertine', Georgia, 'Times New Roman', serif;
+  --wk-sans: Helvetica, Arial, sans-serif;
+}
+
+.wiki {
+  font-family: var(--wk-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--wk-text);
+  background: var(--wk-canvas);
+  -webkit-font-smoothing: auto;
+}
+
+/* Links: #0645ad, no underline at rest, underline on hover (§8). */
+.wiki a {
+  color: var(--wk-link);
+  text-decoration: none;
+}
+.wiki a:hover {
+  text-decoration: underline;
+}
+.wiki a.wk-external {
+  color: var(--wk-link-external);
+}
+.wiki a.wk-redlink {
+  color: var(--wk-link-red);
+}
+
+/* Serif headings with the 1px #a2a9b1 bottom rule (§3). */
+.wiki h1,
+.wiki h2 {
+  font-family: var(--wk-serif);
+  font-weight: normal;
+  border-bottom: 1px solid var(--wk-rule);
+  margin-bottom: 0.25em;
+}
+.wiki h1 {
+  font-size: 28.8px;
+}
+.wiki h2 {
+  font-size: 22.4px;
+}
+.wiki h3 {
+  font-family: var(--wk-sans);
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: none;
+}
+
+/* The v2 base layer forces border-radius: 0 !important everywhere; the wiki
+ * search bar's 2px is the one sanctioned exception (§8 ceiling). */
+.wiki .wk-r2 {
+  border-radius: 2px !important;
+}
+
+/* Muted/meta text register. */
+.wiki .wk-muted {
+  color: var(--wk-muted);
+}
