@@ -97,7 +97,7 @@ Diagram conventions: hatching = `repeating-linear-gradient(45°, white/12–14 0
 ## 8. Behavior notes
 
 - Q&A: keyword-matched canned answers (points credit / revenue calc / counter paused / invites) + low-confidence fallback routing to §04. Answer replaces the ask form; Q echoes above it.
-- Rating from the modal auto-dismisses the answer after 850ms.
+- Rating from the modal auto-dismisses the answer after 850ms. **Operator amendment 2026-07-04 (SYN-364), supersedes the 850ms rule:** any successful vote opens a thank-you dialog ("Logged — your rating is in.") with a 5s mono countdown; `ASK NEXT QUESTION` closes it, clears the answer, and refocuses the ask field; countdown/backdrop/Escape exit keeps the answer for rating-row votes and clears it for dismiss-guard votes.
 - Section state is a single `page` value; sidebar, top-bar indicator, and visible pshell all derive from it.
 - Scrollbar is styled (11px, `#1b2c74` thumb, paper track); selection is magenta/white.
 

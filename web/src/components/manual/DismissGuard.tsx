@@ -5,7 +5,7 @@ import { RatingButtons, type Rating } from './RatingButtons'
 export interface DismissGuardProps {
   open: boolean
   rating: Rating
-  /** Rating from the modal; caller should auto-dismiss the answer after 850ms (DESIGN.MD §8). */
+  /** Rating from the modal; caller hands off to the thank-you dialog (SYN-364, supersedes the §8 850ms rule). */
   onRate: (dir: 'up' | 'down') => void
   /** Backdrop click / Escape — keeps the answer. */
   onCancel: () => void

@@ -127,12 +127,21 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await page.keyboard.press('Enter')
     await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
 
-    // Optimistic reaction + confirmation + one-shot.
+    // Optimistic reaction; SYN-364 thank-you dialog with a 5s mono countdown.
     await page.getByRole('button', { name: 'USEFUL' }).click()
-    await expect(page.getByText('✓ logged — thank you')).toBeVisible()
-    await expect(page.getByRole('button', { name: 'USEFUL' })).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
+    await expect(page.getByText(/AUTO-CLOSING IN [0-5]s/)).toBeVisible()
+
+    // Backdrop exit keeps the answer readable (row-origin vote).
+    await page.mouse.click(40, 500)
+    await expect(page.getByRole('dialog')).toHaveCount(0)
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
+
+    // One-shot: a re-click must not re-POST; selected state inverted to white.
     await page.getByRole('button', { name: 'USEFUL' }).click({ force: true })
-    await page.waitForTimeout(500)
+    await expect(page.getByRole('button', { name: 'USEFUL' })).toHaveCSS('background-color', 'rgb(255, 255, 255)')
+    await expect(page.getByText('✓ logged — thank you')).toBeVisible()
+    await page.waitForTimeout(300)
     expect(ratingPosts).toEqual([200])
 
     const after = await serviceTotals()
@@ -140,7 +149,7 @@ test.describe('search → answer → vote (service round-trip)', () => {
     expect(after.questions).toBeGreaterThan(before.questions || 0)
   })
 
-  test('dismiss-guard blocks unrated dismissal; modal vote persists and auto-dismisses', async ({ page }) => {
+  test('dismiss-guard blocks unrated dismissal; modal vote hands off to thank-you dialog', async ({ page }) => {
     const before = await serviceTotals()
     await page.goto(`/?service=${SERVICE}`)
     await page.getByPlaceholder(ASK_PLACEHOLDER).fill('When do referral points credit?')
@@ -155,12 +164,15 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await expect(page.getByText('HOLD ON —')).not.toBeVisible()
     await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
 
-    // Re-open, rate NEEDS WORK from the modal → auto-dismiss after 850ms.
+    // Re-open, rate NEEDS WORK from the modal → thank-you dialog (SYN-364);
+    // its 5s auto-close clears the answer (guard-origin exit).
     await page.getByRole('button', { name: 'DISMISS ×' }).click()
     await page.getByRole('dialog').getByRole('button', { name: 'NEEDS WORK' }).click()
-    await expect(page.getByRole('dialog').getByText('✓ logged — thank you')).toBeVisible()
-    await expect(page.getByText('HOLD ON —')).not.toBeVisible({ timeout: 3_000 })
-    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    await expect(page.getByText('HOLD ON —')).not.toBeVisible()
+    await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
+    await expect(page.getByText(/AUTO-CLOSING IN [0-5]s/)).toBeVisible()
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible({ timeout: 7_000 })
+    await expect(page.getByRole('dialog')).toHaveCount(0)
 
     const after = await serviceTotals()
     expect(after.ratings).toBe((before.ratings || 0) + 1)
@@ -177,6 +189,12 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await expect(page.getByText(/routed answer/).first()).toBeVisible({ timeout: 20_000 })
     await page.getByRole('button', { name: 'USEFUL' }).click()
     await expect(page.getByText('✓ logged — thank you')).toBeVisible()
+    // SYN-364: the thank-you dialog also opens on local-mode votes; ASK NEXT
+    // QUESTION clears the answer and returns the ask form.
+    await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
+    await page.getByRole('button', { name: 'ASK NEXT QUESTION' }).click()
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    await expect(page.getByRole('dialog')).toHaveCount(0)
     const stored = await page.evaluate(() => ({
       questions: JSON.parse(localStorage.getItem('searchBookPrototype.questions') || '[]').length,
       ratings: JSON.parse(localStorage.getItem('searchBookPrototype.ratings') || '[]').length,

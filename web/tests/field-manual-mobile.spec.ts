@@ -146,6 +146,11 @@ test.describe('mobile voting', () => {
 
     await page.getByRole('button', { name: 'USEFUL' }).click()
     await expect(page.getByText('✓ logged — thank you')).toBeVisible()
+    // SYN-364 dialog: backdrop exit keeps the answer readable (row-origin vote).
+    await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
+    await page.mouse.click(20, 60)
+    await expect(page.getByRole('dialog')).toHaveCount(0)
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
     await page.getByRole('button', { name: 'USEFUL' }).click({ force: true })
     await page.waitForTimeout(400)
     expect(ratingPosts).toEqual([200])
@@ -165,8 +170,14 @@ test.describe('mobile voting', () => {
     expect(dialog!.width).toBeLessThanOrEqual(375)
 
     await page.getByRole('dialog').getByRole('button', { name: 'NEEDS WORK' }).click()
-    await expect(page.getByRole('dialog').getByText('✓ logged — thank you')).toBeVisible()
-    await expect(page.getByText('HOLD ON —')).not.toBeVisible({ timeout: 3_000 })
+    // SYN-364: guard hands off to the thank-you dialog; ASK NEXT QUESTION
+    // clears the answer and returns the ask form.
+    await expect(page.getByText('HOLD ON —')).not.toBeVisible()
+    const thanks = page.getByRole('dialog', { name: 'Rating logged — thank you' })
+    await expect(thanks).toBeVisible()
+    await thanks.getByRole('button', { name: 'ASK NEXT QUESTION' }).click()
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    await expect(page.getByRole('dialog')).toHaveCount(0)
   })
 
   test('reader page-vote works at 375px', async ({ page }) => {

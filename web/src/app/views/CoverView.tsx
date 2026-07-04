@@ -1,5 +1,5 @@
-import { useCallback, useRef } from 'react'
-import { AskPanel, DashedRule, DismissGuard, RatingButtons } from '@/components/manual'
+import { useCallback } from 'react'
+import { AskPanel, DashedRule, DismissGuard, RatingButtons, VoteThanks } from '@/components/manual'
 import { recordAnswerRating, type VoteValue } from '@/lib/voting'
 import type { SearchBookApp } from '../useSearchBook'
 import { AnswerBody } from '../AnswerBody'
@@ -14,7 +14,10 @@ import { useState } from 'react'
  */
 export function CoverView({ app }: { app: SearchBookApp }) {
   const [guardOpen, setGuardOpen] = useState(false)
-  const dismissTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Post-vote thank-you dialog (SYN-364). 'guard'-origin exits always clear the
+  // answer (the user had already asked to dismiss); 'row'-origin keeps it
+  // unless ASK NEXT QUESTION is used.
+  const [thanks, setThanks] = useState<null | 'row' | 'guard'>(null)
 
   const answer = app.answer
   const persist = useCallback(
@@ -38,11 +41,21 @@ export function CoverView({ app }: { app: SearchBookApp }) {
   const voteState = useVote(persist)
 
   const resetAnswer = useCallback(() => {
-    if (dismissTimer.current) clearTimeout(dismissTimer.current)
     app.dismissAnswer()
     voteState.reset()
     setGuardOpen(false)
+    setThanks(null)
   }, [app, voteState])
+
+  const closeThanks = useCallback(() => {
+    if (thanks === 'guard') resetAnswer()
+    setThanks(null)
+  }, [thanks, resetAnswer])
+
+  const askNext = useCallback(() => {
+    resetAnswer()
+    document.querySelector<HTMLInputElement>('.askinput')?.focus()
+  }, [resetAnswer])
 
   const requestDismiss = () => {
     if (voteState.rating) resetAnswer()
@@ -151,7 +164,11 @@ export function CoverView({ app }: { app: SearchBookApp }) {
                     rating={voteState.rating}
                     locked={voteState.locked}
                     error={voteState.error}
-                    onRate={(dir) => void voteState.vote(dir)}
+                    onRate={(dir) =>
+                      void voteState.vote(dir).then((ok) => {
+                        if (ok) setThanks('row')
+                      })
+                    }
                     onDismiss={requestDismiss}
                   />
                 }
@@ -168,13 +185,19 @@ export function CoverView({ app }: { app: SearchBookApp }) {
         error={voteState.error}
         onRate={(dir) => {
           void voteState.vote(dir).then((ok) => {
-            // DESIGN.MD §8: a successful modal rating auto-dismisses after 850ms.
-            if (ok) dismissTimer.current = setTimeout(resetAnswer, 850)
+            // SYN-364 (supersedes the §8 850ms rule): a successful modal
+            // rating hands off to the thank-you dialog.
+            if (ok) {
+              setGuardOpen(false)
+              setThanks('guard')
+            }
           })
         }}
         onCancel={() => setGuardOpen(false)}
         onDismiss={resetAnswer}
       />
+
+      <VoteThanks open={thanks !== null} onAskNext={askNext} onClose={closeThanks} />
     </div>
   )
 }
