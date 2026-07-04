@@ -191,6 +191,19 @@ const sensitiveSkipExtensions = new Set([
 ]);
 const sensitiveBaselinePath = path.join(searchBookRoot, "data", "sensitive-scan-baseline.json");
 
+/**
+ * Vite content-hashes the bundled asset names (index-CxBPrnEg.js), so a
+ * per-filename baseline can never anticipate a fresh CI build. Normalize the
+ * hash segment to keep the fail-closed scan stable per logical bundle
+ * (SYN-373); counts still compare exactly.
+ */
+function normalizeScanPath(rel) {
+  return rel.replace(
+    /^(web\/dist(?:-server)?\/assets\/.+)-[A-Za-z0-9_-]{8}(\.[a-z]+)$/,
+    "$1-[hash]$2",
+  );
+}
+
 function scanSensitivePatterns() {
   const scanFiles = [];
   const visit = (dirPath) => {
@@ -216,7 +229,7 @@ function scanSensitivePatterns() {
     } catch {
       continue;
     }
-    const rel = path.relative(searchBookRoot, filePath);
+    const rel = normalizeScanPath(path.relative(searchBookRoot, filePath));
     const lines = text.split(/\r?\n/);
     let keywordMatches = 0;
     for (let index = 0; index < lines.length; index += 1) {
@@ -226,7 +239,7 @@ function scanSensitivePatterns() {
         if (pattern.re.test(line)) keyShapeHits.push({ file: rel, patternId: pattern.id, line: index + 1 });
       }
     }
-    if (keywordMatches) keywordCounts[rel] = keywordMatches;
+    if (keywordMatches) keywordCounts[rel] = (keywordCounts[rel] || 0) + keywordMatches;
   }
   const files = {};
   for (const rel of Object.keys(keywordCounts).sort((a, b) => a.localeCompare(b))) files[rel] = keywordCounts[rel];
