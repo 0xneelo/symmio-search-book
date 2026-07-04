@@ -84,10 +84,11 @@ async function waitForPreview(baseUrl, child, logs) {
     }
     try {
       const index = await requestText(baseUrl, "/");
-      // Pre-cutover the root is the old prototype; post-cutover it is the Field Manual.
+      // Post-cutover (SYN-373) the root is the Symmiopedia app; the prototype
+      // marker keeps pre-cutover trees/artifacts smokable.
       if (
         index.statusCode === 200 &&
-        (index.body.includes("Vibe Docs Search Book Prototype") || index.body.includes("Vibe × SYMM Field Manual"))
+        (index.body.includes("Symmiopedia") || index.body.includes("Vibe Docs Search Book Prototype"))
       ) {
         return index;
       }
@@ -145,7 +146,7 @@ async function main() {
     const index = await requestText(baseUrl, "/index.html?page=authored-vibe-product-overview");
     assert(index.statusCode === 200, `index exact-page URL returned ${index.statusCode}.`);
     assert(
-      index.body.includes("Vibe Docs Search Book Prototype") || index.body.includes("Vibe × SYMM Field Manual"),
+      index.body.includes("Symmiopedia") || index.body.includes("Vibe Docs Search Book Prototype"),
       "exact-page URL did not serve a front door.",
     );
 

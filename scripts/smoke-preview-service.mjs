@@ -51,9 +51,12 @@ Options:
   }
 
   if (!args.staticRoot) throw new Error("--static-root is required when provided.");
+  // Symmiopedia v3 cutover (SYN-373): the front door is the legacy prototype
+  // (pre-cutover trees/artifacts) OR the built web app.
   const indexPath = path.join(args.staticRoot, "index.html");
-  if (!fs.existsSync(indexPath)) {
-    throw new Error(`Search Book index.html not found at ${indexPath}`);
+  const webDistIndexPath = path.join(args.staticRoot, "web", "dist", "index.html");
+  if (!fs.existsSync(indexPath) && !fs.existsSync(webDistIndexPath)) {
+    throw new Error(`Search Book front door not found at ${indexPath} or ${webDistIndexPath}`);
   }
   return args;
 }
@@ -111,7 +114,7 @@ async function waitForPreview(baseUrl, child, logs) {
     }
     try {
       const home = await requestText(baseUrl, "/");
-      if (home.statusCode === 200 && home.body.includes("Vibe Docs Search Book Prototype")) return home;
+      if (home.statusCode === 200 && (home.body.includes("Symmiopedia") || home.body.includes("Vibe Docs Search Book Prototype"))) return home;
       lastError = `preview status ${home.statusCode}`;
     } catch (error) {
       lastError = error.message;
@@ -282,7 +285,10 @@ async function main() {
 
     const exactPage = await requestText(staticBaseUrl, `/index.html?page=authored-vibe-product-overview&service=${encodeURIComponent(serviceBaseUrl)}&serviceMode=extractive`);
     assert(exactPage.statusCode === 200, `configured exact-page URL returned ${exactPage.statusCode}.`);
-    assert(exactPage.body.includes("Vibe Docs Search Book Prototype"), "configured exact-page URL did not serve index.html.");
+    assert(
+      exactPage.body.includes("Symmiopedia") || exactPage.body.includes("Vibe Docs Search Book Prototype"),
+      "configured exact-page URL did not serve index.html.",
+    );
 
     console.log(JSON.stringify({
       status: "passed",

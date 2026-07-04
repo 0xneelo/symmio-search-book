@@ -15,8 +15,9 @@ const defaults = {
   runIntegrity: true,
 };
 
+// Symmiopedia v3 cutover (SYN-373): the legacy prototype index.html is
+// retired — the built web app (web/dist, copied below) is the front door.
 const rootFiles = [
-  "index.html",
   "answer-corpus.js",
   "page-manifest.json",
 ];

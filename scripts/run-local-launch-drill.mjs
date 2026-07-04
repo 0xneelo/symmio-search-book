@@ -187,7 +187,7 @@ async function waitForPreview(baseUrl, child, logs) {
     }
     try {
       const home = await requestText(baseUrl, "/");
-      if (home.statusCode === 200 && home.body.includes("Vibe Docs Search Book Prototype")) return home;
+      if (home.statusCode === 200 && (home.body.includes("Symmiopedia") || home.body.includes("Vibe Docs Search Book Prototype"))) return home;
       lastError = `preview status ${home.statusCode}`;
     } catch (error) {
       lastError = error.message;

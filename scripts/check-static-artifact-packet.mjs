@@ -11,8 +11,9 @@ const searchBookRoot = path.resolve(__dirname, "..");
 
 const allowedOpenOperatorItems = new Set([4, 11]);
 
+// Symmiopedia v3 cutover (SYN-373): the front door is the built web app.
 const requiredArtifactFiles = [
-  "index.html",
+  "web/dist/index.html",
   "answer-corpus.js",
   "page-manifest.json",
   "data/search-index.js",
