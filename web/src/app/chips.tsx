@@ -57,8 +57,8 @@ export function ChipRow({ children, style }: { children: ReactNode; style?: CSSP
 }
 
 /** L2842 — registered source key chip with group/use tooltip. */
-export function sourceChipsFor(page: Page) {
-  return (page.sources || page.sourceKeys || []).slice(0, 5).map((key) => {
+export function sourceKeyChips(keys: string[] | undefined, max = 5) {
+  return (keys || []).slice(0, max).map((key) => {
     const source = sourceByKey[key]
     const label = source ? source.key : key
     const meta = source ? `${source.group} / ${source.use}` : 'unregistered source key'
@@ -68,6 +68,10 @@ export function sourceChipsFor(page: Page) {
       </SourceChip>
     )
   })
+}
+
+export function sourceChipsFor(page: Page) {
+  return sourceKeyChips(page.sources || page.sourceKeys, 5)
 }
 
 /** L2871 — raw source URLs (max 6). */

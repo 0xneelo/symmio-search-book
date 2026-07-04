@@ -2,8 +2,12 @@ import { AnnouncementBar, AskField, Sidebar, TopBar } from '@/components/manual'
 import { READER_SECTION, SECTIONS, sectionFor } from './sections'
 import { useSearchBook } from './useSearchBook'
 import { CoverView } from './views/CoverView'
-import { PlaceholderView } from './views/PlaceholderView'
 import { ReaderView } from './views/ReaderView'
+import { BrowseView } from './views/BrowseView'
+import { GlossaryView } from './views/GlossaryView'
+import { FaqView } from './views/FaqView'
+import { JourneyView } from './views/JourneyView'
+import { InsightsView } from './views/InsightsView'
 
 /**
  * Field Manual app frame (DESIGN.MD §4): announcement bar, collapsible sidebar
@@ -86,35 +90,15 @@ export function AppShell() {
               ) : app.variant === 'classic' ? (
                 <CoverView app={app} />
               ) : app.variant === 'browse' ? (
-                <PlaceholderView
-                  title="Browse docs"
-                  fig="FIG_B00"
-                  note="Volumes, collections and the filterable section tree land in M7 (SYN-354)."
-                />
+                <BrowseView app={app} />
               ) : app.variant === 'glossary' ? (
-                <PlaceholderView
-                  title="Glossary"
-                  fig="FIG_G00"
-                  note="The routed glossary grid lands in M7 (SYN-354)."
-                />
+                <GlossaryView app={app} />
               ) : app.variant === 'faq' ? (
-                <PlaceholderView
-                  title="FAQ routes"
-                  fig="FIG_F00"
-                  note="Seeded FAQ routes land in M7 (SYN-354)."
-                />
+                <FaqView app={app} />
               ) : app.variant === 'journey' ? (
-                <PlaceholderView
-                  title="Journeys"
-                  fig="FIG_J00"
-                  note="Guided journeys land in M7 (SYN-354)."
-                />
+                <JourneyView app={app} />
               ) : (
-                <PlaceholderView
-                  title="Insights"
-                  fig="FIG_I00"
-                  note="Ops dashboards (metrics, quality audit, requirements, ingestion, Discord routing, gaps, recent, ratings) land in M7 (SYN-354)."
-                />
+                <InsightsView app={app} />
               )}
             </div>
           </main>
