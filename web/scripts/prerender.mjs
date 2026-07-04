@@ -27,7 +27,7 @@ for (const id of ids) {
   const rendered = await renderPage(id)
   if (!rendered) continue
   const html = template
-    .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(rendered.title)} — Vibe × SYMM Field Manual</title>`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(rendered.title)}</title>`)
     .replace('<div id="root"></div>', `<div id="root">${rendered.html}</div>`)
   const outDir = path.join(distDir, 'page', id)
   fs.mkdirSync(outDir, { recursive: true })

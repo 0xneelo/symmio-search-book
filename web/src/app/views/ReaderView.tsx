@@ -1,18 +1,34 @@
-import { useCallback, useMemo } from 'react'
-import { ChapterHeading, RatingButtons } from '@/components/manual'
+import { useCallback, useEffect, useMemo } from 'react'
 import { readerModelFor } from '@/lib/reader'
+import { findAnswer } from '@/lib/search'
+import { recordQuestion } from '@/lib/service'
 import { recordPageRating, type VoteValue } from '@/lib/voting'
+import { ecosystemLinksFor, randomPageId } from '@/lib/wiki'
+import { WikiChrome } from '@/components/wiki/WikiChrome'
+import { WikiArticle, wikiDirectHref, wikiUpdatedFor } from '@/components/wiki/WikiArticle'
+import { WikiPageRating } from '@/components/wiki/WikiPageRating'
 import type { SearchBookApp } from '../useSearchBook'
-import { ReaderArticle } from '../reader/ReaderArticle'
 import { useVote } from '../useVote'
-import { ChipRow } from '../chips'
 
-/** Client reader island: crosslink nav, related pages, one-shot page rating. */
+/** Featured article shared with the portal hint (SYN-368). */
+const FEATURED_PAGE_ID = 'authored-ecosystem-synergy-map'
+
+/**
+ * Client reader island (SYN-369): full Symmiopedia article — wiki chrome +
+ * anatomy — with crosslink nav and the one-shot page vote (/page-feedback
+ * parity). Replaces the v2 shell on every public page route.
+ */
 export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string }) {
   const model = useMemo(
     () => (app.data ? readerModelFor(app.data, pageId) : null),
     [app.data, pageId],
   )
+
+  useEffect(() => {
+    document.title = model
+      ? `${model.page.title} - Symmiopedia`
+      : 'Symmiopedia — The Open Ecosystem Encyclopedia'
+  }, [model])
 
   const persist = useCallback(
     (value: VoteValue) => {
@@ -26,79 +42,78 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
   )
   const voteState = useVote(persist)
 
-  if (!model) {
-    // L3897 — not-found panel.
+  const headerSearch = useCallback(
+    (query: string) => {
+      if (!app.data) return
+      const result = findAnswer(app.data, query)
+      recordQuestion(query, result, 'reader-search')
+      app.bumpInsights()
+      if (result.page) app.setActivePage(result.page.id)
+    },
+    [app],
+  )
+
+  if (!app.data) {
     return (
-      <div data-page="reader-missing">
-        <ChapterHeading title="Page not found" punctuation="." size={48} />
-        <p style={{ margin: '0 0 20px', fontSize: 15.5, lineHeight: 1.75, color: '#d3dbff', maxWidth: 620 }}>
-          The local index has no page with id{' '}
-          <code
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: 13,
-              background: 'rgba(2,4,14,0.55)',
-              border: '1px solid rgba(255,255,255,0.14)',
-              padding: '1px 5px',
-            }}
-          >
-            {pageId}
-          </code>
-          .
+      <div className="wiki" style={{ minHeight: '100vh', background: 'var(--wk-canvas)', padding: 40 }}>
+        <p className="wk-muted" style={{ fontSize: 12.6 }}>
+          Loading the index…
         </p>
-        <ChipRow>
-          <button
-            type="button"
-            className="chip"
-            style={{
-              background: 'transparent',
-              border: '2px solid #2e6bff',
-              color: '#cdd8ff',
-              fontFamily: 'var(--font-sans)',
-              fontWeight: 600,
-              fontSize: 12,
-              padding: '8px 14px',
-              cursor: 'pointer',
-            }}
-            onClick={() => app.clearActivePage('classic')}
-          >
-            ← Back to Ask
-          </button>
-          <button
-            type="button"
-            className="chip"
-            style={{
-              background: 'transparent',
-              border: '2px solid #2e6bff',
-              color: '#cdd8ff',
-              fontFamily: 'var(--font-sans)',
-              fontWeight: 600,
-              fontSize: 12,
-              padding: '8px 14px',
-              cursor: 'pointer',
-            }}
-            onClick={() => app.clearActivePage('browse')}
-          >
-            Browse docs
-          </button>
-        </ChipRow>
       </div>
     )
   }
 
+  const data = app.data
+  const featuredPage = data.pageById.get(FEATURED_PAGE_ID)
+  const chromeProps = {
+    ecosystem: ecosystemLinksFor(data),
+    featured: featuredPage ? { id: featuredPage.id, title: featuredPage.title } : null,
+    onNavigatePage: (id: string) => app.openPage(id, 'browse'),
+    onMainPage: () => app.clearActivePage('classic'),
+    onSearch: headerSearch,
+    onRandom: () => {
+      const id = randomPageId(data)
+      if (id) app.openPage(id, 'nav')
+    },
+  }
+
+  if (!model) {
+    // Wiki-register not-found (parity: not-found panel with return routes).
+    return (
+      <WikiChrome {...chromeProps}>
+          <h1>Page not found</h1>
+          <div className="wk-sitesub">From Symmiopedia, the open ecosystem encyclopedia</div>
+          <div className="wk-body">
+            <p>
+              The index has no page with id <code>{pageId}</code>. It may have been moved, or the
+              link may be stale.
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="/"
+                  onClick={(event) => {
+                    event.preventDefault()
+                    app.clearActivePage('classic')
+                  }}
+                >
+                  Return to the main page
+                </a>
+              </li>
+            </ul>
+          </div>
+        </WikiChrome>
+    )
+  }
+
   return (
-    <ReaderArticle
-      model={model}
-      onReturn={(variant) => app.clearActivePage(variant)}
-      onOpenPage={(id) => app.openPage(id, 'browse')}
-      rating={
-        <RatingButtons
-          rating={voteState.rating}
-          locked={voteState.locked}
-          error={voteState.error}
-          onRate={(dir) => void voteState.vote(dir)}
-        />
-      }
-    />
+    <WikiChrome {...chromeProps} updated={wikiUpdatedFor(model)} directHref={wikiDirectHref(model)}>
+      <WikiArticle
+        model={model}
+        data={data}
+        onNavigatePage={(id) => app.openPage(id, 'browse')}
+        rating={<WikiPageRating state={voteState} />}
+      />
+    </WikiChrome>
   )
 }

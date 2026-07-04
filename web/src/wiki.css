@@ -89,3 +89,452 @@
 .wiki .wk-portal-searchbtn:hover {
   background: var(--wk-table-header);
 }
+
+/* ---------------------------------------------------------------------------
+ * Article page chrome (SYN-369, DESIGN.MD Part B §4 "Article").
+ * Grid 172px | 1fr, rows auto | 1fr. Chrome is constant; content varies.
+ * ------------------------------------------------------------------------ */
+
+.wk-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 172px 1fr;
+  grid-template-rows: auto 1fr;
+  background: var(--wk-canvas);
+}
+
+/* Logo cell: globe 118 + wordmark + tagline; whole cell clickable → portal. */
+.wk-logo-cell {
+  grid-column: 1;
+  grid-row: 1;
+  display: block;
+  text-align: center;
+  padding: 10px 6px 6px;
+  cursor: pointer;
+  color: var(--wk-text);
+}
+.wk-logo-cell:hover {
+  text-decoration: none;
+}
+.wk-logo-wordmark {
+  font-family: var(--wk-serif);
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+.wk-logo-tagline {
+  font-size: 10.5px;
+  color: var(--wk-muted);
+  margin-top: 2px;
+}
+
+/* Header cell: personal bar + tab row sitting on the #a7d7f9 line. */
+.wk-header {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+}
+.wk-personal {
+  text-align: right;
+  font-size: 11.7px;
+  padding: 6px 16px 14px;
+  color: var(--wk-muted);
+}
+.wk-personal a {
+  margin-left: 6px;
+}
+.wk-tabrow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--wk-chrome-line);
+  padding: 0 16px 0 8px;
+  gap: 12px;
+}
+.wk-tabs {
+  display: flex;
+  align-items: flex-end;
+}
+.wk-tab {
+  display: block;
+  font-size: 13px;
+  padding: 7px 12px 6px;
+  margin-bottom: -1px;
+  background: var(--wk-tab-unselected);
+  border: 1px solid var(--wk-chrome-line);
+  border-bottom: 1px solid var(--wk-chrome-line);
+  white-space: nowrap;
+  color: var(--wk-link);
+}
+.wk-tab.wk-tab-selected {
+  background: var(--wk-content);
+  border-bottom: 1px solid var(--wk-content);
+  color: var(--wk-text);
+}
+.wk-tab.wk-tab-selected:hover {
+  text-decoration: none;
+}
+.wk-tabrow-right {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.wk-head-search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.wk-head-search input {
+  width: 300px;
+  max-width: 42vw;
+  height: 27px;
+  border: 1px solid var(--wk-rule);
+  border-radius: 2px 0 0 2px !important;
+  padding: 0 8px;
+  font-size: 12.5px;
+  font-family: var(--wk-sans);
+  color: var(--wk-text);
+  background: var(--wk-content);
+  outline: none;
+}
+.wk-head-search button {
+  height: 27px;
+  width: 30px;
+  border: 1px solid var(--wk-rule);
+  border-left: none;
+  background: var(--wk-box-fill);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wk-head-search button:hover {
+  background: var(--wk-table-header);
+}
+
+/* Sidebar: link boxes. Headings 12px muted; links 12px blue. */
+.wk-sidebar {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 12px 8px 24px 10px;
+  font-size: 12px;
+}
+.wk-sidebox {
+  margin-bottom: 14px;
+}
+.wk-sidebox h4 {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--wk-muted);
+  border-bottom: 1px solid var(--wk-figure-border);
+  padding-bottom: 3px;
+  margin: 0 0 4px 4px;
+}
+.wk-sidebox ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 4px;
+}
+.wk-sidebox li {
+  padding: 1.5px 0;
+  line-height: 1.45;
+}
+
+/* Content column: white, #a7d7f9 border without top/right. */
+.wk-content-col {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.wk-content {
+  background: var(--wk-content);
+  border: 1px solid var(--wk-chrome-line);
+  border-top: none;
+  border-right: none;
+  padding: 18px 40px 40px 32px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Footer: gray strip under the content. */
+.wk-footer {
+  padding: 14px 40px 28px 32px;
+  font-size: 11.9px;
+  color: var(--wk-muted);
+}
+.wk-footer p {
+  margin: 0 0 6px;
+}
+.wk-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Article anatomy (SYN-369, DESIGN.MD Part B §4 + design-mapping.md).
+ * ------------------------------------------------------------------------ */
+
+.wk-content h1 {
+  margin: 0 0 2px;
+}
+.wk-sitesub {
+  font-size: 12.6px;
+  color: var(--wk-muted);
+  margin: 0 0 14px;
+}
+.wk-hatnote {
+  font-style: italic;
+  padding-left: 1.6em;
+  font-size: 13.2px;
+  margin: 0 0 12px;
+}
+.wk-body p {
+  margin: 0 0 14px;
+}
+.wk-body ul {
+  margin: 0 0 14px;
+  padding-left: 26px;
+}
+.wk-body li {
+  margin-bottom: 3px;
+}
+.wk-body h2 {
+  margin: 22px 0 10px;
+}
+.wk-body h3 {
+  margin: 18px 0 8px;
+}
+.wk-body table {
+  border-collapse: collapse;
+  margin: 0 0 16px;
+  font-size: 13.3px;
+}
+.wk-body th,
+.wk-body td {
+  border: 1px solid var(--wk-rule);
+  padding: 4px 10px;
+  text-align: left;
+}
+.wk-body th {
+  background: var(--wk-table-header);
+}
+.wk-body code {
+  font-family: monospace;
+  font-size: 12.6px;
+  background: var(--wk-box-fill);
+  border: 1px solid var(--wk-table-header);
+  padding: 0 3px;
+}
+.wk-body a.source-chip {
+  color: var(--wk-link-external);
+}
+
+/* [edit] spans on headings — render but dead (Part A). */
+.wk-edit {
+  font-family: var(--wk-sans);
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--wk-muted);
+}
+.wk-edit a {
+  cursor: pointer;
+}
+
+/* Infobox: 286px right float. */
+.wk-infobox {
+  float: right;
+  width: 286px;
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  font-size: 12.3px;
+  margin: 4px 0 16px 22px;
+  padding: 6px 10px 10px;
+}
+.wk-infobox-caption {
+  text-align: center;
+  font-weight: bold;
+  font-size: 13.2px;
+  padding: 4px 0 8px;
+}
+.wk-infobox-figure {
+  text-align: center;
+  margin: 0 0 8px;
+}
+.wk-infobox table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.wk-infobox th {
+  text-align: left;
+  vertical-align: top;
+  font-weight: bold;
+  padding: 3px 8px 3px 0;
+  width: 88px;
+}
+.wk-infobox td {
+  padding: 3px 0;
+  word-break: break-word;
+}
+
+/* TOC: inline-block numbered box with working [hide]. */
+.wk-toc {
+  display: inline-block;
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  padding: 8px 18px 10px 14px;
+  font-size: 13px;
+  margin: 6px 0 16px;
+}
+.wk-toc-title {
+  text-align: center;
+  font-weight: bold;
+}
+.wk-toc-toggle {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--wk-link);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--wk-sans);
+}
+.wk-toc ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+.wk-toc li {
+  padding: 1.5px 0;
+}
+.wk-toc li.wk-toc-l3 {
+  padding-left: 22px;
+}
+.wk-toc-num {
+  color: var(--wk-text);
+  margin-right: 7px;
+}
+
+/* References: 12.6px with ^ backlinks. */
+.wk-references {
+  font-size: 12.6px;
+}
+.wk-references ol {
+  margin: 8px 0 0;
+  padding-left: 22px;
+}
+.wk-references li {
+  margin-bottom: 5px;
+}
+.wk-ref-backlink {
+  font-weight: bold;
+}
+
+/* See also list. */
+.wk-seealso ul {
+  margin: 8px 0 0;
+  padding-left: 26px;
+}
+
+/* Prev/next sequence line. */
+.wk-sequence {
+  font-size: 12.6px;
+  color: var(--wk-muted);
+  margin: 18px 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Categories bar. */
+.wk-catbar {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  font-size: 12.6px;
+  padding: 5px 10px;
+  margin-top: 22px;
+  clear: both;
+}
+.wk-catbar a {
+  margin: 0 4px;
+}
+
+/* Page rating (parity: /page-feedback) — flat wiki register, link-blue only. */
+.wk-pagerate {
+  clear: both;
+  margin-top: 26px;
+  font-size: 12.6px;
+  color: var(--wk-muted);
+}
+.wk-pagerate button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--wk-sans);
+  font-size: 12.6px;
+  color: var(--wk-link);
+  cursor: pointer;
+}
+.wk-pagerate button:hover {
+  text-decoration: underline;
+}
+.wk-pagerate button:disabled {
+  color: var(--wk-muted);
+  cursor: default;
+  text-decoration: none;
+}
+.wk-pagerate .wk-pagerate-done {
+  color: var(--wk-text);
+}
+
+/* Mobile: collapse the grid to one column; unfloat the infobox. */
+@media (max-width: 900px) {
+  .wk-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .wk-logo-cell {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .wk-header {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .wk-content-col {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .wk-sidebar {
+    grid-column: 1;
+    grid-row: 4;
+    padding: 16px 16px 24px;
+  }
+  .wk-content {
+    border-right: none;
+    border-left: none;
+    padding: 16px 16px 28px;
+  }
+  .wk-footer {
+    padding: 14px 16px 28px;
+  }
+  .wk-infobox {
+    float: none;
+    width: 100%;
+    margin: 4px 0 16px;
+  }
+  .wk-head-search input {
+    max-width: 56vw;
+  }
+  .wk-personal {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}

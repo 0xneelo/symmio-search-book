@@ -62,6 +62,10 @@ export function AppShell() {
 
   if (isPublicLanding) return <PortalView app={app} />
 
+  // SYN-369: every page route renders the full Symmiopedia article (its own
+  // chrome) — the v2 shell stays only for the admin ops surface.
+  if (app.activePageId) return <ReaderView app={app} pageId={app.activePageId} />
+
   return (
     <div className="flex h-full flex-col overflow-hidden">
       <div className="relative flex min-h-0 flex-1">
@@ -135,8 +139,6 @@ export function AppShell() {
                 >
                   LOADING INDEX —
                 </div>
-              ) : app.activePageId ? (
-                <ReaderView app={app} pageId={app.activePageId} />
               ) : app.variant === 'classic' ? (
                 <CoverView app={app} />
               ) : (

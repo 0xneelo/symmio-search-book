@@ -155,7 +155,8 @@ async function main() {
     if (fs.existsSync(webDistIndexPath)) {
       const v2 = await requestText(baseUrl, "/v2/");
       assert(v2.statusCode === 200, `/v2/ returned ${v2.statusCode}.`);
-      assert(v2.body.includes("Vibe × SYMM Field Manual"), "/v2/ did not serve the Field Manual app.");
+      // Symmiopedia v3 (SYN-368): the web app front door is the portal.
+      assert(v2.body.includes("Symmiopedia"), "/v2/ did not serve the Symmiopedia app.");
 
       const distHtml = fs.readFileSync(webDistIndexPath, "utf8");
       const assetMatch = distHtml.match(/src="(\/assets\/[^"]+\.js)"/);
@@ -168,7 +169,7 @@ async function main() {
       assert(firstPage, "web/dist/page has no prerendered pages.");
       const reader = await requestText(baseUrl, `/page/${firstPage}/`);
       assert(reader.statusCode === 200, `prerendered page returned ${reader.statusCode}.`);
-      assert(reader.body.includes('class="reader-body"'), "prerendered page did not include reader content.");
+      assert(reader.body.includes('class="wk-body"'), "prerendered page did not include reader content.");
       webChecks = "ok";
     }
 

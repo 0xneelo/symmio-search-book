@@ -88,10 +88,13 @@ test.describe('navigation (public surface = portal + reader, SYN-362/SYN-368)', 
     const pageId = 'authored-active-risk-management-vs-passive-physics'
     const raw = await request.get(`/page/${pageId}/`)
     const html = await raw.text()
-    expect(html).toContain('class="reader-body"')
+    expect(html).toContain('class="wk-body"')
     expect(html).toContain('Active Risk Management')
+    // Wiki anatomy markers in the static HTML (SYN-369).
+    expect(html).toContain('From Symmiopedia, the open ecosystem encyclopedia')
+    expect(html).toContain('id="references"')
     await page.goto(`/page/${pageId}/`)
-    await expect(page.getByRole('button', { name: 'USEFUL' })).toBeVisible({ timeout: 20_000 })
+    await expect(page.getByRole('button', { name: 'Yes' })).toBeVisible({ timeout: 20_000 })
   })
 
   test('?page= deep link renders the reader', async ({ page }) => {
@@ -263,7 +266,8 @@ test.describe('page-vote', () => {
     const before = await serviceTotals()
     await page.goto(`/?service=${SERVICE}&page=authored-active-risk-management-vs-passive-physics`)
     await expect(page.locator('h1').first()).toContainText('Active Risk Management', { timeout: 20_000 })
-    await page.getByRole('button', { name: 'USEFUL' }).click()
+    // SYN-369: wiki-register page vote ("Was this page useful? Yes · No").
+    await page.getByTestId('wk-pagerate').getByRole('button', { name: 'Yes' }).click()
     await expect(page.getByText('✓ logged — thank you')).toBeVisible()
     const after = await serviceTotals()
     expect(after.ratings).toBe((before.ratings || 0) + 1)
@@ -272,7 +276,7 @@ test.describe('page-vote', () => {
   test('needs-work page vote records a gap (local mode)', async ({ page }) => {
     await page.goto('/?page=authored-active-risk-management-vs-passive-physics')
     await expect(page.locator('h1').first()).toContainText('Active Risk Management', { timeout: 20_000 })
-    await page.getByRole('button', { name: 'NEEDS WORK' }).click()
+    await page.getByTestId('wk-pagerate').getByRole('button', { name: 'No' }).click()
     await expect(page.getByText('✓ logged — thank you')).toBeVisible()
     const gaps = await page.evaluate(() =>
       JSON.parse(localStorage.getItem('searchBookPrototype.gaps') || '[]'),

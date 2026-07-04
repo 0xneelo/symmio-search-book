@@ -49,10 +49,16 @@ test.describe('mobile layout', () => {
   test('reader page reflows to one column with no horizontal scroll', async ({ page }) => {
     await page.goto(`/?page=${READER_ID}`)
     await expect(page.locator('h1').first()).toContainText('Active Risk Management', { timeout: 20_000 })
+    // SYN-369: the wiki grid collapses to a single column; infobox unfloats.
     const cols = await page
-      .locator('.fm-reader-grid')
+      .locator('.wk-page')
       .evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length)
     expect(cols).toBe(1)
+    const infoboxFloat = await page
+      .locator('.wk-infobox')
+      .evaluate((el) => getComputedStyle(el).float)
+      .catch(() => 'none')
+    expect(infoboxFloat).toBe('none')
     await assertNoHorizontalScroll(page)
   })
 
@@ -85,8 +91,9 @@ test.describe('mobile layout', () => {
 
 test.describe('mobile drawer', () => {
   test('toggle opens the 272px drawer; backdrop, Escape and nav close it', async ({ page }) => {
-    // The portal has no v2 shell; the drawer lives on shell surfaces (reader).
-    await page.goto(`/?page=${READER_ID}`)
+    // SYN-369: the wiki reader has no v2 drawer either — the v2 shell (and its
+    // drawer) survives only on the admin surface until cutover.
+    await page.goto('/?admin=1')
     await expect(page.locator('.fm-rail-toggle')).toBeVisible({ timeout: 20_000 })
 
     // Open via the floating toggle; the panel expands and labels appear.
@@ -108,9 +115,9 @@ test.describe('mobile drawer', () => {
     await page.keyboard.press('Escape')
     await expect(page.locator('.snav.is-open')).toHaveCount(0)
 
-    // Nav click navigates and closes the drawer (public nav = Cover & Ask only, SYN-362).
+    // Nav click navigates and closes the drawer (admin nav shows all six).
     await page.locator('.fm-rail-toggle').click()
-    await expect(page.locator('.snav .navrow')).toHaveCount(1)
+    await expect(page.locator('.snav .navrow')).toHaveCount(6)
     await page.locator('.snav').getByRole('button', { name: /Cover & Ask/ }).click()
     await expect(page).toHaveURL(/variant=classic/)
     await expect(page.locator('.snav.is-open')).toHaveCount(0)
@@ -184,7 +191,8 @@ test.describe('mobile voting', () => {
     const before = await serviceTotals()
     await page.goto(`/?service=${SERVICE}&page=${READER_ID}`)
     await expect(page.locator('h1').first()).toContainText('Active Risk Management', { timeout: 20_000 })
-    await page.getByRole('button', { name: 'USEFUL' }).click()
+    // SYN-369: wiki-register page vote.
+    await page.getByTestId('wk-pagerate').getByRole('button', { name: 'Yes' }).click()
     await expect(page.getByText('✓ logged — thank you')).toBeVisible()
     const after = await serviceTotals()
     expect(after.ratings).toBe((before.ratings || 0) + 1)
