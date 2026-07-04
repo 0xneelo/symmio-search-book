@@ -20,6 +20,12 @@ export const SECTIONS: SectionDef[] = [
   { key: 'insights', num: '05', name: 'INSIGHTS', navLabel: 'Insights' },
 ]
 
+/**
+ * SYN-362: first user testing exposes only the core loop — §00 plus the
+ * reader pages. The other five views live behind the admin gate.
+ */
+export const PUBLIC_SECTIONS: SectionDef[] = SECTIONS.filter((s) => s.key === 'classic')
+
 export const READER_SECTION = { num: 'PG', name: 'PAGE READER' }
 
 export function sectionFor(key: string): SectionDef {
@@ -28,4 +34,8 @@ export function sectionFor(key: string): SectionDef {
 
 export function isVariantKey(value: string | null): boolean {
   return SECTIONS.some((s) => s.key === value)
+}
+
+export function isPublicVariantKey(value: string | null): boolean {
+  return PUBLIC_SECTIONS.some((s) => s.key === value)
 }

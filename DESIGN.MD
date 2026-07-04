@@ -105,7 +105,7 @@ Diagram conventions: hatching = `repeating-linear-gradient(45°, white/12–14 0
 
 - `accent` (`--ink`): `#f04fd6` default · `#2e6bff` · `#8a5cff` · `#22d3ee`
 - `paper` (`--paper`): `#05070f` default · `#060a1c` · `#03103d` · `#0a1027`
-- `gridLines` (bool): toggles figure graph-paper grid
+- `gridLines` (bool): toggles figure graph-paper grid — **default OFF since 2026-07-04 (operator override, SYN-362): grids fight dense text; `--gridc` ships as `transparent`. Restore per-deploy with `rgba(255,255,255,0.07)`.**
 
 ## 10. Do / don't
 

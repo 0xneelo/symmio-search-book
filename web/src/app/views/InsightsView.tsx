@@ -493,7 +493,7 @@ export function InsightsView({ app }: { app: SearchBookApp }) {
       </PlateSection>
 
       {/* Recent + ratings (L3581, L3590) */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 34 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))', gap: 34 }}>
         <PlateSection title="FIG_I07 — RECENT QUESTIONS" aside="[ 12 MAX ]" style={{ marginBottom: 0 }}>
           {events.questions.length ? (
             events.questions

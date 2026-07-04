@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { AnnouncementBar, AskField, Sidebar, TopBar } from '@/components/manual'
-import { READER_SECTION, SECTIONS, sectionFor } from './sections'
-import { useSearchBook } from './useSearchBook'
+import { PUBLIC_SECTIONS, READER_SECTION, SECTIONS, sectionFor } from './sections'
+import { readAdminArea, useSearchBook } from './useSearchBook'
+import { AdminGate } from './AdminGate'
 import { CoverView } from './views/CoverView'
 import { ReaderView } from './views/ReaderView'
 import { BrowseView } from './views/BrowseView'
@@ -27,6 +28,9 @@ function drawerContext(): boolean {
 export function AppShell() {
   const app = useSearchBook()
   const [railOpen, setRailOpen] = useState(false)
+  // SYN-362: ?admin=1 exposes the ops views behind the server-verified gate.
+  const adminArea = readAdminArea()
+  const navSections = adminArea ? SECTIONS : PUBLIC_SECTIONS
   const section = app.activePageId ? READER_SECTION : sectionFor(app.variant)
 
   const closeRail = useCallback(() => setRailOpen(false), [])
@@ -57,7 +61,7 @@ export function AppShell() {
         {railOpen && <div className="fm-backdrop" onClick={closeRail} aria-hidden="true" />}
 
         <Sidebar
-          items={SECTIONS.map((s) => ({ id: s.key, num: s.num, name: s.navLabel }))}
+          items={navSections.map((s) => ({ id: s.key, num: s.num, name: s.navLabel }))}
           activeId={app.activePageId ? '' : app.variant}
           onNavigate={(id) => {
             app.setVariant(id)
@@ -128,16 +132,20 @@ export function AppShell() {
                 <ReaderView app={app} pageId={app.activePageId} />
               ) : app.variant === 'classic' ? (
                 <CoverView app={app} />
-              ) : app.variant === 'browse' ? (
-                <BrowseView app={app} />
-              ) : app.variant === 'glossary' ? (
-                <GlossaryView app={app} />
-              ) : app.variant === 'faq' ? (
-                <FaqView app={app} />
-              ) : app.variant === 'journey' ? (
-                <JourneyView app={app} />
               ) : (
-                <InsightsView app={app} />
+                <AdminGate>
+                  {app.variant === 'browse' ? (
+                    <BrowseView app={app} />
+                  ) : app.variant === 'glossary' ? (
+                    <GlossaryView app={app} />
+                  ) : app.variant === 'faq' ? (
+                    <FaqView app={app} />
+                  ) : app.variant === 'journey' ? (
+                    <JourneyView app={app} />
+                  ) : (
+                    <InsightsView app={app} />
+                  )}
+                </AdminGate>
               )}
             </div>
           </main>

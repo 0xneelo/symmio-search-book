@@ -7,7 +7,12 @@
 :root {
   --ink: #f04fd6;
   --paper: #05070f;
-  --gridc: rgba(255, 255, 255, 0.07);
+  /*
+   * gridLines OFF by default — operator override 2026-07-04 (SYN-362), using
+   * the DESIGN.MD §9 tweakable prop: graph-paper grids fight dense text.
+   * Restore with rgba(255, 255, 255, 0.07).
+   */
+  --gridc: transparent;
 }
 
 @theme {

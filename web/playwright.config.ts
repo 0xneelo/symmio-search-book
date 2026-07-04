@@ -31,6 +31,10 @@ export default defineConfig({
         SEARCH_BOOK_ANSWER_ENGINE_DB: smokeDb,
         SEARCH_BOOK_ANSWER_ENGINE_PORT: '8792',
         SEARCH_BOOK_ANSWER_ENGINE_DEFAULT_MODE: 'extractive',
+        // Test-only fixture value for the admin gate (SYN-362) — not a secret.
+        SEARCH_BOOK_ANSWER_ENGINE_ADMIN_TOKEN: 'pw-admin-gate-fixture',
+        // The default 60 req/min per-IP limit 429s the combined suite mid-run.
+        SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE: '1000',
       },
       url: 'http://127.0.0.1:8792/health',
       reuseExistingServer: false,

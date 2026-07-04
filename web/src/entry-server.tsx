@@ -8,7 +8,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { loadCorpusData, type CorpusData } from '@/data/loader'
 import { readerModelFor } from '@/lib/reader'
 import { AnnouncementBar, RatingButtons, Sidebar, TopBar } from '@/components/manual'
-import { READER_SECTION, SECTIONS } from '@/app/sections'
+import { PUBLIC_SECTIONS, READER_SECTION } from '@/app/sections'
 import { ReaderArticle } from '@/app/reader/ReaderArticle'
 
 let dataPromise: Promise<CorpusData> | null = null
@@ -32,7 +32,7 @@ export async function renderPage(pageId: string): Promise<{ title: string; html:
     <div className="flex h-full flex-col overflow-hidden">
       <div className="relative flex min-h-0 flex-1">
         <Sidebar
-          items={SECTIONS.map((s) => ({ id: s.key, num: s.num, name: s.navLabel }))}
+          items={PUBLIC_SECTIONS.map((s) => ({ id: s.key, num: s.num, name: s.navLabel }))}
           activeId=""
           onNavigate={() => {}}
           backLink={{ label: 'Back to app', href: '../dashboard.html' }}

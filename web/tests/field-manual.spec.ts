@@ -8,41 +8,44 @@ import { expect, test } from '@playwright/test'
 
 const SERVICE = 'http://127.0.0.1:8792'
 const ASK_PLACEHOLDER = 'Ask anything — points, invites, revenue, payouts…'
+// Fixture value from playwright.config.ts — not a secret.
+const ADMIN_TOKEN = 'pw-admin-gate-fixture'
 
 async function serviceTotals() {
-  const res = await fetch(`${SERVICE}/api/search-book/insights`)
+  const res = await fetch(`${SERVICE}/api/search-book/insights`, {
+    headers: { 'x-search-book-admin-token': ADMIN_TOKEN },
+  })
   const payload = await res.json()
   return payload.totals || {}
 }
 
-test.describe('navigation', () => {
-  test('all six variants render and cycle', async ({ page }) => {
-    const expectH1: Record<string, string> = {
-      classic: 'Vibe×SYMM.',
-      browse: 'Browse docs.',
-      glossary: 'Glossary.',
-      faq: 'FAQ routes.',
-      journey: 'Journeys.',
-      insights: 'Insights.',
-    }
-    for (const [variant, h1] of Object.entries(expectH1)) {
+async function loginAdmin(page: import('@playwright/test').Page) {
+  await expect(page.getByText('ADMIN ACCESS')).toBeVisible({ timeout: 20_000 })
+  await page.getByPlaceholder('Operator token —').fill(ADMIN_TOKEN)
+  await page.getByRole('button', { name: 'Unlock' }).click()
+}
+
+test.describe('navigation (public surface = §00 + reader, SYN-362)', () => {
+  test('public nav shows only Cover & Ask; removed-view URLs redirect to cover', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('h1').first()).toHaveText('Vibe×SYMM.', { timeout: 20_000 })
+    await expect(page.locator('.navrow')).toHaveCount(1)
+    await expect(page.locator('.navrow .navname')).toHaveText('Cover & Ask')
+
+    // The five removed views redirect to the cover and clean the URL.
+    for (const variant of ['browse', 'glossary', 'faq', 'journey', 'insights']) {
       await page.goto(`/?variant=${variant}`)
-      await expect(page.locator('h1').first()).toHaveText(h1, { timeout: 20_000 })
+      await expect(page.locator('h1').first()).toHaveText('Vibe×SYMM.', { timeout: 20_000 })
+      expect(page.url()).not.toContain(`variant=${variant}`)
     }
-    // ArrowRight cycles classic → browse (same order as the old variants list).
-    await page.goto('/?variant=classic')
+
+    // Arrow cycling is a no-op with a single public section.
+    await page.goto('/')
     await expect(page.locator('h1').first()).toHaveText('Vibe×SYMM.')
     await page.keyboard.press('ArrowRight')
-    await expect(page).toHaveURL(/variant=browse/)
-    await page.keyboard.press('ArrowLeft')
-    await expect(page).toHaveURL(/variant=classic/)
-  })
-
-  test('sidebar INDEX navigates and marks active', async ({ page }) => {
-    await page.goto('/')
-    await page.getByRole('button', { name: /Glossary/ }).click()
-    await expect(page).toHaveURL(/variant=glossary/)
-    await expect(page.locator('.navrow[data-active="true"] .navname')).toHaveText('Glossary')
+    await page.waitForTimeout(300)
+    await expect(page.locator('h1').first()).toHaveText('Vibe×SYMM.')
+    expect(page.url()).not.toContain('variant=browse')
   })
 
   test('SSG page route serves static content and hydrates', async ({ page, request }) => {
@@ -58,6 +61,56 @@ test.describe('navigation', () => {
   test('?page= deep link renders the reader', async ({ page }) => {
     await page.goto('/?page=authored-active-risk-management-vs-passive-physics')
     await expect(page.locator('h1').first()).toContainText('Active Risk Management', { timeout: 20_000 })
+  })
+})
+
+test.describe('admin gate (SYN-362)', () => {
+  test('unauthenticated: login panel instead of ops views; /insights feed returns 401', async ({ page }) => {
+    await page.goto(`/?service=${SERVICE}&admin=1&variant=browse`)
+    await expect(page.getByText('ADMIN ACCESS')).toBeVisible({ timeout: 20_000 })
+    await expect(page.locator('h1.fm-h1-section')).toHaveCount(0)
+    await expect(page.getByText('COMPENDIUM VOLUMES')).toHaveCount(0)
+
+    // The sensitive feed is not fetchable without the token.
+    const status = await page.evaluate(async (service) => {
+      const res = await fetch(`${service}/api/search-book/insights`)
+      return res.status
+    }, SERVICE)
+    expect(status).toBe(401)
+  })
+
+  test('wrong token is rejected server-side; correct token unlocks and persists', async ({ page }) => {
+    await page.goto(`/?service=${SERVICE}&admin=1&variant=glossary`)
+    await expect(page.getByText('ADMIN ACCESS')).toBeVisible({ timeout: 20_000 })
+    await page.getByPlaceholder('Operator token —').fill('wrong-token')
+    await page.getByRole('button', { name: 'Unlock' }).click()
+    await expect(page.getByText('Token rejected by the answer-engine.')).toBeVisible()
+
+    await page.getByPlaceholder('Operator token —').fill(ADMIN_TOKEN)
+    await page.getByRole('button', { name: 'Unlock' }).click()
+    await expect(page.locator('h1').first()).toHaveText('Glossary.', { timeout: 20_000 })
+
+    // Session persists (localStorage) — reload lands straight on the view.
+    await page.reload()
+    await expect(page.locator('h1').first()).toHaveText('Glossary.', { timeout: 20_000 })
+
+    // Admin nav shows all six sections and navigates within the admin area.
+    await expect(page.locator('.navrow')).toHaveCount(6)
+    await page.getByRole('button', { name: /Insights/ }).click()
+    await expect(page).toHaveURL(/admin=1/)
+    await expect(page.locator('h1').first()).toHaveText('Insights.', { timeout: 20_000 })
+  })
+
+  test('public vote flow tolerates the gated /insights (no visible failure)', async ({ page }) => {
+    const before = await serviceTotals()
+    await page.goto(`/?service=${SERVICE}`)
+    await page.getByPlaceholder(ASK_PLACEHOLDER).fill('How is my revenue calculated?')
+    await page.keyboard.press('Enter')
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
+    await page.getByRole('button', { name: 'USEFUL' }).click()
+    await expect(page.getByText('✓ logged — thank you')).toBeVisible()
+    const after = await serviceTotals()
+    expect(after.ratings).toBe((before.ratings || 0) + 1)
   })
 })
 

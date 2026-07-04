@@ -13,7 +13,10 @@ const READER_ID = 'authored-active-risk-management-vs-passive-physics'
 test.use({ viewport: { width: 375, height: 812 }, hasTouch: true })
 
 async function serviceTotals() {
-  const res = await fetch(`${SERVICE}/api/search-book/insights`)
+  // Fixture header from playwright.config.ts — /insights is admin-gated (SYN-362).
+  const res = await fetch(`${SERVICE}/api/search-book/insights`, {
+    headers: { 'x-search-book-admin-token': 'pw-admin-gate-fixture' },
+  })
   const payload = await res.json()
   return payload.totals || {}
 }
@@ -105,11 +108,26 @@ test.describe('mobile drawer', () => {
     await page.keyboard.press('Escape')
     await expect(page.locator('.snav.is-open')).toHaveCount(0)
 
-    // Nav click navigates and closes the drawer.
+    // Nav click navigates and closes the drawer (public nav = Cover & Ask only, SYN-362).
     await page.locator('.fm-rail-toggle').click()
-    await page.locator('.snav').getByRole('button', { name: /Glossary/ }).click()
-    await expect(page).toHaveURL(/variant=glossary/)
+    await expect(page.locator('.snav .navrow')).toHaveCount(1)
+    await page.locator('.snav').getByRole('button', { name: /Cover & Ask/ }).click()
+    await expect(page).toHaveURL(/variant=classic/)
     await expect(page.locator('.snav.is-open')).toHaveCount(0)
+  })
+})
+
+test.describe('mobile admin gate (SYN-362)', () => {
+  test('gate locks ops views at 375px; token unlocks', async ({ page }) => {
+    await page.goto(`/?service=${SERVICE}&admin=1&variant=browse`)
+    await expect(page.getByText('ADMIN ACCESS')).toBeVisible({ timeout: 20_000 })
+    const panel = await page.getByText('ADMIN ACCESS').locator('..').boundingBox()
+    expect(panel!.width).toBeLessThanOrEqual(375)
+
+    await page.getByPlaceholder('Operator token —').fill('pw-admin-gate-fixture')
+    await page.getByRole('button', { name: 'Unlock' }).click()
+    await expect(page.locator('h1').first()).toHaveText('Browse docs.', { timeout: 20_000 })
+    await assertNoHorizontalScroll(page)
   })
 })
 

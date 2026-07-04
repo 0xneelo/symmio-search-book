@@ -48,10 +48,15 @@ export function serviceEnabled(): boolean {
 }
 
 export async function serviceRequest(path: string, options: RequestInit = {}): Promise<Any> {
+  // SYN-362: ride the stored admin session token along so gated endpoints
+  // (/insights) work for the operator; harmless elsewhere. Key literal kept
+  // here (not imported from lib/admin) to avoid a module cycle.
+  const adminToken = localStorage.getItem('searchBookPrototype.adminToken') || ''
   const response = await fetch(`${serviceState.url}${path}`, {
     ...options,
     headers: {
       'content-type': 'application/json',
+      ...(adminToken ? { 'x-search-book-admin-token': adminToken } : {}),
       ...((options.headers as Record<string, string>) || {}),
     },
   })

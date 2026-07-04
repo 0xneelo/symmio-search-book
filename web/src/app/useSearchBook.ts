@@ -16,7 +16,7 @@ import {
   serviceEnabled,
 } from '@/lib/service'
 import type { AnswerResult, ServiceAnswerResponse } from '@/data/types'
-import { isVariantKey, SECTIONS } from './sections'
+import { isPublicVariantKey, isVariantKey, PUBLIC_SECTIONS, SECTIONS } from './sections'
 
 export interface AnswerState {
   result: AnswerResult
@@ -34,9 +34,23 @@ export const FALLBACK_EXAMPLES = [
   'How do I get more invites?',
 ]
 
+/** SYN-362: the ops views live behind ?admin=1 (+ server-verified token). */
+export function readAdminArea(): boolean {
+  return new URLSearchParams(window.location.search).get('admin') === '1'
+}
+
 function readVariant(): string {
   const v = new URLSearchParams(window.location.search).get('variant')
-  return isVariantKey(v) ? (v as string) : 'classic'
+  if (!isVariantKey(v)) return 'classic'
+  // SYN-362: admin-only variants are unreachable on public URLs — redirect to
+  // the cover (the URL is cleaned so reloads stay on the cover too).
+  if (!readAdminArea() && !isPublicVariantKey(v)) {
+    const url = new URL(window.location.href)
+    url.searchParams.delete('variant')
+    window.history.replaceState({}, '', url)
+    return 'classic'
+  }
+  return v as string
 }
 
 function readActivePageId(): string | null {
@@ -98,9 +112,12 @@ export function useSearchBook() {
 
   const cycleVariant = useCallback(
     (direction: number) => {
+      // SYN-362: cycling is scoped to the reachable section list.
+      const list = readAdminArea() ? SECTIONS : PUBLIC_SECTIONS
+      if (list.length < 2) return
       const current = readActivePageId() ? 'classic' : readVariant()
-      const index = SECTIONS.findIndex((item) => item.key === current)
-      const next = SECTIONS[(index + direction + SECTIONS.length) % SECTIONS.length].key
+      const index = list.findIndex((item) => item.key === current)
+      const next = list[(index + direction + list.length) % list.length].key
       setVariant(next)
     },
     [setVariant],

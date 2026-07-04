@@ -229,7 +229,9 @@ export function CardGrid({ children, min = 300 }: { children: ReactNode; min?: n
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(auto-fill, minmax(${min}px, 1fr))`,
+        // min(…, 100%) keeps track minimums from forcing horizontal scroll on
+        // narrow viewports (SYN-362 mobile audit).
+        gridTemplateColumns: `repeat(auto-fill, minmax(min(${min}px, 100%), 1fr))`,
         gap: 20,
       }}
     >
