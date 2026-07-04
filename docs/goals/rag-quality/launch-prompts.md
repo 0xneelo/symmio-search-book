@@ -243,4 +243,47 @@ Label issues project:symmio-search-book + subproject:rag-quality + agent:agent-f
 
 Not a worker-agent launch; it's a research issue. Whoever picks it up claims a fresh agent tag, reads
 `docs/goals/rag-quality/goal-research-backlog.md`, and spins each item into its own goal/issue.
-**File item 1 (reuse-cache stale-citation bug) as a bug and fix it promptly regardless of the rest.**
+(Item 1, the reuse-cache stale-citation bug, is already split out as its own bug issue — SYN-389.)
+
+---
+
+## Short 2-liner variants
+
+Minimal kickoff prompts — each agent bootstraps the full contract from the README + its goal doc, so
+these lose nothing. Dispatch 10 first, then 9 → 6 → 7; 8 and 11 anytime.
+
+**fable-10 — SNR cutoff (SYN-376, do first)**
+```
+You are agent-fable-10 in /Users/misterislez/projects/symmio-search-book. Read docs/goals/rag-quality/README.md then goal-10-snr-cutoff.md and execute SYN-376: add a relative score-gap cutoff in retrieve() before the budget loop.
+Branch rag-quality/fable-10-snr-cutoff off main; all 47 fixtures must pass; follow the embedded protocol (claim tag, In Progress, milestone commits, Done + report).
+```
+
+**fable-9 — associative expansion (SYN-377)**
+```
+You are agent-fable-9 in /Users/misterislez/projects/symmio-search-book. Read docs/goals/rag-quality/README.md then goal-9-associative-expansion.md and execute SYN-377: deterministic adjacent-chunk + crosslink expansion after selection, plus the extractiveAnswer neighbor pull.
+Branch rag-quality/fable-9-associative-expansion off main, rebase so fable-10 is present; 47 fixtures green; follow the embedded protocol.
+```
+
+**fable-6 — cue index, flagship (SYN-378)**
+```
+You are agent-fable-6 in /Users/misterislez/projects/symmio-search-book. Read docs/goals/rag-quality/README.md then goal-6-cue-index.md and execute SYN-378: build-time generated cue artifact (data/answer-cues.json via new build-answer-cues.mjs) + cue term in scoreChunk + fuzzy route matching — never query-time generation.
+Branch rag-quality/fable-6-cue-index off main, rebase so fable-10/9 are present; 47 fixtures green with zero adversarial regressions; follow the embedded protocol.
+```
+
+**fable-7 — supersession (SYN-379)**
+```
+You are agent-fable-7 in /Users/misterislez/projects/symmio-search-book. Read docs/goals/rag-quality/README.md then goal-7-supersession.md and execute SYN-379: build-time supersededBy chunk field + eligibility gate in retrieve() with --include-superseded; no wall-clock decay anywhere.
+Branch rag-quality/fable-7-supersession off main, rebase so fable-10/9/6 are present; 47 fixtures green; follow the embedded protocol.
+```
+
+**fable-8 — prioritized replay (SYN-380, parallel)**
+```
+You are agent-fable-8 in /Users/misterislez/projects/symmio-search-book. Read docs/goals/rag-quality/README.md then goal-8-prioritized-replay.md and execute SYN-380: a committed at-risk ranking for the living-docs consolidation queue in build-gap-queue.mjs — do not touch the retriever.
+Branch rag-quality/fable-8-prioritized-replay off main (no rebase dependency); deterministic rebuild + documented formula; follow the embedded protocol.
+```
+
+**fable-11 — negative-cue index (SYN-382, parallel)**
+```
+You are agent-fable-11 in /Users/misterislez/projects/symmio-search-book. Read docs/goals/rag-quality/README.md then goal-11-negative-cue-index.md and execute SYN-382: build-time data/negative-cues.json + near-miss paraphrase blocking in preflight(); never over-block — the 27 legit fixtures must still answer.
+Branch rag-quality/fable-11-negative-cue-index off main; all 47 fixtures green; follow the embedded protocol.
+```
