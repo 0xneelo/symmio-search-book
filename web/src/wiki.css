@@ -330,6 +330,10 @@
   background: var(--wk-box-fill);
   border: 1px solid var(--wk-table-header);
   padding: 0 3px;
+  overflow-wrap: anywhere;
+}
+.wk-body {
+  overflow-wrap: break-word;
 }
 .wk-body a.source-chip {
   color: var(--wk-link-external);
@@ -431,6 +435,7 @@
 }
 .wk-references li {
   margin-bottom: 5px;
+  overflow-wrap: anywhere;
 }
 .wk-ref-backlink {
   font-weight: bold;
@@ -530,11 +535,40 @@
     width: 100%;
     margin: 4px 0 16px;
   }
+  /* Tab row wraps: tabs stay on the chrome line, search drops below. */
+  .wk-tabrow {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    padding-bottom: 4px;
+  }
+  .wk-tabrow-right {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+  .wk-head-search {
+    flex: 1 1 100%;
+    margin-bottom: 0;
+  }
   .wk-head-search input {
-    max-width: 56vw;
+    flex: 1;
+    width: auto;
+    max-width: none;
+    min-width: 0;
   }
   .wk-personal {
     white-space: nowrap;
     overflow-x: auto;
+  }
+  /* Wide content (markdown tables) scrolls inside its own box — the page
+   * never scrolls horizontally. */
+  .wk-body table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .wk-infobox table {
+    width: 100%;
   }
 }
