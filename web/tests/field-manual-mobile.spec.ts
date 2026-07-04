@@ -146,11 +146,11 @@ test.describe('mobile voting', () => {
 
     await page.getByRole('button', { name: 'USEFUL' }).click()
     await expect(page.getByText('✓ logged — thank you')).toBeVisible()
-    // SYN-364 dialog: any exit clears back to the ask form (operator correction).
+    // SYN-364 dialog: backdrop = cancel, keeps the answer readable.
     await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
     await page.mouse.click(20, 60)
     await expect(page.getByRole('dialog')).toHaveCount(0)
-    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
     await page.waitForTimeout(400)
     expect(ratingPosts).toEqual([200])
     const after = await serviceTotals()

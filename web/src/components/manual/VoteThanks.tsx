@@ -3,31 +3,36 @@ import { Kicker } from './Kicker'
 
 export interface VoteThanksProps {
   open: boolean
-  /** Seconds before the dialog auto-closes (operator spec: 5). */
+  /** Seconds before the dialog auto-closes (operator spec: 15, for slow readers). */
   seconds?: number
   /** ASK NEXT QUESTION — caller clears the answer and refocuses the ask field. */
   onAskNext: () => void
-  /** Countdown end / backdrop / Escape. Caller decides whether the answer stays. */
-  onClose: () => void
+  /** CANCEL ×, the underlined link, backdrop, or Escape — close but KEEP the answer readable. */
+  onCancel: () => void
+  /** Countdown reached zero — caller clears the answer back to the ask form. */
+  onTimeout: () => void
 }
 
 /**
  * Post-vote thank-you dialog (SYN-364, operator amendment to DESIGN.MD §8):
- * confirms the logged rating, counts down from `seconds` in mono, auto-closes
- * at zero, and offers ASK NEXT QUESTION to close immediately.
+ * confirms the logged rating with a mono countdown. Mount fresh per vote —
+ * a persistent mount leaks the previous countdown's expired state and closes
+ * the next dialog instantly.
  */
-export function VoteThanks({ open, seconds = 5, onAskNext, onClose }: VoteThanksProps) {
+export function VoteThanks({ open, seconds = 15, onAskNext, onCancel, onTimeout }: VoteThanksProps) {
   const [left, setLeft] = useState(seconds)
   // Ref'd so parent re-renders (new handler identities) can't reset the countdown.
-  const onCloseRef = useRef(onClose)
-  onCloseRef.current = onClose
+  const onCancelRef = useRef(onCancel)
+  onCancelRef.current = onCancel
+  const onTimeoutRef = useRef(onTimeout)
+  onTimeoutRef.current = onTimeout
 
   useEffect(() => {
     if (!open) return
     setLeft(seconds)
     const iv = setInterval(() => setLeft((s) => s - 1), 1000)
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onCloseRef.current()
+      if (e.key === 'Escape') onCancelRef.current()
     }
     window.addEventListener('keydown', onKey)
     return () => {
@@ -37,14 +42,14 @@ export function VoteThanks({ open, seconds = 5, onAskNext, onClose }: VoteThanks
   }, [open, seconds])
 
   useEffect(() => {
-    if (open && left <= 0) onCloseRef.current()
+    if (open && left <= 0) onTimeoutRef.current()
   }, [open, left])
 
   if (!open) return null
 
   return (
     <div
-      onClick={onClose}
+      onClick={onCancel}
       style={{
         display: 'flex',
         position: 'fixed',
@@ -62,14 +67,35 @@ export function VoteThanks({ open, seconds = 5, onAskNext, onClose }: VoteThanks
         aria-label="Rating logged — thank you"
         onClick={(e) => e.stopPropagation()}
         style={{
+          position: 'relative',
           background: 'color-mix(in srgb,var(--paper) 55%,#16276e)',
           border: '2px solid #2e6bff',
           boxShadow: '0 6px 0 rgba(0,0,0,0.45),0 28px 70px rgba(0,0,0,0.55)',
           maxWidth: 460,
           width: '100%',
-          padding: '26px 28px 24px',
+          padding: '26px 28px 22px',
         }}
       >
+        <button
+          type="button"
+          onClick={onCancel}
+          aria-label="Cancel and keep reading"
+          style={{
+            position: 'absolute',
+            top: 10,
+            right: 12,
+            background: 'transparent',
+            border: 'none',
+            padding: 4,
+            fontFamily: 'var(--font-mono)',
+            fontSize: 10.5,
+            letterSpacing: 1.5,
+            color: '#8fa0d8',
+            cursor: 'pointer',
+          }}
+        >
+          CANCEL ×
+        </button>
         <Kicker size={11} tracking={2.5} style={{ marginBottom: 10 }}>
           THANK YOU —
         </Kicker>
@@ -96,6 +122,7 @@ export function VoteThanks({ open, seconds = 5, onAskNext, onClose }: VoteThanks
             justifyContent: 'space-between',
             gap: 18,
             flexWrap: 'wrap',
+            marginBottom: 16,
           }}
         >
           <button
@@ -128,6 +155,24 @@ export function VoteThanks({ open, seconds = 5, onAskNext, onClose }: VoteThanks
             AUTO-CLOSING IN {Math.max(left, 0)}s
           </span>
         </div>
+        <button
+          type="button"
+          onClick={onCancel}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            padding: 0,
+            fontFamily: 'var(--font-sans)',
+            fontSize: 12,
+            color: '#aebaf0',
+            textDecoration: 'underline',
+            textUnderlineOffset: 3,
+            cursor: 'pointer',
+            textAlign: 'left',
+          }}
+        >
+          Cancel — read the answer again.
+        </button>
       </div>
     </div>
   )

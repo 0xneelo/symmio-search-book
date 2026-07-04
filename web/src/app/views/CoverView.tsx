@@ -14,9 +14,9 @@ import { useState } from 'react'
  */
 export function CoverView({ app }: { app: SearchBookApp }) {
   const [guardOpen, setGuardOpen] = useState(false)
-  // Post-vote thank-you dialog (SYN-364). Every exit — countdown end, backdrop,
-  // Escape, or ASK NEXT QUESTION — clears the answer back to the ask form
-  // (operator correction 2026-07-04).
+  // Post-vote thank-you dialog (SYN-364). Countdown end and ASK NEXT QUESTION
+  // clear the answer back to the ask form; CANCEL ×, the underlined link,
+  // backdrop, and Escape keep the answer readable (operator, 2026-07-04).
   const [thanks, setThanks] = useState(false)
 
   const answer = app.answer
@@ -192,7 +192,16 @@ export function CoverView({ app }: { app: SearchBookApp }) {
         onDismiss={resetAnswer}
       />
 
-      <VoteThanks open={thanks} onAskNext={askNext} onClose={resetAnswer} />
+      {thanks && (
+        // Mounted fresh per vote — a persistent mount leaks the previous
+        // countdown's expired state and closes the next dialog instantly.
+        <VoteThanks
+          open
+          onAskNext={askNext}
+          onCancel={() => setThanks(false)}
+          onTimeout={resetAnswer}
+        />
+      )}
     </div>
   )
 }

@@ -127,26 +127,39 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await page.keyboard.press('Enter')
     await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
 
-    // Optimistic reaction; SYN-364 thank-you dialog with a 5s mono countdown.
+    // Optimistic reaction; SYN-364 thank-you dialog with a 15s mono countdown.
     await page.getByRole('button', { name: 'USEFUL' }).click()
     await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
-    await expect(page.getByText(/AUTO-CLOSING IN [0-5]s/)).toBeVisible()
+    await expect(page.getByText(/AUTO-CLOSING IN 1[0-5]s/)).toBeVisible()
 
     // One-shot: a direct re-click on the locked button must not re-POST; the
     // selected state is inverted to white. (element.click bypasses the overlay)
     await page.getByRole('button', { name: 'USEFUL' }).evaluate((el) => (el as HTMLElement).click())
     await expect(page.getByRole('button', { name: 'USEFUL' })).toHaveCSS('background-color', 'rgb(255, 255, 255)')
 
-    // Any exit clears the answer back to the ask form (operator correction).
-    await page.mouse.click(40, 500)
+    // CANCEL × closes the dialog but keeps the answer readable.
+    await page.getByRole('button', { name: 'Cancel and keep reading' }).click()
     await expect(page.getByRole('dialog')).toHaveCount(0)
-    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
-    await expect(page.getByText(/service answer|service refusal/)).toHaveCount(0)
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
     await page.waitForTimeout(300)
     expect(ratingPosts).toEqual([200])
 
+    // Regression (instant-close bug): a second vote in the same session must
+    // get a fresh countdown, not an instantly-closed dialog.
+    await page.getByRole('button', { name: 'DISMISS ×' }).click() // rated → resets to the form
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    await page.getByPlaceholder(ASK_PLACEHOLDER).fill('When do referral points credit?')
+    await page.keyboard.press('Enter')
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
+    await page.getByRole('button', { name: 'USEFUL' }).click()
+    await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
+    await expect(page.getByText(/AUTO-CLOSING IN 1[0-5]s/)).toBeVisible()
+    await page.getByRole('button', { name: 'ASK NEXT QUESTION' }).click()
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible()
+    expect(ratingPosts).toEqual([200, 200])
+
     const after = await serviceTotals()
-    expect(after.ratings).toBe((before.ratings || 0) + 1)
+    expect(after.ratings).toBe((before.ratings || 0) + 2)
     expect(after.questions).toBeGreaterThan(before.questions || 0)
   })
 
@@ -171,8 +184,8 @@ test.describe('search → answer → vote (service round-trip)', () => {
     await page.getByRole('dialog').getByRole('button', { name: 'NEEDS WORK' }).click()
     await expect(page.getByText('HOLD ON —')).not.toBeVisible()
     await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
-    await expect(page.getByText(/AUTO-CLOSING IN [0-5]s/)).toBeVisible()
-    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible({ timeout: 7_000 })
+    await expect(page.getByText(/AUTO-CLOSING IN 1[0-5]s/)).toBeVisible()
+    await expect(page.getByText('Routes your question to the nearest indexed figure.')).toBeVisible({ timeout: 17_000 })
     await expect(page.getByRole('dialog')).toHaveCount(0)
 
     const after = await serviceTotals()
