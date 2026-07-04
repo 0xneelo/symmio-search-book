@@ -1,17 +1,12 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { readerModelFor } from '@/lib/reader'
-import { findAnswer } from '@/lib/search'
-import { recordQuestion } from '@/lib/service'
 import { recordPageRating, type VoteValue } from '@/lib/voting'
-import { ecosystemLinksFor, randomPageId } from '@/lib/wiki'
 import { WikiChrome } from '@/components/wiki/WikiChrome'
 import { WikiArticle, wikiDirectHref, wikiUpdatedFor } from '@/components/wiki/WikiArticle'
 import { WikiPageRating } from '@/components/wiki/WikiPageRating'
 import type { SearchBookApp } from '../useSearchBook'
 import { useVote } from '../useVote'
-
-/** Featured article shared with the portal hint (SYN-368). */
-const FEATURED_PAGE_ID = 'authored-ecosystem-synergy-map'
+import { wikiChromePropsFor } from '../wikiChrome'
 
 /**
  * Client reader island (SYN-369): full Symmiopedia article — wiki chrome +
@@ -42,17 +37,6 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
   )
   const voteState = useVote(persist)
 
-  const headerSearch = useCallback(
-    (query: string) => {
-      if (!app.data) return
-      const result = findAnswer(app.data, query)
-      recordQuestion(query, result, 'reader-search')
-      app.bumpInsights()
-      if (result.page) app.setActivePage(result.page.id)
-    },
-    [app],
-  )
-
   if (!app.data) {
     return (
       <div className="wiki" style={{ minHeight: '100vh', background: 'var(--wk-canvas)', padding: 40 }}>
@@ -64,18 +48,7 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
   }
 
   const data = app.data
-  const featuredPage = data.pageById.get(FEATURED_PAGE_ID)
-  const chromeProps = {
-    ecosystem: ecosystemLinksFor(data),
-    featured: featuredPage ? { id: featuredPage.id, title: featuredPage.title } : null,
-    onNavigatePage: (id: string) => app.openPage(id, 'browse'),
-    onMainPage: () => app.clearActivePage('classic'),
-    onSearch: headerSearch,
-    onRandom: () => {
-      const id = randomPageId(data)
-      if (id) app.openPage(id, 'nav')
-    },
-  }
+  const chromeProps = wikiChromePropsFor(app)
 
   if (!model) {
     // Wiki-register not-found (parity: not-found panel with return routes).

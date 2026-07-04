@@ -499,6 +499,232 @@
   color: var(--wk-text);
 }
 
+/* ---------------------------------------------------------------------------
+ * Special pages (SYN-370): Search results + Ask reference desk.
+ * ------------------------------------------------------------------------ */
+
+.wk-results-search {
+  display: flex;
+  width: min(480px, 92vw);
+  margin: 14px 0;
+}
+.wk-results-search input {
+  flex: 1;
+  height: 34px;
+  border: 1px solid var(--wk-rule);
+  border-right: none;
+  border-radius: 2px 0 0 2px !important;
+  padding: 0 10px;
+  font-size: 14px;
+  font-family: var(--wk-sans);
+  color: var(--wk-text);
+  background: var(--wk-content);
+  outline: none;
+  min-width: 0;
+}
+.wk-results-search button {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  font-family: var(--wk-sans);
+  font-size: 13px;
+  color: var(--wk-text);
+  cursor: pointer;
+}
+.wk-results-search button:hover {
+  background: var(--wk-table-header);
+}
+
+.wk-ask-bridge {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  padding: 8px 12px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.wk-results {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  max-width: 720px;
+}
+.wk-results li {
+  margin-bottom: 16px;
+}
+.wk-result-title {
+  font-size: 15.5px;
+}
+.wk-result-snippet {
+  font-size: 13.2px;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+.wk-result-meta {
+  font-size: 11.9px;
+  margin-top: 2px;
+}
+
+.wk-ask-examples {
+  font-size: 13px;
+}
+
+/* Answer card — reference-desk register: 14px/1.6 sans, box-fill panel. */
+.wk-answer {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-content);
+  max-width: 720px;
+  padding: 14px 18px 16px;
+  margin-top: 6px;
+}
+.wk-answer h3 {
+  margin: 4px 0 10px;
+  font-size: 17px;
+}
+.wk-answer h4 {
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+.wk-answer p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.wk-answer-meta {
+  font-size: 11.9px;
+}
+.wk-answer-degraded {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  color: var(--wk-muted);
+  font-size: 12.6px;
+  padding: 7px 10px;
+  margin-bottom: 10px;
+}
+
+/* Flat wiki-register answer vote row. */
+.wk-answer-rate {
+  border-top: 1px solid var(--wk-figure-border);
+  margin-top: 12px;
+  padding-top: 10px;
+  font-size: 12.6px;
+  color: var(--wk-muted);
+}
+.wk-answer-rate button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--wk-sans);
+  font-size: 12.6px;
+  color: var(--wk-link);
+  cursor: pointer;
+}
+.wk-answer-rate button:hover {
+  text-decoration: underline;
+}
+.wk-answer-rate button:disabled {
+  color: var(--wk-muted);
+  cursor: default;
+  text-decoration: none;
+}
+.wk-answer-rate .wk-answer-dismiss {
+  float: right;
+  color: var(--wk-muted);
+}
+.wk-answer-rate .wk-pagerate-done {
+  color: var(--wk-text);
+}
+
+/* Wiki-register modals (dismiss-guard, vote-thanks): flat white panels,
+ * 1px rules, no shadows on chrome, link-blue actions only. */
+.wk-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(32, 33, 34, 0.55);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.wk-modal {
+  position: relative;
+  background: var(--wk-content);
+  border: 1px solid var(--wk-rule);
+  max-width: 480px;
+  width: 100%;
+  padding: 20px 22px 18px;
+  font-family: var(--wk-sans);
+  color: var(--wk-text);
+}
+.wk-modal-kicker {
+  font-size: 11.9px;
+  color: var(--wk-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.wk-modal h3 {
+  font-family: var(--wk-serif);
+  font-weight: normal;
+  font-size: 20px;
+  margin: 0 0 8px;
+  border-bottom: 1px solid var(--wk-rule);
+  padding-bottom: 4px;
+}
+.wk-modal p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.wk-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 4px 0 12px;
+}
+.wk-modal-primary {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  color: var(--wk-link);
+  font-family: var(--wk-sans);
+  font-size: 13px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+.wk-modal-primary:hover {
+  background: var(--wk-table-header);
+}
+.wk-modal-cancel {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-family: var(--wk-sans);
+  font-size: 11.9px;
+  color: var(--wk-muted);
+  cursor: pointer;
+}
+.wk-modal-cancel:hover {
+  text-decoration: underline;
+}
+.wk-modal-escape {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--wk-sans);
+  font-size: 12.6px;
+  color: var(--wk-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-align: left;
+}
+
 /* Mobile: collapse the grid to one column; unfloat the infobox. */
 @media (max-width: 900px) {
   .wk-page {

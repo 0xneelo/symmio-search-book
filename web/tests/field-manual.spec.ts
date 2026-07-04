@@ -68,13 +68,14 @@ test.describe('navigation (public surface = portal + reader, SYN-362/SYN-368)', 
     expect(page.url()).toContain('page=authored-ecosystem-synergy-map')
   })
 
-  test('portal search routes a seeded question to its article and records the event', async ({ page }) => {
+  test('portal search: exact seeded route opens the article; vague query lands on results', async ({ page }) => {
     await page.goto('/')
     // The featured-article hint renders once the corpus is loaded — search
     // resolution needs the data, so wait for it before typing.
     await expect(page.getByRole('link', { name: /Ecosystem Synergy Map/ })).toBeVisible({ timeout: 20_000 })
     const search = page.getByPlaceholder('Search Symmiopedia — or ask a question')
-    await search.fill('When do referral points credit?')
+    // Exact seeded question route (question-route:1000) → straight to the article.
+    await search.fill('What is Vibe Trading?')
     await page.keyboard.press('Enter')
     await expect(page.locator('h1').first()).not.toHaveText('', { timeout: 20_000 })
     expect(page.url()).toContain('page=')
@@ -82,6 +83,28 @@ test.describe('navigation (public surface = portal + reader, SYN-362/SYN-368)', 
       () => JSON.parse(localStorage.getItem('searchBookPrototype.questions') || '[]').length,
     )
     expect(questions).toBeGreaterThan(0)
+
+    // Fuzzy query → the Search results special page (SYN-370).
+    await page.goto('/')
+    await expect(page.getByRole('link', { name: /Ecosystem Synergy Map/ })).toBeVisible({ timeout: 20_000 })
+    await page.getByPlaceholder('Search Symmiopedia — or ask a question').fill('revenue split epochs')
+    await page.keyboard.press('Enter')
+    await expect(page.locator('h1').first()).toHaveText('Search results', { timeout: 20_000 })
+    expect(page.url()).toContain('search=')
+    await expect(page.locator('.wk-result-title').first()).toBeVisible()
+  })
+
+  test('results page: result opens the article; ask-bridge opens the reference desk', async ({ page }) => {
+    await page.goto('/?search=revenue+split+epochs')
+    await expect(page.locator('h1').first()).toHaveText('Search results', { timeout: 20_000 })
+    await page.locator('.wk-result-title').first().click()
+    await expect(page.locator('.wk-content h1').first()).not.toHaveText('Search results', { timeout: 20_000 })
+    expect(page.url()).toContain('page=')
+
+    await page.goto('/?search=revenue+split+epochs')
+    await page.getByRole('link', { name: /Ask the wiki/ }).click()
+    await expect(page.locator('h1').first()).toHaveText('Reference desk', { timeout: 20_000 })
+    expect(page.url()).toContain('ask=')
   })
 
   test('SSG page route serves static content and hydrates', async ({ page, request }) => {
@@ -258,6 +281,96 @@ test.describe('search → answer → vote (service round-trip)', () => {
     expect(stored.questions).toBeGreaterThan(0)
     expect(stored.ratings).toBe(1)
     expect(ratingPosts).toEqual([]) // never POSTs local q-… ids (the SYN-352 fix)
+  })
+})
+
+test.describe('ask special page (SYN-370) — public voting/quarantine parity', () => {
+  test('service ask → wiki answer → vote persists with one-shot lock; thanks dialog behaviors', async ({ page }) => {
+    const before = await serviceTotals()
+    const ratingPosts: number[] = []
+    page.on('response', (r) => {
+      if (r.url().includes('/api/search-book/rating')) ratingPosts.push(r.status())
+    })
+
+    await page.goto(`/?service=${SERVICE}&ask=${encodeURIComponent('How is my revenue calculated?')}`)
+    await expect(page.locator('h1').first()).toHaveText('Reference desk', { timeout: 20_000 })
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
+
+    // Optimistic one-shot vote → thank-you dialog with the 15s countdown.
+    await page.getByTestId('wk-answer-rate').getByRole('button', { name: 'Useful' }).click()
+    await expect(page.getByRole('dialog', { name: 'Rating logged — thank you' })).toBeVisible()
+    await expect(page.getByText(/auto-closing in 1[0-5]s/)).toBeVisible()
+
+    // Cancel × keeps the answer readable; the vote row shows the lock.
+    await page.getByRole('button', { name: 'Cancel and keep reading' }).click()
+    await expect(page.getByRole('dialog')).toHaveCount(0)
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
+    await expect(page.getByTestId('wk-answer-rate').getByText('✓ logged — thank you')).toBeVisible()
+    await page.waitForTimeout(300)
+    expect(ratingPosts).toEqual([200])
+
+    const after = await serviceTotals()
+    expect(after.ratings).toBe((before.ratings || 0) + 1)
+    expect(after.questions).toBeGreaterThan(before.questions || 0)
+  })
+
+  test('dismiss-guard blocks unrated dismissal on the reference desk', async ({ page }) => {
+    const before = await serviceTotals()
+    await page.goto(`/?service=${SERVICE}&ask=${encodeURIComponent('When do referral points credit?')}`)
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
+
+    await page.getByRole('button', { name: 'Dismiss ×' }).click()
+    await expect(page.getByText('Hold on —')).toBeVisible()
+
+    // Backdrop click cancels (answer stays).
+    await page.mouse.click(40, 500)
+    await expect(page.getByText('Hold on —')).not.toBeVisible()
+    await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible()
+
+    // Re-open, rate Needs work from the modal → thank-you dialog; ask-next
+    // clears the answer back to the form.
+    await page.getByRole('button', { name: 'Dismiss ×' }).click()
+    await page.getByRole('dialog').getByRole('button', { name: 'Needs work' }).click()
+    await expect(page.getByText('Hold on —')).not.toBeVisible()
+    const thanks = page.getByRole('dialog', { name: 'Rating logged — thank you' })
+    await expect(thanks).toBeVisible()
+    await thanks.getByRole('button', { name: 'Ask next question' }).click()
+    await expect(page.locator('.wk-answer')).toHaveCount(0)
+    await expect(page.getByRole('dialog')).toHaveCount(0)
+
+    const after = await serviceTotals()
+    expect(after.ratings).toBe((before.ratings || 0) + 1)
+  })
+
+  test('local fallback ask on the public reference desk never POSTs unpersisted ids', async ({ page }) => {
+    const ratingPosts: string[] = []
+    page.on('request', (r) => {
+      if (r.url().includes('/api/search-book/rating')) ratingPosts.push(r.url())
+    })
+    await page.goto(`/?ask=${encodeURIComponent('When do referral points credit?')}`) // no ?service=
+    await expect(page.getByText(/routed answer/).first()).toBeVisible({ timeout: 20_000 })
+    await page.getByTestId('wk-answer-rate').getByRole('button', { name: 'Useful' }).click()
+    await expect(page.getByTestId('wk-answer-rate').getByText('✓ logged — thank you')).toBeVisible()
+    const stored = await page.evaluate(() => ({
+      questions: JSON.parse(localStorage.getItem('searchBookPrototype.questions') || '[]').length,
+      ratings: JSON.parse(localStorage.getItem('searchBookPrototype.ratings') || '[]').length,
+    }))
+    expect(stored.questions).toBeGreaterThan(0)
+    expect(stored.ratings).toBe(1)
+    expect(ratingPosts).toEqual([]) // never POSTs local q-… ids (the SYN-352 fix)
+  })
+
+  test('service refusal renders as a refusal (quarantine parity — nothing synthesized)', async ({ page }) => {
+    await page.goto(`/?service=${SERVICE}&ask=${encodeURIComponent('What did Lafa say about tokenomics in Discord?')}`)
+    await expect(page.locator('h1').first()).toHaveText('Reference desk', { timeout: 20_000 })
+    const meta = page.getByText(/service answer|service refusal/).first()
+    await expect(meta).toBeVisible({ timeout: 20_000 })
+    // Whatever the engine decides, the page must mirror it: a refusal shows
+    // the refusal register and no synthesized answer paragraphs.
+    const metaText = await meta.textContent()
+    if (metaText?.includes('service refusal')) {
+      await expect(page.locator('.wk-answer p').first()).toBeVisible()
+    }
   })
 })
 

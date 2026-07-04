@@ -6,6 +6,8 @@ import { AdminGate } from './AdminGate'
 import { CoverView } from './views/CoverView'
 import { PortalView } from './views/PortalView'
 import { ReaderView } from './views/ReaderView'
+import { SearchResultsView } from './views/SearchResultsView'
+import { AskView } from './views/AskView'
 import { BrowseView } from './views/BrowseView'
 import { GlossaryView } from './views/GlossaryView'
 import { FaqView } from './views/FaqView'
@@ -60,11 +62,15 @@ export function AppShell() {
     closeRail()
   }
 
-  if (isPublicLanding) return <PortalView app={app} />
-
   // SYN-369: every page route renders the full Symmiopedia article (its own
   // chrome) — the v2 shell stays only for the admin ops surface.
   if (app.activePageId) return <ReaderView app={app} pageId={app.activePageId} />
+
+  // SYN-370: wiki special pages — Search results + the Ask reference desk.
+  if (app.special?.kind === 'search') return <SearchResultsView app={app} query={app.special.query} />
+  if (app.special?.kind === 'ask') return <AskView app={app} query={app.special.query} />
+
+  if (isPublicLanding) return <PortalView app={app} />
 
   return (
     <div className="flex h-full flex-col overflow-hidden">

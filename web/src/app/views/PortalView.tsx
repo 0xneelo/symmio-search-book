@@ -11,35 +11,30 @@
  */
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { findAnswer } from '@/lib/search'
-import { recordQuestion } from '@/lib/service'
+import { resolveWikiSearch } from '@/lib/wiki-search'
 import { PuzzleGlobe, PuzzleGlobeDefs } from '@/components/wiki/PuzzleGlobe'
 import type { SearchBookApp } from '../useSearchBook'
+import { FEATURED_PAGE_ID } from '../wikiChrome'
 
-/** Deterministic featured article for the hint line (comp: "Symmio ecosystem"). */
-const FEATURED_PAGE_ID = 'authored-ecosystem-synergy-map'
 const ASK_HINT = 'How do I get more invites?'
 
 export function PortalView({ app }: { app: SearchBookApp }) {
   const [query, setQuery] = useState('')
-  const [missMessage, setMissMessage] = useState<string | null>(null)
 
   const featured = app.data?.pageById.get(FEATURED_PAGE_ID) || null
 
+  // A confident direct hit opens the article (comp §6); everything else lands
+  // on the Search-results special page (SYN-370).
   const resolve = (rawQuery: string, source: string) => {
     const q = rawQuery.trim()
     if (!q || !app.data) return
-    const result = findAnswer(app.data, q)
-    recordQuestion(q, result, source)
+    const destination = resolveWikiSearch(app.data, q, source)
     app.bumpInsights()
-    if (result.page) {
-      setMissMessage(null)
+    if (destination.kind === 'page') {
       app.setAnswer(null)
-      app.setActivePage(result.page.id)
+      app.setActivePage(destination.pageId)
     } else {
-      // Until the Search-results special page lands (SYN-370), a query with no
-      // grounded route stays on the portal with a wiki-register notice.
-      setMissMessage(q)
+      app.setSpecial('search', q)
     }
   }
 
@@ -128,13 +123,7 @@ export function PortalView({ app }: { app: SearchBookApp }) {
         </button>
       </form>
 
-      {missMessage && (
-        <div style={{ fontSize: 12, marginTop: 14 }} className="wk-muted" role="status">
-          No article matches &quot;{missMessage}&quot; yet — the gap is recorded.
-        </div>
-      )}
-
-      <div style={{ fontSize: 12, marginTop: missMessage ? 14 : 36, color: 'var(--wk-text)' }}>
+      <div style={{ fontSize: 12, marginTop: 36, color: 'var(--wk-text)' }}>
         {featured ? (
           <>
             Try{' '}
@@ -156,11 +145,10 @@ export function PortalView({ app }: { app: SearchBookApp }) {
       <div style={{ fontSize: 12, marginTop: 10, color: 'var(--wk-text)' }}>
         or ask the wiki:{' '}
         <a
-          href="#ask"
+          href={`?ask=${encodeURIComponent(ASK_HINT)}`}
           onClick={(event) => {
             event.preventDefault()
-            setQuery(ASK_HINT)
-            resolve(ASK_HINT, 'example')
+            app.setSpecial('ask', ASK_HINT)
           }}
         >
           &quot;{ASK_HINT}&quot;

@@ -61,10 +61,26 @@ function readActivePageId(): string | null {
   return match ? decodeURIComponent(match[1]) : null
 }
 
+/** Symmiopedia special pages (SYN-370): ?search=<q> results, ?ask=<q> reference desk. */
+export interface SpecialRoute {
+  kind: 'search' | 'ask'
+  query: string
+}
+
+function readSpecial(): SpecialRoute | null {
+  const params = new URLSearchParams(window.location.search)
+  const search = params.get('search')
+  if (search !== null) return { kind: 'search', query: search }
+  const ask = params.get('ask')
+  if (ask !== null) return { kind: 'ask', query: ask }
+  return null
+}
+
 export function useSearchBook() {
   const [data, setData] = useState<CorpusData | null>(null)
   const [variant, setVariantState] = useState(readVariant)
   const [activePageId, setActivePageId] = useState(readActivePageId)
+  const [special, setSpecialState] = useState(readSpecial)
   const [query, setQuery] = useState('')
   const [activeField, setActiveField] = useState<string | null>(null)
   const [answer, setAnswer] = useState<AnswerState | null>(null)
@@ -105,8 +121,26 @@ export function useSearchBook() {
     const url = new URL(window.location.href)
     url.searchParams.set('variant', next)
     url.searchParams.delete('page')
+    url.searchParams.delete('search')
+    url.searchParams.delete('ask')
     window.history.replaceState({}, '', url)
     setVariantState(next)
+    setActivePageId(null)
+    setSpecialState(null)
+  }, [])
+
+  /** Navigate to a special page (SYN-370): ?search=<q> or ?ask=<q>. */
+  const setSpecial = useCallback((kind: 'search' | 'ask', query: string) => {
+    const url = new URL(window.location.href)
+    if (/\/page\/[^/]+\/?$/.test(url.pathname)) {
+      url.pathname = url.pathname.replace(/page\/[^/]+\/?$/, '')
+    }
+    url.searchParams.delete('page')
+    url.searchParams.delete('variant')
+    url.searchParams.delete(kind === 'search' ? 'ask' : 'search')
+    url.searchParams.set(kind, query)
+    window.history.replaceState({}, '', url)
+    setSpecialState({ kind, query })
     setActivePageId(null)
   }, [])
 
@@ -132,8 +166,11 @@ export function useSearchBook() {
     }
     url.searchParams.set('page', pageId)
     url.searchParams.delete('variant')
+    url.searchParams.delete('search')
+    url.searchParams.delete('ask')
     window.history.replaceState({}, '', url)
     setActivePageId(pageId)
+    setSpecialState(null)
   }, [])
 
   const clearActivePage = useCallback(
@@ -172,17 +209,21 @@ export function useSearchBook() {
       const q = rawQuery.trim()
       if (!q) return
       const corpusData = dataRef.current
-      setVariantState((v) => {
-        // Answers render on the cover (comp §8); jump there if elsewhere.
-        if (v !== 'classic' || readActivePageId()) {
-          const url = new URL(window.location.href)
-          url.searchParams.set('variant', 'classic')
-          url.searchParams.delete('page')
-          window.history.replaceState({}, '', url)
-          setActivePageId(null)
-        }
-        return 'classic'
-      })
+      // SYN-370: on the public Ask special page the answer renders in place —
+      // only the (admin) cover flow still jumps to the classic variant.
+      if (readSpecial()?.kind !== 'ask') {
+        setVariantState((v) => {
+          // Answers render on the cover (comp §8); jump there if elsewhere.
+          if (v !== 'classic' || readActivePageId()) {
+            const url = new URL(window.location.href)
+            url.searchParams.set('variant', 'classic')
+            url.searchParams.delete('page')
+            window.history.replaceState({}, '', url)
+            setActivePageId(null)
+          }
+          return 'classic'
+        })
+      }
       if (serviceEnabled()) {
         setAnswer({ result: { page: null, score: 'service' }, query: q, eventId: '', loading: true })
         try {
@@ -237,6 +278,8 @@ export function useSearchBook() {
     data,
     variant,
     activePageId,
+    special,
+    setSpecial,
     setVariant,
     cycleVariant,
     setActivePage,
