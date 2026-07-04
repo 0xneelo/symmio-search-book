@@ -4,6 +4,7 @@ import { PUBLIC_SECTIONS, READER_SECTION, SECTIONS, sectionFor } from './section
 import { readAdminArea, useSearchBook } from './useSearchBook'
 import { AdminGate } from './AdminGate'
 import { CoverView } from './views/CoverView'
+import { PortalView } from './views/PortalView'
 import { ReaderView } from './views/ReaderView'
 import { BrowseView } from './views/BrowseView'
 import { GlossaryView } from './views/GlossaryView'
@@ -34,6 +35,10 @@ export function AppShell() {
   const section = app.activePageId ? READER_SECTION : sectionFor(app.variant)
 
   const closeRail = useCallback(() => setRailOpen(false), [])
+
+  // SYN-368: the Symmiopedia portal is the public landing — no v2 shell chrome.
+  // The v2 cover (and the full shell) stays for the admin surface (SYN-363).
+  const isPublicLanding = !adminArea && !app.activePageId && app.variant === 'classic'
   const toggleRail = useCallback(() => {
     if (drawerContext()) setRailOpen((open) => !open)
   }, [])
@@ -54,6 +59,8 @@ export function AppShell() {
     app.handleAsk(app.query)
     closeRail()
   }
+
+  if (isPublicLanding) return <PortalView app={app} />
 
   return (
     <div className="flex h-full flex-col overflow-hidden">

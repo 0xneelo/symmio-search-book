@@ -35,16 +35,14 @@ async function assertNoHorizontalScroll(page: import('@playwright/test').Page) {
 }
 
 test.describe('mobile layout', () => {
-  test('cover reflows single-column with no horizontal scroll', async ({ page }) => {
+  test('portal fits 375px with no horizontal scroll (SYN-368)', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('h1.fm-h1-cover')).toBeVisible({ timeout: 20_000 })
-    // H1 scales below its 74px desktop size and fits the viewport.
-    const h1 = await page.locator('h1.fm-h1-cover').boundingBox()
-    expect(h1!.width).toBeLessThanOrEqual(375)
-    const fontSize = await page
-      .locator('h1.fm-h1-cover')
-      .evaluate((el) => parseFloat(getComputedStyle(el).fontSize))
-    expect(fontSize).toBeLessThan(74)
+    await expect(page.getByText('SYMMIOPEDIA')).toBeVisible({ timeout: 20_000 })
+    // Search bar respects min(480px, 92vw) — fits the viewport.
+    const form = await page.getByRole('search').boundingBox()
+    expect(form!.width).toBeLessThanOrEqual(375 * 0.92 + 1)
+    const globe = await page.locator('svg[role="img"]').boundingBox()
+    expect(globe!.width).toBeLessThanOrEqual(375)
     await assertNoHorizontalScroll(page)
   })
 
@@ -58,8 +56,9 @@ test.describe('mobile layout', () => {
     await assertNoHorizontalScroll(page)
   })
 
-  test('DESIGN.MD hard rules hold on mobile: square corners, hard shadows, two typefaces', async ({ page }) => {
-    await page.goto('/')
+  test('v2 DESIGN.MD hard rules hold on the admin cover: square corners, hard shadows, two typefaces', async ({ page }) => {
+    // SYN-368 interim: the v2 cover lives on the admin surface until cutover.
+    await page.goto('/?admin=1')
     await expect(page.getByText('ASK THE MANUAL')).toBeVisible({ timeout: 20_000 })
     const styles = await page.evaluate(() => {
       const pick = (el: Element | null) => {
@@ -86,7 +85,8 @@ test.describe('mobile layout', () => {
 
 test.describe('mobile drawer', () => {
   test('toggle opens the 272px drawer; backdrop, Escape and nav close it', async ({ page }) => {
-    await page.goto('/')
+    // The portal has no v2 shell; the drawer lives on shell surfaces (reader).
+    await page.goto(`/?page=${READER_ID}`)
     await expect(page.locator('.fm-rail-toggle')).toBeVisible({ timeout: 20_000 })
 
     // Open via the floating toggle; the panel expands and labels appear.
@@ -138,7 +138,8 @@ test.describe('mobile voting', () => {
     page.on('response', (r) => {
       if (r.url().includes('/api/search-book/rating')) ratingPosts.push(r.status())
     })
-    await page.goto(`/?service=${SERVICE}`)
+    // SYN-368 interim: ask flow lives on the admin-area cover until SYN-370.
+    await page.goto(`/?service=${SERVICE}&admin=1`)
     await page.getByPlaceholder(ASK_PLACEHOLDER).fill('How is my revenue calculated?')
     await page.keyboard.press('Enter')
     await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })
@@ -158,7 +159,7 @@ test.describe('mobile voting', () => {
   })
 
   test('dismiss-guard modal is usable at 375px', async ({ page }) => {
-    await page.goto(`/?service=${SERVICE}`)
+    await page.goto(`/?service=${SERVICE}&admin=1`)
     await page.getByPlaceholder(ASK_PLACEHOLDER).fill('When do referral points credit?')
     await page.keyboard.press('Enter')
     await expect(page.getByText(/service answer|service refusal/).first()).toBeVisible({ timeout: 20_000 })

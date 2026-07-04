@@ -12,6 +12,7 @@ import '@fontsource/space-mono/400.css'
 import '@fontsource/space-mono/700.css'
 
 import './index.css'
+import './wiki.css'
 import App from './App.tsx'
 import { ComponentsGallery } from './gallery/ComponentsGallery.tsx'
 import { SymmiopediaLab } from './gallery/SymmiopediaLab.tsx'
