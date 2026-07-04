@@ -197,6 +197,48 @@ Label issues project:symmio-search-book + subproject:rag-quality + agent:agent-f
 
 ---
 
+## agent-fable-11 — negative-cue index (SYN-382) — parallel, dispatch anytime
+
+```
+You are agent-fable-11, a worker on project:symmio-search-book / subproject:rag-quality in repo
+/Users/misterislez/projects/symmio-search-book (0xneelo/symmio-search-book), branch base `main`.
+
+READ FIRST: docs/goals/rag-quality/README.md, then docs/goals/rag-quality/goal-11-negative-cue-index.md.
+Linear issue: SYN-382. ORTHOGONAL to the retriever (owns preflight()) — no rebase dependency beyond the
+append-only loadRuntime seam.
+
+GOAL: Give blocked questions the same BUILD-TIME generated-cue treatment as goal-6 — a committed
+data/negative-cues.json compiled from the refusal + reconciliation lanes — so near-miss PARAPHRASES of a
+blocked question are caught in preflight(), not just verbatim matches. Today riskRules (~102–193) +
+reconciliationByQuestion match largely by regex / exact normalized-question equality in preflight()
+(~488–522), so a paraphrase that dodges the pattern slips through.
+
+DETERMINISM: query-time LLM cue generation BREAKS purity — FORBIDDEN. Generate offline in the build
+script; commit the artifact (diffable, reviewed like the reconciliation lanes); runtime reads ONLY
+committed JSON. PRECISION GUARD (critical — false positives block real answers): a negative cue may
+ONLY strengthen an existing block for near-miss phrasings of an already-blocked topic; it must NEVER
+turn a legitimate answerable query into a refusal. The 27 answer-validation fixtures are the over-block
+tripwire — all must still answer.
+
+OWNED SURFACE (region E — preflight()): NEW scripts/build-negative-cues.mjs + data/negative-cues.json;
+a near-miss match in preflight() that returns the SAME refusal (status/reason/message/gapId) the exact
+match would; append-only loadRuntime load. Do NOT touch scoreChunk() (region B / fable-6) or retrieve()
+regions A/C/D. Only ADD paraphrase coverage — never loosen an existing refusal.
+
+ACCEPTANCE: committed deterministic-build negative-cue artifact, schema-validated (every cue maps to a
+real refusal reason / gapId); ≥1 paraphrase per blocked topic (discord, phase-b revenue, secrets,
+whitepaper origin, opyn, vibe covered-call) now refuses with the right reason; ZERO over-blocking —
+all 47 fixtures pass (20 adversarial still refuse AND 27 legit still answer); every block explainable in
+--include-debug; artifact rebuilds to identical bytes; same query twice → byte-identical --json.
+
+PROTOCOL: claim agent-fable-11; branch rag-quality/fable-11-negative-cue-index off main (rebase before
+merge for the loadRuntime seam); SYN-382 In Progress; commit milestones (SYN-382); Done + report
+(generator choice, cue counts, over-block results, A/B) + push. Blocked → linked needs:* issue, Blocked.
+Label issues project:symmio-search-book + subproject:rag-quality + agent:agent-fable-11.
+```
+
+---
+
 ## Research/backlog kickoff (SYN-381) — assign when ready
 
 Not a worker-agent launch; it's a research issue. Whoever picks it up claims a fresh agent tag, reads

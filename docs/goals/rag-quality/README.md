@@ -21,8 +21,14 @@ and independently A/B-able against the fixture eval.
 | `agent-fable-6` | SYN-378 | [Generative encoding-cue index](goal-6-cue-index.md) | Encoding specificity (flagship) | 3rd | new build script + `scoreChunk()` |
 | `agent-fable-7` | SYN-379 | [Adaptive forgetting — supersession](goal-7-supersession.md) | Availability vs. accessibility | 4th | `build-answer-chunks.mjs` + `retrieve()` eligibility filter |
 | `agent-fable-8` | SYN-380 | [Prioritized replay in the living-docs loop](goal-8-prioritized-replay.md) | Prioritized replay | **parallel** (orthogonal) | `build-gap-queue.mjs` / living-docs |
+| `agent-fable-11` | SYN-382 | [Negative-cue index](goal-11-negative-cue-index.md) | Negative memory (7-extension) | **parallel** (orthogonal) | new build script + `preflight()` |
 
-The sixth package, [research-backlog](goal-research-backlog.md) (SYN-381), captures the deferred /
+> **Framing note:** goals fable-6/9/10 + fable-7 (supersession) + fable-11 (negative-cue) cover the
+> load-bearing subset of the 7-principle IR framing (with two-tier folded into fable-9 and
+> usage-boost deferred). fable-8 (prioritized replay) is the additional load-bearing idea from the
+> engram framing. Both framings are now fully represented as goals.
+
+The seventh package, [research-backlog](goal-research-backlog.md) (SYN-381), captures the deferred /
 "more ideas" items (negative-cue index, reuse-cache stale-citation bug, true BM25/IDF,
 usage-boost-as-tiebreaker, retrieval-only eval harness). It is a research issue, not a build
 goal, and is where net-new ideas land.
@@ -95,7 +101,8 @@ non-overlapping regions**. Edit only your region; keep hunks minimal.
 | B — scoring | `scoreChunk()` ~ 564–572 + its call site ~590 | `agent-fable-6` (add cue term) |
 | C — selection / truncation loop | `retrieve()` ~ 596–602 (`maxChunks` / `maxContextWords`) | `agent-fable-10` (add score-gap cutoff) |
 | D — post-selection expansion (new) | after ~602, before `candidatePages` | `agent-fable-9` (neighbor/crosslink expansion) |
-| `loadRuntime()` additions | ~373–409 (append new artifact loads) | `agent-fable-6` (cues) + `agent-fable-9` (crosslinks) — **append-only**, rebase on prior |
+| E — preflight near-miss block (new) | `preflight()` ~488–522 | `agent-fable-11` (negative-cue match) |
+| `loadRuntime()` additions | ~373–409 (append new artifact loads) | `agent-fable-6` (cues) + `agent-fable-9` (crosslinks) + `agent-fable-11` (negative-cues) — **append-only**, rebase on prior |
 | `extractiveAnswer()` | ~661–711 | `agent-fable-9` (neighbor pull) |
 | new build script `build-answer-cues.mjs` + `data/answer-cues.json` | new files | `agent-fable-6` only |
 | `build-answer-chunks.mjs` + `page-state-registry` supersession field | existing | `agent-fable-7` only |
@@ -106,11 +113,13 @@ non-overlapping regions**. Edit only your region; keep hunks minimal.
   precisely so it never collides with `agent-fable-7`'s chunk-builder edits.
 - `agent-fable-8` is **orthogonal** to the retriever entirely (build/living-docs side) → runs
   fully in parallel with zero merge risk against 6/7/9/10.
+- `agent-fable-11` owns region E (`preflight()`), touched by no other goal → also effectively
+  parallel; its only shared touch is the append-only `loadRuntime()` load.
 - `loadRuntime()` is the one shared function 6 and 9 both extend; treat additions as
   **append-only** (add your artifact path to `defaults`, add your key to the returned runtime
   object) and rebase on whoever landed first.
 
-**Merge order: 10 → 9 → 6 → 7** (fable-8 parallel). Rationale: 10 is the smallest and nearly
+**Merge order: 10 → 9 → 6 → 7** (fable-8 and fable-11 parallel). Rationale: 10 is the smallest and nearly
 conflict-free (do first, get the SNR win immediately); 9 adds a new stage below 10's; 6 changes
 scoring, which 9's expansion and 10's cutoff both consume, so it lands after them; 7 changes the
 eligibility filter at the top of `retrieve()` last. Each agent: branch off `main`, and **rebase

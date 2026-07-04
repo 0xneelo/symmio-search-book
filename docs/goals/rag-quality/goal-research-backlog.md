@@ -19,14 +19,11 @@ cache is correctly quarantined), but it's a real correctness hole.
 citation `sourceKey` still exists in the current source catalog; on failure, evict or force a fresh
 answer. Storing the corpus build hash in cache rows makes the check exact rather than heuristic.
 
-## 2. Negative-cue index (Principle 7 extension — engram "inhibitory memory")
-The refusal + reconciliation lanes are first-class "what-not-to-answer" memory, but they largely
-match blocked questions exactly (regex/normalized). Give blocked questions the same generated-cue
-treatment as goal-6: a committed `data/negative-cues.json` compiled from reconciliation/refusal data
-so near-miss *paraphrases* of a blocked question are caught, not just verbatim matches. Applied in
-`preflight()` (not `scoreChunk`, to avoid colliding with goal-6). Deterministic, build-time,
-operator-reviewed. Add a precision guard so it can't over-block legitimate queries. Hardens the
-adversarial eval lane. **Strong candidate to graduate into its own goal.**
+## 2. Negative-cue index (Principle 7 extension — engram "inhibitory memory") — ✅ GRADUATED
+**Promoted to its own worker goal: [goal-11](goal-11-negative-cue-index.md) / SYN-382 / agent-fable-11.**
+No longer a backlog item — kept here as a pointer. (Was: give blocked questions the same generated-cue
+treatment as goal-6 so near-miss paraphrases of a blocked question are caught, applied in `preflight()`,
+build-time + committed + precision-guarded.)
 
 ## 3. True BM25 / IDF scoring + token-boundary matching
 The retriever is described as "BM25-lite" but `scoreChunk()` is binary substring inclusion with no
@@ -56,8 +53,8 @@ scoring/selection change (goals 10/9/6/7) into a red/green diff instead of a tok
 call. **Highest-leverage infra item; worth building early so the core goals can lean on it.**
 
 ## Suggested triage
-1 (bug) → 5 (unblocks the others) → 2 (graduate to a goal) → 3 (coordinate with goal-6) → 4 (stay
-deferred).
+1 (bug) → 5 (unblocks the others) → 3 (coordinate with goal-6) → 4 (stay deferred). _(Item 2 already
+graduated to goal-11 / SYN-382.)_
 
 ## Execution protocol (embedded)
 This is a research issue under the rag-quality epic, labelled `project:symmio-search-book` +
