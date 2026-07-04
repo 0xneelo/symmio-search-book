@@ -114,7 +114,7 @@ Current behavior (bug context): old UI has **no visual reaction** on vote; `reco
 - [x] `npm run search-book:verify` stays green (all build steps + quality gates).
 - [x] Existing smokes stay green: `smoke-static`, `smoke-answer-engine-service` (+ new round-trip), `smoke-preview-service`, `smoke-deployment` where applicable.
 - [x] New Playwright smokes: search→answer→vote (persist + one-shot + dismiss-guard), page open→page-vote, nav across all views (M8).
-- [ ] Old `index.html` untouched until M8 sign-off; static-serve/deploy wiring covers the new `web/dist` build (M9); `check-static-integrity` / `build-static-artifact` updated (M9). *(M9 — pending)*
+- [x] Static-serve/deploy wiring covers the new `web/dist` build; `check-static-integrity` / `build-static-artifact` / `smoke-static-preview` updated and green (M9, `f7c9595`). Old `index.html` still live (compliant) — retirement is push-button (`git rm index.html`) and gated on the SYN-358 design sign-off; cutover simulated successfully on an artifact copy.
 
 ## 9. Design-language deltas (intentional, not parity failures)
 
