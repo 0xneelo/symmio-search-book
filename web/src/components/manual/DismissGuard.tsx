@@ -11,13 +11,25 @@ export interface DismissGuardProps {
   onCancel: () => void
   /** The underlined escape hatch — dismisses without rating. */
   onDismiss: () => void
+  /** One-shot lock once a vote persisted. */
+  locked?: boolean
+  /** Inline error when a vote failed to persist. */
+  error?: string | null
 }
 
 /**
  * Dismiss-guard modal (DESIGN.MD §5): dismissing an unrated answer opens a
  * centered "HOLD ON —" dialog re-offering the rating.
  */
-export function DismissGuard({ open, rating, onRate, onCancel, onDismiss }: DismissGuardProps) {
+export function DismissGuard({
+  open,
+  rating,
+  onRate,
+  onCancel,
+  onDismiss,
+  locked = false,
+  error = null,
+}: DismissGuardProps) {
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
@@ -80,7 +92,7 @@ export function DismissGuard({ open, rating, onRate, onCancel, onDismiss }: Dism
         <Kicker size={10.5} tracking={2.5} style={{ marginBottom: 10 }}>
           RATE NOW
         </Kicker>
-        <RatingButtons rating={rating} onRate={onRate} style={{ marginBottom: 18 }} />
+        <RatingButtons rating={rating} onRate={onRate} locked={locked} error={error} style={{ marginBottom: 18 }} />
         <button
           type="button"
           onClick={onDismiss}

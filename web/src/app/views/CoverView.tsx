@@ -1,27 +1,51 @@
-import { useState } from 'react'
-import { AskPanel, DashedRule, DismissGuard, RatingButtons, type Rating } from '@/components/manual'
+import { useCallback, useRef } from 'react'
+import { AskPanel, DashedRule, DismissGuard, RatingButtons } from '@/components/manual'
+import { recordAnswerRating, type VoteValue } from '@/lib/voting'
 import type { SearchBookApp } from '../useSearchBook'
 import { AnswerBody } from '../AnswerBody'
+import { useVote } from '../useVote'
+import { useState } from 'react'
 
 /**
  * §00 Cover & Ask — comp cover layout: title row + tagline over the dashed
  * rule, 720px Ask panel centered in the remaining space. Answer replaces the
- * ask form with the question echoed above (DESIGN.MD §8).
- * Voting persistence + dismiss-guard round-trip completes in M5 (SYN-352);
- * this view renders the optimistic UI.
+ * ask form with the question echoed above (DESIGN.MD §8). Voting is one-shot
+ * with optimistic reaction and the dismiss-guard (SYN-352).
  */
 export function CoverView({ app }: { app: SearchBookApp }) {
-  const [rating, setRating] = useState<Rating>(null)
   const [guardOpen, setGuardOpen] = useState(false)
+  const dismissTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const resetAnswer = () => {
+  const answer = app.answer
+  const persist = useCallback(
+    (value: VoteValue) => {
+      if (!answer) return Promise.reject(new Error('No answer to rate.'))
+      return recordAnswerRating({
+        eventId: answer.eventId,
+        rating: value,
+        isServiceAnswer: !!answer.result.serviceResponse,
+        query: answer.query,
+        pageTitle: answer.result.page?.title || 'No grounded page',
+        pageId: answer.result.page?.id ?? null,
+        curatedExamples: app.examples,
+      }).then((outcome) => {
+        app.bumpInsights()
+        return outcome
+      })
+    },
+    [answer, app],
+  )
+  const voteState = useVote(persist)
+
+  const resetAnswer = useCallback(() => {
+    if (dismissTimer.current) clearTimeout(dismissTimer.current)
     app.dismissAnswer()
-    setRating(null)
+    voteState.reset()
     setGuardOpen(false)
-  }
+  }, [app, voteState])
 
   const requestDismiss = () => {
-    if (rating) resetAnswer()
+    if (voteState.rating) resetAnswer()
     else setGuardOpen(true)
   }
 
@@ -72,7 +96,7 @@ export function CoverView({ app }: { app: SearchBookApp }) {
           query={app.query}
           onQuery={app.setQuery}
           onSubmit={() => {
-            setRating(null)
+            voteState.reset()
             app.handleAsk(app.query)
           }}
           onFocus={() => app.setActiveField('cover')}
@@ -81,16 +105,16 @@ export function CoverView({ app }: { app: SearchBookApp }) {
           chips={app.examples.map((label) => ({
             label,
             onClick: () => {
-              setRating(null)
+              voteState.reset()
               app.setQuery(label)
               app.handleAsk(label, 'example')
             },
           }))}
-          answered={!!app.answer}
-          echoedQuery={app.answer?.query}
+          answered={!!answer}
+          echoedQuery={answer?.query}
           answer={
-            app.answer &&
-            (app.answer.loading ? (
+            answer &&
+            (answer.loading ? (
               <div
                 data-answer=""
                 style={{
@@ -127,12 +151,18 @@ export function CoverView({ app }: { app: SearchBookApp }) {
               </div>
             ) : (
               <AnswerBody
-                result={app.answer.result}
-                query={app.answer.query}
-                eventId={app.answer.eventId}
+                result={answer.result}
+                query={answer.query}
+                eventId={answer.eventId}
                 onOpenPage={app.setActivePage}
                 rating={
-                  <RatingButtons rating={rating} onRate={(dir) => setRating(dir)} onDismiss={requestDismiss} />
+                  <RatingButtons
+                    rating={voteState.rating}
+                    locked={voteState.locked}
+                    error={voteState.error}
+                    onRate={(dir) => void voteState.vote(dir)}
+                    onDismiss={requestDismiss}
+                  />
                 }
               />
             ))
@@ -142,11 +172,14 @@ export function CoverView({ app }: { app: SearchBookApp }) {
 
       <DismissGuard
         open={guardOpen}
-        rating={rating}
+        rating={voteState.rating}
+        locked={voteState.locked}
+        error={voteState.error}
         onRate={(dir) => {
-          setRating(dir)
-          // DESIGN.MD §8: rating from the modal auto-dismisses the answer after 850ms.
-          setTimeout(resetAnswer, 850)
+          void voteState.vote(dir).then((ok) => {
+            // DESIGN.MD §8: a successful modal rating auto-dismisses after 850ms.
+            if (ok) dismissTimer.current = setTimeout(resetAnswer, 850)
+          })
         }}
         onCancel={() => setGuardOpen(false)}
         onDismiss={resetAnswer}
