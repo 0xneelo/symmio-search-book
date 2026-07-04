@@ -211,9 +211,15 @@ async function main() {
     assert(home.contentType.includes("text/html"), "preview home did not return HTML.");
     const configuredHome = await requestText(staticBaseUrl, homePath);
     assert(configuredHome.statusCode === 200, `configured preview home returned ${configuredHome.statusCode}.`);
-    assert(configuredHome.body.includes("Ask the docs"), "configured preview did not render the Ask the docs action.");
-    assert(configuredHome.body.includes("Search insights"), "configured preview did not render Search insights navigation.");
-    assert(configuredHome.body.includes("searchBookPrototype.serviceUrl"), "configured preview did not include service bridge state.");
+    // Symmiopedia v3 cutover (SYN-373): the app reads ?service= at runtime;
+    // the legacy inline bridge markers apply only to pre-cutover roots.
+    if (configuredHome.body.includes("Vibe Docs Search Book Prototype")) {
+      assert(configuredHome.body.includes("Ask the docs"), "configured preview did not render the Ask the docs action.");
+      assert(configuredHome.body.includes("Search insights"), "configured preview did not render Search insights navigation.");
+      assert(configuredHome.body.includes("searchBookPrototype.serviceUrl"), "configured preview did not include service bridge state.");
+    } else {
+      assert(configuredHome.body.includes("Symmiopedia"), "configured preview did not serve the Symmiopedia app.");
+    }
 
     const preflight = await requestJson(serviceBaseUrl, "/api/search-book/answer", {
       method: "OPTIONS",
