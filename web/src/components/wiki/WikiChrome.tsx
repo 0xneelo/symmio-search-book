@@ -10,7 +10,7 @@
  */
 import { useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
-import { PuzzleGlobe, PuzzleGlobeDefs } from './PuzzleGlobe'
+import { WikiMark } from './WikiMark'
 import { formatWikiDate } from '@/lib/wiki'
 
 export interface WikiChromeProps {
@@ -74,8 +74,6 @@ export function WikiChrome({
 
   return (
     <div className="wiki wk-page">
-      <PuzzleGlobeDefs />
-
       <a
         className="wk-logo-cell"
         href="/"
@@ -88,7 +86,7 @@ export function WikiChrome({
             : undefined
         }
       >
-        <PuzzleGlobe size={118} alt="Symmiopedia puzzle globe" />
+        <WikiMark slot="navbar" size={118} />
         <div className="wk-logo-wordmark">SYMMIOPEDIA</div>
         <div className="wk-logo-tagline">The Open Ecosystem Encyclopedia</div>
       </a>

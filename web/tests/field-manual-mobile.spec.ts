@@ -41,8 +41,8 @@ test.describe('mobile layout', () => {
     // Search bar respects min(480px, 92vw) — fits the viewport.
     const form = await page.getByRole('search').boundingBox()
     expect(form!.width).toBeLessThanOrEqual(375 * 0.92 + 1)
-    const globe = await page.locator('svg[role="img"]').boundingBox()
-    expect(globe!.width).toBeLessThanOrEqual(375)
+    const mark = await page.locator('img[data-wiki-mark="portal"]').boundingBox()
+    expect(mark!.width).toBeLessThanOrEqual(375)
     await assertNoHorizontalScroll(page)
   })
 

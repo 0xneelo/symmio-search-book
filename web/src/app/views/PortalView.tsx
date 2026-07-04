@@ -12,7 +12,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { resolveWikiSearch } from '@/lib/wiki-search'
-import { PuzzleGlobe, PuzzleGlobeDefs } from '@/components/wiki/PuzzleGlobe'
+import { WikiMark } from '@/components/wiki/WikiMark'
 import type { SearchBookApp } from '../useSearchBook'
 import { FEATURED_PAGE_ID } from '../wikiChrome'
 
@@ -56,9 +56,7 @@ export function PortalView({ app }: { app: SearchBookApp }) {
         padding: '48px 16px',
       }}
     >
-      <PuzzleGlobeDefs />
-
-      <PuzzleGlobe size={228} alt="Symmiopedia puzzle globe" />
+      <WikiMark slot="portal" size={228} />
 
       <div
         style={{

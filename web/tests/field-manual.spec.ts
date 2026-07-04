@@ -53,11 +53,9 @@ test.describe('navigation (public surface = portal + reader, SYN-362/SYN-368)', 
     await page.goto('/')
     await expect(page.getByText('SYMMIOPEDIA')).toBeVisible({ timeout: 20_000 })
     await expect(page.getByText('The Open Ecosystem Encyclopedia')).toBeVisible()
-    // One globe def, one 228px portal instance with the curved-label textPaths.
-    await expect(page.locator('svg use')).toHaveCount(1)
-    expect(await page.locator('#pglobe textPath').count()).toBe(6)
-    const globe = await page.locator('svg[role="img"]').boundingBox()
-    expect(Math.round(globe!.width)).toBe(228)
+    // Operator S-mark in the portal slot at 228px (design amendment 2026-07-04).
+    const mark = await page.locator('img[data-wiki-mark="portal"]').boundingBox()
+    expect(Math.round(mark!.width)).toBe(228)
     // Search bar geometry (DESIGN.MD §4): 46px tall, min(480px, 92vw).
     const input = await page.getByPlaceholder('Search Symmiopedia — or ask a question').boundingBox()
     expect(Math.round(input!.height)).toBe(46)
