@@ -10,7 +10,6 @@
  */
 import { useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
-import { WikiMark } from './WikiMark'
 import { formatWikiDate } from '@/lib/wiki'
 
 /** Footer site pages (privacy / about / disclaimers). */
@@ -110,7 +109,6 @@ export function WikiChrome({
             : undefined
         }
       >
-        <WikiMark slot="navbar" size={118} />
         <div className="wk-logo-wordmark">SYMMIOPEDIA</div>
         <div className="wk-logo-tagline">The Open Ecosystem Encyclopedia</div>
       </a>
