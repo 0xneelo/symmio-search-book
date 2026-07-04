@@ -7,6 +7,7 @@ export interface AnnouncementBarProps {
 export function AnnouncementBar({ message, cta }: AnnouncementBarProps) {
   return (
     <div
+      className="fm-announce"
       style={{
         display: 'flex',
         alignItems: 'center',

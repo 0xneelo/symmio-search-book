@@ -63,21 +63,12 @@ export function CoverView({ app }: { app: SearchBookApp }) {
           flexWrap: 'wrap',
         }}
       >
-        <h1
-          style={{
-            margin: 0,
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 700,
-            fontSize: 74,
-            lineHeight: 0.98,
-            letterSpacing: -3,
-            color: '#ffffff',
-          }}
-        >
+        <h1 className="fm-h1-cover">
           Vibe<span style={{ color: 'var(--ink)' }}>×</span>SYMM
           <span style={{ color: 'var(--ink)' }}>.</span>
         </h1>
         <p
+          className="fm-cover-tagline"
           style={{
             margin: '0 0 8px',
             maxWidth: 340,

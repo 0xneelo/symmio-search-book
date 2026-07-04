@@ -162,7 +162,7 @@ export function InsightsView({ app }: { app: SearchBookApp }) {
 
       {/* Quality audit (L3619) */}
       <PlateSection title="FIG_I02 — PUBLICATION AUDIT" aside={`[ ${gatesPassed}/${gates.length} GATES ]`}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.2fr) minmax(0,1fr)', gap: 30 }}>
+        <div className="fm-split">
           <div>
             {gates.length ? (
               gates.map((gate: Any) => (
@@ -260,7 +260,7 @@ export function InsightsView({ app }: { app: SearchBookApp }) {
 
       {/* Requirements (L3670) */}
       <PlateSection title="FIG_I03 — COMPLETION REQUIREMENTS" aside={`[ ${requirementMap.completionReady ? 'READY' : 'IN PROGRESS'} ]`}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.4fr) minmax(0,1fr)', gap: 30 }}>
+        <div className="fm-split">
           <div>
             {requirements.length ? (
               requirements.map((requirement: Any) => (
@@ -309,7 +309,7 @@ export function InsightsView({ app }: { app: SearchBookApp }) {
 
       {/* Source ingestion (L3700) */}
       <PlateSection title="FIG_I04 — SOURCE INGESTION" aside={`[ ${sourceIngestion.sourceCompletionReady ? 'READY' : 'IN PROGRESS'} ]`}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.4fr) minmax(0,1fr)', gap: 30 }}>
+        <div className="fm-split">
           <div>
             {srcRequirements.length ? (
               srcRequirements.map((req: Any) => (
@@ -362,7 +362,7 @@ export function InsightsView({ app }: { app: SearchBookApp }) {
 
       {/* Discord routing (L3520) */}
       <PlateSection title="FIG_I05 — DISCORD DEMAND ROUTING" aside={`[ ${discordRouting.routingReady ? 'READY' : 'NOT READY'} ]`}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.4fr) minmax(0,1fr)', gap: 30 }}>
+        <div className="fm-split">
           <div>
             {discordRouting.routingReady ? (
               <>

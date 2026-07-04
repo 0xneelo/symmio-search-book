@@ -39,7 +39,7 @@ export function TopBar({ breadcrumb, section, children }: TopBarProps) {
       >
         {breadcrumb}
       </div>
-      {children}
+      {children && <span className="fm-topbar-ask">{children}</span>}
       <div
         style={{
           fontFamily: 'var(--font-mono)',

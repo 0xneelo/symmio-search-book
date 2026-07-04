@@ -11,16 +11,7 @@ export interface ChapterHeadingProps {
 export function ChapterHeading({ title, punctuation = '.', size = 52 }: ChapterHeadingProps) {
   return (
     <>
-      <h1
-        style={{
-          margin: 0,
-          fontFamily: 'var(--font-sans)',
-          fontWeight: 700,
-          fontSize: size,
-          letterSpacing: -2.2,
-          color: '#ffffff',
-        }}
-      >
+      <h1 className="fm-h1-section" style={{ ['--h1' as string]: `${size}px` } as React.CSSProperties}>
         {title}
         <span style={{ color: 'var(--ink)' }}>{punctuation}</span>
       </h1>

@@ -180,38 +180,114 @@
     font-weight: 700;
   }
 
-  /* Collapsible sidebar: 64px rail, expands to 272px on hover */
+  /*
+   * Collapsible sidebar (SYN-360): collapsed 64px rail everywhere by default.
+   * Pointer-fine devices expand to 272px on hover/focus; touch and narrow
+   * viewports use the JS-toggled .is-open overlay drawer instead.
+   */
   .snav {
-    width: 272px;
+    width: 64px;
     transition: width 0.3s var(--ease-manual);
   }
-  .snav:not(:hover):not(:focus-within) {
-    width: 64px;
-  }
-  .snav:hover,
-  .snav:focus-within {
-    box-shadow: 30px 0 70px rgba(0, 0, 0, 0.5);
-  }
   .snav .sx {
-    transition: opacity 0.2s ease 0.1s;
-  }
-  .snav:not(:hover):not(:focus-within) .sx {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.1s ease;
   }
   .snav .sc {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.12s;
+  }
+  .snav .navname {
+    opacity: 0;
+    transition: opacity 0.1s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .snav:hover,
+    .snav:focus-within {
+      width: 272px;
+      box-shadow: 30px 0 70px rgba(0, 0, 0, 0.5);
+    }
+    .snav:hover .sx,
+    .snav:focus-within .sx {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.2s ease 0.1s;
+    }
+    .snav:hover .sc,
+    .snav:focus-within .sc {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.1s ease;
+    }
+    .snav:hover .navname,
+    .snav:focus-within .navname {
+      opacity: 1;
+      transition: opacity 0.2s ease 0.1s;
+    }
+  }
+
+  /* Touch drawer state — same 272px panel, driven by the rail toggle. */
+  .snav.is-open {
+    width: 272px;
+    box-shadow: 30px 0 70px rgba(0, 0, 0, 0.5);
+  }
+  .snav.is-open .sx {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.2s ease 0.1s;
+  }
+  .snav.is-open .sc {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.1s ease;
   }
-  .snav:not(:hover):not(:focus-within) .sc {
+  .snav.is-open .navname {
     opacity: 1;
-    transition: opacity 0.2s ease 0.12s;
+    transition: opacity 0.2s ease 0.1s;
   }
-  .snav:not(:hover):not(:focus-within) .navname {
-    opacity: 0;
-    transition: opacity 0.1s ease;
+
+  .fm-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 4, 14, 0.6);
+    z-index: 35;
+  }
+
+  /* Off-canvas rail + floating toggle on narrow viewports. */
+  .fm-rail-toggle {
+    display: none;
+  }
+  @media (max-width: 900px) {
+    .snav {
+      transform: translateX(-100%);
+      transition:
+        transform 0.3s var(--ease-manual),
+        width 0.3s var(--ease-manual);
+    }
+    .snav.is-open {
+      transform: translateX(0);
+    }
+    .fm-rail-toggle {
+      display: flex;
+      position: fixed;
+      left: 12px;
+      bottom: 16px;
+      z-index: 45;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: color-mix(in srgb, var(--paper) 70%, #12246e);
+      border: 2px solid #2e6bff;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      color: #ffffff;
+    }
+    .fm-content {
+      margin-left: 0 !important;
+    }
   }
 
   /* Chip + button hover inversions */
@@ -377,6 +453,100 @@
   .reader-body strong {
     color: #ffffff;
     font-weight: 600;
+  }
+
+  /*
+   * Responsive layout (SYN-360). Typography and grids that were fixed-width in
+   * the comp collapse under 900px; DESIGN.MD floors hold (body ≥ ~15px,
+   * mono ≥ 10px, square corners, hard shadows).
+   */
+  .fm-h1-cover {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 74px;
+    line-height: 0.98;
+    letter-spacing: -3px;
+    color: #ffffff;
+  }
+  .fm-h1-section {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    /* Callers set --h1 (48–54px); the mobile clamp below overrides it. */
+    font-size: var(--h1, 52px);
+    letter-spacing: -2.2px;
+    color: #ffffff;
+  }
+  .fm-pane {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 34px 48px 110px;
+    min-height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  .fm-cols {
+    columns: 2;
+    column-gap: 46px;
+  }
+  .fm-reader-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 40px;
+  }
+  .fm-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+  .fm-defrow {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .fm-h1-cover {
+      font-size: clamp(40px, 11vw, 74px);
+      letter-spacing: -2px;
+    }
+    .fm-h1-section {
+      font-size: clamp(30px, 8.5vw, 52px);
+      letter-spacing: -1.4px;
+    }
+    .fm-pane {
+      padding: 20px 16px 110px;
+    }
+    .fm-cols {
+      columns: 1;
+    }
+    .fm-reader-grid,
+    .fm-split,
+    .fm-defrow {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .fm-topbar-ask {
+      display: none;
+    }
+    .fm-announce {
+      flex-wrap: wrap;
+      height: auto !important;
+      min-height: 44px;
+      padding: 7px 12px !important;
+      gap: 8px !important;
+      text-align: center;
+    }
+    .fm-cover-tagline {
+      text-align: left !important;
+      max-width: 100% !important;
+    }
+    .reader-body table {
+      display: block;
+      overflow-x: auto;
+      max-width: 100%;
+    }
   }
 }
 

@@ -55,10 +55,8 @@ export function GlossaryView({ app }: { app: SearchBookApp }) {
             {terms.map((term) => (
               <div
                 key={term.term}
+                className="fm-defrow"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '200px 1fr',
-                  gap: 24,
                   padding: '16px 0',
                   borderBottom: '1px solid rgba(255,255,255,0.12)',
                 }}

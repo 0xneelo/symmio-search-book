@@ -266,16 +266,7 @@ export function MonoList({ items }: { items: { label: string; value: ReactNode }
 export function ViewIntro({ title, punctuation = '.', lead }: { title: string; punctuation?: '.' | '?'; lead?: string }) {
   return (
     <>
-      <h1
-        style={{
-          margin: 0,
-          fontFamily: 'var(--font-sans)',
-          fontWeight: 700,
-          fontSize: 52,
-          letterSpacing: -2.2,
-          color: '#ffffff',
-        }}
-      >
+      <h1 className="fm-h1-section">
         {title}
         <span style={{ color: 'var(--ink)' }}>{punctuation}</span>
       </h1>

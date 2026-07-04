@@ -53,7 +53,7 @@ function RailPanel({ title, children }: { title: string; children: ReactNode }) 
 export function ReaderArticle({ model, onReturn, onOpenPage, rating }: ReaderArticleProps) {
   const { page, bodyHtml, tocItems, related, previous, next, status } = model
   return (
-    <div data-page="reader" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 300px', gap: 40 }}>
+    <div data-page="reader" className="fm-reader-grid">
       <article style={{ minWidth: 0 }}>
         <ChipRow style={{ marginBottom: 18 }}>
           <SourceChip>{page.section || 'docs'}</SourceChip>

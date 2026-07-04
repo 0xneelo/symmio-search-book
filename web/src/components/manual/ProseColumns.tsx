@@ -14,7 +14,9 @@ export function ProseColumns({
   marginBottom?: number
 }) {
   return (
-    <div style={{ columns: 2, columnGap: 46, maxWidth, marginBottom }}>{children}</div>
+    <div className="fm-cols" style={{ maxWidth, marginBottom }}>
+      {children}
+    </div>
   )
 }
 

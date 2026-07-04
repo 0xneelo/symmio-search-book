@@ -22,6 +22,10 @@ export interface SidebarProps {
   }
   revStamp?: string
   backLink?: { label: string; href: string }
+  /** Touch drawer state (SYN-360): forces the 272px panel open as an overlay. */
+  open?: boolean
+  /** Tap on the collapsed monogram (touch/narrow only — hover covers fine pointers). */
+  onToggle?: () => void
   /** Extra content between nav and footer (e.g. secondary nav groups in M7). */
   children?: ReactNode
 }
@@ -37,11 +41,13 @@ export function Sidebar({
   search,
   revStamp = 'REV 2026.07 / OPEN',
   backLink,
+  open = false,
+  onToggle,
   children,
 }: SidebarProps) {
   return (
     <aside
-      className="snav"
+      className={open ? 'snav is-open' : 'snav'}
       style={{
         position: 'absolute',
         left: 0,
@@ -69,8 +75,12 @@ export function Sidebar({
           borderBottom: '1px solid rgba(255,255,255,0.12)',
         }}
       >
-        <div
+        <button
+          type="button"
           className="sc"
+          aria-label={open ? 'Close navigation' : 'Open navigation'}
+          aria-expanded={open}
+          onClick={onToggle}
           style={{
             position: 'absolute',
             left: 0,
@@ -81,6 +91,10 @@ export function Sidebar({
             alignItems: 'center',
             justifyContent: 'center',
             gap: 3,
+            background: 'transparent',
+            border: 'none',
+            cursor: onToggle ? 'pointer' : 'default',
+            padding: 0,
           }}
         >
           <span
@@ -103,7 +117,7 @@ export function Sidebar({
               marginTop: 12,
             }}
           />
-        </div>
+        </button>
         <div className="sx" style={{ width: 232, flex: 'none' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
             <span

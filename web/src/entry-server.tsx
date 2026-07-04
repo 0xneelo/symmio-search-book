@@ -37,22 +37,14 @@ export async function renderPage(pageId: string): Promise<{ title: string; html:
           onNavigate={() => {}}
           backLink={{ label: 'Back to app', href: '../dashboard.html' }}
         />
-        <div className="ml-16 flex min-w-0 flex-1 flex-col">
+        <div className="fm-content ml-16 flex min-w-0 flex-1 flex-col">
           <AnnouncementBar
             message="Referral Program is officially live — earn rewards by inviting friends."
             cta={{ label: 'JOIN NOW ↗', href: 'https://vibe.trading' }}
           />
           <TopBar breadcrumb="VIBE × SYMM · FIELD MANUAL" section={READER_SECTION} />
           <main className="min-h-0 flex-1 overflow-y-auto">
-            <div
-              style={{
-                maxWidth: 1240,
-                margin: '0 auto',
-                padding: '34px 48px 110px',
-                minHeight: '100%',
-                boxSizing: 'border-box',
-              }}
-            >
+            <div className="fm-pane">
               <ReaderArticle model={model} rating={<RatingButtons rating={null} onRate={() => {}} />} />
             </div>
           </main>
