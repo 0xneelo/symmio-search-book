@@ -40,7 +40,11 @@ function readVariant(): string {
 }
 
 function readActivePageId(): string | null {
-  return new URLSearchParams(window.location.search).get('page')
+  // ?page=<id> (old deep-link parity, L3826) or the SSG route /page/<id>/.
+  const fromQuery = new URLSearchParams(window.location.search).get('page')
+  if (fromQuery) return fromQuery
+  const match = window.location.pathname.match(/\/page\/([^/]+)\/?$/)
+  return match ? decodeURIComponent(match[1]) : null
 }
 
 export function useSearchBook() {
@@ -104,6 +108,11 @@ export function useSearchBook() {
 
   const setActivePage = useCallback((pageId: string) => {
     const url = new URL(window.location.href)
+    // In-app nav keeps ?page= (old URL parity); prerendered /page/<id>/ paths
+    // collapse back to the SPA root so query state stays consistent.
+    if (/\/page\/[^/]+\/?$/.test(url.pathname)) {
+      url.pathname = url.pathname.replace(/page\/[^/]+\/?$/, '')
+    }
     url.searchParams.set('page', pageId)
     url.searchParams.delete('variant')
     window.history.replaceState({}, '', url)
@@ -112,9 +121,32 @@ export function useSearchBook() {
 
   const clearActivePage = useCallback(
     (nextVariant = 'classic') => {
+      const url = new URL(window.location.href)
+      if (/\/page\/[^/]+\/?$/.test(url.pathname)) {
+        url.pathname = url.pathname.replace(/page\/[^/]+\/?$/, '')
+        window.history.replaceState({}, '', url)
+      }
       setVariant(nextVariant)
     },
     [setVariant],
+  )
+
+  /** openPageFromCorpus (L4012): direct question event, answer echo unless nav. */
+  const openPage = useCallback(
+    (pageId: string, source = 'browse') => {
+      const corpusData = dataRef.current
+      const page = corpusData?.pageById.get(pageId)
+      if (!page) return
+      const event = recordQuestion(page.title, { page, score: 'direct' }, source)
+      if (source === 'nav') {
+        setAnswer(null)
+      } else {
+        setAnswer({ result: { page, score: 'direct' }, query: page.title, eventId: event.id })
+      }
+      setActivePage(pageId)
+      bumpInsights()
+    },
+    [setActivePage, bumpInsights],
   )
 
   /** handleAsk (L3148): service first, local ranking fallback. */
@@ -192,6 +224,7 @@ export function useSearchBook() {
     cycleVariant,
     setActivePage,
     clearActivePage,
+    openPage,
     query,
     setQuery,
     activeField,

@@ -3,6 +3,7 @@ import { READER_SECTION, SECTIONS, sectionFor } from './sections'
 import { useSearchBook } from './useSearchBook'
 import { CoverView } from './views/CoverView'
 import { PlaceholderView } from './views/PlaceholderView'
+import { ReaderView } from './views/ReaderView'
 
 /**
  * Field Manual app frame (DESIGN.MD §4): announcement bar, collapsible sidebar
@@ -81,11 +82,7 @@ export function AppShell() {
                   LOADING INDEX —
                 </div>
               ) : app.activePageId ? (
-                <PlaceholderView
-                  title="Page reader"
-                  fig="FIG_PG0"
-                  note={`Page ${app.activePageId} renders here — the SSG page-reader lands in M6 (SYN-353).`}
-                />
+                <ReaderView app={app} pageId={app.activePageId} />
               ) : app.variant === 'classic' ? (
                 <CoverView app={app} />
               ) : app.variant === 'browse' ? (
