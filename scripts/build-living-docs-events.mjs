@@ -22,7 +22,14 @@ const defaults = {
   gapSummaryScript: path.join(searchBookRoot, "scripts", "summarize-living-docs-gaps.mjs"),
   backupScript: path.join(searchBookRoot, "scripts", "backup-answer-engine-db.mjs"),
   reviewerRunbook: path.join(searchBookRoot, "LIVING-DOCS-OPERATIONS.md"),
-  frontendPrototype: path.join(searchBookRoot, "index.html"),
+  // Symmiopedia v3 cutover (SYN-373): the served frontend is the web app; its
+  // service integration lives in the lib layer (service round-trips, voting
+  // endpoints, localStorage bridge).
+  frontendServiceSources: [
+    path.join(searchBookRoot, "web", "src", "lib", "service.ts"),
+    path.join(searchBookRoot, "web", "src", "lib", "voting.ts"),
+    path.join(searchBookRoot, "web", "src", "lib", "storage.ts"),
+  ],
 };
 
 const schemas = {
@@ -299,7 +306,7 @@ const gapQueue = readJson(args.gapQueue);
 const pageStateRegistry = readJson(args.pageStateRegistry);
 const packageJson = readJson(args.packageJson);
 const openInboxItems = parseOpenInboxItems(readText(args.operatorInbox));
-const frontendPrototype = readText(args.frontendPrototype);
+const frontendPrototype = args.frontendServiceSources.map((sourcePath) => readText(sourcePath)).join("\n");
 const fixtures = buildFixtures({ questionRoutes, gapQueue });
 const context = {
   pageById: new Map((pageStateRegistry.pages || []).map((page) => [page.id, page])),
@@ -389,10 +396,10 @@ const reviewerWorkflowDocumented =
 const sqliteDatastoreImplemented = serviceRuntimeImplemented;
 const frontendServiceIntegrationImplemented =
   frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
-  frontendPrototype.includes('"/api/search-book/answer"') &&
-  frontendPrototype.includes('"/api/search-book/rating"') &&
-  frontendPrototype.includes('"/api/search-book/page-feedback"') &&
-  frontendPrototype.includes('"/api/search-book/insights"') &&
+  frontendPrototype.includes("/api/search-book/answer") &&
+  frontendPrototype.includes("/api/search-book/rating") &&
+  frontendPrototype.includes("/api/search-book/page-feedback") &&
+  frontendPrototype.includes("/api/search-book/insights") &&
   frontendPrototype.includes("searchBookPrototype.serviceUrl");
 const retentionPolicyImplemented =
   serviceRuntimeImplemented &&
@@ -425,13 +432,13 @@ const answerCacheImplemented =
   serviceScriptText.includes('source: "reuse-cache"');
 const dynamicExamplesImplemented =
   serviceRuntimeImplemented &&
-  frontendPrototype.includes('"/api/search-book/examples"') &&
+  frontendPrototype.includes("/api/search-book/examples") &&
   serviceScriptText.includes("/api/search-book/examples") &&
   serviceScriptText.includes("handleExamples") &&
   serviceScriptText.includes("exampleRows");
 const pageFeedbackServiceImplemented =
   serviceRuntimeImplemented &&
-  frontendPrototype.includes('"/api/search-book/page-feedback"') &&
+  frontendPrototype.includes("/api/search-book/page-feedback") &&
   serviceScriptText.includes("/api/search-book/page-feedback") &&
   serviceScriptText.includes("persistPageFeedback") &&
   serviceScriptText.includes("page-feedback-needs-work");
@@ -574,7 +581,7 @@ const payload = {
           }
         : "Production configuration preflight is not implemented yet.",
       frontendIntegration: frontendServiceIntegrationImplemented
-        ? "index.html can call the service for answers, answer ratings, reader page feedback, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
+        ? "The web app can call the service for answers, answer ratings, reader page feedback, Search Insights, and optional dynamic examples when configured with ?service=... or window.SEARCH_BOOK_ANSWER_ENGINE_URL, while preserving localStorage and curated-example fallbacks."
         : "No public frontend is wired to the service yet.",
     },
   },

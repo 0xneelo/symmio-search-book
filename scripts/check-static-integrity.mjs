@@ -90,7 +90,11 @@ const dataRoot = path.join(assetRoot, "data");
 const pageStateRegistryPath = path.join(dataRoot, "page-state-registry.json");
 const searchIndexPath = path.join(dataRoot, "search-index.json");
 const authoredPagesPath = path.join(dataRoot, "authored-pages.json");
-const html = fs.readFileSync(args.indexHtml, "utf8");
+// Symmiopedia v3 cutover (SYN-373): the legacy prototype index.html is
+// retired — the web app (web/dist) is the front door. Legacy-markup checks
+// run only while a legacy index still exists (pre-cutover trees/artifacts).
+const legacyIndexExists = fs.existsSync(args.indexHtml);
+const html = legacyIndexExists ? fs.readFileSync(args.indexHtml, "utf8") : "";
 const pageStateRegistry = readJson(pageStateRegistryPath);
 const searchIndex = readJson(searchIndexPath);
 const authoredPages = readJson(authoredPagesPath);
@@ -102,17 +106,20 @@ const publicNavigationPages = (pageStateRegistry.pages || []).filter((page) => p
 const searchIndexIds = new Set((Array.isArray(searchIndex) ? searchIndex : searchIndex.pages || []).map((page) => page.id));
 const authoredPageIds = new Set((authoredPages.pages || []).map((page) => page.id));
 
-assert(html.includes("Vibe Docs Search Book Prototype"), "index-title-marker-missing", failures);
-assert(html.includes("Ask the docs"), "ask-action-missing", failures);
-assert(html.includes("Search insights"), "search-insights-nav-missing", failures);
-assert(html.includes("Back to dashboard"), "dashboard-back-link-label-missing", failures);
+let missingScriptRefs = [];
+if (legacyIndexExists) {
+  assert(html.includes("Vibe Docs Search Book Prototype"), "index-title-marker-missing", failures);
+  assert(html.includes("Ask the docs"), "ask-action-missing", failures);
+  assert(html.includes("Search insights"), "search-insights-nav-missing", failures);
+  assert(html.includes("Back to dashboard"), "dashboard-back-link-label-missing", failures);
 
-const scriptSources = localScriptSources(html);
-const missingScriptRefs = [...requiredScriptGlobals.keys()].filter((scriptPath) => !scriptSources.includes(scriptPath));
-for (const scriptPath of missingScriptRefs) failures.push(`script-reference-missing:${scriptPath}`);
+  const scriptSources = localScriptSources(html);
+  missingScriptRefs = [...requiredScriptGlobals.keys()].filter((scriptPath) => !scriptSources.includes(scriptPath));
+  for (const scriptPath of missingScriptRefs) failures.push(`script-reference-missing:${scriptPath}`);
 
-const unexpectedLocalScripts = scriptSources.filter((scriptPath) => !requiredScriptGlobals.has(scriptPath));
-for (const scriptPath of unexpectedLocalScripts) warnings.push(`unexpected-local-script:${scriptPath}`);
+  const unexpectedLocalScripts = scriptSources.filter((scriptPath) => !requiredScriptGlobals.has(scriptPath));
+  for (const scriptPath of unexpectedLocalScripts) warnings.push(`unexpected-local-script:${scriptPath}`);
+}
 
 for (const [scriptPath, globalName] of requiredScriptGlobals) {
   const absolutePath = resolveAsset(assetRoot, scriptPath);
@@ -153,7 +160,8 @@ const webDistIndexPath = path.join(webDistRoot, "index.html");
 let webDistChecks = "skipped (web/dist not built)";
 if (fs.existsSync(webDistIndexPath)) {
   const webHtml = fs.readFileSync(webDistIndexPath, "utf8");
-  assert(webHtml.includes("Vibe × SYMM Field Manual"), "web-dist-title-marker-missing", failures);
+  // Symmiopedia v3 (SYN-368): the public front door is the portal.
+  assert(webHtml.includes("Symmiopedia"), "web-dist-title-marker-missing", failures);
   const assetRefs = [...webHtml.matchAll(/(?:src|href)="(\/assets\/[^"]+)"/g)].map((match) => match[1]);
   assert(assetRefs.length > 0, "web-dist-no-bundled-assets", failures);
   for (const ref of assetRefs) {

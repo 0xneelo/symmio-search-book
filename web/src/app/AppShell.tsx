@@ -4,7 +4,10 @@ import { PUBLIC_SECTIONS, READER_SECTION, SECTIONS, sectionFor } from './section
 import { readAdminArea, useSearchBook } from './useSearchBook'
 import { AdminGate } from './AdminGate'
 import { CoverView } from './views/CoverView'
+import { PortalView } from './views/PortalView'
 import { ReaderView } from './views/ReaderView'
+import { SearchResultsView } from './views/SearchResultsView'
+import { AskView } from './views/AskView'
 import { BrowseView } from './views/BrowseView'
 import { GlossaryView } from './views/GlossaryView'
 import { FaqView } from './views/FaqView'
@@ -34,6 +37,10 @@ export function AppShell() {
   const section = app.activePageId ? READER_SECTION : sectionFor(app.variant)
 
   const closeRail = useCallback(() => setRailOpen(false), [])
+
+  // SYN-368: the Symmiopedia portal is the public landing — no v2 shell chrome.
+  // The v2 cover (and the full shell) stays for the admin surface (SYN-363).
+  const isPublicLanding = !adminArea && !app.activePageId && app.variant === 'classic'
   const toggleRail = useCallback(() => {
     if (drawerContext()) setRailOpen((open) => !open)
   }, [])
@@ -54,6 +61,16 @@ export function AppShell() {
     app.handleAsk(app.query)
     closeRail()
   }
+
+  // SYN-369: every page route renders the full Symmiopedia article (its own
+  // chrome) — the v2 shell stays only for the admin ops surface.
+  if (app.activePageId) return <ReaderView app={app} pageId={app.activePageId} />
+
+  // SYN-370: wiki special pages — Search results + the Ask reference desk.
+  if (app.special?.kind === 'search') return <SearchResultsView app={app} query={app.special.query} />
+  if (app.special?.kind === 'ask') return <AskView app={app} query={app.special.query} />
+
+  if (isPublicLanding) return <PortalView app={app} />
 
   return (
     <div className="flex h-full flex-col overflow-hidden">
@@ -128,8 +145,6 @@ export function AppShell() {
                 >
                   LOADING INDEX —
                 </div>
-              ) : app.activePageId ? (
-                <ReaderView app={app} pageId={app.activePageId} />
               ) : app.variant === 'classic' ? (
                 <CoverView app={app} />
               ) : (

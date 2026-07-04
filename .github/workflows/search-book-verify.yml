@@ -46,6 +46,13 @@ jobs:
       - name: Verify corpus and invariants
         run: npm run search-book:verify
 
+      # Symmiopedia v3 cutover (SYN-373): the web app is the front door — the
+      # smokes need the built web/dist (800 prerendered pages).
+      - name: Build web app
+        run: |
+          npm ci --prefix web
+          npm run build --prefix web
+
       - name: Smoke static preview
         run: npm run search-book:smoke-static
 

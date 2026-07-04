@@ -84,10 +84,11 @@ async function waitForPreview(baseUrl, child, logs) {
     }
     try {
       const index = await requestText(baseUrl, "/");
-      // Pre-cutover the root is the old prototype; post-cutover it is the Field Manual.
+      // Post-cutover (SYN-373) the root is the Symmiopedia app; the prototype
+      // marker keeps pre-cutover trees/artifacts smokable.
       if (
         index.statusCode === 200 &&
-        (index.body.includes("Vibe Docs Search Book Prototype") || index.body.includes("Vibe × SYMM Field Manual"))
+        (index.body.includes("Symmiopedia") || index.body.includes("Vibe Docs Search Book Prototype"))
       ) {
         return index;
       }
@@ -145,7 +146,7 @@ async function main() {
     const index = await requestText(baseUrl, "/index.html?page=authored-vibe-product-overview");
     assert(index.statusCode === 200, `index exact-page URL returned ${index.statusCode}.`);
     assert(
-      index.body.includes("Vibe Docs Search Book Prototype") || index.body.includes("Vibe × SYMM Field Manual"),
+      index.body.includes("Symmiopedia") || index.body.includes("Vibe Docs Search Book Prototype"),
       "exact-page URL did not serve a front door.",
     );
 
@@ -155,7 +156,8 @@ async function main() {
     if (fs.existsSync(webDistIndexPath)) {
       const v2 = await requestText(baseUrl, "/v2/");
       assert(v2.statusCode === 200, `/v2/ returned ${v2.statusCode}.`);
-      assert(v2.body.includes("Vibe × SYMM Field Manual"), "/v2/ did not serve the Field Manual app.");
+      // Symmiopedia v3 (SYN-368): the web app front door is the portal.
+      assert(v2.body.includes("Symmiopedia"), "/v2/ did not serve the Symmiopedia app.");
 
       const distHtml = fs.readFileSync(webDistIndexPath, "utf8");
       const assetMatch = distHtml.match(/src="(\/assets\/[^"]+\.js)"/);
@@ -168,7 +170,7 @@ async function main() {
       assert(firstPage, "web/dist/page has no prerendered pages.");
       const reader = await requestText(baseUrl, `/page/${firstPage}/`);
       assert(reader.statusCode === 200, `prerendered page returned ${reader.statusCode}.`);
-      assert(reader.body.includes('class="reader-body"'), "prerendered page did not include reader content.");
+      assert(reader.body.includes('class="wk-body"'), "prerendered page did not include reader content.");
       webChecks = "ok";
     }
 

@@ -43,7 +43,13 @@ const defaults = {
   questions: path.join(searchBookRoot, "QUESTIONS.md"),
   readme: path.join(searchBookRoot, "README.md"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
-  frontendPrototype: path.join(searchBookRoot, "index.html"),
+  // Symmiopedia v3 cutover (SYN-373): the frontend service integration lives
+  // in the web app's lib layer.
+  frontendServiceSources: [
+    path.join(searchBookRoot, "web", "src", "lib", "service.ts"),
+    path.join(searchBookRoot, "web", "src", "lib", "voting.ts"),
+    path.join(searchBookRoot, "web", "src", "lib", "storage.ts"),
+  ],
   buildOrchestrator: path.join(searchBookRoot, "scripts", "build-all.mjs"),
   packageJson: path.join(repoRoot, "package.json"),
   generatedDir: path.join(searchBookRoot, "content", "generated"),
@@ -262,7 +268,7 @@ const gapMarkdown = readText(args.gaps);
 const questionMarkdown = readText(args.questions);
 const readmeMarkdown = readText(args.readme);
 const inboxMarkdown = readText(args.operatorInbox);
-const frontendPrototype = readText(args.frontendPrototype);
+const frontendPrototype = args.frontendServiceSources.map((sourcePath) => readText(sourcePath)).join("\n");
 const packageJson = fs.existsSync(args.packageJson) ? readJson(args.packageJson) : { scripts: {} };
 
 const manifestPages = manifest.pages || [];
@@ -363,9 +369,9 @@ const livingDocsFailingEventIds = livingDocsEvents.failureSummary?.failingEventI
 const frontendServiceIntegrationImplemented =
   livingDocsEvents.frontendServiceIntegrationImplemented === true ||
   (frontendPrototype.includes("SEARCH_BOOK_ANSWER_ENGINE_URL") &&
-    frontendPrototype.includes('"/api/search-book/answer"') &&
-    frontendPrototype.includes('"/api/search-book/rating"') &&
-    frontendPrototype.includes('"/api/search-book/insights"') &&
+    frontendPrototype.includes("/api/search-book/answer") &&
+    frontendPrototype.includes("/api/search-book/rating") &&
+    frontendPrototype.includes("/api/search-book/insights") &&
     frontendPrototype.includes("searchBookPrototype.serviceUrl"));
 const retentionPolicyImplemented = livingDocsEvents.retentionPolicyImplemented === true;
 const moderationExportImplemented = livingDocsEvents.moderationExportImplemented === true;
