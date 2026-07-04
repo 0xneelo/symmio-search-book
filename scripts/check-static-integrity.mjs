@@ -145,6 +145,28 @@ const publicPagesMissingReaderData = publicNavigationPages
   .filter((pageId) => !searchIndexIds.has(pageId) && !authoredPageIds.has(pageId));
 for (const pageId of publicPagesMissingReaderData) failures.push(`public-page-missing-reader-data:${pageId}`);
 
+// Field Manual v2 build (SYN-356): when web/dist is present, sanity-check the
+// new app artifact — front-door marker, bundled asset existence, prerendered
+// reader pages. Absent web/dist is not a failure (CI may not build the app).
+const webDistRoot = path.join(assetRoot, "web", "dist");
+const webDistIndexPath = path.join(webDistRoot, "index.html");
+let webDistChecks = "skipped (web/dist not built)";
+if (fs.existsSync(webDistIndexPath)) {
+  const webHtml = fs.readFileSync(webDistIndexPath, "utf8");
+  assert(webHtml.includes("Vibe × SYMM Field Manual"), "web-dist-title-marker-missing", failures);
+  const assetRefs = [...webHtml.matchAll(/(?:src|href)="(\/assets\/[^"]+)"/g)].map((match) => match[1]);
+  assert(assetRefs.length > 0, "web-dist-no-bundled-assets", failures);
+  for (const ref of assetRefs) {
+    if (!fs.existsSync(path.join(webDistRoot, ref.replace(/^\//, "")))) {
+      failures.push(`web-dist-asset-missing:${ref}`);
+    }
+  }
+  const pageDir = path.join(webDistRoot, "page");
+  const prerendered = fs.existsSync(pageDir) ? fs.readdirSync(pageDir).length : 0;
+  assert(prerendered > 0, "web-dist-no-prerendered-pages", failures);
+  webDistChecks = `ok (${prerendered} prerendered pages)`;
+}
+
 const result = {
   status: failures.length ? "failed" : "passed",
   service: "search-book-static-integrity",
@@ -157,6 +179,7 @@ const result = {
     publicNavigationPages: publicNavigationPages.length,
     publicPagesMissingReaderData: publicPagesMissingReaderData.length,
     urlUnsafePublicPageIds: invalidPublicPageIds.length,
+    fieldManualV2: webDistChecks,
   },
   warnings,
   failures,

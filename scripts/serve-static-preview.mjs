@@ -27,6 +27,8 @@ const contentTypes = {
   ".ico": "image/x-icon",
   ".txt": "text/plain; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
 };
 
 function parseArgs(argv) {
@@ -64,6 +66,13 @@ function sendText(response, statusCode, text, contentType = "text/plain; charset
   response.end(text);
 }
 
+function safeJoin(base, pathname) {
+  const filePath = path.resolve(base, `.${pathname}`);
+  const relative = path.relative(base, filePath);
+  if (relative.startsWith("..") || path.isAbsolute(relative)) return null;
+  return filePath;
+}
+
 function resolveStaticFile(root, requestUrl) {
   const url = new URL(requestUrl || "/", "http://search-book.local");
   const rawPathname = url.pathname === "/" ? "/index.html" : url.pathname;
@@ -73,10 +82,44 @@ function resolveStaticFile(root, requestUrl) {
   } catch {
     return null;
   }
-  const filePath = path.resolve(root, `.${pathname}`);
-  const relative = path.relative(root, filePath);
-  if (relative.startsWith("..") || path.isAbsolute(relative)) return null;
-  return filePath;
+  return safeJoin(root, pathname);
+}
+
+/**
+ * Overlay resolution for the Field Manual v2 build (SYN-356): the repo root
+ * stays canonical; `web/dist` serves the new app. `/v2/` is the explicit new
+ * front door pre-cutover; `/assets/*` and `/page/<id>/` fall through to
+ * web/dist (the old site has no such paths). Once the old index.html is
+ * retired after sign-off, `/` falls through to the new app automatically.
+ */
+function candidateStaticFiles(root, requestUrl) {
+  const url = new URL(requestUrl || "/", "http://search-book.local");
+  let pathname = "";
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    return null;
+  }
+  const webDist = path.join(root, "web", "dist");
+  const candidates = [];
+  if (pathname === "/" || pathname === "/index.html") {
+    candidates.push(safeJoin(root, "/index.html"));
+    candidates.push(safeJoin(webDist, "/index.html"));
+  } else if (pathname === "/v2" || pathname === "/v2/" || pathname.startsWith("/v2/")) {
+    const rest = pathname.replace(/^\/v2\/?/, "/");
+    const target = rest === "/" ? "/index.html" : rest;
+    candidates.push(safeJoin(webDist, target));
+    if (!path.extname(target)) {
+      candidates.push(safeJoin(webDist, `${target.replace(/\/$/, "")}/index.html`));
+    }
+  } else {
+    candidates.push(safeJoin(root, pathname));
+    candidates.push(safeJoin(webDist, pathname));
+    if (!path.extname(pathname)) {
+      candidates.push(safeJoin(webDist, `${pathname.replace(/\/$/, "")}/index.html`));
+    }
+  }
+  return candidates.filter(Boolean);
 }
 
 function createStaticPreviewServer(root) {
@@ -86,21 +129,28 @@ function createStaticPreviewServer(root) {
       return;
     }
 
-    const filePath = resolveStaticFile(root, request.url);
-    if (!filePath) {
+    const candidates = candidateStaticFiles(root, request.url);
+    if (!candidates) {
       sendText(response, 400, "Bad request");
       return;
     }
 
-    let stats;
-    try {
-      stats = fs.statSync(filePath);
-    } catch {
-      sendText(response, 404, "Not found");
-      return;
+    let filePath = null;
+    let stats = null;
+    for (const candidate of candidates) {
+      try {
+        const candidateStats = fs.statSync(candidate);
+        if (candidateStats.isFile()) {
+          filePath = candidate;
+          stats = candidateStats;
+          break;
+        }
+      } catch {
+        // try the next overlay candidate
+      }
     }
 
-    if (!stats.isFile()) {
+    if (!filePath || !stats) {
       sendText(response, 404, "Not found");
       return;
     }
@@ -123,8 +173,9 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const root = path.resolve(args.root);
   const indexPath = path.join(root, "index.html");
-  if (!fs.existsSync(indexPath)) {
-    throw new Error(`Search Book index.html not found at ${indexPath}`);
+  const webDistIndexPath = path.join(root, "web", "dist", "index.html");
+  if (!fs.existsSync(indexPath) && !fs.existsSync(webDistIndexPath)) {
+    throw new Error(`No front door found: neither ${indexPath} nor ${webDistIndexPath} exists.`);
   }
 
   const server = createStaticPreviewServer(root);
@@ -146,6 +197,7 @@ async function main() {
 const isCli = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 export {
+  candidateStaticFiles,
   createStaticPreviewServer,
   defaults,
   parseArgs,

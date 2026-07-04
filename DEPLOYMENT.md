@@ -54,6 +54,34 @@ To wire the static frontend to a live service, load it as
 `index.html?service=https://<answer-engine-host>` — it falls back to `localStorage` and
 curated examples when the service is absent.
 
+### 3a. Field Manual v2 app (`web/`) — build, overlay, cutover
+
+The redesigned frontend (SYN-347, "Vibe × SYMM Field Manual") lives in `web/` as a
+Vite + React app with all 800 reader pages prerendered at build time:
+
+```bash
+cd web && npm install && cd ..    # one-time; web/ has its own package.json
+npm run web:build                 # client build + SSR build + prerender (fails if any page is missed)
+```
+
+`serve-static-preview.mjs` (and therefore the VPS static serve + `build-static-artifact.mjs`)
+overlays `web/dist` on the repo root:
+
+- `/` — the old `index.html` while it exists; **falls through to the new app once it is retired**
+- `/v2/` — the new app's explicit front door pre-cutover
+- `/assets/*`, `/page/<id>/` — served from `web/dist` (the old site has no such paths)
+
+`search-book:check-static` and `search-book:smoke-static` validate the overlay whenever
+`web/dist` is present (title marker, bundled assets, prerendered pages) and skip it cleanly
+when the app is not built. `search-book:build-static-artifact` ships `web/dist` inside the
+artifact automatically.
+
+**Push-button cutover** (only after the design sign-off in SYN-358): `git rm index.html`,
+rebuild the artifact, redeploy. `/` then serves the Field Manual; the old
+`?variant=`/`?page=` deep links keep working inside the new app. The new frontend talks to
+the same answer-engine via `?service=` or `window.SEARCH_BOOK_ANSWER_ENGINE_URL`, and the
+`/api/search-book/*` contract is unchanged.
+
 ## 4. Answer-engine service (systemd)
 
 ```bash
