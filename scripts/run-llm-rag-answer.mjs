@@ -1558,6 +1558,13 @@ function isLafaQuotableQuery(query) {
 
 const lafaStopTokens = new Set(["lafa", "say", "said", "says", "discord", "what", "about", "the", "did", "does", "founder", "tell", "think", "thinks", "chat"]);
 
+// Light suffix stem so "liquidations" matches "liquidated"/"liquidation" in
+// Lafa's informal Discord phrasing; only stems that stay >= 4 chars are used.
+function lafaTokenStem(token) {
+  const stem = token.replace(/(?:ations?|ings?|ions?|ers?|ed|es|s)$/, "");
+  return stem.length >= 4 ? stem : token;
+}
+
 function answerFromLafaCorpus(args, runtime) {
   const entries = runtime.lafaAnswers || [];
   if (!entries.length) return null;
@@ -1567,14 +1574,17 @@ function answerFromLafaCorpus(args, runtime) {
   for (const entry of entries) {
     let score = 0;
     for (const token of queryTokens) {
-      if (entry.searchText.includes(token)) score += 1;
+      if (entry.searchText.includes(token) || entry.searchText.includes(lafaTokenStem(token))) score += 1;
     }
     if (score > 0 && (!best || score > best.score || (score === best.score && entry.messageId < best.entry.messageId))) {
       best = { entry, score };
     }
   }
   // Require a minimal topical match so an unrelated Lafa answer is never quoted.
-  if (!best || best.score < 2) return null;
+  // "What did Lafa say about liquidations?" carries a single content token, so the
+  // floor adapts: every content token must hit when there are fewer than two.
+  const requiredScore = Math.min(2, queryTokens.length);
+  if (!best || best.score < requiredScore) return null;
   const entry = best.entry;
   const dateLabel = String(entry.timestamp || "").slice(0, 10) || "undated";
   const attribution = `— Lafa (founder), Discord #symm-chat, ${dateLabel}`;
