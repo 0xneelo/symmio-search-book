@@ -1,6 +1,7 @@
 /**
- * Answer-vote controls in the wiki register (SYN-370, DESIGN.MD Part A):
- * flat link-blue buttons only — no chroma, no shadows. The behavioral
+ * Answer-vote controls in the wiki register (SYN-370, DESIGN.MD Part A;
+ * button styling per the operator answer-page amendment 2026-07-04 —
+ * solid comp buttons in sanctioned chroma). The behavioral
  * contract is identical to the v2 RatingButtons/DismissGuard/VoteThanks set
  * (parity-checklist §5): optimistic one-shot lock, error revert, dismiss-guard
  * on unrated dismissal, post-vote thank-you dialog with a 15s countdown where
@@ -12,37 +13,32 @@ import type { VoteState } from '@/app/useVote'
 export function WikiAnswerRating({
   state,
   onRate,
-  onDismiss,
 }: {
   state: VoteState
   onRate: (dir: 'up' | 'down') => void
-  onDismiss?: () => void
 }) {
+  const rated = state.rating
   return (
     <div className="wk-answer-rate" data-testid="wk-answer-rate">
-      {state.locked ? (
-        <span className="wk-pagerate-done">✓ logged — thank you</span>
-      ) : (
-        <>
-          Was this answer useful?{' '}
-          <button type="button" onClick={() => onRate('up')} disabled={state.rating !== null}>
-            {state.rating === 'up' ? 'Useful…' : 'Useful'}
-          </button>
-          {' · '}
-          <button type="button" onClick={() => onRate('down')} disabled={state.rating !== null}>
-            {state.rating === 'down' ? 'Needs work…' : 'Needs work'}
-          </button>
-          {state.error && <span className="wk-muted"> — {state.error}</span>}
-        </>
-      )}
-      {onDismiss && (
-        <>
-          {' '}
-          <button type="button" className="wk-answer-dismiss" onClick={onDismiss}>
-            Dismiss ×
-          </button>
-        </>
-      )}
+      <span className="wk-rate-label">RATE THIS ANSWER</span>
+      <button
+        type="button"
+        className={`wk-rate-down${rated === 'down' ? ' is-pressed' : ''}${rated === 'up' ? ' is-dimmed' : ''}`}
+        onClick={() => onRate('down')}
+        disabled={rated !== null}
+      >
+        {rated === 'down' && !state.locked ? 'Needs work…' : 'Needs work'}
+      </button>
+      <button
+        type="button"
+        className={`wk-rate-up${rated === 'up' ? ' is-pressed' : ''}${rated === 'down' ? ' is-dimmed' : ''}`}
+        onClick={() => onRate('up')}
+        disabled={rated !== null}
+      >
+        {rated === 'up' && !state.locked ? 'Useful…' : 'Useful'}
+      </button>
+      {state.locked && <span className="wk-rate-done">✓ logged — thank you</span>}
+      {state.error && <span className="wk-muted"> — {state.error}</span>}
     </div>
   )
 }

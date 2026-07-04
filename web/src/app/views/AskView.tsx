@@ -1,10 +1,12 @@
 /**
- * "Reference desk" Ask special page (SYN-370, DESIGN.MD Part A): the
- * ask/answer engine restyled as a wiki special page. Answer body 14px/1.6
- * sans; sources as numbered references with ^ backlinks; voting as flat
- * wiki-style links; flagged-answer quarantine behavior unchanged — service
- * refusals render as refusals, degraded mode renders the limited-mode note,
- * and no answer is ever synthesized client-side.
+ * "Reference desk" Ask special page (SYN-370, DESIGN.MD Part A; visual
+ * register per the operator answer-page amendment 2026-07-04 —
+ * docs/goals/symmiopedia-v3/comp/answer-page.html): loading box with phase
+ * ticker / elapsed / indeterminate bar / shimmer skeleton; routed-answer
+ * panel with #cedff2 title bar; numbered raw-URL citations; solid rate
+ * buttons. Flagged-answer quarantine behavior unchanged — service refusals
+ * render as refusals, degraded mode renders the limited-mode note, and no
+ * answer is ever synthesized client-side.
  *
  * Behavior parity (parity-checklist §3–5): handleAsk service branch with
  * local fallback, eventId round-trip to /rating, optimistic one-shot vote
@@ -40,13 +42,26 @@ function Paragraphs({ text }: { text: string }) {
   )
 }
 
+const LOAD_PHASES = ['Scanning cited context', 'Matching passages', 'Ranking sources', 'Composing answer']
+
 export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
   const [draft, setDraft] = useState(query)
   const [guardOpen, setGuardOpen] = useState(false)
   const [thanks, setThanks] = useState(false)
+  const [elapsed, setElapsed] = useState(0)
   const askedRef = useRef<string | null>(null)
 
   const answer = app.answer
+
+  // Live elapsed readout while the service answer is in flight; the phase
+  // label advances on a fixed cadence and holds on the last phase.
+  const isLoading = !!answer?.loading
+  useEffect(() => {
+    if (!isLoading) return
+    setElapsed(0)
+    const iv = setInterval(() => setElapsed((t) => Math.round((t + 0.1) * 10) / 10), 100)
+    return () => clearInterval(iv)
+  }, [isLoading, answer?.query])
 
   // Entering the page (or navigating with a new ?ask=) fires the ask once.
   useEffect(() => {
@@ -147,25 +162,27 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
     </a>
   )
 
+  // Numbered citation list in the comp register: the raw source URL as the
+  // link text with a trailing ↗; page-link fallback when no URL is known.
   const answerReferences = (citations: ServiceCitation[] | undefined, page: Page | null) => {
     const refs: ReactNode[] = []
     for (const [index, citation] of (citations || []).slice(0, 8).entries()) {
       const citedPage = citation.pageId ? data.pageById.get(citation.pageId) : undefined
       refs.push(
         <li key={`c-${index}`}>
-          <span className="wk-ref-backlink">
-            <a role="button" tabIndex={0} onClick={(e) => e.preventDefault()}>
-              ^
-            </a>
-          </span>{' '}
-          {citedPage ? pageLink(citedPage, citation.pageTitle || citedPage.title) : citation.pageTitle || citation.sourceKey}
-          {citation.sourceKey && <span className="wk-muted"> — {citation.sourceKey}</span>}
-          {citation.sourceHref && (
+          {citation.sourceHref ? (
             <>
-              {' '}
               <a className="wk-external" href={citation.sourceHref} target="_blank" rel="noreferrer">
-                source
-              </a>
+                {citation.sourceHref}
+              </a>{' '}
+              <span className="wk-muted">↗</span>
+            </>
+          ) : citedPage ? (
+            pageLink(citedPage, citation.pageTitle || citedPage.title)
+          ) : (
+            <>
+              {citation.pageTitle || citation.sourceKey}
+              {citation.sourceKey && citation.pageTitle && <span className="wk-muted"> — {citation.sourceKey}</span>}
             </>
           )}
         </li>,
@@ -173,25 +190,87 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
     }
     if (!refs.length && page) {
       for (const key of (page.sourceKeys || []).slice(0, 5)) {
-        refs.push(
-          <li key={`k-${key}`}>
-            <span className="wk-ref-backlink">^</span> {key}
-          </li>,
-        )
+        refs.push(<li key={`k-${key}`}>{key}</li>)
       }
     }
     return refs
   }
 
+  // First cited source key → the bordered chip in the comp's "Source:" row.
+  const sourceChipRow = (key: string | undefined | null) =>
+    key ? (
+      <div className="wk-source-row">
+        <b>Source:</b>&nbsp;<span className="wk-source-chip">{key}</span>
+      </div>
+    ) : null
+
+  // Shared panel shell: #cedff2 title bar ("Routed answer" + the asked
+  // question + dismiss) over the pale-blue body. The meta line keeps the
+  // service answer / service refusal / routed answer registers the
+  // quarantine-parity specs assert on.
+  const answerPanel = (meta: ReactNode, body: ReactNode) => (
+    <div className="wk-answer wk-answer-panel" data-answer="">
+      <div className="wk-answer-titlebar">
+        <span className="wk-answer-titlebar-label">Routed answer</span>
+        <span className="wk-answer-titlebar-q">&ldquo;{answer?.query}&rdquo;</span>
+        <span className="wk-load-cancel">
+          [
+          <button type="button" title="Dismiss this answer" onClick={requestDismiss}>
+            Dismiss ×
+          </button>
+          ]
+        </span>
+      </div>
+      <div className="wk-answer-body">
+        <div className="wk-answer-meta wk-muted">{meta}</div>
+        {body}
+      </div>
+    </div>
+  )
+
   const renderAnswer = () => {
     if (!answer) return null
     if (answer.loading) {
       return (
-        <div className="wk-answer" data-answer="">
-          <div className="wk-answer-meta wk-muted">service answer-engine</div>
-          <h3>Scanning cited context</h3>
-          <p>Waiting for the configured Search Book answer service.</p>
-        </div>
+        <>
+          <p className="wk-muted" style={{ fontSize: 14, margin: '4px 0 8px' }}>
+            Question: <strong style={{ color: 'var(--wk-text)' }}>{answer.query}</strong>
+          </p>
+          <div className="wk-answer wk-answer-loading" data-answer="">
+            <div className="wk-load-head">
+              <span className="wk-answer-meta wk-muted">service answer-engine</span>
+              <span className="wk-load-elapsed">{elapsed.toFixed(1)}s</span>
+              <span className="wk-load-cancel">
+                [
+                <button type="button" title="Cancel this question" onClick={resetAnswer}>
+                  cancel ×
+                </button>
+                ]
+              </span>
+            </div>
+            <div className="wk-load-phase">
+              {LOAD_PHASES[Math.min(LOAD_PHASES.length - 1, Math.floor(elapsed / 1.4))]}
+              <span className="wk-load-dots" aria-hidden="true">
+                {[0, 1, 2].map((i) => (
+                  // Inline SVG circles: the round dots of the comp without a
+                  // border-radius above the 2px hard-rules ceiling.
+                  <svg key={i} width="6" height="6" viewBox="0 0 6 6" style={{ animationDelay: `${i * 0.2}s` }}>
+                    <circle cx="3" cy="3" r="3" fill="#202122" />
+                  </svg>
+                ))}
+              </span>
+            </div>
+            <p>Waiting for the configured Search Book answer service.</p>
+            <div className="wk-load-bar">
+              <div className="wk-load-band" />
+            </div>
+            <div className="wk-load-skel">
+              {['97%', '100%', '90%', '62%'].map((w) => (
+                <div key={w} className="wk-skel-line" style={{ width: w }} />
+              ))}
+            </div>
+          </div>
+        </>
       )
     }
     const { result } = answer
@@ -204,7 +283,6 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
             if (ok) setThanks(true)
           })
         }
-        onDismiss={requestDismiss}
       />
     )
 
@@ -214,14 +292,13 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
       const title =
         page?.title || response.citations?.[0]?.pageTitle || (isAnswered ? 'Cited answer' : 'Answer unavailable')
       const refs = answerReferences(response.citations, page)
-      return (
-        <div className="wk-answer" data-answer="">
-          <div className="wk-answer-meta wk-muted">
-            {isAnswered
-              ? `service answer / ${response.confidence || 'grounded'}`
-              : `service refusal / ${response.refusalReason || response.status || 'not answered'}`}
-          </div>
-          <h3>{title}</h3>
+      const firstHref = response.citations?.find((c) => c.sourceHref)?.sourceHref
+      return answerPanel(
+        isAnswered
+          ? `service answer / ${response.confidence || 'grounded'}`
+          : `service refusal / ${response.refusalReason || response.status || 'not answered'}`,
+        <>
+          <h3 className="wk-answer-headline">{title}</h3>
           {response.degraded && (
             <div className="wk-answer-degraded">
               Limited mode —{' '}
@@ -244,38 +321,44 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
               <strong>Gap:</strong> {response.gapEvent.reason || response.refusalReason || 'recorded'}
             </p>
           )}
-          {page && <p>{pageLink(page, 'Open the exact page')}</p>}
-          {refs.length > 0 && (
-            <div className="wk-references">
-              <h4>Sources</h4>
-              <ol>{refs}</ol>
-            </div>
+          {sourceChipRow(response.citations?.[0]?.sourceKey)}
+          {refs.length > 0 && <ol className="wk-cite-list">{refs}</ol>}
+          {page ? (
+            <div className="wk-open-exact">{pageLink(page, 'Open the exact page ↗')}</div>
+          ) : (
+            firstHref && (
+              <div className="wk-open-exact">
+                <a className="wk-external" href={firstHref} target="_blank" rel="noreferrer">
+                  Open exact page ↗
+                </a>
+              </div>
+            )
           )}
           {ratingRow}
-        </div>
+        </>,
       )
     }
 
     if (!page) {
-      return (
-        <div className="wk-answer" data-answer="">
-          <div className="wk-answer-meta wk-muted">No grounded route / recorded gap</div>
-          <h3>No exact page found yet</h3>
+      return answerPanel(
+        'No grounded route / recorded gap',
+        <>
+          <h3 className="wk-answer-headline">No exact page found yet</h3>
           <p>
             The current corpus did not produce a grounded match for &ldquo;{answer.query}&rdquo;.
             This question is now in the local gaps queue.
           </p>
           {ratingRow}
-        </div>
+        </>,
       )
     }
 
-    return (
-      <div className="wk-answer" data-answer="">
-        <div className="wk-answer-meta wk-muted">
-          {page.section || 'docs'} / routed answer / score {String(result.score)}
-        </div>
-        <h3>{pageLink(page)}</h3>
+    return answerPanel(
+      <>
+        {page.section || 'docs'} / routed answer / score {String(result.score)}
+      </>,
+      <>
+        <h3 className="wk-answer-headline">{pageLink(page)}</h3>
         <p>{page.summary || page.excerpt || ''}</p>
         {result.questionRoute && (
           <p>
@@ -289,22 +372,24 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
           </p>
         )}
         {result.answerChunk?.text && (
-          <p>
-            <strong>Matched chunk:</strong> {result.answerChunk.text.slice(0, 420)}
-            {result.answerChunk.text.length > 420 ? '…' : ''}
-          </p>
+          <div className="wk-chunk">
+            <b>Matched chunk:</b>{' '}
+            <i>
+              &ldquo;{result.answerChunk.text.slice(0, 420)}
+              {result.answerChunk.text.length > 420 ? '…' : ''}&rdquo;
+            </i>
+          </div>
         )}
         {page.gap && (
           <p>
             <strong>Gap:</strong> {page.gap}
           </p>
         )}
-        <div className="wk-references">
-          <h4>Sources</h4>
-          <ol>{answerReferences(undefined, page)}</ol>
-        </div>
+        {sourceChipRow(page.sourceKeys?.[0])}
+        <ol className="wk-cite-list">{answerReferences(undefined, page)}</ol>
+        <div className="wk-open-exact">{pageLink(page, 'Open the exact page ↗')}</div>
         {ratingRow}
-      </div>
+      </>,
     )
   }
 
@@ -329,31 +414,32 @@ export function AskView({ app, query }: { app: SearchBookApp; query: string }) {
         <button type="submit">Ask</button>
       </form>
 
-      {!answer && app.examples.length > 0 && (
-        <p className="wk-ask-examples">
-          Try:{' '}
-          {app.examples.map((label, index) => (
-            <span key={label}>
-              {index > 0 && ' · '}
-              <a
-                role="button"
-                tabIndex={0}
-                onClick={(event) => {
-                  event.preventDefault()
-                  askExample(label)
-                }}
-              >
-                {label}
-              </a>
-            </span>
-          ))}
-        </p>
-      )}
-
-      {answer && (
-        <p className="wk-muted" style={{ fontSize: 12.6 }}>
-          Question: <strong>{answer.query}</strong>
-        </p>
+      {!answer && (
+        <div className="wk-idle-box">
+          No active question. Ask one in the search box above
+          {app.examples.length > 0 ? (
+            <>
+              , or try:{' '}
+              {app.examples.map((label, index) => (
+                <span key={label}>
+                  {index > 0 && ' · '}
+                  <a
+                    role="button"
+                    tabIndex={0}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      askExample(label)
+                    }}
+                  >
+                    {label}
+                  </a>
+                </span>
+              ))}
+            </>
+          ) : (
+            '.'
+          )}
+        </div>
       )}
       {renderAnswer()}
 

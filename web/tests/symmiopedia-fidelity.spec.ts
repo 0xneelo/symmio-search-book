@@ -15,8 +15,22 @@ const PUBLIC_ROUTES: Array<[string, string, string]> = [
   ['reference-desk', '/?ask=How%20do%20I%20get%20more%20invites%3F', '.wk-answer'],
 ]
 
-// Sanctioned chroma (DESIGN.MD §2): links, red links, the chrome line.
-const ALLOWED_CHROMA = new Set(['6,69,173', '51,102,187', '186,0,0', '167,215,249'])
+// Sanctioned chroma (DESIGN.MD §2): links, red links, the chrome line, plus
+// the answer-panel palette from the operator amendment 2026-07-04. Mirrors
+// the inline set inside the page.evaluate below (which cannot close over
+// this const) — keep the two in sync.
+const ALLOWED_CHROMA = new Set([
+  '6,69,173',
+  '51,102,187',
+  '186,0,0',
+  '167,215,249',
+  '206,223,242',
+  '163,176,191',
+  '51,102,204',
+  '42,75,141',
+  '179,36,36',
+  '20,134,109',
+])
 
 for (const [name, route, readySelector] of PUBLIC_ROUTES) {
   test.describe(`hard rules — ${name}`, () => {
@@ -46,7 +60,20 @@ for (const [name, route, readySelector] of PUBLIC_ROUTES) {
           if (!match) return null
           return [Number(match[1]), Number(match[2]), Number(match[3]), match[4] === undefined ? 1 : Number(match[4])]
         }
-        const allowed = new Set(['6,69,173', '51,102,187', '186,0,0', '167,215,249'])
+        const allowed = new Set([
+          '6,69,173', // links
+          '51,102,187', // external links
+          '186,0,0', // red links
+          '167,215,249', // chrome line
+          // Answer-panel palette — operator amendment 2026-07-04
+          // (docs/goals/symmiopedia-v3/comp/answer-page.html):
+          '206,223,242', // #cedff2 title bar / progress band
+          '163,176,191', // #a3b0bf panel + band borders
+          '51,102,204', // #3366cc Useful button
+          '42,75,141', // #2a4b8d Useful pressed
+          '179,36,36', // #b32424 Needs-work pressed
+          '20,134,109', // #14866d rating-logged check
+        ])
         const isSanctioned = (value: string): boolean => {
           const rgb = parseRgb(value)
           if (!rgb) return true // transparent / none / keyword

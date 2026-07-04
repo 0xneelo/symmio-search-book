@@ -1,7 +1,8 @@
 /**
  * Symmiopedia site mark — operator design amendment, 2026-07-04 (post
  * SYN-372 sign-off): the puzzle-globe mark is replaced by the operator's
- * puzzle-piece-S mark (canonical vector:
+ * puzzle-piece-S mark, used verbatim as the operator-supplied vector
+ * (exact file, single traced evenodd path; canonical copy:
  * docs/goals/symmiopedia-v3/comp/operator-mark-puzzle-s.svg).
  *
  * Brand architecture per the amendment: three separate asset files —
