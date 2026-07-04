@@ -22,7 +22,7 @@ import {
   wikiTocFor,
 } from '@/lib/wiki'
 import { tocFromHtml } from '@/lib/markdown'
-import { PuzzleGlobe } from './PuzzleGlobe'
+import { WikiMark } from './WikiMark'
 
 export interface WikiArticleProps {
   model: ReaderModel
@@ -99,7 +99,7 @@ export function WikiArticle({
         <aside className="wk-infobox">
           <div className="wk-infobox-caption">{page.title}</div>
           <div className="wk-infobox-figure">
-            <PuzzleGlobe size={234} alt="Symmiopedia puzzle globe" />
+            <WikiMark slot="page" size={234} />
           </div>
           <table>
             <tbody>
