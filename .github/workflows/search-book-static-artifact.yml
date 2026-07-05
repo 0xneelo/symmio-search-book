@@ -56,6 +56,13 @@ jobs:
       - name: Verify corpus and static integrity
         run: npm run search-book:verify
 
+      # Symmiopedia v3 cutover (SYN-373): the web app is the front door — the
+      # artifact ships the built web/dist (800 prerendered pages).
+      - name: Build web app
+        run: |
+          npm ci --prefix web
+          npm run build --prefix web
+
       - name: Build static artifact
         run: |
           npm run search-book:build-static-artifact -- --out-dir "$SEARCH_BOOK_STATIC_ARTIFACT_DIR"

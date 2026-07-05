@@ -15,8 +15,9 @@ const defaults = {
   runIntegrity: true,
 };
 
+// Symmiopedia v3 cutover (SYN-373): the legacy prototype index.html is
+// retired — the built web app (web/dist, copied below) is the front door.
 const rootFiles = [
-  "index.html",
   "answer-corpus.js",
   "page-manifest.json",
 ];
@@ -254,6 +255,13 @@ function buildArtifact(args) {
   for (const relativePath of rootFiles) copyFile(relativePath, args.outDir, copied);
   for (const spec of directorySpecs) walkDirectory(spec.relative, spec.include, args.outDir, copied);
 
+  // Field Manual v2 (SYN-356): ship the built web app when present so the
+  // serve overlay (/v2/, /assets/, /page/<id>/) works from the artifact.
+  const webDistIncluded = fs.existsSync(path.join(searchBookRoot, "web", "dist", "index.html"));
+  if (webDistIncluded) {
+    walkDirectory("web/dist", /./, args.outDir, copied);
+  }
+
   const sensitiveMatches = scanSensitive(args.outDir, copied);
   const integrity = args.runIntegrity ? runIntegrity(args.outDir) : { status: "skipped" };
   const manifest = {
@@ -265,7 +273,8 @@ function buildArtifact(args) {
     bytes: copied.reduce((total, file) => total + file.bytes, 0),
     included: {
       rootFiles,
-      directories: directorySpecs.map((spec) => spec.relative),
+      directories: [...directorySpecs.map((spec) => spec.relative), ...(webDistIncluded ? ["web/dist"] : [])],
+      fieldManualV2: webDistIncluded ? "included" : "not built",
     },
     readiness: summarizeData(),
     integrity,

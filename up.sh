@@ -131,7 +131,7 @@ fi
 say "Starting answer-engine service :${SERVICE_PORT} — ${MODE_LABEL}"
 SEARCH_BOOK_ANSWER_ENGINE_PORT="$SERVICE_PORT" \
 SEARCH_BOOK_ANSWER_ENGINE_DB="$DB_PATH" \
-  node "${NODE_ENV_ARGS[@]}" scripts/serve-answer-engine.mjs >"$SERVICE_LOG" 2>&1 &
+  node ${NODE_ENV_ARGS[@]+"${NODE_ENV_ARGS[@]}"} scripts/serve-answer-engine.mjs >"$SERVICE_LOG" 2>&1 &
 SERVICE_PID=$!
 
 say "Starting static reader :${STATIC_PORT}"

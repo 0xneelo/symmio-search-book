@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script src="52a096fb-1a0c-4315-a22f-58bb8a558b64"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Routed answer - Symmiopedia</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #f6f6f6; }
+  @keyframes spSlide { 0% { left: -34%; } 100% { left: 102%; } }
+  @keyframes spShimmer { 0% { background-position: -600px 0; } 100% { background-position: 600px 0; } }
+  @keyframes spBlink { 0%, 80%, 100% { opacity: 0.15; } 40% { opacity: 1; } }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background: #f6f6f6; color: #202122; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6;">
+  <div data-screen-label="Answer page" style="min-height: 100vh; display: grid; grid-template-columns: 172px 1fr; grid-template-rows: auto 1fr;">
+
+  <!-- ============ LOGO CELL ============ -->
+  <a href="#" title="Visit the main page" style="grid-column: 1; grid-row: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 12px 4px 4px 4px; cursor: pointer; text-decoration: none;">
+    <div style="font-family: 'Linux Libertine', Georgia, 'Times New Roman', serif; font-size: 17px; letter-spacing: 1.5px; color: #202122;">SYMMIOPEDIA</div>
+    <div style="font-size: 10px; color: #54595d; margin-top: 1px;">The Open Ecosystem Encyclopedia</div>
+  </a>
+
+  <!-- ============ HEADER CELL: tabs + search ============ -->
+  <div style="grid-column: 2; grid-row: 1; display: flex; flex-direction: column; justify-content: flex-end;">
+    <div style="display: flex; align-items: flex-end; border-bottom: 1px solid #a7d7f9; padding-left: 10px;">
+      <a href="#" onclick="{{ noop }}" style="display: block; padding: 7px 12px 6px; font-size: 13px; color: #202122; text-decoration: none; background: #ffffff; border: 1px solid #a7d7f9; border-bottom: 1px solid #ffffff; margin-bottom: -1px; white-space: nowrap;">Article</a>
+      <a href="#" onclick="{{ noop }}" style="display: block; padding: 7px 12px 6px; font-size: 13px; color: #0645ad; text-decoration: none; background: linear-gradient(to top, #e8f0f6 0%, #ffffff 90%); border: 1px solid #a7d7f9; border-bottom: none; border-left: none; white-space: nowrap;" style-hover="text-decoration: underline;">Talk</a>
+      <div style="flex: 1;"></div>
+      <a href="#" onclick="{{ noop }}" style="display: block; padding: 7px 12px 6px; font-size: 13px; color: #202122; text-decoration: none; background: #ffffff; border: 1px solid #a7d7f9; border-bottom: 1px solid #ffffff; margin-bottom: -1px; white-space: nowrap;">Read</a>
+      <div style="display: flex; align-items: center; width: 300px; height: 27px; background: #ffffff; border: 1px solid #a2a9b1; margin: 0 12px 5px 14px;">
+        <input id="sp-ask-head" placeholder="Search or ask a question" onkeydown="{{ headerSearchKey }}" style="flex: 1; border: none; outline: none; font-size: 13px; padding: 0 8px; color: #202122; background: transparent; font-family: inherit;">
+        <div title="Search" onclick="{{ askHeader }}" style="padding: 0 8px; display: flex; align-items: center; cursor: pointer; align-self: stretch;" style-hover="background: #eaecf0;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#54595d" stroke-width="1.8"><circle cx="6.5" cy="6.5" r="4.8"></circle><path d="M 10.5 10.5 L 15 15"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <div style="grid-column: 1; grid-row: 2; padding: 10px 8px 20px 14px;">
+    <div style="font-size: 12px; color: #54595d; margin: 10px 0 5px;">Navigation</div>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <a href="#" style="font-size: 12px; color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">Main page</a>
+      <a href="#" style="font-size: 12px; color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">Featured article</a>
+    </div>
+    <div style="font-size: 12px; color: #54595d; margin: 18px 0 5px;">Ecosystem</div>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <sc-for list="{{ navEco }}" as="item" hint-placeholder-count="6">
+        <a href="#" onclick="{{ noop }}" style="font-size: 12px; color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">{{ item.t }}</a>
+      </sc-for>
+    </div>
+    <div style="font-size: 12px; color: #54595d; margin: 18px 0 5px;">Tools</div>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <a href="#" onclick="{{ printPage }}" style="font-size: 12px; color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">Printable version</a>
+    </div>
+  </div>
+
+  <!-- ============ CONTENT ============ -->
+  <div style="grid-column: 2; grid-row: 2; display: flex; flex-direction: column;">
+    <div style="background: #ffffff; border: 1px solid #a7d7f9; border-top: none; border-right: none; padding: 18px 40px 40px 32px; flex: 1;">
+
+      <h1 style="font-family: 'Linux Libertine', Georgia, 'Times New Roman', serif; font-size: 28.8px; font-weight: normal; margin: 0; padding-bottom: 2px; border-bottom: 1px solid #a2a9b1; line-height: 1.3;">Symmio ecosystem</h1>
+      <div style="font-size: 12.9px; color: #54595d; margin: 5px 0 14px;">From Symmiopedia, the open ecosystem encyclopedia</div>
+
+      <div style="font-size: 13px; font-style: italic; color: #54595d; padding-left: 1.6em; margin-bottom: 10px;">This article is about the clearing ecosystem. For the clearing layer itself, see <a href="#" onclick="{{ noop }}" style="color: #0645ad; text-decoration: none; font-style: italic;" style-hover="text-decoration: underline;">Symmio</a>. For the reference document, see <a href="#" onclick="{{ noop }}" style="color: #0645ad; text-decoration: none; font-style: italic;" style-hover="text-decoration: underline;">Vibe × SYMM Field Manual</a>.</div>
+
+      <!-- answer loading -->
+      <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ true }}">
+        <div style="margin: 4px 0 18px;">
+          <div style="font-size: 14px; color: #54595d; margin: 0 0 8px;">Question: <b style="color: #202122;">{{ askedQuestion }}</b></div>
+          <div style="border: 1px solid #a2a9b1; background: #ffffff; padding: 12px 18px 18px;">
+            <div style="display: flex; align-items: baseline; gap: 12px;">
+              <span style="font-size: 12.6px; color: #54595d;">service answer-engine</span>
+              <span style="flex: 1;"></span>
+              <span style="font-size: 11.7px; color: #72777d; font-family: 'Courier New', monospace;">{{ loadElapsed }}</span>
+              <span style="font-size: 11.7px; color: #54595d;">[<a href="#" onclick="{{ dismissAnswer }}" title="Cancel this question" style="color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">cancel ×</a>]</span>
+            </div>
+            <div style="display: flex; align-items: baseline; margin: 8px 0 10px; font-size: 21.7px; font-weight: bold; color: #202122; line-height: 1.25;">{{ loadPhase }}{{ loadDots }}</div>
+            <p style="margin: 0 0 14px;">Waiting for the configured Search Book answer service.</p>
+            {{ loadBar }}
+            <div style="margin-top: 16px;">{{ loadSkeleton }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- routed answer -->
+      <sc-if value="{{ hasAnswer }}" hint-placeholder-val="{{ false }}">
+        <div data-comment-anchor="routed-answer" style="border: 1px solid #a3b0bf; background: #f5faff; margin: 4px 0 18px;">
+          <div style="display: flex; align-items: center; gap: 10px; background: #cedff2; border-bottom: 1px solid #a3b0bf; padding: 5px 12px;">
+            <span style="font-weight: bold; font-size: 12.6px; white-space: nowrap;">Routed answer</span>
+            <span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-style: italic; font-size: 12.6px; color: #54595d;">“{{ askedQuestion }}”</span>
+            <span style="font-size: 11.7px; color: #54595d; white-space: nowrap;">[<a href="#" onclick="{{ dismissAnswer }}" title="Dismiss this answer" style="color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">dismiss ×</a>]</span>
+          </div>
+          <div style="padding: 12px 18px 14px;">
+            <div style="font-family: 'Linux Libertine', Georgia, 'Times New Roman', serif; font-size: 21px; line-height: 1.3; padding-bottom: 3px; border-bottom: 1px solid #a2a9b1; margin-bottom: 10px;">Metrics Become Targets In Listing Games</div>
+            <p style="margin: 0 0 12px;">When market access depends on perceived interest proxies, those proxies become targets. The source lists the usual substitutes for actual demand: community size, engagement, deposits, fees, expected volume, narrative momentum, institutional credibility, and modeled safety. A venue uses those signals because actual interest cannot be observed before a market exists. Projects then optimize for the signals because those signals control access.</p>
+            <p style="margin: 0 0 12px;">This is not a minor analytics problem. It changes project behavior. Teams learn to look safer, larger, more active, more liquid, and more inevitable before the market has had a chance to test them. Marketing, social metrics, deposits, partnerships, valuation optics, and venue relationships become part of the listing game.</p>
+            <div style="font-weight: bold; margin: 0 0 4px;">The Goodhart problem</div>
+            <p style="margin: 0 0 12px;">The compendium should explain this as a Goodhart-like loop without overstating it. Metrics are useful until they become the gate. Once they become the gate, the system begins rewarding the appearance of demand alongside, and sometimes ahead of, demand itself. That is why derivative access matters. A live two-sided market produces harder evidence than a pre-listing pro…</p>
+            <div style="border: 1px dashed #a2a9b1; background: #f8f9fa; padding: 8px 12px; margin: 0 0 12px; font-size: 12.6px; color: #54595d; line-height: 1.55;"><b style="color: #202122;">Matched chunk:</b> <i>“Metrics Become Targets In Listing Games When market access depends on perceived interest proxies, those proxies become targets. The source lists the usual substitutes for actual demand: community size, engagement, deposits, fees, expected volume, narrative momentum, institutional credibility, and modeled safety. A venue uses those signals because actual interest cannot be observed before a market exists. Projects the…”</i></div>
+            <div style="font-size: 12.6px; margin: 0 0 6px;"><b>Source:</b>&nbsp;<span style="border: 1px solid #a2a9b1; background: #eaecf0; padding: 1px 7px; font-size: 11.7px;">vibe-papers</span></div>
+            <ol style="margin: 0 0 10px; padding-left: 30px; font-size: 12.3px; line-height: 1.6; display: flex; flex-direction: column; gap: 2px;">
+              <li><a href="https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/02-perceived-vs-actual-interest" target="_blank" style="color: #3366bb; text-decoration: none; word-break: break-all;" style-hover="text-decoration: underline;">https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/02-perceived-vs-actual-interest</a> <span style="color: #54595d;">↗</span></li>
+              <li><a href="https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/03-the-cost-of-curation" target="_blank" style="color: #3366bb; text-decoration: none; word-break: break-all;" style-hover="text-decoration: underline;">https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/03-the-cost-of-curation</a> <span style="color: #54595d;">↗</span></li>
+            </ol>
+            <div style="font-size: 12.6px; margin: 0 0 14px;"><a href="https://0xneelo.github.io/vibe_docs/docs/11-gametheory-of-listings/11-docs/02-perceived-vs-actual-interest" target="_blank" style="color: #3366bb; text-decoration: none; font-weight: bold;" style-hover="text-decoration: underline;">Open exact page ↗</a></div>
+            <div style="border-top: 1px solid #c8ccd1; padding-top: 10px; display: flex; align-items: center; gap: 9px; flex-wrap: wrap;">
+              <span style="font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #54595d;">RATE THIS ANSWER</span>
+              <button onclick="{{ rateDown }}" style="font-family: inherit; font-size: 12.6px; font-weight: bold; padding: 5px 14px; border-radius: 2px; cursor: pointer; background: {{ downBg }}; color: {{ downColor }}; border: 1px solid {{ downBorder }}; opacity: {{ downOpacity }};">Needs work</button>
+              <button onclick="{{ rateUp }}" style="font-family: inherit; font-size: 12.6px; font-weight: bold; padding: 5px 14px; border-radius: 2px; cursor: pointer; background: {{ upBg }}; color: #ffffff; border: 1px solid {{ upBorder }}; opacity: {{ upOpacity }};">Useful</button>
+              <span style="display: {{ ratedDisp }}; font-size: 12.3px; color: #14866d;">✓ logged — thank you</span>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- dismissed / idle -->
+      <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ false }}">
+        <div style="border: 1px dashed #a2a9b1; background: #f8f9fa; padding: 14px 18px; margin: 4px 0 18px; font-size: 13px; color: #54595d;">No active question. Ask one in the search box above, or <a href="#" onclick="{{ replay }}" style="color: #0645ad; text-decoration: none;" style-hover="text-decoration: underline;">replay the demo question</a>.</div>
+      </sc-if>
+
+    </div>
+
+    <!-- footer -->
+    <div style="padding: 14px 40px 30px 32px; font-size: 12px; color: #202122; line-height: 1.7;">
+      <div>This page was last edited on 4 July 2026, at 12:47&nbsp;(UTC).</div>
+      <div>Text is available under the Open Ecosystem License; additional terms may apply. Symmiopedia is a reference mock-up for the ecosystem, not affiliated with any encyclopedia.</div>
+      <div style="display: flex; gap: 16px; margin-top: 8px;">
+        <a href="#" onclick="{{ noop }}" style="color: #0645ad; text-decoration: none; font-size: 12px;" style-hover="text-decoration: underline;">Privacy policy</a>
+        <a href="#" onclick="{{ noop }}" style="color: #0645ad; text-decoration: none; font-size: 12px;" style-hover="text-decoration: underline;">About Symmiopedia</a>
+        <a href="#" onclick="{{ noop }}" style="color: #0645ad; text-decoration: none; font-size: 12px;" style-hover="text-decoration: underline;">Disclaimers</a>
+        <a href="#" onclick="{{ noop }}" style="color: #0645ad; text-decoration: none; font-size: 12px;" style-hover="text-decoration: underline;">Mobile view</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{
+  &quot;question&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;How do I get more invites?&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Answer&quot; },
+  &quot;loadSeconds&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 4.5, &quot;min&quot;: 1, &quot;max&quot;: 10, &quot;step&quot;: 0.5, &quot;unit&quot;: &quot;s&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Answer&quot; },
+  &quot;autoStart&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Answer&quot; }
+}">
+class Component extends DCLogic {
+  state = { question: null, rated: null, loading: null, t: 0, dismissed: false };
+
+  defaultQ() { return this.props.question ?? 'How do I get more invites?'; }
+
+  startTimer() {
+    clearInterval(this._lv);
+    this._lv = setInterval(() => {
+      const total = this.props.loadSeconds ?? 4.5;
+      const t = this.state.t + 0.1;
+      if (t >= total) { clearInterval(this._lv); this.setState({ loading: false, t: 0 }); }
+      else this.setState({ t: t });
+    }, 100);
+  }
+
+  componentDidMount() {
+    if (this.props.autoStart ?? true) this.startTimer();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._lv);
+  }
+
+  ask(raw, e) {
+    if (e) e.preventDefault();
+    const q = (raw || '').trim();
+    if (!q) return;
+    this.setState({ question: q, rated: null, dismissed: false, loading: true, t: 0 });
+    this.startTimer();
+    window.scrollTo(0, 0);
+  }
+
+  renderVals() {
+    const autoStart = this.props.autoStart ?? true;
+    const loading = this.state.loading === null ? autoStart : this.state.loading;
+    const question = this.state.dismissed ? null : (this.state.question || this.defaultQ());
+    const rated = this.state.rated;
+
+    const total = this.props.loadSeconds ?? 4.5;
+    const phases = ['Scanning cited context', 'Matching passages', 'Ranking sources', 'Composing answer'];
+    const phaseIdx = Math.min(phases.length - 1, Math.floor(this.state.t / (total / phases.length)));
+    const loadDots = React.createElement('span',
+      { style: { display: 'inline-flex', gap: '4px', marginLeft: '8px' } },
+      [0, 1, 2].map(i => React.createElement('span', {
+        key: i,
+        style: {
+          width: '6px', height: '6px', borderRadius: '50%', background: '#202122', display: 'inline-block',
+          animation: 'spBlink 1.2s ease-in-out infinite', animationDelay: (i * 0.2) + 's'
+        }
+      }))
+    );
+    const loadBar = React.createElement('div',
+      { style: { position: 'relative', height: '9px', border: '1px solid #a2a9b1', background: '#f8f9fa', overflow: 'hidden' } },
+      React.createElement('div', {
+        style: {
+          position: 'absolute', top: 0, bottom: 0, width: '34%',
+          background: '#cedff2', borderLeft: '1px solid #a3b0bf', borderRight: '1px solid #a3b0bf',
+          animation: 'spSlide 1.7s cubic-bezier(0.45, 0.1, 0.55, 0.9) infinite'
+        }
+      })
+    );
+    const loadSkeleton = React.createElement('div', null,
+      ['97%', '100%', '90%', '62%'].map((w, i) => React.createElement('div', {
+        key: i,
+        style: {
+          height: '13px', width: w, marginBottom: '10px',
+          background: 'linear-gradient(90deg, #eaecf0 0%, #f6f7f8 40%, #eaecf0 80%)',
+          backgroundSize: '600px 100%',
+          animation: 'spShimmer 1.6s linear infinite'
+        }
+      }))
+    );
+
+    return {
+      noop: (e) => { if (e) e.preventDefault(); },
+      printPage: (e) => { if (e) e.preventDefault(); window.print(); },
+      headerSearchKey: (e) => { if (e.key === 'Enter') this.ask(e.target.value, e); },
+      askHeader: (e) => { const el = document.getElementById('sp-ask-head'); this.ask(el ? el.value : '', e); },
+      replay: (e) => this.ask(this.defaultQ(), e),
+      isLoading: !!question && loading,
+      hasAnswer: !!question && !loading,
+      isIdle: !question,
+      askedQuestion: question || this.defaultQ(),
+      loadPhase: phases[phaseIdx],
+      loadElapsed: this.state.t.toFixed(1) + 's',
+      loadDots: loadDots,
+      loadBar: loadBar,
+      loadSkeleton: loadSkeleton,
+      dismissAnswer: (e) => { if (e) e.preventDefault(); clearInterval(this._lv); this.setState({ dismissed: true, question: null, rated: null, loading: false, t: 0 }); },
+      rateDown: () => this.setState({ rated: 'down' }),
+      rateUp: () => this.setState({ rated: 'up' }),
+      downBg: rated === 'down' ? '#b32424' : '#f8f9fa',
+      downColor: rated === 'down' ? '#ffffff' : '#202122',
+      downBorder: rated === 'down' ? '#b32424' : '#a2a9b1',
+      downOpacity: rated === 'up' ? '0.55' : '1',
+      upBg: rated === 'up' ? '#2a4b8d' : '#3366cc',
+      upBorder: rated === 'up' ? '#2a4b8d' : '#3366cc',
+      upOpacity: rated === 'down' ? '0.55' : '1',
+      ratedDisp: rated ? 'inline' : 'none',
+      navEco: [
+        { t: 'Vibe' }, { t: 'Symmio' }, { t: 'Carbon' }, { t: 'Pear' }, { t: 'Privex' }, { t: 'Ivy' }
+      ]
+    };
+  }
+}
+
+</script>
+
+
+
+</body></html>

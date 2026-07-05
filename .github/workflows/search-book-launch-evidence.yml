@@ -51,6 +51,13 @@ jobs:
           test -d "$VIBE_DOCS_PUBLIC"
           test -f "$VIBE_DOCS_DATA"
 
+      # Symmiopedia v3 cutover (SYN-373): the web app is the front door — the
+      # evidence drill serves the built web/dist (800 prerendered pages).
+      - name: Build web app
+        run: |
+          npm ci --prefix web
+          npm run build --prefix web
+
       - name: Build launch evidence packet
         run: |
           npm run search-book:launch-evidence -- --out-dir "$SEARCH_BOOK_LAUNCH_EVIDENCE_DIR"

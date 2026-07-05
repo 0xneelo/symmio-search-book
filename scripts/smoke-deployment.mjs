@@ -136,11 +136,9 @@ async function smokeStaticSite({ siteUrl, serviceUrl, mode, expectedPageId }) {
   const home = await requestText(siteUrl, homePath);
   assert(home.statusCode === 200, `site home returned ${home.statusCode}.`);
   assert(home.contentType.includes("text/html"), "site home did not return HTML.");
-  assert(home.body.includes("Vibe Docs Search Book Prototype"), "site home did not identify the Search Book prototype.");
-  assert(home.body.includes("Ask the docs"), "site home did not render the Ask the docs action.");
-  assert(home.body.includes("Search insights"), "site home did not render Search insights navigation.");
-  assert(home.body.includes("./data/search-index.js"), "site home did not reference the search index asset.");
-  if (serviceUrl) assert(home.body.includes("searchBookPrototype.serviceUrl"), "site home did not include service bridge state.");
+  // Symmiopedia v3 cutover (SYN-373): the web app is the served front door.
+  assert(home.body.includes("Symmiopedia"), "site home did not identify the Symmiopedia app.");
+  assert(/(?:src|href)="\/assets\//.test(home.body), "site home did not reference the bundled app assets.");
 
   const exactPage = await requestText(siteUrl, withSearchParams("/index.html", {
     page: expectedPageId,
@@ -148,7 +146,16 @@ async function smokeStaticSite({ siteUrl, serviceUrl, mode, expectedPageId }) {
     serviceMode: serviceUrl ? mode : "",
   }));
   assert(exactPage.statusCode === 200, `exact page URL returned ${exactPage.statusCode}.`);
-  assert(exactPage.body.includes("Vibe Docs Search Book Prototype"), "exact page URL did not serve the Search Book app.");
+  assert(exactPage.body.includes("Symmiopedia"), "exact page URL did not serve the Symmiopedia app.");
+
+  // Prerendered article route carries the full wiki anatomy statically.
+  const prerendered = await requestText(siteUrl, `/page/${expectedPageId}/`);
+  assert(prerendered.statusCode === 200, `prerendered page URL returned ${prerendered.statusCode}.`);
+  assert(prerendered.body.includes('class="wk-body"'), "prerendered page did not include the article body.");
+  assert(
+    prerendered.body.includes("From Symmiopedia, the open ecosystem encyclopedia"),
+    "prerendered page did not carry the wiki anatomy.",
+  );
 
   const searchIndex = await requestText(siteUrl, "/data/search-index.js");
   assert(searchIndex.statusCode === 200, `search index asset returned ${searchIndex.statusCode}.`);
@@ -165,6 +172,7 @@ async function smokeStaticSite({ siteUrl, serviceUrl, mode, expectedPageId }) {
   return {
     home: "ok",
     exactPageUrl: "ok",
+    prerenderedPage: "ok",
     searchIndex: "ok",
     questionRoutes: "ok",
     authoredPages: "ok",

@@ -9,7 +9,10 @@ const searchBookRoot = path.resolve(__dirname, "..");
 const repoRoot = searchBookRoot;
 
 const requiredArtifacts = [
-  "index.html",
+  // Symmiopedia v3 cutover (SYN-373): the committed front-door source is the
+  // web app shell; the BUILT front door (web/dist) is validated by the
+  // artifact packet + deployment smokes, which run where a build exists.
+  "web/index.html",
   "page-manifest.json",
   "data/answer-chunks.json",
   "data/answer-engine-contract.json",

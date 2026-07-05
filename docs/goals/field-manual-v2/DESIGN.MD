@@ -97,7 +97,7 @@ Diagram conventions: hatching = `repeating-linear-gradient(45°, white/12–14 0
 ## 8. Behavior notes
 
 - Q&A: keyword-matched canned answers (points credit / revenue calc / counter paused / invites) + low-confidence fallback routing to §04. Answer replaces the ask form; Q echoes above it.
-- Rating from the modal auto-dismisses the answer after 850ms.
+- Rating from the modal auto-dismisses the answer after 850ms. **Operator amendment 2026-07-04 (SYN-364), supersedes the 850ms rule:** any successful vote opens a thank-you dialog ("Logged — your rating is in.") with a 15s mono countdown; countdown end and `ASK NEXT QUESTION` clear the answer and return the ask form (the button refocuses the ask field); `CANCEL ×` (top-right), the underlined cancel link, backdrop, and Escape close the dialog but keep the answer readable.
 - Section state is a single `page` value; sidebar, top-bar indicator, and visible pshell all derive from it.
 - Scrollbar is styled (11px, `#1b2c74` thumb, paper track); selection is magenta/white.
 
@@ -105,7 +105,7 @@ Diagram conventions: hatching = `repeating-linear-gradient(45°, white/12–14 0
 
 - `accent` (`--ink`): `#f04fd6` default · `#2e6bff` · `#8a5cff` · `#22d3ee`
 - `paper` (`--paper`): `#05070f` default · `#060a1c` · `#03103d` · `#0a1027`
-- `gridLines` (bool): toggles figure graph-paper grid
+- `gridLines` (bool): toggles figure graph-paper grid — **default OFF since 2026-07-04 (operator override, SYN-362): grids fight dense text; `--gridc` ships as `transparent`. Restore per-deploy with `rgba(255,255,255,0.07)`.**
 
 ## 10. Do / don't
 

@@ -1,0 +1,615 @@
+@import "tailwindcss";
+
+/*
+ * Vibe × SYMM Field Manual — design tokens (DESIGN.MD v3a "Brand Max").
+ * Theming runs through CSS vars: --ink (accent), --paper (base), --gridc (figure grid).
+ */
+:root {
+  --ink: #f04fd6;
+  --paper: #05070f;
+  /*
+   * gridLines OFF by default — operator override 2026-07-04 (SYN-362), using
+   * the DESIGN.MD §9 tweakable prop: graph-paper grids fight dense text.
+   * Restore with rgba(255, 255, 255, 0.07).
+   */
+  --gridc: transparent;
+}
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* Core palette */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-blueprint: #2e6bff;
+
+  /* Text ramp (on dark) */
+  --color-headline: #ffffff;
+  --color-body: #d3dbff;
+  --color-lead: #c9d4ff;
+  --color-chip: #cdd8ff;
+  --color-nav: #aebaf0;
+  --color-meta: #8fa0d8;
+  --color-faint: #5f6cb0;
+
+  /* Surface tints (paper mixed toward navy/blue) */
+  --color-surface-sidebar: color-mix(in srgb, var(--paper) 80%, #12246e);
+  --color-surface-panel: color-mix(in srgb, var(--paper) 62%, #12246e);
+  --color-surface-deep: color-mix(in srgb, var(--paper) 55%, #16276e);
+  --color-surface-blue: color-mix(in srgb, var(--paper) 68%, #2e6bff);
+
+  /* Depth: hard offset shadows only — never blur */
+  --shadow-hard: 0 4px 0 rgba(0, 0, 0, 0.4);
+  --shadow-hard-lg: 0 6px 0 rgba(0, 0, 0, 0.4);
+  --shadow-rail: 30px 0 70px rgba(0, 0, 0, 0.45);
+
+  /* Flat print geometry: no border-radius anywhere */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --ease-manual: cubic-bezier(0.22, 0.75, 0.25, 1);
+  --ease-page: cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+
+@layer base {
+  /* Hard rule (DESIGN.MD §10): square corners everywhere, including third-party primitives. */
+  *,
+  ::before,
+  ::after {
+    border-radius: 0 !important;
+  }
+  /* Figure geometry only (timeline nodes, graph dots) — never UI chrome. */
+  [data-round] {
+    border-radius: 50% !important;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    background: linear-gradient(
+      172deg,
+      var(--paper) 0%,
+      color-mix(in srgb, var(--paper) 55%, #0f3ac0) 58%,
+      color-mix(in srgb, var(--paper) 22%, #2e8ae8) 100%
+    );
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--ink);
+    color: #ffffff;
+  }
+
+  /* Styled scrollbar (DESIGN.MD §8) */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1b2c74;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/*
+ * Field-manual structural classes, ported from design/field-manual-comp.html.
+ * Class names match the comp so fidelity can be diffed side by side.
+ */
+@layer components {
+  .dropcap::first-letter {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    float: left;
+    font-size: 58px;
+    line-height: 0.88;
+    padding: 5px 12px 0 0;
+    color: var(--ink);
+  }
+
+  .askinput::placeholder {
+    color: #5f6cb0;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0.2px;
+  }
+
+  /* Sidebar nav rows */
+  .navrow {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-left: 3px solid transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .navrow:hover {
+    background: rgba(46, 107, 255, 0.14);
+  }
+  .navnum {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #5f6cb0;
+    min-width: 18px;
+  }
+  .navname {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    color: #aebaf0;
+    white-space: nowrap;
+    transition: opacity 0.2s ease 0.1s;
+  }
+  .navrow[data-active='true'] {
+    background: rgba(46, 107, 255, 0.22);
+    border-left-color: var(--ink);
+  }
+  .navrow[data-active='true'] .navnum {
+    color: var(--ink);
+  }
+  .navrow[data-active='true'] .navname {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  /*
+   * Collapsible sidebar (SYN-360): collapsed 64px rail everywhere by default.
+   * Pointer-fine devices expand to 272px on hover/focus; touch and narrow
+   * viewports use the JS-toggled .is-open overlay drawer instead.
+   */
+  .snav {
+    width: 64px;
+    transition: width 0.3s var(--ease-manual);
+  }
+  .snav .sx {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+  }
+  .snav .sc {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.12s;
+  }
+  .snav .navname {
+    opacity: 0;
+    transition: opacity 0.1s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .snav:hover,
+    .snav:focus-within {
+      width: 272px;
+      box-shadow: 30px 0 70px rgba(0, 0, 0, 0.5);
+    }
+    .snav:hover .sx,
+    .snav:focus-within .sx {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.2s ease 0.1s;
+    }
+    .snav:hover .sc,
+    .snav:focus-within .sc {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.1s ease;
+    }
+    .snav:hover .navname,
+    .snav:focus-within .navname {
+      opacity: 1;
+      transition: opacity 0.2s ease 0.1s;
+    }
+  }
+
+  /* Touch drawer state — same 272px panel, driven by the rail toggle. */
+  .snav.is-open {
+    width: 272px;
+    box-shadow: 30px 0 70px rgba(0, 0, 0, 0.5);
+  }
+  .snav.is-open .sx {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.2s ease 0.1s;
+  }
+  .snav.is-open .sc {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+  }
+  .snav.is-open .navname {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.1s;
+  }
+
+  .fm-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 4, 14, 0.6);
+    z-index: 35;
+  }
+
+  /* Off-canvas rail + floating toggle on narrow viewports. */
+  .fm-rail-toggle {
+    display: none;
+  }
+  @media (max-width: 900px) {
+    .snav {
+      transform: translateX(-100%);
+      transition:
+        transform 0.3s var(--ease-manual),
+        width 0.3s var(--ease-manual);
+    }
+    .snav.is-open {
+      transform: translateX(0);
+    }
+    .fm-rail-toggle {
+      display: flex;
+      position: fixed;
+      left: 12px;
+      bottom: 16px;
+      z-index: 45;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: color-mix(in srgb, var(--paper) 70%, #12246e);
+      border: 2px solid #2e6bff;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      color: #ffffff;
+    }
+    .fm-content {
+      margin-left: 0 !important;
+    }
+  }
+
+  /* Chip + button hover inversions */
+  .chip:hover {
+    background: var(--ink) !important;
+    color: #fff !important;
+    border-color: var(--ink) !important;
+  }
+  .gbtn:hover {
+    background: #f2f4ff !important;
+    color: #05070f !important;
+  }
+
+  /* Rating buttons: hovered/selected one advances, the other recedes */
+  .rdown:hover {
+    background: var(--ink) !important;
+    color: #ffffff !important;
+    border-color: var(--ink) !important;
+  }
+  .raterow:has(.rdown:hover) .rup {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #f2f4ff !important;
+  }
+  .rup:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.45) !important;
+  }
+
+  /* Cross-field ghost "typing into another…" dots */
+  .tdot {
+    display: inline-block;
+    animation: tdotB 1.1s ease-in-out infinite;
+  }
+
+  /* Page + answer entry motion */
+  [data-page] > * {
+    animation: pageIn 0.56s var(--ease-page) backwards;
+  }
+  [data-page] > *:nth-child(1) {
+    animation-delay: 0.06s;
+  }
+  [data-page] > *:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  [data-page] > *:nth-child(3) {
+    animation-delay: 0.24s;
+  }
+  [data-page] > *:nth-child(4) {
+    animation-delay: 0.33s;
+  }
+  [data-page] > *:nth-child(5) {
+    animation-delay: 0.42s;
+  }
+  [data-answer] {
+    animation: ansIn 0.46s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  /* Figure stack (FIG_001) */
+  .stk-layer {
+    cursor: default;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: stkAssemble 0.78s cubic-bezier(0.16, 0.85, 0.24, 1) backwards;
+  }
+  .stk-float {
+    animation: stkFloat 6.5s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .stk-face {
+    transition:
+      fill 0.4s ease,
+      stroke 0.4s ease;
+  }
+  .stk-lname,
+  .stk-lsub {
+    transition: fill 0.25s ease;
+  }
+  .stk-layer:hover .stk-face {
+    filter: brightness(1.15);
+  }
+
+  /* Referral-graph pulses (FIG_021) */
+  .rg-pulse {
+    animation: rgFlow 1.9s linear infinite;
+    transform-box: fill-box;
+  }
+
+  /* Reader page body — markdown rendered by lib/markdown.ts */
+  .reader-body p {
+    margin: 0 0 16px;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #d3dbff;
+  }
+  .reader-body h2,
+  .reader-body h3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    margin: 30px 0 12px;
+    scroll-margin-top: 20px;
+  }
+  .reader-body h2 {
+    font-size: 24px;
+  }
+  .reader-body h3 {
+    font-size: 18px;
+  }
+  .reader-body ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+    color: #d3dbff;
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+  .reader-body li {
+    margin-bottom: 6px;
+  }
+  .reader-body code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: #cdd8ff;
+    background: rgba(2, 4, 14, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 1px 5px;
+  }
+  .reader-body table {
+    border-collapse: collapse;
+    margin: 0 0 20px;
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #cdd8ff;
+  }
+  .reader-body th {
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+    padding: 8px 12px 8px 0;
+  }
+  .reader-body td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 12px 8px 0;
+    vertical-align: top;
+  }
+  .reader-body a.source-chip {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #cdd8ff;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 1px 7px;
+    text-decoration: none;
+  }
+  .reader-body a.source-chip:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .reader-body strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  /*
+   * Responsive layout (SYN-360). Typography and grids that were fixed-width in
+   * the comp collapse under 900px; DESIGN.MD floors hold (body ≥ ~15px,
+   * mono ≥ 10px, square corners, hard shadows).
+   */
+  .fm-h1-cover {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 74px;
+    line-height: 0.98;
+    letter-spacing: -3px;
+    color: #ffffff;
+  }
+  .fm-h1-section {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    /* Callers set --h1 (48–54px); the mobile clamp below overrides it. */
+    font-size: var(--h1, 52px);
+    letter-spacing: -2.2px;
+    color: #ffffff;
+  }
+  .fm-pane {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 34px 48px 110px;
+    min-height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  .fm-cols {
+    columns: 2;
+    column-gap: 46px;
+  }
+  .fm-reader-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 40px;
+  }
+  .fm-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+  .fm-defrow {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .fm-h1-cover {
+      font-size: clamp(40px, 11vw, 74px);
+      letter-spacing: -2px;
+    }
+    .fm-h1-section {
+      font-size: clamp(30px, 8.5vw, 52px);
+      letter-spacing: -1.4px;
+    }
+    .fm-pane {
+      padding: 20px 16px 110px;
+    }
+    .fm-cols {
+      columns: 1;
+    }
+    .fm-reader-grid,
+    .fm-split,
+    .fm-defrow {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .fm-topbar-ask {
+      display: none;
+    }
+    .fm-announce {
+      flex-wrap: wrap;
+      height: auto !important;
+      min-height: 44px;
+      padding: 7px 12px !important;
+      gap: 8px !important;
+      text-align: center;
+    }
+    .fm-cover-tagline {
+      text-align: left !important;
+      max-width: 100% !important;
+    }
+    .reader-body table {
+      display: block;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+@keyframes tdotB {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+@keyframes pageIn {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes ansIn {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes stkFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes stkAssemble {
+  from {
+    transform: scale(0.955);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes rgFlow {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0), var(--ty, 0));
+    opacity: 0;
+  }
+}

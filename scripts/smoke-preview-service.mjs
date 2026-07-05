@@ -51,9 +51,12 @@ Options:
   }
 
   if (!args.staticRoot) throw new Error("--static-root is required when provided.");
+  // Symmiopedia v3 cutover (SYN-373): the front door is the legacy prototype
+  // (pre-cutover trees/artifacts) OR the built web app.
   const indexPath = path.join(args.staticRoot, "index.html");
-  if (!fs.existsSync(indexPath)) {
-    throw new Error(`Search Book index.html not found at ${indexPath}`);
+  const webDistIndexPath = path.join(args.staticRoot, "web", "dist", "index.html");
+  if (!fs.existsSync(indexPath) && !fs.existsSync(webDistIndexPath)) {
+    throw new Error(`Search Book front door not found at ${indexPath} or ${webDistIndexPath}`);
   }
   return args;
 }
@@ -111,7 +114,7 @@ async function waitForPreview(baseUrl, child, logs) {
     }
     try {
       const home = await requestText(baseUrl, "/");
-      if (home.statusCode === 200 && home.body.includes("Vibe Docs Search Book Prototype")) return home;
+      if (home.statusCode === 200 && (home.body.includes("Symmiopedia") || home.body.includes("Vibe Docs Search Book Prototype"))) return home;
       lastError = `preview status ${home.statusCode}`;
     } catch (error) {
       lastError = error.message;
@@ -208,9 +211,15 @@ async function main() {
     assert(home.contentType.includes("text/html"), "preview home did not return HTML.");
     const configuredHome = await requestText(staticBaseUrl, homePath);
     assert(configuredHome.statusCode === 200, `configured preview home returned ${configuredHome.statusCode}.`);
-    assert(configuredHome.body.includes("Ask the docs"), "configured preview did not render the Ask the docs action.");
-    assert(configuredHome.body.includes("Search insights"), "configured preview did not render Search insights navigation.");
-    assert(configuredHome.body.includes("searchBookPrototype.serviceUrl"), "configured preview did not include service bridge state.");
+    // Symmiopedia v3 cutover (SYN-373): the app reads ?service= at runtime;
+    // the legacy inline bridge markers apply only to pre-cutover roots.
+    if (configuredHome.body.includes("Vibe Docs Search Book Prototype")) {
+      assert(configuredHome.body.includes("Ask the docs"), "configured preview did not render the Ask the docs action.");
+      assert(configuredHome.body.includes("Search insights"), "configured preview did not render Search insights navigation.");
+      assert(configuredHome.body.includes("searchBookPrototype.serviceUrl"), "configured preview did not include service bridge state.");
+    } else {
+      assert(configuredHome.body.includes("Symmiopedia"), "configured preview did not serve the Symmiopedia app.");
+    }
 
     const preflight = await requestJson(serviceBaseUrl, "/api/search-book/answer", {
       method: "OPTIONS",
@@ -282,7 +291,10 @@ async function main() {
 
     const exactPage = await requestText(staticBaseUrl, `/index.html?page=authored-vibe-product-overview&service=${encodeURIComponent(serviceBaseUrl)}&serviceMode=extractive`);
     assert(exactPage.statusCode === 200, `configured exact-page URL returned ${exactPage.statusCode}.`);
-    assert(exactPage.body.includes("Vibe Docs Search Book Prototype"), "configured exact-page URL did not serve index.html.");
+    assert(
+      exactPage.body.includes("Symmiopedia") || exactPage.body.includes("Vibe Docs Search Book Prototype"),
+      "configured exact-page URL did not serve index.html.",
+    );
 
     console.log(JSON.stringify({
       status: "passed",
