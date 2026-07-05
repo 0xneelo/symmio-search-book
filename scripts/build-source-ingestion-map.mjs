@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -14,8 +15,8 @@ const defaults = {
   sourceCatalog: path.join(searchBookRoot, "data", "source-catalog.json"),
   competitiveSweep: path.join(searchBookRoot, "data", "competitive-sweep.json"),
   discordCorpus: path.join(searchBookRoot, "data", "discord-corpus.json"),
-  sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
-  gaps: path.join(searchBookRoot, "GAPS.md"),
+  sourceRegistry: livingDocPath("SOURCES.md"),
+  gaps: livingDocPath("GAPS.md"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   outJson: path.join(searchBookRoot, "data", "source-ingestion.json"),
   outJs: path.join(searchBookRoot, "data", "source-ingestion.js"),

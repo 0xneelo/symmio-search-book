@@ -26,7 +26,7 @@ Current corpus target: a 500-800 page cited compendium. The checked manifest cur
 | `index.html` | Static Search Book frontend (talks to the answer-engine service when configured). |
 | `.github/workflows/search-book-verify.yml` | No-secret CI gate for deterministic verify and localhost smoke tests. |
 | `_specs/app-docs/` | Product specs + operator inbox (SYN-209). |
-| `*.md` | Living docs: `FINAL-REPORT.md`, `DECISIONS.md`, `GAPS.md`, `STYLEGUIDE.md`, `LLM-RAG-CONTRACT.md`, `LIVING-DOCS-OPERATIONS.md`, etc. |
+| `docs/` | Living docs: `FINAL-REPORT.md`, `DECISIONS.md`, `GAPS.md`, `STYLEGUIDE.md`, `LLM-RAG-CONTRACT.md`, `LIVING-DOCS-OPERATIONS.md`, etc. |
 
 ## Build inputs
 
@@ -149,7 +149,7 @@ and curated-example fallback. Retention,
 the browser CORS allowlist (`SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS`, default `*`),
 the disabled-by-default token-gated moderation and metrics exports, the reviewer gap-summary
 job (`npm run search-book:living-docs-summary`), and the backup/restore-check utility
-(`npm run search-book:backup-db`) are documented in `LIVING-DOCS-OPERATIONS.md`. The
+(`npm run search-book:backup-db`) are documented in [`docs/LIVING-DOCS-OPERATIONS.md`](./docs/LIVING-DOCS-OPERATIONS.md). The
 CI-safe `npm run search-book:check-backup-restore` guard starts a temporary answer-engine
 service, persists answer/rating/page-feedback events, runs the backup utility with
 restore-check, and emits counts/booleans only.
@@ -236,7 +236,7 @@ against that packet to produce a sanitized routing report with item ids, hashes,
 page ids, and source keys only. Run `npm run search-book:discord-routing-summary` with that
 routing report to publish the no-raw summary into static Search Insights as hashes, page ids,
 source keys, statuses, and counts only. Run `npm run search-book:discord-editorial-queue`
-to refresh `DISCORD-EDITORIAL-QUEUE.md` plus `data/discord-editorial-queue.*`, committed
+to refresh [`docs/DISCORD-EDITORIAL-QUEUE.md`](./docs/DISCORD-EDITORIAL-QUEUE.md) plus `data/discord-editorial-queue.*`, committed
 no-raw reviewer queues derived from the same sanitized summary, including automated triage
 status, public-copy readiness status, refusal-policy readiness status, and automated
 disposition. The queue also carries a four-phase no-raw reviewer workflow: privacy
@@ -250,7 +250,7 @@ and public route counts matching generated question routes.
 Validate either the committed no-raw summary alone or the full local review/routing path with
 `npm run search-book:check-discord-review-artifacts`; it prints only counts, booleans, and
 paths, and checks for raw-field or sample-text leakage without echoing excerpts. The same
-check validates `DISCORD-EDITORIAL-QUEUE.md` and `data/discord-editorial-queue.json`
+check validates [`docs/DISCORD-EDITORIAL-QUEUE.md`](./docs/DISCORD-EDITORIAL-QUEUE.md) and `data/discord-editorial-queue.json`
 against the sanitized routing summary, workflow, disposition, and grounding summary so the
 reviewer handoff cannot silently drift or start publishing Discord-derived claims by accident.
 Validate the public-safe runtime refusal boundary with `npm run search-book:check-discord-refusals`;
@@ -271,12 +271,12 @@ never printed or persisted.
 
 ## Deployment
 
-See [`DEPLOYMENT.md`](./DEPLOYMENT.md) and the systemd units at
+See [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md) and the systemd units at
 [`deploy/symmio-search-book.service`](./deploy/symmio-search-book.service),
 [`deploy/symmio-search-book-backup.service`](./deploy/symmio-search-book-backup.service),
 and [`deploy/symmio-search-book-backup.timer`](./deploy/symmio-search-book-backup.timer). The no-secret
 operator packet for the remaining VPS env and public deploy-route gates is
-[`PRODUCTION-READINESS-PACKET.md`](./PRODUCTION-READINESS-PACKET.md), guarded by
+[`docs/PRODUCTION-READINESS-PACKET.md`](./docs/PRODUCTION-READINESS-PACKET.md), guarded by
 `npm run search-book:check-production-packet`.
 
 ## Non-goals

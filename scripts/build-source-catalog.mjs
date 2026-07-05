@@ -3,12 +3,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath, livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const defaults = {
-  sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
+  sourceRegistry: livingDocPath("SOURCES.md"),
   outJson: path.join(searchBookRoot, "data", "source-catalog.json"),
   outJs: path.join(searchBookRoot, "data", "source-catalog.js"),
 };
@@ -61,7 +62,7 @@ function sourceKind(source) {
   if (/^Linear issue\b/i.test(source)) return "linear";
   if (/^\//.test(source)) return "absolute-local";
   if (/[*]/.test(source)) return "repo-pattern";
-  if (/^(_specs|src|server|docs|_local|README|DESIGN|STYLEGUIDE|CLAUDE_MAX)\b/.test(source)) return "repo-local";
+  if (/^(_specs|src|server|docs|_local|README|CLAUDE_MAX)\b/.test(source)) return "repo-local";
   return "note";
 }
 
@@ -112,7 +113,7 @@ if (duplicateKeys.length) throw new Error(`Duplicate source keys: ${[...new Set(
 const sourceByKey = Object.fromEntries(sources.map((source) => [source.key, source]));
 const payload = {
   generatedAt: "deterministic-build",
-  sourceFile: "SOURCES.md",
+  sourceFile: livingDocRelative("SOURCES.md"),
   totalSources: sources.length,
   byGroup: countBy(sources, (source) => source.group),
   byKind: countBy(sources, (source) => source.kind),

@@ -317,7 +317,7 @@ const payload = {
       stage: "gap-refusal",
       priority: 4,
       behavior: "If no grounded page is found or a reconciliation question is asked, record a gap/refusal event instead of inventing an answer.",
-      sourceData: ["data/gap-queue.json", "QUESTIONS.md"],
+      sourceData: ["data/gap-queue.json", "docs/QUESTIONS.md"],
       totalGoldenRefusals: refusalTests.length,
     },
   ],

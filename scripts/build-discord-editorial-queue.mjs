@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath, livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -12,7 +13,7 @@ const defaults = {
   authoredJson: path.join(searchBookRoot, "data", "authored-pages.json"),
   questionRoutesJson: path.join(searchBookRoot, "data", "question-routes.json"),
   sourceCatalogJson: path.join(searchBookRoot, "data", "source-catalog.json"),
-  outMarkdown: path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
+  outMarkdown: livingDocPath("DISCORD-EDITORIAL-QUEUE.md"),
   outJson: path.join(searchBookRoot, "data", "discord-editorial-queue.json"),
   outJs: path.join(searchBookRoot, "data", "discord-editorial-queue.js"),
 };
@@ -29,7 +30,7 @@ function parseArgs(argv) {
     else if (arg === "--out-json") args.outJson = path.resolve(argv[++index] || "");
     else if (arg === "--out-js") args.outJs = path.resolve(argv[++index] || "");
     else if (arg === "--help") {
-      console.log("Usage: node scripts/build-discord-editorial-queue.mjs [--routing-json data/discord-review-routing.json] [--authored-json data/authored-pages.json] [--question-routes-json data/question-routes.json] [--source-catalog-json data/source-catalog.json] [--out DISCORD-EDITORIAL-QUEUE.md] [--out-json data/discord-editorial-queue.json] [--out-js data/discord-editorial-queue.js]");
+      console.log("Usage: node scripts/build-discord-editorial-queue.mjs [--routing-json data/discord-review-routing.json] [--authored-json data/authored-pages.json] [--question-routes-json data/question-routes.json] [--source-catalog-json data/source-catalog.json] [--out docs/DISCORD-EDITORIAL-QUEUE.md] [--out-json data/discord-editorial-queue.json] [--out-js data/discord-editorial-queue.js]");
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
@@ -232,7 +233,7 @@ function buildQueueData(routing, authored, questionRoutes, sourceCatalog) {
     queueReady: true,
     source: {
       routingJson: "data/discord-review-routing.json",
-      markdown: "DISCORD-EDITORIAL-QUEUE.md",
+      markdown: livingDocRelative("DISCORD-EDITORIAL-QUEUE.md"),
     },
     privacy: {
       rawDiscordTextIncluded: routing.rawDiscordTextIncluded === true,

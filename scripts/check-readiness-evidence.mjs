@@ -10,10 +10,10 @@ const repoRoot = searchBookRoot;
 
 const contractPath = path.join(searchBookRoot, "data", "llm-rag-contract.json");
 const docs = [
-  { id: "final-report", relativePath: "FINAL-REPORT.md" },
-  { id: "progress", relativePath: "PROGRESS.md" },
+  { id: "final-report", relativePath: "docs/FINAL-REPORT.md" },
+  { id: "progress", relativePath: "docs/PROGRESS.md" },
   { id: "roadmap", relativePath: "_specs/app-docs/11-production-readiness-roadmap.md" },
-  { id: "llm-rag-contract", relativePath: "LLM-RAG-CONTRACT.md" },
+  { id: "llm-rag-contract", relativePath: "docs/LLM-RAG-CONTRACT.md" },
 ];
 
 const staleMarkers = [

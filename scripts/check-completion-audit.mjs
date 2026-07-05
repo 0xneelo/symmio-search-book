@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -76,14 +77,14 @@ function latestProgressEntry(predicate) {
   return progressEntries().find(predicate) || "";
 }
 
-const audit = readText("COMPLETION-AUDIT.md");
-const progress = readText("PROGRESS.md");
-const finalReportExists = fs.existsSync(path.join(searchBookRoot, "FINAL-REPORT.md"));
-const decisionsExists = fs.existsSync(path.join(searchBookRoot, "DECISIONS.md"));
-const sourcesExists = fs.existsSync(path.join(searchBookRoot, "SOURCES.md"));
-const styleguideExists = fs.existsSync(path.join(searchBookRoot, "STYLEGUIDE.md"));
-const gapsExists = fs.existsSync(path.join(searchBookRoot, "GAPS.md"));
-const questionsExists = fs.existsSync(path.join(searchBookRoot, "QUESTIONS.md"));
+const audit = readText("docs/COMPLETION-AUDIT.md");
+const progress = readText("docs/PROGRESS.md");
+const finalReportExists = fs.existsSync(livingDocPath("FINAL-REPORT.md"));
+const decisionsExists = fs.existsSync(livingDocPath("DECISIONS.md"));
+const sourcesExists = fs.existsSync(livingDocPath("SOURCES.md"));
+const styleguideExists = fs.existsSync(livingDocPath("STYLEGUIDE.md"));
+const gapsExists = fs.existsSync(livingDocPath("GAPS.md"));
+const questionsExists = fs.existsSync(livingDocPath("QUESTIONS.md"));
 
 const manifest = readJson("page-manifest.json");
 const authored = readJson("data/authored-pages.json");

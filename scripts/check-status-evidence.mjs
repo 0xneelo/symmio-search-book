@@ -3,25 +3,26 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const docs = [
-  { id: "final-report", relativePath: "FINAL-REPORT.md" },
-  { id: "gaps", relativePath: "GAPS.md" },
-  { id: "decisions", relativePath: "DECISIONS.md" },
-  { id: "sources", relativePath: "SOURCES.md" },
-  { id: "styleguide", relativePath: "STYLEGUIDE.md" },
-  { id: "questions", relativePath: "QUESTIONS.md" },
-  { id: "completion-audit", relativePath: "COMPLETION-AUDIT.md" },
-  { id: "production-readiness-packet", relativePath: "PRODUCTION-READINESS-PACKET.md" },
+  { id: "final-report", relativePath: livingDocRelative("FINAL-REPORT.md") },
+  { id: "gaps", relativePath: livingDocRelative("GAPS.md") },
+  { id: "decisions", relativePath: livingDocRelative("DECISIONS.md") },
+  { id: "sources", relativePath: livingDocRelative("SOURCES.md") },
+  { id: "styleguide", relativePath: livingDocRelative("STYLEGUIDE.md") },
+  { id: "questions", relativePath: livingDocRelative("QUESTIONS.md") },
+  { id: "completion-audit", relativePath: livingDocRelative("COMPLETION-AUDIT.md") },
+  { id: "production-readiness-packet", relativePath: livingDocRelative("PRODUCTION-READINESS-PACKET.md") },
   { id: "completion-plan", relativePath: "_specs/app-docs/12-search-book-to-100-percent.md" },
-  { id: "answer-engine-contract", relativePath: "ANSWER-ENGINE-CONTRACT.md" },
-  { id: "llm-rag-contract", relativePath: "LLM-RAG-CONTRACT.md" },
-  { id: "answer-validation-harness", relativePath: "ANSWER-VALIDATION-HARNESS.md" },
-  { id: "discord-editorial-queue", relativePath: "DISCORD-EDITORIAL-QUEUE.md" },
-  { id: "living-docs-operations", relativePath: "LIVING-DOCS-OPERATIONS.md" },
+  { id: "answer-engine-contract", relativePath: livingDocRelative("ANSWER-ENGINE-CONTRACT.md") },
+  { id: "llm-rag-contract", relativePath: livingDocRelative("LLM-RAG-CONTRACT.md") },
+  { id: "answer-validation-harness", relativePath: livingDocRelative("ANSWER-VALIDATION-HARNESS.md") },
+  { id: "discord-editorial-queue", relativePath: livingDocRelative("DISCORD-EDITORIAL-QUEUE.md") },
+  { id: "living-docs-operations", relativePath: livingDocRelative("LIVING-DOCS-OPERATIONS.md") },
   { id: "source-ingestion-goal", relativePath: "docs/goals/source-ingestion/goal.md" },
   { id: "source-ingestion-plan", relativePath: "docs/goals/source-ingestion/plan.md" },
   { id: "source-ingestion-launch-prompt", relativePath: "docs/goals/source-ingestion/launch-prompt.md" },
@@ -50,7 +51,7 @@ function countSyntaxCheckFiles() {
 }
 
 function progressEntries() {
-  return readText("PROGRESS.md")
+  return readText(livingDocRelative("PROGRESS.md"))
     .split(/\n(?=## \d{4}-\d{2}-\d{2} — )/)
     .filter((entry) => entry.startsWith("## "));
 }
@@ -279,7 +280,7 @@ function expectedChecks(evidence) {
   const required = (value, label) => value || `<missing ${label}>`;
   const localLaunch = evidence.localLaunchEvidence;
   return {
-    "FINAL-REPORT.md": [
+    "docs/FINAL-REPORT.md": [
       { id: "manifest-pages", allOf: [`${evidence.manifestPages} manifest pages`] },
       { id: "authored-pages", allOf: [`${evidence.authoredPages} authored pages`] },
       { id: "public-navigation-pages", allOf: [`${evidence.publicNavigationPages} published public-navigation pages`] },
@@ -306,7 +307,7 @@ function expectedChecks(evidence) {
       { id: "llm-eval", allOf: [evidence.liveEvalTotal, evidence.liveEvalAdversarial, evidence.liveEvalAnswerValidation] },
       { id: "operator-gates", allOf: openOperatorFragments },
     ],
-    "GAPS.md": [
+    "docs/GAPS.md": [
       { id: "discord-reconciliation", allOf: ["G-001: Discord Source Mining Is Imported, Editorial Review Required", "resolves OPERATOR-INBOX #2", "Do not re-open #2", "OPERATOR-INBOX #17 is resolved", "internal-only"] },
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, `corpusReady:${evidence.discordCorpusReady}`, `storesMessageText:${evidence.discordStoresMessageText}`] },
       { id: "discord-routing", allOf: [`${evidence.discordRoutedItems} review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordSingleRouteRemaining} single-route groups remaining`, `${evidence.discordTotalPublicRoutesToPageFitPages} public exact routes`, `${evidence.discordEditorialKeepCopy} page-fit groups keeping existing source-backed public copy`, `${evidence.discordEditorialKeepRefusal} refusal items keeping refusal policy`, `${evidence.discordEditorialCopyChanges} public-copy changes proposed`, `${evidence.discordEditorialExactPromotions} exact Discord/Lafa statements promoted`] },
@@ -314,7 +315,7 @@ function expectedChecks(evidence) {
       { id: "resolved-source-boundaries", allOf: ["Discord, Notion, SSHE, and whitepaper v1 de-scope are resolved", "Do not re-open OPERATOR-INBOX #6", "Do not re-open OPERATOR-INBOX #5", "Do not quote Notion text", "All publication-stance and source-ingestion questions are now resolved for v1"] },
       { id: "operator-gates", allOf: ["remaining production operator gates are production VPS env install (#11) and public frontend platform/deploy route (#4)", "only remaining production operator gates are OPERATOR-INBOX #11 production VPS env install and #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
     ],
-    "DECISIONS.md": [
+    "docs/DECISIONS.md": [
       { id: "generated-snapshot", allOf: [`${evidence.manifestPages} manifest pages`, `${evidence.authoredPages} authored pages`, `${evidence.publicNavigationPages} public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`, `${evidence.candidatePages} candidate pages`] },
       { id: "source-completion", allOf: [`Source ingestion is ${evidence.sourceIngestion} complete`, `${evidence.sourcePartial} partial`, `${evidence.sourceParked} parked`, `${evidence.sourceMissing} missing`, `${evidence.requirementComplete}/18 complete`, `${evidence.requirementPartial} partial`, `${evidence.requirementParked} parked`, `${evidence.requirementMissing} missing`, "completionReady remains false", `${evidence.qualityGates}`] },
       { id: "discord-import", allOf: [`${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, `corpusReady:${evidence.discordCorpusReady}`, `storesMessageText:${evidence.discordStoresMessageText}`, `${evidence.discordRoutedItems} routed review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordSourceBackedPageFits} source-backed page-fit groups`, `${evidence.discordPublicCopyReady} public-copy-ready page-fit groups`, `${evidence.discordRefusalPolicyReady} refusal-policy-ready items`, `${evidence.discordEditorialCopyChanges} public-copy changes proposed`, `${evidence.discordEditorialExactPromotions} exact Discord/Lafa statements promoted`] },
@@ -326,7 +327,7 @@ function expectedChecks(evidence) {
       { id: "runtime-boundary", allOf: ["standalone answer-engine service plus SQLite", "OpenAI-compatible runtime", "`llmProductionReady` remains false", "production VPS env install", "public frontend platform/repo/deploy route"] },
       { id: "operator-gates", allOf: ["Only two production operator gates remain", "OPERATOR-INBOX #11 production VPS env install", "OPERATOR-INBOX #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
     ],
-    "SOURCES.md": [
+    "docs/SOURCES.md": [
       { id: "source-catalog-snapshot", allOf: [`${evidence.sourceCatalogSources} registered source keys`, `${evidence.sourceCatalogGroups} source groups`, `Local Specs: ${evidence.sourceCatalogLocalSpecs}`, `Local Product And Code: ${evidence.sourceCatalogLocalProductCode}`, `Linear Research: ${evidence.sourceCatalogLinearResearch}`, `Public Vibe Sources: ${evidence.sourceCatalogPublicVibe}`, `Public Symmio Sources: ${evidence.sourceCatalogPublicSymmio}`, `Competitive Context: ${evidence.sourceCatalogCompetitive}`, `Authored Publication Candidates: ${evidence.sourceCatalogAuthoredCandidates}`] },
       { id: "source-ingestion-snapshot", allOf: [`${evidence.sourceIngestion} source families complete`, `${evidence.sourcePartial} partial`, `${evidence.sourceParked} parked`, `${evidence.sourceMissing} missing`, `sourceCompletionReady:${evidence.sourceCompletionReady}`] },
       { id: "discord-source-boundary", allOf: ["Discord/Lafa import is internal-only", `${evidence.discordMessages} imported messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa answer candidates`, `corpusReady:${evidence.discordCorpusReady}`, `storesMessageText:${evidence.discordStoresMessageText}`, `${evidence.discordRoutedItems} routed review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordRefusalPolicyReady} refusal-policy-ready items`] },
@@ -335,7 +336,7 @@ function expectedChecks(evidence) {
       { id: "standalone-boundary", allOf: ["pre-extraction onboarding-app source paths", "standalone Search Book implementation lives at the repo root", "frozen onboarding-app `src/search-book` subtree must not be edited"] },
       { id: "operator-gates", allOf: ["Only two production operator gates remain", "OPERATOR-INBOX #11 production VPS env install", "OPERATOR-INBOX #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
     ],
-    "STYLEGUIDE.md": [
+    "docs/STYLEGUIDE.md": [
       { id: "generated-snapshot", allOf: [`${evidence.manifestPages} manifest pages`, `${evidence.authoredPages} authored pages`, `${evidence.publicNavigationPages} public-navigation pages`, `${evidence.sourceCompanionPages} source companions`, `${evidence.internalDraftPages} internal drafts`] },
       { id: "source-completion", allOf: [`Source ingestion is ${evidence.sourceIngestion} complete`, `${evidence.sourcePartial} partial`, `${evidence.sourceParked} parked`, `${evidence.sourceMissing} missing`, `sourceCompletionReady:${evidence.sourceCompletionReady}`] },
       { id: "answer-engine-evidence", allOf: [`${evidence.exactRoutes} exact public question routes`, `${evidence.faqEntries} FAQ entries`, `${evidence.exactRouteTests} exact-route tests`, `${evidence.glossaryRouteTests} glossary route tests`, `${evidence.refusalTests} refusal tests`, `${evidence.answerValidationFixtures} answer-validation fixtures`] },
@@ -347,7 +348,7 @@ function expectedChecks(evidence) {
       { id: "runtime-boundary", allOf: ["Local `.secrets/search-book.env` is complete", "/etc/symmio-search-book/search-book.env", "`llmProductionReady:false`", "`completionReady:false`", "`livingDocsProductionReady:false`"] },
       { id: "operator-gates", allOf: ["OPERATOR-INBOX #11 production VPS env install", "OPERATOR-INBOX #4 public frontend platform/repo/deploy route", ...openOperatorFragments] },
     ],
-    "QUESTIONS.md": [
+    "docs/QUESTIONS.md": [
       { id: "generated-coverage", allOf: [`${evidence.exactRoutes} answerable question routes`, `${evidence.reconciliationQuestions} reconciliation questions`, `${evidence.faqEntries} FAQ entries`, `${evidence.exactRouteTests} exact-route tests`, `${evidence.glossaryRouteTests} glossary route tests`, `${evidence.refusalTests} refusal tests`, `${evidence.answerValidationFixtures} fixtures`, `live ${evidence.liveEvalProvider} \`${evidence.liveEvalModel}\` eval passes ${evidence.liveEvalTotal}`] },
       { id: "approved-public-answers", allOf: ["What was AMFQ?", "legacy Automated Market for Quotes name", "networkVolume × platformFeeRate × referrerPlatformShare", "0.05% / 5 bps platform fee and 30% referrer platform share", "Phase B economics are out of scope for v1", "Public referral depth is fifteen levels", "historical backfill is additive and never lowers a balance"] },
       { id: "referral-depth-not-reparked", allOf: ["public depth is resolved at fifteen levels with additive backfill", "Public referral depth is fifteen levels"], forbidden: ["final production depth and settlement wording remain parked", "depth claims remain parked"] },
@@ -355,7 +356,7 @@ function expectedChecks(evidence) {
       { id: "service-boundary", allOf: ["standalone answer-engine service", "persists questions, ratings, page feedback", "gated moderation and metrics exports", "backup/restore evidence in SQLite"] },
       { id: "operator-gates", allOf: ["only #11 production VPS env install and #4 public frontend/deploy route open", "Production wiring remains gated by #11 production VPS env install and #4 public frontend/deploy route", ...openOperatorFragments] },
     ],
-    "COMPLETION-AUDIT.md": [
+    "docs/COMPLETION-AUDIT.md": [
       { id: "source-ingestion", allOf: [`${evidence.sourceIngestion} source families complete`] },
       { id: "source-zero-counts", allOf: [`0 partial, 0 parked, 0 missing`] },
       { id: "quality-gates", allOf: [`${evidence.qualityGates} gates`] },
@@ -375,7 +376,7 @@ function expectedChecks(evidence) {
       { id: "clean-release-evidence", allOf: ["search-book-release-dry-run-discord-editorial-data", "repository dirty state `false`", "same commit", "productionReadinessPacket:passed", "Discord editorial queue data evidence", "original-spec reconciliation evidence", "evidence summary renderer evidence `passed`", "publication-boundary evidence `passed`", "backup-restore evidence", "living-docs review evidence"] },
       { id: "completion-boundary", allOf: openOperatorFragments },
     ],
-    "PRODUCTION-READINESS-PACKET.md": [
+    "docs/PRODUCTION-READINESS-PACKET.md": [
       { id: "routes", allOf: [`${evidence.exactRoutes} exact routes`] },
       { id: "chunks", anyOf: [`${evidence.chunks} chunks`, `${evidence.chunksRaw} chunks`] },
       { id: "authored", allOf: [`${evidence.authoredPages} authored pages`] },
@@ -405,7 +406,7 @@ function expectedChecks(evidence) {
       { id: "discord-corpus", allOf: [`${evidence.discordMessages} messages`, `${evidence.discordClusters} question clusters`, `${evidence.discordLafaCandidates} configured Lafa candidates`] },
       { id: "operator-gates", allOf: ["OPERATOR-INBOX #11", "OPERATOR-INBOX #4", ...openOperatorFragments] },
     ],
-    "ANSWER-ENGINE-CONTRACT.md": [
+    "docs/ANSWER-ENGINE-CONTRACT.md": [
       { id: "exact-route-tests", allOf: [`${evidence.exactRouteTests} exact-route tests`] },
       { id: "glossary-route-tests", allOf: [`${evidence.glossaryRouteTests} glossary route tests`] },
       { id: "refusal-tests", allOf: [`${evidence.refusalTests} refusal tests`] },
@@ -414,7 +415,7 @@ function expectedChecks(evidence) {
       { id: "service-runtime", allOf: ["gated moderation and metrics exports", "GET /api/search-book/metrics", "backup/restore-check utility"] },
       { id: "production-boundary", allOf: ["llmProductionReady` intentionally remains false", "production VPS service env and public route/deploy wiring remain open"] },
     ],
-    "LLM-RAG-CONTRACT.md": [
+    "docs/LLM-RAG-CONTRACT.md": [
       { id: "generated-proof", allOf: ["API contract", "runtime harness", "executable exact-route/glossary preflight", `${evidence.liveEvalAdversarialTotal} adversarial eval cases are specified`] },
       { id: "status-evidence-guard", allOf: ["checked by `npm run search-book:check-status-evidence`", "against `data/llm-rag-contract.json`"] },
       { id: "live-eval-suite-counts", allOf: [`${evidence.liveEvalProvider}-backed live \`${evidence.liveEvalModel}\` validation run`, `${evidence.liveEvalTotal} total fixtures passed`, `${evidence.liveEvalAdversarial} adversarial cases`, `${evidence.liveEvalAnswerValidation} answer-validation cases`] },
@@ -423,14 +424,14 @@ function expectedChecks(evidence) {
       { id: "runtime-env-boundary", allOf: ["SEARCH_BOOK_LLM_API_STYLE=openai-compatible", "SEARCH_BOOK_LLM_ALLOW_EXTERNAL_CONTEXT=true", "`--mode llm` fails closed", "not printed or persisted"] },
       { id: "production-boundary", allOf: ["`llmProductionReady` intentionally remains false", "production VPS service env", "public frontend/deploy wiring"] },
     ],
-    "ANSWER-VALIDATION-HARNESS.md": [
+    "docs/ANSWER-VALIDATION-HARNESS.md": [
       { id: "fixture-families", allOf: ["three fixture families", "cited-answer fixtures sampled from the deterministic exact-route golden set", "grounded adversarial fixtures", "refusal fixtures derived from `data/llm-rag-contract.json` adversarial cases"] },
       { id: "generated-coverage", allOf: [`${evidence.answerValidationFixtures} passing fixtures`, `${evidence.answerValidationFailingFixtures} failures`, `${evidence.answerValidationCitedFixtures} cited-answer fixtures`, `${evidence.answerValidationGroundedAdversarialFixtures} grounded adversarial fixtures`, `${evidence.answerValidationRefusalFixtures} refusal fixtures`] },
       { id: "golden-sets", allOf: [`${evidence.answerValidationExactRouteGoldenSet} exact-route golden set`, `${evidence.answerValidationAdversarialGoldenSet} adversarial golden set`] },
       { id: "status-evidence-guard", allOf: ["checked by `npm run search-book:check-status-evidence`", "against `data/answer-validation-report.json`"] },
       { id: "production-boundary", allOf: ["Production readiness still requires running the same validation against actual model responses"] },
     ],
-    "DISCORD-EDITORIAL-QUEUE.md": [
+    "docs/DISCORD-EDITORIAL-QUEUE.md": [
       { id: "queue-identity", allOf: ["# Discord Editorial Queue", "Generated: `deterministic-build`", "Reviewer artifact derived only from `data/discord-review-routing.json`"] },
       { id: "summary-counts", allOf: [`Routed review items: ${evidence.discordRoutedItems}`, `Page-fit groups ready: ${evidence.discordEditorialWorkflowPageFitGroups}`, `Refusal-review items: ${evidence.discordEditorialWorkflowRefusalItems}`, `Refusal policy ready: ${evidence.discordRefusalPolicyReady}`, `Refusal policy review required: ${evidence.discordRefusalPolicyReviewRequired}`] },
       { id: "route-and-copy-coverage", allOf: [`Route coverage: ${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `Source-backed existing page fits: ${evidence.discordSourceBackedPageFits}`, `Public copy sufficient: ${evidence.discordPublicCopyReady}`, `Public copy review required: ${evidence.discordPublicCopyReviewRequired}`, `Single-route page-fit groups remaining: ${evidence.discordSingleRouteRemaining}`] },
@@ -441,7 +442,7 @@ function expectedChecks(evidence) {
       { id: "grounding-evidence", allOf: ["## Grounding Evidence", `Page-fit groups grounded to published authored pages: ${evidence.discordEditorialPublishedPageFits}`, `Page-fit groups with queued source keys on page: ${evidence.discordEditorialSourceKeyBackedPageFits}`, `Page-fit groups with source keys in catalog: ${evidence.discordEditorialSourceCatalogBackedPageFits}`, `Page-fit groups with source URLs and Sources section: ${evidence.discordEditorialSourceUrlsPageFits} source URLs, ${evidence.discordEditorialSourcesSectionPageFits} Sources sections`, `Page-fit groups with public route counts matching generated routes: ${evidence.discordEditorialRouteCountMatchedPageFits}`, `Grounding failures: ${evidence.discordEditorialGroundingFailures}`] },
       { id: "public-effect", allOf: ["Existing source-backed public pages and refusal behavior stay unchanged", "Discord/Lafa items remain demand signals unless a future primary-source review approves new public paraphrases"] },
     ],
-    "LIVING-DOCS-OPERATIONS.md": [
+    "docs/LIVING-DOCS-OPERATIONS.md": [
       { id: "runtime-contract", allOf: [`${evidence.livingDocsFixtures} event fixtures`, `event contract ready=${evidence.livingDocsEventContractReady}`, `reviewer workflow documented=${evidence.livingDocsReviewerWorkflowDocumented}`, `livingDocsProductionReady:${evidence.livingDocsProductionReady}`] },
       { id: "discord-closeout-counts", allOf: [`${evidence.discordRoutedItems} routed Discord/Lafa review items`, `${evidence.discordPageFitCoverage} page-fit groups covered by public route aliases`, `${evidence.discordPageFitTriage} source-backed existing page fits`, `${evidence.discordPublicCopyReady} page-fit groups with public copy sufficient`, `${evidence.discordPublicCopyReviewRequired} page-fit groups requiring public-copy review`, `${evidence.discordRefusalPolicyReady} refusal items with policy ready`, `${evidence.discordRefusalPolicyReviewRequired} refusal items requiring policy review`] },
       { id: "discord-closeout-disposition", allOf: [`${evidence.discordEditorialKeepCopy} page-fit groups keep existing source-backed public copy`, `${evidence.discordEditorialKeepRefusal} refusal items keep refusal policy`, `${evidence.discordEditorialCopyChanges} public-copy changes proposed`, `${evidence.discordEditorialExactPromotions} exact Discord/Lafa statements promoted`] },

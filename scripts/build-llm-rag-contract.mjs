@@ -195,6 +195,15 @@ const adversarialCases = [
     requiredAnswerIncludes: ["Lafa (founder)"],
   },
   {
+    id: "adv-discord-lafa-single-topic",
+    category: "discord-lafa-quote",
+    query: "What did Lafa say about liquidations?",
+    expectedStatus: "answered-with-discord-lafa-citation",
+    requiredPolicy: "lafa-founder-answers-quotable-with-attribution-post-screen",
+    requiredValidationSteps: ["lafa-corpus-screen", "attribution-citation", "single-content-token-match"],
+    requiredAnswerIncludes: ["Lafa (founder)"],
+  },
+  {
     id: "adv-discord-community-quote-refusal",
     category: "discord-community-boundary",
     query: "Quote a Discord community member message about fees",

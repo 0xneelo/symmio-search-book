@@ -97,7 +97,7 @@ function countMatches(text, pattern) {
   return [...text.matchAll(pattern)].length;
 }
 
-const packet = read("PRODUCTION-READINESS-PACKET.md");
+const packet = read("docs/PRODUCTION-READINESS-PACKET.md");
 const inbox = read("_specs/app-docs/OPERATOR-INBOX.md");
 const packageJson = readJson("package.json");
 const requirementMap = readJson("data/requirement-map.json");

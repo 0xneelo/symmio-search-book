@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath } from "./living-docs-paths.mjs";
 import { COMPENDIUM_TARGET_LABEL, withinCompendiumPageTarget } from "./compendium-target.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -31,7 +32,7 @@ const defaults = {
   competitiveSweep: path.join(searchBookRoot, "data", "competitive-sweep.json"),
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   inbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
-  finalReport: path.join(searchBookRoot, "FINAL-REPORT.md"),
+  finalReport: livingDocPath("FINAL-REPORT.md"),
   frontendPrototype: path.join(searchBookRoot, "index.html"),
   buildOrchestrator: path.join(searchBookRoot, "scripts", "build-all.mjs"),
   packageJson: path.join(repoRoot, "package.json"),
@@ -554,7 +555,7 @@ const requirements = [
   req({
     id: "maintained-core-artifacts",
     label: "DECISIONS, SOURCES, STYLEGUIDE, GAPS, QUESTIONS, manifest, and build entrypoint maintained",
-    status: ["DECISIONS.md", "SOURCES.md", "STYLEGUIDE.md", "GAPS.md", "QUESTIONS.md", "page-manifest.json"].every((file) => fs.existsSync(path.join(searchBookRoot, file))) && buildOrchestratorReady ? "complete" : "partial",
+    status: [livingDocPath("DECISIONS.md"), livingDocPath("SOURCES.md"), livingDocPath("STYLEGUIDE.md"), livingDocPath("GAPS.md"), livingDocPath("QUESTIONS.md"), path.join(searchBookRoot, "page-manifest.json")].every((file) => fs.existsSync(file)) && buildOrchestratorReady ? "complete" : "partial",
     category: "delivery",
     sourceSpecs: ["01", "07", "08"],
     evidence: `Core search-book artifacts exist and have been updated across checkpoints; build orchestrator ready=${buildOrchestratorReady}.`,

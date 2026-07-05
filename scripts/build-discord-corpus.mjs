@@ -4,12 +4,13 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const defaults = {
-  questions: path.join(searchBookRoot, "QUESTIONS.md"),
+  questions: livingDocPath("QUESTIONS.md"),
   operatorInbox: path.join(searchBookRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   outJson: path.join(searchBookRoot, "data", "discord-corpus.json"),
   outJs: path.join(searchBookRoot, "data", "discord-corpus.js"),
