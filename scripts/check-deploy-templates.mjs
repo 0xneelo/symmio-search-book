@@ -37,8 +37,8 @@ addCheck(checks, "unit-files-exist", missingUnits.length === 0, missingUnits.len
 const service = missingUnits.includes(unitPaths.service) ? "" : read(unitPaths.service);
 const backupService = missingUnits.includes(unitPaths.backupService) ? "" : read(unitPaths.backupService);
 const backupTimer = missingUnits.includes(unitPaths.backupTimer) ? "" : read(unitPaths.backupTimer);
-const packet = read("PRODUCTION-READINESS-PACKET.md");
-const deployment = read("DEPLOYMENT.md");
+const packet = read("docs/PRODUCTION-READINESS-PACKET.md");
+const deployment = read("docs/DEPLOYMENT.md");
 
 addCheck(
   checks,

@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath, livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -21,7 +22,7 @@ const defaults = {
   productionPreflightScript: path.join(searchBookRoot, "scripts", "check-production-env.mjs"),
   gapSummaryScript: path.join(searchBookRoot, "scripts", "summarize-living-docs-gaps.mjs"),
   backupScript: path.join(searchBookRoot, "scripts", "backup-answer-engine-db.mjs"),
-  reviewerRunbook: path.join(searchBookRoot, "LIVING-DOCS-OPERATIONS.md"),
+  reviewerRunbook: livingDocPath("LIVING-DOCS-OPERATIONS.md"),
   // Symmiopedia v3 cutover (SYN-373): the served frontend is the web app; its
   // service integration lives in the lib layer (service round-trips, voting
   // endpoints, localStorage bridge).
@@ -556,7 +557,7 @@ const payload = {
         : "Reviewer gap-summary job is not implemented yet.",
       reviewerWorkflow: reviewerWorkflowDocumented
         ? {
-            runbook: "LIVING-DOCS-OPERATIONS.md",
+            runbook: livingDocRelative("LIVING-DOCS-OPERATIONS.md"),
             cadence: ["daily review loop", "weekly summary cadence", "launch gate", "incident handling"],
             behavior: "Documents how reviewers inspect Search Insights, run SQLite summaries, use the gated moderation export, triage low-rated/unanswered/repeated questions, preserve privacy, and escalate source/operator blockers.",
             boundary: "The runbook documents operation; it does not deploy the service, install production credentials, assign owners, or import parked source families.",

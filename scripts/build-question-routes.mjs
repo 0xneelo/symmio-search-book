@@ -4,12 +4,13 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { livingDocPath, livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const defaults = {
-  questions: path.join(searchBookRoot, "QUESTIONS.md"),
+  questions: livingDocPath("QUESTIONS.md"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
   answerCorpus: path.join(searchBookRoot, "answer-corpus.js"),
@@ -152,7 +153,7 @@ if (missingRouteIds.length) {
 
 const payload = {
   generatedAt: "deterministic-build",
-  sourceFile: "QUESTIONS.md",
+  sourceFile: livingDocRelative("QUESTIONS.md"),
   totalRoutes: answerable.length,
   totalReconciliationQuestions: reconciliation.length,
   missingRouteIds,

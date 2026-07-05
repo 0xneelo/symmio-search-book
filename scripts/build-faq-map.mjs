@@ -4,13 +4,14 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { livingDocPath, livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const defaults = {
-  questions: path.join(searchBookRoot, "QUESTIONS.md"),
-  gaps: path.join(searchBookRoot, "GAPS.md"),
+  questions: livingDocPath("QUESTIONS.md"),
+  gaps: livingDocPath("GAPS.md"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
@@ -236,7 +237,7 @@ if (missingSourceKeys.length) {
 
 const payload = {
   generatedAt: "deterministic-build",
-  sourceFiles: ["QUESTIONS.md", "GAPS.md", "data/question-routes.json", "data/source-catalog.json"],
+  sourceFiles: [livingDocRelative("QUESTIONS.md"), livingDocRelative("GAPS.md"), "data/question-routes.json", "data/source-catalog.json"],
   seedSource: "local-question-ledger-plus-sanitized-discord-demand",
   status: "prototype-faq-discord-imported-review-bound",
   totalEntries: entries.length,

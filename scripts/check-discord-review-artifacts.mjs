@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -12,7 +13,7 @@ const defaults = {
   routingJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_REPORT || "",
   summaryJson: process.env.SEARCH_BOOK_DISCORD_ROUTING_SUMMARY || path.join(searchBookRoot, "data", "discord-review-routing.json"),
   queueJson: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE_JSON || path.join(searchBookRoot, "data", "discord-editorial-queue.json"),
-  queueMarkdown: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE || path.join(searchBookRoot, "DISCORD-EDITORIAL-QUEUE.md"),
+  queueMarkdown: process.env.SEARCH_BOOK_DISCORD_EDITORIAL_QUEUE || livingDocPath("DISCORD-EDITORIAL-QUEUE.md"),
   authoredJson: path.join(searchBookRoot, "data", "authored-pages.json"),
   questionRoutesJson: path.join(searchBookRoot, "data", "question-routes.json"),
   sourceCatalogJson: path.join(searchBookRoot, "data", "source-catalog.json"),

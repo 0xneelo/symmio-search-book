@@ -3,12 +3,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { livingDocPath } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 
 const defaults = {
-  sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
+  sourceRegistry: livingDocPath("SOURCES.md"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
   searchIndex: path.join(searchBookRoot, "data", "search-index.json"),
   outJson: path.join(searchBookRoot, "data", "glossary.json"),

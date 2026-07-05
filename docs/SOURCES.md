@@ -25,7 +25,7 @@ Only two production operator gates remain: OPERATOR-INBOX #11 production VPS env
 | `spec-07` | `_specs/app-docs/07-research-session.md` | Session 1 research gate. |
 | `spec-08` | `_specs/app-docs/08-implementation-session.md` | Session 2 implementation gate. |
 | `spec-09` | `_specs/app-docs/09-design-reference.md` | Mockup and visual direction. |
-| `styleguide` | `STYLEGUIDE.md` | Local terminology and page-structure lock for authored pages. |
+| `styleguide` | `docs/STYLEGUIDE.md` | Local terminology and page-structure lock for authored pages. |
 
 ## Local Product And Code
 

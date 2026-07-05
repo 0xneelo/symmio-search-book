@@ -184,7 +184,7 @@
       id: "network-depth",
       title: "Referral Depth",
       section: "Gap",
-      route: "GAPS.md#G-003",
+      route: "docs/GAPS.md#G-003",
       summary:
         "Referral depth is currently contradictory across code, dashboard copy, and rollout notes. The docs should not publish a single final answer until the operator resolves the public stance.",
       sources: ["server-points", "server-me", "dashboard-faq", "syn-172"],

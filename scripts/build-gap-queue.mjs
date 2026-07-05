@@ -4,13 +4,14 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { livingDocPath, livingDocRelative } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
 const repoRoot = searchBookRoot;
 
 const defaults = {
-  gaps: path.join(searchBookRoot, "GAPS.md"),
+  gaps: livingDocPath("GAPS.md"),
   questionRoutes: path.join(searchBookRoot, "data", "question-routes.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   authoredIndex: path.join(searchBookRoot, "data", "authored-pages.json"),
@@ -378,7 +379,7 @@ if (missingSourceKeys.length) {
 
 const payload = {
   generatedAt: "deterministic-build",
-  sourceFiles: ["GAPS.md", "QUESTIONS.md", "OPERATOR-INBOX.md", "data/navigation-tree.json", "data/source-catalog.json"],
+  sourceFiles: [livingDocRelative("GAPS.md"), livingDocRelative("QUESTIONS.md"), "OPERATOR-INBOX.md", "data/navigation-tree.json", "data/source-catalog.json"],
   status: "prototype-gap-queue",
   totalItems: items.length,
   totalQuestionSignals: questionSignals.length,

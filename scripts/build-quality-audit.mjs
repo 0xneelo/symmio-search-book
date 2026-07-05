@@ -9,6 +9,7 @@ import {
   COMPENDIUM_TARGET_MIN,
   withinCompendiumPageTarget,
 } from "./compendium-target.mjs";
+import { livingDocPath } from "./living-docs-paths.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const searchBookRoot = path.resolve(__dirname, "..");
@@ -38,9 +39,9 @@ const defaults = {
   crosslinks: path.join(searchBookRoot, "data", "crosslinks.json"),
   navigationTree: path.join(searchBookRoot, "data", "navigation-tree.json"),
   contentStats: path.join(searchBookRoot, "data", "content-stats.json"),
-  sourceRegistry: path.join(searchBookRoot, "SOURCES.md"),
-  gaps: path.join(searchBookRoot, "GAPS.md"),
-  questions: path.join(searchBookRoot, "QUESTIONS.md"),
+  sourceRegistry: livingDocPath("SOURCES.md"),
+  gaps: livingDocPath("GAPS.md"),
+  questions: livingDocPath("QUESTIONS.md"),
   readme: path.join(searchBookRoot, "README.md"),
   operatorInbox: path.join(repoRoot, "_specs", "app-docs", "OPERATOR-INBOX.md"),
   // Symmiopedia v3 cutover (SYN-373): the frontend service integration lives
