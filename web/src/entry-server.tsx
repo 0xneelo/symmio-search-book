@@ -10,7 +10,7 @@ import { loadCorpusData, type CorpusData } from '@/data/loader'
 import { readerModelFor } from '@/lib/reader'
 import { ecosystemLinksFor } from '@/lib/wiki'
 import { WikiChrome } from '@/components/wiki/WikiChrome'
-import { WikiArticle, wikiDirectHref, wikiUpdatedFor } from '@/components/wiki/WikiArticle'
+import { WikiArticle, wikiUpdatedFor } from '@/components/wiki/WikiArticle'
 
 /** Featured article shared with the portal hint (SYN-368). */
 const FEATURED_PAGE_ID = 'authored-ecosystem-synergy-map'
@@ -41,7 +41,7 @@ export async function renderPage(pageId: string): Promise<{ title: string; html:
       ecosystem={ecosystemLinksFor(data)}
       featured={featuredPage ? { id: featuredPage.id, title: featuredPage.title } : null}
       updated={wikiUpdatedFor(model)}
-      directHref={wikiDirectHref(model)}
+      sourceRoute={{ href: `/?source=${encodeURIComponent(pageId)}` }}
       hrefFor={hrefFor}
     >
       <WikiArticle model={model} data={data} hrefFor={hrefFor} />

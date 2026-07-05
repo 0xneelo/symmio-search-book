@@ -13,6 +13,8 @@ import { GlossaryView } from './views/GlossaryView'
 import { FaqView } from './views/FaqView'
 import { JourneyView } from './views/JourneyView'
 import { InsightsView } from './views/InsightsView'
+import { SitePageView } from './views/SitePageView'
+import { SourceRouteView } from './views/SourceRouteView'
 
 /** Touch/narrow contexts get the tap-toggle drawer; fine pointers keep hover-expand (SYN-360). */
 function drawerContext(): boolean {
@@ -62,13 +64,18 @@ export function AppShell() {
     closeRail()
   }
 
+  // SYN-370 + favorites QA round: wiki special pages — Search results, the Ask
+  // reference desk, the footer site pages, and the operator-gated indexed
+  // route. Checked before the page route so a static /page/<id>/?special=…
+  // URL resolves to the special page.
+  if (app.special?.kind === 'search') return <SearchResultsView app={app} query={app.special.query} />
+  if (app.special?.kind === 'ask') return <AskView app={app} query={app.special.query} />
+  if (app.special?.kind === 'source') return <SourceRouteView app={app} pageId={app.special.query} />
+  if (app.special) return <SitePageView app={app} kind={app.special.kind} />
+
   // SYN-369: every page route renders the full Symmiopedia article (its own
   // chrome) — the v2 shell stays only for the admin ops surface.
   if (app.activePageId) return <ReaderView app={app} pageId={app.activePageId} />
-
-  // SYN-370: wiki special pages — Search results + the Ask reference desk.
-  if (app.special?.kind === 'search') return <SearchResultsView app={app} query={app.special.query} />
-  if (app.special?.kind === 'ask') return <AskView app={app} query={app.special.query} />
 
   if (isPublicLanding) return <PortalView app={app} />
 

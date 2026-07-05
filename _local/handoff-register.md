@@ -2,6 +2,15 @@
 
 Newest first. Each entry links a temp handoff doc, its Linear issue, and the receiving agent.
 
+## 2026-07-05 — Deploy Symmiopedia to a VPS subdomain (alongside onboarding-app)
+
+- Created: 2026-07-05
+- Handoff path: `/tmp/handoff-symmiopedia-vps-subdomain-20260705.md`
+- Focus: Ship Symmiopedia (`-v3`) as a new subdomain on the same VPS as onboarding-app — own folder, own systemd answer-engine, own Caddy site block — without touching the running onboarding-app (`vibe.permissionless.credit`). Includes this session's uncommitted "favorites QA round" (star counts, vote tallies, footer pages, edit notice, admin-gated indexed-route).
+- Summary: v3 is live-ready on `origin/main`; the QA round is uncommitted on `feat/operator-s-mark` (verified: build + 30/30 Playwright). ⚠ Port collision — answer-engine defaults to 8787, the port onboarding-app already uses; remap. No Caddy template in repo (author the site block). Deploy is operator-gated: SYN-281 (VPS env + ADMIN_TOKEN), SYN-285 (subdomain DNS). Supersedes the stale `/`-cutover framing in SYN-359.
+- Receiving agent: suggested agent-fable-6 (pull via kickoff prompt in SYN-410)
+- Linear: SYN-410 — https://linear.app/synchronicity/issue/SYN-410/session-handoff-deploy-symmiopedia-to-vps-subdomain-alongside
+
 ## 2026-07-04 — RAG quality goal pack (engram-derived retriever upgrades)
 
 - Created: 2026-07-04

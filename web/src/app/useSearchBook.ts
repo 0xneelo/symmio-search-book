@@ -61,11 +61,21 @@ function readActivePageId(): string | null {
   return match ? decodeURIComponent(match[1]) : null
 }
 
-/** Symmiopedia special pages (SYN-370): ?search=<q> results, ?ask=<q> reference desk. */
+/**
+ * Symmiopedia special pages: ?search=<q> results, ?ask=<q> reference desk
+ * (SYN-370), ?special=privacy|about|disclaimers site pages, and the
+ * admin-gated ?source=<pageId> indexed-route viewer (favorites QA round).
+ */
+export type SpecialKind = 'search' | 'ask' | 'privacy' | 'about' | 'disclaimers' | 'source'
+
 export interface SpecialRoute {
-  kind: 'search' | 'ask'
+  kind: SpecialKind
+  /** Search/ask query, or the pageId for kind 'source'; '' for site pages. */
   query: string
 }
+
+const SITE_PAGE_KINDS = new Set(['privacy', 'about', 'disclaimers'])
+const SPECIAL_PARAMS = ['search', 'ask', 'special', 'source'] as const
 
 function readSpecial(): SpecialRoute | null {
   const params = new URLSearchParams(window.location.search)
@@ -73,6 +83,10 @@ function readSpecial(): SpecialRoute | null {
   if (search !== null) return { kind: 'search', query: search }
   const ask = params.get('ask')
   if (ask !== null) return { kind: 'ask', query: ask }
+  const site = params.get('special')
+  if (site && SITE_PAGE_KINDS.has(site)) return { kind: site as SpecialKind, query: '' }
+  const source = params.get('source')
+  if (source) return { kind: 'source', query: source }
   return null
 }
 
@@ -121,24 +135,24 @@ export function useSearchBook() {
     const url = new URL(window.location.href)
     url.searchParams.set('variant', next)
     url.searchParams.delete('page')
-    url.searchParams.delete('search')
-    url.searchParams.delete('ask')
+    for (const param of SPECIAL_PARAMS) url.searchParams.delete(param)
     window.history.replaceState({}, '', url)
     setVariantState(next)
     setActivePageId(null)
     setSpecialState(null)
   }, [])
 
-  /** Navigate to a special page (SYN-370): ?search=<q> or ?ask=<q>. */
-  const setSpecial = useCallback((kind: 'search' | 'ask', query: string) => {
+  /** Navigate to a special page: ?search/?ask (query), ?special (site page), ?source (pageId). */
+  const setSpecial = useCallback((kind: SpecialKind, query: string) => {
     const url = new URL(window.location.href)
     if (/\/page\/[^/]+\/?$/.test(url.pathname)) {
       url.pathname = url.pathname.replace(/page\/[^/]+\/?$/, '')
     }
     url.searchParams.delete('page')
     url.searchParams.delete('variant')
-    url.searchParams.delete(kind === 'search' ? 'ask' : 'search')
-    url.searchParams.set(kind, query)
+    for (const param of SPECIAL_PARAMS) url.searchParams.delete(param)
+    if (kind === 'search' || kind === 'ask' || kind === 'source') url.searchParams.set(kind, query)
+    else url.searchParams.set('special', kind)
     window.history.replaceState({}, '', url)
     setSpecialState({ kind, query })
     setActivePageId(null)
@@ -166,8 +180,7 @@ export function useSearchBook() {
     }
     url.searchParams.set('page', pageId)
     url.searchParams.delete('variant')
-    url.searchParams.delete('search')
-    url.searchParams.delete('ask')
+    for (const param of SPECIAL_PARAMS) url.searchParams.delete(param)
     window.history.replaceState({}, '', url)
     setActivePageId(pageId)
     setSpecialState(null)

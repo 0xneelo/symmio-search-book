@@ -5,10 +5,10 @@
  * ^ backlinks) → categories bar. Every element maps from a real corpus field
  * per design-mapping.md and is omitted when its source is absent.
  */
-import { useState } from 'react'
-import type { ReactNode } from 'react'
+import { useEffect, useState } from 'react'
+import type { MouseEvent, ReactNode } from 'react'
 import type { CorpusData } from '@/data/loader'
-import { directRouteFor, type ReaderModel } from '@/lib/reader'
+import type { ReaderModel } from '@/lib/reader'
 import {
   categoriesFor,
   infoboxRowsFor,
@@ -35,15 +35,67 @@ export interface WikiArticleProps {
   tocCollapsed?: boolean
 }
 
-const EDIT_SPAN = (
-  <span className="wk-edit">
-    [
-    <a role="button" tabIndex={0} onClick={(e) => e.preventDefault()}>
-      edit
-    </a>
-    ]
-  </span>
-)
+function EditSpan({ onOpen }: { onOpen: () => void }) {
+  return (
+    <span className="wk-edit">
+      [
+      <a
+        role="button"
+        tabIndex={0}
+        onClick={(e) => {
+          e.preventDefault()
+          onOpen()
+        }}
+      >
+        edit
+      </a>
+      ]
+    </span>
+  )
+}
+
+/**
+ * Wiki-register notice for the [edit] affordances: edits are part of the
+ * Wikipedia anatomy but Symmiopedia has no user-proposed-edit flow yet, so
+ * every [edit] opens this explainer instead of dead-clicking.
+ */
+function EditNotice({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  return (
+    <div className="wk-modal-backdrop" onClick={onClose}>
+      <div
+        className="wk-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="wk-edit-notice-title"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <h3 id="wk-edit-notice-title">Editing is not available yet</h3>
+        <p>
+          Symmiopedia does not currently support user-submitted or user-proposed edits.
+          Articles are maintained by the editorial pipeline; community editing is planned
+          for a later release.
+        </p>
+        <p>
+          Spotted a problem? Use “Was this page useful?” at the end of the article — a{' '}
+          <i>No</i> vote flags the page for editorial review.
+        </p>
+        <div className="wk-modal-actions">
+          <button type="button" className="wk-modal-primary" onClick={onClose} autoFocus>
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function WikiArticle({
   model,
@@ -54,7 +106,18 @@ export function WikiArticle({
   tocCollapsed = false,
 }: WikiArticleProps) {
   const [tocHidden, setTocHidden] = useState(tocCollapsed)
+  const [editNotice, setEditNotice] = useState(false)
   const { page, bodyHtml, previous, next } = model
+
+  const editSpan = <EditSpan onOpen={() => setEditNotice(true)} />
+  // The body [edit] spans arrive inside injected HTML (injectEditSpans), so
+  // their clicks are caught here by delegation.
+  const onBodyClick = (event: MouseEvent<HTMLElement>) => {
+    if ((event.target as HTMLElement).closest('.wk-edit')) {
+      event.preventDefault()
+      setEditNotice(true)
+    }
+  }
 
   const infoboxRows = infoboxRowsFor(page, model)
   const references = referencesFor(page)
@@ -114,7 +177,7 @@ export function WikiArticle({
         </aside>
       )}
 
-      <div className="wk-body" dangerouslySetInnerHTML={{ __html: lead }} />
+      <div className="wk-body" onClick={onBodyClick} dangerouslySetInnerHTML={{ __html: lead }} />
 
       {showToc && (
         <div className="wk-toc">
@@ -141,11 +204,11 @@ export function WikiArticle({
         </div>
       )}
 
-      {rest && <div className="wk-body" dangerouslySetInnerHTML={{ __html: rest }} />}
+      {rest && <div className="wk-body" onClick={onBodyClick} dangerouslySetInnerHTML={{ __html: rest }} />}
 
       {seeAlso.length > 0 && (
         <section className="wk-seealso">
-          <h2 id="see-also">See also{EDIT_SPAN}</h2>
+          <h2 id="see-also">See also{editSpan}</h2>
           <ul>
             {seeAlso.map((link) => (
               <li key={link.id}>{pageLink(link.id, link.title, link.red)}</li>
@@ -156,7 +219,7 @@ export function WikiArticle({
 
       {references.length > 0 && (
         <section className="wk-references">
-          <h2 id="references">References{EDIT_SPAN}</h2>
+          <h2 id="references">References{editSpan}</h2>
           <ol>
             {references.map((ref) => (
               <li key={ref.key}>
@@ -188,6 +251,8 @@ export function WikiArticle({
 
       {rating}
 
+      {editNotice && <EditNotice onClose={() => setEditNotice(false)} />}
+
       {categories.length > 0 && (
         <div className="wk-catbar">
           <span className="wk-muted">Categories:</span>
@@ -205,11 +270,6 @@ export function WikiArticle({
       )}
     </article>
   )
-}
-
-/** The page's real source link for the Tools box. */
-export function wikiDirectHref(model: ReaderModel): string {
-  return directRouteFor(model.page)
 }
 
 /** Footer date passthrough so views don't import lib/wiki directly. */

@@ -2,10 +2,11 @@ import { useCallback, useEffect, useMemo } from 'react'
 import { readerModelFor } from '@/lib/reader'
 import { recordPageRating, type VoteValue } from '@/lib/voting'
 import { WikiChrome } from '@/components/wiki/WikiChrome'
-import { WikiArticle, wikiDirectHref, wikiUpdatedFor } from '@/components/wiki/WikiArticle'
+import { WikiArticle, wikiUpdatedFor } from '@/components/wiki/WikiArticle'
 import { WikiPageRating } from '@/components/wiki/WikiPageRating'
 import type { SearchBookApp } from '../useSearchBook'
 import { useVote } from '../useVote'
+import { usePageStats } from '../usePageStats'
 import { wikiChromePropsFor } from '../wikiChrome'
 
 /**
@@ -36,6 +37,16 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
     [model, app],
   )
   const voteState = useVote(persist)
+  const pageStats = usePageStats(model ? pageId : null)
+
+  const rate = useCallback(
+    (dir: 'up' | 'down') => {
+      void voteState.vote(dir).then((ok) => {
+        if (ok) pageStats.refresh()
+      })
+    },
+    [voteState, pageStats],
+  )
 
   if (!app.data) {
     return (
@@ -80,12 +91,24 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
   }
 
   return (
-    <WikiChrome {...chromeProps} updated={wikiUpdatedFor(model)} directHref={wikiDirectHref(model)}>
+    <WikiChrome
+      {...chromeProps}
+      updated={wikiUpdatedFor(model)}
+      sourceRoute={{
+        href: `/?source=${encodeURIComponent(pageId)}`,
+        onOpen: () => app.setSpecial('source', pageId),
+      }}
+      star={{
+        starred: pageStats.starred,
+        count: pageStats.stats ? pageStats.stats.stars : null,
+        onToggle: pageStats.toggleStar,
+      }}
+    >
       <WikiArticle
         model={model}
         data={data}
         onNavigatePage={(id) => app.openPage(id, 'browse')}
-        rating={<WikiPageRating state={voteState} />}
+        rating={<WikiPageRating state={voteState} counts={pageStats.stats?.useful ?? null} onRate={rate} />}
       />
     </WikiChrome>
   )

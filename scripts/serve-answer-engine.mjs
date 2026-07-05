@@ -148,6 +148,8 @@ function routeKey(method, pathname) {
   if (pathname === "/api/search-book/answer") return "answer";
   if (pathname === "/api/search-book/rating") return "rating";
   if (pathname === "/api/search-book/page-feedback") return "page-feedback";
+  if (pathname === "/api/search-book/page-star") return "page-star";
+  if (pathname === "/api/search-book/page-stats") return "page-stats";
   if (pathname === "/api/search-book/insights") return "insights";
   if (pathname === "/api/search-book/admin/verify") return "admin-verify";
   if (pathname === "/api/search-book/examples") return "examples";
@@ -267,6 +269,12 @@ function openDatabase(dbPath) {
 
     CREATE INDEX IF NOT EXISTS idx_search_book_answer_cache_helpful
       ON search_book_answer_cache(helpful_count DESC, updated_at DESC);
+
+    CREATE TABLE IF NOT EXISTS search_book_page_stars (
+      page_id TEXT PRIMARY KEY,
+      stars INTEGER NOT NULL DEFAULT 0,
+      updated_at TEXT NOT NULL
+    );
 
     CREATE TABLE IF NOT EXISTS search_book_gaps (
       id TEXT PRIMARY KEY,
@@ -1126,6 +1134,61 @@ async function handlePageFeedback(db, runtime, req, res) {
   jsonResponse(req, res, 200, { status: "recorded", persisted });
 }
 
+/** Page stars — global favorite counter per page (no accounts; the client keeps its own starred set). */
+function requireKnownPage(runtime, pageId) {
+  const page = runtime.pageById.get(pageId);
+  if (!page) throw Object.assign(new Error("a known pageId is required."), { statusCode: 404 });
+  return page;
+}
+
+function pageStarCount(db, pageId) {
+  const row = db.prepare("SELECT stars FROM search_book_page_stars WHERE page_id = ?").get(pageId);
+  return row ? Number(row.stars) || 0 : 0;
+}
+
+function pageUsefulCounts(db, pageId) {
+  const rows = db.prepare(`
+    SELECT r.rating AS rating, COUNT(*) AS n
+    FROM search_book_ratings r
+    JOIN search_book_questions q ON q.id = r.event_id
+    WHERE q.source = 'page-feedback' AND r.page_id = ?
+    GROUP BY r.rating
+  `).all(pageId);
+  const useful = { yes: 0, no: 0 };
+  for (const row of rows) {
+    if (positiveRatings.has(row.rating)) useful.yes += Number(row.n) || 0;
+    else useful.no += Number(row.n) || 0;
+  }
+  return useful;
+}
+
+async function handlePageStar(db, runtime, req, res) {
+  const body = await readJsonBody(req);
+  const page = requireKnownPage(runtime, truncate(body.pageId, 240));
+  if (typeof body.starred !== "boolean") {
+    throw Object.assign(new Error("starred must be true (star) or false (unstar)."), { statusCode: 400 });
+  }
+  const delta = body.starred ? 1 : -1;
+  db.prepare(`
+    INSERT INTO search_book_page_stars (page_id, stars, updated_at)
+    VALUES (?, MAX(0, ?), ?)
+    ON CONFLICT(page_id) DO UPDATE SET
+      stars = MAX(0, stars + ?),
+      updated_at = excluded.updated_at
+  `).run(page.id, delta, nowIso(), delta);
+  jsonResponse(req, res, 200, { status: "recorded", pageId: page.id, stars: pageStarCount(db, page.id) });
+}
+
+function handlePageStats(db, runtime, url, req, res) {
+  const page = requireKnownPage(runtime, truncate(url.searchParams.get("pageId") || "", 240));
+  jsonResponse(req, res, 200, {
+    status: "ok",
+    pageId: page.id,
+    stars: pageStarCount(db, page.id),
+    useful: pageUsefulCounts(db, page.id),
+  });
+}
+
 /**
  * SYN-362: lightweight admin-token verification. Gate disabled (env unset) →
  * {gateEnabled:false} so local dev needs no login. Never echoes the token.
@@ -1306,6 +1369,14 @@ function createServer() {
       }
       if (req.method === "POST" && url.pathname === "/api/search-book/page-feedback") {
         await handlePageFeedback(db, runtime, req, res);
+        return;
+      }
+      if (req.method === "POST" && url.pathname === "/api/search-book/page-star") {
+        await handlePageStar(db, runtime, req, res);
+        return;
+      }
+      if (req.method === "GET" && url.pathname === "/api/search-book/page-stats") {
+        handlePageStats(db, runtime, url, req, res);
         return;
       }
       if (req.method === "GET" && url.pathname === "/api/search-book/insights") {
