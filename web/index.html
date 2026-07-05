@@ -5,9 +5,80 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Symmiopedia — The Open Ecosystem Encyclopedia</title>
+    <style>
+      /* Boot splash: paints on the wiki canvas before the app bundle + corpus
+         load, so a cold start shows a branded loader instead of the dark
+         pre-mount flash. Shown only when #root is empty (SPA cold load);
+         prerendered article pages carry content and never flash it. Removed
+         once the app renders, with an 8s failsafe. */
+      #boot-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: #f6f6f6;
+        color: #202122;
+        font-family: Helvetica, Arial, sans-serif;
+        transition: opacity 0.3s ease;
+      }
+      #boot-splash[hidden] { display: none; }
+      #boot-splash.is-hiding { opacity: 0; pointer-events: none; }
+      #boot-splash .bs-word {
+        font-size: 27px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        animation: bs-pulse 1.4s ease-in-out infinite;
+      }
+      #boot-splash .bs-tag { font-size: 12.6px; color: #54595d; }
+      #boot-splash .bs-load {
+        margin-top: 4px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #54595d;
+      }
+      #boot-splash .bs-load::after {
+        content: '';
+        animation: bs-dots 1.4s steps(1) infinite;
+      }
+      @keyframes bs-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+      @keyframes bs-dots {
+        0% { content: ''; }
+        25% { content: '.'; }
+        50% { content: '..'; }
+        75% { content: '...'; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="boot-splash" hidden>
+      <div class="bs-word">SYMMIOPEDIA</div>
+      <div class="bs-tag">The Open Ecosystem Encyclopedia</div>
+      <div class="bs-load">Loading</div>
+    </div>
+    <script>
+      // Show the splash only on a cold SPA load (empty #root); hide as soon as
+      // the app renders its first node, with an 8s failsafe so no one is trapped.
+      (function () {
+        var splash = document.getElementById('boot-splash');
+        var root = document.getElementById('root');
+        if (!splash || !root || root.firstElementChild) return;
+        splash.hidden = false;
+        function hide() {
+          splash.classList.add('is-hiding');
+          setTimeout(function () { splash.remove(); }, 350);
+        }
+        var obs = new MutationObserver(function () {
+          if (root.firstElementChild) { obs.disconnect(); hide(); }
+        });
+        obs.observe(root, { childList: true });
+        setTimeout(function () { obs.disconnect(); hide(); }, 8000);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
