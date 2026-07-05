@@ -79,6 +79,14 @@
         setTimeout(function () { obs.disconnect(); hide(); }, 8000);
       })();
     </script>
+    <script>
+      // Point the app at the same-origin answer-engine so RAG/ask works in
+      // production: Caddy proxies /api/search-book/* to the service. A ?service=
+      // query param still overrides this for local/admin use. Harmless if no
+      // service is running — the app falls back to local corpus search.
+      window.SEARCH_BOOK_ANSWER_ENGINE_URL =
+        window.SEARCH_BOOK_ANSWER_ENGINE_URL || window.location.origin;
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
