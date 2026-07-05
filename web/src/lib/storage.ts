@@ -6,6 +6,8 @@ export const storageKeys = {
   gaps: 'searchBookPrototype.gaps',
   serviceUrl: 'searchBookPrototype.serviceUrl',
   serviceMode: 'searchBookPrototype.serviceMode',
+  /** Page ids this browser starred (favorites QA round) — mirrors the server counter. */
+  starredPages: 'searchBookPrototype.starredPages',
 } as const
 
 export function loadList<T>(key: string): T[] {

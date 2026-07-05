@@ -935,6 +935,88 @@ body:has(.wiki) {
   text-align: left;
 }
 
+/* ---------------------------------------------------------------------------
+ * Favorites QA round: greyed account links, functional star tab, and the
+ * operator-gated indexed-route page.
+ * ------------------------------------------------------------------------ */
+
+/* Personal bar: account actions visible but greyed until auth ships. */
+.wk-personal-soon {
+  color: var(--wk-rule);
+  cursor: default;
+}
+.wk-personal-note {
+  color: var(--wk-rule);
+  font-style: italic;
+}
+
+/* Star tab: favorite toggle + global count. */
+.wk-tab-star {
+  cursor: pointer;
+}
+.wk-star-count {
+  margin-left: 5px;
+  font-size: 11.7px;
+  color: var(--wk-muted);
+}
+
+/* Indexed-route operator gate + source table. */
+.wk-source-gate {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+}
+.wk-source-gate input {
+  width: min(280px, 60vw);
+  height: 30px;
+  border: 1px solid var(--wk-rule);
+  border-radius: 2px;
+  padding: 0 8px;
+  font-family: var(--wk-sans);
+  font-size: 13px;
+}
+.wk-source-gate button {
+  border: 1px solid var(--wk-rule);
+  background: var(--wk-box-fill);
+  color: var(--wk-link);
+  font-family: var(--wk-sans);
+  font-size: 13px;
+  padding: 0 14px;
+  cursor: pointer;
+}
+.wk-source-gate button:hover {
+  background: var(--wk-table-header);
+}
+.wk-source-gate button:disabled {
+  color: var(--wk-muted);
+  cursor: default;
+}
+.wk-source-gate-error {
+  color: var(--wk-link-red);
+  font-size: 13px;
+}
+.wk-source-table {
+  border-collapse: collapse;
+  margin: 10px 0 16px;
+  font-size: 13.2px;
+}
+.wk-source-table th,
+.wk-source-table td {
+  border: 1px solid var(--wk-figure-border);
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.wk-source-table th {
+  background: var(--wk-table-header);
+  font-weight: bold;
+  white-space: nowrap;
+}
+.wk-source-table ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
 /* Mobile: collapse the grid to one column; unfloat the infobox. */
 @media (max-width: 900px) {
   .wk-page {

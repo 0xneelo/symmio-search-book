@@ -13,6 +13,9 @@ import type { FormEvent, ReactNode } from 'react'
 import { WikiMark } from './WikiMark'
 import { formatWikiDate } from '@/lib/wiki'
 
+/** Footer site pages (privacy / about / disclaimers). */
+export type SitePageKind = 'privacy' | 'about' | 'disclaimers'
+
 export interface WikiChromeProps {
   children: ReactNode
   /** Ecosystem sidebar box — protocols that resolve to real corpus pages. */
@@ -20,13 +23,16 @@ export interface WikiChromeProps {
   featured?: { id: string; title: string } | null
   /** Real page updated date for the footer line; omit → line omitted. */
   updated?: Date | null
-  /** "Indexed route" tool — the page's real source link. */
-  directHref?: string
+  /** "Indexed route" tool — routes to the admin-gated source page in-app. */
+  sourceRoute?: { href: string; onOpen?: () => void }
+  /** Star tab: global favorite count + this browser's toggle; omit → inert ☆. */
+  star?: { starred: boolean; count: number | null; onToggle: () => void }
   hrefFor?: (pageId: string) => string
   onNavigatePage?: (pageId: string) => void
   onMainPage?: () => void
   onSearch?: (query: string) => void
   onRandom?: () => void
+  onSitePage?: (kind: SitePageKind) => void
 }
 
 function DeadLink({ children }: { children: ReactNode }) {
@@ -42,14 +48,32 @@ export function WikiChrome({
   ecosystem = [],
   featured = null,
   updated = null,
-  directHref,
+  sourceRoute,
+  star,
   hrefFor = (pageId) => `?page=${pageId}`,
   onNavigatePage,
   onMainPage,
   onSearch,
   onRandom,
+  onSitePage,
 }: WikiChromeProps) {
   const [query, setQuery] = useState('')
+
+  const sitePageLink = (kind: SitePageKind, label: string) => (
+    <a
+      href={`/?special=${kind}`}
+      onClick={
+        onSitePage
+          ? (event) => {
+              event.preventDefault()
+              onSitePage(kind)
+            }
+          : undefined
+      }
+    >
+      {label}
+    </a>
+  )
 
   const pageLink = (pageId: string, label: ReactNode) => (
     <a
@@ -93,8 +117,15 @@ export function WikiChrome({
 
       <div className="wk-header">
         <div className="wk-personal">
-          Not logged in · <DeadLink>Talk</DeadLink> · <DeadLink>Contributions</DeadLink> ·{' '}
-          <DeadLink>Create account</DeadLink> · <DeadLink>Log in</DeadLink>
+          Not logged in ·{' '}
+          <span className="wk-personal-soon" title="Coming soon">
+            Create account
+          </span>{' '}
+          ·{' '}
+          <span className="wk-personal-soon" title="Coming soon">
+            Log in
+          </span>{' '}
+          <span className="wk-personal-note">(coming soon)</span>
         </div>
         <div className="wk-tabrow">
           <div className="wk-tabs">
@@ -108,7 +139,25 @@ export function WikiChrome({
               <a className="wk-tab wk-tab-selected" role="button" tabIndex={0} onClick={(e) => e.preventDefault()}>
                 Read
               </a>
-              <DeadLinkTab>☆</DeadLinkTab>
+              {star ? (
+                <a
+                  className="wk-tab wk-tab-star"
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={star.starred}
+                  aria-label={star.starred ? 'Unstar this page' : 'Star this page'}
+                  title={star.starred ? 'Remove this page from your favorites' : 'Add this page to your favorites'}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    star.onToggle()
+                  }}
+                >
+                  <span aria-hidden="true">{star.starred ? '★' : '☆'}</span>
+                  {star.count !== null && <span className="wk-star-count">{star.count}</span>}
+                </a>
+              ) : (
+                <DeadLinkTab>☆</DeadLinkTab>
+              )}
             </div>
             <form className="wk-head-search" role="search" onSubmit={submitSearch}>
               <input
@@ -194,9 +243,19 @@ export function WikiChrome({
                 </a>
               </li>
             )}
-            {directHref && directHref !== '#' && (
+            {sourceRoute && (
               <li>
-                <a className="wk-external" href={directHref} target="_blank" rel="noreferrer">
+                <a
+                  href={sourceRoute.href}
+                  onClick={
+                    sourceRoute.onOpen
+                      ? (event) => {
+                          event.preventDefault()
+                          sourceRoute.onOpen?.()
+                        }
+                      : undefined
+                  }
+                >
                   Indexed route
                 </a>
               </li>
@@ -223,10 +282,9 @@ export function WikiChrome({
             Symmiopedia is a reference work for the ecosystem, not affiliated with any encyclopedia.
           </p>
           <div className="wk-footer-links">
-            <DeadLink>Privacy policy</DeadLink>
-            <DeadLink>About Symmiopedia</DeadLink>
-            <DeadLink>Disclaimers</DeadLink>
-            <DeadLink>Mobile view</DeadLink>
+            {sitePageLink('privacy', 'Privacy policy')}
+            {sitePageLink('about', 'About Symmiopedia')}
+            {sitePageLink('disclaimers', 'Disclaimers')}
           </div>
         </footer>
       </div>

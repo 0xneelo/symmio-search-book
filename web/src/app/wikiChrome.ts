@@ -30,5 +30,6 @@ export function wikiChromePropsFor(app: SearchBookApp): Omit<WikiChromeProps, 'c
       const id = randomPageId(data)
       if (id) app.openPage(id, 'nav')
     },
+    onSitePage: (kind) => app.setSpecial(kind, ''),
   }
 }
