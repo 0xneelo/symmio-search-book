@@ -29,6 +29,12 @@ const config = {
   maxBodyBytes: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_BODY_BYTES || 64_000),
   maxRecentEvents: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_MAX_RECENT_EVENTS || 25),
   rateLimitPerMinute: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_PER_MINUTE || 60),
+  // Behind our own Caddy reverse proxy the rate-limit key must come from
+  // X-Forwarded-For, not the socket (which is always the proxy, collapsing
+  // every visitor into one bucket). Default on, since production runs behind
+  // Caddy; set "false" only when the engine is exposed directly, where
+  // X-Forwarded-For would be attacker-controlled.
+  rateLimitTrustProxy: process.env.SEARCH_BOOK_ANSWER_ENGINE_RATE_LIMIT_TRUST_PROXY !== "false",
   retentionDays: Number(process.env.SEARCH_BOOK_ANSWER_ENGINE_RETENTION_DAYS || 180),
   allowedOrigins: parseAllowedOrigins(process.env.SEARCH_BOOK_ANSWER_ENGINE_ALLOWED_ORIGINS || "*"),
   reuseThreshold: Number(process.env.SEARCH_BOOK_REUSE_THRESHOLD || 0.9),
@@ -1053,9 +1059,24 @@ function moderationRows(db) {
   return { gapBacklog, lowRatedAnswers, unansweredQuestions, repeatedQuestions };
 }
 
+function rateLimitKey(req) {
+  if (config.rateLimitTrustProxy) {
+    // Real client is the right-most X-Forwarded-For entry: the address our
+    // trusted proxy (Caddy) observed and appended. Left-most entries are
+    // client-supplied and therefore spoofable, so they are never trusted.
+    // Assumes a single trusted proxy hop; add hops here if a CDN is fronted.
+    const forwarded = headerValue(req, "x-forwarded-for");
+    if (forwarded) {
+      const parts = forwarded.split(",").map((part) => part.trim()).filter(Boolean);
+      if (parts.length) return parts[parts.length - 1];
+    }
+  }
+  return req.socket.remoteAddress || "unknown";
+}
+
 function checkRateLimit(req) {
   if (!config.rateLimitPerMinute) return true;
-  const key = req.socket.remoteAddress || "unknown";
+  const key = rateLimitKey(req);
   const now = Date.now();
   const windowMs = 60_000;
   const bucket = rateBuckets.get(key) || { windowStart: now, count: 0 };
