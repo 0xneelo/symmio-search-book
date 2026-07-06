@@ -1,0 +1,27 @@
+---
+description: Cost + model-tiering policy — how to delegate to keep token spend down
+alwaysApply: true
+---
+
+# Cost & model tiering
+
+**Cost ladder (per 1M in/out):** Haiku `$1/$5` · Sonnet `$3/$15` · Opus `$5/$25` · **Fable `$10/$50` (the priciest).**
+Fable is the most expensive model, not the cheapest.
+
+**Architecture (hybrid):**
+- **Driver = Opus** — orchestrates and decides; keep it lean.
+- **Delegate the legwork DOWN** to subagents — this is where cost is saved:
+  - **Haiku** — read-only search / extraction / mapping, grep/log triage, git-state, smoke runs. Use for **any** broad read instead of reading in the main thread.
+  - **Sonnet** — scoped feature slices, multi-file edits with judgment, code review, independent workstreams.
+- **Escalate UP to Fable only** for a separable, genuinely-beyond-Opus crux, *after* Opus has been tried. A deliberate spend, not a saving. Entangled architecture is not delegable — keep it on the driver.
+- **Fable as a driver** only for a rare long autonomous marathon — full spec up front.
+
+**Reliability rules:**
+- Reading in the driver's context is re-billed every turn; reading in a subagent is once, cheaply. Delegate broad reads.
+- Never downgrade the driver's model mid-session (nukes the model-scoped prompt cache) — delegate to a cheaper subagent instead.
+- Launch parallel subagents in one message; claim file scope in the project's claim ledger first (if it has one).
+- When the cheapest fix is "relaunch this session on a cheaper model" or "spin up CLI workers," you can't do it yourself — tell the operator.
+
+**Pinned subagents** live in `.claude/agents/` (`reader`=Haiku, `builder`/`reviewer`=Sonnet, `hard-crux`=Fable) — a **Claude Code** convention. Cursor loads this policy but not those definitions: spawn a generic subagent and set the model to match the table. **If your harness can't set a subagent's model (unconfirmed for Cursor — verify), delegation still isolates context but does NOT buy the cheaper tier** — the dollar numbers above hold only where per-subagent model selection works.
+
+**Stacked with Honey (if installed, `~/.honey-src`):** prose intensity by tier — reader/Haiku=ultra, builder/reviewer/Sonnet=full, hard-crux/Fable=lite. Subagents return compact minified JSON (id-addressed, `n` checksum), not prose; ESON is opt-in for high-volume handoffs. Never compress safety-critical payloads (auth/money/migrations/deletes/secrets).
