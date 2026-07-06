@@ -7,7 +7,6 @@
  */
 import { useEffect, useState } from 'react'
 import type { MouseEvent, ReactNode } from 'react'
-import type { CorpusData } from '@/data/loader'
 import type { ReaderModel } from '@/lib/reader'
 import {
   categoriesFor,
@@ -26,7 +25,6 @@ import { WikiMark } from './WikiMark'
 
 export interface WikiArticleProps {
   model: ReaderModel
-  data: CorpusData
   hrefFor?: (pageId: string) => string
   onNavigatePage?: (pageId: string) => void
   /** Page-vote island (parity: /page-feedback); omit for the static prerender. */
@@ -99,7 +97,6 @@ function EditNotice({ onClose }: { onClose: () => void }) {
 
 export function WikiArticle({
   model,
-  data,
   hrefFor = (pageId) => `?page=${pageId}`,
   onNavigatePage,
   rating,
@@ -122,7 +119,7 @@ export function WikiArticle({
   const infoboxRows = infoboxRowsFor(page, model)
   const references = referencesFor(page)
   const categories = categoriesFor(page)
-  const seeAlso = seeAlsoFor(page, model, data)
+  const seeAlso = seeAlsoFor(model)
   const strippedBody = stripStructuralSections(bodyHtml)
   const tocItems = tocFromHtml(strippedBody)
   const bodyWithEdits = injectEditSpans(strippedBody)

@@ -23,7 +23,7 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
   useEffect(() => {
     document.title = model
       ? `${model.page.title} - Symmiopedia`
-      : 'Symmiopedia — The Open Ecosystem Encyclopedia'
+      : 'Symmiopedia — The Intent-Based Derivatives Encyclopedia'
   }, [model])
 
   const persist = useCallback(
@@ -58,7 +58,6 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
     )
   }
 
-  const data = app.data
   const chromeProps = wikiChromePropsFor(app)
 
   if (!model) {
@@ -106,7 +105,6 @@ export function ReaderView({ app, pageId }: { app: SearchBookApp; pageId: string
     >
       <WikiArticle
         model={model}
-        data={data}
         onNavigatePage={(id) => app.openPage(id, 'browse')}
         rating={<WikiPageRating state={voteState} counts={pageStats.stats?.useful ?? null} onRate={rate} />}
       />

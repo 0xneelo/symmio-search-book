@@ -127,23 +127,14 @@ export interface SeeAlsoLink {
   red: boolean
 }
 
-/** See-also: related pages plus genuinely-unresolvable related ids (red links). */
-export function seeAlsoFor(page: Page, model: ReaderModel, data: CorpusData): SeeAlsoLink[] {
-  const links: SeeAlsoLink[] = model.related.map((p) => ({ id: p.id, title: p.title, red: false }))
-  const listed = new Set(links.map((l) => l.id))
-  const listedTitles = new Set(links.map((l) => l.title.toLowerCase()))
-  for (const id of (page.relatedGeneratedPages || []).slice(0, 12)) {
-    if (listed.has(id) || data.pageById.has(id)) continue
-    const title = humanize(id.replace(/^(authored|section|neelo)-/, ''))
-    // A red link whose title collides with a resolved entry is a slug variant
-    // of the same page — noise, not a genuinely missing article.
-    if (listedTitles.has(title.toLowerCase())) continue
-    listed.add(id)
-    listedTitles.add(title.toLowerCase())
-    links.push({ id, title, red: true })
-    if (links.length >= 10) break
-  }
-  return links.slice(0, 10)
+/**
+ * See-also: the page's resolved related articles — navigable links only.
+ * Wikipedia-style red links for unresolvable ids (from relatedGeneratedPages)
+ * were removed: this is a read-only encyclopedia with no page-creation flow, so
+ * a link to a non-existent page only ever read as broken.
+ */
+export function seeAlsoFor(model: ReaderModel): SeeAlsoLink[] {
+  return model.related.slice(0, 10).map((p) => ({ id: p.id, title: p.title, red: false }))
 }
 
 /**

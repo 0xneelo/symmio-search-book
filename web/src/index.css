@@ -79,6 +79,19 @@
   body {
     margin: 0;
     font-family: var(--font-sans);
+    /* Public face is the light Symmiopedia wiki, so body defaults to the wiki
+       canvas (#f6f6f6, matching the boot splash). This is what kills the v2
+       dark-theme flash on cold loads of public routes — before React paints
+       .wiki, body is already light instead of the old blue gradient. */
+    color: #202122;
+    background: var(--wk-canvas, #f6f6f6);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* The v2 / admin shell (SYN-363) keeps the Brand-Max dark gradient. Scoped to
+     the shell mount, mirroring wiki.css's body:has(.wiki); the shell is
+     admin-only, so public routes never see it. */
+  body:has(.fm-shell) {
     color: var(--color-body);
     background: linear-gradient(
       172deg,
@@ -87,7 +100,6 @@
       color-mix(in srgb, var(--paper) 22%, #2e8ae8) 100%
     );
     background-attachment: fixed;
-    -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
@@ -95,15 +107,18 @@
     color: #ffffff;
   }
 
-  /* Styled scrollbar (DESIGN.MD §8) */
-  ::-webkit-scrollbar {
+  /* Styled scrollbar (DESIGN.MD §8) — scoped to the v2/admin shell. The light
+     public wiki scrolls at the document root (outside .fm-shell), so it keeps
+     the native light scrollbar instead of the dark-theme navy artifact; the
+     admin shell scrolls inside .fm-shell, so it still gets the styled bar. */
+  .fm-shell ::-webkit-scrollbar {
     width: 11px;
     height: 11px;
   }
-  ::-webkit-scrollbar-thumb {
+  .fm-shell ::-webkit-scrollbar-thumb {
     background: #1b2c74;
   }
-  ::-webkit-scrollbar-track {
+  .fm-shell ::-webkit-scrollbar-track {
     background: var(--paper);
   }
 

@@ -52,7 +52,7 @@ test.describe('navigation (public surface = portal + reader, SYN-362/SYN-368)', 
   test('portal anatomy and behaviors (SYN-368)', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByText('SYMMIOPEDIA')).toBeVisible({ timeout: 20_000 })
-    await expect(page.getByText('The Open Ecosystem Encyclopedia')).toBeVisible()
+    await expect(page.getByText('The Intent-Based Derivatives Encyclopedia')).toBeVisible()
     // Operator S-mark in the portal slot at 228px (design amendment 2026-07-04).
     const mark = await page.locator('img[data-wiki-mark="portal"]').boundingBox()
     expect(Math.round(mark!.width)).toBe(228)
