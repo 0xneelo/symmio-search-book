@@ -44,7 +44,7 @@ export async function renderPage(pageId: string): Promise<{ title: string; html:
       sourceRoute={{ href: `/?source=${encodeURIComponent(pageId)}` }}
       hrefFor={hrefFor}
     >
-      <WikiArticle model={model} data={data} hrefFor={hrefFor} />
+      <WikiArticle model={model} hrefFor={hrefFor} />
     </WikiChrome>,
   )
   return { title: `${model.page.title} - Symmiopedia`, html }

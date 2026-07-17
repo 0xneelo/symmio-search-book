@@ -9,19 +9,44 @@
  * (findAnswer) and opens the best-match article; the Search-results special
  * page takes over the no-match/low-confidence path in M4 (SYN-370).
  */
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { resolveWikiSearch } from '@/lib/wiki-search'
 import { WikiMark } from '@/components/wiki/WikiMark'
 import type { SearchBookApp } from '../useSearchBook'
 import { FEATURED_PAGE_ID } from '../wikiChrome'
 
-const ASK_HINT = 'How do I get more invites?'
+const ASK_FALLBACK = 'How do I get more invites?'
 
 export function PortalView({ app }: { app: SearchBookApp }) {
   const [query, setQuery] = useState('')
 
-  const featured = app.data?.pageById.get(FEATURED_PAGE_ID) || null
+  // Both hint suggestions rotate on every visit, independently per visitor: a
+  // random article + a seeded (answerable) question. The portal is client-only
+  // (never prerendered), so Math.random here has no hydration concern. The seed
+  // is drawn once per mount via useState (which, unlike useMemo, is guaranteed
+  // stable across re-renders), so the pick can't flicker mid-visit; app.data
+  // flips null→object once on corpus load, then the mapping settles.
+  const [seed] = useState(() => ({ page: Math.random(), ask: Math.random() }))
+  const hint = useMemo(() => {
+    const data = app.data
+    if (!data) return null
+    const pages = data.publicSearchablePages
+    const questions = data.seededQuestionRoutes
+    return {
+      page: pages.length
+        ? pages[Math.floor(seed.page * pages.length)]
+        : data.pageById.get(FEATURED_PAGE_ID) || null,
+      ask: questions.length
+        ? questions[Math.floor(seed.ask * questions.length)].question
+        : ASK_FALLBACK,
+    }
+  }, [app.data, seed])
+
+  const featured = hint?.page || null
+  // null until the corpus loads — the hint line stays blank rather than
+  // flashing the ASK_FALLBACK question for a frame before the rotated pick.
+  const askHint = hint?.ask ?? null
 
   // A confident direct hit opens the article (comp §6); everything else lands
   // on the Search-results special page (SYN-370).
@@ -70,7 +95,7 @@ export function PortalView({ app }: { app: SearchBookApp }) {
         SYMMIOPEDIA
       </div>
       <div style={{ fontSize: 14, color: 'var(--wk-text)', marginTop: 8 }}>
-        The Open Ecosystem Encyclopedia
+        The Intent-Based Derivatives Encyclopedia
       </div>
 
       <form
@@ -134,23 +159,29 @@ export function PortalView({ app }: { app: SearchBookApp }) {
             >
               &quot;{featured.title}&quot;
             </a>{' '}
-            — today&apos;s featured article
+            — a featured article
           </>
         ) : (
           <>&nbsp;</>
         )}
       </div>
       <div style={{ fontSize: 12, marginTop: 10, color: 'var(--wk-text)' }}>
-        or ask the wiki:{' '}
-        <a
-          href={`?ask=${encodeURIComponent(ASK_HINT)}`}
-          onClick={(event) => {
-            event.preventDefault()
-            app.setSpecial('ask', ASK_HINT)
-          }}
-        >
-          &quot;{ASK_HINT}&quot;
-        </a>
+        {askHint ? (
+          <>
+            or ask the wiki:{' '}
+            <a
+              href={`?ask=${encodeURIComponent(askHint)}`}
+              onClick={(event) => {
+                event.preventDefault()
+                app.setSpecial('ask', askHint)
+              }}
+            >
+              &quot;{askHint}&quot;
+            </a>
+          </>
+        ) : (
+          <>&nbsp;</>
+        )}
       </div>
     </div>
   )

@@ -80,7 +80,7 @@ export function AppShell() {
   if (isPublicLanding) return <PortalView app={app} />
 
   return (
-    <div className="flex h-full flex-col overflow-hidden">
+    <div className="fm-shell flex h-full flex-col overflow-hidden">
       <div className="relative flex min-h-0 flex-1">
         {railOpen && <div className="fm-backdrop" onClick={closeRail} aria-hidden="true" />}
 
