@@ -2,7 +2,7 @@
 
 ## Current Generated Evidence Snapshot
 
-Refreshed 2026-07-02 from generated artifacts: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 792 source companions, 3 internal drafts, and 0 candidate pages. Source ingestion is 17/17 complete with 0 partial, 0 parked, and 0 missing source families. The requirement map is 14/18 complete, 2 partial, 2 parked, and 0 missing; completionReady remains false. Quality gates are 29/30, with the remaining failing gate being the open production operator boundary.
+Refreshed 2026-07-02 from generated artifacts: 794 manifest pages, 801 authored pages, 800 public-navigation pages, 792 source companions, 3 internal drafts, and 0 candidate pages. Source ingestion is 17/17 complete with 0 partial, 0 parked, and 0 missing source families. The requirement map is 13/18 complete, 3 partial, 2 parked, and 0 missing; completionReady remains false. Quality gates are 29/30, with the remaining failing gate being the open production operator boundary.
 
 Discord/Lafa ingestion is resolved for v1 and internal-only: 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, corpusReady:true, and storesMessageText:false. The sanitized routing summary has 160 routed review items, 91/91 page-fit groups covered by public route aliases, 91/91 source-backed page-fit groups, 91/91 public-copy-ready page-fit groups, 13/13 refusal-policy-ready items, 0 public-copy changes proposed, and 0 exact Discord/Lafa statements promoted.
 

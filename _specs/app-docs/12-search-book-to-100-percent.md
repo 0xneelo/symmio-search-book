@@ -15,7 +15,7 @@ Use these numbers as the baseline until the next regenerated audit supersedes th
 | Public compendium shape | 794 manifest pages, inside the 500-800 target | 98% |
 | Authored public corpus | 801 authored pages; 800 public-navigation pages; 890 exact public question routes; 0 candidates | 95% |
 | Source-companion coverage | 792/792 source companions covered by authored pages | 100% |
-| Requirement map | 14/18 complete, 2 partial, 2 parked, 0 missing | 78% by raw requirement count; higher by implementation weight |
+| Requirement map | 13/18 complete, 3 partial, 2 parked, 0 missing | 72% by raw requirement count; higher by implementation weight |
 | Quality audit | 29/30 gates passing; only `operator-inbox` remains red | 97% |
 | Source ingestion | 17/17 complete, 0 partial, 0 parked, 0 missing | 100% |
 | Deterministic answer engine | 890 exact-route tests pass; 32 glossary route tests pass; 2 refusal tests pass | 95% |

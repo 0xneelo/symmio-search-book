@@ -39,8 +39,8 @@
     "llmRagEvalHarnessReady": true,
     "llmRagRuntimeImplemented": true,
     "llmRagProductionReady": false,
-    "llmRagAdversarialCases": 20,
-    "llmRagAdversarialCasesPassing": 20,
+    "llmRagAdversarialCases": 21,
+    "llmRagAdversarialCasesPassing": 21,
     "answerValidationFixtures": 27,
     "answerValidationFixturesPassing": 27,
     "answerValidationCitedAnswerFixtures": 12,
@@ -106,8 +106,8 @@
     "publicationPlanCandidateFinalReviewReadyPages": 0,
     "publicationPlanStages": 5,
     "completionRequirements": 18,
-    "completionRequirementsComplete": 14,
-    "completionRequirementsPartial": 2,
+    "completionRequirementsComplete": 13,
+    "completionRequirementsPartial": 3,
     "completionRequirementsParked": 2,
     "completionRequirementsMissing": 0,
     "completionReady": false,
@@ -226,7 +226,7 @@
       "id": "llm-rag-contract",
       "label": "LLM RAG API contract and adversarial evals are specified",
       "passed": true,
-      "detail": "20/20 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
+      "detail": "21/21 adversarial cases, contract ready yes, runtime implemented yes, production ready no"
     },
     {
       "id": "answer-validation-harness",
@@ -286,7 +286,7 @@
       "id": "requirement-map",
       "label": "Definition-of-done requirements are tracked",
       "passed": true,
-      "detail": "14/18 complete, 2 partial, 2 parked, 0 missing"
+      "detail": "13/18 complete, 3 partial, 2 parked, 0 missing"
     },
     {
       "id": "operator-inbox",
@@ -879,7 +879,7 @@
         "behavior": "If no grounded page is found or a reconciliation question is asked, record a gap/refusal event instead of inventing an answer.",
         "sourceData": [
           "data/gap-queue.json",
-          "QUESTIONS.md"
+          "docs/QUESTIONS.md"
         ],
         "totalGoldenRefusals": 2
       }
@@ -1257,8 +1257,8 @@
         "undocumented-fact"
       ],
       "missingRequiredCategories": [],
-      "totalCases": 20,
-      "passingCases": 20,
+      "totalCases": 21,
+      "passingCases": 21,
       "failingCaseIds": [],
       "byCategory": {
         "prompt-injection": 1,
@@ -1268,7 +1268,7 @@
         "unsupported-economics": 1,
         "source-boundary": 1,
         "unaudited-security-overclaim": 1,
-        "discord-lafa-quote": 1,
+        "discord-lafa-quote": 2,
         "discord-community-boundary": 1,
         "missing-source-family": 2,
         "approved-product-reference": 1,
@@ -1310,12 +1310,12 @@
       "refusalFixtures": 11,
       "disclaimeredLiveOnlyCases": 2,
       "undocumentedFactLiveOnlyCases": 2,
-      "discordLafaLiveOnlyCases": 1,
+      "discordLafaLiveOnlyCases": 2,
       "totalFixtures": 27,
       "passingFixtures": 27,
       "failingFixtures": 0,
       "exactRouteGoldenSet": 890,
-      "adversarialGoldenSet": 20,
+      "adversarialGoldenSet": 21,
       "answerChunkPages": 1613,
       "answerChunks": 2884,
       "sourceCatalogEntries": 128,
@@ -1472,7 +1472,7 @@
           "privacy": "Output includes raw user questions and notes; do not publish it without an approved privacy review."
         },
         "reviewerWorkflow": {
-          "runbook": "LIVING-DOCS-OPERATIONS.md",
+          "runbook": "docs/LIVING-DOCS-OPERATIONS.md",
           "cadence": [
             "daily review loop",
             "weekly summary cadence",
@@ -2243,8 +2243,8 @@
     "completionReady": false,
     "totalRequirements": 18,
     "byStatus": {
-      "complete": 14,
-      "partial": 2,
+      "complete": 13,
+      "partial": 3,
       "parked": 2
     },
     "byCategory": {
@@ -2272,6 +2272,12 @@
         "id": "answer-engine-front-door",
         "status": "partial",
         "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/metrics/backup storage access, run the production preflight, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
+        "blocks": []
+      },
+      {
+        "id": "answer-engine-contracts-and-evals",
+        "status": "partial",
+        "nextAction": "Rerun live model validation at deployment time and after source-corpus changes; keep the validator strict.",
         "blocks": []
       },
       {
@@ -2414,6 +2420,12 @@
         "status": "partial",
         "blocks": [],
         "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/metrics/backup storage access, run the production preflight, assign reviewer owner/cadence, and deploy behind the selected public frontend route."
+      },
+      {
+        "id": "answer-engine-contracts-and-evals",
+        "status": "partial",
+        "blocks": [],
+        "nextAction": "Rerun live model validation at deployment time and after source-corpus changes; keep the validator strict."
       },
       {
         "id": "living-docs-loop",

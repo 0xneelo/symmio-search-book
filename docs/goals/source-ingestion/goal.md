@@ -18,7 +18,7 @@ Latest verified generated state:
 
 - `data/source-ingestion.json`: 17/17 complete, 0 partial, 0 parked, 0 missing, `sourceCompletionReady:true`.
 - `data/discord-corpus.json`: `status:"imported-needs-review"`, `corpusReady:true`, 5,000 imported messages, 723 question clusters, 837 configured Lafa answer candidates, `storesMessageText:false`.
-- `data/requirement-map.json`: 14 complete, 2 partial, 2 parked, 0 missing, `completionReady:false`.
+- `data/requirement-map.json`: 13 complete, 3 partial, 2 parked, 0 missing, `completionReady:false`.
 - `data/quality-audit.json`: 29/30 gates; the remaining failed gate is the expected production `operator-inbox` boundary.
 
 ## Remaining Production Gates
