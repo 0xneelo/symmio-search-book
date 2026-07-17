@@ -4,8 +4,8 @@
   "completionReady": false,
   "totalRequirements": 18,
   "byStatus": {
-    "complete": 14,
-    "partial": 2,
+    "complete": 13,
+    "partial": 3,
     "parked": 2
   },
   "byCategory": {
@@ -135,14 +135,14 @@
     {
       "id": "answer-engine-contracts-and-evals",
       "label": "Answer-engine contracts, adversarial evals, and response validator",
-      "status": "complete",
+      "status": "partial",
       "category": "answer-engine",
       "sourceSpecs": [
         "06",
         "08",
         "11"
       ],
-      "evidence": "deterministicReady=true; LLM API contract ready; adversarial cases 20/20; answer-validation fixtures 27/27; recorded live LLM eval 47/47 on gpt-4.1-mini",
+      "evidence": "deterministicReady=true; LLM API contract ready; adversarial cases 21/21; answer-validation fixtures 27/27; recorded live LLM eval 47/47 on gpt-4.1-mini",
       "blocks": [],
       "nextAction": "Rerun live model validation at deployment time and after source-corpus changes; keep the validator strict."
     },
@@ -293,6 +293,12 @@
       "id": "answer-engine-front-door",
       "status": "partial",
       "nextAction": "Install production service env, configure production allowed origins plus retention/moderation/metrics/backup storage access, run the production preflight, assign reviewer owner/cadence, and deploy behind the selected public frontend route.",
+      "blocks": []
+    },
+    {
+      "id": "answer-engine-contracts-and-evals",
+      "status": "partial",
+      "nextAction": "Rerun live model validation at deployment time and after source-corpus changes; keep the validator strict.",
       "blocks": []
     },
     {
